@@ -1,0 +1,1656 @@
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    direction: rtl;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Almarai', sans-serif;
+}
+
+strong {
+    padding: 0;
+    margin: 0;
+}
+
+label,
+a {
+    text-decoration: none;
+    margin-bottom: 0;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+header {
+    box-shadow: 2px 9px 49px -17px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.header-content-top {
+    background: #545bc4;
+    height: 30px;
+    width: 100%;
+}
+
+.header-content-top .content {
+    align-items: center;
+    display: flex;
+    height: 30px;
+    justify-content: flex-end;
+    margin: 0 auto;
+    max-width: 1300px;
+    width: 100%;
+}
+
+.header-content-top .content span {
+    color: #fff;
+    font-size: 12px;
+    margin: 0 15px;
+}
+
+.header-content-top .content span .fas {
+    margin-right: 5px;
+}
+
+.header-container {
+    align-items: baseline;
+    display: flex;
+    height: 85px;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: auto;
+    padding: 0 15px;
+    position: relative;
+    width: 100%;
+    background-color: #08325F;
+    ;
+}
+
+.header-container .logo {
+    font-size: 40px;
+    line-height: 20px;
+    padding-right: 15px;
+}
+
+.logo img {
+    height: 80px;
+    object-fit: contain;
+}
+
+a.nav-content-link i {
+    color: #F5F5F5;
+    transition: 0.5s ease;
+    font-size: 30px;
+}
+
+a.nav-content-link i:hover {
+    color: #F3C26A;
+}
+
+a.nav-content-link {
+    color: #333333;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.nav-row-list a {
+    color: #F5F5F5;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+
+.header-container .open-search {
+    border-radius: 3px;
+    flex: auto;
+    margin: 0 15px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.header-container .open-search .icofont-search {
+    display: none;
+}
+
+.header-container .open-search .input-open-search {
+    display: none;
+}
+
+.header-container .open-search .input-open-search:checked~.search {
+    display: block;
+}
+
+.header-container .search .input-search {
+    border-radius: 3px;
+    border: 1px solid #e1e1e1;
+    height: 40px;
+    padding: 0 70px 0 15px;
+    width: 100%;
+    background: white no-repeat;
+    transition: 100ms all linear 0s;
+    background-image: linear-gradient(to bottom, rgb(0 0 0 / 63%) 0%, rgb(0 0 0) 90%), linear-gradient(to bottom, #e1e1e1, #e1e1e1);
+    background-size: 0 2px, 100% 1px;
+    background-position: 50% 100%, 50% 100%;
+    transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+}
+
+.header-container .search .input-search:focus {
+    background-size: 100% 2px, 100% 1px;
+    outline: none;
+}
+
+.header-container .search .button-search {
+    background: #F3C26A;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    padding: 13px 20px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+.header-container .search .button-search .icofont-search {
+    display: block;
+    color: #08325F;
+}
+
+.header-container .nav-content .nav-content-list {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item {
+    align-items: center;
+    display: flex;
+    height: 40px;
+    margin: 0 5px;
+    position: relative;
+    transition: 100ms all linear 0s;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item .item-arrow {
+    margin-left: 5px;
+    position: relative;
+    top: -3px;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item .open-menu-login-account {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    position: relative;
+    color: #F5F5F5;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item .input-menu {
+    display: none;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item .input-menu:checked~.login-list {
+    display: block;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item .login-list {
+    background: #fff;
+    border-bottom: 3px solid #08325F;
+    box-shadow: 2px 9px 49px -17px rgba(0, 0, 0, 0.3);
+    display: none;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 28px;
+    transition: 100ms all linear 0s;
+    width: 200px;
+    z-index: 10;
+    font-family: 'Almarai', sans-serif;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item .login-list .login-list-item {
+    padding: 15px 20px;
+    color: #08325F;
+    text-align: right;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item .login-list .login-list-item:hover {
+    background: #F3C26A;
+    color: #08325F;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item .login-list .login-list-item:hover a {
+    color: #fff;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item:nth-child(2):hover .fas {
+    color: #e74c3c;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item:hover .fas {
+    color: #545bc4;
+}
+
+.header-container .nav-content .nav-content-list .account-login .login-text {
+    align-items: start;
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    margin-right: 5px;
+    font-family: 'Almarai', sans-serif;
+}
+
+.header-container .nav-content .nav-content-list .account-login .login-text strong {
+    display: block;
+    color: #F5F5F5;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-link {
+    border-radius: 3px;
+    font-size: 19px;
+    padding: 10px 15px;
+    transition: 100ms all linear 0s;
+    color: #333333;
+    font-weight: 500;
+}
+
+a.lang-switch-text {
+    color: #F3C26A !important;
+    font-family: 'Almarai', sans-serif;
+    transition: 0.3s ease;
+}
+
+a.lang-switch-text:hover {
+    color: #f5f5f5 !important;
+}
+
+li.login-list-item a {
+    color: #333333;
+    font-family: 'Almarai', sans-serif;
+    text-transform: uppercase;
+}
+
+.nav-container {
+    align-items: center;
+    display: flex;
+    margin: 0 auto;
+    width: 100%;
+    background-color: #366291;
+}
+
+.nav-container .nav-row {
+    align-items: center;
+    display: flex;
+    height: 40px;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    background-color: #366291;
+}
+
+.nav-container .nav-row .nav-row-list {
+    flex: auto;
+}
+
+.nav-container .nav-row .nav-row-list .nav-row-list-link {
+    align-items: center;
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    transition: 100ms all linear 0s;
+}
+
+.nav-container .nav-row .nav-row-list .nav-row-list-link:hover {
+    background: #F3C26A;
+    color: #08325F;
+    width: 100%;
+}
+
+.menu-active {
+    background: #F3C26A;
+    color: #08325F;
+    width: 100%;
+}
+
+.nav-container .featured-category {
+    flex: auto;
+    margin: 0 0 0 15px;
+}
+
+.nav-container .all-navigator {
+    align-items: center;
+    background: #F3C26A;
+    border-left: 1px solid #08325F;
+    color: #08325F;
+    display: flex;
+    height: 40px;
+    padding: 0 25px;
+    width: 100%;
+}
+
+.nav-container .all-navigator .icofont-close-line,
+.nav-container .all-navigator .icofont-caret-down {
+    position: absolute;
+    left: 25px;
+}
+
+.nav-container .all-navigator .icofont-close-line {
+    display: none;
+}
+
+.nav-container .all-navigator .fas {
+    font-size: 16px;
+    margin-right: 0;
+}
+
+.nav-container .all-navigator span {
+    margin-right: 15px;
+    color: #08325F;
+}
+
+.nav-container .all-category-nav {
+    cursor: pointer;
+    max-width: 300px;
+    position: relative;
+    width: 100%;
+    font-family: 'Almarai', sans-serif;
+}
+
+.nav-container .all-category-nav .open-menu-all {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    position: relative;
+}
+
+.nav-container .all-category-nav .input-menu-all {
+    display: none;
+}
+
+.nav-container .all-category-nav .input-menu-all:checked~.all-category-list {
+    display: block;
+}
+
+.nav-container .all-category-nav .input-menu-all:checked+.all-navigator .icofont-caret-down {
+    display: none;
+}
+
+.nav-container .all-category-nav .input-menu-all:checked+.all-navigator .icofont-close-line {
+    display: block;
+}
+
+.nav-container .all-category-list {
+    background: #fff;
+    border-bottom: 3px solid #08325F;
+    box-shadow: 2px 9px 49px -17px rgba(0, 0, 0, 0.3);
+    display: none;
+    height: auto;
+    min-height: auto;
+    padding: 15px 0;
+    position: absolute;
+    top: 24px;
+    width: 300px;
+    z-index: 90;
+    margin-top: 1rem;
+}
+
+.nav-container .all-category-list-item:hover {
+    display: block;
+    background: #F3C26A;
+}
+
+.nav-container .all-category-list-item:hover .category-second-list {
+    left: 100%;
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav-container .all-category-list-item:hover .all-category-list-link {
+    color: #08325F;
+}
+
+.nav-container .all-category-list-link {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    transition: 100ms all linear 0s;
+    color: #08325F;
+}
+
+.nav-container .category-second-list {
+    background: #fff;
+    border-bottom: 3px solid #08325F;
+    box-shadow: inset 44px -1px 88px -59px rgba(0, 0, 0, 0.37);
+    display: flex;
+    height: auto;
+    right: 80%;
+    min-height: auto;
+    min-width: 400px;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transition: 100ms all linear 0s;
+    visibility: hidden;
+    width: auto;
+}
+
+.nav-container .category-second-list .img-product-menu img {
+    max-width: 180px;
+}
+
+.nav-container .category-second-list-ul {
+    display: flex;
+    flex-direction: column;
+    min-width: 400px;
+    padding: 0;
+}
+
+.nav-container .category-second-item a {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    color: #08325F;
+}
+
+.nav-container .category-second-item:hover {
+    background: #F3C26A;
+}
+
+.nav-container .category-second-item:hover a {
+    color: #08325F;
+}
+
+.fa-bars {
+    font-size: 28px;
+}
+
+
+/* HEADER CSS ENDS */
+
+/* COMMON CSS STARTS */
+
+.db-brand-btn {
+    background-color: #08325F;
+    color: #F3C26A;
+    font-family: 'Almarai', sans-serif;
+    padding: 0.5rem 1rem;
+    border: none;
+    transition: 0.3s ease;
+}
+
+.db-brand-btn:hover {
+    background-color: #F3C26A;
+    color: #08325F;
+}
+
+.db-brand-btn a {
+    color: #F3C26A;
+}
+
+.db-brand-btn a:hover {
+    color: #08325F;
+}
+
+.g-brand-btn {
+    background-color: #F3C26A;
+    color: #08325F;
+    border: none;
+    font-family: 'Almarai', sans-serif;
+    padding: 0.5rem 1rem;
+    transition: 0.3s ease;
+}
+
+.g-brand-btn:hover {
+    background-color: #366291;
+    color: #F5F5F5;
+}
+
+.g-brand-btn a {
+    color: #08325F;
+}
+
+.g-brand-btn a:hover {
+    color: #F5F5F5;
+}
+
+.brand-select {
+    padding: 0.5rem;
+    border: 1px solid #08325F;
+    background-color: #F5F5F5;
+    width: 100%;
+    font-family: 'Almarai', sans-serif;
+    margin-bottom: 0.5rem;
+    border-radius: 0 !important;
+}
+
+.section-spacing {
+    padding: 50px 0 30px;
+}
+
+.section-title h2 {
+    color: #366291;
+    font-family: 'Almarai', sans-serif;
+    font-size: 2.5rem;
+}
+
+.section-title h4 {
+    color: #366291;
+    font-family: 'Almarai', sans-serif;
+}
+
+.wishlist {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+.wishlist i {
+    cursor: pointer;
+    padding: 10px 12px 8px;
+    background: #366291;
+    border-radius: 50%;
+    margin: 0 0 15px;
+    color: #F5F5F5;
+    transition: .2s;
+    box-shadow: 0px 5px 4px 0px #44464778;
+}
+
+.wishlist i:hover {
+    color: #666;
+}
+
+.wishlist i.press {
+    animation: size .4s;
+    color: #F3C26A;
+}
+
+.owl-theme .owl-dots .owl-dot.active span {
+    background: #F3C26A !important;
+}
+
+button.owl-prev {
+    width: 40px;
+    height: 40px;
+    padding: 1rem;
+    background-color: #F3C26A !important;
+    left: 0;
+    position: absolute;
+    color: #fff !important;
+    border-radius: 0 !important;
+}
+
+button.owl-next {
+    width: 40px;
+    height: 40px;
+    padding: 1rem;
+    background-color: #F3C26A !important;
+    right: 0;
+    position: absolute;
+    color: #fff !important;
+    border-radius: 0 !important;
+}
+
+.open-search i {
+    color: #fff;
+}
+
+.ot-banner {
+    background-image: url(../images/page-banner.jpg);
+    min-height: 200px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.page-title {
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.page-title h1 {
+    color: #F3C26A;
+    font-family: 'Almarai', sans-serif;
+    font-size: 4rem;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.brand-input {
+    padding: 0.5rem;
+    border: 1px solid #08325F;
+    background-color: #F5F5F5;
+    width: 100%;
+    font-family: 'Almarai', sans-serif;
+}
+
+.brand-text-area {
+    padding: 0.5rem;
+    border: 1px solid #08325F;
+    background-color: #F5F5F5;
+    width: 100%;
+    font-family: 'Almarai', sans-serif;
+}
+
+.page-content p {
+    text-align: right;
+}
+
+/* COMMON CSS ENDS */
+
+/* HOME PAGE CSS STARTS */
+
+.home-carousel img {
+    height: 80vh;
+    object-fit: cover;
+}
+
+.carousel-content {
+    position: absolute;
+    color: #ffffff;
+    top: 8rem;
+    right: 6rem;
+}
+
+.carousel-content h3 {
+    font-size: 4rem;
+    color: #F3C26A;
+    font-family: 'Almarai', sans-serif;
+    text-transform: capitalize;
+    text-shadow: 2px 2px 4px #000000;
+    text-align: right;
+}
+
+.carousel-content p {
+    width: 50%;
+    text-shadow: 2px 2px 4px #000000;
+    text-align: right;
+}
+
+.carousel-control-prev {
+    left: 30px;
+}
+
+.carousel-control-next {
+    right: 30px;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    background: #F3C26A;
+    border: none;
+    width: 50px;
+    position: absolute;
+    height: 50px;
+    top: 50%;
+}
+
+.carousel-indicators li.active {
+    background-color: #F3C26A !important;
+}
+
+.prod-wrapper {
+    margin-bottom: 1rem;
+}
+
+.prod-wrapper img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    background-color: #F5F5F5;
+}
+
+.prod-detail {
+    padding: 1rem;
+    background-color: #08325F;
+}
+
+.prod-detail h4 {
+    color: #F3C26A;
+    font-family: 'Almarai', sans-serif;
+    font-size: 18px;
+}
+
+.prod-detail h6 {
+    color: #F3C26A;
+    font-family: 'Almarai', serif;
+}
+
+.prod-detail h5 {
+    color: #F5F5F5;
+    font-family: 'Almarai', serif;
+    font-size: 1.25rem;
+}
+
+.prod-btn button, .prod-btn a {
+    width: 100%;
+    text-align: center;
+}
+
+.prod-btn a {
+    display: block;
+}
+
+span.strike-amount {
+    text-decoration: line-through;
+    color: #e52727;
+}
+
+span.sale-amount {
+    color: #F5F5F5;
+    font-family: 'Almarai', sans-serif;
+    font-size: 1.25rem;
+}
+
+.cat-tab-link.active,
+.cat-tab-link:hover {
+    background-color: #08325F !important;
+    border-radius: 0 !important;
+    color: #F3C26A !important;
+    font-family: 'Almarai', sans-serif;
+    transition: 0.3s ease;
+}
+
+.cat-tab-link {
+    color: #366291;
+    font-family: 'Almarai', sans-serif;
+}
+
+.offer-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+
+.offer-badge span {
+    background-color: #F3C26A;
+    color: #08325F;
+    font-family: 'Almarai', sans-serif;
+    padding: 5px;
+}
+
+.ad-banner img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.gc-wrapper {
+    background-color: #F5F5F5;
+    margin-bottom: 1rem;
+}
+
+.gc-wrapper img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    mix-blend-mode: darken;
+}
+
+/* HOME PAGE CSS ENDS */
+
+/* HELP PAGE CSS STARTS */
+
+.tab-col {
+    background-color: #08325F;
+    padding: 1rem;
+}
+
+.help-link.active {
+    background-color: #F3C26A !important;
+    color: #08325F !important;
+    font-weight: 500;
+    text-transform: capitalize;
+    border-radius: none !important;
+}
+
+.help-link.active:hover {
+    color: #08325F !important;
+}
+
+.help-link {
+    color: #F5F5F5;
+    transition: 0.3s ease;
+    font-family: 'Almarai', sans-serif;
+    text-align: right;
+}
+
+.help-link:hover {
+    color: #F3C26A !important;
+}
+
+.help-panel-title {
+    color: #366291;
+    font-weight: 600;
+    font-size: 1.6rem;
+    font-family: 'Almarai', sans-serif;
+    text-align: right;
+}
+
+.help-pane p {
+    text-align: right;
+}
+
+/* HELP PAGE CSS ENDS */
+
+/* CONTACT PAGE CSS STARTS */
+
+.contact-wrapper {
+    padding: 1rem;
+    background-color: #08325F;
+}
+
+h3.contact-title {
+    color: #F3C26A;
+    font-family: 'Almarai', sans-serif;
+    margin-bottom: 1.5rem;
+    text-align: right;
+}
+
+.cont-box {
+    padding: 1rem;
+    background-color: #F3C26A;
+    color: #08325F;
+    font-family: 'Almarai', sans-serif;
+}
+
+.cont-box i {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.cont-box h6 {
+    color: #08325F;
+    transition: 0.3s ease;
+}
+
+.cont-box h6:hover {
+    color: #366291;
+}
+
+/* CONTACT PAGE CSS ENDS */
+
+/* PRODUCT DETAILS PAGE CSS STARTS */
+
+.prod-detail-image img {
+    width: 100%;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+.prod-detail-title h3 {
+    font-family: 'Almarai', sans-serif;
+    color: #366291;
+    font-size: 2rem;
+}
+
+.prod-detail-price p {
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    padding-top: 0;
+    font-family: 'Almarai', sans-serif;
+    color: #08325F;
+}
+
+.prod-stock-count h4 {
+    color: #F3C26A;
+    font-family: 'Almarai', sans-serif;
+}
+
+.feedback-links a {
+    color: #366291;
+    transition: 0.4s ease;
+}
+
+.feedback-links h4 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.feedback-links a:hover {
+    color: #F3C26A;
+}
+
+.prod-main-link.active,
+.prod-main-link:hover {
+    background-color: #08325F !important;
+    border-radius: 0 !important;
+    color: #F3C26A !important;
+    font-family: 'Almarai', sans-serif;
+    transition: 0.3s ease;
+}
+
+.prod-main-link {
+    color: #08325F !important;
+    font-family: 'Almarai', sans-serif;
+}
+
+.prod-main-content-title {
+    color: #366291;
+    font-family: 'Almarai', sans-serif;
+    font-size: 1.5rem;
+}
+
+/* PRODUCT DETAILS PAGE CSS ENDS */
+
+/* POST FEEDBACK PAGE CSS STARTS */
+
+.feedback-wrapper {
+    padding: 1rem;
+    background-color: #08325F;
+}
+
+.feedback-wrapper label {
+    color: #F3C26A;
+    font-family: 'Almarai', sans-serif;
+}
+
+/* POST FEEDBACK PAGE CSS ENDS */
+
+/* VIEW FEEDBACK PAGE CSS STARTS */
+
+.feedback-wrapper input {
+    color: #F5F5F5;
+}
+
+.feedback-wrapper p {
+    color: #F5F5F5;
+}
+
+/* VIEW FEEDBACK PAGE CSS ENDS */
+
+/* LOGIN SIGNUP PAGE CSS STARTS */
+
+.login-signup-wrapper {
+    padding: 1rem;
+    background-color: #08325F;
+}
+
+.loginSignupLink h5 {
+    font-family: 'Almarai', sans-serif;
+    color: #F5F5F5;
+    text-align: center;
+    transition: 0.5s ease;
+    font-size: 15px;
+}
+
+.loginSignupLink h5:hover {
+    color: #F3C26A;
+}
+
+/* LOGIN SIGNUP PAGE CSS ENDS */
+
+/* FORGOT PASSWORD PAGE CSS STARTS */
+
+.forgot-pass-wrapper {
+    padding: 1rem;
+    background-color: #08325F;
+}
+
+.section-tagline h6 {
+    color: #F3C26A;
+    font-family: 'Almarai', sans-serif;
+    margin-bottom: 1rem;
+}
+
+/* FORGOT PASSWORD PAGE CSS ENDS */
+
+/* MY ACCOUNT PAGE CSS STARTS */
+
+.my-acc-wrapper {
+    padding: 2rem;
+    background-color: #08325F;
+    margin-bottom: 1rem;
+    transition: 0.3s ease;
+}
+
+.my-acc-wrapper:hover {
+    background-color: #F3C26A;
+    transform: scale(1.05);
+    border: 1px solid #366291;
+}
+
+.my-acc-wrapper:hover i {
+    color: #366291;
+}
+
+.my-acc-wrapper:hover h5 {
+    color: #08325F;
+}
+
+.my-acc-wrapper i {
+    color: #F5F5F5;
+    font-size: 1.5rem;
+}
+
+.my-acc-wrapper h5 {
+    color: #F3C26A;
+    font-family: 'Almarai', sans-serif;
+    margin-top: 0.5rem;
+}
+
+/* MY ACCOUNT PAGE CSS ENDS */
+
+/* CART PAGE CSS STARTS */
+
+.product-cart-count thead {
+    background-color: #08325F;
+    color: #F3C26A;
+    font-family: 'Almarai', sans-serif;
+}
+
+.cart-section-title {
+    background-color: #08325F;
+    padding: 0.5rem;
+    font-family: 'Almarai', sans-serif;
+    color: #F3C26A;
+}
+
+.promo-wrapper {
+    padding: 1rem;
+    background-color: #08325F;
+}
+
+.promo-title h4 {
+    color: #F3C26A;
+    font-family: 'Almarai', sans-serif;
+}
+
+/* CART PAGE CSS ENDS */
+
+/* CHECKOUT PAGE CSS STARTS */
+
+.checkout-wrapper {
+    padding: 1rem;
+    background-color: #08325F;
+}
+
+.checkout-wrapper label {
+    color: #F3C26A;
+    font-family: 'Almarai', sans-serif;
+}
+
+.checkout-wrapper p {
+    color: #F5F5F5;
+}
+
+/* CHECKOUT PAGE CSS ENDS */
+
+/* MY PROFILE PAGE CSS STARTS */
+
+.my-profile-wrapper {
+    padding: 1rem;
+    background-color: #08325F;
+}
+
+.my-profile-wrapper label {
+    color: #F3C26A;
+    font-family: 'Almarai', sans-serif;
+    float: right;
+}
+
+
+/* MY PROFILE PAGE CSS ENDS */
+
+/* MY ORDERS PAGE CSS STARTS */
+
+.order-table-count thead {
+    background-color: #08325F;
+    color: #F3C26A;
+    font-family: 'Almarai', sans-serif;
+}
+
+/* MY ORDERS PAGE CSS ENDS */
+
+/* BILLING & SHIPPING PAGE CSS STARTS */
+
+.bill-ship-wrapper {
+    padding: 1rem;
+    background-color: #08325F;
+}
+
+.bill-ship-wrapper label {
+    color: #F3C26A;
+    font-family: 'Almarai', sans-serif;
+    float: right;
+}
+
+/* BILLING & SHIPPING PAGE CSS ENDS */
+
+/* GIFT CARD DETAILS PAGE CSS STARTS */
+
+.giftcard-count thead {
+    background-color: #08325F;
+    color: #F3C26A;
+    font-family: 'Almarai', sans-serif;
+}
+
+.gift-detail-wrap {
+    margin-bottom: 1rem;
+}
+
+.gift-detail-wrap p {
+    color: #F3C26A;
+    font-family: 'Almarai', serif;
+    margin-bottom: 0;
+}
+
+.gift-detail-wrap h4 {
+    font-family: 'Almarai', serif;
+    color: #366291;
+}
+
+/* GIFT CARD DETAILS PAGE CSS STARTS */
+
+/* CHECKOUT LOGIN PAGE CSS STARTS */
+
+.checkout-login-wrapper {
+    padding: 1rem;
+    background-color: #08325F;
+}
+
+.checkout-login-wrapper h6 {
+    color: #366291;
+    font-family: 'Almarai', sans-serif;
+}
+
+.checkout-login-wrapper h4 {
+    color: #F3C26A;
+    font-family: 'Almarai', sans-serif;
+}
+
+ul.guest-feature-list i {
+    margin-left: 5px;
+    color: #F3C26A;
+}
+
+.checkout-login-wrapper-trans h6 {
+    color: #366291;
+}
+
+.checkout-login-wrapper-trans h4 {
+    color: #F3C26A;
+    font-family: 'Almarai', sans-serif;
+}
+
+.option-tag h3 {
+    color: #366291;
+}
+
+/* CHECKOUT LOGIN PAGE CSS ENDS */
+
+/* BILLING PAGE CSS STARTS */
+
+.billing-form,
+.shipping-form {
+    padding: 1rem;
+    background-color: #08325F;
+}
+
+/* BILLING PAGE CSS ENDS */
+
+/* ERROR PAGE CSS STARTS */
+
+.error-content h1 {
+    color: #ff0000;
+}
+
+/* ERROR PAGE CSS ENDS */
+
+/* ORDER DETAILS PAGE CSS STARTS */
+
+.order-detail-table thead {
+    background-color: #08325F;
+    color: #F3C26A;
+    font-family: 'Almarai', sans-serif;
+}
+
+/* ORDER DETAILS PAGE CSS ENDS */
+
+/* ORDER SUCCESS PAGE CSS STARTS */
+
+.success-checkmark {
+    width: 80px;
+    height: 115px;
+    margin: 0 auto;
+}
+
+.success-checkmark .check-icon {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    border-radius: 50%;
+    box-sizing: content-box;
+    border: 4px solid #4caf50;
+}
+
+.success-checkmark .check-icon::before {
+    top: 3px;
+    left: -2px;
+    width: 30px;
+    transform-origin: 100% 50%;
+    border-radius: 100px 0 0 100px;
+}
+
+.success-checkmark .check-icon::after {
+    top: 0;
+    left: 30px;
+    width: 60px;
+    transform-origin: 0 50%;
+    border-radius: 0 100px 100px 0;
+    animation: rotate-circle 4.25s ease-in;
+}
+
+.success-checkmark .check-icon::before,
+.success-checkmark .check-icon::after {
+    content: '';
+    height: 100px;
+    position: absolute;
+    background: #fff;
+    transform: rotate(-45deg);
+}
+
+.success-checkmark .check-icon .icon-line {
+    height: 5px;
+    background-color: #4caf50;
+    display: block;
+    border-radius: 2px;
+    position: absolute;
+    z-index: 10;
+}
+
+.success-checkmark .check-icon .icon-line.line-tip {
+    top: 46px;
+    left: 14px;
+    width: 25px;
+    transform: rotate(45deg);
+    animation: icon-line-tip 0.75s;
+}
+
+.success-checkmark .check-icon .icon-line.line-long {
+    top: 38px;
+    right: 8px;
+    width: 47px;
+    transform: rotate(-45deg);
+    animation: icon-line-long 0.75s;
+}
+
+.success-checkmark .check-icon .icon-circle {
+    top: -4px;
+    left: -4px;
+    z-index: 10;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: absolute;
+    box-sizing: content-box;
+    border: 4px solid rgba(76, 175, 80, .5);
+}
+
+.success-checkmark .check-icon .icon-fix {
+    top: 8px;
+    width: 5px;
+    left: 26px;
+    z-index: 1;
+    height: 85px;
+    position: absolute;
+    transform: rotate(-45deg);
+    background-color: #fff;
+}
+
+@keyframes rotate-circle {
+    0% {
+        transform: rotate(-45deg);
+    }
+
+    5% {
+        transform: rotate(-45deg);
+    }
+
+    12% {
+        transform: rotate(-405deg);
+    }
+
+    100% {
+        transform: rotate(-405deg);
+    }
+}
+
+@keyframes icon-line-tip {
+    0% {
+        width: 0;
+        left: 1px;
+        top: 19px;
+    }
+
+    54% {
+        width: 0;
+        left: 1px;
+        top: 19px;
+    }
+
+    70% {
+        width: 50px;
+        left: -8px;
+        top: 37px;
+    }
+
+    84% {
+        width: 17px;
+        left: 21px;
+        top: 48px;
+    }
+
+    100% {
+        width: 25px;
+        left: 14px;
+        top: 45px;
+    }
+}
+
+@keyframes icon-line-long {
+    0% {
+        width: 0;
+        right: 46px;
+        top: 54px;
+    }
+
+    65% {
+        width: 0;
+        right: 46px;
+        top: 54px;
+    }
+
+    84% {
+        width: 55px;
+        right: 0px;
+        top: 35px;
+    }
+
+    100% {
+        width: 47px;
+        right: 8px;
+        top: 38px;
+    }
+}
+
+/* ORDER SUCCESS PAGE CSS ENDS */
+
+/* PAYMENT PAGE CSS STARTS */
+
+.payment-wrapper {
+    background-color: #08325F;
+    padding: 1rem;
+}
+
+.payment-wrapper label {
+    color: #F3C26A;
+    font-family: 'Almarai', sans-serif;
+    margin-right: 1rem;
+}
+
+.payment-wrapper p {
+    color: #F5F5F5;
+}
+
+.giftCardInput {
+    display: none;
+}
+
+.giftcard-link:hover {
+    color: #F5F5F5;
+    cursor: pointer;
+}
+
+.form-check label {
+    padding-right: 1.25rem;
+    padding-left: 0;
+}
+
+/* PAYMENT PAGE CSS ENDS */
+
+/* PAYTABS ERROR PAGE CSS STARTS */
+
+.error-message p {
+    color: #e52727;
+    font-size: 1.5rem;
+}
+
+/* PAYTABS ERROR PAGE CSS ENDS */
+
+/* SHOW GIFTCARDS PAGE CSS STARTS */
+
+.giftcard-detail-image img {
+    width: 100%;
+    height: 230px;
+    object-fit: contain;
+}
+
+.giftcard-detail-title h3 {
+    font-family: 'Almarai', sans-serif;
+    color: #366291;
+    font-size: 2rem;
+}
+
+.giftcard-detail-price p {
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    padding-top: 0;
+    font-family: 'Almarai', sans-serif;
+    color: #08325F;
+}
+
+/* SHOW GOFTAARDS PAGE CSS ENDS */
+
+/* ALL CATEGORIES PAGE CSS STARTS */
+
+.category-wrapper {
+    margin-bottom: 1rem;
+}
+
+.category-wrapper img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    background-color: #F5F5F5;
+}
+
+.cat-details {
+    padding: 1rem;
+    background-color: #08325F;
+}
+
+.cat-details:hover {
+    background-color: #F3C26A;
+}
+
+.cat-details:hover h4 {
+    color: #08325F;
+}
+
+.cat-details h4 {
+    color: #F3C26A;
+    font-family: 'Almarai', sans-serif;
+}
+
+/* ALL CATEGORIES PAGE CSS ENDS */
+
+/* COOKIE BAR CSS STARTS */
+
+.cookie-box {
+    padding: 1rem;
+    background-color: #08325F;
+    text-align: right;
+    position: sticky;
+    bottom: 0;
+    z-index: 2000;
+}
+
+.cookie-box h4 {
+    color: #F3C26A;
+    font-family: 'Alamarai', serif;
+}
+
+.cookie-box p {
+    color: #F5F5F5;
+}
+
+.lb-brand-btn {
+    background-color: #366291;
+    color: #F3C26A;
+    font-family: 'Alamarai', serif;
+    padding: 0.5rem 1rem;
+    border: none;
+    transition: 0.3s ease;
+}
+
+.lb-brand-btn:hover {
+    background-color: #f5f5f5;
+    color: #08325F;
+}
+
+/* COOKIE BAR CSS ENDS */
+
+/* FOOTER CSS STARTS */
+
+#footer-one {
+    padding: 2rem 0;
+    background-color: #366291;
+}
+
+.footer-logo img {
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    margin-left: auto;
+    display: block;
+}
+
+.footer-desc p {
+    color: #ffffff;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 300;
+    text-align: right;
+}
+
+.footer-title h3 {
+    color: #F3C26A;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-family: 'Almarai', sans-serif;
+    text-align: right;
+}
+
+.footer-subtitle h3 {
+    color: #F3C26A;
+    font-family: 'Almarai', sans-serif;
+    text-align: right;
+}
+
+.footer-list {
+    text-align: right;
+}
+
+.footer-list a {
+    color: #ffffff;
+    transition: 0.3s ease;
+    margin-bottom: 0.5rem;
+    font-family: 'Almarai', sans-serif;
+}
+
+.footer-list a:hover {
+    color: #F3C26A;
+}
+
+.footer-link a {
+    color: #ffffff;
+    transition: 0.3s ease;
+    margin-left: auto;
+    display: flex;
+}
+
+.footer-link a:hover {
+    color: #F3C26A;
+}
+
+.newsletter-btn {
+    background-color: #F3C26A;
+    color: #ffffff;
+    border: none !important;
+    transition: 0.3s ease;
+    border-top-left-radius: 0.25rem !important;
+    border-bottom-left-radius: 0.25rem !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+.subscription-form input {
+    border: none;
+    padding: 1rem;
+    border-top-right-radius: 0.25rem;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0.25rem;
+    border-bottom-left-radius: 0;
+}
+
+ul.footer-social-media {
+    float: right;
+}
+
+ul.footer-social-media li {
+    display: inline-flex;
+    display: inline-flex;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 50px;
+    background-color: #08325F;
+    margin-right: 0.25rem;
+    transition: 0.5s ease;
+}
+
+ul.footer-social-media li:hover {
+    background-color: #F3C26A;
+}
+
+ul.footer-social-media li i {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+#footer-two {
+    padding: 1rem 0;
+    background-color: #08325F;
+}
+
+.footer-credit p {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.footer-credit a {
+    color: #F3C26A;
+}
+
+/* FOOTER CSS ENDS */

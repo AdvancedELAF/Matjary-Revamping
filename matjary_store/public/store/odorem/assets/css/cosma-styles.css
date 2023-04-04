@@ -1,0 +1,1654 @@
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+}
+strong {
+    padding: 0;
+    margin: 0;
+}
+label, a {
+    text-decoration: none;
+    margin-bottom: 0;
+}
+a:hover {
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+
+/* COMMON CSS STARTS */
+
+.brand-btn-black {
+    background: #000000;
+    color: #ffffff;
+    font-family: 'Lato', sans-serif;
+    border-radius: 0 !important;
+    font-size: 1rem;
+    font-weight: 300;
+    border: 1px solid #000000;
+    padding: 0.5rem 2rem;
+    transition: 0.3s ease;
+    text-transform: uppercase;
+}
+
+.brand-btn-black:hover {
+    background: transparent !important;
+    color: #000000;
+    border: 1px solid #000000 !important;
+}
+
+.brand-btn-black:focus {
+    color: #ffffff;
+    background-color: #000000;
+    border-color: #000000;
+    box-shadow: 0 0 0 0.2rem rgba(77, 77, 77, 0.5);
+}
+
+.brand-btn-white {
+    background: #ffffff;
+    color: #000000;
+    font-family: 'Lato', sans-serif;
+    border-radius: 0 !important;
+    font-size: 1rem;
+    font-weight: 300;
+    border: none;
+    padding: 0.5rem 2rem;
+    transition: 0.3s ease;
+    text-transform: uppercase;
+}
+
+.brand-btn-white:hover {
+    background: transparent !important;
+    color: #ffffff;
+    border: 1px solid #ffffff !important;
+}
+
+.brand-btn-black-outline {
+    border: 1px solid #000000;
+    color: #000000;
+    background: transparent;
+    transition: 0.3s ease;
+    border-radius: 0;
+    padding: 0.5rem 2rem;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.brand-btn-black-outline:hover {
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #000000;
+}
+
+.brand-btn-black a {
+	color: #ffffff;
+    transition: 0.3s ease;
+}
+
+.brand-btn-black:hover a {
+    color: #000000;
+}
+
+.brand-btn-black-outline a {
+	color: #000000;
+    transition: 0.3s ease;
+}
+
+.brand-btn-black-outline:hover a {
+    color: #ffffff !important;
+}
+
+.section-spacing {
+    padding: 50px 0;
+}
+
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+    background: #000000 !important;
+}
+
+.bg-pink {
+    background-color: #FEEBE7;
+}
+
+.bg-grey {
+    background-color: #FBF9F9;
+}
+
+.user-label-danger {
+    color: red;
+    margin-bottom: 0.5rem;
+}
+
+/* COMMON CSS ENDS */
+
+/* HEADER CSS STARTS */
+
+header {
+    box-shadow: 2px 9px 49px -17px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+.header-content-top {
+    background: #545bc4;
+    height: 30px;
+    width: 100%;
+}
+.header-content-top .content {
+    align-items: center;
+    display: flex;
+    height: 30px;
+    justify-content: flex-end;
+    margin: 0 auto;
+    max-width: 1300px;
+    width: 100%;
+}
+.header-content-top .content span {
+    color: #fff;
+    font-size: 12px;
+    margin: 0 15px;
+}
+.header-content-top .content span .fas {
+    margin-right: 5px;
+}
+.header-container {
+    align-items: center;
+    display: flex;
+    height: 100px;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: auto;
+    padding: 0 15px;
+    position: relative;
+    width: 100%;
+    background-color: #f6f6f6;
+}
+.header-container .logo {
+    color: #545bc4;
+    font-size: 40px;
+    line-height: 20px;
+    padding-right: 15px;
+}
+
+.logo img {
+    height: 80px;
+    object-fit: contain;
+}
+
+a.nav-content-link i {
+    color: #5a5a5a;
+    transition: 0.5s ease;
+    font-size: 30px;
+}
+
+a.nav-content-link i:hover {
+    color: #000000;
+}
+
+a.nav-content-link {
+    color: #000000;
+    font-size: 12px;
+    font-weight: 300;
+} 
+
+.nav-row-list a {
+    color: #000000;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+
+.header-container .open-search {
+    border-radius: 3px;
+    flex: auto;
+    margin: 0 15px;
+    overflow: hidden;
+    position: relative;
+}
+
+.header-container .open-search .icofont-search {
+    display: none;
+}
+
+.header-container .open-search .input-open-search {
+    display: none;
+}
+.header-container .open-search .input-open-search:checked ~ .search {
+    display: block;
+}
+
+.header-container .search .input-search {
+    border-radius: 3px;
+    border: 1px solid #e1e1e1;
+    height: 40px;
+    padding: 0 70px 0 15px;
+    width: 100%;
+    background: white no-repeat;
+    transition: 100ms all linear 0s;
+    background-image: linear-gradient(to bottom, rgb(0 0 0 / 63%) 0%, rgb(0 0 0) 90%), linear-gradient(to bottom, #e1e1e1, #e1e1e1);
+    background-size: 0 2px, 100% 1px;
+    background-position: 50% 100%, 50% 100%;
+    transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+}
+.header-container .search .input-search:focus {
+    background-size: 100% 2px, 100% 1px;
+    outline: none;
+}
+.header-container .search .button-search {
+    background: #000000;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    padding: 13px 20px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+.header-container .search .button-search .icofont-search {
+    display: block;
+}
+.header-container .nav-content .nav-content-list {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+.header-container .nav-content .nav-content-list .nav-content-item {
+    align-items: center;
+    display: flex;
+    height: 40px;
+    margin: 0 5px;
+    position: relative;
+    transition: 100ms all linear 0s;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item .item-arrow {
+    margin-left: 5px;
+    position: relative;
+    top: -3px;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item .open-menu-login-account {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    position: relative;
+}
+.header-container .nav-content .nav-content-list .nav-content-item .input-menu {
+    display: none;
+}
+.header-container .nav-content .nav-content-list .nav-content-item .input-menu:checked ~ .login-list {
+    display: block;
+}
+.header-container .nav-content .nav-content-list .nav-content-item .login-list {
+    background: #fff;
+    border-bottom: 3px solid #000000;
+    box-shadow: 2px 9px 49px -17px rgba(0, 0, 0, 0.3);
+    display: none;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 28px;
+    transition: 100ms all linear 0s;
+    width: 200px;
+    z-index: 10;
+}
+.header-container .nav-content .nav-content-list .nav-content-item .login-list .login-list-item {
+    padding: 15px 20px;
+}
+.header-container .nav-content .nav-content-list .nav-content-item .login-list .login-list-item:hover {
+    background: #000000;
+}
+.header-container .nav-content .nav-content-list .nav-content-item .login-list .login-list-item:hover a {
+    color: #fff;
+}
+.header-container .nav-content .nav-content-list .nav-content-item:nth-child(2):hover .fas {
+    color: #e74c3c;
+}
+.header-container .nav-content .nav-content-list .nav-content-item:hover .fas {
+    color: #545bc4;
+}
+.header-container .nav-content .nav-content-list .account-login .login-text {
+    align-items: end;
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+.header-container .nav-content .nav-content-list .account-login .login-text strong {
+    display: block;
+}
+.header-container .nav-content .nav-content-list .nav-content-link {
+    border-radius: 3px;
+    font-size: 19px;
+    padding: 10px 15px;
+    transition: 100ms all linear 0s;
+}
+
+li.login-list-item a {
+    color: #000000;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+}
+
+.nav-container {
+    align-items: center;
+    display: flex;
+    margin: 0 auto;
+    max-width: 1300px;
+    width: 100%;
+    background-color: #fff;
+}
+.nav-container .nav-row {
+    align-items: center;
+    display: flex;
+    height: 40px;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-container .nav-row .nav-row-list {
+    flex: auto;
+}
+.nav-container .nav-row .nav-row-list .nav-row-list-link {
+    align-items: center;
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    transition: 100ms all linear 0s;
+    text-transform: uppercase;
+}
+.nav-container .nav-row .nav-row-list .nav-row-list-link:hover {
+    background: #e1e1e1;
+    width: 100%;
+}
+.nav-container .featured-category {
+    flex: auto;
+    margin: 0 15px 0 0;
+}
+
+.nav-container .all-navigator {
+    align-items: center;
+    background: #000000;
+    color: #fff;
+    display: flex;
+    height: 40px;
+    padding: 0 25px;
+    width: 100%;
+}
+
+.nav-container .all-navigator .icofont-caret-up, .nav-container .all-navigator .icofont-caret-down {
+    position: absolute;
+    right: 25px;
+}
+.nav-container .all-navigator .icofont-caret-up {
+    display: none;
+}
+.nav-container .all-navigator .fas {
+    font-size: 16px;
+    margin-right: 0;
+}
+.nav-container .all-navigator span {
+    margin-left: 15px;
+}
+.nav-container .all-category-nav {
+    cursor: pointer;
+    max-width: 300px;
+    position: relative;
+    width: 100%;
+}
+
+.nav-container .all-category-nav .open-menu-all {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    position: relative;
+}
+.nav-container .all-category-nav .input-menu-all {
+    display: none;
+}
+.nav-container .all-category-nav .input-menu-all:checked ~ .all-category-list {
+    display: block;
+}
+.nav-container .all-category-nav .input-menu-all:checked + .all-navigator .icofont-caret-down {
+    display: none;
+}
+.nav-container .all-category-nav .input-menu-all:checked + .all-navigator .icofont-caret-up {
+    display: block;
+}
+.nav-container .all-category-list {
+    background: #fff;
+    border-bottom: 3px solid #000000;
+    box-shadow: 2px 9px 49px -17px rgba(0, 0, 0, 0.3);
+    display: none;
+    height: auto;
+    min-height: 300px;
+    padding: 15px 0;
+    position: absolute;
+    top: 24px;
+    width: 300px;
+    z-index: 90;
+    margin-top: 1rem;
+}
+
+.nav-container .all-category-list-item:hover {
+    display: block;
+    background: #000000;
+}
+.nav-container .all-category-list-item:hover .category-second-list {
+    left: 100%;
+    opacity: 1;
+    visibility: visible;
+}
+.nav-container .all-category-list-item:hover .all-category-list-link {
+    color: #fff;
+}
+.nav-container .all-category-list-link {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    transition: 100ms all linear 0s;
+    color: #000000;
+    text-transform: uppercase;
+}
+.nav-container .category-second-list {
+    background: #fff;
+    border-bottom: 3px solid #000000;
+    box-shadow: inset 44px -1px 88px -59px rgba(0, 0, 0, 0.37);
+    display: flex;
+    height: 322px;
+    left: 80%;
+    min-height: 297px;
+    min-width: 400px;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transition: 100ms all linear 0s;
+    visibility: hidden;
+    width: auto;
+}
+
+.nav-container .category-second-list .img-product-menu img {
+    max-width: 180px;
+}
+.nav-container .category-second-list-ul {
+    display: flex;
+    flex-direction: column;
+    min-width: 400px;
+    padding: 0 15px;
+}
+.nav-container .category-second-item a {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    color: #000000;
+    text-transform: uppercase;
+}
+.nav-container .category-second-item:hover {
+    background: #000000;
+}
+.nav-container .category-second-item:hover a {
+    color: #fff;
+}
+.fa-bars {
+    font-size: 28px;
+}
+
+/* HEADER CSS ENDS */
+
+/* HOME PAGE CSS STARTS */
+
+.carousel-control-next, .carousel-control-prev {
+    background: transparent;
+    border: none;
+}
+
+.carousel-item {
+    position: relative;
+}
+
+.carousel-item img {
+    height: 80vh;
+    object-fit: cover;
+}
+
+.carousel-content-white, .carousel-content-black {
+    position: absolute;
+    top: 8rem;
+    left: 10rem;
+}
+
+.carousel-content-white h2 {
+    font-weight: 300;
+    color: #ffffff;
+    font-family: 'Lato', sans-serif;
+    font-size: 4.5rem;
+    text-transform: uppercase;
+}
+
+
+.carousel-content-white h5 {
+    color: #ffffff;
+    font-family: 'Cormorant', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.5rem;
+    width: 70%;
+    margin-bottom: 1.5rem;
+}
+
+.carousel-content-black h2 {
+    font-weight: 300;
+    color: #000000;
+    font-family: 'Lato', sans-serif;
+    font-size: 4.5rem;
+    text-transform: uppercase;
+}
+
+.carousel-content-black h5 {
+    color: #000000;
+    font-family: 'Cormorant', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.5rem;
+    width: 70%;
+    margin-bottom: 1.5rem;
+}
+
+h6.carousel-tagline-white {
+    color: #ffffff;
+    font-family: 'Smooch', cursive;
+    text-transform: lowercase;
+    font-size: 3rem;
+    margin-bottom: 0;
+}
+
+h6.carousel-tagline-black {
+    color: #000000;
+    font-family: 'Smooch', cursive;
+    text-transform: lowercase;
+    font-size: 3rem;
+    margin-bottom: 0;
+}
+
+.section-tagline h6 {
+    color: #5a5a5a;
+    font-family: 'Smooch', cursive;
+    text-transform: lowercase;
+    font-size: 2rem;
+}
+
+.section-title h4 {
+    color: #000000;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 1.5rem;
+}
+
+.prod-wrapper {
+    background-color: #FBF9F9;
+    padding: 1rem;
+    position: relative;
+}
+
+.prod-wrapper img {
+    height: 350px;
+    object-fit: cover;
+}
+
+.prod-detail h4 {
+    text-align: center;
+    margin-top: 1rem;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    margin-bottom: 0;
+}
+
+.prod-detail a {
+    color: #000000 !important;
+    transition: 0.3s ease;
+}
+
+.prod-detail a:hover {
+    color: #838383 !important;
+}
+
+.home-prod-price {
+    font-family: 'Cormorant', serif;
+}
+
+span.strike-amount {
+    text-decoration: line-through;
+    color: #000000;
+}
+
+span.sale-amount {
+    font-size: 1.5rem;
+}
+
+span.sale-amount a {
+    color: #000000;
+}
+
+.shop-benefits {
+    margin-bottom: 1rem;
+}
+
+.benefits-content {
+    display: flex;
+    align-items: center;
+}
+
+.benefits-content img {
+    height: 100px;
+    object-fit: contain;
+}
+
+.benefits-text {
+    margin-left: 0.5rem;
+}
+
+.benefits-text h4 {
+    text-transform: uppercase;
+    color: #000000;
+    font-weight: 400;
+}
+
+.benefits-text p {
+    color: #5a5a5a;
+    font-family: 'Cormorant', cursive;
+    font-weight: 400;
+}
+
+.brand-wrapper {
+    margin: 1rem;
+}
+
+.brand-wrapper img {
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+.section-subpara p {
+    font-family: 'Cormorant', cursive;
+    font-size: 1.35rem;
+    font-style: italic;
+    font-weight: 400;
+    color: #5a5a5a;
+}
+
+.section-para p {
+    font-family: 'Cormorant', serif;
+    color: #838383;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.subs-text h1 {
+    color: #ffffff;
+    font-family: 'Smooch', cursive;
+    font-size: 10rem;
+}
+
+.subs-input {
+    display: flex;
+}
+
+.subs-input input {
+    padding: 1.5rem;
+    border: 1px solid #000000;
+    border-radius: 0;
+    background: transparent;
+    font-family: 'Cormorant', cursive;
+    color: #000000 !important;
+}
+
+/* HOME PAGE CSS ENDS */
+
+/* PRODUCT PAGE CSS STARTS */
+
+.main-prod-wrapper img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+.main-prod-wrapper {
+    background-color: #FBF9F9;
+    padding: 1rem;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+/* PRODUCT PAGE CSS ENDS */
+
+/* PRODUCT DETAIL PAGE CSS STARTS */
+
+.prod-detail-image img {
+    width: 100%;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+.prod-detail-title h3 {
+    color: #000000;
+    text-transform: uppercase;
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 0;
+}
+
+.prod-detail-price p {
+    color: #000000;
+    font-family: 'Cormorant', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.prod-detail-icon {
+    display: flex;
+}
+
+.prod-detail-icon i {
+    color: #e1e1e1;
+    font-size: 1.25rem;
+}
+
+.prod-detail-rating h6 {
+    color: #000000;
+    font-family: 'Cormorant', sans-serif;
+    margin-left: 0.4rem;
+}
+
+.prod-stock-count h4 {
+    font-family: 'Cormorant', sans-serif;
+    color: #000000;
+    margin-top: 1rem;
+}
+
+.prod-main-tab {
+    margin-top: 3rem;
+}
+
+.prod-detail-desc p {
+    color: #838383;
+    font-family: 'Cormorant', sans-serif;
+    font-weight: 500;
+    margin-top: 1.5rem;
+    font-size: 18px;
+    margin-bottom: 1.5rem;
+    word-break: break-word;
+}
+
+.prod-main-link.active {
+    background-color: #000000 !important;
+    border: none;
+    font-family: 'Smooch', cursive;
+    padding: 0.5rem 2rem;
+    border-radius: 0 !important;
+    color: #ffffff;
+    font-size: 1.25rem;
+}
+
+.prod-main-link {
+    background-color: transparent !important;
+    border: 1px solid #e1e1e1;
+    padding: 0.5rem 2rem;
+    font-family: 'Smooch', cursive;
+    color: #838383;
+    border-radius: 0 !important;
+    font-size: 1.25rem;
+    margin-right: 0.5rem;
+    transition: 0.3s ease;
+    margin-bottom: 0.5rem;
+}
+
+.prod-main-link:hover {
+    color: #000000;
+    border: 1px solid #000000;
+}
+
+.prod-main-content {
+    padding: 1rem;
+}
+
+.prod-main-content p {
+    color: #838383;
+    font-family: 'Cormorant', sans-serif;
+    font-size: 18px;
+    word-break: break-word;
+}
+
+h4.prod-main-content-title {
+    color: #000000;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+h6.prod-main-content-title {
+    color: #000000;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.feedback-links h4 {
+    color: #000000;
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+.feedback-links h4:hover {
+    color: #838383;
+}
+
+.product-variation select {
+    border: 1px solid #838383;
+    border-radius: 0;
+    font-family: 'Cormorant', cursive;
+    color: #000000 !important;
+    margin-bottom: 1rem;
+}
+
+/* PRODUCT DETAIL PAGE CSS ENDS */
+
+/* GIFT PAGE CSS STARTS */
+
+.main-gift-wrapper img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+}
+
+.main-gift-wrapper {
+    background-color: #FBF9F9;
+    padding: 1rem;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.gift-detail h4 {
+    text-align: center;
+    margin-top: 1rem;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    margin-bottom: 0;
+}
+
+.gift-detail a {
+    color: #000000 !important;
+    transition: 0.3s ease;
+}
+
+.gift-detail a:hover {
+    color: #838383 !important;
+}
+
+/* GIFT PAGE CSS ENDS */
+
+/* HELP PAGE CSS STARTS */
+
+.help-link {
+    color: #838383;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+}
+
+.help-link:hover {
+    color: #000000;
+}
+
+.help-link.active {
+    background-color: #000000 !important;
+    font-family: 'Smooch', cursive;
+    color: #ffffff;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.help-pane {
+    padding: 1rem 0;
+}
+
+.help-panel-title {
+    color: #000000;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.6rem;
+}
+
+.help-pane p {
+    font-family: 'Cormorant', sans-serif;
+    color: #838383;
+    font-weight: 500;
+}
+
+/* HELP PAGE CSS ENDS */
+
+/* CART PAGE CSS STARTS */
+
+.page-bar {
+    background-color: #FEEBE7;
+    padding: 1.5rem 0;
+}
+
+th.cart-table-title {
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #000000;
+}
+
+.cart-col-np {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.product-cart-count {
+    margin-bottom: 1rem;
+}
+
+.checkout-btn button {
+    margin-bottom: 1rem;
+}
+
+.cart-action-buttons button {
+    margin-bottom: 0.5rem;
+}
+
+.cart-prod-title h6 {
+    font-family: 'Cormorant', sans-serif;
+    color: #000000;
+    font-size: 1rem;
+}
+
+.cart-price h5 {
+    color: #000000;
+    font-family: 'Cormorant', sans-serif;
+}
+
+h5.cart-tax {
+    color: #000000;
+    font-family: 'Lato', sans-serif;
+}
+
+td.cart-structure-name {
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+.promo-input {
+    display: flex;
+}
+
+.promo-input input {
+    padding: 1.5rem;
+    border: 1px solid #000000;
+    border-radius: 0;
+    background: transparent;
+    font-family: 'Cormorant', cursive;
+    color: #000000 !important;
+}
+
+.promo-input h4 {
+    margin-right: 0.5rem;
+}
+
+/* CART PAGE CSS ENDS */
+
+/* CHECKOUT LOGIN PAGE CSS STARTS */
+
+.checkout-login-wrapper {
+    padding: 1.5rem;
+    border: 1px solid #000000;
+    box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+}
+
+.input.text label, .input.email label, .input.password {
+    display: none;
+}
+
+.checkout-login-wrapper input {
+    padding: 1.5rem;
+    border: 1px solid #838383;
+    border-radius: 0;
+    background: transparent;
+    font-family: 'Cormorant', cursive;
+    color: #000000 !important;
+    margin-bottom: 1rem;
+}
+
+.option-tag h3 {
+    color: #000000;
+    text-align: center;
+}
+
+ul.guest-feature-list i {
+    color: #000000;
+    font-size: 1.25rem;
+    margin-right: 5px;
+}
+
+ul.guest-feature-list h6 {
+    font-family: 'Cormorant', sans-serif;
+    color: #5a5a5a;
+    font-style: italic;
+    font-weight: 500;
+}
+
+.loginSignupLink h5 {
+    font-family: 'Cormorant', sans-serif;
+    color: #5a5a5a;
+    font-style: italic;
+    font-weight: 500;
+    transition: 0.3s ease;
+    margin-top: 0.8rem;
+    text-align: center;
+}
+
+.loginSignupLink h5:hover {
+   color: #000000;
+}
+
+/* CHECKOUT LOGIN PAGE CSS ENDS */
+
+/* BIILING PAGE CSS STARTS */
+
+.billing-form, .shipping-form {
+    padding: 1rem;
+    border: 1px solid #000000;
+    margin-bottom: 1rem;
+    box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+}
+
+.billing-form input, .billing-form select, .shipping-form input, .shipping-form select {
+    border: 1px solid #838383;
+    border-radius: 0;
+    font-family: 'Cormorant', cursive;
+    color: #000000 !important;
+    margin-bottom: 1rem;
+}
+
+.shipping-checkbox label {
+    font-family: 'Cormorant', sans-serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* BIILING PAGE CSS ENDS */
+
+/* CHECKOUT PAGE CSS STARTS */
+
+.checkout-wrapper {
+    padding: 1rem;
+    border: 1px solid #000000;
+    margin-bottom: 1rem;
+    box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+}
+
+.checkout-wrapper label {
+    font-family: 'Cormorant', sans-serif;
+    font-weight: 600;
+    color: #000000;
+}
+
+.checkout-wrapper input {
+    font-family: 'Cormorant', sans-serif;
+    font-style: italic;
+    font-weight: 500;
+}
+
+.checkout-wrapper p {
+    font-family: 'Cormorant', sans-serif;
+    font-style: italic;
+    font-weight: 700;
+}
+
+/* CHECKOUT PAGE CSS ENDS */
+
+/* PAYMENT PAGE CSS STARTS */
+
+.payment-wrapper {
+    padding: 1rem;
+    border: 1px solid #000000;
+    margin-bottom: 1rem;
+    box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+}
+
+.payment-wrapper label {
+    font-family: 'Cormorant', sans-serif;
+    font-weight: 600;
+    color: #000000;
+    text-transform: capitalize;
+}
+
+.payment-wrapper input {
+    font-family: 'Cormorant', sans-serif;
+    font-style: italic;
+    font-weight: 500;
+}
+
+.payment-wrapper p {
+    font-family: 'Cormorant', sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.payment-wrapper img {
+    box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    border-radius: 10px;
+}
+
+#giftCardOption:hover {
+    cursor: pointer;
+}
+
+.giftCardInput {
+    display: none;
+}
+
+.giftCardInput input {
+    border: 1px solid #838383;
+    border-radius: 0;
+    font-family: 'Cormorant', cursive;
+    color: #000000 !important;
+    margin-bottom: 1rem;
+}
+
+/* PAYMENT PAGE CSS ENDS */
+
+/* FORGOT PASSWORD PAGE CSS STARTS */
+
+.forgot-pass-wrapper {
+    padding: 1.5rem;
+    border: 1px solid #000000;
+    box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+}
+
+.forgot-pass-wrapper input {
+    padding: 1.5rem;
+    border: 1px solid #838383;
+    border-radius: 0;
+    background: transparent;
+    font-family: 'Cormorant', cursive;
+    color: #000000 !important;
+    margin-bottom: 1rem;
+}
+
+/* FORGOT PASSWORD PAGE CSS ENDS */
+
+/* SIGN UP PAGE CSS STARTS */
+
+.newsletter-checkbox label {
+    font-family: 'Cormorant', sans-serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* SIGN UP PAGE CSS ENDS */
+
+/* MY ACCOUNT PAGE CSS STARTS */
+
+.my-acc-wrapper {
+    padding: 1.5rem;
+    background-color: transparent;
+    border:  1px solid #000000;
+    text-align: center;
+    margin-bottom: 1rem;
+    transition: 0.3s ease;
+}
+
+.my-acc-wrapper:hover {
+    box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    transform: scale(1.03);
+}
+
+.my-acc-wrapper i {
+    font-size: 2rem;
+}
+
+.my-acc-wrapper h5 {
+    font-family: 'Cormorant', sans-serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: #000000;
+    margin-top: 1rem;
+}
+
+/* MY ACCOUNT PAGE CSS ENDS */
+
+/* MY PROFILE PAGE CSS STARTS */
+
+.my-profile-wrapper {
+    padding: 1.5rem;
+    background-color: transparent;
+    border:  1px solid #000000;
+    margin-bottom: 1rem;
+    box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+}
+
+.my-profile-wrapper label {
+    font-family: 'Cormorant', serif;
+    color: #838383;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.remove-border {
+    border: none !important;
+}
+
+.my-profile-wrapper input {
+    border: 1px solid #838383;
+    border-radius: 0;
+    font-family: 'Cormorant', sans-serif;
+    font-style: italic;
+    color: #000000 !important;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* MY PROFILE PAGE CSS ENDS */
+
+/* BILLING/ SHIPPING PAGE CSS STARTS */
+
+.bill-ship-wrapper {
+    padding: 1.5rem;
+    background-color: transparent;
+    border:  1px solid #000000;
+    margin-bottom: 1rem;
+    box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+}
+
+.bill-ship-wrapper label {
+    font-family: 'Cormorant', serif;
+    color: #838383;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.bill-ship-wrapper input {
+    border: 1px solid #838383;
+    border-radius: 0;
+    font-family: 'Cormorant', sans-serif;
+    font-style: italic;
+    color: #000000 !important;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.bill-ship-wrapper select {
+    border: 1px solid #838383;
+    border-radius: 0;
+    font-family: 'Cormorant', cursive;
+    color: #000000 !important;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+/* BILLING/SHIPPING PAGE CSS ENDS */
+
+/* GIFTCARD DETAILS PAGE CSS STARTS */
+
+th.giftcard-table-title {
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #000000;
+}
+
+.giftcard-table-data h6 {
+    font-family: 'Cormorant', sans-serif;
+    color: #000000;
+    font-size: 1rem;
+}
+
+td.gift-card-code h5, td.gift-card-price h5 {
+    font-family: 'Cormorant', sans-serif;
+    color: #000000;
+}
+
+/* GIFTCARD DETAILS PAGE CSS ENDS */
+
+/* ABOUT US PAGE CSS STARTS */
+
+.page-content p {
+    font-family: 'Cormorant', sans-serif;
+    color: #838383;
+    font-size: 18px;
+    line-height: 1.3;
+    font-weight: 500;
+}
+
+/* ABOUT US PAGE CSS ENDS */
+
+/* CONTACT PAGE CSS STARTS */
+
+.contact-form-wrapper {
+    padding-top: 1.5rem;
+    background-color: transparent;
+    margin-bottom: 1rem;
+}
+
+.contact-form-wrapper input, .contact-form-wrapper textarea {
+    padding: 1.5rem;
+    border: 1px solid #838383;
+    border-radius: 0;
+    background: transparent;
+    font-family: 'Cormorant', cursive;
+    color: #000000 !important;
+    margin-bottom: 1rem;
+}
+
+.contact-detail {
+    padding: 1.25rem;
+    background-color: #f5f5f5;
+    margin-bottom: 1.5rem;
+}
+
+.contact-detail h3 {
+    color: #000000;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.contact-detail h5 {
+    font-family: 'Cormorant', sans-serif;
+    font-style: italic;
+    text-align: center;
+}
+
+/* CONTACT PAGE CSS ENDS */
+
+/* MY ORDER PAGE CSS STARTS */
+
+.order-filter-wrapper select {
+    border: 1px solid #838383;
+    border-radius: 0;
+    font-family: 'Cormorant', cursive;
+    color: #000000 !important;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.order-filter-wrapper input {
+    border: 1px solid #838383;
+    border-radius: 0;
+    font-family: 'Cormorant', sans-serif;
+    font-style: italic;
+    color: #000000 !important;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+th.order-table-title {
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #000000;
+}
+
+.order-number-data h5 {
+    font-family: 'Cormorant', sans-serif;
+}
+
+.order-number-data a {
+    color: #000000 !important;
+}
+
+.order-date h5, .order-total h5, .order-payment, .order-status h5 {
+    color: #000000;
+    font-family: 'Cormorant',sans-serif;
+}
+
+.order-detail-link a {
+    font-family: 'Cormorant', sans-serif;
+    font-weight: 600;
+}
+
+/* MY ORDER PAGE CSS ENDS */
+
+/* ORDER DETAILS PAGE CSS STARTS */
+
+.order-detail-table th {
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #000000;
+}
+
+.order-detail-table h6 {
+    font-family: 'Cormorant', sans-serif;
+    color: #000000;
+    font-size: 1rem;
+}
+
+.order-detail-table h5 {
+    font-family: 'Cormorant', sans-serif;
+    color: #000000;
+}
+
+.order-detail-table {
+    margin-bottom: 2rem;
+}
+
+/* ORDER DETAILS PAGE CSS ENDS */
+
+/* POST A FEEDBACK PAGE CSS STARTS */
+
+.feedback-wrapper {
+    padding: 1rem;
+    border: 1px solid #000000;
+    margin-bottom: 1rem;
+    box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+}
+
+.feedback-wrapper label {
+    font-family: 'Cormorant', serif;
+    color: #838383;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.feedback-wrapper select {
+    border: 1px solid #838383;
+    border-radius: 0;
+    font-family: 'Cormorant', sans-serif;
+    color: #000000 !important;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.feedback-wrapper textarea {
+    padding: 1.5rem;
+    border: 1px solid #838383;
+    border-radius: 0;
+    background: transparent;
+    font-family: 'Cormorant', cursive;
+    color: #000000 !important;
+    margin-bottom: 1rem;
+}
+
+/* POST A FEEDBACK PAGE CSS ENDS */
+
+/* SHOW GIFTCARDS PAGE CSS STARTS */
+
+.giftcard-detail-image img {
+    width: 100%;
+    height: 230px;
+    object-fit: contain;
+    
+}
+
+.giftcard-detail-title h3 {
+    color: #000000;
+    text-transform: uppercase;
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 0;
+}
+
+.giftcard-detail-desc p {
+    color: #838383;
+    font-family: 'Cormorant', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    word-break: break-word;
+    margin-bottom: 0.5rem;
+}
+
+.giftcard-detail-price p {
+    color: #000000;
+    font-family: 'Cormorant', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+/* SHOW GIFTCARDS PAGE CSS ENDS */
+
+/* ORDER SUCCESS PAGE CSS STARTS */
+
+.success-message p {
+    font-family: 'Cormorant', sans-serif;
+    font-style: italic;
+    color: #000000;
+    font-size: 1.5rem;
+}
+
+/* ORDER SUCCESS PAGE CSS ENDS */
+
+/* FOOTER CSS STARTS */
+
+footer {
+    background-color: #000000;
+    padding: 50px 0 0;
+}
+
+.footer-one {
+    margin-bottom: 1rem;
+}
+
+.footer-logo img {
+    height: 100px;
+    object-fit: contain;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.footer-title h4 {
+    color: #ffffff;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.footer-title p {
+    font-family: 'Cormorant', cursive;
+    color: #ffffff;
+    font-style: italic;
+    margin-bottom: 0.25rem;
+    font-size: 20px;
+}
+
+.footer-logo-desc p {
+    color: #5a5a5a;
+    text-align: center;
+    font-family: 'Cormorant', cursive;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1.3rem;
+    line-height: 1.25;
+}
+
+ul.footer-social li {
+    display: inline-flex;
+    border: 1px solid #ffffff;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    transition: 0.5s ease;
+}
+
+ul.footer-social li i {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+}
+
+ul.footer-social li:hover {
+    background-color: #ffffff;
+}
+
+ul.footer-social li:hover i {
+    color: #000000;
+}
+
+.footer-two {
+    border-top: 1px solid #5a5a5a;
+    padding: 10px 0;
+    font-family: 'Lato', sans-serif;
+    justify-content: center;
+    display: grid;
+}
+
+ul.footer-two-list {
+    display: inline-flex;
+}
+
+ul.footer-two-list li {
+    margin-right: 1rem;
+}
+
+ul.footer-two-list li a {
+    color: #ffffff;
+}
+
+ul.footer-two-list p {
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+/* FOOTER CSS ENDS */
+

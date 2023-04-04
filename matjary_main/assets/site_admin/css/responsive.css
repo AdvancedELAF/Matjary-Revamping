@@ -1,0 +1,166 @@
+@media (max-width: 365px) {
+    .amount {
+        font-size: 3rem;
+    }
+
+    .plan-price sup {
+        margin-top: 2rem;
+    }
+
+    .amount-duration {
+        margin-top: 2.4rem;
+    }
+
+    .hc-card {
+        height: 220px;
+    }
+}
+
+@media (max-width: 501px) {
+    .features-align {
+        display: block !important;
+    }
+
+    .features-image img {
+        height: 50px;
+        object-fit: contain;
+        margin-right: auto;
+    }
+
+    .pricing-info h3 {
+        font-size: 1.35rem;
+    }
+
+    .pricing-info h5 {
+        font-size: 1.2rem;
+    }
+
+    .help-title-section h3 {
+        font-size: 1.35rem;
+    }
+
+    .help-title-section h5 {
+        font-size: 1.2rem;
+    }
+
+    .billing-form-wrapper h3 {
+        font-size: 1.25rem;
+    }
+
+    .table-title h4, .payment-title h4 {
+        font-size: 1.25rem;
+    }
+
+    .brand-btn-pink {
+        padding: 0.5rem
+    }
+
+    .services-page-title h5 {
+        font-size: 1.2rem;
+    }
+
+    .service-align {
+        display: block;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero-content h2 {
+        font-size: 1.7rem;
+    }
+
+    .hero-content h3 {
+        font-size: 1rem;
+    }
+
+    .section-title h2 {
+        font-size: 1.5rem;
+    }
+
+    .section-one-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .section-one-content h3 {
+        font-size: 1rem;
+    }
+
+    .section-two-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .section-two-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .hero-section, .home-section-two {
+        padding: 4rem 1rem 4rem;
+    }
+
+    .list-title {
+        font-size: 1.25rem;
+    }
+
+    .list-title ul li i {
+        margin-right: 0.5rem;
+    }
+
+    .list-title ul li {
+        font-size: 1rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .about-content h2 {
+        font-size: 1.7rem;
+    }
+
+    .about-sec-two-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .ab-sec-two-card-two {
+        margin-top: 0;
+    }
+
+    .mv-card {
+        height: fit-content;
+    }
+}
+
+@media (max-width: 768px){
+
+    .nav-scroll-spacing {
+        margin: 0.5rem 1.5rem 0;
+    }
+    .custom-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .navbar-brand img {
+        height: 60px;
+    }
+
+    .hero-section {
+        padding: 0rem 2rem 4rem ;
+    }
+
+    .chck-domain-btn {
+        margin-top: 0.5rem;
+    }
+
+    .chck-domain-btn button {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+
+    .service-details-wrapper {
+        height: auto !important;
+    }
+}

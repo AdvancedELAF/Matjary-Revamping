@@ -1,0 +1,1640 @@
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Almarai', sans-serif;
+}
+
+strong {
+    padding: 0;
+    margin: 0;
+}
+
+label,
+a {
+    text-decoration: none;
+    margin-bottom: 0;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* COMMON CSS STARTS */
+
+.bg-white {
+    background-color: #ffffff;
+}
+
+.brand-btn {
+    background-color: #e74c3c;
+    border: none;
+    font-family: 'Almarai', sans-serif;
+    border-radius: 100px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.brand-btn:hover, .brand-btn:focus, .brand-btn:active {
+    background-color: #e74c3c !important;
+    box-shadow: rgb(255 59 0 / 20%) 0px 7px 29px 12px !important;
+    border: none !important;
+}
+
+
+.brand-btn a {
+    color: #ffffff;
+    transition: 0.3s ease;
+}
+
+button.owl-prev {
+    position: absolute;
+    left: 0;
+}
+
+button.owl-next {
+    position: absolute;
+    right: 0;
+}
+
+button.owl-prev span {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 10px 16px;
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+button.owl-next span {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 10px 16px;
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-dots .owl-dot:hover span {
+    background: #e74c3c !important;
+}
+
+.owl-theme .owl-nav [class*=owl-]:hover {
+    background: none !important;
+}
+
+.d-grid {
+    display: grid;
+}
+
+.prod-btn button {
+    margin-bottom: 0.5rem;
+}
+
+.prod-btn {
+    display: none;
+    transition: 0.5s ease;
+}
+
+.prod-card {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.prod-card:hover .prod-btn {
+    display: block !important;
+    position: absolute;
+    top: 15rem;
+    left: 4rem;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.ot-banner-bg {
+    background-color: #F7F7F7;
+    padding: 10rem 0 2rem;
+}
+
+.page-content p {
+    font-family: 'Almarai', sans-serif;
+    color: #515151;
+    line-height: 1.3;
+    font-weight: 300;
+    text-align: right;
+}
+
+.form-control:focus,
+.custom-select:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #ff0000;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem #ff000040;
+}
+
+/* COMMON CSS ENDS */
+
+/* HEADER CSS STARTS */
+
+header {
+    box-shadow: 2px 9px 49px -17px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.header-content-top {
+    background: #545bc4;
+    height: 30px;
+    width: 100%;
+}
+
+.header-content-top .content {
+    align-items: center;
+    display: flex;
+    height: 30px;
+    justify-content: flex-end;
+    margin: 0 auto;
+    max-width: 1300px;
+    width: 100%;
+}
+
+.header-content-top .content span {
+    color: #fff;
+    font-size: 12px;
+    margin: 0 15px;
+}
+
+.header-content-top .content span .fas {
+    margin-right: 5px;
+}
+
+.header-container {
+    align-items: center;
+    display: flex;
+    height: 85px;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: auto;
+    padding: 0 15px;
+    position: relative;
+    width: 100%;
+}
+
+.header-container .logo {
+    color: #545bc4;
+    font-size: 40px;
+    line-height: 20px;
+    padding-right: 15px;
+}
+
+.logo img {
+    height: 80px;
+    object-fit: contain;
+}
+
+a.nav-content-link i {
+    color: #5a5a5a;
+    transition: 0.5s ease;
+    font-size: 30px;
+}
+
+a.nav-content-link i:hover {
+    color: #000000;
+}
+
+a.nav-content-link {
+    color: #000000;
+    font-size: 12px;
+    font-weight: 300;
+    font-family: 'Almarai', sans-serif;
+}
+
+.nav-row-list a {
+    color: #000000;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+
+.header-container .open-search {
+    border-radius: 3px;
+    flex: auto;
+    margin: 0 15px;
+    overflow: hidden;
+    position: relative;
+}
+
+.header-container .open-search .icofont-search {
+    display: none;
+}
+
+.header-container .open-search .input-open-search {
+    display: none;
+}
+
+.header-container .open-search .input-open-search:checked~.search {
+    display: block;
+}
+
+.header-container .search .input-search {
+    border-radius: 3px;
+    border: 1px solid #e1e1e1;
+    font-family: 'Almarai', sans-serif;
+    height: 40px;
+    padding: 0 70px 0 15px;
+    width: 100%;
+    background: white no-repeat;
+    transition: 100ms all linear 0s;
+    background-image: linear-gradient(to bottom, rgb(0 0 0 / 63%) 0%, rgb(0 0 0) 90%), linear-gradient(to bottom, #e1e1e1, #e1e1e1);
+    background-size: 0 2px, 100% 1px;
+    background-position: 50% 100%, 50% 100%;
+    transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+}
+
+.header-container .search .input-search:focus {
+    background-size: 100% 2px, 100% 1px;
+    outline: none;
+}
+
+.header-container .search .button-search {
+    background: #e74c3c;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    padding: 13px 20px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+.header-container .search .button-search .icofont-search {
+    display: block;
+}
+
+.header-container .nav-content .nav-content-list {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item {
+    align-items: center;
+    display: flex;
+    height: 40px;
+    margin: 0 5px;
+    position: relative;
+    transition: 100ms all linear 0s;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item .item-arrow {
+    margin-left: 5px;
+    position: relative;
+    top: -3px;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item .open-menu-login-account {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    position: relative;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item .input-menu {
+    display: none;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item .input-menu:checked~.login-list {
+    display: block;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item .login-list {
+    background: #fff;
+    border-bottom: 3px solid #000000;
+    box-shadow: 2px 9px 49px -17px rgba(0, 0, 0, 0.3);
+    display: none;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 28px;
+    transition: 100ms all linear 0s;
+    width: 200px;
+    z-index: 10;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item .login-list .login-list-item {
+    padding: 15px 20px;
+    text-align: right;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item .login-list .login-list-item:hover {
+    background: #e74c3c;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item .login-list .login-list-item:hover a {
+    color: #fff;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item:nth-child(2):hover .fas {
+    color: #e74c3c;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item:hover .fas {
+    color: #545bc4;
+}
+
+.header-container .nav-content .nav-content-list .account-login .login-text {
+    align-items: end;
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    margin-right: 5px;
+    font-family: 'Almarai', sans-serif;
+}
+
+.header-container .nav-content .nav-content-list .account-login .login-text strong {
+    display: block;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-link {
+    border-radius: 3px;
+    font-size: 19px;
+    padding: 10px 15px;
+    transition: 100ms all linear 0s;
+}
+
+li.login-list-item a {
+    color: #000000;
+    font-family: 'Almarai', sans-serif;
+}
+
+.nav-container {
+    align-items: center;
+    display: flex;
+    margin: 0 auto;
+    max-width: 1300px;
+    width: 100%;
+    background-color: #fff;
+}
+
+.nav-container .nav-row {
+    align-items: center;
+    display: flex;
+    height: 40px;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-container .nav-row .nav-row-list {
+    flex: auto;
+}
+
+.nav-container .nav-row .nav-row-list .nav-row-list-link {
+    align-items: center;
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    transition: 100ms all linear 0s;
+    /* text-transform: uppercase; */
+}
+
+.nav-container .nav-row .nav-row-list .nav-row-list-link:hover {
+    background: #F9DAD9;
+    width: 100%;
+}
+
+.nav-container .featured-category {
+    flex: auto;
+    margin: 0 15px 0 0;
+}
+
+.nav-container .all-navigator {
+    align-items: center;
+    background: #e74c3c;
+    color: #fff;
+    display: flex;
+    height: 40px;
+    padding: 0 25px;
+    width: 100%;
+    font-family: 'Almarai', sans-serif;
+}
+
+.nav-container .all-navigator .icofont-caret-up,
+.nav-container .all-navigator .icofont-caret-down {
+    position: absolute;
+    left: 25px;
+}
+
+.nav-container .all-navigator .icofont-caret-up {
+    display: none;
+}
+
+.nav-container .all-navigator .fas {
+    font-size: 16px;
+    margin-right: 0;
+}
+
+.nav-container .all-navigator span {
+    margin-right: 15px;
+}
+
+.nav-container .all-category-nav {
+    cursor: pointer;
+    max-width: 300px;
+    position: relative;
+    width: 100%;
+}
+
+.nav-container .all-category-nav .open-menu-all {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    position: relative;
+}
+
+.nav-container .all-category-nav .input-menu-all {
+    display: none;
+}
+
+.nav-container .all-category-nav .input-menu-all:checked~.all-category-list {
+    display: block;
+}
+
+.nav-container .all-category-nav .input-menu-all:checked+.all-navigator .icofont-caret-down {
+    display: none;
+}
+
+.nav-container .all-category-nav .input-menu-all:checked+.all-navigator .icofont-caret-up {
+    display: block;
+}
+
+.nav-container .all-category-list {
+    background: #fff;
+    border-bottom: 3px solid #e74c3c;
+    box-shadow: 2px 9px 49px -17px rgba(0, 0, 0, 0.3);
+    display: none;
+    height: auto;
+    min-height: 300px;
+    padding: 15px 0;
+    position: absolute;
+    top: 24px;
+    width: 300px;
+    z-index: 90;
+    margin-top: 1rem;
+}
+
+.nav-container .all-category-list-item:hover {
+    display: block;
+    background: #e74c3c;
+}
+
+.nav-container .all-category-list-item:hover .category-second-list {
+    left: 100%;
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav-container .all-category-list-item:hover .all-category-list-link {
+    color: #fff;
+}
+
+.nav-container .all-category-list-link {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    transition: 100ms all linear 0s;
+    color: #000000;
+    font-family: 'Almarai', sans-serif;
+}
+
+.nav-container .category-second-list {
+    background: #fff;
+    border-bottom: 3px solid #000000;
+    box-shadow: inset 44px -1px 88px -59px rgba(0, 0, 0, 0.37);
+    display: flex;
+    height: 322px;
+    right: 80%;
+    min-height: 297px;
+    min-width: 400px;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transition: 100ms all linear 0s;
+    visibility: hidden;
+    width: auto;
+}
+
+.nav-container .category-second-list .img-product-menu img {
+    max-width: 180px;
+}
+
+.nav-container .category-second-list-ul {
+    display: flex;
+    flex-direction: column;
+    min-width: 400px;
+    padding: 0 15px;
+}
+
+.nav-container .category-second-item a {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    color: #000000;
+    font-family: 'Almarai', sans-serif;
+}
+
+.nav-container .category-second-item:hover {
+    background: #e74c3c;
+}
+
+.nav-container .category-second-item:hover a {
+    color: #fff;
+}
+
+.fa-bars {
+    font-size: 28px;
+}
+
+ul.login-list a {
+    color: #000000;
+}
+
+ul.login-list li:hover {
+    color: #ffffff;
+}
+
+/* HEADER CSS ENDS */
+
+/* HOME PAGE CSS STARTS */
+
+.section-spacing {
+    padding: 50px 0;
+}
+
+.home-banner-one {
+    padding-top: 10rem;
+    background-color: #F7F7F7;
+}
+
+.section-one-content h1 {
+    color: #4C301C;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 700;
+    font-size: 3rem;
+    margin-bottom: 0;
+    text-align: right;
+}
+
+.section-one-content i {
+    color: #e74c3c;
+}
+
+
+.section-one-content p {
+    margin-top: 1rem;
+    color: #515151;
+    font-family: 'Almarai', sans-serif;
+    margin-bottom: 1.5rem;
+    text-align: right;
+}
+
+.banner-btn {
+    padding-bottom: 1.5rem;
+}
+
+.banner-image img {
+    width: 100%;
+    /* height: 400px; */
+    object-fit: contain;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding: 1rem;
+    transition: 0.5s ease;
+}
+
+.banner-image img:hover,
+.about-banner img:hover {
+    transform: scale(1.05);
+}
+
+.banner-image {
+    border: 2px solid #e74c3c;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    margin: 2rem;
+}
+
+.banner-image-bg {
+    margin: 1rem;
+    background-color: #F9DAD9;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+}
+
+.benefits-holder {
+    display: flex;
+    padding: 2rem 0;
+    align-items: center;
+}
+
+.benefits-details h5 {
+    font-family: 'Almarai', sans-serif;
+    color: #4C301C;
+}
+
+.benefits-icon {
+    margin-right: 0.5rem;
+}
+
+.benefits-icon i {
+    font-size: 2.5rem;
+    color: #e74c3c;
+}
+
+.benefits-box {
+    border-bottom: 2px dotted #e74c3c;
+}
+
+.section-title h2,
+.section-title h3 {
+    color: #4C301C;
+    font-family: 'Almarai', sans-serif;
+}
+
+.section-title i {
+    color: #e74c3c;
+    font-size: 2rem;
+}
+
+.prod-wrapper img {
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    background-color: #F4F5F9;
+    transition: 0.3s ease;
+}
+
+.prod-wrapper img:hover {
+    transform: scale(1.05);
+}
+
+.prod-details {
+    padding: 0.5rem;
+    margin-top: 0.25rem;
+    background-color: #F9DAD9;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.prod-details h4 {
+    text-align: center;
+    margin-top: 0.5rem;
+    font-family: 'Almarai', sans-serif;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: #4C301C;
+}
+
+.home-prod-price {
+    font-family: 'Almarai', serif;
+}
+
+.home-prod-price span {
+    display: block;
+}
+
+span.strike-amount {
+    text-decoration: line-through;
+    color: #4C301C;
+}
+
+span.sale-amount {
+    font-size: 1.25rem;
+    color: #e74c3c;
+}
+
+.about-banner img {
+    width: 100%;
+    height: 350px;
+    object-fit: contain;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding: 1rem;
+    transition: 0.5s ease;
+}
+
+.about-sec {
+    background-color: #FCFCFC;
+}
+
+.about-banner {
+    border: 2px solid #e74c3c;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    margin: 2rem;
+}
+
+.about-banner-bg {
+    margin: 1rem;
+    background-color: #F9DAD9;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+}
+
+.about-home-content p {
+    color: #515151;
+    font-family: 'Almarai', sans-serif;
+    margin-bottom: 1.5rem;
+    text-align: right;
+}
+
+.newsletter-content p {
+    color: #515151;
+    font-family: 'Almarai', sans-serif;
+    margin-bottom: 1.5rem;
+}
+
+.subscribe-wrap input {
+    font-family: 'Almaraiy', sans-serif;
+    padding: 1.5rem;
+    border-radius: 0;
+    font-family: 'Almarai', sans-serif;
+    border: 1px solid #E8E8E8;
+    margin-bottom: 1rem;
+}
+
+/* HOME PAGE CSS ENDS */
+
+/* HELP PAGE CSS STARTS */
+
+.help-link.active {
+    background-color: #e74c3c !important;
+    font-family: 'Almarai', sans-serif;
+    color: #ffffff;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.help-link {
+    color: #838383;
+    font-family: 'Almarai', sans-serif;
+    text-transform: uppercase;
+    text-align: right;
+}
+
+.help-link:hover {
+    color: #e74c3c;
+}
+
+.help-panel-title {
+    color: #4C301C;
+    font-family: 'Almarai', sans-serif;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.6rem;
+    text-align: right;
+}
+
+.help-pane {
+    font-family: 'Almarai', sans-serif;
+    color: #515151;
+    font-weight: 300;
+}
+
+.help-pane p {
+    text-align: right;
+}
+
+/* HELP PAGE CSS ENDS */
+
+/* CONTACT PAGE CSS STARTS */
+
+.contact-form-wrapper {
+    padding: 2rem 0;
+}
+
+.contact-form-wrapper input,
+.contact-form-wrapper textarea {
+    padding: 1.5rem;
+    border-radius: 0;
+    font-family: 'Almarai', sans-serif;
+    border: 1px solid #E8E8E8;
+    margin-bottom: 1rem;
+}
+
+.contact-banner {
+    border: 2px solid #e74c3c;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    margin: 2rem;
+}
+
+.contact-banner img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    padding: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    transition: 0.5s ease;
+}
+
+.contact-banner img:hover {
+    transform: scale(1.05);
+}
+
+/* CONTACT PAGE CSS ENDS */
+
+/* PRODUCT DETAILS PAGE CSS STARTS */
+
+.prod-detail-image img {
+    width: 100%;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    background-color: #F4F5F9;
+}
+
+.prod-detail-title h3 {
+    color: #4C301C;
+    font-family: 'Almarai', sans-serif;
+    text-align: right;
+}
+
+.prod-detail-price p {
+    color: #e74c3c;
+    font-size: 1.5rem;
+    font-family: 'Almarai';
+    text-align: right;
+}
+
+.prod-detail-icon {
+    display: flex;
+}
+
+.prod-detail-icon i {
+    color: #e1e1e1;
+    font-size: 1.25rem;
+}
+
+.prod-detail-rating h6 {
+    color: #515151;
+    font-family: 'Almarai', sans-serif;
+    margin-left: 0.4rem;
+}
+
+.prod-stock-count h4 {
+    font-family: 'Almarai', sans-serif;
+    color: #e74c3c;
+    text-align: right;
+}
+
+.prod-detail-desc p {
+    margin-top: 1rem;
+    color: #515151;
+    font-family: 'Almarai', sans-serif;
+    margin-bottom: 1.5rem;
+    text-align: right;
+}
+
+.product-variation select {
+    border-radius: 0;
+    font-family: 'Almarai', sans-serif;
+    border: 1px solid #E8E8E8;
+    margin-bottom: 1rem;
+}
+
+.feedback-links {
+    text-align: right;
+}
+
+.feedback-links h4 {
+    color: #515151;
+    font-family: 'Almarai', sans-serif;
+    font-size: 1rem;
+    transition: 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+.feedback-links h4:hover {
+    color: #e74c3c;
+}
+
+.prod-main-tab {
+    margin-top: 3rem;
+}
+
+.prod-main-link.active {
+    background-color: #e74c3c !important;
+    border: none;
+    font-family: 'Almarai', sans-serif;
+    padding: 0.5rem 2rem;
+    border-radius: 0 !important;
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+.prod-main-link {
+    background-color: transparent !important;
+    border: 1px solid #e74c3c;
+    padding: 0.5rem 2rem;
+    font-family: 'Almarai', sans-serif;
+    color: #515151;
+    border-radius: 0 !important;
+    font-size: 1rem;
+    margin-right: 0.5rem;
+    transition: 0.3s ease;
+    margin-bottom: 0.5rem;
+}
+
+.prod-main-link:hover {
+    color: #e74c3c;
+}
+
+h4.prod-main-content-title {
+    color: #e74c3c;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 400;
+    text-align: right;
+}
+
+.prod-main-content p {
+    color: #515151;
+    font-family: 'Almarai', sans-serif;
+    font-size: 16px;
+    word-break: break-word;
+    text-align: right;
+}
+
+h6.prod-main-content-title {
+    color: #e74c3c;
+    font-family: 'Almarai', sans-serif;
+    text-align: right;
+}
+
+/* PRODUCT DETAILS PAGE CSS ENDS */
+
+/* POST A FEEDBACK PAGE CSS STARTS */
+
+.feedback-wrapper {
+    padding: 1.5rem;
+    box-shadow: 0px 0px 15px rgb(25 25 25 / 10%);
+    -webkit-box-shadow: 0px 0px 15px rgb(25 25 25 / 10%);
+    border-radius: 5px;
+}
+
+.feedback-wrapper label {
+    font-family: 'Almarai', sans-serif;
+    color: #4C301C;
+}
+
+.feedback-wrapper select {
+    border-radius: 0;
+    font-family: 'Almarai', sans-serif;
+    border: 1px solid #E8E8E8;
+    margin-bottom: 1rem;
+}
+
+.feedback-wrapper textarea {
+    padding: 1.5rem;
+    border-radius: 0;
+    font-family: 'Almarai', sans-serif;
+    border: 1px solid #E8E8E8;
+    margin-bottom: 1rem;
+}
+
+/* POST A FEEDBACK PAGE CSS ENDS */
+
+/* LOGIN & SIGNUP PAGE CSS STARTS */
+
+.ls-wrapper {
+    padding: 1.5rem;
+    box-shadow: 0px 0px 15px rgb(25 25 25 / 10%);
+    -webkit-box-shadow: 0px 0px 15px rgb(25 25 25 / 10%);
+    border-radius: 5px;
+}
+
+.ls-wrapper input {
+    padding: 1.5rem;
+    border-radius: 0;
+    font-family: 'Almarai', sans-serif;
+    border: 1px solid #E8E8E8;
+    margin-bottom: 1rem;
+}
+
+.ls-banner {
+    border: 2px solid #e74c3c;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    margin: 2rem;
+}
+
+.ls-banner img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    padding: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    transition: 0.5s ease;
+}
+
+.loginSignupLink h5 {
+    font-family: 'Almarai', sans-serif;
+    text-transform: uppercase;
+    color: #e74c3c;
+    font-weight: 400;
+    font-size: 16px;
+    transition: 0.3s ease;
+    margin-top: 0.4rem;
+    text-align: center;
+}
+
+.loginSignupLink h5:hover {
+    color: #515151;
+}
+
+/* LOGIN & SIGNUP PAGE CSS ENDS */
+
+/* MY ACCOUNT PAGE CSS STARTS */
+
+.my-acc-wrapper {
+    padding: 1rem;
+    
+    border: 1px solid #e74c3c;
+    text-align: center;
+    margin-bottom: 1rem;
+    transition: 0.3s ease;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+}
+
+.my-acc-wrapper i {
+    font-size: 2rem;
+    color: #e74c3c;
+}
+
+.my-acc-wrapper h5 {
+    color: #e74c3c;
+    font-family: 'Almarai', sans-serif;
+    margin-top: 0.5rem;
+}
+
+.my-acc-wrapper {
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    transition: 0.3s ease;
+    padding: 1rem;
+}
+
+.my-acc-wrapper-bg {
+    background-color: #F9DAD9;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    transition: 0.3s ease;
+    padding: 3rem;
+}
+
+.my-acc-wrapper:hover .my-acc-wrapper-bg {
+    transform: scale(1.05);
+}
+
+/* MY ACCOUNT PAGE CSS ENDS */
+
+/* MY PROFILE PAGE CSS STARTS */
+
+.my-profile-wrapper {
+    padding: 1.5rem;
+    box-shadow: 0px 0px 15px rgb(25 25 25 / 10%);
+    -webkit-box-shadow: 0px 0px 15px rgb(25 25 25 / 10%);
+    border-radius: 5px;
+}
+
+.my-profile-wrapper label {
+    font-family: 'Almarai', sans-serif;
+    color: #4C301C;
+    float: right;
+}
+
+.my-profile-wrapper input {
+    padding: 1.5rem;
+    border-radius: 0;
+    font-family: 'Almarai', sans-serif;
+    border: 1px solid #E8E8E8;
+    margin-bottom: 1rem;
+}
+
+
+.remove-border {
+    border: none !important;
+    padding: 0 !important;
+}
+
+/* MY PROFILE PAGE CSS ENDS */
+
+/* MY ORDERS PAGE CSS STARTS */
+
+.order-filter-wrapper select {
+    border-radius: 0;
+    font-family: 'Almarai', sans-serif;
+    border: 1px solid #E8E8E8;
+    margin-bottom: 1rem;
+}
+
+.order-filter-wrapper input {
+    padding: 0.5rem;
+    border-radius: 0;
+    font-family: 'Almarai', sans-serif;
+    border: 1px solid #E8E8E8;
+    margin-bottom: 1rem;
+}
+
+th.order-table-title {
+    font-family: 'Almarai', sans-serif;
+    font-weight: 400;
+    color: #000000;
+    text-align: right;
+}
+
+.order-number-data a {
+    color: #000000 !important;
+}
+
+.order-number-data h5 {
+    font-family: 'Almarai', sans-serif;
+    text-align: right;
+}
+
+.order-date h5, .order-total h5, .order-payment, .order-status h5 {
+    color: #000000;
+    font-family: 'Almarai',sans-serif;
+    font-size: 1rem;
+    text-align: right;
+}
+
+td.order-detail-link a {
+    float: right;
+}
+
+/* MY ORDERS PAGE CSS ENDS */
+
+/* CART PAGE CSS STARTS */
+
+.product-cart-count {
+    margin-bottom: 1rem;
+}
+
+th.cart-table-title {
+    font-family: 'Almarai', sans-serif;
+    font-weight: 400;
+    color: #000000;
+    text-align: right;
+}
+
+.cart-prod-title h6 {
+    font-family: 'Almarai', sans-serif;
+    color: #000000;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.cart-price h5 {
+    color: #000000;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 300;
+}
+
+h5.cart-tax {
+    color: #000000;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 300;
+}
+
+td.cart-structure-name {
+    font-family: 'Almarai', sans-serif;
+    text-transform: uppercase;
+    color: #000000;
+    text-align: right;
+}
+
+.promo-input input {
+    padding: 0.5rem;
+    border-radius: 0;
+    font-family: 'Almarai', sans-serif;
+    border: 1px solid #E8E8E8;
+    margin-bottom: 1rem;
+}
+
+.cart-prod-title h6, .cart-price h5, h5.cart-tax {
+    text-align: right;
+}
+
+
+/* CART PAGE CSS ENDS */
+
+/* BILLING & SHIPPING PAGE CSS STARTS */
+
+.bill-ship-wrapper {
+    padding: 1.5rem;
+    box-shadow: 0px 0px 15px rgb(25 25 25 / 10%);
+    -webkit-box-shadow: 0px 0px 15px rgb(25 25 25 / 10%);
+    border-radius: 5px;
+}
+
+.bill-ship-wrapper label {
+    font-family: 'Almarai', sans-serif;
+    color: #4C301C;
+    float: right;
+}
+
+.bill-ship-wrapper input {
+    padding: 1.5rem;
+    border-radius: 0;
+    font-family: 'Almarai', sans-serif;
+    border: 1px solid #E8E8E8;
+    margin-bottom: 1rem;
+}
+
+.bill-ship-wrapper select {
+    border-radius: 0;
+    font-family: 'Almarai', sans-serif;
+    border: 1px solid #E8E8E8;
+    margin-bottom: 1rem;
+}
+
+/* BILLING & SHIPPING PAGE CSS ENDS */
+
+/* GIFTCARD DETAILS PAGE CSS STARTS */
+
+th.giftcard-table-title {
+    font-family: 'Almarai', sans-serif;
+    font-weight: 400;
+    color: #000000;
+    text-align: right;
+}
+
+.gift-card-code h5, .gift-card-price h5 {
+    color: #000000;
+    font-weight: 300;
+    font-family: 'Almarai', sans-serif;
+    text-align: right;
+}
+
+/* GIFTCARE DETAILS PAGE CSS ENDS */
+
+/* BILLING PAGE CSS STARTS */
+
+.billing-form-title h4 {
+    color: #4C301C;
+    font-family: 'Almarai', sans-serif;
+    text-align: right;
+}
+
+.billing-form-title i {
+    color: #e74c3c;
+}
+
+.billing-form input, .shipping-form input {
+    padding: 1.5rem;
+    border-radius: 0;
+    font-family: 'Almarai', sans-serif;
+    border: 1px solid #E8E8E8;
+    margin-bottom: 1rem;
+}
+
+.billing-form select {
+    border-radius: 0;
+    font-family: 'Almarai', sans-serif;
+    border: 1px solid #E8E8E8;
+    margin-bottom: 1rem;
+}
+
+.billing-form, .shipping-form {
+    padding: 1.5rem;
+    box-shadow: 0px 0px 15px rgb(25 25 25 / 10%);
+    -webkit-box-shadow: 0px 0px 15px rgb(25 25 25 / 10%);
+    border-radius: 5px;
+}
+
+/* BILLING PAGE CSS ENDS */
+
+/* CHECKOUT LOGIN CSS STARTS */
+
+/* CHEKOUT LOGIN CSS ENDS */
+
+.checkout-login-wrapper {
+    padding: 1.5rem;
+    box-shadow: 0px 0px 15px rgb(25 25 25 / 10%);
+    -webkit-box-shadow: 0px 0px 15px rgb(25 25 25 / 10%);
+    border-radius: 5px;
+}
+
+.checkout-login-title h4 {
+    font-family: 'Almarai', sans-serif;
+    color: #4C301C;
+    text-align: right;
+}
+
+.checkout-login-wrapper i {
+    color: #e74c3c;
+}
+
+.checkout-login-wrapper h6 {
+    font-weight: 300;
+    text-align: right;
+}
+
+.checkout-login-wrapper input {
+    padding: 1.5rem;
+    border-radius: 0;
+    font-family: 'Almarai', sans-serif;
+    border: 1px solid #E8E8E8;
+    margin-bottom: 1rem;
+}
+
+ul.guest-feature-list i {
+    color: #e74c3c;
+    font-size: 1.25rem;
+    margin-left: 5px;
+}
+
+.option-tag h3 {
+    color: #000000;
+    text-align: center;
+    font-family: 'Almarai', sans-serif;
+}
+
+/* CHECKOUT LOGIN PAGE CSS ENDS */
+
+/* CHECKOUT PAGE CSS STARTS */
+
+.checkout-wrapper {
+    padding: 1.5rem;
+    box-shadow: 0px 0px 15px rgb(25 25 25 / 10%);
+    -webkit-box-shadow: 0px 0px 15px rgb(25 25 25 / 10%);
+    border-radius: 5px;
+}
+
+.checkout-wrapper label {
+    font-family: 'Almarai', sans-serif;
+    color: #4C301C;
+    text-align: right;
+}
+
+.checkout-wrapper p {
+    text-align: right;
+}
+
+/* CHECKOUT PAGE CSS ENDS */
+
+/* ORDER DETAILS PAGE CSS STARTS */
+
+.order-detail-table {
+    margin-bottom: 2rem;
+}
+
+/* ORDER DETAILS PAGE CSS ENDS */
+
+/* SUCCESS PAGE CSS STARTS */
+
+.success-message p {
+    font-family: 'Almarai', sans-serif;
+    font-style: italic;
+    color: #4C301C;
+    font-size: 1.5rem;
+}
+
+/* SUCCESS PAGE CSS ENDS */
+
+/* GIFTCARD PAGE CSS STARTS */
+
+.giftcard-detail-image img {
+    width: 100%;
+    height: 230px;
+    object-fit: contain;
+}
+
+.giftcard-detail-title h3 {
+    color: #4C301C;
+    font-family: 'Almarai', sans-serif;
+    text-align: right;
+}
+
+.giftcard-detail-desc p {
+    margin-top: 1rem;
+    color: #515151;
+    font-family: 'Almarai', sans-serif;
+    margin-bottom: 1rem;
+    text-align: right;
+}
+
+.giftcard-detail-price p {
+    color: #e74c3c;
+    font-size: 1.5rem;
+    font-family: 'Almarai', sans-serif;
+    text-align: right;
+}
+
+/* GIFTCARD PAGE CSS ENDS */
+
+/* PAYMENT PAGE CSS STARTS */
+
+.payment-wrapper {
+    padding: 1.5rem;
+    box-shadow: 0px 0px 15px rgb(25 25 25 / 10%);
+    -webkit-box-shadow: 0px 0px 15px rgb(25 25 25 / 10%);
+    border-radius: 5px;
+}
+
+.payment-wrapper label {
+    font-family: 'Almarai', sans-serif;
+    color: #4C301C;
+}
+
+.payment-wrapper input {
+    padding: 1.5rem;
+    border-radius: 0;
+    font-family: 'Almarai', sans-serif;
+    border: 1px solid #E8E8E8;
+    margin-bottom: 1rem;
+}
+
+#giftCardOption:hover {
+    cursor: pointer;
+}
+
+.giftCardInput {
+    display: none;
+}
+
+/* PAYMENT PAGE CSS ENDS */
+
+/* FORGOT PASSWORD PAGE CSS STARTS */
+
+.forgot-pass-wrapper {
+    padding: 1.5rem;
+    box-shadow: 0px 0px 15px rgb(25 25 25 / 10%);
+    -webkit-box-shadow: 0px 0px 15px rgb(25 25 25 / 10%);
+    border-radius: 5px;
+}
+
+.forgot-pass-wrapper h6 {
+    color: #4C301C;
+    font-family: 'Almarai', sans-serif;
+    margin-bottom: 0.85rem;
+    text-align: right;
+}
+
+.forgot-pass-wrapper i {
+    color: #e74c3c;
+}
+
+.forgot-pass-wrapper input {
+    padding: 1.5rem;
+    border-radius: 0;
+    font-family: 'Almarai', sans-serif;
+    border: 1px solid #E8E8E8;
+    margin-bottom: 1rem;
+}
+
+/* FORGOT PASSWORD PAGE CSS ENDS */
+
+/* ALL CATEGORY PAGE CSS STARTS */
+
+.category-title h2 {
+    color: #4C301C;
+    font-family: 'Almarai', sans-serif;
+}
+
+.category-title i {
+    color: #e74c3c;
+}
+
+.category-wrap img {
+    height: 300px;
+    object-fit: contain;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    background-color: #F4F5F9;
+    transition: 0.3s ease;
+}
+
+.category-name {
+    padding: 0.5rem;
+    margin-top: 0.25rem;
+    background-color: #F9DAD9;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.category-name h4 {
+    text-align: center;
+    margin-top: 0.5rem;
+    font-family: 'Almarai', sans-serif;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: #4C301C;
+}
+
+/* ALL CATEGORY PAGE CSS ENDS */
+
+/* FOOTER CSS STARTS */
+
+footer {
+    padding: 50px;
+    background-color: #F9DAD9;
+}
+
+.footer-logo img {
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    margin-left: auto;
+    display: block;
+}
+
+.footer-desc p {
+    color: #515151;
+    font-family: 'Almarai', sans-serif;
+    margin-bottom: 1.5rem;
+    text-align: right;
+}
+
+.footer-title {
+    margin-bottom: 1.5rem;
+    text-align: right;
+}
+
+.footer-list li {
+    margin-bottom: 0.85rem;
+    display: flex;
+    align-items: center;
+}
+
+.footer-list li i {
+    margin-left: 0.5rem;
+    color: #e74c3c;
+    font-size: 1.5rem;
+}
+
+.footer-list li a {
+    color: #515151;
+    font-family: 'Almarai', sans-serif;
+    transition: 0.5s ease;
+}
+
+.footer-list li a:hover {
+    color: #e74c3c;
+}
+
+ul.footer-social {
+    float: right;
+}
+
+.footer-social li {
+    display: inline-flex;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 50px;
+    background-color: #e74c3c;
+    margin-right: 0.25rem;
+    transition: 0.5s ease;
+}
+
+.footer-social li i {
+    color: #FCFCFC;
+    font-size: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+
+}
+
+/* FOOTER CSS ENDS */

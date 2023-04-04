@@ -1,0 +1,115 @@
+@media (max-width: 991px) {
+    .header-container .open-search {
+        margin: 0;
+        position: static;
+        text-align: right;
+   }
+
+   .header-container .open-search .icofont-search {
+    display: block;
+}
+
+
+.header-container .search {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 70px;
+    width: 100%;
+    z-index: 999;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item {
+    padding: 0 5px;
+}
+
+
+
+.header-container .nav-content .nav-content-list .account-login .login-text {
+    display: none;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-link {
+    padding: 0;
+}
+
+.nav-container .nav-row {
+    display: none;
+}
+
+.nav-container .featured-category {
+    display: none;
+}
+
+.nav-container .all-navigator {
+    margin-right: 0;
+}
+
+.nav-container .all-category-nav {
+    max-width: 100%;
+}
+
+.nav-container .all-category-list {
+    min-width: 100%;
+}
+
+.nav-container .category-second-list {
+    display: none;
+}
+
+}
+
+@media (max-width: 1024px) {
+    .carousel-content-white, .carousel-content-black {
+        left: 6rem;
+        top: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .header-container {
+        height: 60px;
+    }
+
+    .header-container .nav-content .nav-content-list .nav-content-item .item-arrow {
+        display: none;
+    }
+
+    .subs-text h1 {
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    .carousel-content-white, .carousel-content-black {
+        left: 6rem;
+        top: 6rem;
+    }
+
+    .carousel-content-white h2, .carousel-content-black h2 {
+        font-size: 2.5rem;
+    }
+
+    .footer-two {
+        display: block;
+    }
+
+    ul.footer-two-list {
+        display: block;
+    }
+
+    .logo img{
+        height: 54px;
+    }
+}
+
+@media (max-width: 425px) {
+    .carousel-content-white, .carousel-content-black {
+        left: 4rem;
+        top: 4rem;
+    }
+
+    .carousel-content-black h5, .carousel-content-white h5 {
+        font-size: 1rem;
+    }
+}

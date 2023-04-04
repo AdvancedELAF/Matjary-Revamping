@@ -1,0 +1,2235 @@
+*{
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+.custom-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.section-spacing {
+    padding: 50px 0;
+}
+
+.blue-bg {
+    background-color: #E9F6FE;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+label.error {
+    color: red;
+    font-family: 'Almarai', sans-serif;
+    margin-left: auto;
+    display: flex;
+}
+
+.error{
+    font-family: 'Almarai', sans-serif;
+    text-align: right;
+    color: red;
+}
+
+.error-field {
+    color: red;
+    text-align: center;
+    font-family: 'Almarai', sans-serif;
+}
+
+.create-store-title {
+    margin-top: 10rem;
+}
+
+.create-store-title h3 {
+    text-align: center;
+    font-family: 'Almarai', sans-serif;
+    color: #8D4FDE;
+    font-weight: 600;
+}
+
+.storecration_instalation_wrapper h3 {
+    text-align: center;
+    font-family: 'Almarai', sans-serif;
+    color: #E63A7B;
+
+}
+
+.error_msg_container1 h2 {
+    text-align: center;
+    font-family: 'Almarai', sans-serif;
+    color: #E63A7B;
+}
+
+.error_msg_container1 p {
+    text-align: center;
+    font-family: 'Almarai', sans-serif;
+    color: red;
+}
+
+.pointer p{
+    font-family: 'Almarai', sans-serif;
+    text-align: right;
+}
+
+/* HEADER CSS STARTS */
+
+.nav-spacing {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: #ffffff;
+    transition: 0.5s ease;
+}
+
+.nav-scroll-spacing {
+    margin: 0.5rem 2.5rem 0;
+    border-radius: 1rem;
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+}
+
+.navbar-brand img {
+    height: 80px;
+}
+
+ul.navbar-nav {
+    font-family: 'Almarai', sans-serif;
+}
+
+ul.navbar-nav li a {
+    margin: 0 1rem;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #E63A7B;
+    font-weight: 600;
+    transition: 0.5s ease;
+}
+
+.nav-active a {
+    color: #8D4FDE !important;
+    border-bottom: 2px solid #8D4FDE;
+}
+
+a.nav-link:hover {
+    color: #8D4FDE !important;
+}
+
+li.nav-item:hover {
+    border-bottom: 2px solid #8D4FDE;
+}
+
+.header-btn-link {
+    color: #E63A7B;
+    font-family: 'Almarai', sans-serif;
+    margin: 1rem;
+    font-weight: 600;
+    text-decoration: none !important;
+}
+
+.header-btn-link:hover {
+    color: #8D4FDE;
+}
+
+.nav-reg-btn {
+    font-family: 'Almarai', sans-serif;
+    padding: 0 2rem;
+    margin: 1rem 0;
+    background-color: #8D4FDE;
+    border-color: #8D4FDE;
+    transition: 0.3s ease;
+}
+
+.nav-reg-btn:hover {
+    color: #8D4FDE;
+    border-color: #8D4FDE;
+    background-color: #FFFFFF;
+
+}
+
+.navbar-light .navbar-toggler {
+    border-color: #ffffff !important;
+}
+
+#navbarSupportedContent {
+    text-align: right;
+}
+
+/* HEADER CSS ENDS */
+
+/* TRIAL MODAL CSS STARTS */
+
+.trial-modal-header {
+    border-bottom: none;
+}
+
+.trial-modal-header img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 32%);
+}
+
+.trial-modal-close {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.trial-modal-content {
+    border-radius: 2rem;
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 39%);
+    background-color: #5394F8;
+    background-image: url(../image/building-bg-light.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border: none !important;
+
+}
+
+h4.trial-modal-title {
+    color: #FFFFFF;
+    text-align: center;
+    font-family: 'Almarai', sans-serif;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.trial-modal-form input {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    background-color: #FFCE3A;
+    border-color: #FFCE3A;
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 32%);
+    font-family: 'Almarai', sans-serif;
+}
+
+.brand-btn-pink-popup {
+    border-color: #E63A7B;
+    background-color: #E63A7B;
+    color: #FFFFFF;
+    transition: 0.5s ease;
+    font-family: 'Almarai', sans-serif;
+    width: 70%;
+}
+
+.brand-btn-pink-popup:hover {
+    border-color: #FFFFFF;
+    background-color: transparent;
+    color: #FFFFFF;
+}
+
+.trial-modal-footer {
+    border-top: none;
+    justify-content: center;
+}
+
+.trial-modal-footer small {
+    color: #FFFFFF;
+    font-family: 'Almarai', sans-serif;
+}
+
+.trial-modal-footer a {
+    text-decoration: none;
+    color: #FFCE3A;
+}
+
+.trial-modal-form label {
+    justify-content: center;
+    display: flex;
+}
+
+/* TRIAL MODAL CSS ENDS */
+
+/* FORGOT PASSWORD PAGE CSS STARTS */
+
+.fp-wrapper {
+    padding: 2rem  0 4rem;
+    margin-top: 8rem;
+    border-radius: 2rem;
+    background-image: url("../image/building-bg-light.png");
+    background-size: cover;
+}
+
+.fp-logo img{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 32%);
+    margin-bottom: 1rem;
+}
+
+.fp-headline h4 {
+    color: #8C52D6;
+    text-align: center;
+    font-family: 'Almarai', sans-serif;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.fp-form input {
+    background-color: #FFCE3A;
+    font-family: 'Almarai', sans-serif !important;
+}
+
+/* FORGOT PASSWORD PAGE CSS ENDS */
+
+/* CHOOSE DOMAIN PAGE CSS STARTS */
+
+.domain-section-wrapper {
+    padding: 2rem;
+    border-radius: 2rem;
+    margin-top: 10rem;
+}
+
+.domain-sec-title h4 {
+    color: #8c52d6;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.domain-plan-name h4 {
+    text-align: center;
+    font-family: 'Almarai', sans-serif;
+    color: #8C52D6;
+    margin-bottom: 2rem;
+}
+
+.chooseDomain label {
+    font-family: 'Almarai', sans-serif;
+    color: #E63A7B;
+}
+
+.domain-group-text {
+    background-color: #8C52D6;
+    color: #FFFFFF;
+    border-color: #8C52D6;
+    font-family: 'Almarai', sans-serif;
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 32%);
+    border-top-right-radius: 0 !important;
+    border-top-left-radius: 0.25rem !important;
+    border-bottom-right-radius: 0 !important;
+    border-bottom-left-radius: 0.25rem !important;
+}
+
+.form-check-label {
+    margin-right: 1.25rem;
+}
+
+.chooseDomain input {
+    background-color: #FFCE3A;
+    border-color: #FFCE3A;
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 32%);
+    font-family: 'Almarai', sans-serif;
+}
+
+.chck-domain-btn {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    float: right;
+}
+
+.domainsearchfaild {
+    font-family: 'Almarai','sans-serif' !important;
+    text-align: right
+}
+
+.domainsearchsuccess {
+    font-family: 'Almarai','sans-serif' !important;
+    text-align: right
+}
+
+/* CHOOSE DOMAIN PAGE CSS ENDS */
+
+/* INDEX PAGE: HERO SECTION CSS STARTS */
+
+.hero-section {
+    padding: 4rem 2rem 4rem;
+    border-radius: 2rem;
+    margin-top: 8rem;
+}
+
+.hero-content {
+    margin: 4rem 0 2rem;
+}
+
+.hero-content h2 {
+    color: #8D4FDE;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 1.25rem;
+    text-align: right;
+}
+
+.hero-content h3 {
+    color: #E63A7B;
+    font-family: 'Almarai', sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    text-align: right;
+}
+
+.hero-content p {
+    color: #E63A7B;
+    font-weight: 700;
+    font-family: 'Almarai', sans-serif;
+    font-size: 1.25rem;
+    text-align: right;
+}
+
+.purple-highlighter {
+    color: #8D4FDE !important;
+}
+
+.brand-btn-purple {
+    border: 1px solid #8D4FDE;
+    color: #8D4FDE;
+    background-color: transparent;
+    padding: 0.5rem 2rem;
+    transition: 0.5s ease;
+    font-family: 'Almarai', sans-serif;
+    margin-bottom: 1rem;
+}
+
+.brand-btn-purple:hover {
+    color: #FFFFFF;
+    background-color: #8D4FDE;
+    border-color: #8D4FDE;
+}
+
+/* INDEX PAGE: HERO SECTION CSS ENDS */
+
+/* INDEX PAGE: SECTION ONE CSS STARTS */
+
+.matjary-video video {
+    max-width: 100%;
+    height: auto;
+}
+
+.section-title h2 {
+    font-family: 'Almarai', sans-serif;
+    font-weight: 700;
+    color: #5294F7;
+    font-size: 2rem;
+    padding-bottom: 2rem;
+}
+
+.section-one-content {
+    margin: 1rem 0;
+}
+
+.section-one-content h2 {
+    color: #8D4FDE;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 600;
+    text-align: right;
+}
+
+.section-one-content h3 {
+    color: #E63A7B;
+    font-family: 'Almarai', sans-serif;
+    font-size: 1.3rem;
+    margin-top: 1.3rem;
+    margin-bottom: 1.5rem;
+    text-align: right;
+}
+
+.home-section-two {
+    padding: 4rem 2rem 4rem;
+    border-radius: 2rem;
+}
+
+/* INDEX PAGE: SECTION ONE CSS ENDS */
+
+/* INDEX PAGE: SECTION TWO CSS STARTS */
+
+.section-two-content h2 {
+    font-family: 'Almarai', sans-serif;
+    font-weight: 700;
+    color: #5294F7;
+    font-size: 2rem;
+    padding-bottom: 0.5rem;
+    text-align: right;
+}
+
+.section-two-content h3 {
+    font-family: 'Almarai', sans-serif;
+    color: #8D4FDE;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    text-align: right;
+}
+
+span.matjary-font {
+    font-family: 'Kodchasan', sans-serif;
+}
+
+.list-title {
+    color: #E63A7B;
+    font-family: 'Almarai', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: right;
+}
+
+.list-title ul li {
+    font-size: 1.25rem;
+}
+
+.list-title ul li i {
+    margin: 6px;
+}
+
+.matjary-features {
+    padding: 1rem 1.5rem;
+    background-color: #FFFFFF;
+    border-radius: 1rem;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+}
+
+.features-align {
+    display: flex;
+}
+
+.features-image img {
+    margin: 1.25rem 0;
+    padding-left: 1.25rem;
+}
+
+.features-content {
+    font-family: 'Almarai', sans-serif;
+}
+
+.features-content h4 {
+    font-weight: 600;
+    color: #000000;
+    text-align: right;
+}
+
+.features-content p {
+    color: #000000;
+    font-weight: 500;
+    margin-bottom: 0;
+    text-align: right;
+}
+/* INDEX PAGE: SECTION TWO CSS ENDS */
+
+/* INDEX PAGE: SECTION THREE CSS STARTS */
+
+.matjary-offer-wrapper {
+    font-family: 'Almarai', sans-serif;
+    padding: 1.5rem;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    transition: 0.5s ease;
+    height: 300px;
+}
+
+.matjary-offer-wrapper img {
+    margin-left: auto;
+    display: block;
+}
+
+.matjary-offer-wrapper h4 {
+    color: #8D4FDE;
+    margin-top: 1rem;
+    font-weight: 600;
+    text-align: right;
+}
+
+.matjary-offer-wrapper p {
+    color: #000000;
+    font-weight: 500;
+    text-align: right;
+}
+
+.matjary-offer-wrapper:hover {
+    background-color: #FFCE3A;
+}
+
+.matjary-offer-wrapper:hover h4 {
+    color: #E63A7B;
+}
+
+/* INDEX PAGE: SECTION THREE CSS ENDS */
+
+/* INDEX PAGE: SECTION FOUR CSS STARTS */
+
+.home-section-four {
+    padding: 4rem 2rem 4rem;
+    border-radius: 2rem;
+}
+
+.section-four-image img {
+    border-radius: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+/* INDEX PAGE: SECTION FOUR CSS ENDS */
+
+/* INDEX PAGE: SECTION FIVE CSS STARTS */
+.partners {
+    transition: 0.5s ease;
+}
+
+.partners img {
+    padding: 1rem;
+    height: 150px;
+    object-fit: contain;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.partners:hover {
+    background-color: #FFFFFF;
+    border-radius: 2rem;
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    transform: scale(1.03);
+}
+
+/* INDEX PAGE: SECTION FIVE ENDS */
+
+/* INDEX PAGE: SECTION SIX STARTS */
+
+.home-section-six {
+    padding: 4rem 2rem 4rem;
+    border-radius: 2rem;
+}
+
+.section-two-subtitle {
+    color: #8D4FDE;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 500;
+    margin-bottom: 3rem;
+}
+
+.form-wrap {
+    margin: 4rem auto;
+}
+
+.form-wrapper input, .form-wrapper select {
+    /* width: 50%; */
+    font-family: 'Almarai', sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    height: 3rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    border-radius: 0.5rem;
+    border: none;
+}
+
+.align-mid {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.brand-btn-pink {
+    border-color: #E63A7B;
+    background-color: #E63A7B;
+    color: #FFFFFF;
+    transition: 0.5s ease;
+    font-family: 'Almarai', sans-serif;
+    padding: 0.5rem 4rem;
+}
+
+.brand-btn-pink:hover {
+    background-color: transparent;
+    color: #E63A7B;
+    border-color: #E63A7B;
+}
+
+.form-image img {
+    border-radius: 2rem;
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+/* FOOTER CSS STARTS */
+
+footer {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-family: 'Almarai', sans-serif;
+    color: #FFFFFF;
+    border-radius: 2rem;
+}
+
+.dark-blue-bg {
+    background-color: #4442B7;
+    padding: 2rem;
+    border-top-right-radius: 2rem;
+    border-top-left-radius: 2rem;
+    background-image: url(../image/wave.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.footer-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+    text-align: right;
+}
+
+.footer-list a {
+    color: #FFFFFF;
+    text-decoration: none;
+    list-style: none;
+    transition: 0.5s ease;
+}
+
+.footer-list a:hover {
+    color: #FFCE3A;
+}
+
+.footer-list li {
+    margin: 1rem 0;
+    text-align: right;
+}
+
+.footer-list i {
+    margin: 5px;
+    float: right;
+}
+
+.footer-bottom {
+    background-color: #000000;
+    padding: 2rem;
+    border-bottom-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+}
+
+.social-list {
+    display: inline-flex;
+}
+
+.social-list li {
+    list-style: none;
+}
+
+
+.social-list li i {
+    color: #5394F8;
+    font-size: 2rem;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: none;
+    transition: 0.5s ease;
+}
+
+.social-list li i:hover {
+    color: #FFCE3A;
+}
+
+.copyright-text {
+    font-family: 'Almarai', sans-serif;
+    color: #57676E;
+    font-size: 1rem;
+    text-align: right;
+}
+
+.copyright-text a {
+    color: #57676E;
+    text-decoration: none;
+    transition: 0.5s ease;
+}
+
+.copyright-text a:hover {
+    color: #FFCE3A;
+}
+
+.legal-title {
+    text-align: center;
+    margin-top: 1rem;
+    font-family: 'Almarai', sans-serif;
+    color: #57676E;
+}
+
+/* CONTACT PAGE CSS STARTS */
+
+.contact-wrapper {
+    margin-top: 8rem;
+}
+
+.contact-overview {
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+.contact-overview h3 {
+    color: #8D4FDE;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 600;
+    text-align: right;
+}
+
+.contact-overview p, .contact-overview a {
+    color: #E63A7B;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: right;
+}
+
+.contact-details h4 {
+    color: #8D4FDE;
+    font-weight: 600;
+    font-family: 'Almarai', sans-serif;
+    text-align: right;
+    margin-bottom: 0;
+}
+
+.contact-details p {
+    color: #E63A7B;
+    font-family: 'Almarai', sans-serif;
+    text-align: right;
+}
+
+.contact-details i {
+    color: #000000;
+    margin: 5px;
+    font-size: 1rem;
+    color: #4442B7;
+}
+
+.contact-form {
+    padding: 1rem 0;
+}
+
+.form-wrapper textarea {
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    border: none;
+    border-radius: 1rem;
+    font-family: 'Almarai', sans-serif;
+}
+
+.contact-map {
+    margin-top: 2rem;
+}
+
+.contact-map iframe {
+    border-radius: 2rem;
+}
+
+/* CONTACT PAGE CSS ENDS */
+
+/* PRICING PAGE CSS STARTS */
+
+.pricing-info-wrapper {
+    margin-top: 8rem;
+}
+
+.pricing-info {
+    padding: 4rem 2rem 2rem;
+    border-radius: 2rem;
+    background-image: url(../image/building-bg-light.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+.pricing-info h3 {
+    color: #8D4FDE;
+    text-align: center;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.pricing-info h5 {
+    color: #E63A7B;
+    text-align: center;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.pricing-info span {
+    color: #8D4FDE;
+}
+
+.toggle-switch {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.control {
+    padding: 1rem 0;
+}
+
+.control p {
+    color: #8C52D6;
+    display: inline-block;
+    top: 0;
+    padding: 0 25px;
+    font-size: 17px !important;
+    position: relative;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 600;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 78px;
+    height: 32px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #FFCE3A;
+    border: 0;
+    border-radius: 31px;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(60px);
+    -ms-transform: translateX(60px);
+    transform: translateX(60px);
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 40px;
+    width: 40px;
+    left: -11px;
+    top: -4px;
+    border: 2.5px solid #FFFFFF;
+    background-color: #E63A7B;
+    border-radius: 100%;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.pricing-wrapper {
+    margin: 0.5rem;
+    padding: 1rem;
+    background-color: #ffffff;
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 32%);
+    border-radius: 2rem;
+    transition: 0.3s ease;
+    text-align: center;
+}
+
+.pricing-wrapper:hover {
+    background-color: #0A3290;
+    transform: scale(1.03);
+}
+
+.pricing-head {
+    background-color: #E9F6FE;
+    padding: 1rem;
+    border-radius: 1rem;
+    text-align: center;
+}
+
+.pricing-wrapper:hover .pricing-head {
+    background-color: #FFCE3A;
+}
+
+.pricing-head h4 {
+    color: #8D4FDE;
+    text-transform: uppercase;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 600;
+}
+
+.pricing-head h6 {
+    color: #E63A7B;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 500;
+}
+
+.plan-price {
+    display: inline-flex;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    color: #0A3290;
+}
+
+.pricing-wrapper:hover .plan-price {
+    color: #ffffff;
+}
+
+.pricing-wrapper:hover .pricing-head {
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 39%);
+}
+
+.plan-price sup {
+    font-size: 1.5rem;
+    margin-top: 3rem;
+}
+
+.amount {
+    font-size: 4rem;
+}
+
+.amount-duration {
+    margin-top: 3.4rem;
+}
+
+.features-list {
+    text-align: right !important;
+    color: #0A3290;
+    font-family: 'Almarai', sans-serif;
+}
+
+.pricing-wrapper:hover .features-list {
+    color: #ffffff;
+}
+
+.features-list ul li i {
+    float: right;
+    margin-left: 0.5rem;
+    margin-top: 0.2rem;
+}
+
+.features-list ul li {
+    font-weight: 500;
+}
+
+.pricing-wrapper:hover .brand-btn-purple {
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+/* PRICING PAGE CSS ENDS */
+
+/* HELP PAGE CSS STARTS */
+
+.help-title-wrapper {
+    margin-top: 8rem;
+}
+
+.help-title-section {
+    padding: 4rem 2rem 2rem;
+    border-radius: 2rem;
+}
+
+.help-title-section h3 {
+    color: #8C52D6;
+    font-weight: 600;
+    text-align: center;
+    font-family: 'Almarai', sans-serif;
+    margin-bottom: 1rem;
+}
+
+.help-title-section h5 {
+    color: #E63A7B;
+    font-family: 'Almarai', sans-serif;
+    text-align: center;
+    font-weight: 600;
+}
+
+ul.hc-social-icons {
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+}
+
+ul.hc-social-icons li {
+    display: inline-flex;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+}
+
+ul.hc-social-icons li a {
+    color: #FFFFFF;
+    background-color: #43A2E6;
+    padding: 0.5rem 1rem;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: 0.5s ease;
+}
+
+ul.hc-social-icons li a:hover {
+    background-color: #8C52D6;
+}
+
+.hc-card {
+    padding: 1rem;
+    height: 200px;
+    background-color: #ffffff;
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 32%);
+    transition: 0.5s ease;
+    text-align: right;
+}
+
+.hc-card i {
+    color: #FFCE3A;
+    font-size: 2.5rem;
+}
+
+.hc-card h4 {
+    color: #8C52D6;
+    font-family: 'Almarai', sans-serif;
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+.hc-card p {
+    color: #E63A7B;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 500;
+}
+
+.hc-card:hover {
+    background-color: #0A3290;
+}
+
+.hc-card:hover i {
+    color: #FFFFFF;
+}
+
+.hc-card:hover h4 {
+    color: #FFFFFF;
+}
+
+.hc-card:hover p {
+    color: #FFFFFF;
+}
+
+/* HELP PAGE CSS ENDS */
+
+/* LOGIN & REGISTER PAGE CSS STARTS */
+
+.login-wrapper {
+    background-image: url(../image/image-5.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    border-radius: 2rem;
+    margin: 8rem 0 0;
+    padding: 2rem 0;
+    display: grid;
+    place-content: center;
+    min-height: 100vh;
+}
+
+.register-wrapper {
+    background-image: url(../image/image-4.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 2rem;
+    margin: 8rem 0 0;
+    padding: 2rem 0;
+    display: grid;
+    place-content: center;
+    min-height: 100vh;
+}
+
+.login-box, .register-box {
+    background-color: #E9F6FE;
+    padding: 2rem 4rem;
+    border-radius: 2rem;
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 39%);
+}
+
+.login-box img, .register-box img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 32%);
+    margin-bottom: 1.5rem;
+}
+
+.login-box h4, .register-box h4 {
+    text-align: center;
+    font-family: 'Almarai', sans-serif;
+    color: #8C52D6;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.login-box p, .register-box p {
+    color: #5294F7;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 500;
+}
+
+/* LOGIN & REGISTER PAGE CSS ENDS */
+
+/* PRIVACY POLICY PAGE CSS STARTS */
+
+.pp-title-wrapper {
+    margin-top: 8rem;
+}
+
+.pp-title-section {
+    padding: 4rem 2rem 2rem;
+    border-radius: 2rem;
+}
+
+.pp-title-section h3 {
+    color: #8C52D6;
+    text-align: center;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.pp-title-section p {
+    color: #E63A7B;
+    text-align: center;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 500;
+}
+
+.pp-content {
+    font-family: 'Almarai', sans-serif;
+    text-align: right;
+}
+
+.pp-content h4 {
+    color: #8c52d6;
+    font-family: 'Almarai', sans-serif;
+    margin-top: 1.5rem;
+}
+
+.pp-list li {
+    padding: 0.5rem 0;
+    font-family: 'Almarai', sans-serif;
+    display: flex;
+}
+
+.pp-list i {
+    margin-left: 0.5rem;
+    margin-top: 0.4rem;
+    color: #5997f4;
+    transform: scaleX(-1);
+}
+
+p.para-note {
+    color: #E63A7B;
+    font-weight: 600;
+}
+
+span.pp-highlight {
+    color: #8c52d6;
+    margin-right: 0.5rem;
+    font-weight: 500;
+    font-family: 'Almarai', sans-serif;
+}
+
+/* PRIVACY POLICY PAGE CSS ENDS */
+
+/* TERMS & CONDITIONS PAGE CSS STARTS */
+
+.tc-title-wrapper {
+    margin-top: 8rem;
+}
+
+.tc-title-section {
+    padding: 4rem 2rem 2rem;
+    border-radius: 2rem;
+}
+
+.tc-content {
+    text-align: right;
+}
+
+.tc-title-section h3 {
+    color: #8C52D6;
+    text-align: center;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.tc-title-section p {
+    color: #E63A7B;
+    text-align: center;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 500;
+}
+
+.tc-list li {
+    padding: 0.5rem 0;
+    font-family: 'Almarai', sans-serif;
+    display: flex;
+}
+
+.tc-list i {
+    margin-left: 0.5rem;
+    margin-top: 0.4rem;
+    color: #5997f4;
+    transform: scaleX(-1);
+}
+
+.tc-content h4 {
+    color: #8c52d6;
+    font-family: 'Almarai', sans-serif;
+    margin-top: 1.5rem;
+}
+
+/* TERMS & CONDITIONS PAGE CSS ENDS */
+
+/* REFUND & RETURN POLICY PAGE CSS STARTS */
+
+.rrp-title-wrapper {
+    margin-top: 8rem;
+}
+
+.rrp-title-section {
+    padding: 4rem 2rem 2rem;
+    border-radius: 2rem;
+}
+
+.rrp-content {
+    text-align: right;
+}
+
+.rrp-title-section h3 {
+    color: #8C52D6;
+    text-align: center;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.rrp-title-section p {
+    color: #E63A7B;
+    text-align: center;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 500;
+}
+
+.rrp-list li {
+    padding: 0.5rem 0;
+    font-family: 'Almarai', sans-serif;
+    display: flex;
+}
+
+.rrp-list i {
+    margin-left: 0.5rem;
+    margin-top: 0.4rem;
+    color: #5997f4;
+    transform: scaleX(-1);
+}
+
+.rrp-content a {
+    font-family: 'Almarai', sans-serif;
+}
+
+/* REFUND & RETURN POLICY PAGE CSS ENDS */
+
+/* TEMPLATE PAGE CSS STARTS */
+
+.template-wrapper {
+    margin-top: 8rem;
+}
+
+.template-title-wrapper {
+    padding: 4rem 2rem 2rem;
+    border-radius: 2rem;
+    background-image: url('../image/building-bg-light.png');
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.template-title-wrapper h3 {
+    color: #8C52D6;
+    text-align: center;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.template-title-wrapper h5 {
+    color: #E63A7B;
+    font-weight: 600;
+    font-family: 'Almarai', sans-serif;
+    text-align: center;
+}
+
+.template-card {
+    background-color: #FFFFFF;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 32%);
+    transition: 0.5s ease;
+    margin: 0.5rem;
+    text-align: right;
+}
+
+.template-card:hover {
+    transform: scale(1.05);
+    background-color: #FFCE3A;
+}
+
+.template-card:hover h4 {
+    color: #E63A7B;
+}
+
+.template-card:hover img {
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 32%);
+    transform: scale(1.05);
+}
+
+.template-card img {
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    transition: 0.5s ease;
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 32%);
+}
+
+.template-card h4 {
+    color: #0A3290;
+    font-family: 'Almarai', sans-serif;
+}
+
+.template-card p {
+    font-family: 'Almarai', sans-serif;
+    font-weight: 500;
+}
+
+/* TEMPLATE PAGE CSS ENDS */
+
+/* RESET PASSWORD CSS STARTS */
+
+.reset-password-box {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    place-content: center;
+    min-height: 100vh;
+    background-color: #ffffff;
+    background-image: url(../image/building-bg-dark.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.reset-password-body {
+    background-color: #E9F6FE;
+    text-align: right;
+    padding: 2rem;
+    margin: 10px;
+    border-radius: 2rem;
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+}
+
+.reset-password-body img {
+    width: auto;
+    height: 70px;
+    object-fit: contain;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.reset-password-title {
+    font-family: 'Almarai', sans-serif;
+    color:#8C52D6;
+}
+
+.reset-password-body label {
+    color: #E63A7B;
+    font-family: 'Almarai', sans-serif;
+}
+
+.reset-password-body input {
+    font-family: 'Almarai', sans-serif;
+}
+
+/* RESET PASSWORD CSS ENDS */
+
+/* BILLING PAGE CSS STARTS */
+
+.billing-form-wrapper {
+    margin-top: 8rem;
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+.billing-form-wrapper h3 {
+    color: #8C52D6;
+    font-weight: 600;
+    font-family: 'Almarai', sans-serif;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.table {
+    text-align: right;
+}
+
+.table-title h4, .payment-title h4 {
+    color: #8C52D6;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-align: right;
+}
+
+.billing-thead {
+    background-color: #E63A7B !important;
+    color: #FFFFFF;
+    border-radius: 2rem !important;
+}
+
+.billing-table-wrapper {
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    border-radius: 2rem;
+    font-family: 'Almarai', sans-serif;
+}
+
+.billing-payment-wrapper {
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 2rem;
+    font-family: 'Almarai', sans-serif;
+}
+
+.total-row td {
+    color: #8C52D6;
+    font-weight: 500;
+    font-size: 1.25rem;
+}
+
+
+.coupon-code-wrapper {
+    padding-right: 2rem;
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    border-radius: 2rem;
+}
+
+input.coupon-field {
+    background-color: #FFCE3A;
+}
+
+.payment-card-wrapper {
+    padding: 2rem;
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    border-radius: 2rem;
+}
+
+.card-details-wrapper {
+    padding: 2rem;
+    border-radius: 2rem;
+    margin-top: 1rem;
+}
+
+.required-mark {
+    color: red;
+}
+
+.payment-card-wrapper img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.payment-card-wrapper:focus {
+
+    border-color: #0062cc;
+    box-shadow: 0 0 0 0.2rem rgb(38 143 255 / 50%) !important;
+}
+
+/* BILLING PAGE CSS ENDS */
+
+/* USER DASHBOARD CSS STARTS */
+
+.user-dashboard-wrapper {
+    margin-top: 10rem;
+}
+
+.user-sec-title h4 {
+    font-family: 'Almarai', sans-serif;
+    color: #8C52D6;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-align: right;
+}
+
+.dash-wrap {
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+.dash-card {
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 2rem;
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    font-family: 'Almarai', sans-serif;
+    background-color: #FFFFFF;
+    height: 15rem;
+    transition: 0.5s ease;
+    display: grid;
+}
+
+.dash-card:hover {
+    transform: scale(1.05);
+}
+
+.dash-card h5 {
+    color: #E63A7B;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.brand-btn-purple-filled {
+    border-color: #8C52D6;
+    background-color: #8c52d6;
+    color: #FFFFFF;
+    transition: 0.5s ease;
+    font-family: 'Almarai', sans-serif;
+    padding: 0.5rem 2rem;
+}
+
+
+.nav-link.active {
+    background-color: #FFCE3A !important;
+    color: #E63A7B !important;
+    font-weight: 600;
+}
+
+.nav-tabs a, .nav-pills a{
+    font-family: 'Almarai', sans-serif;
+}
+
+
+h5.tab-title {
+    font-family: 'Almarai', sans-serif;
+    color: #8C52D6;
+    font-weight: 600;
+    text-align: right;
+}
+
+.form-section-title h4 {
+    color: #E63A7B;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 600;
+    text-align: right;
+}
+
+.billing-table {
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    border-radius: 2rem;
+    background-color: #FFFFFF;
+}
+
+.billing-table thead {
+    font-family: 'Almarai', sans-serif;
+    background-color: #8D4FDE !important;
+    color: #FFFFFF;
+}
+
+.billing-table td {
+    font-family: 'Almarai', sans-serif;
+}
+
+ul#pills-tab {
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    padding: 0.5rem;
+    border-radius: 10px;
+    background-color: #E9F6FE;
+    width: fit-content;
+}
+
+#user-message-red {
+    text-align: right;
+    color: red;
+}
+/* USER DASHBOARD CSS ENDS */
+
+/* ABOUT US PAGE CSS STARTS */
+
+.about-us-wrapper {
+    margin-top: 8rem;
+    padding: 4rem 2rem;
+    border-radius: 2rem;
+}
+
+.about-content h2 {
+    font-family: 'Almarai', sans-serif;
+    color: #8C52D6;
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 1.25rem;
+    text-align: right;
+}
+
+.about-content p {
+    font-family: 'Almarai', sans-serif;
+    color: #E63A7B;
+    font-size: 1.3rem;
+    font-weight: 500;
+    text-align: right;
+}
+
+.about-sec-two-content h2 {
+    font-family: 'Almarai', sans-serif;
+    font-weight: 700;
+    color: #5294F7;
+    font-size: 2rem;
+    padding-bottom: 0.5rem;
+    text-align: right;
+}
+
+.about-sec-two-content h3 {
+    font-family: 'Almarai', sans-serif;
+    color: #8D4FDE;
+    font-weight: 500;
+    font-size: 1.25rem;
+    text-align: right;
+}
+
+.about-sec-two-content p {
+    font-family: 'Almarai', sans-serif;
+    color: #E63A7B;
+    font-weight: 600;
+    text-align: right;
+}
+
+.ab-sec-two-card-one {
+    font-family: 'Almarai', sans-serif;
+    padding: 1rem;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    transition: 0.5s ease;
+    text-align: right;
+}
+
+.ab-sec-two-card-two {
+    font-family: 'Almarai', sans-serif;
+    padding: 1rem;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    transition: 0.5s ease;
+    margin-top: 2.5rem;
+    text-align: right;
+}
+
+.ab-sec-two-card-one:hover , .ab-sec-two-card-two:hover {
+    background-color: #FFCE3A;
+}
+
+h4.ab-card-title {
+    color: #8C52D6;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 600;
+}
+
+p.ab-card-para {
+    color: #000000;
+    font-weight: 500;
+}
+
+.ab-sec-two-card-one:hover h4.ab-card-title {
+    color: #E63A7B;
+}
+
+.ab-sec-two-card-two:hover h4.ab-card-title {
+    color: #E63A7B;
+}
+
+.ab-banner img {
+    margin-top: 1.5rem;
+    border-radius: 2rem;
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    margin-bottom: 1rem;
+}
+
+.mv-wrapper {
+    padding: 4rem 2rem;
+    border-radius: 2rem;
+}
+
+.mv-card {
+    padding: 2rem;
+    border-radius: 2rem;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    margin-bottom: 1rem;
+    height: 100%;
+    transition: 0.5s ease;
+    text-align: right;
+}
+
+.mv-card i {
+    color: #5294F7;
+    font-size: 5rem;
+    margin-bottom: 1rem;
+}
+
+.mv-card h2 {
+    color: #8C52D6;
+    font-family: 'Almarai', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-top: 2rem;
+}
+
+.mv-card p {
+    color: #E63A7B;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 600;
+}
+
+.mv-card:hover {
+    background-color: #FFCE3A;
+}
+
+.mv-card:hover i {
+    color: #E63A7B;
+}
+
+.mv-card:hover p {
+    color: #000000;
+}
+
+/* ABOUT US PAGE CSS ENDS */
+
+/* FAQ PAGE CSS STARTS */
+
+.faq-tt-wrapper {
+    margin-top: 8rem;
+    padding: 2rem;
+    border-radius: 2rem;
+    background-image: url('../image/building-bg-light.png');
+    background-position: top center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.faq-wrap-title h3 {
+    text-align: center;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 700;
+    color: #8C52D6;
+    margin-bottom: 1rem;
+}
+
+.faq-wrap-title h5 {
+    text-align: center;
+    font-family: 'Almarai', sans-serif;
+    color: #E63A7B;
+}
+
+.faq-header button {
+    color: #8C52D6;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 600;
+    transition: 0.5s ease;
+    text-align: right !important;
+}
+
+.faq-header button:hover {
+    color: #E63A7B;
+    text-decoration: none;
+}
+
+.faq-header button:focus {
+    box-shadow: none !important;
+    color: #E63A7B;
+    text-decoration: none !important;
+}
+
+.faq-body {
+    font-family: 'Almarai', sans-serif;
+    text-align: right;
+}
+
+/* FAQ PAGE CSS ENDS */
+
+/* ERROR PAGE CSS STARTS */
+
+.error-wrapper {
+    margin-top: 8rem;
+    background-image: url('../image/building-bg-light.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom center;
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+.error-wrapper img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.error-wrapper h4 {
+    font-family: 'Almarai', sans-serif;
+    color: #8C52D6;
+}
+
+/* ERROR PAGE CSS ENDS */
+
+/* PAYMENT ERROR CSS STARTS */
+
+.p-error-wrapper {
+    margin-top: 8rem;
+    background-image: url('../image/building-bg-light.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom center;
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+.p-error-wrapper img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+}
+
+.p-error-wrapper h2 {
+    font-family: 'Almarai', sans-serif;
+    color: #E63A7B;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.p-error-wrapper h4 {
+    font-family: 'Almarai', sans-serif;
+    color: #8C52D6;
+}
+
+/* PAYMENT ERROR CSS ENDS */
+
+/*FREE TRIAL SUCCESS PAGE CSS STARTS*/
+
+
+.site-login-title {
+    padding: 1.25rem 0;
+    font-family: 'Almarai', sans-serif;
+    color: #8C52D6;
+    padding: 2rem 2rem;
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    border-radius: 2rem;
+    margin-top: 1.25rem;
+    background-color: #ffffff;
+}
+.site-login-title {
+    text-align: right;
+}
+
+.site-login-details {
+    font-family: 'Almarai', sans-serif;
+    text-align: right;
+}
+
+.admin-cred-title {
+    padding: 1.25rem 0;
+    font-family: 'Almarai', sans-serif;
+    color: #E63A7B;
+    padding: 2rem 2rem;
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    border-radius: 2rem;
+    margin-top: 1.25rem;
+    background-color: #ffffff;
+    text-align: right;
+}
+
+.admin-cred-details {
+    font-family: 'Almarai', sans-serif;
+    text-align: right;
+}
+
+.storecration_instalation_wrapper_inner {
+    margin-top: 8rem;
+}
+
+.create-store-congratulate {
+    font-family: 'Almarai';
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #8C52D6;
+}
+
+.congratulate-msg {
+    font-family:'Almarai', sans-serif;
+    text-align: center;
+    font-size: 1.25rem;
+    color: #E63A7B;
+}
+
+/*FREE TRIAL SUCCESS PAGE CSS ENDS*/
+
+/* SERVICES PAGE CSS STARTS */
+
+.services-sec-one {
+    margin-top: 8rem;
+}
+
+.services-wrapper {
+    padding: 4rem 2rem 2rem;
+    border-radius: 2rem;
+    background-image: url('../image/building-bg-light.png');
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.services-page-title h3 {
+    color: #8C52D6;
+    font-family: 'Almarai', sans-serif;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.services-page-title span {
+    color: #E63A7B;
+}
+
+.services-page-title h5 {
+    color: #E63A7B;
+    text-align: center;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 600;
+}
+
+.services-section-title h2 {
+    font-family: 'Almarai', sans-serif;
+    font-weight: 700;
+    color: #5294F7;
+    font-size: 2rem;
+    padding-bottom: 0.5rem;
+}
+
+.service-details-wrapper {
+    font-family: 'Almarai', sans-serif;
+    padding: 1.5rem;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    transition: 0.5s ease;
+    height: 400px;
+}
+
+.wrapper-min-height {
+    height: 300px;
+}
+
+.service-details-wrapper:hover {
+    background-color: #FFCE3A;
+}
+
+.service-details-wrapper img {
+    margin-left: auto;
+    display: block;
+}
+
+.service-details-wrapper h4 {
+    font-family: 'Almarai', sans-serif;
+    color: #8D4FDE;
+    font-weight: 500;
+    text-align: right;
+}
+
+.service-details-wrapper p {
+    color: #000000;
+    font-family: 'Almarai', sans-serif;
+    text-align: right;
+}
+
+.services-three-wrapper {
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+.service-title h4 {
+    color: #8C52D6;
+    margin-top: 2rem;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 600;
+    text-align: center;
+}
+
+.service-subcontent p {
+    color: #E63A7B;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 500;
+    font-size: 1.25rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.sub-service-wrapper {
+    position: relative;
+}
+
+.sub-service-wrapper img {
+    border-radius: 1rem;
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    margin-bottom: 1rem;
+}
+
+.sub-service-wrapper h5 {
+    color: #FFFFFF;
+    font-family: 'Almarai', sans-serif;
+    position: absolute;
+    font-weight: 600;
+    bottom: 1rem;
+    right: 1rem;
+}
+
+.service-sec-banner img {
+    border-radius: 2rem;
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    margin-bottom: 2rem;
+}
+
+.service-sec-four-wrapper {
+    font-family: 'Almarai', sans-serif;
+    padding: 1rem;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    transition: 0.5s ease;
+}
+
+.service-align {
+    display: flex;
+}
+
+.service-icon {
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+.service-sec-four-wrapper h4 {
+    font-family: 'Almarai', sans-serif;
+    color: #8D4FDE;
+    font-weight: 600;
+    font-size: 1.25rem;
+    text-align: right;
+}
+
+.service-sec-four-wrapper p {
+    color: #E63A7B;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 500;
+    text-align: right;
+}
+
+.services-five-wrapper {
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+/* SERVICE PAGE CSS ENDS */
+/*Validation color*/
+.green-left{
+    color: green;
+}
+
+.message-red{
+    color:red;
+}
+.red-left{
+    color:red;
+}
+.success{
+    color:green;
+}

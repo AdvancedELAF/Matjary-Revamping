@@ -1,0 +1,60 @@
+@media (max-width: 575px) {
+    .prod-cart {
+        display: block;
+        text-align: center;
+    }
+
+    .prod-cart img {
+        margin-bottom: 1rem;
+    }
+
+    .cards img {
+        height: 20px;
+    }
+
+    .footer-info img {
+        height: 65px;
+    }
+
+    .banner-item img {
+        margin-bottom: 1rem;
+    }
+
+    .carousel-content {
+        right: 2.5rem;
+    }
+    
+    .carousel-content h4 {
+        font-size: 2rem;
+    }
+
+    .carousel-content p {
+        font-size: 1rem;
+    }
+
+    .ui-title h4 {
+        font-size: 1.5rem;
+    }
+
+    .ui-title h5 {
+        font-size: 1rem;
+    }
+
+    .page-title {
+        padding: 3rem 0;
+    }
+
+    .page-title h1 {
+        font-size: 2rem;
+    }
+
+    .trans-page-title h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .mob-ar-align {
+        text-align: right;
+    }
+}

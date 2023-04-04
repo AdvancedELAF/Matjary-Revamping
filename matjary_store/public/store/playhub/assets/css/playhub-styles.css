@@ -1,0 +1,1167 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+/* COMMON CSS STARTS */
+
+.section-spacing {
+    padding: 50px 0;
+}
+
+.text-orange {
+    color: #FF5D46;
+}
+
+.required-mark {
+    color: #ff0000;
+}
+
+.brand-input {
+    border-radius: 15px;
+    padding: 0.5rem;
+    border: 2px solid #81818133;
+    width: 100%;
+    font-family: 'Audiowide';
+}
+
+a.brand-btn-blue-grad, .brand-btn-blue-grad {
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    color: #FFFFFF;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+}
+
+a.brand-btn-ad-black, .brand-btn-ad-black {
+    padding: 0.5rem 1rem;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    border: none;
+    background-color: #000;
+    border-radius: 50px;
+    font-size: 12px;
+}
+
+a.brand-btn-ad-white, .brand-btn-ad-white {
+    padding: 0.5rem 1rem;
+    color: #000000;
+    text-transform: uppercase;
+    border: none;
+    background-color: #FFFFFF;
+    border-radius: 50px;
+    font-size: 12px;
+}
+
+.orange-bg {
+    background: #FF4E51;
+    background: -webkit-linear-gradient(right, #FF4E51, #FE754B);
+    background: -moz-linear-gradient(right, #FF4E51, #FE754B);
+    background: linear-gradient(to left, #FF4E51, #FE754B);
+    border-radius: 15px;
+}
+
+.ui-title h4 {
+    font-family: 'Audiowide', swap;
+    font-size: 2rem;
+}
+
+.ui-title h5 {
+    margin-bottom: 1.5rem;
+}
+
+a.brand-btn-white, .brand-btn-white {
+    background-color: #FFFFFF;
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    border: none;
+}
+
+a.brand-btn-add-cart, .brand-btn-add-cart {
+    background-color: #FF5D46;
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    border: none;
+    color: #FFFFFF;
+    font-family: 'Audiowide', swap;
+    font-size: smaller;
+}
+
+a.brand-btn-add-wishlist, .brand-btn-add-wishlist {
+    background-color: #000000;
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    border: none;
+    color: #FFFFFF;
+    font-family: 'Audiowide', swap;
+}
+
+a.brand-btn-orange, .brand-btn-orange {
+    background-color: #FF5D46;
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    border: none;
+    color: #FFFFFF;
+}
+
+a.brand-btn-black, .brand-btn-black {
+    background-color: #000000;
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    border: none;
+    color: #FFFFFF;
+}
+
+.prod-wrapper {
+    padding: 1rem;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    position: relative;
+    transition: 0.3s ease;
+    margin-bottom: 1rem;
+    border: 1px solid #efefef;
+}
+
+.prod-wrapper:hover {
+    box-shadow: -1px 5px 15px rgb(25 25 25 / 10%);
+    transform: scale(1.01);
+}
+
+.prod-wrapper img {
+    width: 100%;
+    height: auto;
+    min-height: 200px;
+    max-height: 200px;
+    /* object-fit: contain; */
+    margin-bottom: 0.8rem;
+}
+
+.prod-title h5 {
+    font-weight: 600;
+    color: #616161;
+    transition: 0.3s ease;
+}
+
+.prod-title h5:hover {
+    color: #FF5D46;
+}
+
+h6.strike-amount {
+    text-decoration: line-through;
+    color: #717171;
+}
+
+h5.sale-amount {
+    color: #FF5D46;
+    font-weight: 700;
+}
+
+.offer-badge {
+    background-color: #FF5D46;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+.offer-badge h5 {
+    color: #FFFFFF;
+    margin-bottom: 0;
+    padding: 9px;
+}
+
+.owl-stage-outer {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.brand-select {
+    padding: 0.5rem;
+    width: 100%;
+    border: 2px solid #81818133;
+    border-radius: 15px;
+    font-family: 'Audiowide', swap;
+}
+
+.trans-page-title h1 {
+    font-family: 'Audiowide', swap;
+    color: #FE754B;
+    padding: 2rem 0 0;
+}
+
+.brand-wrap {
+    padding: 1rem;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #efefef;
+    position: relative;
+}
+
+.wishlist {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+}
+
+.wishlist i {
+    cursor: pointer;
+    padding: 10px 12px 8px;
+    background: #fff;
+    border-radius: 50%;
+    margin: 0 0 15px;
+    color: #aaa;
+    transition: .2s;
+    box-shadow: 0px 5px 4px 0px #44464778;
+}
+
+.wishlist i.press {
+    animation: size .4s;
+    color: #e52727;
+}
+
+/* COMMON CSS ENDS */
+
+/* HEADER CSS STARTS */
+
+.topbar {
+    padding: 1rem 0;
+    background-color: #FF5D46;
+}
+
+.topbar ul {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.topbar ul li {
+    display: inline-flex;
+}
+
+.topbar h6 {
+    margin: 0 5px;
+    color: #FFFFFF;
+    transition: 0.3s ease;
+    text-transform: uppercase;
+}
+
+.topbar h6:hover {
+    color: #000000;
+}
+
+.header-nav {
+    background-color: #000000;
+    box-shadow: -1px 0px 20px 0px rgb(0 0 0 / 3%);
+}
+
+.navbar-brand img {
+    object-fit: contain;
+    height: 65px;
+    background-color: #FFFFFF;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+.header-item a {
+    text-transform: uppercase;
+    color: #FFFFFF !important;
+    font-weight: 500;
+    transition: 0.3s ease;
+    margin: 0 0.5rem;
+    font-family: 'Audiowide';
+    font-size: 14px;
+}
+
+.header-item a:hover {
+    color: #FF5D46 !important;
+}
+
+.menu-active {
+    color: #FF5D46 !important;
+}
+
+a.dropdown-item {
+    margin: 0;
+}
+
+.header-icon a {
+    margin: 0.5rem;
+    color: #FFFFFF;
+    font-size: 2rem;
+    transition: 0.3s ease;
+}
+
+.header-icon a:hover {
+    color: #FF5D46;
+}
+
+.header-dropdown-menu {
+    background-color: #000000;
+}
+
+.dropdown-menu>li a:hover,
+.dropdown-menu>li.show {
+    background: #FF5D46 !important;
+    color: #FFFFFF !important;
+}
+
+a.login-dropdown {
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: 'Audiowide', swap;
+    font-size: 14px;
+}
+
+.login-menu {
+    background-color: #000000;
+    margin-top: 1rem;
+}
+
+.login-menu a {
+    color: #FFFFFF;
+    font-family: 'Audiowide', swap;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.login-menu a:hover {
+    background-color: #FF5D46;
+    color: #FFFFFF;
+}
+
+.language-link a {
+    color: #FFFFFF;
+    font-family: 'Audiowide', swap;
+    margin-left: 10px;
+    transition: 0.3s ease;
+}
+
+.language-link a:hover {
+    color: #FF5D46;
+}
+
+.navbar-light .navbar-toggler {
+    background-color: #FF5D46;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+}
+
+
+/* HEADER CSS ENDS */
+
+/* HOME PAGE CSS STARTS */
+
+.banner-item img {
+    border-radius: 20px;
+    height: 80vh;
+    object-fit: cover;
+}
+
+.carousel-content {
+    position: absolute;
+    top: 12rem;
+    left: 8rem;
+}
+
+.text-black {
+    color: #000000;
+}
+
+.carousel-content h4 {
+    font-size: 3rem;
+    font-family: 'Audiowide', swap;
+    margin-bottom: 0;
+}
+
+.carousel-content p {
+    padding-top: 0;
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.fixed-banner img {
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.fixed-banner-content {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.7rem;
+}
+
+.fixed-banner-content h4 {
+    color: #FFFFFF;
+    font-family: 'Audiowide', swap;
+}
+
+.benefits-wrapper {
+    display: flex;
+    margin-bottom: 1.5rem;
+}
+
+.benefits-wrapper i {
+    color: #FF5D46;
+    font-size: 3rem;
+}
+
+.benefits-text {
+    margin-left: 1rem;
+}
+
+.benefits-text h5 {
+    color: #000000;
+    margin-bottom: 5px;
+    font-family: 'Audiowide', swap;
+    font-size: 18px;
+}
+
+.benefits-text p {
+    padding-top: 0;
+    color: #000000;
+    margin-bottom: 0;
+}
+
+.about-content p {
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.ad-wrapper {
+    position: relative;
+}
+
+.ad-wrapper img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+}
+
+.ad-content {
+    position: absolute;
+    top: 1.25rem;
+    left: 1.25rem;
+}
+
+.ad-content h5 {
+    font-family: 'Audiowide', swap;
+}
+
+.ad-content p {
+    padding: 0 1rem 0 0;
+}
+
+.ad-video video {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.about-banner img {
+    border-radius: 15px;
+    margin-bottom: 1rem;
+}
+
+.cat-tab-link.active {
+    background-color: #000000 !important;
+    border-radius: 50px;
+    font-family: 'Audiowide', swap;
+}
+
+.cat-tab-link {
+    color: #000000;
+    transition: 0.3s ease;
+    text-transform: uppercase;
+}
+
+.cat-tab-link:hover {
+    color: #FFFFFF;
+}
+
+.subs-banner img {
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    border-radius: 15px;
+}
+
+.brand-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+}
+
+/* HOME PAGE CSS ENDS */
+
+/* ABOUT US PAGE CSS STARTS */
+
+.ot-banner {
+    background: #FF4E51;
+    background: -webkit-linear-gradient(right, #FF4E51, #FE754B);
+    background: -moz-linear-gradient(right, #FF4E51, #FE754B);
+    background: linear-gradient(to left, #FF4E51, #FE754B);
+    border-radius: 15px;
+}
+
+.page-title {
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.page-title h1 {
+    color: #FFFFFF;
+    font-family: 'Audiowide', swap;
+    margin-bottom: 0;
+}
+
+.page-content p {
+    color: #000000;
+}
+
+/* ABOUT US PAGE CSS ENDS */
+
+/* HELP PAGE CSS STARTS */
+
+.tab-col {
+    background-color: #000000;
+    border-radius: 15px;
+    padding: 1rem;
+}
+
+.help-link.active {
+    font-family: 'Audiowide', swap;
+    color: #FFFFFF;
+    background: #FF4E51;
+    background: -webkit-linear-gradient(right, #FF4E51, #FE754B);
+    background: -moz-linear-gradient(right, #FF4E51, #FE754B);
+    background: linear-gradient(to left, #FF4E51, #FE754B);
+}
+
+.help-link {
+    color: #FFFFFF;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+}
+
+.help-link:hover {
+    color: #FF5D46;
+}
+
+.help-panel-title h4 {
+    color: #000000;
+    font-family: 'Audiowide', swap;
+}
+
+.help-pane p {
+    color: #000000;
+}
+
+/* HELP PAGE CSS ENDS */
+
+/* PRODUCT DETAILS PAGE CSS STARTS */
+
+.prod-detail-image img {
+    width: 100%;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+.prod-main-detail {
+    padding: 1rem;
+    box-shadow: -1px 5px 15px rgb(25 25 25 / 10%);
+    border-radius: 15px;
+}
+
+.prod-detail-title h3 {
+    font-family: 'Audiowide', swap;
+    color: #000000;
+    margin-bottom: 0.25rem;
+}
+
+.prod-detail-price p {
+    color: #FF5D46;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+.prod-stock-count h4 {
+    color: #000;
+    font-family: 'Audiowide', swap;
+}
+
+.prod-detail-desc p {
+    color: #777777;
+}
+
+.feedback-links a {
+    color: #FF5D46;
+    transition: 0.4s ease;
+}
+
+.feedback-links a:hover {
+    color: #000000;
+}
+
+.feedback-links h4 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.prod-main-link.active {
+    background-color: #000000 !important;
+    border-radius: 50px;
+    font-family: 'Audiowide', swap;
+}
+
+.prod-main-link {
+    color: #FF5D46;
+    transition: 0.3s ease;
+}
+
+.prod-main-link:hover {
+    color: #000000;
+}
+
+.prod-main-content-title {
+    font-family: 'Audiowide', swap;
+    color: #000000;
+}
+
+.prod-main-tab {
+    margin-top: 1.5rem;
+}
+
+.prod-main-pane p {
+    color: #777777;
+}
+
+/* PRODUCT DETAILS PAGE CSS ENDS */
+
+/* POST A FEEDBACK MODAL CSS STARTS */
+
+.brand-modal-content {
+    /*background-image: url(https://cdn.mos.cms.futurecdn.net/84CvByk739yh2zzP6bZZm8.jpg);*/
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.brand-modal-title {
+    font-family: 'Audiowide', swap;
+    color: #FFFFFF;
+    font-weight: 500;
+}
+
+/* POST A FEEDBACK MODAL CSS ENDS */
+
+/* LOGIN & SIGN UP PAGE CSS STARTS */
+
+.login-bg {
+    background-image: url(../images/login-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login-signup-panel {
+    background-color: #0000009c;
+    padding: 1.5rem;
+    border-radius: 15px;
+}
+
+.loginSignupLink h6 {
+    color: #FFFFFF;
+    transition: 0.3s ease;
+}
+
+.loginSignupLink h6:hover {
+    color: #FF5D46;
+}
+
+.signup-bg {
+    background-image: url(../images/signup-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* LOGIN PAGE CSS ENDS */
+
+/* MY ACCOUNT PAGE CSS STARTS */
+
+.my-acc-wrapper {
+    padding: 1rem;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    transition: 0.3s ease;
+    margin-bottom: 1rem;
+    border: 1px solid #efefef;
+}
+
+.my-acc-wrapper:hover {
+    box-shadow: -1px 5px 15px rgb(25 25 25 / 10%);
+    transform: scale(1.01);
+}
+
+.my-acc-wrapper:hover i {
+    color: #FF5D46;
+}
+
+.my-acc-wrapper:hover h4 {
+    color: #FF5D46;
+}
+
+.my-acc-wrapper:hover .my-acc-icon-holder {
+    background-color: #000;
+}
+
+.my-acc-icon-holder {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #FF5D46;
+    padding: 8px;
+    margin-bottom: 1rem;
+}
+
+.my-acc-icon-holder i {
+    color: #FFFFFF;
+    font-size: 2rem;
+}
+
+.my-acc-wrapper h4 {
+    color: #000000;
+    font-family: 'Audiowide';
+}
+
+/* MY ACCOUNT PAGE CSS ENDS */
+
+/* CART PAGE CSS STARTS */
+
+.cart-wrap {
+    padding: 1rem;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #efefef;
+    position: relative;
+}
+
+.prod-cart {
+    display: flex;
+    align-items: center;
+}
+
+.prod-cart img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
+
+.prod-cart-detail {
+    margin-left: 1rem;
+}
+
+.prod-cart-detail h4 {
+    font-family: 'Audiowide';
+    color: #000000;
+}
+
+.cart-prod-cancel {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #FF5D46;
+    padding: 8px;
+    margin-bottom: 1rem;
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+    transition: 0.3s ease;
+}
+
+.cart-prod-cancel i {
+    color: #FFFFFF;
+    font-size: 2rem;
+}
+
+.cart-prod-cancel:hover {
+    background-color: #000000;
+}
+
+.cart-prod-cancel:hover i {
+    color: #FF5D46;
+}
+
+.cart-total-wrap {
+    padding: 1rem;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #efefef;
+    box-shadow: -1px 5px 15px rgb(25 25 25 / 10%);
+}
+
+.cart-structure-name {
+    font-family: 'Audiowide';
+}
+
+.coupon-wrap {
+    padding: 1rem;
+}
+
+/* CART PAGE CSS ENDS */
+
+/* CHECKOUT PAGE CSS STARTS */
+
+.address-wrap {
+    padding: 1rem 0;
+    /*background-image: url(https://oceanofgamesu.com/wp-content/uploads/2020/11/Fifa-21-1.png);*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #333;
+    position: relative;
+}
+
+.select-add-wrapper {
+    padding: 1rem;
+    background-color: #FFFFFF;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #efefef;
+    position: relative;
+}
+
+/* CHECKOUT PAGE CSS ENDS */
+
+/* PAYMENT PAGE CSS STARTS */
+
+.pay-wrap {
+    padding: 1rem;
+    background-color: #FFFFFF;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #efefef;
+    position: relative;
+}
+
+.summary-wrap {
+    padding: 1rem;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #efefef;
+    box-shadow: -1px 5px 15px rgb(25 25 25 / 10%);
+}
+
+.summary-wrap label {
+    font-family: 'Audiowide';
+}
+
+/* PAYMENT PAGE CSS ENDS */
+
+/* ORDER SUCCES PAGE CSS STARTS */
+
+.table-wrap {
+    padding: 1rem;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #efefef;
+}
+
+.brand-table thead {
+    background-color: #000000;
+    color: #FFFFFF; 
+}
+
+.brand-table thead th {
+    font-family: 'Audiowide';
+    font-weight: 400;
+}
+
+/* ORDER SUCCESS PAGE CSS ENDS */
+
+/* MY PROFILE PAGE CSS STARTS */
+
+.profile-image img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.b-none {
+    border: none !important;
+}
+
+/* MY PROFILE PAGE CSS ENDS */
+
+/* MY ORDER PAGE CSS STARTS */
+
+.order-data {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.order-data h6 {
+    color: #000;
+    font-family: 'Audiowide', swap;
+}
+
+.order-data p {
+    margin-left: 1rem;
+    color: #FFFFFF;
+    text-align: right;
+}
+
+.count-badge h6 {
+    color: #000;
+    font-family: 'Audiowide', swap;
+    text-align: center;
+}
+
+.count-badge {
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: #FFFFFF;
+    box-shadow: -1px 5px 15px rgb(25 25 25 / 10%);
+}
+
+/* MY ORDER PAGE CSS ENDS */
+
+/* GIFT CARD PAGE CSS STARTS */
+
+.giftcard-wrap {
+    padding: 1rem;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    position: relative;
+    transition: 0.3s ease;
+    margin-bottom: 1rem;
+    border: 1px solid #efefef;
+}
+
+.giftcard-wrap img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 0.8rem;
+}
+
+.giftcard-data {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 0;
+}
+
+.giftcard-data h6 {
+    color: #000000;
+    font-family: 'Audiowide', swap;
+}
+
+.giftcard-data p {
+    color: #FFFFFF;
+}
+
+/* GIFT CARD PAGE CSS ENDS */
+
+/* MY GIFT CARD DETAILS PAGE CSS STARTS */
+
+.giftcard-detail-image img {
+    width: 100%;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+.giftcard-main-detail {
+    padding: 1rem;
+    box-shadow: -1px 5px 15px rgb(25 25 25 / 10%);
+    border-radius: 15px;
+}
+
+.giftcard-detail-title h3 {
+    color: #000000;
+    font-family: 'Audiowide', swap;
+}
+
+.giftcard-detail-data p {
+    font-family: 'Audiowide', swap;
+    color: #000000;
+    margin-bottom: 5px;
+}
+
+.giftcard-detail-data h5 {
+    color: #777777;
+}
+
+
+/* MY GIFT CARD DETAILS PAGE CSS ENDS */
+
+/* CONTACT US PAGE CSS STARTS */
+
+.contact-bg {
+    background-image: url(https://wallpaperaccess.com/full/7445.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.contact-wrap {
+    background-color: #0000009c;
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+}
+
+.contact-wrap p a {
+    color: #FE754B;
+}
+
+.contact-wrap p {
+    color: #FE754B;
+    margin-bottom: 0;
+}
+
+/* CONTACT US PAGE CSS STARTS */
+
+/* FOOTER CSS STARTS */
+
+.main-footer {
+    background-color: #EBECF4;
+    padding: 50px 0;
+}
+
+.footer-title h5 {
+    color: #000000;
+    font-family: 'Audiowide', swap;
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.footer-info img {
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+.footer-info p {
+    color: #000000;
+}
+
+.footer-list li {
+    margin-bottom: 1rem;
+}
+
+.footer-list li i {
+    color: #FF5D46;
+    margin-right: 3px;
+}
+
+.footer-list li a {
+    color: #000000;
+    transition: 0.3s ease;
+}
+
+.footer-list li a:hover {
+    color: #FF5D46;
+}
+
+.contact-info {
+    display: flex;
+    margin-bottom: 0.25rem;
+}
+
+.contact-info i {
+    color: #FF5D46;
+    font-size: 1.5rem;
+    margin-right: 5px;
+}
+
+.contact-info p {
+    padding-top: 0;
+    color: #000000;
+    transition: 0.3s ease;
+}
+
+.contact-info p:hover {
+    color: #FF5D46;
+}
+
+ul.footer-social li {
+    display: inline-flex;
+    margin-right: 5px;
+}
+
+ul.footer-social li i {
+    font-size: 1.5rem;
+    color: #000000;
+    transition: 0.3s ease;
+}
+
+ul.footer-social li i:hover {
+    color: #FF5D46;
+}
+
+.cards img {
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    height: 30px;
+}
+
+/* FOOTER CSS ENDS */
+/* Costom css for error messages color Start */
+.error{
+	color:red;
+}
+/* Costom css for error messages color Start  */
+.list-group-item {
+    z-index: 1;
+}
+span.sale-amount-line {
+    text-decoration: line-through;
+    color: #e52727;
+}
+
+/* sai's css start */
+.category-wrapper img {
+    width: 100%;
+    height: auto;
+    min-height: 200px;
+    max-height: 200px;
+}
+.cartItem{
+    margin-right: 1%;
+}
+/* sai's css end */

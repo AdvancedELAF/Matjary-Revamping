@@ -1,0 +1,1100 @@
+/* COMMON CSS STARTS */
+
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+strong {
+    padding: 0;
+    margin: 0;
+}
+
+label,
+a {
+    text-decoration: none;
+    margin-bottom: 0;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.section-spacing {
+    padding: 50px 0;
+}
+
+.section-title h4 {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #340EC1;
+}
+
+.brand-btn {
+    padding: 0.5rem 2rem;
+    background: #29E940;
+    background: -webkit-linear-gradient(right, #29E940, #29DDC2);
+    background: -moz-linear-gradient(right, #29E940, #29DDC2);
+    background: linear-gradient(to left, #29E940, #29DDC2);
+    color: #ffffff;
+    border: none;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+.brand-btn:hover {
+    background: #340EC1;
+}
+
+.brand-btn a {
+    color: #ffffff;
+}
+
+.wishlist {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.wishlist i {
+    cursor: pointer;
+    padding: 10px 12px 8px;
+    background: #fff;
+    border-radius: 50%;
+    margin: 0 0 15px;
+    color: #aaa;
+    transition: .2s;
+    box-shadow: 0px 5px 4px 0px #44464778;
+}
+
+.wishlist i:hover {
+    color: #666;
+}
+
+.wishlist i.press {
+    animation: size .4s;
+    color: #e52727;
+}
+
+span.required-mark {
+    color: #ff0000;
+}
+
+/* COMMON CSS ENDS */
+
+/* HEADER CSS STARTS */
+
+header {
+    box-shadow: 2px 9px 49px -17px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.header-content-top {
+    background: #545bc4;
+    height: 30px;
+    width: 100%;
+}
+
+.header-content-top .content {
+    align-items: center;
+    display: flex;
+    height: 30px;
+    justify-content: flex-end;
+    margin: 0 auto;
+    max-width: 1300px;
+    width: 100%;
+}
+
+.header-content-top .content span {
+    color: #fff;
+    font-size: 12px;
+    margin: 0 15px;
+}
+
+.header-content-top .content span .fas {
+    margin-right: 5px;
+}
+
+.header-container {
+    align-items: center;
+    display: flex;
+    height: 85px;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: auto;
+    padding: 0 15px;
+    position: relative;
+    width: 100%;
+    background-color: #340EC1;
+}
+
+.header-container .logo {
+    font-size: 40px;
+    line-height: 20px;
+    padding-right: 15px;
+}
+
+.logo img {
+    height: 80px;
+    object-fit: contain;
+}
+
+a.nav-content-link i {
+    color: #ffffff;
+    transition: 0.5s ease;
+    font-size: 30px;
+}
+
+a.nav-content-link i:hover {
+    color: #333333;
+}
+
+a.nav-content-link {
+    color: #333333;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.nav-row-list a {
+    color: #ffffff;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+
+.header-container .open-search {
+    border-radius: 3px;
+    flex: auto;
+    margin: 0 15px;
+    overflow: hidden;
+    position: relative;
+}
+
+.header-container .open-search .icofont-search {
+    display: none;
+}
+
+.header-container .open-search .input-open-search {
+    display: none;
+}
+
+.header-container .open-search .input-open-search:checked~.search {
+    display: block;
+}
+
+.header-container .search .input-search {
+    border-radius: 3px;
+    border: 1px solid #e1e1e1;
+    height: 42px;
+    padding: 0 70px 0 15px;
+    width: 100%;
+    background: white no-repeat;
+    transition: 100ms all linear 0s;
+    background-image: linear-gradient(to bottom, rgb(0 0 0 / 63%) 0%, rgb(0 0 0) 90%), linear-gradient(to bottom, #e1e1e1, #e1e1e1);
+    background-size: 0 2px, 100% 1px;
+    background-position: 50% 100%, 50% 100%;
+    transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+}
+
+.header-container .search .input-search:focus {
+    background-size: 100% 2px, 100% 1px;
+    outline: none;
+}
+
+.header-container .search .button-search {
+    background: #000000;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    padding: 13px 20px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+.header-container .search .button-search .icofont-search {
+    display: block;
+}
+
+.header-container .nav-content .nav-content-list {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item {
+    align-items: center;
+    display: flex;
+    height: 40px;
+    margin: 0 5px;
+    position: relative;
+    transition: 100ms all linear 0s;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item .item-arrow {
+    margin-left: 5px;
+    position: relative;
+    top: -3px;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item .open-menu-login-account {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    position: relative;
+    color: #ffffff;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item .input-menu {
+    display: none;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item .input-menu:checked~.login-list {
+    display: block;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item .login-list {
+    background: #fff;
+    border-bottom: 3px solid #333333;
+    box-shadow: 2px 9px 49px -17px rgba(0, 0, 0, 0.3);
+    display: none;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 28px;
+    transition: 100ms all linear 0s;
+    width: 200px;
+    z-index: 10;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item .login-list .login-list-item {
+    padding: 15px 20px;
+    color: #000000;
+    font-weight: 500;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item .login-list .login-list-item:hover {
+    background: #340EC1;
+    color: #ffffff;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item .login-list .login-list-item:hover a {
+    color: #fff;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item:nth-child(2):hover .fas {
+    color: #e74c3c;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-item:hover .fas {
+    color: #545bc4;
+}
+
+.header-container .nav-content .nav-content-list .account-login .login-text {
+    align-items: end;
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    margin-left: 5px;
+    color: #ffffff;
+}
+
+.header-container .nav-content .nav-content-list .account-login .login-text strong {
+    display: block;
+    color: #ffffff;
+}
+
+.header-container .nav-content .nav-content-list .nav-content-link {
+    border-radius: 3px;
+    font-size: 19px;
+    padding: 10px 15px;
+    transition: 100ms all linear 0s;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+li.login-list-item a {
+    color: #333333;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+}
+
+.nav-container {
+    align-items: center;
+    display: flex;
+    margin: 0 auto;
+    max-width: 1300px;
+    width: 100%;
+    background-color: #4C24E1;
+}
+
+.nav-container .nav-row {
+    align-items: center;
+    display: flex;
+    height: 40px;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    background-color: #4C24E1;
+}
+
+.nav-container .nav-row .nav-row-list {
+    flex: auto;
+}
+
+.nav-container .nav-row .nav-row-list .nav-row-list-link {
+    align-items: center;
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    transition: 100ms all linear 0s;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+
+.nav-container .nav-row .nav-row-list .nav-row-list-link:hover {
+    background: #000000;
+    width: 100%;
+}
+
+.nav-container .featured-category {
+    flex: auto;
+    margin: 0 15px 0 0;
+}
+
+.nav-container .all-navigator {
+    align-items: center;
+    background: #29E940;
+    background: -webkit-linear-gradient(right, #29E940, #29DDC2);
+    background: -moz-linear-gradient(right, #29E940, #29DDC2);
+    background: linear-gradient(to left, #29E940, #29DDC2);
+    color: #fff;
+    display: flex;
+    height: 40px;
+    padding: 0 25px;
+    width: 100%;
+}
+
+.nav-container .all-navigator .icofont-caret-up,
+.nav-container .all-navigator .icofont-caret-down {
+    position: absolute;
+    right: 25px;
+}
+
+.nav-container .all-navigator .icofont-caret-up {
+    display: none;
+}
+
+.nav-container .all-navigator .fas {
+    font-size: 16px;
+    margin-right: 0;
+}
+
+.nav-container .all-navigator span {
+    margin-left: 15px;
+}
+
+.nav-container .all-category-nav {
+    cursor: pointer;
+    max-width: 300px;
+    position: relative;
+    width: 100%;
+}
+
+.nav-container .all-category-nav .open-menu-all {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    position: relative;
+}
+
+.nav-container .all-category-nav .input-menu-all {
+    display: none;
+}
+
+.nav-container .all-category-nav .input-menu-all:checked~.all-category-list {
+    display: block;
+}
+
+.nav-container .all-category-nav .input-menu-all:checked+.all-navigator .icofont-caret-down {
+    display: none;
+}
+
+.nav-container .all-category-nav .input-menu-all:checked+.all-navigator .icofont-caret-up {
+    display: block;
+}
+
+.nav-container .all-category-list {
+    background: #fff;
+    border-bottom: 3px solid #333333;
+    box-shadow: 2px 9px 49px -17px rgba(0, 0, 0, 0.3);
+    display: none;
+    height: auto;
+    min-height: 300px;
+    padding: 15px 0;
+    position: absolute;
+    top: 24px;
+    width: 300px;
+    z-index: 90;
+    margin-top: 1rem;
+}
+
+.nav-container .all-category-list-item:hover {
+    display: block;
+    background: #340EC1;
+}
+
+.nav-container .all-category-list-item:hover .category-second-list {
+    left: 100%;
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav-container .all-category-list-item:hover .all-category-list-link {
+    color: #fff;
+}
+
+.nav-container .all-category-list-link {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    transition: 100ms all linear 0s;
+    color: #333333;
+    font-weight: 500;
+}
+
+.nav-container .category-second-list {
+    background: #fff;
+    border-bottom: 3px solid #333333;
+    box-shadow: inset 44px -1px 88px -59px rgba(0, 0, 0, 0.37);
+    display: flex;
+    height: 322px;
+    left: 80%;
+    min-height: 297px;
+    min-width: 400px;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transition: 100ms all linear 0s;
+    visibility: hidden;
+    width: auto;
+}
+
+.nav-container .category-second-list .img-product-menu img {
+    max-width: 180px;
+}
+
+.nav-container .category-second-list-ul {
+    display: flex;
+    flex-direction: column;
+    min-width: 400px;
+    padding: 0 15px;
+}
+
+.nav-container .category-second-item a {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    color: #333333;
+    font-weight: 500;
+}
+
+.nav-container .category-second-item:hover {
+    background: #340EC1;
+}
+
+.nav-container .category-second-item:hover a {
+    color: #fff;
+}
+
+.fa-bars {
+    font-size: 28px;
+}
+
+/* HEADER CSS ENDS */
+
+/* HOME PAGE CSS STARTS */
+
+.home-carousel img {
+    height: 60vh;
+    object-fit: cover;
+}
+
+.carousel-control-next, .carousel-control-prev {
+    background: #29E940;
+    background: -webkit-linear-gradient(right, #29E940, #29DDC2);
+    background: -moz-linear-gradient(right, #29E940, #29DDC2);
+    background: linear-gradient(to left, #29E940, #29DDC2);
+    border-radius: 50%;
+    border: none;
+    width: 50px;
+    position: absolute;
+    height: 50px;
+    top: 50%;
+}
+
+.carousel-control-prev {
+    left: 30px;
+}
+
+.carousel-control-next {
+    right: 30px;
+}
+
+.carousel-content {
+    position: absolute;
+    text-align: center;
+    top: 40%;
+    right: 15%;
+    left: 15%;
+    color: #ffffff;
+}
+
+.carousel-content h3 {
+    font-weight: 800;
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.carousel-content p {
+    text-shadow: 2px 2px 4px #000000;
+    font-size: 18px;
+}
+
+
+.prod-wrapper {
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    margin: 1rem;
+}
+
+.prod-wrapper img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+}
+
+.prod-detail a {
+    color: #340EC1;
+}
+
+.prod-detail h4 {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+span.strike-amount {
+    text-decoration: line-through;
+    color: #aaa8a8;
+}
+
+span.sale-amount {
+    color: #29E940;
+}
+
+.gc-wrapper {
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    margin: 1rem;
+}
+
+.gc-wrapper img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+}
+
+.gc-detail a {
+    color: #340EC1;
+}
+
+.gc-detail h4 {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.benefits-holder {
+    display: flex;
+}
+
+.benefits-holder i {
+    color: #340EC1;
+    font-size: 3rem;
+    margin-right: 0.5rem;
+}
+
+.benefits-detail h4 {
+    color: #363f4d;
+    font-size: 20px;
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.benefits-detail p {
+    padding-top: 0;
+    color: #363f4d;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+/* HOME PAGE CSS ENDS */
+
+/* HELP PAGE CSS STARTS */
+
+.help-link.active {
+    background-color: #340EC1 !important;
+    border-radius: 0 !important; 
+}
+
+.help-link {
+    color: #000000;
+    transition: 0.3s ease;
+    font-weight: 500;
+}
+
+.help-link:hover {
+    color: #29E940;
+}
+
+.help-panel-title h4 {
+    color: #29E940;
+    text-transform: uppercase;
+}
+
+/* HELP PAGE CSS ENDS */
+
+/* PRODUCT DETAILS PAGE CSS STARTS */
+
+.prod-detail-image img {
+    width: 100%;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+.prod-detail-price p {
+    font-weight: 700;
+    color: #29E940;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.prod-detail-title h3 {
+    color: #340EC1;
+    font-weight: 600;
+}
+
+.prod-main-link.active {
+    background: #29E940;
+    background: -webkit-linear-gradient(right, #29E940, #29DDC2);
+    background: -moz-linear-gradient(right, #29E940, #29DDC2);
+    background: linear-gradient(to left, #29E940, #29DDC2);
+}
+
+.prod-main-link {
+    color: #000000;
+}
+
+.prod-main-link:hover {
+    color: #29E940;
+}
+
+.feedback-links a {
+    color: #000000;
+    transition: 0.4s ease;
+}
+
+.feedback-links h4 {
+    font-size: 15px;
+    margin-bottom: 1rem;
+}
+
+.feedback-wrapper {
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgb(197 197 197 / 50%);
+}
+
+.feedback-wrapper label {
+    color: #340EC1;
+}
+
+/* PRODUCT DETAILS PAGE CSS ENDS */
+
+/* POST FEEDBACK PAGE CSS STARTS */
+
+.wrapper-title h5 {
+    font-weight: 600;
+    color: #29E940;
+    text-transform: uppercase;
+}
+
+/* POST FEEDBACK PAGE CSS ENDS */
+
+/* LOGIN SIGNUP PAGE CSS STARTS */
+
+.login-signup-wrapper {
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgb(197 197 197 / 50%);
+}
+
+.login-signup-wrapper label {
+    color: #340EC1;
+}
+
+.loginSignupLink h5 {
+    color: #29E940;
+    font-weight: 500;
+    transition: 0.3s ease;
+    text-align: center;
+    font-size: 15px;
+    transition: 0.3s ease;
+}
+
+.loginSignupLink h5:hover {
+    color: #340EC1;
+}
+
+/* LOGIN SIGNUP PAGE CSS ENDS */
+
+/* FORGOT PASSWORD PAGE CSS STARTS */
+
+.forgot-pass-wrapper{
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgb(197 197 197 / 50%);
+}
+
+.forgot-pass-wrapper label {
+    color: #340EC1;
+}
+
+/* FORGOT PASSWORD PAGE CSS ENDS */
+
+/* MY ACCOUNT PAGE CSS STARTS */
+
+.my-acc-wrapper {
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 10px 0px rgb(197 197 197 / 50%);
+    margin-bottom: 1rem;
+}
+
+.my-acc-wrapper i {
+    color: #29E940;
+    font-size: 2rem;
+}
+
+.my-acc-wrapper h5 {
+    margin-top: 1rem;
+    color: #340EC1;
+    transition: 0.3 ease;
+}
+
+.my-acc-wrapper h5:hover {
+    color: #29E940;
+}
+
+/* MY ACCOUT PAGE CSS ENDS */
+
+/* MY PROFILE PAGE CSS STARTS */
+
+.my-profile-wrapper {
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 10px 0px rgb(197 197 197 / 50%);
+    margin-bottom: 1rem;
+}
+
+.my-profile-wrapper label {
+    color: #340EC1;
+}
+
+/* MY PROFILE PAGE CSS ENDS */
+
+/* MY ORDERS PAGE CSS STARTS */
+
+.order-table-count thead {
+    background-color: #340EC1;
+    color: #ffffff;
+}
+
+/* MY ORDERS PAGE CSS ENDS */
+
+/* CART PAGE CSS STARTS */
+
+.product-cart-count thead {
+    background-color: #340EC1;
+    color: #ffffff;
+}
+
+.cart-total-wrapper {
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgb(197 197 197 / 50%);
+}
+
+/* CART PAGE CSS ENDS */
+
+/* BILLING & SHIPPING ADDRESS PAGE CSS STARTS */
+
+.bill-ship-wrapper {
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 10px 0px rgb(197 197 197 / 50%);
+    margin-bottom: 1rem;
+}
+
+.bill-ship-wrapper label {
+    color: #340EC1;
+}
+
+/* BILLING & SHIPPING ADDRESS PAGE CSS ENDS */
+
+/* GIFTCARD PAGE CSS STARTS */
+
+.giftcard-count thead {
+    background-color: #340EC1;
+    color: #ffffff;
+}
+
+/* GIFTCARD PAGE CSS ENDS */
+
+/* CHECKOUT LOGIN PAGE CSS STARTS */
+
+.checkout-login-wrapper {
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 10px 0px rgb(197 197 197 / 50%);
+    margin-bottom: 1rem;
+}
+
+.checkout-login-wrapper label {
+    color: #340EC1;
+}
+
+.guest-feature-list i {
+    margin-right: 0.5rem;
+    color: #29E940;
+}
+
+/* CHECKOUT LOGIN PAGE CSS ENDS */
+
+/* CHECKOUT PAGE CSS STARTS */
+
+.checkout-wrapper {
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 10px 0px rgb(197 197 197 / 50%);
+    margin-bottom: 1rem;
+}
+
+.checkout-wrapper label {
+    color: #340EC1;
+}
+
+/* CHECKOUT PAGE CSS ENDS */
+
+/* ORDER DETAILS PAGE CSS STARTS */
+
+.order-detail-table thead {
+    background-color: #340EC1;
+    color: #ffffff;
+}
+
+/* ORDER DETAILS PAGE CSS ENDS */
+
+/* PAYMENT PAGE CSS STARTS */
+
+.payment-wrapper {
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 10px 0px rgb(197 197 197 / 50%);
+    margin-bottom: 1rem;
+}
+
+.payment-wrapper label {
+    color: #340EC1;
+}
+
+/* PAYMENT PAGE CSS ENDS */
+
+/* RESET PASSWORD PAGE CSS STARTS */
+
+.rp-wrapper {
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 10px 0px rgb(197 197 197 / 50%);
+    margin-bottom: 1rem;
+}
+
+.rp-wrapper label {
+    color: #340EC1;
+}
+
+/* RESET PASSWORD PAGE CSS ENDS */
+
+/* SHOW GIFTCARDS PAGE CSS STARTS */
+
+.giftcard-detail-image img {
+    width: 100%;
+    height: 230px;
+    object-fit: contain;
+}
+
+.giftcard-detail-title h3 {
+    color: #340EC1;
+    font-weight: 600;
+}
+
+.giftcard-detail-price p {
+    font-weight: 700;
+    color: #29E940;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* SHOW GIFTCARDS PAGE CSS ENDS */
+
+/* ALL CATEGORIES PAGE CSS STARTS */
+
+.cat-name h4 {
+    color: #000000;
+    transition: 0.3s ease;
+}
+
+.cat-name h4:hover {
+    color: #29E940;
+}
+
+/* ALL CATEGORIES PAGE CSS ENDS */
+
+/* BILLING PAGE CSS STARTS */
+
+.billing-form, .shipping-form {
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 10px 0px rgb(197 197 197 / 50%);
+    margin-bottom: 1rem;
+}
+
+.billing-form label, .shipping-form label {
+    color: #340EC1;
+}
+
+/* BILLING PAGE CSS ENDS */
+
+/* FOOTER CSS STARTS */
+
+footer {
+    padding: 50px 0;
+    background-color: #f2f2f2;
+}
+
+.footer-logo img {
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+.footer-subtitle h4 {
+    color: #340EC1;
+    text-transform: uppercase;
+}
+
+.footer-title h3 {
+    color: #340EC1;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+}
+
+.footer-list li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-list li a {
+    color: #7a7a7a;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+    font-weight: 500;
+}
+
+.footer-list li a:hover {
+    color: #29E940;
+}
+
+.newsletter-btn {
+    background: #29E940;
+    background: -webkit-linear-gradient(right, #29E940, #29DDC2);
+    background: -moz-linear-gradient(right, #29E940, #29DDC2);
+    background: linear-gradient(to left, #29E940, #29DDC2);
+    color: #ffffff;
+    border: none !important;
+    transition: 0.3s ease;
+}
+
+ul.footer-social-media li {
+    display: inline-flex;
+    display: inline-flex;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 50px;
+    background-color: #333333;
+    margin-right: 0.25rem;
+    transition: 0.5s ease;
+}
+
+ul.footer-social-media li i {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+ul.footer-social-media li:hover {
+    background: #29E940;
+    background: -webkit-linear-gradient(right, #29E940, #29DDC2);
+    background: -moz-linear-gradient(right, #29E940, #29DDC2);
+    background: linear-gradient(to left, #29E940, #29DDC2);
+}
+
+#footer-two {
+    padding: 1rem 0;
+    background-color: #340EC1;
+}
+
+/* FOOTER CSS ENDS */

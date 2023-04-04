@@ -1,0 +1,74 @@
+@media (max-width: 991px) {
+    .header-container .open-search {
+        margin: 0;
+        position: static;
+        text-align: right;
+    }
+
+    .header-container .open-search .icofont-search {
+        display: block;
+    }
+
+
+    .header-container .search {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 70px;
+        width: 100%;
+        z-index: 999;
+    }
+
+    .header-container .nav-content .nav-content-list .nav-content-item {
+        padding: 0 5px;
+    }
+
+
+
+    .header-container .nav-content .nav-content-list .account-login .login-text {
+        display: none;
+    }
+
+    .header-container .nav-content .nav-content-list .nav-content-link {
+        padding: 0;
+    }
+
+    .nav-container .nav-row {
+        display: none;
+    }
+
+    .nav-container .featured-category {
+        display: none;
+    }
+
+    .nav-container .all-navigator {
+        margin-right: 0;
+    }
+
+    .nav-container .all-category-nav {
+        max-width: 100%;
+    }
+
+    .nav-container .all-category-list {
+        min-width: 100%;
+    }
+
+    .nav-container .category-second-list {
+        display: none;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .logo img {
+        height: 50px;
+    }
+
+    .carousel-content h3 {
+        font-size: 2rem !important;
+    }
+
+    .carousel-content p {
+        font-size: 13px;
+    }
+}
