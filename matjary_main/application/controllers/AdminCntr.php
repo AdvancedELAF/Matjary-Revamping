@@ -45,8 +45,7 @@ class AdminCntr extends MY_Controller {
     public function get_dashboard_data() {
         if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {
             $pageData['getUserRegMonthReport'] = $this->DashboardModel->get_monthly_user_register_report();
-            
-            echo '<pre>'; print_r($pageData['getUserRegMonthReport']); die;            
+          
             if(isset($pageData['getUserRegMonthReport']) && !empty($pageData['getUserRegMonthReport'])){
                 $getTotal = '';
                 $GetMonths = '';
