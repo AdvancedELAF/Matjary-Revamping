@@ -244,7 +244,7 @@ class UsrCntr extends MY_Controller {
                 /* MyAccount -> My Profile */
                 $user_profile_details = $this->get_user_profile_details();
                 $pageData['user_profile_details1'] = json_decode($user_profile_details, TRUE);
-                $pageData['user_profile_details'] = $pageData['user_profile_details1']['responseData'][0];
+                $pageData['user_profile_details'] = isset($pageData['user_profile_details1']['responseData'][0])?$pageData['user_profile_details1']['responseData'][0]:'';
                 //echo '<pre>'; print_r($pageData); exit;
                 $userData = json_decode($user_profile_details, TRUE);
                 $pageData['user_profile_details'] = $userData['responseData'];
@@ -602,6 +602,9 @@ class UsrCntr extends MY_Controller {
                                                         'b_city' => isset($_POST['b_city']) ? $_POST['b_city'] : '',
                                                         'b_state' => isset($_POST['b_state']) ? $_POST['b_state'] : '',
                                                         'b_zipcode' => isset($_POST['b_zipcode']) ? $_POST['b_zipcode'] : '',
+                                                        'is_coupon_applied' => isset($_POST['is_coupon_applied']) ? $_POST['is_coupon_applied'] : 0,
+                                                        'coupon_id' => isset($_POST['coupon_id']) ? $_POST['coupon_id'] : 0,
+                                                        'coupon_amount' => isset($_POST['coupon_amount']) ? $_POST['coupon_amount'] : 0.00,
                                                         'plan_cost' => isset($_POST['pd_plan_price']) ? $_POST['pd_plan_price'] : '',
                                                         'template_cost' => isset($_POST['pd_template_price']) ? $_POST['pd_template_price'] : '',
                                                         'plan_total_price' => isset($_POST['plan_total_price']) ? $_POST['plan_total_price'] : '',

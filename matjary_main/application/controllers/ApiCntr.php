@@ -1560,11 +1560,10 @@ class ApiCntr extends MY_Controller {
                 if (!filter_var($decode_data['email'], FILTER_VALIDATE_EMAIL)) {
                     $this->response['responseCode'] = 404;
                     $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_4');
-                    echo json_encode($this->response);
-                    exit;
+                    echo json_encode($this->response); exit;
                 }
                 if (isset($decode_data['password']) & !empty($decode_data['password'])) {
-                    /* //check user exist with this email & password */
+                    /* check user exist with this email & password */
                     $email = trim($decode_data['email'], " ");
                     $pass1 = trim($decode_data['password'], " ");
                     $pass = hash_hmac("SHA256", $pass1, SECRET_KEY);
@@ -1572,20 +1571,17 @@ class ApiCntr extends MY_Controller {
                     if ($usrData == false) {
                         $this->response['responseCode'] = 404;
                         $this->response['responseMessage'] = 'Invalid details. ';
-                        echo json_encode($this->response);
-                        exit;
+                        echo json_encode($this->response); exit;
                     } else {
                         $this->response['responseCode'] = 200;
                         $this->response['responseMessage'] = 'Super Admin Logged In Sucessfully.';
                         $this->response['responseData'] = $usrData;
-                        echo json_encode($this->response);
-                        exit;
+                        echo json_encode($this->response); exit;
                     }
                 } else {
                     $this->response['responseCode'] = 404;
                     $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_13');
-                    echo json_encode($this->response);
-                    exit;
+                    echo json_encode($this->response); exit;
                 }
             } else {
                 $this->response['responseCode'] = 404;
@@ -1599,6 +1595,59 @@ class ApiCntr extends MY_Controller {
             echo json_encode($this->response);
             exit;
         }
+    }
+
+    public function check_coupon_valid(){
+        //echo '<pre>'; print_r($_POST); exit;
+        if(isset($_POST['user_id']) && !empty($_POST['user_id'])){
+            if(isset($_POST['coupon_code']) && !empty($_POST['coupon_code'])){
+                $couponData = $this->CouponModel->check_coupon_exist($_POST['coupon_code']);
+                //echo '<pre>'; print_r($couponData); exit;
+                if(isset($couponData) && !empty($couponData)){
+                    /* same coupon already used by same user */
+                    $couponAlreadyUsedStatus = $this->CouponModel->coupon_already_used($couponData->id,$_POST['user_id']);
+                    //echo '<pre>'; print_r($couponAlreadyUsedStatus); exit;
+                    if($couponAlreadyUsedStatus==false){
+
+                        //echo '<pre>'; print_r($couponData); exit;
+                        /* check coupon not expired */
+                        $current_date = date("Y-m-d"); // Get the current date in YYYY-MM-DD format
+                        $expiration_date = date("Y-m-d", strtotime($couponData->expiry_date));
+                        
+                        if(strtotime($current_date) <= strtotime($expiration_date)){
+                            $this->response['responseCode'] = 200;
+                            $this->response['responseMessage'] = 'Success.';
+                            $this->response['responseData'] = $couponData;
+                            echo json_encode($this->response); exit;
+                        }else{
+                            $this->response['responseCode'] = 404;
+                            $this->response['responseMessage'] = 'Coupon not valid.'; /* coupon code has been expired. */
+                            echo json_encode($this->response); exit;
+                        }
+
+                        
+                    }else{
+                        $this->response['responseCode'] = 404;
+                        $this->response['responseMessage'] = 'Coupon already used.';
+                        echo json_encode($this->response); exit;
+                    }
+                }else{
+                    $this->response['responseCode'] = 404;
+                    $this->response['responseMessage'] = 'Coupon not valid.';
+                    echo json_encode($this->response); exit;
+                }
+                
+            }else{
+                $this->response['responseCode'] = 404;
+                $this->response['responseMessage'] = 'Coupon Code is Required.';
+                echo json_encode($this->response); exit;
+            }
+        }else{
+            $this->response['responseCode'] = 404;
+            $this->response['responseMessage'] = 'User Id is Required.';
+            echo json_encode($this->response); exit;
+        }
+        
     }
 
 }

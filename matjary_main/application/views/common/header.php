@@ -4,7 +4,7 @@ if ($this->session->userdata('loggedInUsrData')) {
 }
 ?>
 <!DOCTYPE html>
-<html <?php echo ($_SESSION["site_lang"] == "en" ? "lang='en'" : "lang='ar' dir='rtl'"); ?>>
+<html <?php echo $_SESSION["site_lang"] == "en" ? "lang='en'" : "lang='ar' dir='rtl'"; ?>>
     <head>
         <title> Matjary - Ecommerce Store in Saudi Arabia</title>
         <meta charset="utf-8">
@@ -56,7 +56,7 @@ if ($this->session->userdata('loggedInUsrData')) {
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav <?php echo ($_SESSION['site_lang'] == 'ar' ? 'ml-auto' : 'mr-auto'); ?>">
+                    <ul class="navbar-nav <?php echo $_SESSION['site_lang'] == 'ar' ? 'ml-auto' : 'mr-auto'; ?>">
                         <li class="nav-item <?= ($this->uri->uri_string() === '') ? 'nav-active' : '' ?>">
                             <a class="nav-link" href="<?php echo base_url(); ?>"><?php echo $this->lang->line('Begin'); ?></a>
                         </li>
