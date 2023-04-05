@@ -16,6 +16,7 @@ class AdminCntr extends MY_Controller {
     public function login() {
         $this->load->view('site_admin/login');
     }
+	
     public function dashboard() {
         if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {
             $pageData['pageId'] = 1;            
