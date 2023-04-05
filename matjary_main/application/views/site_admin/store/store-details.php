@@ -2,9 +2,10 @@
 if ($this->session->userdata('loggedInSuperAdminData')) {
     $loggedInSuperAdminData = $this->session->userdata('loggedInSuperAdminData');
 }
- 
-$this->load->view('site_admin/layout/header.php');
-$this->load->view('site_admin/layout/sidebar.php');
+?>
+<?php  
+    $this->load->view('site_admin/layout/header.php');
+    $this->load->view('site_admin/layout/sidebar.php');
 ?>
 <section class="content">
     <div class="container-fluid">
@@ -26,6 +27,7 @@ $this->load->view('site_admin/layout/sidebar.php');
 				</div><!-- /.container-fluid -->
             </div>
 			<?php if(isset($GetUsrInvoiceDetails) && !empty($GetUsrInvoiceDetails)){ ?>
+          		
 			<!-- /.card -->
 			<section class="content">
                 <!-- Default box -->
@@ -42,13 +44,31 @@ $this->load->view('site_admin/layout/sidebar.php');
 								<tbody>
 								<tr>
 								    <tr>
-										<td><b>Store Name : </b>  <?php echo isset($GetUsrInvoiceDetails->template_name)?$GetUsrInvoiceDetails->template_name:'NA'; ?> </td>
-										<td><b>Store Link : </b>  <?php echo isset($GetUsrInvoiceDetails->store_link)?$GetUsrInvoiceDetails->store_link:'NA'; ?> </td>
+									    <div class="col-3">										
+											<td><b>Store Name : </b>  <?php echo isset($GetUsrInvoiceDetails->template_name)?$GetUsrInvoiceDetails->template_name:'NA'; ?> </td>
+										</div>
+										<div class="col-3">
+											<td><b>Store Link : </b>  <?php echo isset($GetUsrInvoiceDetails->store_link)?$GetUsrInvoiceDetails->store_link:'NA'; ?> </td>
+										</div>
 									</tr>
 									<tr>										
 										<td><b>Store Created Date : </b>  <?php echo isset($GetUsrInvoiceDetails->plan_start_dt)?$GetUsrInvoiceDetails->plan_start_dt:'NA'; ?> </td>
 										<td><b>Plan Name : </b>  <?php echo isset($GetUsrInvoiceDetails->plan_name)?$GetUsrInvoiceDetails->plan_name:'NA'; ?> </td>
 									</tr>
+									<tr>										
+										<td><b>Plan Validity : </b>
+											
+												<?php 
+													if(isset($GetUsrInvoiceDetails->subscription_type) && $GetUsrInvoiceDetails->subscription_type==1){
+														echo $GetUsrInvoiceDetails->validity_in_months.' Days'; 
+													}else{
+														echo $GetUsrInvoiceDetails->validity_in_months.' Months'; 
+													}
+												?>
+											
+									    </td>
+										<td><b>Plan Expiry Date : </b>  <?php echo isset($GetUsrInvoiceDetails->plan_expiry_dt)?$GetUsrInvoiceDetails->plan_expiry_dt:'NA'; ?> </td>
+									</tr> 
 									<tr>										
 										<td><b>Store Active Template Name : </b>  <?php echo isset($GetUsrInvoiceDetails->template_name)?$GetUsrInvoiceDetails->template_name:'NA'; ?> </td>
 										<td><b>Transaction No : </b>  <?php echo isset($GetUsrInvoiceDetails->tranRef)?$GetUsrInvoiceDetails->tranRef:'NA'; ?></td>
@@ -69,7 +89,6 @@ $this->load->view('site_admin/layout/sidebar.php');
 												}
 											?>
 									    </td>
-										<td><b>Plan Expiry Date : </b>  <?php echo isset($GetUsrInvoiceDetails->plan_expiry_dt)?$GetUsrInvoiceDetails->plan_expiry_dt:'NA'; ?></td>
 										<td><b>Template Name : </b> <?php echo isset($GetUsrInvoiceDetails->template_name)?$GetUsrInvoiceDetails->template_name:'NA'; ?> </td>
 
 									</tr>

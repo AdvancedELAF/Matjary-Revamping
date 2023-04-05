@@ -14,19 +14,17 @@ class AuthCntr extends MY_Controller {
     }
 
     public function chk_admin_login() {  
-        /* // set password */
-       // echo $pass = hash_hmac("SHA256",'Superadmin@123', SECRET_KEY); die;
+        /* set password */
+       	/* echo $pass = hash_hmac("SHA256",'Superadmin@123', SECRET_KEY); die; */
         if (isset($_POST['email']) & !empty($_POST['email'])) {
             if (isset($_POST['password']) & !empty($_POST['password'])) {
                 if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
                     $this->response['responseCode'] = 404;
-                     $this->response['responseMessage'] = 'Invalid Email.'; 
-                    echo json_encode($this->response);
-                    exit;
+                    $this->response['responseMessage'] = 'Invalid Email.'; 
+                    echo json_encode($this->response); exit;
                 }
                 $usrData = new stdClass();
-                $chkUsrLoginUrl = base_url('chk-admin-credentials');  
-               // $pass = hash_hmac("SHA256",$_POST['password'], SECRET_KEY);              
+                $chkUsrLoginUrl = base_url('chk-admin-credentials');               
                 $requestData = array(
                     'email' => $_POST['email'],
                     'password' => $_POST['password']
@@ -34,7 +32,6 @@ class AuthCntr extends MY_Controller {
                 $header[0] = 'form-data';
                 $inptData['token'] = JWT::encode($requestData, JWT_TOKEN);
                 $urlJsonData = $this->restclient->post($chkUsrLoginUrl, $inptData, $header);
-                // '<pre>'; print_r($urlJsonData); die;
                 if ($urlJsonData->info->http_code == 200) {
                     $usrData->apiResponse = json_decode($urlJsonData->response); 
                     if ($usrData->apiResponse->responseCode == 200) {                        

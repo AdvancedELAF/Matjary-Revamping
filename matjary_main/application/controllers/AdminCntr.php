@@ -16,7 +16,7 @@ class AdminCntr extends MY_Controller {
     public function login() {
         $this->load->view('site_admin/login');
     }
-	
+
     public function dashboard() {
         if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {
             $pageData['pageId'] = 1;            
@@ -1681,7 +1681,7 @@ class AdminCntr extends MY_Controller {
     public function edit_coupon($id) {
         if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {
             $pageData['pageId'] = 22;
-            $pageData['GetSingleCouponDetails'] = $this->CouponModel->get_user_store_payment_info($id);
+            $pageData['GetSingleCouponDetails'] = $this->CouponModel->get_single_coupon_details($id);
             $this->load->view('site_admin/coupon/edit-coupon', $pageData);
         }else{
             redirect('site-admin/login');
