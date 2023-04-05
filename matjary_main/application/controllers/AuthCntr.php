@@ -6,7 +6,7 @@ class AuthCntr extends MY_Controller {
         parent::__construct();
     }
 
-    public function index() {
+    public function index() { 
         $this->load->view('index');
     }
     public function login() {
