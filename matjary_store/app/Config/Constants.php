@@ -110,7 +110,7 @@ define('SMTP_SETFORM', 'smtpmail@motorgate.com');
 define('PAYTABS_PROFILE_ID_TEST', '72162');
 define('PAYTABS_PROFILE_ID_LIVE', '');
 
-define('ARAMEX_USERNAME_TEST', 'aramex-shipping@matjary.sa');
+define('ARAMEX_USERNAME_TEST', 'aramex-shipping@matjary.sa'); 
 define('ARAMEX_PASSWORD_TEST', 'Aramex@elaf321$');
 define('ARAMEX_ACCOUNT_NO_TEST', '60527593');
 define('ARAMEX_ACCOUNT_PIN_TEST', '226316');
