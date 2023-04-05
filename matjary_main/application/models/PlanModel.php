@@ -174,6 +174,8 @@ class PlanModel extends CI_Model {
                 us.is_active,
                 us.site_status,
                 us.created_at,
+                u.fname,
+				u.lname,
                 p.plan_name,
                 p.plan_desc,
                 p.price,
@@ -185,6 +187,7 @@ class PlanModel extends CI_Model {
             ->join('user_subscriptions as us', 'us.id=upi.user_subscriptions_id', 'left')
             ->join('plans as p', 'p.id=us.plan_id', 'left')
             ->join('matjary_templates as mt', 'mt.id=upi.template_id', 'left')
+            ->join('users as u', 'u.id=upi.customer_id', 'left')
             ->where('upi.customer_id', $id)
             ->where('us.subscription_type', 2)
             ->where('us.is_active', 1)

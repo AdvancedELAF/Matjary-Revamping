@@ -544,7 +544,8 @@ $(document).ready(function () {
         rules: {
             code: {
                 required: true,
-                validString:true
+                validString:true,
+                maxlength: 10
             },
             start_date: {
                 required: true

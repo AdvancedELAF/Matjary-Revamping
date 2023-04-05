@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    let base_url = window.location.origin+'Matjary-Revamping/matjary_main/';
+    let base_url = window.location.origin+'/Matjary-Revamping/matjary_main/';
        /* //submit user login form */
         /* Product Action Common js for delete.activate,deactivate operations start */
         let confirm = 'Are you sure You Want to Deactivate this Record ?';
@@ -785,6 +785,7 @@ $(document).ready(function () {
             });
         }
     }));
+  
 
 });
 /* theme filter function start */

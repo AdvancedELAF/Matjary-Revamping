@@ -41,7 +41,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                         <div class="col-md-6 ">
                             <div class="form-group">
                                 <label for="code">Code </label>
-                                <input type="text" class="form-control" id="code" name="code" placeholder="Enter Code.">
+                                <input type="text" class="form-control" id="code" name="code" placeholder="Enter Code." maxlength="10">
                             </div>
                         </div>
                         <div class="col-md-6">
