@@ -6,12 +6,7 @@ $this->load->view('site_admin/layout/header.php');
 $this->load->view('site_admin/layout/sidebar.php');
 $this->load->view('modals/invoice_modal.php');
 ?>
-<style>
-	.table {
-  border-collapse: collapse;
-  border: 1px solid;
-}
-</style>
+
 <section class="content">
     <div class="container-fluid">
         <div class="content-wrapper">
@@ -31,12 +26,11 @@ $this->load->view('modals/invoice_modal.php');
 						</div><!-- /.row -->
 					</div><!-- /.container-fluid -->
 				</div>
-				<?php echo '==-'.$GetUsrInvoiceDetails->store_link; ?>
 			    <?php //echo '<pre>'; print_r($GetUsrInvoiceDetails->store_link); ?>
 				<div id="printableArea">
 					<div class="row" style="margin:0;padding:0;">
 						<div class="col-md">
-							<table class="table table-bordered table-striped">
+							<table class="table table-bordered">
 								<thead colspan="2" style="font"><strong style>Store Basic Details</strong></thead>
 								<tbody>
 									<tr>
@@ -70,7 +64,7 @@ $this->load->view('modals/invoice_modal.php');
 							</table>
 						</div>
 						<div class="col-md">
-							<table class="table table-bordered table-striped">
+							<table class="table table-bordered">
 								<thead colspan="2" style="font"><strong style>Store Plan Details</strong></thead>
 								<tbody>
 									<tr>
