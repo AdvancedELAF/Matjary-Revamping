@@ -767,13 +767,16 @@ class UsrModel extends CI_Model {
                 p.plan_desc,
                 p.price,
                 p.validity_in_months,
-                mt.name as template_name
+                mt.name as template_name,
+                c.code as coupon_code,
+                c.discount_in_percent as coupon_discount_percent 
                 '
             )
             ->from('user_payment_info as upi')
             ->join('user_subscriptions as us', 'us.id=upi.user_subscriptions_id', 'left')
             ->join('plans as p', 'p.id=us.plan_id', 'left')
             ->join('matjary_templates as mt', 'mt.id=upi.template_id', 'left')
+            ->join('coupons as c', 'c.id=upi.coupon_id', 'left')
             ->where('upi.id', $invoiceId)
             ->where('us.subscription_type', 2)
             ->where('us.is_active', 1)
