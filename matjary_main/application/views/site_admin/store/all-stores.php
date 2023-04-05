@@ -55,7 +55,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                                 <tr>
                                     <th scope="row"><?php echo $i; ?></th>
                                     <td><?php echo isset($value->fname ) ? $value->fname : 'NA'; ?></td>                                     
-                                    <td><a href="<?php echo $value->store_link; ?>" target="_blank"><?php echo $value->store_link; ?></td>
+                                    <td><a target="_blank" href="<?php echo "https://" . $value->store_link; ?>"> <?php echo $value->store_link; ?></a></td>
                                     <td><?php echo isset($value->fname ) ? $value->fname.' '.$value->lname : 'NA'; ?></td>
                                     <td><?php echo isset($value->plan_name ) ? $value->plan_name : 'NA'; ?></td>
                                     <td><?php //echo isset($value->plan_expiry_dt ) ? $value->plan_expiry_dt : 'NA'; ?>

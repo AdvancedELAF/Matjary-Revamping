@@ -31,11 +31,12 @@ $this->load->view('modals/invoice_modal.php');
 						</div><!-- /.row -->
 					</div><!-- /.container-fluid -->
 				</div>
+				<?php echo '==-'.$GetUsrInvoiceDetails->store_link; ?>
 			    <?php //echo '<pre>'; print_r($GetUsrInvoiceDetails->store_link); ?>
 				<div id="printableArea">
 					<div class="row" style="margin:0;padding:0;">
 						<div class="col-md">
-							<table class="table table-bordered">
+							<table class="table table-bordered table-striped">
 								<thead colspan="2" style="font"><strong style>Store Basic Details</strong></thead>
 								<tbody>
 									<tr>
@@ -44,7 +45,9 @@ $this->load->view('modals/invoice_modal.php');
 									</tr>
 									<tr>
 										<td>Store Link</td>
-										<td><a href="<?php echo $GetUsrInvoiceDetails->store_link; ?>" target="_blank"><?php echo $GetUsrInvoiceDetails->store_link; ?></a>
+										<td><a target="_blank" href="<?php echo "https://" . $GetUsrInvoiceDetails->store_link; ?>"> <?php echo $GetUsrInvoiceDetails->store_link; ?></a>
+											</a>
+										</td>
 									</tr>
 									<tr>
 										<td>Store Owner</td>
@@ -67,7 +70,7 @@ $this->load->view('modals/invoice_modal.php');
 							</table>
 						</div>
 						<div class="col-md">
-							<table class="table table-bordered ">
+							<table class="table table-bordered table-striped">
 								<thead colspan="2" style="font"><strong style>Store Plan Details</strong></thead>
 								<tbody>
 									<tr>
@@ -87,7 +90,8 @@ $this->load->view('modals/invoice_modal.php');
 									</tr>
 									<tr>
 										<td>Plan Expiry</td>
-										<td><?php 
+										<td><?php //echo isset($GetUsrInvoiceDetails->plan_expiry_dt)?$GetUsrInvoiceDetails->plan_expiry_dt:'NA'; ?>
+									    	<?php 
 												$datependt = date_format (new DateTime($GetUsrInvoiceDetails->plan_expiry_dt), 'd M Y');
 												echo isset($datependt)?$datependt:'NA'; 
 											?>
