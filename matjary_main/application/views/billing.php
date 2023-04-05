@@ -147,13 +147,14 @@ $this->load->view("common/header.php");
                         </div>
                         <div class="row">
                             <div class="col-lg-6">
-                                <input type="text" name="coupon_code" id="coupon_code" data-userid="<?php echo isset($post_data['user_id']) ? $post_data['user_id'] : 0; ?>" class="form-control mb-2 coupon-field" placeholder="<?php echo $this->lang->line('user-bill-txt-5'); ?>">
+                                <input type="text" name="coupon_code" id="coupon_code" minlength="1" maxlength="10" data-userid="<?php echo isset($post_data['user_id']) ? $post_data['user_id'] : 0; ?>" class="form-control mb-2 coupon-field nospecialchars" placeholder="<?php echo $this->lang->line('user-bill-txt-5'); ?>">
+                                <span id="couponMsg"></span>
                             </div>
                             <div class="col-lg-3">
                                 <a href="javascript:void(0);" id="applyCouponCodeBtn" data-userid="<?php echo isset($post_data['user_id']) ? $post_data['user_id'] : 0; ?>" class="btn btn-primary brand-btn-pink pl-4 pr-4 align-mid"><?php echo $this->lang->line('apply'); ?></a>
                             </div>
                             <div class="col-lg-3">
-                                <button class="btn btn-primary brand-btn-purple pl-4 pr-4 align-mid"><?php echo $this->lang->line('remove'); ?></button>
+                                <a  href="javascript:void(0);" id="removeCouponCodeBtn" class="btn btn-primary brand-btn-purple pl-4 pr-4 align-mid"><?php echo $this->lang->line('remove'); ?></a>
                             </div>
                         </div>
                         <!-- <div class="payment-title">
@@ -178,7 +179,7 @@ $this->load->view("common/header.php");
             <div class="row">
                 <div class="col-lg-6"></div>
                 <div class="col-lg-6">
-                    <button type="submit" class="btn btn-primary brand-btn-pink pl-4 pr-4 align-mid" type="submit" name="proceed"><?php echo $this->lang->line('user-bill-txt-6'); ?></button>
+                    <button type="submit" class="btn btn-primary brand-btn-pink pl-4 pr-4 align-mid" type="submit" name="proceed" id="proceedToPaymentBtn"><?php echo $this->lang->line('user-bill-txt-6'); ?></button>
                 </div>
             </div>
         </div>

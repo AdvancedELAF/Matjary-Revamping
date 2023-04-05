@@ -100,10 +100,14 @@ $(document).ready(function () {
 
 window.onload = () => {
     const sub_domain_name = document.getElementById('sub_domain_name');
-    sub_domain_name.onpaste = e => e.preventDefault();
+    if (sub_domain_name !== null) {
+        sub_domain_name.onpaste = e => e.preventDefault();
+    }
 }
 
 window.onload = () => {
     const free_trial_domain = document.getElementById('free_trial_domain');
-    free_trial_domain.onpaste = e => e.preventDefault();
+    if (free_trial_domain !== null) {
+        free_trial_domain.onpaste = e => e.preventDefault();
+    }
 }

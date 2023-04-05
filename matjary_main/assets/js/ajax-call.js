@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    let base_url = window.location.origin+'Matjary-Revamping/matjary_main/';
+    let base_url = window.location.origin;
 
     let loader_cir = base_url + "/assets/images/loader/matjary-loader-circle.gif";
 
@@ -354,6 +354,7 @@ $(document).ready(function () {
                 processData: false,
                 timeout: 600000,
                 beforeSend: function () {
+                    $("#proceedToPaymentBtn").prop("disabled",true);
                     swal({
                         title: "",
                         text: info_msg1,
@@ -527,7 +528,7 @@ $(document).ready(function () {
                             }, function (isConfirm) {
                                 if (isConfirm) {
                                     $.ajax({
-                                        url: window.location.origin+'Matjary-Revamping/matjary_main/' + '/create-free-store',
+                                        url: window.location.origin + '/create-free-store',
                                         type: "POST",
                                         data: {
                                             sub_domain_name: sub_domain_name
@@ -711,8 +712,28 @@ $(document).ready(function () {
                     $("#invoiceInfoModal").find("#plan_cost").text('SAR ' + plan_cost);
                     $("#invoiceInfoModal").find("#template_name").text(template_name);
                     $("#invoiceInfoModal").find("#template_cost").text('SAR ' + template_cost);
-                    $("#invoiceInfoModal").find("#subtotal").text('SAR ' + total_price);
+
+                    let subtotal = parseFloat(plan_cost) + parseFloat(template_cost);
+                    $("#invoiceInfoModal").find("#subtotal").text('SAR ' + subtotal);
+                    if(resp.responseData.is_coupon_applied==1){
+                        $("#invoiceInfoModal").find("#coupon_code_div").show();
+                        $("#invoiceInfoModal").find("#coupon_code").text(resp.responseData.coupon_code);
+                        $("#invoiceInfoModal").find("#coupon_discount_div").show();
+                        $("#invoiceInfoModal").find("#coupon_discount").text(resp.responseData.coupon_discount_percent);
+                        $("#invoiceInfoModal").find("#coupon_amount_div").show();
+                        $("#invoiceInfoModal").find("#coupon_amount").text('SAR ' +resp.responseData.coupon_amount);
+                        total_price = parseFloat(subtotal) - parseFloat(resp.responseData.coupon_amount);
+                    }else{
+                        $("#invoiceInfoModal").find("#coupon_code").text('');
+                        $("#invoiceInfoModal").find("#coupon_code_div").hide();
+                        $("#invoiceInfoModal").find("#coupon_discount").text('0');
+                        $("#invoiceInfoModal").find("#coupon_discount_div").hide();
+                        $("#invoiceInfoModal").find("#coupon_amount").text('0.00');
+                        $("#invoiceInfoModal").find("#coupon_amount_div").hide();
+                        total_price = parseFloat(subtotal) - parseFloat(resp.responseData.coupon_amount);
+                    }
                     $("#invoiceInfoModal").find("#grand_total").text('SAR ' + total_price);
+
                     $("#invoiceInfoModal").find("#store_name").text(store_name);
                     $("#invoiceInfoModal").find("#store_link").html('<a href="'+store_link+'" targate="_blank">'+store_link+'</a>');
                     $("#invoiceInfoModal").find("#store_admin_link").html('<a href="'+store_admin_link+'" targate="_blank">'+store_admin_link+'</a>');
@@ -861,7 +882,7 @@ $(document).ready(function () {
         let template_id = $(this).data('tmplid');
         let user_id = $(this).data('userid');
         $.ajax({
-            url: window.location.origin+'Matjary-Revamping/matjary_main/' + '/check-template-purchased',
+            url: window.location.origin + '/check-template-purchased',
             type: "POST",
             data: {
                 template_id: template_id,
@@ -889,74 +910,32 @@ $(document).ready(function () {
         });
     });
 
+    $("#removeCouponCodeBtn").click(function (event) {
+        event.preventDefault();
+        $("#is_coupon_applied").val(0);
+        $("#coupon_id").val(0);
+        $("#coupon_amount").val('0.00');
+        $("#discount_span").text('0.00');
+        var plan_total_price = $("#plan_subtotal").text();
+        $("#plan_total_price").val(plan_total_price);
+        $("#plan_total_price_span").text(plan_total_price);
+        $("#coupon_code").val('');
+        $("#couponMsg").text('');
+
+        $("#proceedToPaymentBtn").prop("disabled",false);
+    });
+
     $("#applyCouponCodeBtn").click(function (event) {
         event.preventDefault();
         let user_id = $(this).data('userid');
         let coupon_code = $("#coupon_code").val();
-        if(coupon_code=='' || coupon_code==undefined){
-            swal({title: "Info", text: 'Coupon Code Required.', type: "info"});
+        if(coupon_code.length == 0 && coupon_code == ""){
+            $("#couponMsg").text('Coupon Code Required.');
+            $("#couponMsg").css("color", "red");
             return false;
         }else{
             $.ajax({
-                url: window.location.origin+'Matjary-Revamping/matjary_main/' + '/check-coupon-valid',
-                type: "POST",
-                data: {
-                    user_id: user_id,
-                    coupon_code : coupon_code
-                },
-                beforeSend: function () {
-                    swal({
-                        title: "",
-                        imageUrl: base_url + "/assets/images/loader/matjary-loader.gif",
-                        buttons: false,
-                        closeOnClickOutside: false,
-                        showConfirmButton: false
-                    });
-                },
-                success: function (resp) {
-                    resp = JSON.parse(resp); 
-                    if (resp.responseCode == 200) {
-                        swal.close();
-                        console.log(resp.responseData);
-                        var couponData = resp.responseData;
-                        
-                        $("#is_coupon_applied").val(1);
-                        $("#coupon_id").val(couponData.id);
-
-                        var plan_total_price = $("#plan_total_price").val();
-                        var coupon_amount = parseFloat(plan_total_price) * parseInt(couponData.discount_in_percent) / 100;
-
-                        $("#coupon_amount").val(coupon_amount);
-                        $("#discount_span").text(coupon_amount);
-
-                        var updated_plan_total_price = parseFloat(plan_total_price) - parseFloat(coupon_amount);
-                        $("#plan_total_price").val(updated_plan_total_price);
-                        $("#plan_total_price_span").text(updated_plan_total_price);
-                        
-                    } else {
-                        $("#is_coupon_applied").val(0);
-                        $("#coupon_id").val(0);
-                        $("#coupon_amount").val('0.00');
-                        $("#discount_span").text('0.00');
-                        var plan_total_price = $("#plan_subtotal").text();
-                        $("#plan_total_price").val(plan_total_price);
-                        $("#plan_total_price_span").text(plan_total_price);
-                        swal({title: "", html: true, closeOnClickOutside: false, text: resp.responseMessage, type: "info"});
-                        return false;
-                    }
-                }
-            });
-        }
-    });
-
-    
-    $("#coupon_code").focusout(function(event){
-        event.preventDefault();
-        let user_id = $(this).data('userid');
-        let coupon_code = $(this).val();
-        if(coupon_code !=='' || coupon_code !==undefined){
-            $.ajax({
-                url: window.location.origin+'Matjary-Revamping/matjary_main/' + '/check-coupon-valid',
+                url: window.location.origin + '/check-coupon-valid',
                 type: "POST",
                 data: {
                     user_id: user_id,
@@ -992,8 +971,14 @@ $(document).ready(function () {
                             var updated_plan_total_price = parseFloat(plan_total_price) - parseFloat(coupon_amount);
                             $("#plan_total_price").val(updated_plan_total_price);
                             $("#plan_total_price_span").text(updated_plan_total_price);
+
+                            $("#couponMsg").text('Coupon Applied Successfully');
+                            $("#couponMsg").css("color", "green");
                         }
+                        
+                        $("#proceedToPaymentBtn").prop("disabled",false);
                     } else {
+                        swal.close();
                         $("#is_coupon_applied").val(0);
                         $("#coupon_id").val(0);
                         $("#coupon_amount").val('0.00');
@@ -1002,11 +987,98 @@ $(document).ready(function () {
                         $("#plan_total_price").val(plan_total_price);
                         $("#plan_total_price_span").text(plan_total_price);
 
-                        swal({title: "", html: true, closeOnClickOutside: false, text: resp.responseMessage, type: "info"});
+                        $("#couponMsg").text(resp.responseMessage);
+                        $("#couponMsg").css("color", "red");
+
+                        /* disable payment proceed button till coupon code is not valid or keep empty*/
+                        $("#proceedToPaymentBtn").prop("disabled",true);
+
                         return false;
                     }
                 }
             });
+        }
+    });
+
+    
+    $("#coupon_code").focusout(function(event){
+        event.preventDefault();
+        let user_id = $(this).data('userid');
+        let coupon_code = $(this).val();
+        if(coupon_code.length > 0 && coupon_code != ""){
+            $.ajax({
+                url: window.location.origin + '/check-coupon-valid',
+                type: "POST",
+                data: {
+                    user_id: user_id,
+                    coupon_code : coupon_code
+                },
+                beforeSend: function () {
+                    swal({
+                        title: "",
+                        imageUrl: base_url + "/assets/images/loader/matjary-loader.gif",
+                        buttons: false,
+                        closeOnClickOutside: false,
+                        showConfirmButton: false
+                    });
+                },
+                success: function (resp) {
+                    resp = JSON.parse(resp); 
+                    if (resp.responseCode == 200) {
+                        swal.close();
+                        //console.log(resp.responseData);
+                        var couponData = resp.responseData;
+                        
+                        var is_coupon_applied = $("#is_coupon_applied").val();
+                        if(is_coupon_applied==0){
+                            $("#is_coupon_applied").val(1);
+                            $("#coupon_id").val(couponData.id);
+
+                            var plan_total_price = $("#plan_total_price").val();
+                            var coupon_amount = parseFloat(plan_total_price) * parseInt(couponData.discount_in_percent) / 100;
+
+                            $("#coupon_amount").val(coupon_amount);
+                            $("#discount_span").text(coupon_amount);
+
+                            var updated_plan_total_price = parseFloat(plan_total_price) - parseFloat(coupon_amount);
+                            $("#plan_total_price").val(updated_plan_total_price);
+                            $("#plan_total_price_span").text(updated_plan_total_price);
+                            
+                            $("#couponMsg").text('Coupon Applied Successfully');
+                            $("#couponMsg").css("color", "green");
+
+                        }
+                        $("#proceedToPaymentBtn").prop("disabled",false);
+                    } else {
+                        swal.close();
+                        $("#is_coupon_applied").val(0);
+                        $("#coupon_id").val(0);
+                        $("#coupon_amount").val('0.00');
+                        $("#discount_span").text('0.00');
+                        var plan_total_price = $("#plan_subtotal").text();
+                        $("#plan_total_price").val(plan_total_price);
+                        $("#plan_total_price_span").text(plan_total_price);
+
+                        $("#couponMsg").text(resp.responseMessage);
+                        $("#couponMsg").css("color", "red");
+
+                        /* disable payment proceed button till coupon code is not valid or keep empty*/
+                        $("#proceedToPaymentBtn").prop("disabled",true);
+                        return false;
+                    }
+                }
+            });
+        }else if(coupon_code.length == 0 && coupon_code == ""){
+            $("#is_coupon_applied").val(0);
+            $("#coupon_id").val(0);
+            $("#coupon_amount").val('0.00');
+            $("#discount_span").text('0.00');
+            var plan_total_price = $("#plan_subtotal").text();
+            $("#plan_total_price").val(plan_total_price);
+            $("#plan_total_price_span").text(plan_total_price);
+            $("#coupon_code").val('');
+            $("#couponMsg").text('');
+            $("#proceedToPaymentBtn").prop("disabled",false);
         }
     });
 
@@ -1025,9 +1097,9 @@ function printPageArea(areaID) {
 /* inline jquery funtions calls */
 function show_template_details(template_id, template_price,free_paid_flag,tmp_purchase_status, view_demo, lang_var) {
 
-    let base_url = window.location.origin+'Matjary-Revamping/matjary_main/';
+    let base_url = window.location.origin;
     $.ajax({
-        url: window.location.origin+'Matjary-Revamping/matjary_main/' + '/get_template_full_banner',
+        url: window.location.origin + '/get_template_full_banner',
         type: "POST",
         data: {
             template_id: template_id,

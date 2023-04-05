@@ -118,15 +118,21 @@
                                                 <?php echo $this->lang->line('Subtotal'); ?> <span id="subtotal"></span>
                                                 </div>
                                                 <!-- 
-                                            <div class="field">
-                                                Shipping <span>$0.00</span>
-                                            </div> 
-                                            <div class="field">
-                                                Discount <span>4.5%</span>
-                                            </div> 
+                                                <div class="field">
+                                                    Shipping <span>$0.00</span>
+                                                </div> 
                                                 -->
+                                                <div class="field" id="coupon_code_div">
+                                                    Coupon Code <span id="coupon_code">APLRIL2023</span>
+                                                </div> 
+                                                <div class="field" id="coupon_discount_div">
+                                                    Coupon Discount <span id="coupon_discount">0</span>%
+                                                </div> 
+                                                <div class="field" id="coupon_amount_div">
+                                                    Coupon Amount <span id="coupon_amount">0.00</span>
+                                                </div>
                                                 <div class="field grand-total">
-                                                <?php echo $this->lang->line('Total'); ?> <span id="grand_total"></span>
+                                                    <?php echo $this->lang->line('Total'); ?> <span id="grand_total"></span>
                                                 </div>
                                             </div>
                                         </div>

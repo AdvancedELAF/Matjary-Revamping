@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    let base_url = window.location.origin+'Matjary-Revamping/matjary_main/';
+    let base_url = window.location.origin;
        /* //submit user login form */
         /* Product Action Common js for delete.activate,deactivate operations start */
         let confirm = 'Are you sure You Want to Deactivate this Record ?';
@@ -555,7 +555,7 @@ $(document).ready(function () {
             });
         }
     }));
-
+    
     $("#change_admin_password").on('submit', (function (e) {
         e.preventDefault();
         var isvalidate = $("#change_admin_password").valid();
@@ -591,26 +591,26 @@ $(document).ready(function () {
         }
     }));
 
-    $("#myChartglobal").load("dashboard.php", function(){
+    $("#myChartglobal").load("dashboard.php", function(){        
         var action_page = base_url+'/site-admin/get-dashboard-data';
         $.ajax({
             url: action_page,
             type: "POST",
             enctype: 'multipart/form-data',
-            data: '',
-            success: function (resp) {
+            data: '',            
+            success: function (resp) {                
                 resp = JSON.parse(resp);
-
-                var getCurrentMonthval= resp.getCurrentMonthval;
+                
+                var getCurrentMonthval= resp.getCurrentMonthval;                 
                 var getMonthArry = new Array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
-                var chartName = 'User Registration';
+                var chartName = 'User Registration'; 
                 var chartId = 'myChartglobal';
                 var yAxesLabel = 'No. of User Register';
                 var xAxesLabel = 'Months';
 
                 console.log(getMonthArry);
-                if (resp.responseCode == 200) {
-                    drawLineChart(chartId,getCurrentMonthval,getMonthArry,chartName,yAxesLabel,xAxesLabel);
+                if (resp.responseCode == 200) {                   
+                    drawLineChart(chartId,getCurrentMonthval,getMonthArry,chartName,yAxesLabel,xAxesLabel);                     
                 } else {
                     swal({title: "Fail", closeOnClickOutside: false, text: resp.responseMessage, type: "error"});
                 }
@@ -619,22 +619,22 @@ $(document).ready(function () {
     });
 
     $("#myChart").load("dashboard.php", function(){
-        var action_page = base_url+'/site-admin/get-oreder-sales-data';
+        var action_page = base_url+'/site-admin/get-oreder-sales-data';        
         $.ajax({
             url: action_page,
             type: "POST",
             enctype: 'multipart/form-data',
-            data: '',
-            success: function (resp) {
+            data: '',            
+            success: function (resp) {                
                 resp = JSON.parse(resp);
-                var chartId = 'myChart';
-                var getCurrentOrderTotal= resp.getCurrentOrderTotal;
+                var chartId = 'myChart';            
+                var getCurrentOrderTotal= resp.getCurrentOrderTotal; 
                 var getMonthArry =  new Array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
                 var chartName = 'Month on Month Orders ';
                 var yAxesLabel = 'No. of Orders';
-                var xAxesLabel = 'Months';
-                if (resp.responseCode == 200) {
-                    drawBarChart(chartId,getCurrentOrderTotal,getMonthArry,chartName,yAxesLabel,xAxesLabel);
+                var xAxesLabel = 'Months'; 
+                if (resp.responseCode == 200) {                   
+                    drawBarChart(chartId,getCurrentOrderTotal,getMonthArry,chartName,yAxesLabel,xAxesLabel);                     
                 } else {
                     swal({title: "Fail", closeOnClickOutside: false, text: resp.responseMessage, type: "error"});
                 }
@@ -642,22 +642,22 @@ $(document).ready(function () {
         });
     });
 
-    // $("#chartIds").load("dashboard.php", function(){
-    //     var action_page = base_url+'/Matjary-Revamping/matjary_main/site-admin/get-dashboard-data';
+    // $("#chartIds").load("dashboard.php", function(){        
+    //     var action_page = base_url+'/Matjary-Revamping/matjary_main/site-admin/get-dashboard-data';        
     //     $.ajax({
     //         url: action_page,
     //         type: "POST",
     //         enctype: 'multipart/form-data',
-    //         data: '',
-    //         success: function (resp) {
+    //         data: '',            
+    //         success: function (resp) {                
     //             resp = JSON.parse(resp);
-    //             var chartId = 'chartIds';
+    //             var chartId = 'chartIds';            
     //             var getCurrentMonthvalline= resp.getCurrentMonthval;
-    //             var getCurrentMonthvalbar= resp.getCurrentMonthval;
+    //             var getCurrentMonthvalbar= resp.getCurrentMonthval; 
     //             var getMonthArry = resp.getMonthArry;
-    //             var chartName = 'User Registration Mixed Chart';
-    //             if (resp.responseCode == 200) {
-    //                 drawMixedChart(chartId,getCurrentMonthvalline,getCurrentMonthvalbar,getMonthArry,chartName);
+    //             var chartName = 'User Registration Mixed Chart'; 
+    //             if (resp.responseCode == 200) {                   
+    //                 drawMixedChart(chartId,getCurrentMonthvalline,getCurrentMonthvalbar,getMonthArry,chartName);                     
     //             } else {
     //                 swal({title: "Fail", closeOnClickOutside: false, text: resp.responseMessage, type: "error"});
     //             }
@@ -665,25 +665,25 @@ $(document).ready(function () {
     //     });
     // });
 
-    $("#SalesOrders").load("dashboard.php", function(){
-        var action_page = base_url+'/site-admin/get-oreder-sales-data';
+    $("#SalesOrders").load("dashboard.php", function(){        
+        var action_page = base_url+'/site-admin/get-oreder-sales-data';        
         $.ajax({
             url: action_page,
             type: "POST",
             enctype: 'multipart/form-data',
-            data: '',
-            success: function (resp) {
+            data: '',            
+            success: function (resp) {                
                 resp = JSON.parse(resp);
-                var chartId = 'SalesOrders';
-                var getCurrentOrderTotal= resp.getCurrentOrderTotal;
-                var getCurrentSalesTotal= resp.getCurrentSalesTotal;
+                var chartId = 'SalesOrders';            
+                var getCurrentOrderTotal= resp.getCurrentOrderTotal; 
+                var getCurrentSalesTotal= resp.getCurrentSalesTotal; 
                 var getMonthArry =  new Array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
-                var chartName = 'Month on Month sales /orders';
+                var chartName = 'Month on Month sales /orders';                
                 var yAxesLabel = 'No. of sales/orders';
                 var xAxesLabel = 'Months';
 
-                if (resp.responseCode == 200) {
-                    drawMixedChart(chartId,getCurrentOrderTotal,getCurrentSalesTotal,getMonthArry,chartName,yAxesLabel,xAxesLabel);
+                if (resp.responseCode == 200) {                   
+                    drawMixedChart(chartId,getCurrentOrderTotal,getCurrentSalesTotal,getMonthArry,chartName,yAxesLabel,xAxesLabel);                     
                 } else {
                     swal({title: "Fail", closeOnClickOutside: false, text: resp.responseMessage, type: "error"});
                 }
@@ -691,24 +691,24 @@ $(document).ready(function () {
         });
     });
 
-    $("#revenueCharts").load("dashboard.php", function(){
-        var action_page = base_url+'/site-admin/get-revenue-data';
+    $("#revenueCharts").load("dashboard.php", function(){        
+        var action_page = base_url+'/site-admin/get-revenue-data';        
         $.ajax({
             url: action_page,
             type: "POST",
             enctype: 'multipart/form-data',
-            data: '',
-            success: function (resp) {
+            data: '',            
+            success: function (resp) {                
                 resp = JSON.parse(resp);
-
-                var getCurrentRevenueTotal= resp.getCurrentRevenueTotal;
+                
+                var getCurrentRevenueTotal= resp.getCurrentRevenueTotal; 
                 var getMonthArry = new Array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
-                var chartName = 'Month on Month Revenue';
+                var chartName = 'Month on Month Revenue'; 
                 var chartId = 'revenueCharts';
                 var yAxesLabel = 'No. of Revenue';
                 var xAxesLabel = 'Months';
-                if (resp.responseCode == 200) {
-                    drawLineChart(chartId,getCurrentRevenueTotal,getMonthArry,chartName,yAxesLabel,xAxesLabel);
+                if (resp.responseCode == 200) {                   
+                    drawLineChart(chartId,getCurrentRevenueTotal,getMonthArry,chartName,yAxesLabel,xAxesLabel);                     
                 } else {
                     swal({title: "Fail", closeOnClickOutside: false, text: resp.responseMessage, type: "error"});
                 }
