@@ -60,7 +60,8 @@ $this->load->view('site_admin/layout/sidebar.php');
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3><?php if(isset($dashboardAnalytics['totalRevenue']) && !empty($dashboardAnalytics['totalRevenue'])){ echo $dashboardAnalytics['totalRevenue'][0]->total; }else{ echo '0'; }?></h3>
+                <h3><?php $totalRevenue = round($dashboardAnalytics['totalRevenue'][0]->total, 2);
+                if(isset($dashboardAnalytics['totalRevenue']) && !empty($dashboardAnalytics['totalRevenue'])){ echo $totalRevenue; }else{ echo '0'; }?></h3>
                 <p>Revenue</p>
               </div>
               <div class="icon">
@@ -119,7 +120,8 @@ $this->load->view('site_admin/layout/sidebar.php');
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3><?php if(isset($dashboardAnalytics['totalRecentRevenue']) && !empty($dashboardAnalytics['totalRecentRevenue'])){ echo $dashboardAnalytics['totalRecentRevenue'][0]->total; }else{ echo '0'; }?></h3>
+                <h3><?php $totalRecentRevenue = round($dashboardAnalytics['totalRecentRevenue'][0]->total, 2);
+                if(isset($dashboardAnalytics['totalRecentRevenue']) && !empty($dashboardAnalytics['totalRecentRevenue'])){ echo $totalRecentRevenue; }else{ echo '0'; }?></h3>
                 <p>Current Month Revenue</p>
               </div>
               <div class="icon">
