@@ -9,9 +9,7 @@ class WebCntr extends MY_Controller {
     }
 
     public function index() {
-		echo '<pre>'; print_r('commin on index file'); exit;
         $this->load->view('index');
-
     }
 
     public function switchLang() {
