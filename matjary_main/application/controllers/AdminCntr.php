@@ -144,7 +144,7 @@ class AdminCntr extends MY_Controller {
     public function get_revenue_data() {        
         if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {        
             /* Get Sales Report Data */
-            $pageData['getRevenueMonthReport'] = $this->DashboardModel->get_monthly_sales_report();
+            $pageData['getRevenueMonthReport'] = $this->DashboardModel->get_monthly_revenue_report();
             if(isset($pageData['getRevenueMonthReport']) && !empty($pageData['getRevenueMonthReport'])){
                 $getTotal = '';
                 $GetMonths = '';

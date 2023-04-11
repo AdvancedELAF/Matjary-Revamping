@@ -97,14 +97,14 @@ $(document).ready(function () {
         return false;
     });
 
-    // $('input[type="radio"]').click(function(){
-    // 	var getVal = $(this).val();
-    //     if(getVal == 1){
-    //         $("#cost").show();
-    //     }else{
-    //         $("#cost").hide();
-    //     }
-    // });
+    $('input[type="radio"]').click(function(){       
+    	var getVal = $(this).val();
+        if(getVal == 1){
+            $("#cost").hide();
+        }else{
+            $("#cost").show();
+        }
+    });
    
     var checkCost = $("input[name='free_paid_flag']:checked").val();
     if(checkCost == 2){
