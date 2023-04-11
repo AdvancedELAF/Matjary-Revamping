@@ -1,7 +1,6 @@
 $(document).ready(function () {
 
-    let base_url = window.location.origin;
-    
+    let base_url = window.location.origin;    
     let current_lang = $('html')[0].lang;
     let processing = 'Processing...';
     let selectCountry = 'Select Country';
@@ -96,23 +95,24 @@ $(document).ready(function () {
             if (String.fromCharCode(charCode).match(/[^0-9-.]/g))
         return false;
     });
+    
+    $('input[name="free_paid_flag"]').click(function(){       
+        var free_paid_flag = $("input[name='free_paid_flag']:checked").val();        
+        if(free_paid_flag == 2){
+            $("#cost").show();
+        }else{
+            $("#template_cost").val(0);
+            $("#cost").hide();
+        }        
+    });
 
-    $('input[type="radio"]').click(function(){       
-    	var getVal = $(this).val();
-        if(getVal == 1){
+    var free_paid_flag = $("input[name='free_paid_flag']:checked").val();
+        if(free_paid_flag == 1){
             $("#cost").hide();
         }else{
             $("#cost").show();
         }
-    });
    
-    var checkCost = $("input[name='free_paid_flag']:checked").val();
-    if(checkCost == 2){
-        $("#cost").show();
-    }else{
-        $("#cost").hide();
-    }
-    
     /* add-remove-input-field-dynamically-with-jquery start*/
         var max_fields      = 10; //maximum input boxes allowed
         var wrapper         = $("#planFeaturesWrapper"); //Fields wrapper

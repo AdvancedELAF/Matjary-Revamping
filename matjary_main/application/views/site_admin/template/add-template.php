@@ -87,7 +87,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                         <div class="col-md-6">
                             <div class="mb-2">
                                 <label>Paid / Free Status</label><br>
-                                <input type="radio" name="free_paid_flag" value="1" data-error=".error1"> Free  &nbsp;&nbsp;&nbsp;
+                                <input type="radio" name="free_paid_flag" value="1" data-error=".error1" checked> Free  &nbsp;&nbsp;&nbsp;
                                 <input type="radio" name="free_paid_flag" value="2" data-error=".error1"> Paid
                                 </br><span class="error1"></span>
                             </div>  
