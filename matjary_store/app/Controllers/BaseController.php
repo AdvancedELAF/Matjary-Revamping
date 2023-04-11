@@ -646,15 +646,15 @@ abstract class BaseController extends Controller
                 //Server settings
                 $mail->SMTPDebug = false;                                 // Enable verbose debug output
                 $mail->isSMTP();                                      // Set mailer to use SMTP
-                $mail->Host = 'mail.motorgate.com';                    // Specify main and backup SMTP servers
+                $mail->Host = 'email-smtp.ap-south-1.amazonaws.com';                    // Specify main and backup SMTP servers
                 $mail->SMTPAuth = true;                               // Enable SMTP authentication
-                $mail->Username = 'smtpmail@motorgate.com';                   // SMTP username
-                $mail->Password = '2NrW_q,i9Z;%';                   // SMTP password
+                $mail->Username = 'AKIA3LCPB7FIGCGZJY5Q';                   // SMTP username
+                $mail->Password = 'BEACNaCDKzntvdAt8FCRfnw26RSSN22SckwC3E7zixcc';                   // SMTP password
                 $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
                 $mail->Port = 587;                                    // TCP port to connect to
 
                 //Recipients
-                $mail->setFrom('smtpmail@motorgate.com', $subdomain);
+                $mail->setFrom('info@matjary.in', $subdomain);
                 $mail->addAddress($email, $email);     // Add a recipient
 
                 // Content
