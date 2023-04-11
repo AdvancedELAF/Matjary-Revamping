@@ -107,7 +107,7 @@ if (!function_exists('curl_call')) {
         $domain = str_ireplace('www.', '', parse_url(base_url(), PHP_URL_HOST));
 
         $headers = array(
-            'Authorization: Bearer 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',
+            'Authorization: Bearer bearer_token_will_be_replace',
             'Content-Type: application/json'
         );
 

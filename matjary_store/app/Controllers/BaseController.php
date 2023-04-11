@@ -592,7 +592,7 @@ abstract class BaseController extends Controller
         $subdomain = $host[0];
 
         $headers = array(
-            'Authorization: Bearer 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',
+            'Authorization: Bearer replaced_by_bearer_token',
             'Content-Type: application/json'
         );
 
