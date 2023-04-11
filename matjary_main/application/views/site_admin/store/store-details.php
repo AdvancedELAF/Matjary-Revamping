@@ -4,22 +4,8 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
 } 
 $this->load->view('site_admin/layout/header.php');
 $this->load->view('site_admin/layout/sidebar.php');
-$this->load->view('modals/invoice_modal.php');
 ?>
-<style>
-    @media print {
-  /* style sheet for print goes here */
-  .table td {
-	border: 2px solid black;
-  padding: 8px;
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
 
- 
-}
-</style>
 <section class="content">
     <div class="container-fluid">
         <div class="content-wrapper">
@@ -39,7 +25,7 @@ $this->load->view('modals/invoice_modal.php');
 						</div><!-- /.row -->
 					</div><!-- /.container-fluid -->
 				</div>
-			    <?php //echo '<pre>'; print_r($GetUsrInvoiceDetails->store_link); ?>
+			   
 				<div id="printableArea">
 					<div class="row" style="margin:0;padding:0;">
 						<div class="col-md" id="listingWrapper">
@@ -200,29 +186,13 @@ $this->load->view('modals/invoice_modal.php');
 	</div>
 </section>
 <script>
-    function printPageArea(areaID){
-    var printContent = document.getElementById(areaID).innerHTML;
-    var originalContent = document.body.innerHTML;
-    document.body.innerHTML = printContent;
-    window.print();
-    document.body.innerHTML = originalContent;
-    }
-// 	function printPageArea(areaID) {
-//     var divToPrint = document.getElementById(areaID);
-//     var htmlToPrint = '' +
-//         '<style type="text/css">' +
-//         'table td {' +
-//         'border: 2px solid black;' +
-//         'border-collapse: collapse;' +
-// 		'width:80%' +
-//         '}' +
-//         '</style>';
-
-//     htmlToPrint += divToPrint.outerHTML;
-//     newWin = window.open("");
-//     newWin.document.write(htmlToPrint);
-//     newWin.print();
-//     newWin.close();
-// }
+	function printPageArea(areaID){
+	var printContent = document.getElementById(areaID).innerHTML;
+	var originalContent = document.body.innerHTML;
+	document.body.innerHTML = printContent;
+	window.print();
+	document.body.innerHTML = originalContent;
+	}
 </script>
 <?php  $this->load->view('site_admin/layout/footer.php'); ?>
+

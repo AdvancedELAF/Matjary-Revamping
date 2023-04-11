@@ -420,7 +420,48 @@ $(document).ready(function () {
         }
     });
 
-    
+    $('#invoiceList').DataTable({
+        "paging": true,
+        "deferRender": true,
+        "lengthChange": true,
+        "searching": true,
+        "info": true,        
+        "dom": '<"container-fluid"<"row"<"col-sm-6"B><"col-sm-4"f><"col-sm-1"l >>>rtip',   
+        "buttons": [
+            
+            {
+                'extend': 'print',
+                'exportOptions': {
+                    'columns': [ 0, 1, 2]
+                }
+            },
+           
+        ],
+        "pageLength": 10,
+        "processing": true,
+        'language': {
+            'sProcessing': sProcessing,
+            //'sLengthMenu': sLengthMenu,
+            "slengthMenu": [50,100,500,1000,2000,5000,10000,50000,100000],
+            'sZeroRecords': sZeroRecords,
+            'sInfo': sInfo,
+            'sInfoEmpty': sInfoEmpty,
+            'sInfoFiltered': sInfoFiltered,
+            'sInfoPostFix': sInfoPostFix,
+            'sSearch': sSearch,
+            'sUrl': sUrl,
+            'oPaginate': oPaginate
+        }
+    });
+
+    //$(document).ready(function() {
+        $('#invoiceList').DataTable( {
+            "dom": '<"container-fluid"<"row"<"col-sm-6"B><"col-sm-4"f><"col-sm-1"l >>>rtip', 
+            buttons: [
+                'print'
+            ]
+        } );
+    //} );
     $('.dataTables_length').addClass('bs-select');
 });
 
