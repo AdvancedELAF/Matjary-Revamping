@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class AdminCntr extends MY_Controller {
+class AdminCntr extends MY_Controller {   
 
     function __construct() {
         parent::__construct();
@@ -44,7 +44,8 @@ class AdminCntr extends MY_Controller {
     
     public function get_dashboard_data() {
         if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {
-            $pageData['getUserRegMonthReport'] = $this->DashboardModel->get_monthly_user_register_report();            
+            $pageData['getUserRegMonthReport'] = $this->DashboardModel->get_monthly_user_register_report();
+          
             if(isset($pageData['getUserRegMonthReport']) && !empty($pageData['getUserRegMonthReport'])){
                 $getTotal = '';
                 $GetMonths = '';
@@ -1592,6 +1593,7 @@ class AdminCntr extends MY_Controller {
             if (isset($GetUsrInvoiceDetails) && !empty($GetUsrInvoiceDetails)) {
             $pageData['billingAddress'] = unserialize($GetUsrInvoiceDetails->bill_info_address);
             }
+            
             $pageData['GetUsrInvoiceDetails'] = $GetUsrInvoiceDetails;           
             $this->load->view('site_admin/store/store-details', $pageData);
         }else{
@@ -1681,7 +1683,7 @@ class AdminCntr extends MY_Controller {
     public function edit_coupon($id) {
         if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {
             $pageData['pageId'] = 22;
-            $pageData['GetSingleCouponDetails'] = $this->CouponModel->get_user_store_payment_info($id);
+            $pageData['GetSingleCouponDetails'] = $this->CouponModel->get_single_coupon_details($id);
             $this->load->view('site_admin/coupon/edit-coupon', $pageData);
         }else{
             redirect('site-admin/login');

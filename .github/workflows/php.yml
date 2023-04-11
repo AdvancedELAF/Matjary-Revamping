@@ -1,0 +1,37 @@
+name: deploy
+on:
+  push:
+    branches:
+      - main
+      
+  #schedule:
+   # - cron: '0 0 * * *' # Everyday at 12am
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+
+#       - run: npm install
+#       - run: npm run build
+
+#       - name: Install SSH Key
+#         uses: shimataro/ssh-key-action@v2
+#         with:
+#           key: ${{ secrets.MYKEY }}
+#           known_hosts: unnecessary
+      - name: install ssh keys
+
+        run: |
+          install -m 600 -D /dev/null ~/.ssh/id_rsa
+          echo "${{ secrets.SECRET_KEY }}" > ~/.ssh/id_rsa
+          ssh-keyscan -p 22 -H 3.7.32.4  >> ~/.ssh/known_hosts
+          ssh-keyscan -p 22 -H 3.6.56.178  >> ~/.ssh/known_hosts
+
+
+      - name: Deploy with rsync main matjary.in
+        run: rsync -avz --exclude={'.env','.htaccess','vendor','composer.json','composer.lock','uploads'} -e "ssh -p 22" ./matjary_main/ ubuntu@3.7.32.4:/var/www/html/matjary/ 
+
+      - name: Deploy with rsync in store
+        run: rsync -avz --exclude={'.env','.htaccess','vendor','composer.json','composer.lock','uploads'} -e "ssh -p 22" ./matjary_store/ ubuntu@3.6.56.178:/var/www/Matjary-Revamping/matjary_store/

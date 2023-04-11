@@ -55,10 +55,15 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                                 <tr>
                                     <th scope="row"><?php echo $i; ?></th>
                                     <td><?php echo isset($value->fname ) ? $value->fname : 'NA'; ?></td>                                     
-                                    <td><?php echo isset($value->store_link ) ? $value->store_link : 'NA'; ?></td>
+                                    <td><a target="_blank" href="<?php echo "https://" . $value->store_link; ?>"> <?php echo $value->store_link; ?></a></td>
                                     <td><?php echo isset($value->fname ) ? $value->fname.' '.$value->lname : 'NA'; ?></td>
                                     <td><?php echo isset($value->plan_name ) ? $value->plan_name : 'NA'; ?></td>
-                                    <td><?php echo isset($value->plan_expiry_dt ) ? $value->plan_expiry_dt : 'NA'; ?></td>                                                               
+                                    <td><?php //echo isset($value->plan_expiry_dt ) ? $value->plan_expiry_dt : 'NA'; ?>
+                                        <?php 
+                                            $dateexp = date_format (new DateTime($value->plan_expiry_dt), 'd M Y');
+                                            echo isset($dateexp)?$dateexp:'NA'; 
+                                        ?>
+                                    </td>                                                               
                                    
                                     <td><?php if ($value->is_active == 1) {
                                             echo 'Active';

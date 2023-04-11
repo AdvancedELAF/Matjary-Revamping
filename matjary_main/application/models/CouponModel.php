@@ -49,12 +49,37 @@ class CouponModel extends CI_Model {
         }
     }
 
-
     public function update_data($data, $id) {
         try {            
             $this->db->where('id', $id);
             $updatedStatus = $this->db->update('coupons', $data);
             if ($updatedStatus) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function check_coupon_exist($coupon_code){
+        try {            
+            $query = $this->db->where('code', $coupon_code)->get('coupons');
+            if ($query->num_rows() > 0) {
+                return $query->row();
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function coupon_already_used($coupon_id,$user_id){
+        try {            
+            $query = $this->db->where('customer_id', $user_id)->where('coupon_id', $coupon_id)->get('user_payment_info');
+            if ($query->num_rows() > 0) {
                 return true;
             } else {
                 return false;
