@@ -96,17 +96,6 @@ define('EVENT_PRIORITY_HIGH', 10);
 /* costom constants */
 define('DATETIME', date("Y-m-d h:i:s"));
 
-/* EMAIL constants */
-define('SMTP_HOST', 'mail.motorgate.com');  
-define('SMTP_USERNAME', 'smtpmail@motorgate.com'); 
-define('SMTP_PASSWORD', '2NrW_q,i9Z;%');
-define('SMTP_SETFORM', 'smtpmail@motorgate.com');
-
-// define('SMTP_HOST', 'smtp.sendgrid.net');  
-// define('SMTP_USERNAME', '8tV62IUxQW6pwKed6hYlew'); 
-// define('SMTP_PASSWORD', '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');
-// define('SMTP_SETFORM', 'support@advancedelaf.com');
-
 define('PAYTABS_PROFILE_ID_TEST', '72162');
 define('PAYTABS_PROFILE_ID_LIVE', '');
 

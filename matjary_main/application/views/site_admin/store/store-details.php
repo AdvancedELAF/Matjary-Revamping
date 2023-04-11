@@ -7,9 +7,17 @@ $this->load->view('site_admin/layout/sidebar.php');
 $this->load->view('modals/invoice_modal.php');
 ?>
 <style>
-	.table {
+    @media print {
+  /* style sheet for print goes here */
+  .table td {
+	border: 2px solid black;
+  padding: 8px;
+  font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  border: 1px solid;
+  width: 100%;
+}
+
+ 
 }
 </style>
 <section class="content">
@@ -34,25 +42,27 @@ $this->load->view('modals/invoice_modal.php');
 			    <?php //echo '<pre>'; print_r($GetUsrInvoiceDetails->store_link); ?>
 				<div id="printableArea">
 					<div class="row" style="margin:0;padding:0;">
-						<div class="col-md">
-							<table class="table table-bordered">
+						<div class="col-md" id="listingWrapper">
+							<table class="table table-bordered table-striped" id="invoiceList">
 								<thead colspan="2" style="font"><strong style>Store Basic Details</strong></thead>
 								<tbody>
 									<tr>
-										<td>Store Name</td>
-										<td><?php echo isset($GetUsrInvoiceDetails->template_name)?$GetUsrInvoiceDetails->template_name:'NA'; ?></td>
+										<td scope="col">Store Name</td>
+										<td scope="col"><?php echo isset($GetUsrInvoiceDetails->template_name)?$GetUsrInvoiceDetails->template_name:'NA'; ?></td>
 									</tr>
 									<tr>
-										<td>Store Link</td>
-										<td><a href="<?php echo $GetUsrInvoiceDetails->store_link; ?>" target="_blank"><?php echo $GetUsrInvoiceDetails->store_link; ?></a>
+										<td scope="col">Store Link</td>
+										<td scope="col"><a target="_blank" href="<?php echo "https://" . $GetUsrInvoiceDetails->store_link; ?>"> <?php echo $GetUsrInvoiceDetails->store_link; ?></a>
+											</a>
+										</td>
 									</tr>
 									<tr>
-										<td>Store Owner</td>
-										<td><?php echo isset($GetUsrInvoiceDetails->fname)?$GetUsrInvoiceDetails->fname.' '.$GetUsrInvoiceDetails->lname:'NA'; ?></td>
+										<td scope="col">Store Owner</td>
+										<td scope="col"><?php echo isset($GetUsrInvoiceDetails->fname)?$GetUsrInvoiceDetails->fname.' '.$GetUsrInvoiceDetails->lname:'NA'; ?></td>
 									</tr>
 									<tr>
-										<td>Store Created Datetime</td>
-										<td>
+										<td scope="col">Store Created Datetime</td>
+										<td scope="col">
 											<?php 
 												$datepstrt = date_format (new DateTime($GetUsrInvoiceDetails->plan_start_dt), 'd M Y');
 												echo isset($datepstrt)?$datepstrt:'NA'; 
@@ -60,14 +70,14 @@ $this->load->view('modals/invoice_modal.php');
 										</td>
 									</tr>
 									<tr style="height:50px;">
-										<td></td>
-										<td></td>
+										<td scope="col"></td>
+										<td scope="col"></td>
 									</tr>
 								</tbody>
 							</table>
 						</div>
 						<div class="col-md">
-							<table class="table table-bordered ">
+							<table class="table table-bordered table-striped ">
 								<thead colspan="2" style="font"><strong style>Store Plan Details</strong></thead>
 								<tbody>
 									<tr>
@@ -87,7 +97,8 @@ $this->load->view('modals/invoice_modal.php');
 									</tr>
 									<tr>
 										<td>Plan Expiry</td>
-										<td><?php 
+										<td><?php //echo isset($GetUsrInvoiceDetails->plan_expiry_dt)?$GetUsrInvoiceDetails->plan_expiry_dt:'NA'; ?>
+									    	<?php 
 												$datependt = date_format (new DateTime($GetUsrInvoiceDetails->plan_expiry_dt), 'd M Y');
 												echo isset($datependt)?$datependt:'NA'; 
 											?>
@@ -115,7 +126,7 @@ $this->load->view('modals/invoice_modal.php');
 					</div>
 					<div class="row" style="margin:0;padding:0;">
 						<div class="col-md">
-							<table class="table table-bordered ">
+							<table class="table table-bordered table-striped ">
 								<thead colspan="2" style="font"><strong style>Store Template Details</strong></thead>
 								<tbody>
 									<tr>
@@ -134,7 +145,7 @@ $this->load->view('modals/invoice_modal.php');
 							</table>
 						</div>
 						<div class="col-md">
-							<table class="table table-bordered ">
+							<table class="table table-bordered table-striped ">
 								<thead colspan="2" style="font"><strong style>Payment Details</strong></thead>
 								<tbody>
 									<tr>
@@ -196,5 +207,22 @@ $this->load->view('modals/invoice_modal.php');
     window.print();
     document.body.innerHTML = originalContent;
     }
+// 	function printPageArea(areaID) {
+//     var divToPrint = document.getElementById(areaID);
+//     var htmlToPrint = '' +
+//         '<style type="text/css">' +
+//         'table td {' +
+//         'border: 2px solid black;' +
+//         'border-collapse: collapse;' +
+// 		'width:80%' +
+//         '}' +
+//         '</style>';
+
+//     htmlToPrint += divToPrint.outerHTML;
+//     newWin = window.open("");
+//     newWin.document.write(htmlToPrint);
+//     newWin.print();
+//     newWin.close();
+// }
 </script>
 <?php  $this->load->view('site_admin/layout/footer.php'); ?>
