@@ -55,9 +55,10 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                                 <label for="HalfBanner">Half Banner</label>
                                 <div class="input-group">
                                     <div class="custom-file">                                       
-                                        <input type="file" class="form-control"  name="template_half_banner" id="template_half_banner" >
+                                        <input type="file" class="form-control"  name="template_half_banner" id="template_half_banner" data-error=".error2" >
                                     </div>                                
                                 </div>
+                                <span class="error2"></span>
                             </div>
                         </div>
                         <div class="col-md-6 ">
@@ -65,10 +66,11 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                                 <label for="FullBanner">Full Banner</label>
                                 <div class="input-group">
                                     <div class="custom-file">                                        
-                                        <input type="file" class="form-control"  name="template_full_banner" id="template_full_banner">
+                                        <input type="file" class="form-control"  name="template_full_banner" id="template_full_banner" data-error=".error3">
                                     </div>                                
                                 </div>
-                            </div>
+                                <span class="error3"></span>
+                            </div>                            
                         </div>
                         <div class="col-md-6"> 
                             <div class="form-group">
@@ -85,7 +87,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                         <div class="col-md-6">
                             <div class="mb-2">
                                 <label>Paid / Free Status</label><br>
-                                <input type="radio" name="free_paid_flag" value="1" data-error=".error1"> Free  &nbsp;&nbsp;&nbsp;
+                                <input type="radio" name="free_paid_flag" value="1" data-error=".error1" checked> Free  &nbsp;&nbsp;&nbsp;
                                 <input type="radio" name="free_paid_flag" value="2" data-error=".error1"> Paid
                                 </br><span class="error1"></span>
                             </div>  

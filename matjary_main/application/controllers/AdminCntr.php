@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class AdminCntr extends MY_Controller {   
+class AdminCntr extends MY_Controller {
 
     function __construct() {
         parent::__construct();
@@ -44,8 +44,7 @@ class AdminCntr extends MY_Controller {
     
     public function get_dashboard_data() {
         if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {
-            $pageData['getUserRegMonthReport'] = $this->DashboardModel->get_monthly_user_register_report();
-          
+            $pageData['getUserRegMonthReport'] = $this->DashboardModel->get_monthly_user_register_report();            
             if(isset($pageData['getUserRegMonthReport']) && !empty($pageData['getUserRegMonthReport'])){
                 $getTotal = '';
                 $GetMonths = '';
@@ -144,7 +143,7 @@ class AdminCntr extends MY_Controller {
     public function get_revenue_data() {        
         if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {        
             /* Get Sales Report Data */
-            $pageData['getRevenueMonthReport'] = $this->DashboardModel->get_monthly_sales_report();
+            $pageData['getRevenueMonthReport'] = $this->DashboardModel->get_monthly_revenue_report();
             if(isset($pageData['getRevenueMonthReport']) && !empty($pageData['getRevenueMonthReport'])){
                 $getTotal = '';
                 $GetMonths = '';
@@ -1593,7 +1592,6 @@ class AdminCntr extends MY_Controller {
             if (isset($GetUsrInvoiceDetails) && !empty($GetUsrInvoiceDetails)) {
             $pageData['billingAddress'] = unserialize($GetUsrInvoiceDetails->bill_info_address);
             }
-            
             $pageData['GetUsrInvoiceDetails'] = $GetUsrInvoiceDetails;           
             $this->load->view('site_admin/store/store-details', $pageData);
         }else{

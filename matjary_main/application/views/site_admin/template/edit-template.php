@@ -122,7 +122,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                                 </br><span class="error1"></span>
                             </div>  
                         </div>
-                        <div class="col-md-6 cost" id="cost" style="display:none;">
+                        <div class="col-md-6 cost" id="cost">
                             <div class="form-group">
                                 <label for="template_cost">Cost</label>
                                 <input type="text" class="form-control numberonly" id="template_cost" name="template_cost" placeholder="Enter Cost" value="<?php echo isset($GetSingleTemDetails->template_cost)?$GetSingleTemDetails->template_cost:''; ?>">
