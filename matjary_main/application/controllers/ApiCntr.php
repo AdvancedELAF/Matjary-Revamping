@@ -1155,6 +1155,36 @@ class ApiCntr extends MY_Controller {
         }
     }
 
+    public function matjary_config() {
+        try {
+            /* Takes raw data from the request */
+            $json = file_get_contents('php://input');
+            /* Converts it into a PHP object */
+            $data = json_decode($json);
+            if (isset($data->slag) && !empty($data->slag)) {
+                /* get config info */
+                $matjaryConfigData = $this->CommonModel->get_matjary_config($data->slag);
+                if (isset($matjaryConfigData) && !empty($matjaryConfigData)) {
+                    $this->response['responseCode'] = 200;
+                    $this->response['responseMessage'] = 'success';
+                    $this->response['responseData'] = $matjaryConfigData;
+                    echo json_encode($this->response); exit;
+                } else {
+                    $this->response['responseCode'] = 404;
+                    $this->response['responseMessage'] = 'fail';
+                    echo json_encode($this->response); exit;
+                }
+            } else {
+                $this->response['responseCode'] = 404;
+                $this->response['responseMessage'] = 'Slag Required.';
+                echo json_encode($this->response); exit;
+            }
+        } catch (Exception $e) {
+            $this->response['responseCode'] = 400;
+            $this->response['responseMessage'] = $e->getMessage();
+            echo json_encode($this->response); exit;
+        }
+    }
     public function store_info() {
         try {
             /* Takes raw data from the request */
@@ -1177,8 +1207,6 @@ class ApiCntr extends MY_Controller {
                         echo json_encode($this->response);
                         exit;
                     } else {
-
-
                         /* get store info */
                         $storeInfo = $this->UsrModel->get_store_info($host, $data->store_token);
                         if ($storeInfo['responseCode'] == 200) {
