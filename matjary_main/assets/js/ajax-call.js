@@ -178,13 +178,16 @@ $(document).ready(function () {
 
     
     $(document).on('click', '.tplBtn', function(){
-        //$(".tplBtn").click(function () {
-        //$("#templateDetailsModal").modal('toggle');
-        //$("#templateDetailsModal").modal('toggle');
         let tplid = $(this).data('tplid');
         let tplprice = $(this).data('tplprice');
         $("#chooseDomainModal").find("#template_id").val(tplid);
         $("#chooseDomainModal").find("#template_price").val(tplprice);
+
+        const sub_domain_name = document.getElementById('sub_domain_name');
+        if (sub_domain_name !== null) {
+            sub_domain_name.onpaste = e => e.preventDefault();
+        }
+        
     });
 
     $('.nospecialchars').on('keypress', function (event) {

@@ -89,11 +89,13 @@ $route['update-usr-pro-pass-frm'] = 'UsrCntr/update_usr_pro_pass_frm';
 $route['store-details/(:any)'] = 'UsrCntr/store_details_cont';
 $route['free-trail-store-details/(:any)'] = 'UsrCntr/store_details_cont';
 $route['create-store'] = 'UsrCntr/create_store_con';
-$route['create-free-trial-store'] = 'UsrCntr/create_free_trial_store';
 $route['order-status'] = 'UsrCntr/pg_response';
+
+$route['create-free-trial-store'] = 'UsrCntr/create_free_trial_store';
 $route['free-trial-store'] = 'UsrCntr/free_trial_store';
 $route['free-trial-form'] = 'UsrCntr/free_trial_form';
 $route['create-free-store'] = 'UsrCntr/create_free_trial_store';
+
 $route['send-reset-password-link'] = 'UsrCntr/send_reset_password_link';
 $route['set-usr-reset-password'] = 'UsrCntr/set_usr_reset_password';
 

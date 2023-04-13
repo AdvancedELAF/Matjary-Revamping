@@ -91,17 +91,49 @@ if (!function_exists('curl_call')) {
         return $response;
     }
 
+    function callAPI($method, $url, $data){
+        
+        $curl = curl_init();
+        switch ($method){
+           case "POST":
+                curl_setopt($curl, CURLOPT_POST, 1);
+                if ($data)
+                    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+                break;
+           case "PUT":
+                curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PUT");
+                if ($data)
+                    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);			 					
+                break;
+           default:
+                if ($data)
+                    $url = sprintf("%s?%s", $url, http_build_query($data));
+        }
+        /* OPTIONS: */
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+           'APIKEY: 111111111111111111111',
+           'Content-Type: application/json',
+        ));
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+        /* EXECUTE: */
+        $result = curl_exec($curl);
+        if(!$result){die("Connection Failure");}
+        curl_close($curl);
+        return $result;
+    }
+
     function sendEmail($email, $message, $subject) {
         $data_array =  array(
             "slag" => 'sendgrid'
         );
-        $make_call = $this->callAPI('POST', 'https://www.matjary.in/matjary-config', json_encode($data_array));
+        $make_call = callAPI('POST', 'https://www.matjary.in/matjary-config', json_encode($data_array));
         $response = json_decode($make_call, true);
         $emailSentStatus = true;
         $name = $email;
         $body = $message;
         $domain = str_ireplace('www.', '', parse_url(base_url(), PHP_URL_HOST));
-
         $headers = array(
             'Authorization: Bearer '.$response['responseData']['sendgrid_bearer_token'],
             'Content-Type: application/json'
@@ -139,21 +171,13 @@ if (!function_exists('curl_call')) {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $response = curl_exec($ch);
         curl_close($ch);
-        // /* response is in boolean */
-        // if (isset($response) && !empty($response)) {
-        //     /* mail not sent */
-        //     return $response;
-        // } else {
-        //     /* mail sent */
-        //     return true;
-        // }
         if(isset($response) && !empty($response)){
             //echo $mail->ErrorInfo;
             $emailSentStatus = false;
         }else{          
             $emailSentStatus = true; 
         }
-
+        
         if($emailSentStatus==false){
             require_once(APPPATH . 'third_party/phpmailer/PHPMailerAutoload.php');
             $mail = new PHPMailer(true);
@@ -188,7 +212,7 @@ if (!function_exists('curl_call')) {
                 $emailSentStatus = false;
             }
         }
-
+        
         return $emailSentStatus;
     }
 
