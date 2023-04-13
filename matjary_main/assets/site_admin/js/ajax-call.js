@@ -1,7 +1,10 @@
 $(document).ready(function () {
     let base_url = window.location.origin;
-   // let server = SERVER_SITE_PATH;    
-   console.log(base_url);
+    if(base_url == "http://localhost"){
+        base_url= '/Matjary-Revamping/matjary_main';        
+    }else{
+        base_url;
+    }
     /* //submit user login form */
     /* Product Action Common js for delete.activate,deactivate operations start */
     let confirm = 'Are you sure You Want to Deactivate this Record ?';
@@ -593,13 +596,8 @@ $(document).ready(function () {
         }
     }));
 
-    $("#myChartglobal").load("dashboard.php", function(){        
-       //var action_page = base_url+'/site-admin/get-dashboard-data';
-        if(base_url == "http://localhost"){
-            var action_page = base_url+'/Matjary-Revamping/matjary_main/site-admin/get-dashboard-data';        
-        }else{
-            var action_page = base_url+'/site-admin/get-dashboard-data';
-        }
+    $("#myChartglobal").load("dashboard.php", function(){  
+        var action_page = base_url+'/site-admin/get-dashboard-data';
         $.ajax({
             url: action_page,
             type: "POST",
@@ -626,12 +624,7 @@ $(document).ready(function () {
     });
 
     $("#myChart").load("dashboard.php", function(){
-        if(base_url == "http://localhost"){
-            var action_page = base_url+'/Matjary-Revamping/matjary_main/site-admin/get-oreder-sales-data';        
-        }else{
-            var action_page = base_url+'/site-admin/get-oreder-sales-data';
-        }       
-        //var action_page = base_url+'/Matjary-Revamping/matjary_main/site-admin/get-dashboard-data';     
+        var action_page = base_url+'/site-admin/get-oreder-sales-data';           
         $.ajax({
             url: action_page,
             type: "POST",
@@ -654,36 +647,8 @@ $(document).ready(function () {
         });
     });
 
-    // $("#chartIds").load("dashboard.php", function(){        
-    //     var action_page = base_url+'/Matjary-Revamping/matjary_main/site-admin/get-dashboard-data';        
-    //     $.ajax({
-    //         url: action_page,
-    //         type: "POST",
-    //         enctype: 'multipart/form-data',
-    //         data: '',            
-    //         success: function (resp) {                
-    //             resp = JSON.parse(resp);
-    //             var chartId = 'chartIds';            
-    //             var getCurrentMonthvalline= resp.getCurrentMonthval;
-    //             var getCurrentMonthvalbar= resp.getCurrentMonthval; 
-    //             var getMonthArry = resp.getMonthArry;
-    //             var chartName = 'User Registration Mixed Chart'; 
-    //             if (resp.responseCode == 200) {                   
-    //                 drawMixedChart(chartId,getCurrentMonthvalline,getCurrentMonthvalbar,getMonthArry,chartName);                     
-    //             } else {
-    //                 swal({title: "Fail", closeOnClickOutside: false, text: resp.responseMessage, type: "error"});
-    //             }
-    //         }
-    //     });
-    // });
-
-    $("#SalesOrders").load("dashboard.php", function(){        
-        //var action_page = base_url+'/site-admin/get-oreder-sales-data';
-        if(base_url == "http://localhost"){
-            var action_page = base_url+'/Matjary-Revamping/matjary_main/site-admin/get-oreder-sales-data';        
-        }else{
-            var action_page = base_url+'/site-admin/get-oreder-sales-data';
-        }        
+    $("#SalesOrders").load("dashboard.php", function(){
+        var action_page = base_url+'/site-admin/get-oreder-sales-data';              
         $.ajax({
             url: action_page,
             type: "POST",
@@ -709,12 +674,7 @@ $(document).ready(function () {
     });
 
     $("#revenueCharts").load("dashboard.php", function(){        
-        //var action_page = base_url+'/site-admin/get-revenue-data';
-        if(base_url == "http://localhost"){
-            var action_page = base_url+'/Matjary-Revamping/matjary_main/site-admin/get-revenue-data';        
-        }else{
-            var action_page = base_url+'/site-admin/get-revenue-data';
-        }        
+        var action_page = base_url+'/site-admin/get-revenue-data';               
         $.ajax({
             url: action_page,
             type: "POST",
