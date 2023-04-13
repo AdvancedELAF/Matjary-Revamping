@@ -92,25 +92,20 @@ if (!function_exists('curl_call')) {
     }
 
     function sendEmail($email, $message, $subject) {
-
+        $data_array =  array(
+            "slag" => 'sendgrid'
+        );
+        $make_call = $this->callAPI('POST', 'https://www.matjary.in/matjary-config', json_encode($data_array));
+        $response = json_decode($make_call, true);
         $emailSentStatus = true;
-
         $name = $email;
         $body = $message;
-        /*
-          $getSubdomain = base_url();
-          $parsedUrl = parse_url($getSubdomain);
-          $host = explode('.', $parsedUrl['host']);
-          $subdomain = $host[0];
-         */
-
         $domain = str_ireplace('www.', '', parse_url(base_url(), PHP_URL_HOST));
 
         $headers = array(
-            'Authorization: Bearer bearer_token_will_be_replace',
+            'Authorization: Bearer '.$response['responseData']['sendgrid_bearer_token'],
             'Content-Type: application/json'
         );
-
         $data = array(
             "personalizations" => array(
                 array(
@@ -123,7 +118,7 @@ if (!function_exists('curl_call')) {
                 )
             ),
             "from" => array(
-                "email" => 'support@advancedelaf.com',
+                "email" => $response['responseData']['sendgrid_email_from'],
                 "name" => ucwords($domain)
             ),
             "subject" => $subject,

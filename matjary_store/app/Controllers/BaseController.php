@@ -556,46 +556,22 @@ abstract class BaseController extends Controller
     }
 
     public function sendEmail($email,$message,$subject){
-        
+        $data_array =  array(
+            "slag" => 'sendgrid'
+        );
+        $make_call = $this->callAPI('POST', 'https://www.matjary.in/matjary-config', json_encode($data_array));
+        $response = json_decode($make_call, true);
         $emailSentStatus = true;
-
-        /*
-        require '../vendor/autoload.php';
-        $to  = $email; 
-        $mail = new PHPMailer();                                   
-        $mail->IsSMTP(); // we are going to use SMTP
-        $mail->SMTPAuth   = true; // enabled SMTP authentication
-        $mail->SMTPSecure = "ssl";  // prefix for secure protocol to connect to the server
-        $mail->Host       = SMTP_HOST;      // setting GMail as our SMTP server
-        $mail->Port       = 465;                   // SMTP port to connect to GMail
-        $mail->Username   = SMTP_USERNAME;  // user email address
-        $mail->Password   = SMTP_PASSWORD;          // password in GMail
-        $mail->SetFrom(SMTP_SETFORM, 'Matjary');  //Who is sending
-        $mail->isHTML(true);
-        $mail->Subject = $subject;
-        $mail->Body =$message;
-        $mail->AddAddress($to);
-      
-        if(!$mail->Send()){
-           echo $mail->ErrorInfo;
-           //return false;
-        }else{          
-            return true; 
-        }
-        */
-
         $name = $email;
         $body = $message;
         $getSubdomain = base_url(); 
         $parsedUrl = parse_url($getSubdomain);
         $host = explode('.', $parsedUrl['host']);        
         $subdomain = $host[0];
-
         $headers = array(
-            'Authorization: Bearer replaced_by_bearer_token',
+            'Authorization: Bearer '.$response['responseData']['sendgrid_bearer_token'],
             'Content-Type: application/json'
         );
-
         $data = array(
             "personalizations" => array(
                 array(
@@ -608,7 +584,7 @@ abstract class BaseController extends Controller
                 )
             ),          
             "from" => array(
-                "email" => 'support@advancedelaf.com',
+                "email" => $response['responseData']['sendgrid_email_from'],
                 "name" => $subdomain
             ),
             "subject" => $subject,

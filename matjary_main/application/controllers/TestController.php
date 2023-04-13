@@ -468,7 +468,6 @@ class TestController extends CI_Controller {
         }
         die;
     }
-
     public function test_domain() {
         $getSubdomain = base_url();
         $parsedUrl = parse_url($getSubdomain);
@@ -486,6 +485,101 @@ class TestController extends CI_Controller {
         echo $host[2];
         echo "<br/><br/>";
         echo $domain;
+    }
+
+    public function send_email(){
+        $data_array =  array(
+            "slag" => 'sendgrid'
+        );
+        $make_call = $this->callAPI('POST', 'https://www.matjary.in/matjary-config', json_encode($data_array));
+        $response = json_decode($make_call, true);
+
+        $subject = 'test subject';
+        $name = 'name';
+        $body = 'message';
+        $email = 'saiatpadkar15@gmail.com';
+        $domain = str_ireplace('www.', '', parse_url(base_url(), PHP_URL_HOST));
+
+        $headers = array(
+            'Authorization: Bearer '.$response['responseData']['sendgrid_bearer_token'],
+            'Content-Type: application/json'
+        );
+
+        $data = array(
+            "personalizations" => array(
+                array(
+                    "to" => array(
+                        array(
+                            "email" => $email,
+                            "name" => $name
+                        )
+                    )
+                )
+            ),
+            "from" => array(
+                "email" => $response['responseData']['sendgrid_email_from'],
+                "name" => ucwords($domain)
+            ),
+            "subject" => $subject,
+            "content" => array(
+                array(
+                    "type" => "text/html",
+                    "value" => $body
+                )
+            )
+        );
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, "https://api.sendgrid.com/v3/mail/send");
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        // /* response is in boolean */
+        if (isset($response) && !empty($response)) {
+            /* mail not sent */
+            echo $response;
+        } else {
+            /* mail sent */
+            echo true;
+        }
+        
+    }
+
+    function callAPI($method, $url, $data){
+        
+        $curl = curl_init();
+        switch ($method){
+           case "POST":
+                curl_setopt($curl, CURLOPT_POST, 1);
+                if ($data)
+                    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+                break;
+           case "PUT":
+                curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PUT");
+                if ($data)
+                    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);			 					
+                break;
+           default:
+                if ($data)
+                    $url = sprintf("%s?%s", $url, http_build_query($data));
+        }
+        /* OPTIONS: */
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+           'APIKEY: 111111111111111111111',
+           'Content-Type: application/json',
+        ));
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+        /* EXECUTE: */
+        $result = curl_exec($curl);
+        if(!$result){die("Connection Failure");}
+        curl_close($curl);
+        return $result;
     }
 
 }
