@@ -36,6 +36,11 @@ $(document).ready(function () {
     });
 
     let base_url = window.location.origin;
+    if(base_url == "http://localhost"){
+        base_url= '/Matjary-Revamping/matjary_store';        
+    }else{
+        base_url;
+    }
     let lang = $('#languageChange').data('lang');
     let rtl = '';
     if(lang=='en'){

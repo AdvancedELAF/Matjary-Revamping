@@ -1,5 +1,10 @@
 $(document).ready(function () {
     let base_url = window.location.origin;
+    if(base_url == "http://localhost"){
+        base_url= '/Matjary-Revamping/matjary_store';        
+    }else{
+        base_url;
+    }
 
     $(document).on('click', function (event) {
         if(!$(event.target).closest('.all-category-nav').length) {
