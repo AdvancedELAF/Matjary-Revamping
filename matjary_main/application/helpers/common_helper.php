@@ -105,7 +105,7 @@ if (!function_exists('curl_call')) {
         $headers = array(
             'Authorization: Bearer '.$response['responseData']['sendgrid_bearer_token'],
             'Content-Type: application/json'
-        );
+        ); 
         $data = array(
             "personalizations" => array(
                 array(
