@@ -124,7 +124,7 @@ class ApiCntr extends MY_Controller {
                                         'lname' => isset($decode_data['lname']) ? $decode_data['lname'] : '',
                                         'email' => isset($decode_data['email']) ? $decode_data['email'] : '',
                                         'phone_no' => isset($decode_data['phone_no']) ? $decode_data['phone_no'] : '',
-                                        'usr_role' => 1,
+                                        'usr_role' => 3,
                                         'is_active' => 1,
                                         'created_datetime' => DATETIME,
                                         'created_by' => 1
@@ -191,6 +191,14 @@ class ApiCntr extends MY_Controller {
                                                 echo json_encode($this->response);
                                                 exit;
                                             } else {
+                                                /* remove this user data from database  */
+                                                $status = $this->UsrModel->delete_usr($usrId);
+                                                if ($status == false) {
+                                                    $this->response['responseCode'] = 500;
+                                                    $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_8');
+                                                    echo json_encode($this->response);
+                                                    exit;
+                                                }
                                                 $this->response['responseCode'] = 500;
                                                 $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_11');
                                                 echo json_encode($this->response);

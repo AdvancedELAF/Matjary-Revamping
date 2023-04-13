@@ -997,7 +997,7 @@ class UsrCntr extends MY_Controller {
                                                 $this->session->set_userdata('loggedInUsrData', $usrSessiondata);
                                                 /* setting user session end */
                                                 echo json_encode($this->response); exit;
-                                            } else {
+                                            } else {                                                
                                                 $this->response['responseCode'] = $usrData->apiResponse->responseCode;
                                                 $this->response['responseMessage'] = $usrData->apiResponse->responseMessage;
                                                 echo json_encode($this->response); exit;
