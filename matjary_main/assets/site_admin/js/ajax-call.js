@@ -1,6 +1,7 @@
 $(document).ready(function () {
     let base_url = window.location.origin;
-   
+   // let server = SERVER_SITE_PATH;    
+   console.log(base_url);
     /* //submit user login form */
     /* Product Action Common js for delete.activate,deactivate operations start */
     let confirm = 'Are you sure You Want to Deactivate this Record ?';
