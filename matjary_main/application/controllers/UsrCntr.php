@@ -524,11 +524,17 @@ class UsrCntr extends MY_Controller {
                                                 $cart_description = json_encode($this->input->post());
                                                 $paytabsinfo = array();
                                                 /* paytabs parameters do not change start */
-                                                $paytabsinfo['profile_id'] = PT_PROFILE_ID;
+                                                /* getting paytab configerations */
+                                                $data_array =  array(
+                                                    "slag" => 'paytab'
+                                                );
+                                                $make_call = callAPI('POST', 'https://www.matjary.in/matjary-config', json_encode($data_array));
+                                                $paytabConfig = json_decode($make_call, true);
+                                                $paytabsinfo['profile_id'] = $paytabConfig['responseData']['paytab_profile_id_test'];
                                                 $paytabsinfo['tran_type'] = 'sale';
                                                 $paytabsinfo['tran_class'] = 'ecom';
                                                 $paytabsinfo['cart_id'] = $unique_order_reference;
-                                                $paytabsinfo['cart_currency'] = PT_CURRENCY;
+                                                $paytabsinfo['cart_currency'] = $paytabConfig['responseData']['paytab_currency'];
                                                 $paytabsinfo['cart_amount'] = $cart_amount;
                                                 $paytabsinfo['cart_description'] = $cart_description;
                                                 $paytabsinfo['customer_details'] = array(
@@ -548,8 +554,8 @@ class UsrCntr extends MY_Controller {
                                                 $paytabsinfo['show_save_card'] = false;
                                                 /* paytabs parameters do not change start */
                                                 $paytabsinfo_req = json_encode($paytabsinfo);
-                                                $paytabs_url = PT_CALL_URL;
-                                                $paytabs_apikey = PT_API_SERVER_KEY;
+                                                $paytabs_url = $paytabConfig['responseData']['paytab_call_url'];
+                                                $paytabs_apikey = $paytabConfig['responseData']['paytab_test_apikey'];
 
                                                 $paytabs_headr = array();
                                                 $paytabs_headr[] = 'Content-Type: application/json';
@@ -997,7 +1003,7 @@ class UsrCntr extends MY_Controller {
                                                 $this->session->set_userdata('loggedInUsrData', $usrSessiondata);
                                                 /* setting user session end */
                                                 echo json_encode($this->response); exit;
-                                            } else {
+                                            } else {                                                
                                                 $this->response['responseCode'] = $usrData->apiResponse->responseCode;
                                                 $this->response['responseMessage'] = $usrData->apiResponse->responseMessage;
                                                 echo json_encode($this->response); exit;
@@ -1237,11 +1243,17 @@ class UsrCntr extends MY_Controller {
                 $cart_description = json_encode($this->input->post());
                 $paytabsinfo = array();
                 /* paytabs parameters do not change start */
-                $paytabsinfo['profile_id'] = PT_PROFILE_ID;
+                /* getting paytab configerations */
+                $data_array =  array(
+                    "slag" => 'paytab'
+                );
+                $make_call = callAPI('POST', 'https://www.matjary.in/matjary-config', json_encode($data_array));
+                $paytabConfig = json_decode($make_call, true);
+                $paytabsinfo['profile_id'] = $paytabConfig['responseData']['paytab_profile_id_test'];
                 $paytabsinfo['tran_type'] = 'sale';
                 $paytabsinfo['tran_class'] = 'ecom';
                 $paytabsinfo['cart_id'] = $unique_order_reference;
-                $paytabsinfo['cart_currency'] = PT_CURRENCY;
+                $paytabsinfo['cart_currency'] = $paytabConfig['responseData']['paytab_currency'];
                 $paytabsinfo['cart_amount'] = $cart_amount;
                 $paytabsinfo['cart_description'] = $cart_description;
                 $paytabsinfo['customer_details'] = array(
@@ -1261,8 +1273,8 @@ class UsrCntr extends MY_Controller {
                 $paytabsinfo['show_save_card'] = false;
                 /* paytabs parameters do not change start */
                 $paytabsinfo_req = json_encode($paytabsinfo);
-                $paytabs_url = PT_CALL_URL;
-                $paytabs_apikey = PT_API_SERVER_KEY;
+                $paytabs_url = $paytabConfig['responseData']['paytab_call_url'];
+                $paytabs_apikey = $paytabConfig['responseData']['paytab_test_apikey'];
 
                 $paytabs_headr = array();
                 $paytabs_headr[] = 'Content-Type: application/json';

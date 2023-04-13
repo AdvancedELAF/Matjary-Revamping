@@ -1,3 +1,6 @@
-RewriteEngine on
-RewriteCond $1 !^(index\.php|images|assets|uploads|favicon\.ico|robots\.txt)
-RewriteRule ^(.*)$ index.php/$1 [L]
+<IfModule mod_rewrite.c>
+   RewriteEngine On
+   RewriteBase /Matjary-Revamping/matjary_main/
+   RewriteCond $1 !^(index\.php|images|assets|uploads|favicon\.ico|robots\.txt)
+   RewriteRule ^(.*)$ index.php/$1 [L]
+</IfModule> 

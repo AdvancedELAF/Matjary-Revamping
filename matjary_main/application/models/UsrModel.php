@@ -276,7 +276,8 @@ class UsrModel extends CI_Model {
                 u.zipcode,
                 u.is_active,
                 u.is_free_trail_store_used,
-				u.fax_no,
+				u.usr_role,
+                u.fax_no,
                 uc.pswrd')
                     ->from('users as u')
                     ->join('user_credentials as uc', 'uc.user_id=u.id', 'inner')

@@ -1,6 +1,11 @@
 $(document).ready(function () {
 
     let base_url = window.location.origin;
+    if(base_url == "http://localhost"){
+        base_url= '/Matjary-Revamping/matjary_main';        
+    }else{
+        base_url;
+    }
 
     let loader_cir = base_url + "/assets/images/loader/matjary-loader-circle.gif";
 
@@ -173,13 +178,16 @@ $(document).ready(function () {
 
     
     $(document).on('click', '.tplBtn', function(){
-        //$(".tplBtn").click(function () {
-        //$("#templateDetailsModal").modal('toggle');
-        //$("#templateDetailsModal").modal('toggle');
         let tplid = $(this).data('tplid');
         let tplprice = $(this).data('tplprice');
         $("#chooseDomainModal").find("#template_id").val(tplid);
         $("#chooseDomainModal").find("#template_price").val(tplprice);
+
+        const sub_domain_name = document.getElementById('sub_domain_name');
+        if (sub_domain_name !== null) {
+            sub_domain_name.onpaste = e => e.preventDefault();
+        }
+        
     });
 
     $('.nospecialchars').on('keypress', function (event) {
@@ -528,7 +536,7 @@ $(document).ready(function () {
                             }, function (isConfirm) {
                                 if (isConfirm) {
                                     $.ajax({
-                                        url: window.location.origin + '/create-free-store',
+                                        url: base_url + '/create-free-store',
                                         type: "POST",
                                         data: {
                                             sub_domain_name: sub_domain_name
@@ -882,7 +890,7 @@ $(document).ready(function () {
         let template_id = $(this).data('tmplid');
         let user_id = $(this).data('userid');
         $.ajax({
-            url: window.location.origin + '/check-template-purchased',
+            url: base_url + '/check-template-purchased',
             type: "POST",
             data: {
                 template_id: template_id,
@@ -935,7 +943,7 @@ $(document).ready(function () {
             return false;
         }else{
             $.ajax({
-                url: window.location.origin + '/check-coupon-valid',
+                url: base_url + '/check-coupon-valid',
                 type: "POST",
                 data: {
                     user_id: user_id,
@@ -1007,7 +1015,7 @@ $(document).ready(function () {
         let coupon_code = $(this).val();
         if(coupon_code.length > 0 && coupon_code != ""){
             $.ajax({
-                url: window.location.origin + '/check-coupon-valid',
+                url: base_url + '/check-coupon-valid',
                 type: "POST",
                 data: {
                     user_id: user_id,
@@ -1097,9 +1105,9 @@ function printPageArea(areaID) {
 /* inline jquery funtions calls */
 function show_template_details(template_id, template_price,free_paid_flag,tmp_purchase_status, view_demo, lang_var) {
 
-    let base_url = window.location.origin;
+   
     $.ajax({
-        url: window.location.origin + '/get_template_full_banner',
+        url: base_url + '/get_template_full_banner',
         type: "POST",
         data: {
             template_id: template_id,

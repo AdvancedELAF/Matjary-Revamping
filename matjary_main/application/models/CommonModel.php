@@ -218,6 +218,30 @@ class CommonModel extends CI_Model {
         }
     }
 
+    public function get_matjary_config($slag) {
+        try {
+            if($slag=='paytab'){
+                $this->db->select("paytab_call_url,paytab_currency,paytab_profile_id_test,paytab_test_apikey,paytab_profile_id_live,paytab_live_apikey");
+            }elseif($slag=='smtp'){
+                $this->db->select("smpt_host,smpt_username,smpt_password,smtp_port,smtp_email_from");
+            }elseif($slag=='sendgrid'){
+                $this->db->select("sendgrid_email_from,sendgrid_bearer_token");
+            }elseif($slag=='aramex'){
+                $this->db->select("sendgrid_bearer_token,aramex_password_test,aramex_ac_no_test,aramex_ac_pin_test");
+            }
+            $this->db->from('credentials');
+            $query = $this->db->get();
+            if ($query->num_rows() > 0) {
+                $rowData = $query->row();
+                return $rowData;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
 }
 
 ?>

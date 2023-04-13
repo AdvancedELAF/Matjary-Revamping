@@ -2,6 +2,11 @@ $(document).ready(function () {
    
     //new bootnavbar();
     let base_url = window.location.origin;
+    if(base_url == "http://localhost"){
+        base_url= '/Matjary-Revamping/matjary_store';        
+    }else{
+        base_url;
+    }
     // $('html').click(function () {
     //     $(".all-category-list").hide();
     // });

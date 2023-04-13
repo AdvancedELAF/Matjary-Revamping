@@ -52,7 +52,6 @@ $routes->match(["get", "post"], '/cookie-policy', 'WebController::cookie_policy'
 $routes->match(["get", "post"], '/get-category-products', 'CommonController::get_category_products');
 $routes->match(["get", "post"], '/privacy-policy', 'WebController::privacy_policy');
 $routes->match(["get", "post"], '/refund-return', 'WebController::refund_return');
-
 $routes->match(["get", "post"], '/search', 'WebController::search');
 
 $routes->group("customer", function ($routes) {
