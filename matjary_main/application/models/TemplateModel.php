@@ -13,7 +13,7 @@ class TemplateModel extends CI_Model {
             $query = $this->db->select('*')
                         ->from('matjary_templates')
                         ->where_in('is_active', array(1,2))
-                        ->order_by('name','ASC')
+                        ->order_by('name','DESC')
                         ->get();
             if ($query->num_rows() > 0) {
                 return $query->result();

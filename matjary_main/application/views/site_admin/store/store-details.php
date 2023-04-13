@@ -5,7 +5,45 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
 $this->load->view('site_admin/layout/header.php');
 $this->load->view('site_admin/layout/sidebar.php');
 ?>
-
+<style id="table_style" type="text/css">
+    body
+    {
+        font-family: Arial;
+        font-size: 10pt;
+    }
+    table
+    {
+        border: 1px solid #ccc;
+        border-collapse: collapse;
+		width:100% !important;
+    }
+    table th
+    {
+        background-color: #F7F7F7;
+        color: #333;
+        font-weight: bold;
+    }
+    table th, table td
+    {
+        padding: 5px;
+        border: 1px solid #ccc;
+    }
+	.green{
+         color:#008000 !important;
+	}
+	@media print
+      {
+         @page {
+           margin-top: 0;
+           margin-bottom: 0;
+         }
+         body  {
+           padding-top: 72px;
+           padding-bottom: 10px;
+         }
+      } 
+	
+</style>
 <section class="content">
     <div class="container-fluid">
         <div class="content-wrapper">
@@ -26,12 +64,17 @@ $this->load->view('site_admin/layout/sidebar.php');
 					</div><!-- /.container-fluid -->
 				</div>
 			   
-				<div id="printableArea">
+				<div id="printableArea">					
+					<div id="dvContents">
+						
 					<div class="row" style="margin:0;padding:0;">
 						<div class="col-md" id="listingWrapper">
-							<table class="table table-bordered table-striped" id="invoiceList">
-								<thead colspan="2" style="font"><strong style>Store Basic Details</strong></thead>
+							<table class="table table-bordered" cellspacing="0" rules="all" border="1">							
+								<!-- <thead colspan="2" style="font"><strong style>Store Basic Details</strong></thead> -->
 								<tbody>
+								    <tr>
+										<td colspan="2" style="font" scope="col"><strong>Store Basic Details</strong></td>
+									</tr>
 									<tr>
 										<td scope="col">Store Name</td>
 										<td scope="col"><?php echo isset($GetUsrInvoiceDetails->template_name)?$GetUsrInvoiceDetails->template_name:'NA'; ?></td>
@@ -63,9 +106,12 @@ $this->load->view('site_admin/layout/sidebar.php');
 							</table>
 						</div>
 						<div class="col-md">
-							<table class="table table-bordered table-striped ">
-								<thead colspan="2" style="font"><strong style>Store Plan Details</strong></thead>
+							<table class="table table-bordered" cellspacing="0" rules="all" border="1">
+								<!-- <thead colspan="2" style="font"><strong style>Store Plan Details</strong></thead> -->
 								<tbody>
+								    <tr>
+										<td colspan="2" style="font" scope="col"><strong>Store Plan Details</strong></td>
+									</tr>
 									<tr>
 										<td>Plan Name</td>
 										<td><?php echo isset($GetUsrInvoiceDetails->plan_name)?$GetUsrInvoiceDetails->plan_name:'NA'; ?></td>
@@ -110,11 +156,15 @@ $this->load->view('site_admin/layout/sidebar.php');
 							</table>
 						</div>
 					</div>
+					</br>
 					<div class="row" style="margin:0;padding:0;">
 						<div class="col-md">
-							<table class="table table-bordered table-striped ">
-								<thead colspan="2" style="font"><strong style>Store Template Details</strong></thead>
+							<table class="table table-bordered" cellspacing="0" rules="all" border="1">
+								<!-- <thead colspan="2" style="font"><strong style>Store Template Details</strong></thead> -->
 								<tbody>
+								    <tr>
+										<td colspan="2" style="font" scope="col"><strong>Store Template Details</strong></td>
+									</tr>
 									<tr>
 										<td>Template Name</td>
 										<td><?php echo isset($GetUsrInvoiceDetails->template_name)?$GetUsrInvoiceDetails->template_name:'NA'; ?></td>
@@ -131,9 +181,12 @@ $this->load->view('site_admin/layout/sidebar.php');
 							</table>
 						</div>
 						<div class="col-md">
-							<table class="table table-bordered table-striped ">
-								<thead colspan="2" style="font"><strong style>Payment Details</strong></thead>
+							<table class="table table-bordered cellspacing="0" rules="all" border="1"">
+								<!-- <thead colspan="2" style="font"><strong style>Payment Details</strong></thead> -->
 								<tbody>
+								    <tr>
+										<td colspan="2" style="font" scope="col"><strong>Payment Details</strong></td>
+									</tr>
 									<tr>
 										<td>Payment Method</td>
 										<td>
@@ -151,17 +204,14 @@ $this->load->view('site_admin/layout/sidebar.php');
 									<tr>
 										<td>Payment Status</td>
 										<td><?php 
-													if(isset($GetUsrInvoiceDetails->payment_status) && !empty($GetUsrInvoiceDetails->payment_status)){
+												if(isset($GetUsrInvoiceDetails->payment_status) && !empty($GetUsrInvoiceDetails->payment_status)){
 													if($GetUsrInvoiceDetails->payment_status==0){
 														echo 'Free Trail.';
 													}elseif($GetUsrInvoiceDetails->payment_status==1){
-														//echo 'Authorised';
-														echo '<span class="text-success">Authorised</span>';
+														echo '<span class="text-success green">Authorised</span>';
 													}elseif($GetUsrInvoiceDetails->payment_status==2){
-														//echo 'Cancelled';
 														echo '<span class="text-danger">Cancelled</span>';
 													}elseif($GetUsrInvoiceDetails->payment_status==3){
-														//echo 'Payment Rejected or no response';
 														echo '<span class="text-warning">Payment Rejected or no response</span>';
 													}
 												}
@@ -178,21 +228,38 @@ $this->load->view('site_admin/layout/sidebar.php');
 						</div>
 					</div>
 				</div>
+				</div>
+					<br/>
 				<div class="text-center">
-				<a href="javascript:void(0);" onclick="printPageArea('printableArea')" class="btn btn-primary brand-btn mb-2" >Invoice</a>
+				<input type="button" class="btn btn-primary brand-btn mb-2" onclick="PrintTable();" value="Invoice"/>	
+				<!-- <a href="javascript:void(0);" onclick="printPageArea('printableArea')" class="btn btn-primary brand-btn mb-2" >Invoice</a> -->
 				<a href="<?php echo base_url('site-admin/all-stores'); ?>" class="btn btn-primary brand-btn mb-2" >Back to Store</a>
 			</div>
 		</div>										
 	</div>
 </section>
-<script>
-	function printPageArea(areaID){
-	var printContent = document.getElementById(areaID).innerHTML;
-	var originalContent = document.body.innerHTML;
-	document.body.innerHTML = printContent;
-	window.print();
-	document.body.innerHTML = originalContent;
-	}
+<script type="text/javascript">
+    function PrintTable() {
+        var printWindow = window.open('', '', 'height=200,width=400');
+        printWindow.document.write('<html><head><title>Store Details</title>');
+ 
+        //Print the Table CSS.
+        var table_style = document.getElementById("table_style").innerHTML;
+        printWindow.document.write('<style type = "text/css">');
+        printWindow.document.write(table_style);
+        printWindow.document.write('</style>');
+        printWindow.document.write('</head>');
+ 
+        //Print the DIV contents i.e. the HTML Table.
+        printWindow.document.write('<body>');
+        var divContents = document.getElementById("dvContents").innerHTML;
+        printWindow.document.write(divContents);
+        printWindow.document.write('</body>');
+ 
+        printWindow.document.write('</html>');
+        printWindow.document.close();
+        printWindow.print();
+    }
 </script>
 <?php  $this->load->view('site_admin/layout/footer.php'); ?>
 
