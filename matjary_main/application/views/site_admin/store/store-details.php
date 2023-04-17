@@ -63,7 +63,7 @@ $this->load->view('site_admin/layout/sidebar.php');
 						</div><!-- /.row -->
 					</div><!-- /.container-fluid -->
 				</div>
-			   
+				<?php //echo '<pre>'; print_r($storeDetails); die; ?>
 				<div id="printableArea">					
 					<div id="dvContents">
 						
@@ -77,23 +77,23 @@ $this->load->view('site_admin/layout/sidebar.php');
 									</tr>
 									<tr>
 										<td scope="col">Store Name</td>
-										<td scope="col"><?php echo isset($GetUsrInvoiceDetails->template_name)?$GetUsrInvoiceDetails->template_name:'NA'; ?></td>
+										<td scope="col"><?php echo isset($storeDetails->store_sub_domain)?$storeDetails->store_sub_domain:'NA'; ?></td>
 									</tr>
 									<tr>
 										<td scope="col">Store Link</td>
-										<td scope="col"><a target="_blank" href="<?php echo "https://" . $GetUsrInvoiceDetails->store_link; ?>"> <?php echo $GetUsrInvoiceDetails->store_link; ?></a>
+										<td scope="col"><a target="_blank" href="<?php echo "https://" . $storeDetails->store_link; ?>"> <?php echo $storeDetails->store_link; ?></a>
 											</a>
 										</td>
 									</tr>
 									<tr>
 										<td scope="col">Store Owner</td>
-										<td scope="col"><?php echo isset($GetUsrInvoiceDetails->fname)?$GetUsrInvoiceDetails->fname.' '.$GetUsrInvoiceDetails->lname:'NA'; ?></td>
+										<td scope="col"><?php echo isset($storeDetails->fname)?$storeDetails->fname.' '.$storeDetails->lname:'NA'; ?></td>
 									</tr>
 									<tr>
 										<td scope="col">Store Created Datetime</td>
 										<td scope="col">
 											<?php 
-												$datepstrt = date_format (new DateTime($GetUsrInvoiceDetails->plan_start_dt), 'd M Y');
+												$datepstrt = date_format (new DateTime($storeDetails->plan_start_dt), 'd M Y');
 												echo isset($datepstrt)?$datepstrt:'NA'; 
 											?>
 										</td>
@@ -114,37 +114,37 @@ $this->load->view('site_admin/layout/sidebar.php');
 									</tr>
 									<tr>
 										<td>Plan Name</td>
-										<td><?php echo isset($GetUsrInvoiceDetails->plan_name)?$GetUsrInvoiceDetails->plan_name:'NA'; ?></td>
+										<td><?php echo isset($storeDetails->plan_name)?$storeDetails->plan_name:'NA'; ?></td>
 									</tr>
 									<tr>
 										<td>Plan Validity</td>
 										<td><?php 
-												if(isset($GetUsrInvoiceDetails->subscription_type) && $GetUsrInvoiceDetails->subscription_type==1){
-													echo $GetUsrInvoiceDetails->validity_in_months.' Days'; 
+												if(isset($storeDetails->subscription_type) && $storeDetails->subscription_type==1){
+													echo $storeDetails->validity_in_months.' Days'; 
 												}else{
-													echo $GetUsrInvoiceDetails->validity_in_months.' Months'; 
+													echo $storeDetails->validity_in_months.' Months'; 
 												}
 											?>
 										</td>
 									</tr>
 									<tr>
 										<td>Plan Expiry</td>
-										<td><?php //echo isset($GetUsrInvoiceDetails->plan_expiry_dt)?$GetUsrInvoiceDetails->plan_expiry_dt:'NA'; ?>
+										<td><?php //echo isset($storeDetails->plan_expiry_dt)?$storeDetails->plan_expiry_dt:'NA'; ?>
 									    	<?php 
-												$datependt = date_format (new DateTime($GetUsrInvoiceDetails->plan_expiry_dt), 'd M Y');
+												$datependt = date_format (new DateTime($storeDetails->plan_expiry_dt), 'd M Y');
 												echo isset($datependt)?$datependt:'NA'; 
 											?>
 										</td>
 									</tr>
 									<tr>
 										<td>Plan Cost</td>
-										<td><?php echo isset($GetUsrInvoiceDetails->price)?$GetUsrInvoiceDetails->price.' SAR':'NA'; ?></td>
+										<td><?php echo isset($storeDetails->price)?$storeDetails->price.' SAR':'NA'; ?></td>
 									</tr>
 									<tr>
 										<td>Subscription Type</td>
 										<td>
 											<?php 
-												if(isset($GetUsrInvoiceDetails->subscription_type) && $GetUsrInvoiceDetails->subscription_type==1){
+												if(isset($storeDetails->subscription_type) && $storeDetails->subscription_type==1){
 													echo 'Free Plan';
 												}else{
 													echo 'Paid Plan';
@@ -167,11 +167,11 @@ $this->load->view('site_admin/layout/sidebar.php');
 									</tr>
 									<tr>
 										<td>Template Name</td>
-										<td><?php echo isset($GetUsrInvoiceDetails->template_name)?$GetUsrInvoiceDetails->template_name:'NA'; ?></td>
+										<td><?php echo isset($storeDetails->template_name)?$storeDetails->template_name:'NA'; ?></td>
 									</tr>
 									<tr>
 										<td>Template Cost</td>
-										<td><?php echo isset($GetUsrInvoiceDetails->template_cost)?$GetUsrInvoiceDetails->template_cost.' SAR':'0.00'; ?></td>
+										<td><?php echo isset($storeDetails->template_cost)?$storeDetails->template_cost.' SAR':'0.00'; ?></td>
 									</tr>
 									<tr style="height:50px;">
 										<td></td>
@@ -181,7 +181,7 @@ $this->load->view('site_admin/layout/sidebar.php');
 							</table>
 						</div>
 						<div class="col-md">
-							<table class="table table-bordered cellspacing="0" rules="all" border="1"">
+							<table class="table table-bordered" cellspacing="0" rules="all" border="1">
 								<!-- <thead colspan="2" style="font"><strong style>Payment Details</strong></thead> -->
 								<tbody>
 								    <tr>
@@ -191,11 +191,11 @@ $this->load->view('site_admin/layout/sidebar.php');
 										<td>Payment Method</td>
 										<td>
 											<?php 
-												if(isset($GetUsrInvoiceDetails->payment_type) && $GetUsrInvoiceDetails->payment_type==1){
+												if(isset($storeDetails->payment_type) && $storeDetails->payment_type==1){
 													echo 'Online Payment';
-												}elseif($GetUsrInvoiceDetails->payment_type==2){
+												}elseif($storeDetails->payment_type==2){
 													echo 'Gift Card';
-												}elseif($GetUsrInvoiceDetails->payment_type==3){
+												}elseif($storeDetails->payment_type==3){
 													echo 'COD';
 												}
 												?>
@@ -204,14 +204,14 @@ $this->load->view('site_admin/layout/sidebar.php');
 									<tr>
 										<td>Payment Status</td>
 										<td><?php 
-												if(isset($GetUsrInvoiceDetails->payment_status) && !empty($GetUsrInvoiceDetails->payment_status)){
-													if($GetUsrInvoiceDetails->payment_status==0){
+												if(isset($storeDetails->payment_status) && !empty($storeDetails->payment_status)){
+													if($storeDetails->payment_status==0){
 														echo 'Free Trail.';
-													}elseif($GetUsrInvoiceDetails->payment_status==1){
+													}elseif($storeDetails->payment_status==1){
 														echo '<span class="text-success green">Authorised</span>';
-													}elseif($GetUsrInvoiceDetails->payment_status==2){
+													}elseif($storeDetails->payment_status==2){
 														echo '<span class="text-danger">Cancelled</span>';
-													}elseif($GetUsrInvoiceDetails->payment_status==3){
+													}elseif($storeDetails->payment_status==3){
 														echo '<span class="text-warning">Payment Rejected or no response</span>';
 													}
 												}

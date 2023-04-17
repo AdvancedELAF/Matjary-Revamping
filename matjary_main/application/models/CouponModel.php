@@ -25,6 +25,7 @@ class CouponModel extends CI_Model {
             $query = $this->db->select('*')
                         ->from('coupons')
                         ->where_in('is_active', array(1,2))
+                        ->order_by('id','DESC')
                         ->get();
             if ($query->num_rows() > 0) {
                 return $query->result();

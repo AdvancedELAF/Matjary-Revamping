@@ -14,12 +14,12 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                 <div class="container-fluid">
                     <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Edit Tempalte Category</h1>
+                        <h1 class="m-0">Edit Template Category</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?php echo base_url('site-admin/dashboard'); ?>">Home</a></li>
-                        <li class="breadcrumb-item active">Edit Tempalte Category</li>
+                        <li class="breadcrumb-item active">Edit Template Category</li>
                         </ol>
                     </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -30,7 +30,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
             <!-- general form elements -->
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Edit Tempalte Category</h3>
+                    <h3 class="card-title">Edit Template Category</h3>
                 </div>           
             <?php  //echo '<pre>'; print_r($GetSingleCatDetails); die; ?>
                 <form method="POST" action="<?php echo base_url('save-category'); ?>" name="save_category" id="save_category" enctype="multipart/form-data">

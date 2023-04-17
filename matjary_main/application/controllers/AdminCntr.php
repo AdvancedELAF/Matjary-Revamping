@@ -1588,11 +1588,12 @@ class AdminCntr extends MY_Controller {
     public function store_details($id) {
         if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {
             $pageData['pageId'] = 23;
-            $GetUsrInvoiceDetails = $this->PlanModel->get_user_store_payment_info($id);
-            if (isset($GetUsrInvoiceDetails) && !empty($GetUsrInvoiceDetails)) {
-            $pageData['billingAddress'] = unserialize($GetUsrInvoiceDetails->bill_info_address);
+            $storeDetails = $this->PlanModel->get_store_info($id);
+           // echo '<pre>'; print_r($GetUsrInvoiceDetails); die;
+            if (isset($storeDetails) && !empty($storeDetails)) {
+            $pageData['billingAddress'] = unserialize($storeDetails->bill_info_address);
             }
-            $pageData['GetUsrInvoiceDetails'] = $GetUsrInvoiceDetails;           
+            $pageData['storeDetails'] = $storeDetails;           
             $this->load->view('site_admin/store/store-details', $pageData);
         }else{
             redirect('site-admin/login');
