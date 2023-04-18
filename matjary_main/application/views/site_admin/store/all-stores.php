@@ -54,7 +54,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                                     ?>
                                 <tr>
                                     <th scope="row"><?php echo $i; ?></th>
-                                    <td><?php echo isset($value->fname ) ? $value->fname : 'NA'; ?></td>                                     
+                                    <td><?php echo isset($value->store_sub_domain ) ? $value->store_sub_domain : 'NA'; ?></td>                                     
                                     <td><a target="_blank" href="<?php echo "https://" . $value->store_link; ?>"> <?php echo $value->store_link; ?></a></td>
                                     <td><?php echo isset($value->fname ) ? $value->fname.' '.$value->lname : 'NA'; ?></td>
                                     <td><?php echo isset($value->plan_name ) ? $value->plan_name : 'NA'; ?></td>
@@ -65,13 +65,21 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                                         ?>
                                     </td>                                                               
                                    
-                                    <td><?php if ($value->is_active == 1) {
-                                            echo 'Active';
-                                        }elseif ($value->is_active == 2) { 
-                                            echo 'Inactive';
-                                        }elseif ($value->is_active == 3){
-                                            echo 'Deleted';
-                                        } ?>
+                                    <td><?php 
+                                            $today = strtotime(date("d M Y"));
+                                            $checkExpiryDate = strtotime(date_format (new DateTime($value->plan_expiry_dt), 'd M Y'));
+                                            if($checkExpiryDate >= $today) {                                       
+                                                if ($value->is_active == 1) {
+                                                    echo '<p class="text-success"> Active </p>';
+                                                }elseif ($value->is_active == 2) { 
+                                                    echo '<p class="btn btn-warning"> Deactive </p>';
+                                                }elseif ($value->is_active == 3){
+                                                    echo '<p class="btn btn-info"> Deleted </p>';
+                                                }
+                                            }else{
+                                                echo '<p class="text-danger"> Expired </p>';
+                                            }
+                                        ?>
                                     </td>
                                     <td>
                                     <div class="dropdown">

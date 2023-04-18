@@ -733,41 +733,7 @@ $(document).ready(function () {
         }
     }));
 
-    $("#update_coupon").on('submit', (function (e) {
-        e.preventDefault();
-        var isvalidate = $("#update_coupon").valid();
-        if (!isvalidate) {
-            return false;
-        } else {
-            var form = $('#update_coupon')[0];
-            var requestData = new FormData(form);
-            var action_page = $("#update_coupon").attr('action');
-            $.ajax({
-                url: action_page,
-                type: "POST",
-                enctype: 'multipart/form-data',
-                data: requestData,
-                contentType: false,
-                cache: false,
-                processData: false,
-                timeout: 600000,
-                success: function (resp) {
-                    console.log(resp);
-                    resp = JSON.parse(resp);
-                    if (resp.responseCode == 200) {
-                        swal({title: "", text: resp.responseMessage, type: "success"},
-                        function(){
-                            window.location.reload();
-                        }
-                       );
-                    } else {
-                        swal({title: "Fail", closeOnClickOutside: false, text: resp.responseMessage, type: "error"});
-                    }
-                }
-            });
-        }
-    }));
-  
+      
 
 });
 /* theme filter function start */

@@ -76,12 +76,11 @@ $(document).ready(function () {
                 digits:true,
                 minlength: 9,
 		        maxlength: 10
-            },
-            usr_role: {
-                required: true
-            },
+            },           
             address: {
-                required: true
+                required: true,
+                minlength: 2,
+                maxlength: 30
             },
             country_id: {
                 required: true
@@ -137,7 +136,9 @@ $(document).ready(function () {
                 required: true
             },
             address: {
-                required: true
+                required: true,
+                minlength: 2,
+                maxlength: 30
             },
             country_id: {
                 required: false
@@ -579,45 +580,6 @@ $(document).ready(function () {
                 error.insertAfter(element);
             }
         }
-    });
-
-    $("#update_coupon").validate({
-        rules: {
-            code: {
-                required: false,
-            },
-            start_date: {
-                required: true
-            },
-            expiry_date: {
-                required: true,
-                greaterThan: "#start_date"
-            },
-            discount_in_percent: {
-                required:true,
-                digits:true,
-		        maxlength: 10
-            },
-            is_active: {
-                required: true
-            }
-        },
-        messages: {
-            'expiry_date': {
-                greaterThan: 'Please select expiry date greater than start date.' 
-            }
-        },
-        debug: true,
-        errorElement: 'span',
-        errorPlacement: function (error, element) {
-            var placement = $(element).data('error');
-            if (placement) {
-                $(placement).append(error)
-            } else {
-                error.insertAfter(element);
-            }
-        }
-    });
-    
+    });   
     
 });

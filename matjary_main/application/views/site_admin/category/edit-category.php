@@ -30,7 +30,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
             <!-- general form elements -->
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Edit Template Category</h3>
+                    <h3 class="card-title">&nbsp;</h3>
                 </div>           
             <?php  //echo '<pre>'; print_r($GetSingleCatDetails); die; ?>
                 <form method="POST" action="<?php echo base_url('save-category'); ?>" name="save_category" id="save_category" enctype="multipart/form-data">

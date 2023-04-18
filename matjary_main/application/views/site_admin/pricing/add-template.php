@@ -12,7 +12,7 @@ include(APPPATH.'views/site_admin/layout/admin-layout.php'); ?>
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Add Template</h3>
+                <h3 class="card-title">&nbsp;</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->

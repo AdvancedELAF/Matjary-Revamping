@@ -37,7 +37,6 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                                         <th>ID</th>
                                         <th>Name</th>
                                         <th>Email </th>
-                                        <th>Role</th>
                                         <th>Contact No.</th>
                                         <th>Status</th>
                                         <th>Action</th>
@@ -52,17 +51,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                             <tr>
                                         <th scope="row"><?php echo $i; ?></th>
                                         <td><?php echo isset($value->fname) ? $value->fname : 'NA'; ?></td>
-                                        <td><?php echo isset($value->email) ? $value->email : 'NA'; ?></td>
-                                        <td><?php 
-                                            if($value->usr_role == 1) {
-                                                echo 'Super Admin';
-                                            }if($value->usr_role == 2) {
-                                                echo 'Admin';
-                                            }if($value->usr_role == 3) {
-                                                echo 'User';
-                                            }
-                                        ?>
-                                        </td>
+                                        <td><?php echo isset($value->email) ? $value->email : 'NA'; ?></td>                                        
                                         <td><?php echo isset($value->phone_no) ? $value->phone_no : 'NA'; ?></td>
                                         <td><?php if ($value->is_active == 1) {
                                                 echo 'Active';

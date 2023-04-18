@@ -90,7 +90,7 @@ $this->load->view('site_admin/layout/sidebar.php');
 										<td scope="col"><?php echo isset($storeDetails->fname)?$storeDetails->fname.' '.$storeDetails->lname:'NA'; ?></td>
 									</tr>
 									<tr>
-										<td scope="col">Store Created Datetime</td>
+										<td scope="col">Store Created Date</td>
 										<td scope="col">
 											<?php 
 												$datepstrt = date_format (new DateTime($storeDetails->plan_start_dt), 'd M Y');
@@ -129,10 +129,16 @@ $this->load->view('site_admin/layout/sidebar.php');
 									</tr>
 									<tr>
 										<td>Plan Expiry</td>
-										<td><?php //echo isset($storeDetails->plan_expiry_dt)?$storeDetails->plan_expiry_dt:'NA'; ?>
+										<td>
 									    	<?php 
-												$datependt = date_format (new DateTime($storeDetails->plan_expiry_dt), 'd M Y');
-												echo isset($datependt)?$datependt:'NA'; 
+												$todays = strtotime(date("d M Y"));
+												$checkExpiryDates = strtotime(date_format (new DateTime($storeDetails->plan_expiry_dt), 'd M Y'));
+
+												if($checkExpiryDates >= $todays) {													
+													echo date_format (new DateTime($storeDetails->plan_expiry_dt), 'd M Y') .' <label class="text-success"> (Active) </label>';													
+												}else {
+													echo date_format (new DateTime($storeDetails->plan_expiry_dt), 'd M Y') .' <label class="text-danger"> (Expired) </label>';
+												}   
 											?>
 										</td>
 									</tr>
@@ -173,10 +179,10 @@ $this->load->view('site_admin/layout/sidebar.php');
 										<td>Template Cost</td>
 										<td><?php echo isset($storeDetails->template_cost)?$storeDetails->template_cost.' SAR':'0.00'; ?></td>
 									</tr>
-									<tr style="height:50px;">
+									<!-- <tr style="height:50px;">
 										<td></td>
 										<td></td>
-									</tr>
+									</tr> -->
 								</tbody>
 							</table>
 						</div>
@@ -218,10 +224,29 @@ $this->load->view('site_admin/layout/sidebar.php');
 												?> 
 											</td>
 									</tr>
-									<tr style="height:50px;">
-										<td></td>
-										<td></td>
+									<?php if($storeDetails->is_coupon_applied == 1){ ?>
+									<tr>
+										<td>Sub Total</td>
+										<td>
+										<?php 
+											$getTotal = $storeDetails->template_cost + $storeDetails->plan_cost;
+											echo $getTotal .' SAR'; 
+										?>
+										</td>
+									</tr>									
+									<tr>
+										<td>Coupon Discount (%)</td>
+										<td><?php echo isset($storeDetails->discount_in_percent)?$storeDetails->discount_in_percent .' %':'NA'; ?></td>
 									</tr>
+									<tr>
+										<td>Coupon Amount</td>
+										<td><?php echo isset($storeDetails->coupon_amount)?$storeDetails->coupon_amount:'NA'; ?> SAR</td>
+									</tr>
+									<tr>
+										<td>Grand Total</td>
+										<td><?php echo isset($storeDetails->total_price)?$storeDetails->total_price:'NA'; ?> SAR</td>
+									</tr>
+									<?php } ?>								
 									
 								</tbody>
 							</table>

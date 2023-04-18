@@ -105,7 +105,7 @@ class PlanModel extends CI_Model {
 
     /* Store list Module Start */
     
-    public function stores_list() {
+    public function stores_list() { 
         try {   
             
             $query = $this->db->select(
@@ -115,7 +115,8 @@ class PlanModel extends CI_Model {
                 us.plan_start_dt,
                 us.plan_expiry_dt,
                 us.store_link,
-                us.is_active,          
+                us.is_active, 
+                us.store_sub_domain,         
                 u.id as user_id,
 				u.fname,
 				u.lname,	             
@@ -127,6 +128,7 @@ class PlanModel extends CI_Model {
             ->join('users as u', 'u.id=us.user_id', 'left')
             ->join('plans as p', 'p.id=us.plan_id', 'left') 
             ->where('us.is_active', 1)
+            ->order_by('us.id','DESC')
             ->get();
                        
             if ($query->num_rows() > 0) {
@@ -169,14 +171,20 @@ class PlanModel extends CI_Model {
                 upi.order_status,
                 upi.payment_status,
                 upi.payment_type,
-                mt.name as template_name
+                upi.coupon_id,
+                upi.coupon_amount,
+                upi.plan_cost,                
+                upi.is_coupon_applied,
+                mt.name as template_name,
+                c.discount_in_percent             
                 '
             )
             ->from('user_subscriptions as us')
-            ->join('user_payment_info as upi', 'upi.customer_id=us.user_id', 'left')
+            ->join('user_payment_info as upi', 'upi.user_subscriptions_id=us.id', 'left')
             ->join('plans as p', 'p.id=us.plan_id', 'left')
             ->join('matjary_templates as mt', 'mt.id=us.template_id', 'left')
             ->join('users as u', 'u.id=us.user_id', 'left')
+            ->join('coupons as c', 'c.id=upi.coupon_id', 'left')
             ->where('us.id', $id)
             ->where('us.is_active', 1)
             ->get();
