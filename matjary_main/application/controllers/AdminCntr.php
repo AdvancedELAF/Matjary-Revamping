@@ -182,8 +182,6 @@ class AdminCntr extends MY_Controller {
         if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {
             $pageData['pageId'] = 3;
             $pageData['countries'] = $this->CommonModel->country_list();
-            $pageData['states'] = $this->CommonModel->state_list();
-            $pageData['UserroleList'] = $this->UsrModel->get_admin_role_list(); 
             $this->load->view('site_admin/user/create',$pageData);
         }else {
             redirect('site-admin/login');
@@ -247,7 +245,6 @@ class AdminCntr extends MY_Controller {
                                         'fax_no' => isset($_POST['fax_no']) ? $_POST['fax_no'] : '',
                                         'address' => isset($_POST['address']) ? $_POST['address'] : '',
                                         'is_active' => 1
-                                        
                                     );
                                     $usrId = $this->UsrModel->save_usr($requestData);
                                     if ($usrId == false) {
@@ -255,10 +252,6 @@ class AdminCntr extends MY_Controller {
                                         $this->response['responseMessage'] = 'Error while adding new user information';
                                         echo json_encode($this->response); exit;
                                     } else {                                              
-
-                                        $server_site_path = SERVER_SITE_PATH;
-                                        $userLoginUrl = SERVER_SITE_PATH;
-                                        $stvr_rt_pth_asts = SERVER_ROOT_PATH_ASSETS;
 
                                         /* set params for password request raised */
                                         $pwd_rst_data = array(
@@ -331,7 +324,6 @@ class AdminCntr extends MY_Controller {
         if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {
             $pageData['pageId'] = 4;
             $pageData['singleUserData'] = $this->UsrModel->get_single_user_details($id); 
-            $pageData['UserroleList'] = $this->UsrModel->get_admin_role_list(); 
             $pageData['countryList'] = $this->CommonModel->country_list(); 
 			$pageData['stateList'] = '';
 			$pageData['cityList'] = '';
@@ -537,9 +529,8 @@ class AdminCntr extends MY_Controller {
                                 $this->response['responseMessage'] = "Error While Data Insertion.";
                                 echo json_encode($this->response); exit;
                             } else {                                              
-                                $errorMsg = "Template Category Added Successfully.";                                 
                                 $this->response['responseCode'] = 200;
-                                $this->response['responseMessage'] = $errorMsg;
+                                $this->response['responseMessage'] = "Template Category Added Successfully."; 
                                 echo json_encode($this->response); exit;                               
                             }
                         }else {
@@ -596,9 +587,8 @@ class AdminCntr extends MY_Controller {
                                 $this->response['responseMessage'] = "Error While Template Data Insertion.";
                                 echo json_encode($this->response); exit;
                             } else {                                              
-                                $errorMsg = "Data Updated Successfully.";                                 
                                 $this->response['responseCode'] = 200;
-                                $this->response['responseMessage'] = $errorMsg;
+                                $this->response['responseMessage'] = "Data Updated Successfully."; 
                                 echo json_encode($this->response); exit;                               
                             }
                         }else {
@@ -1675,70 +1665,7 @@ class AdminCntr extends MY_Controller {
             redirect('site-admin/login');
         }
     }
-    /* 
-    public function update_coupon(){
-        try {
-            if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {
-                if(isset($_POST['id']) & !empty($_POST['id'])){                  
-                        if (isset($_POST['discount_in_percent']) & !empty($_POST['discount_in_percent'])) {                                           
-                            if (isset($_POST['start_date']) & !empty($_POST['start_date'])) {
-                                if (isset($_POST['expiry_date']) & !empty($_POST['expiry_date'])) {
-                                    if (isset($_POST['is_active']) & !empty($_POST['is_active'])) {     
-                                        
-                                        $start_date = date('Y-m-d', strtotime($_POST['start_date']));
-                                        $expiry_date = date('Y-m-d', strtotime($_POST['expiry_date']));
-                                                
-                                        $updateData = array(
-                                            'discount_in_percent' => isset($_POST['discount_in_percent']) ? $_POST['discount_in_percent'] : '',
-                                            'start_date' => isset($start_date) ? $start_date : '', 
-                                            'expiry_date' => isset($expiry_date) ? $expiry_date : '',                                      
-                                            'is_active' => isset($_POST['is_active']) ? $_POST['is_active'] : ''
-                                        );
-                                        $updateDatas = $this->CouponModel->update_data($updateData,$_POST['id']);
-                                        if ($updateDatas == false) {
-                                            $this->response['responseCode'] = 500;
-                                            $this->response['responseMessage'] = "Error While Coupon Data Updation.";
-                                            echo json_encode($this->response); exit;
-                                        } else {                         
-                                            $this->response['responseCode'] = 200;
-                                            $this->response['responseMessage'] = "Coupon Data Updated Successfully.";  
-                                            echo json_encode($this->response); exit;                               
-                                        }
-                                    }else {
-                                        $this->response['responseCode'] = 404;
-                                        $this->response['responseMessage'] = 'Is Active is required.';
-                                        echo json_encode($this->response);exit;
-                                    }
-                                }else {
-                                    $this->response['responseCode'] = 404;
-                                    $this->response['responseMessage'] = 'Expiry Date is required.';
-                                    echo json_encode($this->response);exit;
-                                }
-                            }else {
-                                $this->response['responseCode'] = 404;
-                                $this->response['responseMessage'] = 'Start Date is required.';
-                                echo json_encode($this->response);exit;
-                            }
-                        } else {
-                            $this->response['responseCode'] = 404;
-                            $this->response['responseMessage'] = 'Discount is required.';
-                            echo json_encode($this->response);
-                            exit;
-                        }
-                } else {
-                    $this->response['responseCode'] = 404;
-                    $this->response['responseMessage'] = 'Id is required ';
-                    echo json_encode($this->response);
-                    exit;
-                }
-            }else {
-                redirect('site-admin/login');
-            }  
-        } catch (Exception $e) {
-            return $e->getMessage();
-        }
-    }
-    */
+    
     public function deactivate_coupon(){
         if(isset($_POST['id']) && !empty($_POST['id'])){
             /* update user status in database table name as 'users' */
