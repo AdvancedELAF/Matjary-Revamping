@@ -12,7 +12,7 @@ class CatModel extends CI_Model {
         try {
             $query = $this->db->select('*')
                         ->from('template_categories')
-                        ->where_in('is_active', array(1,2))
+                        ->where_in('is_active', array(1))
                         ->order_by('id','DESC')
                         ->get();
             if ($query->num_rows() > 0) {

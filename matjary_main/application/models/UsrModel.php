@@ -843,7 +843,7 @@ class UsrModel extends CI_Model {
         try {
             $query = $this->db->select('*')
             ->from('user_roles')
-            ->where_in('role_id', array(2,3))
+            ->where_in('role_id', array(3))
             ->get();
             if ($query->num_rows() > 0) {
                 return $query->result();

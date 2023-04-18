@@ -31,7 +31,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Edit Template</h3>
+                <h3 class="card-title">&nbsp;</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -143,7 +143,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                         <div class="col-md-6 ">                                   
                             <div class="form-group">
                                 <label for="description_ar">Description (Arabic)</label>
-                                <textarea id="description_ar" name="description_ar" class="form-control" rows="3" placeholder="Enter Description..."><?php echo isset($GetSingleTemDetails->description)?$GetSingleTemDetails->description:''; ?></textarea>
+                                <textarea id="description_ar" name="description_ar" class="form-control" rows="3" placeholder="Enter Description..."><?php echo isset($GetSingleTemDetails->description_ar)?$GetSingleTemDetails->description_ar:''; ?></textarea>
                             </div>   
                         </div>   
                         <div class="col-md-6">

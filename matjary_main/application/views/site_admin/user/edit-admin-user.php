@@ -31,7 +31,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
             <!-- general form elements -->
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Edit User</h3>
+                    <h3 class="card-title">&nbsp;</h3>
                 </div>
                 <form method="POST" action="<?php echo base_url('save-edit-admin-user'); ?>" name="save_edit_admin_user" id="save_edit_admin_user" enctype="multipart/form-data">
                     <input type="hidden" name="user_id" value="<?php echo isset($singleUserData[0]->id)?$singleUserData[0]->id:''; ?>" />
@@ -60,26 +60,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                                     <label for="phone_no">Contact No.</label>
                                     <input type="text" class="form-control numberonly" id="phone_no" name="phone_no" value="<?php echo isset($singleUserData[0]->phone_no)?$singleUserData[0]->phone_no:''; ?>" minlength="9" maxlength="10" placeholder="Enter Contact No.">
                                 </div>     
-                            </div>
-                            <div class="col-md-6"> 
-                                <label for="usr_role">Role</label>
-                                <select class="form-control" name="usr_role" id="usr_role" disabled>
-                                    <option value="">User Type</option>                                             
-                                    <?php 
-                                        if (isset($UserroleList) && !empty($UserroleList)) {
-                                            foreach ($UserroleList as $values ) { 
-                                                $selected = '';
-                                                if($singleUserData[0]->usr_role==$values->role_id){
-                                                    $selected = 'selected';
-                                            }
-                                    ?>
-                                    <option value="<?=$values->role_id; ?>" <?php echo $selected; ?>><?=$values->role_name;?></option>
-                                    <?php 
-                                            } 
-                                        }
-                                    ?>    
-                                </select>
-                            </div>                            
+                            </div>                                                      
                             <div class="col-md-6">                                   
                                 <div class="form-group">
                                     <label for="country_id">Country</label>
@@ -157,7 +138,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                                     <input type="text" class="form-control numberonly" id="zipcode" name="zipcode" value="<?php echo isset($singleUserData[0]->zipcode)?$singleUserData[0]->zipcode:''; ?>" placeholder="Enter Zipcode" minlength="5" maxlength="6">
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="fax_no">Fax No.</label>
                                     <input type="text" class="form-control numberonly" id="fax_no" name="fax_no" value="<?php echo isset($singleUserData[0]->fax_no)?$singleUserData[0]->fax_no:''; ?>" placeholder="Enter Fax Number" maxlength="15">
@@ -166,7 +147,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                             <div class="col-md-12">                                   
                                 <div class="form-group">
                                     <label for="address">Address</label>
-                                    <textarea id="address" name="address" class="form-control" rows="3" placeholder="Enter Address..."><?php echo isset($singleUserData[0]->address)?$singleUserData[0]->address:''; ?></textarea>
+                                    <textarea id="address" name="address" class="form-control" rows="3" placeholder="Enter Address..." maxlength="31"><?php echo isset($singleUserData[0]->address)?$singleUserData[0]->address:''; ?></textarea>
                                 </div>  
                             </div>                                    
                         </div>

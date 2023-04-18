@@ -31,7 +31,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Add User</h3>
+                <h3 class="card-title">&nbsp;</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -61,17 +61,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                                     <label for="phone_no">Contact No.</label>
                                     <input type="text" class="form-control numberonly" id="phone_no" name="phone_no" minlength="9" maxlength="10" placeholder="Enter Contact No.">
                                 </div>     
-                            </div>
-                            <div class="col-md-6"> 
-                                <label for="usr_role">Role</label>
-                                <select class="form-control"  name="usr_role" id="usr_role">
-                                    <option disabled selected >User Type</option>                                             
-                                    <?php if (isset($UserroleList) && !empty($UserroleList)) {
-                                        foreach ($UserroleList as $hostel) { ?>
-                                        <option value="<?php echo $hostel->role_id; ?>"><?php echo $hostel->role_name;?></option>
-                                    <?php } }?>    
-                                </select>
-                            </div>                            
+                            </div>                                                      
                             <div class="col-md-6">                                   
                                 <div class="form-group">
                                     <label for="country_id">Country</label>
@@ -105,7 +95,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                                     <input type="text" class="form-control numberonly" id="zipcode" name="zipcode" placeholder="Enter Zipcode" minlength="5" maxlength="6">
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="fax_no">Fax No.</label>
                                     <input type="text" class="form-control numberonly" id="fax_no" name="fax_no" placeholder="Enter Fax Number" maxlength="15">
@@ -114,7 +104,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                             <div class="col-md-12">                                   
                                 <div class="form-group">
                                     <label for="address">Address</label>
-                                    <textarea id="address" name="address" class="form-control" rows="3" placeholder="Enter Address..."></textarea>
+                                    <textarea id="address" name="address" class="form-control" rows="3" placeholder="Enter Address..." maxlength="31"></textarea>
                                 </div>  
                             </div>                                    
                         </div>

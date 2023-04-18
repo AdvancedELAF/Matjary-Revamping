@@ -31,7 +31,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Add Coupon</h3>
+                <h3 class="card-title">&nbsp;</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -53,13 +53,13 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                         <div class="col-md-6 ">
                             <div class="form-group">
                                 <label for="start_date">Start Date </label>
-                                <input type="date" class="form-control date" placeholder="Start Date>" id="start_date" name="start_date">
+                                <input type="date" class="form-control date" placeholder="Start Date" id="start_date" name="start_date">
                              </div>
                         </div>
                         <div class="col-md-6 ">
                             <div class="form-group">
                                 <label for="expiry_date">End Date </label>
-                                <input type="date" class="form-control date" placeholder="Start Date>" id="expiry_date" name="expiry_date">
+                                <input type="date" class="form-control date" placeholder="Expiry Date" id="expiry_date" name="expiry_date">
                              </div>
                         </div>                
                         <div class="col-md-6"> 
