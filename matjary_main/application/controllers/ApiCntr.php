@@ -1330,15 +1330,13 @@ class ApiCntr extends MY_Controller {
                 if ($check_rst_pwd_request == false) {
                     $this->response['responseCode'] = 405;
                     $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_1');
-                    echo json_encode($this->response);
-                    exit;
+                    echo json_encode($this->response); exit;
                 } else {
                     /* update use password start *
                       /* // create hash password */
                     $new_pass = hash_hmac("SHA256", $decode_data['cnf_new_rst_pwd'], SECRET_KEY);
                     /* //update user creadentials */
                     $passupdateResult = $this->UsrModel->updateUsrPass($decode_usr_data['user_id'], $new_pass);
-
                     if ($passupdateResult == false) {
                         $this->response['responseCode'] = 500;
                         $this->response['responseMessage'] = "Request Not Processed at Moment, please try again";

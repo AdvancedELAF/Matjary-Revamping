@@ -94,7 +94,8 @@ class UsrModel extends CI_Model {
     public function updateUsrPass($user_id, $pswrd) {
         try {
             $update_data = ['pswrd' => $pswrd];
-            $dataInserted = $this->db->where('id', $user_id)->update('user_credentials', $update_data);
+            $this->db->where('user_id', $user_id);
+            $dataInserted = $this->db->update('user_credentials', $update_data);
             if ($dataInserted) {
                 return true;
             } else {

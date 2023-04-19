@@ -182,8 +182,6 @@ class AdminCntr extends MY_Controller {
         if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {
             $pageData['pageId'] = 3;
             $pageData['countries'] = $this->CommonModel->country_list();
-            $pageData['states'] = $this->CommonModel->state_list();
-            $pageData['UserroleList'] = $this->UsrModel->get_admin_role_list(); 
             $this->load->view('site_admin/user/create',$pageData);
         }else {
             redirect('site-admin/login');
@@ -247,7 +245,6 @@ class AdminCntr extends MY_Controller {
                                         'fax_no' => isset($_POST['fax_no']) ? $_POST['fax_no'] : '',
                                         'address' => isset($_POST['address']) ? $_POST['address'] : '',
                                         'is_active' => 1
-                                        
                                     );
                                     $usrId = $this->UsrModel->save_usr($requestData);
                                     if ($usrId == false) {
@@ -256,9 +253,26 @@ class AdminCntr extends MY_Controller {
                                         echo json_encode($this->response); exit;
                                     } else {                                              
 
-                                        $server_site_path = SERVER_SITE_PATH;
-                                        $userLoginUrl = SERVER_SITE_PATH;
-                                        $stvr_rt_pth_asts = SERVER_ROOT_PATH_ASSETS;
+                                        /* // set password */
+                                        $pass = hash_hmac("SHA256", random_alpha_num(8), SECRET_KEY);
+                                        $saveUsrPass = array(
+                                            'user_id' => $usrId,
+                                            'pswrd' => $pass
+                                        );
+                                        /* //save user creadentials */
+                                        $passSaveResult = $this->UsrModel->saveUsrPass($saveUsrPass);
+                                        if ($passSaveResult == false) {
+                                            /* remove this user data from database */
+                                            $status = $this->UsrModel->delete_usr($usrId);
+                                            if ($status == false) {
+                                                $this->response['responseCode'] = 500;
+                                                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_8');
+                                                echo json_encode($this->response); exit;
+                                            }
+                                            $this->response['responseCode'] = 500;
+                                            $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_9');
+                                            echo json_encode($this->response); exit;
+                                        }
 
                                         /* set params for password request raised */
                                         $pwd_rst_data = array(
@@ -331,7 +345,6 @@ class AdminCntr extends MY_Controller {
         if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {
             $pageData['pageId'] = 4;
             $pageData['singleUserData'] = $this->UsrModel->get_single_user_details($id); 
-            $pageData['UserroleList'] = $this->UsrModel->get_admin_role_list(); 
             $pageData['countryList'] = $this->CommonModel->country_list(); 
 			$pageData['stateList'] = '';
 			$pageData['cityList'] = '';
@@ -537,9 +550,8 @@ class AdminCntr extends MY_Controller {
                                 $this->response['responseMessage'] = "Error While Data Insertion.";
                                 echo json_encode($this->response); exit;
                             } else {                                              
-                                $errorMsg = "Template Category Added Successfully.";                                 
                                 $this->response['responseCode'] = 200;
-                                $this->response['responseMessage'] = $errorMsg;
+                                $this->response['responseMessage'] = "Template Category Added Successfully."; 
                                 echo json_encode($this->response); exit;                               
                             }
                         }else {
@@ -596,9 +608,8 @@ class AdminCntr extends MY_Controller {
                                 $this->response['responseMessage'] = "Error While Template Data Insertion.";
                                 echo json_encode($this->response); exit;
                             } else {                                              
-                                $errorMsg = "Data Updated Successfully.";                                 
                                 $this->response['responseCode'] = 200;
-                                $this->response['responseMessage'] = $errorMsg;
+                                $this->response['responseMessage'] = "Data Updated Successfully."; 
                                 echo json_encode($this->response); exit;                               
                             }
                         }else {
@@ -1674,7 +1685,12 @@ class AdminCntr extends MY_Controller {
         }else{
             redirect('site-admin/login');
         }
+<<<<<<< HEAD
     }    
+=======
+    }
+    
+>>>>>>> 76b877498154bcef7f5190054b5a694d7a68e086
     public function deactivate_coupon(){
         if(isset($_POST['id']) && !empty($_POST['id'])){
             /* update user status in database table name as 'users' */
