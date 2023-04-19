@@ -253,6 +253,27 @@ class AdminCntr extends MY_Controller {
                                         echo json_encode($this->response); exit;
                                     } else {                                              
 
+                                        /* // set password */
+                                        $pass = hash_hmac("SHA256", random_alpha_num(8), SECRET_KEY);
+                                        $saveUsrPass = array(
+                                            'user_id' => $usrId,
+                                            'pswrd' => $pass
+                                        );
+                                        /* //save user creadentials */
+                                        $passSaveResult = $this->UsrModel->saveUsrPass($saveUsrPass);
+                                        if ($passSaveResult == false) {
+                                            /* remove this user data from database */
+                                            $status = $this->UsrModel->delete_usr($usrId);
+                                            if ($status == false) {
+                                                $this->response['responseCode'] = 500;
+                                                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_8');
+                                                echo json_encode($this->response); exit;
+                                            }
+                                            $this->response['responseCode'] = 500;
+                                            $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_9');
+                                            echo json_encode($this->response); exit;
+                                        }
+
                                         /* set params for password request raised */
                                         $pwd_rst_data = array(
                                             'user_id' => $usrId,

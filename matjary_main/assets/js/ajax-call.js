@@ -178,13 +178,16 @@ $(document).ready(function () {
 
     
     $(document).on('click', '.tplBtn', function(){
-        //$(".tplBtn").click(function () {
-        //$("#templateDetailsModal").modal('toggle');
-        //$("#templateDetailsModal").modal('toggle');
         let tplid = $(this).data('tplid');
         let tplprice = $(this).data('tplprice');
         $("#chooseDomainModal").find("#template_id").val(tplid);
         $("#chooseDomainModal").find("#template_price").val(tplprice);
+
+        const sub_domain_name = document.getElementById('sub_domain_name');
+        if (sub_domain_name !== null) {
+            sub_domain_name.onpaste = e => e.preventDefault();
+        }
+        
     });
 
     $('.nospecialchars').on('keypress', function (event) {
@@ -623,7 +626,7 @@ $(document).ready(function () {
     /* set password form start */
     $("#set_usr_reset_password").on('submit', (function (e) {
         $('#Reset_Pwd_Message').html("");
-        let pwd_tkn = $('#cnf_new_rst_pwd').attr('data-tnk');
+        let pwd_tkn = $('#cnf_new_rst_pwd').data('tnk');
         e.preventDefault();
         var isvalidate = $("#set_usr_reset_password").valid();
         if (!isvalidate) {
