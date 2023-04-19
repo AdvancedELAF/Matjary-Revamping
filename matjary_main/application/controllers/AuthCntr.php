@@ -26,6 +26,7 @@ class AuthCntr extends MY_Controller {
                 }
                 $usrData = new stdClass();
                 $chkUsrLoginUrl = base_url('chk-admin-credentials');  
+                //echo '---=='.print_r($chkUsrLoginUrl); die;
                // $pass = hash_hmac("SHA256",$_POST['password'], SECRET_KEY);              
                 $requestData = array(
                     'email' => $_POST['email'],

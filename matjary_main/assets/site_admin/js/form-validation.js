@@ -580,6 +580,130 @@ $(document).ready(function () {
                 error.insertAfter(element);
             }
         }
-    });   
+    });
+    
+    $("#save_employee").validate({
+        rules: {
+            fname: {
+                required: true,
+                validString:true
+            },
+            lname: {
+                required: true,
+                validString:true
+            },
+            role: {
+                required: true
+            },
+            email: {
+                required: true
+            },
+            phone_no: {
+                required:true,
+                digits:true,
+                minlength: 9,
+		        maxlength: 10
+            },           
+            address: {
+                required: true,
+                minlength: 2,
+                maxlength: 30
+            },
+            country_id: {
+                required: true
+            },
+            state_id: {
+                required: true
+            },
+            city_id: {
+                required: true
+            },
+            zipcode: {
+                required: true,
+                number:true,
+                digits:true
+            },
+            fax_no: {
+                required: true,
+                number:true,
+                digits:true
+            }
+
+        },
+        messages: {
+
+        },
+        debug: true,
+        errorElement: 'span',
+        errorPlacement: function (error, element) {
+            var placement = $(element).data('error');
+            if (placement) {
+                $(placement).append(error)
+            } else {
+                error.insertAfter(element);
+            }
+        }
+    });
+
+    $("#update_employee").validate({
+        rules: {
+            fname: {
+                required: true
+            },
+            lname: {
+                required: true
+            },
+            role: {
+                required: true
+            },
+            phone_no: {
+                required:true,
+                digits:true,
+                minlength: 9,
+		        maxlength: 10
+            },
+            usr_role: {
+                required: true
+            },
+            address: {
+                required: true,
+                minlength: 2,
+                maxlength: 30
+            },
+            country_id: {
+                required: false
+            },
+            state_id: {
+                required: false
+            },
+            city_id: {
+                required: false
+            },
+            zipcode: {
+                required: true,
+                number:true,
+                digits:true
+            },
+            fax_no: {
+                required: true,
+                number:true,
+                digits:true
+            }
+
+        },
+        messages: {
+
+        },
+        debug: true,
+        errorElement: 'span',
+        errorPlacement: function (error, element) {
+            var placement = $(element).data('error');
+            if (placement) {
+                $(placement).append(error)
+            } else {
+                error.insertAfter(element);
+            }
+        }
+    });
     
 });

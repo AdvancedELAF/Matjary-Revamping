@@ -68,7 +68,6 @@ class CommonCntr extends MY_Controller {
                 'cont_message' => $this->input->post('cont_message') != '' ? $this->input->post('cont_message') : ''
             );
             $header[0] = 'form-data';
-
             /* //send request to api */
             $inptData['token'] = JWT::encode($requestData, JWT_TOKEN);
             $urlJsonData = $this->restclient->post($saveContactInfo, $inptData, $header);

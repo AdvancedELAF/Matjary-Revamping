@@ -1114,10 +1114,13 @@ class ApiCntr extends MY_Controller {
                         'cont_subject' => $decode_data['cont_subject'],
                         'cont_message' => $decode_data['cont_message']
                     );
-
+                    $adminEmail = "mireweb323@gam1fy.com";
                     $email_subject = "Enquiry from Contact Page - Matjary Site";
                     $email_message = $this->load->view('emails/contact-enquiry', $email_data, TRUE);
-                    $emailStatus = sendEmail(ADMIN_EMAIL, $email_message, $email_subject);
+                    if (isset($decode_data['cont_email']) && !empty($decode_data['cont_email'])) {
+                        $emailStatus = sendEmail($decode_data['cont_email'],$email_message,$email_subject);
+                    }
+                    $emailStatus = sendEmail($adminEmail,$email_message,$email_subject);
                     if ($emailStatus) {
                         /* Send acknowledge mail to user email */
                         $this->response['responseCode'] = 200;
@@ -1312,18 +1315,18 @@ class ApiCntr extends MY_Controller {
     public function set_usr_reset_password_api() {
         try {
             $decode_data = (array) JWT::decode($this->input->post('token'), JWT_TOKEN);
+            echo '<pre>'; print_r($decode_data); die;
             /*
               user_id: "7",
               token: "HUTQCJFN",
               reset_flag: "1",
               rst_pwd_request_id: 1
              */
+            
             if (isset($decode_data['new_pwd_tkn']) && !empty($decode_data['new_pwd_tkn'])) {
                 /* geting user data from the tkn passed through URL append */
                 $decode_usr_data = (array) JWT::decode($decode_data['new_pwd_tkn'], JWT_TOKEN);
-
                 $check_rst_pwd_request = $this->UsrModel->check_rst_pwd_request($decode_usr_data['user_id'], $decode_usr_data['token']);
-
                 if ($check_rst_pwd_request == false) {
                     $this->response['responseCode'] = 405;
                     $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_1');
@@ -1587,9 +1590,10 @@ class ApiCntr extends MY_Controller {
                     $pass1 = trim($decode_data['password'], " ");
                     $pass = hash_hmac("SHA256", $pass1, SECRET_KEY);
                     $usrData = $this->UsrModel->chk_admin_crdntls($email, $pass);
+                    //echo '---'.print_r($usrData); die;
                     if ($usrData == false) {
                         $this->response['responseCode'] = 404;
-                        $this->response['responseMessage'] = 'Invalid details. ';
+                        $this->response['responseMessage'] = 'Invalid details----. ';
                         echo json_encode($this->response);
                         exit;
                     } else {

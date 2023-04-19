@@ -1159,6 +1159,7 @@ class UsrCntr extends MY_Controller {
             if ($this->input->post() != "") {
                 $pwd_tkn = $this->input->post('pwd_tkn');
                 $new_pwd = $this->input->post('cnf_new_rst_pwd');
+                
                 if (isset($pwd_tkn) && !empty($pwd_tkn)) {
                     $usrData_temp = new stdClass();
                     $saveUsrPass = base_url('set-usr-reset-password-api');
@@ -1166,6 +1167,7 @@ class UsrCntr extends MY_Controller {
                         'cnf_new_rst_pwd' => $new_pwd,
                         'new_pwd_tkn' => $pwd_tkn
                     );
+                    
                     $header[0] = 'form-data';
                     /* send request to api */
                     $inptData['token'] = JWT::encode($requestData, JWT_TOKEN);

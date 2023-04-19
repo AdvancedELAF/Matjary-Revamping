@@ -623,7 +623,7 @@ $(document).ready(function () {
     /* set password form start */
     $("#set_usr_reset_password").on('submit', (function (e) {
         $('#Reset_Pwd_Message').html("");
-        let pwd_tkn = $('#cnf_new_rst_pwd').attr('data-tnk');
+        let pwd_tkn = $('#cnf_new_rst_pwd').data('tnk');
         e.preventDefault();
         var isvalidate = $("#set_usr_reset_password").valid();
         if (!isvalidate) {

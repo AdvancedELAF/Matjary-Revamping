@@ -171,7 +171,8 @@ class UsrModel extends CI_Model {
             ->join('user_credentials as uc', 'uc.user_id=u.id', 'inner')
             ->where('u.email', $email)
             ->where('uc.pswrd', $pass)
-            ->where('u.usr_role', 1)
+            //->where('u.usr_role', 1)
+            ->where_in('u.usr_role', array(1,4))
             ->where('u.is_active', 1)
             ->get();
             if ($query->num_rows() > 0) {

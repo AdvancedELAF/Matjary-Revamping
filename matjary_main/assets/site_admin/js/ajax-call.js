@@ -733,6 +733,85 @@ $(document).ready(function () {
         }
     }));
 
+    $("#save_employee").on('submit', (function (e) {
+        e.preventDefault();
+        var isvalidate = $("#save_employee").valid();
+        if (!isvalidate) {
+            return false;
+        } else {
+            var form = $('#save_employee')[0];
+            var requestData = new FormData(form);
+            var action_page = $("#save_employee").attr('action');
+            $.ajax({
+                url: action_page,
+                type: "POST",
+                enctype: 'multipart/form-data',
+                data: requestData,
+                contentType: false,
+                cache: false,
+                processData: false,
+                timeout: 600000,
+                beforeSend: function() {
+                    swal({
+                        title: "",
+                        text: "Processing...",
+                        imageUrl: "https://media.tenor.com/OzAxe6-8KvkAAAAi/blue_spinner.gif",
+                        showConfirmButton: false
+                    });
+                },
+                success: function (resp) {
+                    console.log(resp);
+                    resp = JSON.parse(resp);
+                    if (resp.responseCode == 200) {
+                          swal({title: "", text: resp.responseMessage, type: "success"},
+		                    function(){
+                                $("#save_employee")[0].reset();
+		                        window.location.href = resp.redirectUrl;
+		                    }
+		                );
+                    } else {
+                        swal({title: "Fail", closeOnClickOutside: false, text: resp.responseMessage, type: "error"});
+                    }
+                }
+            });
+        }
+    }));
+
+    $("#update_employee").on('submit', (function (e) {
+        e.preventDefault();
+        var isvalidate = $("#update_employee").valid();
+        if (!isvalidate) {
+            return false;
+        } else {
+            var form = $('#update_employee')[0];
+            var requestData = new FormData(form);
+            var action_page = $("#update_employee").attr('action');
+            $.ajax({
+                url: action_page,
+                type: "POST",
+                enctype: 'multipart/form-data',
+                data: requestData,
+                contentType: false,
+                cache: false,
+                processData: false,
+                timeout: 600000,
+                success: function (resp) {
+                    console.log(resp);
+                    resp = JSON.parse(resp);
+                    if (resp.responseCode == 200) {
+                        swal({title: "", text: resp.responseMessage, type: "success"},
+                        function(){
+                            window.location.reload();
+                        }
+                       );
+                    } else {
+                        swal({title: "Fail", closeOnClickOutside: false, text: resp.responseMessage, type: "error"});
+                    }
+                }
+            });
+        }
+    }));
+
       
 
 });
