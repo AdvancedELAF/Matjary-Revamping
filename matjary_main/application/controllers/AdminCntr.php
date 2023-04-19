@@ -1685,12 +1685,8 @@ class AdminCntr extends MY_Controller {
         }else{
             redirect('site-admin/login');
         }
-<<<<<<< HEAD
-    }    
-=======
     }
     
->>>>>>> 76b877498154bcef7f5190054b5a694d7a68e086
     public function deactivate_coupon(){
         if(isset($_POST['id']) && !empty($_POST['id'])){
             /* update user status in database table name as 'users' */
