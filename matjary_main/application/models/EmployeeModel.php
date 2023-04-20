@@ -264,6 +264,20 @@ class EmployeeModel extends CI_Model {
         }
     }
 
+    public function update_enquiry_data($data, $user_id) {
+        try {            
+            $this->db->where('id', $user_id);
+            $updatedStatus = $this->db->update('contact_request', $data);
+            if ($updatedStatus) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
      /** Customer Enquery End */
 
 }

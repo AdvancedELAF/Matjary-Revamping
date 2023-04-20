@@ -90,11 +90,13 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                                                 </button>
 
                                                 <div class="dropdown-menu">
-                                                    <?php if ($value->is_active == 1) { ?>
-                                                        <a class="dropdown-item actionBtn" href="javascript:void(0);" data-actionurl="<?php echo base_url('site-admin/deactivate-coupon'); ?>" data-id="<?php echo $value->id; ?>" data-operation="deactivate"><i class="dw dw-check"></i> Deactivate</a>
-                                                    <?php } else { ?>
-                                                        <a class="dropdown-item actionBtn" href="javascript:void(0);" data-actionurl="<?php echo base_url('site-admin/activate-coupon'); ?>" data-id="<?php echo $value->id; ?>" data-operation="activate"><i class="dw dw-check"></i>Activate</a>
-                                                    <?php } ?>
+                                                    <?php 
+                                                    if($checkExpiryDate >= $today) {
+                                                        if($value->is_active == 1) { ?>
+                                                            <a class="dropdown-item actionBtn" href="javascript:void(0);" data-actionurl="<?php echo base_url('site-admin/deactivate-coupon'); ?>" data-id="<?php echo $value->id; ?>" data-operation="deactivate"><i class="dw dw-check"></i> Deactivate</a>
+                                                        <?php } else { ?>
+                                                            <a class="dropdown-item actionBtn" href="javascript:void(0);" data-actionurl="<?php echo base_url('site-admin/activate-coupon'); ?>" data-id="<?php echo $value->id; ?>" data-operation="activate"><i class="dw dw-check"></i>Activate</a>
+                                                    <?php } } ?>
                                                     <a class="dropdown-item" href="<?php echo base_url('site-admin/view-coupon/' . $value->id); ?>"><i class="dw dw-edit2"></i>View</a>
                                                     <a class="dropdown-item actionBtn" href="javascript:void(0);" data-actionurl="<?php echo base_url('site-admin/delete-coupon'); ?>" data-id="<?php echo $value->id; ?>" data-operation="delete"><i class="dw dw-delete-3"></i> Delete</a>
                                                 </div>

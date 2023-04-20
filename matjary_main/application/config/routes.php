@@ -259,6 +259,7 @@ $route['site-admin/delete-employee'] = 'AdminCntr/delete_employee';
 /* all-customer-enquiry */
 $route['site-admin/all-customer-enquiry'] = 'AdminCntr/all_customer_enquiry';
 $route['site-admin/view-coustomer-enquiry/(:num)'] = 'AdminCntr/view_coustomer_enquiry/$1';
+$route['reply-customer-enquiry'] = 'AdminCntr/reply_customer_enquiry';
 /* Admin Panel Route End */
 
 

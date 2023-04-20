@@ -258,7 +258,7 @@ $this->load->view('site_admin/layout/sidebar.php');
 				<div class="text-center">
 				<input type="button" class="btn btn-primary brand-btn mb-2" onclick="PrintTable();" value="Invoice"/>	
 				<!-- <a href="javascript:void(0);" onclick="printPageArea('printableArea')" class="btn btn-primary brand-btn mb-2" >Invoice</a> -->
-				<a href="<?php echo base_url('site-admin/all-stores'); ?>" class="btn btn-primary brand-btn mb-2" >Back to Store</a>
+				<a href="<?php echo base_url('site-admin/all-stores'); ?>" class="btn btn-primary brand-btn mb-2" > Back</a>
 			</div>
 		</div>										
 	</div>

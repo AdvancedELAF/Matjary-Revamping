@@ -138,7 +138,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
           </li> 
           <li class="nav-item <?php if(isset($pageId) && $pageId==13 || isset($pageId) && $pageId==14 || isset($pageId) && $pageId==17){echo'menu-open';}else{echo'';} ?>">
             <a href="#" class="nav-link <?php if(isset($pageId) && $pageId==13 || isset($pageId) && $pageId==14 || isset($pageId) && $pageId==17){echo'active';}else{echo'';} ?>">
-            <i class="fas fa-rupee-sign"></i>
+            <i class="fas fa-dollar-sign"></i>
               <p>
                 Matjary Plans
                 <i class="fas fa-angle-left right"></i>
@@ -203,7 +203,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
           </li>
         <li class="nav-item <?php if(isset($pageId) && $pageId==10 ){echo'menu-open';}else{echo'';} ?>">
             <a href="#" class="nav-link <?php if(isset($pageId) && $pageId==10 ){echo'active';}else{echo'';} ?>">
-            <i class="fa fa-envelope"></i>
+            <i class="fas fa-comment"></i>
             <p>
                Customer Enquiry
                 <i class="fas fa-angle-left right"></i>

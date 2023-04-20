@@ -1841,6 +1841,28 @@ class AdminCntr extends MY_Controller {
                                         $userLoginUrl = SERVER_SITE_PATH;
                                         $stvr_rt_pth_asts = SERVER_ROOT_PATH_ASSETS;
 
+                                         /* // set password */
+                                         $pass = hash_hmac("SHA256", random_alpha_num(8), SECRET_KEY);
+                                         $saveUsrPass = array(
+                                             'user_id' => $usrId,
+                                             'pswrd' => $pass
+                                         );
+
+                                         /* //save user creadentials */
+                                         $passSaveResult = $this->UsrModel->saveUsrPass($saveUsrPass);
+                                         if ($passSaveResult == false) {
+                                             /* remove this user data from database */
+                                             $status = $this->UsrModel->delete_usr($usrId);
+                                             if ($status == false) {
+                                                 $this->response['responseCode'] = 500;
+                                                 $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_8');
+                                                 echo json_encode($this->response); exit;
+                                             }
+                                             $this->response['responseCode'] = 500;
+                                             $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_9');
+                                             echo json_encode($this->response); exit;
+                                         }
+
                                         /* set params for password request raised */
                                         $pwd_rst_data = array(
                                             'user_id' => $usrId,
@@ -2096,5 +2118,51 @@ class AdminCntr extends MY_Controller {
         }else{
             redirect('site-admin/login');
         }
+    }
+
+    public function reply_customer_enquiry() {
+        if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {
+            try {
+                if (isset($_POST['admin_reply']) & !empty($_POST['admin_reply'])) {
+                    if (preg_match('/[\'^£$%&*()}{@#~?><>|=+]/', $_POST['admin_reply'])) {
+                        /* one or more of the 'special characters' found in string */
+                        $this->response['responseCode'] = 404;
+                        $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_2');
+                        echo json_encode($this->response); exit;
+                    }
+
+                    $usrData = new stdClass();
+                    $updateData = array(
+                        'admin_reply' => isset($_POST['admin_reply']) ? $_POST['admin_reply'] : ''                                       
+                    );
+                    $UsrInsertData = $this->EmployeeModel->update_enquiry_data($updateData, $_POST['id']);
+
+                    $pageData['name'] = $_POST['name'];
+                    $pageData['massage'] = $_POST['cusmeassage'];
+                    $pageData['adminReply'] = $_POST['admin_reply'];
+                    
+                    $email_subject = "Response From Support - Matjary Site";
+                    $email_message = $this->load->view('site_admin/emails/admin-reply-contact-enquiry', $pageData, TRUE);                    
+                    $emailStatus = sendEmail($_POST['email'],$email_message,$email_subject);
+                    if ($UsrInsertData == false) {
+                        $this->response['responseCode'] = 404;
+                        $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_35');
+                        echo json_encode($this->response); exit;
+                    } else {
+                        $this->response['responseCode'] = 200;
+                        $this->response['responseMessage'] = 'Reply Sent Successfully to Customer.';
+                        echo json_encode($this->response); exit;
+                    }   
+                } else {
+                    $this->response['responseCode'] = 404;
+                    $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_17');
+                    echo json_encode($this->response); exit;
+                }
+            } catch (Exception $e) {
+                return $e->getMessage();
+            } 
+        }else{
+            redirect('site-admin/login');
+        }  
     }
 }

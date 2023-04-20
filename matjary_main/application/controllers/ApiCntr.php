@@ -1114,7 +1114,7 @@ class ApiCntr extends MY_Controller {
                         'cont_subject' => $decode_data['cont_subject'],
                         'cont_message' => $decode_data['cont_message']
                     );
-                    $adminEmail = "mireweb323@gam1fy.com";
+                    $adminEmail = "prashant.mane@advancedelaf.com";
                     $email_subject = "Enquiry from Contact Page - Matjary Site";
                     $email_message = $this->load->view('emails/contact-enquiry', $email_data, TRUE);
                     if (isset($decode_data['cont_email']) && !empty($decode_data['cont_email'])) {
@@ -1315,7 +1315,7 @@ class ApiCntr extends MY_Controller {
     public function set_usr_reset_password_api() {
         try {
             $decode_data = (array) JWT::decode($this->input->post('token'), JWT_TOKEN);
-            echo '<pre>'; print_r($decode_data); die;
+           
             /*
               user_id: "7",
               token: "HUTQCJFN",
@@ -1330,13 +1330,15 @@ class ApiCntr extends MY_Controller {
                 if ($check_rst_pwd_request == false) {
                     $this->response['responseCode'] = 405;
                     $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_1');
-                    echo json_encode($this->response); exit;
+                    echo json_encode($this->response);
+                    exit;
                 } else {
                     /* update use password start *
                       /* // create hash password */
                     $new_pass = hash_hmac("SHA256", $decode_data['cnf_new_rst_pwd'], SECRET_KEY);
                     /* //update user creadentials */
                     $passupdateResult = $this->UsrModel->updateUsrPass($decode_usr_data['user_id'], $new_pass);
+
                     if ($passupdateResult == false) {
                         $this->response['responseCode'] = 500;
                         $this->response['responseMessage'] = "Request Not Processed at Moment, please try again";

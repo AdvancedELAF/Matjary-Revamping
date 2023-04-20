@@ -705,5 +705,27 @@ $(document).ready(function () {
             }
         }
     });
+
+    $("#reply_customer_enquiry").validate({
+        rules: {
+            admin_reply: {
+                required: true
+            }           
+
+        },
+        messages: {
+
+        },
+        debug: true,
+        errorElement: 'span',
+        errorPlacement: function (error, element) {
+            var placement = $(element).data('error');
+            if (placement) {
+                $(placement).append(error)
+            } else {
+                error.insertAfter(element);
+            }
+        }
+    });
     
 });

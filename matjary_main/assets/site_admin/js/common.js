@@ -155,7 +155,6 @@ $(document).ready(function () {
 
     //Contact Us replay
     $("#replayadmin").click(function(){
-        alert(1111);
         $("#replayEmail").show();
     }); 
     
