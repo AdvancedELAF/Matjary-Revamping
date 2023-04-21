@@ -769,6 +769,7 @@ $(document).ready(function () {
                     $("#userPurchasedTemplateInvoiceInfoModal").modal('show');
                     let user_name = resp.responseData.bill_info_address.b_fname + ' ' + resp.responseData.bill_info_address.b_lname;
                     let template_cost = resp.responseData.template_cost;
+                    let subtotal = resp.responseData.template_cost;
                     let total_price = resp.responseData.total_price;
                     let tran_ref = resp.responseData.tranRef;
                     let created_at = resp.responseData.created_at;
@@ -782,14 +783,30 @@ $(document).ready(function () {
                     let template_name = resp.responseData.template_name;
 
                     $("#userPurchasedTemplateInvoiceInfoModal").find("#user_name").text(user_name);
-                    $("#userPurchasedTemplateInvoiceInfoModal").find("#invoice_amount").text(template_cost);
+                    $("#userPurchasedTemplateInvoiceInfoModal").find("#invoice_amount").text(total_price);
                     $("#userPurchasedTemplateInvoiceInfoModal").find("#tran_ref").text(tran_ref);
                     $("#userPurchasedTemplateInvoiceInfoModal").find("#created_at").text(created_at);
                     $("#userPurchasedTemplateInvoiceInfoModal").find("#client_name").text(user_name);
                     $("#userPurchasedTemplateInvoiceInfoModal").find("#client_address").html(client_address);
                     $("#userPurchasedTemplateInvoiceInfoModal").find("#theme_name").html(template_name);
-                    $("#userPurchasedTemplateInvoiceInfoModal").find("#subtotal").text('SAR ' + template_cost);
-                    $("#userPurchasedTemplateInvoiceInfoModal").find("#grand_total").text('SAR ' + template_cost);
+                    $("#userPurchasedTemplateInvoiceInfoModal").find("#subtotal").text('SAR ' + subtotal);
+
+                    if(resp.responseData.is_coupon_applied==1){
+                        $("#userPurchasedTemplateInvoiceInfoModal").find(".coupon_div").show();
+                        $("#userPurchasedTemplateInvoiceInfoModal").find("#coupon_code").text(resp.responseData.coupon_code);
+                        $("#userPurchasedTemplateInvoiceInfoModal").find("#coupon_discount").text(resp.responseData.coupon_discount_percent);
+                        $("#userPurchasedTemplateInvoiceInfoModal").find("#coupon_amount").text('SAR ' +resp.responseData.coupon_amount);
+                        total_price = parseFloat(subtotal) - parseFloat(resp.responseData.coupon_amount);
+                    }else{
+                        $("#userPurchasedTemplateInvoiceInfoModal").find(".coupon_div").hide();
+                        $("#userPurchasedTemplateInvoiceInfoModal").find("#coupon_code").text('');
+                        $("#userPurchasedTemplateInvoiceInfoModal").find("#coupon_discount").text('0%');
+                        $("#userPurchasedTemplateInvoiceInfoModal").find("#coupon_amount").text('0.00');
+                        total_price = parseFloat(subtotal) - parseFloat(resp.responseData.coupon_amount);
+                    }
+                    $("#userPurchasedTemplateInvoiceInfoModal").find("#grand_total").text('SAR ' + total_price);
+
+                    //$("#userPurchasedTemplateInvoiceInfoModal").find("#grand_total").text('SAR ' + template_cost);
 
                 } else {
                     alert(resp.responseMessage);
@@ -962,7 +979,7 @@ $(document).ready(function () {
                     resp = JSON.parse(resp); 
                     if (resp.responseCode == 200) {
                         swal.close();
-                        console.log(resp.responseData);
+                        
                         var couponData = resp.responseData;
                         
                         var is_coupon_applied = $("#is_coupon_applied").val();
@@ -972,7 +989,7 @@ $(document).ready(function () {
 
                             var plan_total_price = $("#plan_total_price").val();
                             var coupon_amount = parseFloat(plan_total_price) * parseInt(couponData.discount_in_percent) / 100;
-
+                            
                             $("#coupon_amount").val(coupon_amount);
                             $("#discount_span").text(coupon_amount);
 
@@ -1034,7 +1051,7 @@ $(document).ready(function () {
                     resp = JSON.parse(resp); 
                     if (resp.responseCode == 200) {
                         swal.close();
-                        //console.log(resp.responseData);
+                        
                         var couponData = resp.responseData;
                         
                         var is_coupon_applied = $("#is_coupon_applied").val();
@@ -1044,7 +1061,7 @@ $(document).ready(function () {
 
                             var plan_total_price = $("#plan_total_price").val();
                             var coupon_amount = parseFloat(plan_total_price) * parseInt(couponData.discount_in_percent) / 100;
-
+                            
                             $("#coupon_amount").val(coupon_amount);
                             $("#discount_span").text(coupon_amount);
 

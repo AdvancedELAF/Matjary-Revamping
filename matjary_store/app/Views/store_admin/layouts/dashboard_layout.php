@@ -72,7 +72,12 @@ $ses_lang = $session->get('ses_lang');
 <body>
 	<div class="pre-loader">
 		<div class="pre-loader-box">
-			<div class="loader-logo"><img src="<?php echo base_url(); ?>/store_admin/vendors/images/matjary_logo.png" alt=""></div>
+			<!--<div class="loader-logo"><img src="<?php echo base_url(); ?>/store_admin/vendors/images/matjary_logo.png" alt=""></div>-->
+            <?php if (isset($storeSettingInfo->logo) && !empty($storeSettingInfo->logo)) { ?>
+                <div class="loader-logo"><img src="<?php echo base_url('/uploads/logo/'); ?>/<?php echo isset($storeSettingInfo->logo) ? $storeSettingInfo->logo : ''; ?>" alt=""></div>
+            <?php } else { ?>
+                <div class="loader-logo"><img src="https://www.matjary.in/assets/images/loader/matjary-loader.gif" alt=""></div>
+            <?php } ?>
 			<div class='loader-progress' id="progress_div">
 				<div class='bar' id='bar1'></div>
 			</div>
@@ -176,12 +181,11 @@ $ses_lang = $session->get('ses_lang');
                 <img src="<?php //echo base_url('uploads/logo/'); ?>/<?php //echo isset($storeSettingInfo->logo)?$storeSettingInfo->logo:''; ?>" alt="" class="dark-logo" style="width:auto;min-width:100px;max-width:100px;heihgt:auto;min-height:100px;max-height:100px;"> 
                 <img src="<?php //echo base_url('uploads/logo/'); ?>/<?php //echo isset($storeSettingInfo->logo)?$storeSettingInfo->logo:''; ?>" alt="" class="light-logo" style="width:auto;min-width:100px;max-width:100px;heihgt:auto;min-height:100px;max-height:100px;">
             </a-->
-            <?php 
-            if (isset($storeSettingInfo->logo) && !empty($storeSettingInfo->logo)) { ?>
-                    <a href="<?php echo base_url('admin/dashboard'); ?>"><img src="<?php echo base_url('/uploads/logo/'); ?>/<?php echo isset($storeSettingInfo->logo) ? $storeSettingInfo->logo : ''; ?>" alt="Logo Image" class="light-logo" style="width:auto;min-width:100px;max-width:100px;heihgt:auto;min-height:100px;max-height:100px;"></a>
-                <?php } else { ?>
-                    <img src="<?php echo base_url('/store_admin/assets/images/logo.png'); ?>" class="light-logo" style="width:auto;min-width:100px;max-width:100px;heihgt:auto;min-height:100px;max-height:100px;">
-                <?php } ?>
+            <?php if (isset($storeSettingInfo->logo) && !empty($storeSettingInfo->logo)) { ?>
+                <a href="<?php echo base_url('admin/dashboard'); ?>"><img src="<?php echo base_url('/uploads/logo/'); ?>/<?php echo isset($storeSettingInfo->logo) ? $storeSettingInfo->logo : ''; ?>" alt="Logo Image" class="light-logo" style="width:auto;min-width:100px;max-width:100px;heihgt:auto;min-height:100px;max-height:100px;"></a>
+            <?php } else { ?>
+                <img src="https://placehold.jp/100x100.png" class="light-logo" style="width:auto;min-width:100px;max-width:100px;heihgt:auto;min-height:100px;max-height:100px;">
+            <?php } ?>
             <div class="close-sidebar" data-toggle="left-sidebar-close">
                 <i class="ion-close-round"></i>
             </div>

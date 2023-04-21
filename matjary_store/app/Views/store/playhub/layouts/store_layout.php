@@ -358,7 +358,7 @@ $ses_lang = $session->get('ses_lang');
                     <?php if (isset($storeSettingInfo->logo) && !empty($storeSettingInfo->logo)) { ?>
                     <a href="<?php echo base_url('home'); ?>"><img src="<?php echo base_url('/uploads/logo/'); ?>/<?php echo isset($storeSettingInfo->logo) ? $storeSettingInfo->logo : ''; ?>" alt="Logo Image" class="img img-responsive"></a>
                     <?php } else { ?>
-                        <a href="<?php echo base_url('home'); ?>"><img src="<?php echo base_url('/store/' . $storeActvTmplName . '/assets/images/logo.png'); ?>" alt="Logo Image" class="img img-responsive"></a>
+                        <a href="<?php echo base_url('home'); ?>"><img src="https://placehold.jp/100x100.png" alt="Logo Image" class="img img-responsive"></a>
                     <?php } ?>
                         <p><?php echo isset($AboutUsInfo->short_description) ? $AboutUsInfo->short_description : ''; ?></p>
                     </div>

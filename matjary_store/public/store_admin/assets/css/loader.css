@@ -15,7 +15,7 @@
 
 .preloader {
     margin: auto;
-    background: url(./../images/loader/loader-icon-2.png) no-repeat center;
+    background: url(./../images/loader/loader-icon-2.png) no-repeat center; 
     background-size: 150px;
     width: 300px;
     height: 300px;
