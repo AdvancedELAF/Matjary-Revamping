@@ -54,15 +54,35 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                                         <tr>
                                             <th scope="row"><?php echo $i; ?></th>
                                             <td><?php echo isset($value->code) ? $value->code : 'NA'; ?></td>
-                                            <td><?php echo isset($value->start_date) ? $value->start_date : 'NA'; ?></td>
-                                            <td><?php echo isset($value->expiry_date) ? $value->expiry_date : 'NA'; ?></td>
+                                            <td>
+                                                <?php 
+                                                    $datstrt = date_format (new DateTime($value->start_date), 'd M Y');
+                                                    echo isset($datstrt)?$datstrt:'NA'; 
+                                                ?>
+                                            </td>
+                                            <td>
+                                                <?php 
+                                                    $dateexp = date_format (new DateTime($value->expiry_date), 'd M Y');
+                                                    echo isset($dateexp)?$dateexp:'NA'; 
+                                                ?>
+                                            </td>
                                             <td><?php echo isset($value->discount_in_percent) ? $value->discount_in_percent.' %' : 'NA'; ?></td>
                                             
-                                            <td><?php if ($value->is_active == 1) {
-                                                    echo 'Active';
-                                                } else {
-                                                    echo 'Deactivated';
-                                                } ?></td>
+                                            <td>
+                                                <?php                                                
+                                                    $today = date("d M Y");
+                                                    $checkExpiryDate = date_format (new DateTime($value->expiry_date), 'd M Y');
+                                                    if ($checkExpiryDate >= $today) {
+                                                        if ($value->is_active == 1) {
+                                                            echo 'Active';
+                                                        } else {
+                                                            echo 'Deactivated';
+                                                        }
+                                                    } else {
+                                                        echo '<p class="text-danger"> Expired </p>';
+                                                    }                                                 
+                                                ?> 
+                                            </td>
                                             <td>
                                             <div class="dropdown">
                                                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
@@ -70,12 +90,14 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                                                 </button>
 
                                                 <div class="dropdown-menu">
-                                                    <?php if ($value->is_active == 1) { ?>
-                                                        <a class="dropdown-item actionBtn" href="javascript:void(0);" data-actionurl="<?php echo base_url('site-admin/deactivate-coupon'); ?>" data-id="<?php echo $value->id; ?>" data-operation="deactivate"><i class="dw dw-check"></i> Deactivate</a>
-                                                    <?php } else { ?>
-                                                        <a class="dropdown-item actionBtn" href="javascript:void(0);" data-actionurl="<?php echo base_url('site-admin/activate-coupon'); ?>" data-id="<?php echo $value->id; ?>" data-operation="activate"><i class="dw dw-check"></i>Activate</a>
-                                                    <?php } ?>
-                                                    <a class="dropdown-item" href="<?php echo base_url('site-admin/edit-coupon/' . $value->id); ?>"><i class="dw dw-edit2"></i>Edit</a>
+                                                    <?php 
+                                                    if($checkExpiryDate >= $today) {
+                                                        if($value->is_active == 1) { ?>
+                                                            <a class="dropdown-item actionBtn" href="javascript:void(0);" data-actionurl="<?php echo base_url('site-admin/deactivate-coupon'); ?>" data-id="<?php echo $value->id; ?>" data-operation="deactivate"><i class="dw dw-check"></i> Deactivate</a>
+                                                        <?php } else { ?>
+                                                            <a class="dropdown-item actionBtn" href="javascript:void(0);" data-actionurl="<?php echo base_url('site-admin/activate-coupon'); ?>" data-id="<?php echo $value->id; ?>" data-operation="activate"><i class="dw dw-check"></i>Activate</a>
+                                                    <?php } } ?>
+                                                    <a class="dropdown-item" href="<?php echo base_url('site-admin/view-coupon/' . $value->id); ?>"><i class="dw dw-edit2"></i>View</a>
                                                     <a class="dropdown-item actionBtn" href="javascript:void(0);" data-actionurl="<?php echo base_url('site-admin/delete-coupon'); ?>" data-id="<?php echo $value->id; ?>" data-operation="delete"><i class="dw dw-delete-3"></i> Delete</a>
                                                 </div>
                                             </div>

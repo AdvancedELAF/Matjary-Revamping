@@ -31,10 +31,11 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Add Template</h3>
+                <h3 class="card-title">&nbsp;</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
+              <?php //echo '<pre>'; print_r($getCategoryList);?>
               <form method="POST" action="<?php echo base_url('save-template'); ?>" name="save_template" id="save_template" enctype="multipart/form-data">
                 <div class="card-body">
                     <div class="row">
@@ -55,9 +56,10 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                                 <label for="HalfBanner">Half Banner</label>
                                 <div class="input-group">
                                     <div class="custom-file">                                       
-                                        <input type="file" class="form-control"  name="template_half_banner" id="template_half_banner" >
+                                        <input type="file" class="form-control"  name="template_half_banner" id="template_half_banner" data-error=".error2" >
                                     </div>                                
                                 </div>
+                                <span class="error2"></span>
                             </div>
                         </div>
                         <div class="col-md-6 ">
@@ -65,10 +67,11 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                                 <label for="FullBanner">Full Banner</label>
                                 <div class="input-group">
                                     <div class="custom-file">                                        
-                                        <input type="file" class="form-control"  name="template_full_banner" id="template_full_banner">
+                                        <input type="file" class="form-control"  name="template_full_banner" id="template_full_banner" data-error=".error3">
                                     </div>                                
                                 </div>
-                            </div>
+                                <span class="error3"></span>
+                            </div>                            
                         </div>
                         <div class="col-md-6"> 
                             <div class="form-group">
@@ -76,16 +79,17 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                                 <select class="form-control"  name="category_id" id="category_id">
                                     <option disabled selected >Template Category</option>                                             
                                     <?php if (isset($getCategoryList) && !empty($getCategoryList)) {
-                                        foreach ($getCategoryList as $value) { ?>
+                                        foreach ($getCategoryList as $value) { 
+                                            if($value->is_active == 1 ){ ?>
                                         <option value="<?php echo $value->id; ?>"><?php echo $value->theme_cat_name;?></option>
-                                    <?php } }?>    
+                                    <?php } } }?>    
                                 </select>
                             </div>
                         </div> 
                         <div class="col-md-6">
                             <div class="mb-2">
                                 <label>Paid / Free Status</label><br>
-                                <input type="radio" name="free_paid_flag" value="1" data-error=".error1"> Free  &nbsp;&nbsp;&nbsp;
+                                <input type="radio" name="free_paid_flag" value="1" data-error=".error1" checked> Free  &nbsp;&nbsp;&nbsp;
                                 <input type="radio" name="free_paid_flag" value="2" data-error=".error1"> Paid
                                 </br><span class="error1"></span>
                             </div>  

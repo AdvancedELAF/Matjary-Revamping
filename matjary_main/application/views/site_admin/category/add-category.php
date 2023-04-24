@@ -15,12 +15,12 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
             <div class="container-fluid">
                 <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Add Tempalte Category</h1>
+                    <h1 class="m-0">Add Template Category</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="<?php echo base_url('site-admin/dashboard'); ?>">Home</a></li>
-                    <li class="breadcrumb-item active">Add Tempalte Category</li>
+                    <li class="breadcrumb-item active">Add Template Category</li>
                     </ol>
                 </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -31,7 +31,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Add Tempalte Category</h3>
+                <h3 class="card-title">&nbsp;</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->

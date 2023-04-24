@@ -103,7 +103,7 @@ $ses_lang = $session->get('ses_lang');
                                 <input type="hidden" name="product_weight[]" id="new_product_weight_<?php echo $productId; ?>" class="product_weight" value="<?php echo isset($customerCartValues->weight)?$customerCartValues->weight:''; ?>">
 
                             </td>
-                            <td><a href="javascript:void(0);" id="rempveSnglProdFromCart" data-baseurl="<?php echo base_url(); ?>" data-actionurl="<?php echo base_url('customer/remove-product-cart'); ?>" data-customerid="<?php echo $ses_custmr_id; ?>" data-productid="<?php echo $productId; ?>"><img src="https://atzshopp.sa-matjary.com/img/remove.png"></a></td>
+                            <td><a href="javascript:void(0);" id="rempveSnglProdFromCart" data-baseurl="<?php echo base_url(); ?>" data-actionurl="<?php echo base_url('customer/remove-product-cart'); ?>" data-customerid="<?php echo $ses_custmr_id; ?>" data-productid="<?php echo $productId; ?>"><i class="icofont-trash text-danger"></i></a></td>
                         </tr>
                         <?php
                             $i++; $index++;

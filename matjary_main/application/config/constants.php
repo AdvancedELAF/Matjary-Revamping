@@ -101,31 +101,8 @@ define("ENCRYPT_URL_DATA_KEY", "A2O7MNG2BRJU9IGO");
 /* define constant, serialize array for validate native app token validation (when API triggered by mobile application) */
 define("NATIVEAPPTOKENS", json_encode(array("xKAEiSiNrd8YsDctgmZ6Gjm2", "bNZUV3BzCEXqadI0pkKmIkOU", "3UOaGjW3pjXBf1HxASeWo6AS")));
 
-/* SMTP Details */
-define("SMTP_HOST", "mail.motorgate.com");
-define("SMTP_USERNAME", "smtpmail@motorgate.com");
-define("SMTP_PASSWORD", "2NrW_q,i9Z;%");
-define("SMTP_FROM", "notification@motorgate.com");
-
 define("DOMAIN_EXP_TRESHOLD", "25");
 
-/* Paytabs Deatils */
-/* Testing */
-define("PT_PROFILE_ID", "72162");
-define("PT_CURRENCY", "SAR");
-define("PT_CALL_URL", "https://secure.paytabs.sa/payment/request");
-define("PT_API_SERVER_KEY", "SWJNTLGLNB-JBTRDDN6DM-WW6DGD9DJD");
-define("PT_API_CLIENT_KEY", "C2KMKM-BQ2H62-7RDDQG-QD9K72");
-
-/* Live */
-//define("PT_PROFILE_ID", "85387");
-//define("PT_CURRENCY", "SAR");
-//define("PT_CALL_URL", "https://secure.paytabs.sa/payment/request");
-//define("PT_API_SERVER_KEY", "SJJNTLGLLT-J2TGBJRHTJ-2NDM6WL6KJ");
-//define("PT_API_CLIENT_KEY", "C9KMKM-BQKD6M-7T26RH-2BB9GN");
-
-
-//define("ADMIN_EMAIL", "s.paskanti@advancedelaf.com");
 define("ADMIN_EMAIL", "santoshpaskanti@gmail.com");
 
 define("FREE_TRIAL_VALIDITY", '14');
@@ -145,4 +122,3 @@ define("VERSION", '<b>Version</b> 1.0');
 define("RIGHTS", 'All rights reserved.');
 define('MONTHS', json_encode(array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec')));
 define("USERREG", 'User Registration');
-

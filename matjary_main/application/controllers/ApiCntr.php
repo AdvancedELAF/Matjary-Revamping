@@ -75,7 +75,6 @@ class ApiCntr extends MY_Controller {
     public function save_usr() {
         try {
             $decode_data = (array) JWT::decode($this->input->post('token'), JWT_TOKEN);
-
             if (isset($decode_data['fname']) & !empty($decode_data['fname'])) {
                 if (preg_match('/[\'^£$%&*()}{@#~?><>|=+]/', $decode_data['fname'])) {
                     /* // one or more of the 'special characters' found in string */
@@ -115,16 +114,14 @@ class ApiCntr extends MY_Controller {
                                     if ($emailExist == true) {
                                         $this->response['responseCode'] = 405;
                                         $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_6');
-                                        echo json_encode($this->response);
-                                        exit;
+                                        echo json_encode($this->response); exit;
                                     }
-
                                     $requestData = array(
                                         'fname' => isset($decode_data['fname']) ? $decode_data['fname'] : '',
                                         'lname' => isset($decode_data['lname']) ? $decode_data['lname'] : '',
                                         'email' => isset($decode_data['email']) ? $decode_data['email'] : '',
                                         'phone_no' => isset($decode_data['phone_no']) ? $decode_data['phone_no'] : '',
-                                        'usr_role' => 1,
+                                        'usr_role' => 3,
                                         'is_active' => 1,
                                         'created_datetime' => DATETIME,
                                         'created_by' => 1
@@ -134,8 +131,7 @@ class ApiCntr extends MY_Controller {
                                     if ($usrId == false) {
                                         $this->response['responseCode'] = 500;
                                         $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_7');
-                                        echo json_encode($this->response);
-                                        exit;
+                                        echo json_encode($this->response); exit;
                                     } else {
                                         /* // set password */
                                         $pass = hash_hmac("SHA256", $decode_data['password'], SECRET_KEY);
@@ -146,26 +142,18 @@ class ApiCntr extends MY_Controller {
                                         /* //save user creadentials */
                                         $passSaveResult = $this->UsrModel->saveUsrPass($saveUsrPass);
                                         if ($passSaveResult == false) {
-                                            //remove this user data from database 
+                                            /* remove this user data from database */
                                             $status = $this->UsrModel->delete_usr($usrId);
                                             if ($status == false) {
                                                 $this->response['responseCode'] = 500;
                                                 $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_8');
-                                                echo json_encode($this->response);
-                                                exit;
+                                                echo json_encode($this->response); exit;
                                             }
                                             $this->response['responseCode'] = 500;
                                             $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_9');
-                                            echo json_encode($this->response);
-                                            exit;
+                                            echo json_encode($this->response); exit;
                                         } else {
-
-                                            $server_site_path = SERVER_SITE_PATH;
-                                            $userLoginUrl = SERVER_SITE_PATH;
-                                            $stvr_rt_pth_asts = SERVER_ROOT_PATH_ASSETS;
-
-                                            /* //$shortUrl = $this->shorten_url($partnerLoginUrl); */
-                                            /* // send welcome mail to partner */
+                                            /* send welcome mail to user */
                                             $email_data = array(
                                                 'email_title' => 'Welcome to Matjary',
                                                 'username' => $decode_data['fname'] . " " . $decode_data['lname']
@@ -173,7 +161,6 @@ class ApiCntr extends MY_Controller {
                                             $email_subject = "Welcome to Matjary";
                                             $email_message = $this->load->view('emails/welcome-mail-new-registration', $email_data, TRUE);
                                             $emailStatus = sendEmail($decode_data['email'], $email_message, $email_subject);
-
                                             if ($emailStatus == true) {
                                                 /* this data is for free trai new resgtration /+/ */
                                                 $responseData_temp = array(
@@ -183,18 +170,21 @@ class ApiCntr extends MY_Controller {
                                                 );
                                                 $inptData_send = JWT::encode($responseData_temp, JWT_TOKEN);
                                                 /* this data is for free trai new resgtration /-/ */
-
                                                 $this->response['responseCode'] = 200;
                                                 $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_10');
                                                 $this->response['responseData'] = $inptData_send;
-
-                                                echo json_encode($this->response);
-                                                exit;
+                                                echo json_encode($this->response); exit;
                                             } else {
+                                                /* remove this user data from database  */
+                                                $status = $this->UsrModel->delete_usr($usrId);
+                                                if ($status == false) {
+                                                    $this->response['responseCode'] = 500;
+                                                    $this->response['responseMessage'] = 'Error While junk record of user';
+                                                    echo json_encode($this->response); exit;
+                                                }
                                                 $this->response['responseCode'] = 500;
-                                                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_11');
-                                                echo json_encode($this->response);
-                                                exit;
+                                                $this->response['responseMessage'] = 'Error While sending welcome mail to user';
+                                                echo json_encode($this->response); exit;
                                             }
                                         }
                                     }
@@ -457,8 +447,8 @@ class ApiCntr extends MY_Controller {
                                             'user_id' => isset($decode_data['user_id']) ? $decode_data['user_id'] : '',
                                             'plan_id' => isset($decode_data['plan_id']) ? $decode_data['plan_id'] : '',
                                             'plan_month' => isset($decode_data['plan_month']) ? $decode_data['plan_month'] : '',
-                                            'plan_start_dt' => isset($decode_data['plan_start_dt']) ? date("Y-m-d",strtotime($decode_data['plan_start_dt'])) : '',
-                                            'plan_expiry_dt' => isset($decode_data['plan_expiry_dt']) ? date("Y-m-d",strtotime($decode_data['plan_expiry_dt'])) : '',
+                                            'plan_start_dt' => isset($decode_data['plan_start_dt']) ? $decode_data['plan_start_dt'] : '',
+                                            'plan_expiry_dt' => isset($decode_data['plan_expiry_dt']) ? $decode_data['plan_expiry_dt'] : '',
                                             'template_id' => isset($decode_data['template_id']) ? $decode_data['template_id'] : '',
                                             'store_sub_domain' => isset($decode_data['sub_domain_name']) ? $decode_data['sub_domain_name'] : '',
                                             'store_link' => isset($decode_data['store_link']) ? $decode_data['store_link'] : '',
@@ -495,14 +485,23 @@ class ApiCntr extends MY_Controller {
                                                     'b_zipcode' => isset($decode_data['b_zipcode']) ? $decode_data['b_zipcode'] : '',
                                                 );
 
+                                                /* user store template details entry on purchase start */
+                                                // $tempalteDetails = array(
+                                                //     'user_id' => isset($decode_data['user_id']) ? $decode_data['user_id'] : '',
+                                                //     'user_subscriptions_id' => $user_subscriptions_id,
+                                                //     'template_id' => isset($decode_data['template_id']) ? $decode_data['template_id'] : '',
+                                                //     'template_active' => 1,
+                                                //     'template_type' => 0
+                                                // );
+                                                // $save_user_tempalte_details = $this->UsrModel->save_user_tempalte_details($tempalteDetails);
                                                 /* user store template details enntry on purchase end */
                                                 $requestDataBilling = array(
                                                     'customer_id' => isset($decode_data['user_id']) ? $decode_data['user_id'] : '',
                                                     'bill_info_address' => serialize($bill_info),
                                                     'user_subscriptions_id' => $user_subscriptions_id,
-                                                    'is_coupon_applied' => isset($decode_data['is_coupon_applied']) ? $decode_data['is_coupon_applied'] : '',
-                                                    'coupon_id' => isset($decode_data['coupon_id']) ? $decode_data['coupon_id'] : '',
-                                                    'coupon_amount' => isset($decode_data['coupon_amount']) ? $decode_data['coupon_amount'] : '',
+                                                    'is_coupon_applied' => isset($decode_data['is_coupon_applied']) ? $decode_data['is_coupon_applied'] : 0,
+                                                    'coupon_id' => isset($decode_data['coupon_id']) ? $decode_data['coupon_id'] : 0,
+                                                    'coupon_amount' => isset($decode_data['coupon_amount']) ? $decode_data['coupon_amount'] : 0.00,
                                                     'plan_cost' => isset($decode_data['plan_cost']) ? $decode_data['plan_cost'] : '',
                                                     'template_cost' => isset($decode_data['template_cost']) ? $decode_data['template_cost'] : '',
                                                     'template_id' => isset($decode_data['template_id']) ? $decode_data['template_id'] : '',
@@ -1094,21 +1093,30 @@ class ApiCntr extends MY_Controller {
 
             if (isset($decode_data['cont_email']) && !empty($decode_data['cont_email'])) {
 
-                $insertData = array(
+                $insertData = array(    
+                    'user_id' => isset($decode_data['user_id']) ? $decode_data['user_id'] : '',                
+                    'ticket_id' => isset($decode_data['ticket_id']) ? $decode_data['ticket_id'] : '',
                     'cont_name' => isset($decode_data['cont_name']) ? $decode_data['cont_name'] : '',
                     'cont_email' => isset($decode_data['cont_email']) ? $decode_data['cont_email'] : '',
                     'con_phone_no' => isset($decode_data['con_phone_no']) ? $decode_data['con_phone_no'] : '',
-                    'cont_subject' => isset($decode_data['cont_subject']) ? $decode_data['cont_subject'] : '',
-                    'cont_message' => isset($decode_data['cont_message']) ? $decode_data['cont_message'] : ''
+                    'cont_subject' => isset($decode_data['cont_subject']) ? $decode_data['cont_subject'] : ''
                 );
                 $UsrInsertData = $this->CommonModel->submit_contact_form_api($insertData);
-
+                                                  
                 if ($UsrInsertData == false) {
                     $this->response['responseCode'] = 404;
                     $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_35');
                     echo json_encode($this->response);
                     exit;
-                } else {
+                } else {  
+                    /** Meassage Insert in table */
+                    $insertDataMeassage = array(        
+                        'ticket_id' => isset($decode_data['ticket_id']) ? $decode_data['ticket_id'] : '',
+                        'message' => isset($decode_data['cont_message']) ? $decode_data['cont_message'] : '',
+                        'created_by' => isset($decode_data['user_id']) ? $decode_data['user_id'] : '' 
+                    );
+                    $UsrInsertDataMeassage = $this->EmployeeModel->submit_contact_measage_data($insertDataMeassage);
+                                    
                     /* Send mail to admin */
                     $email_data = array(
                         'email_title' => 'Enquiry from Contact Page - Matjary Site',
@@ -1119,9 +1127,16 @@ class ApiCntr extends MY_Controller {
                         'cont_message' => $decode_data['cont_message']
                     );
 
-                    $email_subject = "Enquiry from Contact Page - Matjary Site";
-                    $email_message = $this->load->view('emails/contact-enquiry', $email_data, TRUE);
-                    $emailStatus = sendEmail(ADMIN_EMAIL, $email_message, $email_subject);
+                   
+                    $email_subject = "Enquiry from Contact Page - Matjary Site";                   
+                    if (isset($decode_data['cont_email']) && !empty($decode_data['cont_email'])) {
+                        $email_message = $this->load->view('emails/contact-enquiry', $email_data, TRUE);
+                        $emailStatus = sendEmail($decode_data['cont_email'],$email_message,$email_subject);                        
+                    }
+                    //$adminEmail = "prashant.mane@advancedelaf.com";
+                    $adminEmail = "kadogo4009@fitzola.com";
+                    $email_message = $this->load->view('emails/contact-enquiry-mail-admin', $email_data, TRUE);
+                    $emailStatus = sendEmail($adminEmail,$email_message,$email_subject);
                     if ($emailStatus) {
                         /* Send acknowledge mail to user email */
                         $this->response['responseCode'] = 200;
@@ -1149,6 +1164,36 @@ class ApiCntr extends MY_Controller {
         }
     }
 
+    public function matjary_config() {
+        try {
+            /* Takes raw data from the request */
+            $json = file_get_contents('php://input');
+            /* Converts it into a PHP object */
+            $data = json_decode($json);
+            if (isset($data->slag) && !empty($data->slag)) {
+                /* get config info */
+                $matjaryConfigData = $this->CommonModel->get_matjary_config($data->slag);
+                if (isset($matjaryConfigData) && !empty($matjaryConfigData)) {
+                    $this->response['responseCode'] = 200;
+                    $this->response['responseMessage'] = 'success';
+                    $this->response['responseData'] = $matjaryConfigData;
+                    echo json_encode($this->response); exit;
+                } else {
+                    $this->response['responseCode'] = 404;
+                    $this->response['responseMessage'] = 'fail';
+                    echo json_encode($this->response); exit;
+                }
+            } else {
+                $this->response['responseCode'] = 404;
+                $this->response['responseMessage'] = 'Slag Required.';
+                echo json_encode($this->response); exit;
+            }
+        } catch (Exception $e) {
+            $this->response['responseCode'] = 400;
+            $this->response['responseMessage'] = $e->getMessage();
+            echo json_encode($this->response); exit;
+        }
+    }
     public function store_info() {
         try {
             /* Takes raw data from the request */
@@ -1171,8 +1216,6 @@ class ApiCntr extends MY_Controller {
                         echo json_encode($this->response);
                         exit;
                     } else {
-
-
                         /* get store info */
                         $storeInfo = $this->UsrModel->get_store_info($host, $data->store_token);
                         if ($storeInfo['responseCode'] == 200) {
@@ -1288,18 +1331,18 @@ class ApiCntr extends MY_Controller {
     public function set_usr_reset_password_api() {
         try {
             $decode_data = (array) JWT::decode($this->input->post('token'), JWT_TOKEN);
+           
             /*
               user_id: "7",
               token: "HUTQCJFN",
               reset_flag: "1",
               rst_pwd_request_id: 1
              */
+            
             if (isset($decode_data['new_pwd_tkn']) && !empty($decode_data['new_pwd_tkn'])) {
                 /* geting user data from the tkn passed through URL append */
                 $decode_usr_data = (array) JWT::decode($decode_data['new_pwd_tkn'], JWT_TOKEN);
-
                 $check_rst_pwd_request = $this->UsrModel->check_rst_pwd_request($decode_usr_data['user_id'], $decode_usr_data['token']);
-
                 if ($check_rst_pwd_request == false) {
                     $this->response['responseCode'] = 405;
                     $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_1');
@@ -1479,6 +1522,9 @@ class ApiCntr extends MY_Controller {
                     'customer_id' => isset($decode_data['user_id']) ? $decode_data['user_id'] : '',
                     'bill_info_address' => serialize($bill_info),
                     'user_subscriptions_id' => 0,
+                    'is_coupon_applied' => isset($decode_data['is_coupon_applied']) ? $decode_data['is_coupon_applied'] : 0,
+                    'coupon_id' => isset($decode_data['coupon_id']) ? $decode_data['coupon_id'] : 0,
+                    'coupon_amount' => isset($decode_data['coupon_amount']) ? $decode_data['coupon_amount'] : 0.00,
                     'template_cost' => isset($decode_data['template_cost']) ? $decode_data['template_cost'] : 0,
                     'template_id' => isset($decode_data['template_id']) ? $decode_data['template_id'] : '',
                     'total_price' => isset($decode_data['total_price']) ? $decode_data['total_price'] : '',
@@ -1563,6 +1609,7 @@ class ApiCntr extends MY_Controller {
                     $pass1 = trim($decode_data['password'], " ");
                     $pass = hash_hmac("SHA256", $pass1, SECRET_KEY);
                     $usrData = $this->UsrModel->chk_admin_crdntls($email, $pass);
+                    //echo '---'.print_r($usrData); die;
                     if ($usrData == false) {
                         $this->response['responseCode'] = 404;
                         $this->response['responseMessage'] = 'Invalid details. ';
@@ -1600,25 +1647,25 @@ class ApiCntr extends MY_Controller {
             if(isset($_POST['coupon_code']) && !empty($_POST['coupon_code'])){
                 $couponData = $this->CouponModel->check_coupon_exist($_POST['coupon_code']);
                 if(isset($couponData) && !empty($couponData)){
-                    /* same coupon already used by same user */
-                    $couponAlreadyUsedStatus = $this->CouponModel->coupon_already_used($couponData->id,$_POST['user_id']);
-                    if($couponAlreadyUsedStatus==false){
-                        /* check coupon not expired */
-                        $current_date = date("Y-m-d"); /* Get the current date in YYYY-MM-DD format */
-                        $expiration_date = date("Y-m-d", strtotime($couponData->expiry_date));
-                        if(strtotime($current_date) <= strtotime($expiration_date)){
+                    /* check coupon not expired */
+                    $current_date = date("Y-m-d"); /* Get the current date in YYYY-MM-DD format */
+                    $expiration_date = date("Y-m-d", strtotime($couponData->expiry_date));
+                    if(strtotime($current_date) <= strtotime($expiration_date)){
+                        /* same coupon already used by same user */
+                        $couponAlreadyUsedStatus = $this->CouponModel->coupon_already_used($couponData->id,$_POST['user_id']);
+                        if($couponAlreadyUsedStatus==false){
                             $this->response['responseCode'] = 200;
                             $this->response['responseMessage'] = 'Success.';
                             $this->response['responseData'] = $couponData;
                             echo json_encode($this->response); exit;
                         }else{
                             $this->response['responseCode'] = 404;
-                            $this->response['responseMessage'] = 'Coupon not valid.'; /* coupon code has been expired. */
+                            $this->response['responseMessage'] = 'Coupon already used.';
                             echo json_encode($this->response); exit;
                         }
                     }else{
                         $this->response['responseCode'] = 404;
-                        $this->response['responseMessage'] = 'Coupon already used.';
+                        $this->response['responseMessage'] = 'Coupon not valid.'; /* coupon code has been expired. */
                         echo json_encode($this->response); exit;
                     }
                 }else{
@@ -1626,7 +1673,6 @@ class ApiCntr extends MY_Controller {
                     $this->response['responseMessage'] = 'Coupon not valid.';
                     echo json_encode($this->response); exit;
                 }
-                
             }else{
                 $this->response['responseCode'] = 404;
                 $this->response['responseMessage'] = 'Coupon Code is Required.';

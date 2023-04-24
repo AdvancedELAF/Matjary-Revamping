@@ -1,13 +1,11 @@
 $(document).ready(function () {
 
-    let base_url = window.location.origin;
-    
+    let base_url = window.location.origin;    
     let current_lang = $('html')[0].lang;
     let processing = 'Processing...';
     let selectCountry = 'Select Country';
     let selectState = 'Select State';
-    let selectCity = 'Select City';
-
+    let selectCity = 'Select City';    
 
     $('#country_id').change(function (e) {
         e.preventDefault();
@@ -96,23 +94,24 @@ $(document).ready(function () {
             if (String.fromCharCode(charCode).match(/[^0-9-.]/g))
         return false;
     });
-
-    // $('input[type="radio"]').click(function(){
-    // 	var getVal = $(this).val();
-    //     if(getVal == 1){
-    //         $("#cost").show();
-    //     }else{
-    //         $("#cost").hide();
-    //     }
-    // });
-   
-    var checkCost = $("input[name='free_paid_flag']:checked").val();
-    if(checkCost == 2){
-        $("#cost").show();
-    }else{
-        $("#cost").hide();
-    }
     
+    $('input[name="free_paid_flag"]').click(function(){       
+        var free_paid_flag = $("input[name='free_paid_flag']:checked").val();        
+        if(free_paid_flag == 2){
+            $("#cost").show();
+        }else{
+            $("#template_cost").val(0);
+            $("#cost").hide();
+        }        
+    });
+
+    var free_paid_flag = $("input[name='free_paid_flag']:checked").val();
+        if(free_paid_flag == 1){
+            $("#cost").hide();
+        }else{
+            $("#cost").show();
+        }
+   
     /* add-remove-input-field-dynamically-with-jquery start*/
         var max_fields      = 10; //maximum input boxes allowed
         var wrapper         = $("#planFeaturesWrapper"); //Fields wrapper
@@ -153,6 +152,12 @@ $(document).ready(function () {
     /* add-remove-input-field-dynamically-with-jquery end*/   
 
     Chart.register(ChartDataLabels); /** Chart Value Shows On Chart */
+
+    //Contact Us replay
+    $("#replayadmin").click(function(){
+        $("#replayEmail").show();
+    }); 
+    
 });
 
 $(function () {

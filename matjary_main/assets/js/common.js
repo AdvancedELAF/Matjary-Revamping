@@ -96,6 +96,13 @@ $(document).ready(function () {
         });
     });
 
+    //Contact Us replay
+    $("#replayadmin").click(function(){
+        $("#replayEmail").show();
+    }); 
+
+    
+    
 });
 
 window.onload = () => {

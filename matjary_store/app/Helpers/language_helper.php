@@ -602,9 +602,13 @@ function language($lang){
             "All" => "الجميع",
             "Payment Mode" => "طريقة الدفع",
             "No Data Found" => "لاتوجد بيانات",
+            "Newletter Subscription"=>"اشتراك إلكتروني جديد",
+            "Subscribe to our newsletter and stay updated to receive exciting offers!"=>"اشترك في النشرة الإخبارية لدينا وابق على اطلاع لتلقي العروض المثيرة!",
         ];
     }else{
         return [ 
+            "Subscribe to our newsletter and stay updated to receive exciting offers!" => "Subscribe to our newsletter and stay updated to receive exciting offers!",
+            "Newletter Subscription"=>"Newletter Subscription",
             "Special Offers" => "Special Offers",
             "Exciting offer every day" => "Exciting offer every day",
             "Great collection at one stop" => "Great collection at one stop",

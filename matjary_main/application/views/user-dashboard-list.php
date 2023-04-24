@@ -18,6 +18,9 @@
             <li class="nav-item d-none" role="presentation">
                 <a class="nav-link" id="pills-psp-tab" data-toggle="pill" href="#pills-psp" role="tab" aria-controls="pills-psp" aria-selected="false"><?php echo $this->lang->line('user-acc-txt-4'); ?></a>
             </li>
+            <li class="nav-item " role="presentation">
+                <a class="nav-link" id="pills-ce-tab" data-toggle="pill" href="#pills-ce" role="tab" aria-controls="pills-psp" aria-selected="false"><?php echo $this->lang->line('user-acc-txt-45'); ?></a>
+            </li>
         </ul>
         <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-dashboard" role="tabpanel" aria-labelledby="pills-dashboard-tab"><?php include_once 'user-dashboard.php'; ?></div>
@@ -25,6 +28,7 @@
             <div class="tab-pane fade" id="pills-bhr" role="tabpanel" aria-labelledby="pills-contact-tab"><?php include_once 'user-purchase-history.php'; ?></div>
             <div class="tab-pane fade" id="pills-template" role="tabpanel" aria-labelledby="pills-template-tab"><?php include_once 'user-template-list.php'; ?></div>
             <div class="tab-pane fade" id="pills-psp" role="tabpanel" aria-labelledby="pills-psp-tab"><?php include_once 'user-pending-settlements.php'; ?></div>
+            <div class="tab-pane fade" id="pills-ce" role="tabpanel" aria-labelledby="pills-ce-tab"><?php include_once 'customer-enquiry-list.php'; ?></div>
         </div>
     </div>
 </div>

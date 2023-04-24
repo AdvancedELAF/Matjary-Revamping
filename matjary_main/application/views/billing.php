@@ -131,7 +131,7 @@ $this->load->view("common/header.php");
                                         <td></td>
                                         <td><?php echo $this->lang->line('user-acc-txt-40'); ?></td>
                                         <td>
-                                            <span id="plan_total_price_span"><?php echo $this->lang->line('SAR'); ?> <?php echo isset($subtotal) ? $subtotal : ''; ?></span>
+                                            <?php echo $this->lang->line('SAR'); ?> <span id="plan_total_price_span"> <?php echo isset($subtotal) ? $subtotal : ''; ?></span>
                                             <input type="hidden" name="plan_total_price" id="plan_total_price" value="<?php echo isset($subtotal) ? $subtotal : ''; ?>">
                                         </td>
                                     </tr>

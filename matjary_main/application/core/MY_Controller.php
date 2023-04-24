@@ -10,7 +10,7 @@ class MY_Controller extends CI_Controller {
         $this->load->helper(array('url', 'array', 'html', 'form', 'JWT', 'file'));
         $this->load->library(array('form_validation', 'session', 'restclient', 'JWT', 'upload', 'pagination', 'image_lib', 'Encryption'));
         $this->response = array("responseCode" => 0, "responseMessage" => "", "responseData" => array());
-        $this->load->model(array('UsrModel', 'CommonModel', 'WebModel', 'TemplateModel','CatModel','PlanModel','DashboardModel','CouponModel'));
+        $this->load->model(array('UsrModel', 'CommonModel', 'WebModel', 'TemplateModel','CatModel','PlanModel','DashboardModel','CouponModel','EmployeeModel'));
 
         if ($this->session->userdata('loggedInUsrData')) {
             $this->loggedInUsrData = $this->session->userdata('loggedInUsrData');
@@ -18,6 +18,13 @@ class MY_Controller extends CI_Controller {
 
         if ($this->session->userdata('loggedInSuperAdminData')) {
             $this->loggedInSuperAdminData = $this->session->userdata('loggedInSuperAdminData');
+           
+            /** Menu Hide Show Role wise Start */
+            $this->getEmployeeData= $this->UsrModel->get_loged_user_details($this->loggedInSuperAdminData['usr_role']);
+            $this->menuArray = unserialize($this->getEmployeeData[0]->role_access); 
+            $this->menuArrayValues = array_values($this->menuArray);
+            /** Menu Hide Show Role wise Start End*/
+            
         }
     }
 
@@ -81,6 +88,39 @@ class MY_Controller extends CI_Controller {
           return $ex;
           }
          */
+    }
+
+    function callAPI($method, $url, $data){
+        
+        $curl = curl_init();
+        switch ($method){
+           case "POST":
+                curl_setopt($curl, CURLOPT_POST, 1);
+                if ($data)
+                    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+                break;
+           case "PUT":
+                curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PUT");
+                if ($data)
+                    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);			 					
+                break;
+           default:
+                if ($data)
+                    $url = sprintf("%s?%s", $url, http_build_query($data));
+        }
+        /* OPTIONS: */
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+           'APIKEY: 111111111111111111111',
+           'Content-Type: application/json',
+        ));
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+        /* EXECUTE: */
+        $result = curl_exec($curl);
+        if(!$result){die("Connection Failure");}
+        curl_close($curl);
+        return $result;
     }
 
 }

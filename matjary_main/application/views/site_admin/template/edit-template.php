@@ -31,7 +31,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Edit Template</h3>
+                <h3 class="card-title">&nbsp;</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -122,7 +122,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                                 </br><span class="error1"></span>
                             </div>  
                         </div>
-                        <div class="col-md-6 cost" id="cost" style="display:none;">
+                        <div class="col-md-6 cost" id="cost">
                             <div class="form-group">
                                 <label for="template_cost">Cost</label>
                                 <input type="text" class="form-control numberonly" id="template_cost" name="template_cost" placeholder="Enter Cost" value="<?php echo isset($GetSingleTemDetails->template_cost)?$GetSingleTemDetails->template_cost:''; ?>">
@@ -143,7 +143,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                         <div class="col-md-6 ">                                   
                             <div class="form-group">
                                 <label for="description_ar">Description (Arabic)</label>
-                                <textarea id="description_ar" name="description_ar" class="form-control" rows="3" placeholder="Enter Description..."><?php echo isset($GetSingleTemDetails->description)?$GetSingleTemDetails->description:''; ?></textarea>
+                                <textarea id="description_ar" name="description_ar" class="form-control" rows="3" placeholder="Enter Description..."><?php echo isset($GetSingleTemDetails->description_ar)?$GetSingleTemDetails->description_ar:''; ?></textarea>
                             </div>   
                         </div>   
                         <div class="col-md-6">

@@ -489,6 +489,9 @@ $lang['user-acc-txt-41'] = 'Created';
 $lang['user-acc-txt-42'] = 'Due Date';
 $lang['user-acc-txt-43'] = 'Status';
 $lang['user-acc-txt-44'] = 'Payment Date';
+$lang['user-acc-txt-45'] = 'Enquiry Tickets';
+$lang['user-acc-txt-46'] = 'Ticket Id';
+$lang['user-acc-txt-47'] = 'Action';
 /* User Account page end */
 
 /* invoice model start */
@@ -525,6 +528,7 @@ $lang['Grand Total'] = 'Grand Total';
 $lang['Invoice Number'] = 'Invoice Number';
 $lang['Store Details'] = 'Store Details';
 $lang['Paid Templates'] = 'Paid Templates';
+
 /* invoice model end */
 
 /* billing nfo page */
@@ -605,3 +609,6 @@ $lang['FREE'] = 'FREE';
 $lang['Expires-In'] = 'Expires-In';
 $lang['days'] = 'days';
 $lang['Expired'] = 'Expired';
+
+/**Employee List */
+$lang['Reply'] = 'Reply';

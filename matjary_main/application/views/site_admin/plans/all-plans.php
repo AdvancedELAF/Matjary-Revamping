@@ -39,7 +39,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                                             <th>ID</th>
                                             <th>Matjary Plan </th>
                                             <th>Plan Price</th>
-                                            <th>Validity In Months</th>
+                                            <th>Validity</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
@@ -54,9 +54,20 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                                             <th scope="row"><?php echo $i; ?></th>
                                             <td><?php echo isset($value->plan_name) ? $value->plan_name : 'NA'; ?></td>
                                             <td><?php echo isset($value->price) ? $value->price .' SAR': 'NA'; ?></td>
-                                            <td><?php echo isset($value->validity_in_months) ? $value->validity_in_months : 'NA'; ?></td>
+                                            <td>
+                                                <?php 
+                                                    if($value->validity_in_months <= 1){
+                                                        echo $value->validity_in_months.' Month';
+                                                    }elseif($value->validity_in_months > 1 && $value->validity_in_months <=12){
+                                                        echo $value->validity_in_months.' Months';
+                                                    }elseif($value->validity_in_months >= 13 ){
+                                                        echo $value->validity_in_months.' Days';
+                                                    }
+                                                ?>
+                                            </td>
                                             
-                                            <td><?php if ($value->is_active == 1) {
+                                            <td><?php 
+                                                if ($value->is_active == 1) {
                                                     echo 'Active';
                                                 } else {
                                                     echo 'Deactivated';

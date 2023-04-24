@@ -76,12 +76,11 @@ $(document).ready(function () {
                 digits:true,
                 minlength: 9,
 		        maxlength: 10
-            },
-            usr_role: {
-                required: true
-            },
+            },           
             address: {
-                required: true
+                required: true,
+                minlength: 2,
+                maxlength: 30
             },
             country_id: {
                 required: true
@@ -137,7 +136,9 @@ $(document).ready(function () {
                 required: true
             },
             address: {
-                required: true
+                required: true,
+                minlength: 2,
+                maxlength: 30
             },
             country_id: {
                 required: false
@@ -580,32 +581,57 @@ $(document).ready(function () {
             }
         }
     });
-
-    $("#update_coupon").validate({
+    
+    $("#save_employee").validate({
         rules: {
-            code: {
-                required: false,
+            fname: {
+                required: true,
+                validString:true
             },
-            start_date: {
+            lname: {
+                required: true,
+                validString:true
+            },
+            role: {
                 required: true
             },
-            expiry_date: {
-                required: true,
-                greaterThan: "#start_date"
+            email: {
+                required: true
             },
-            discount_in_percent: {
+            phone_no: {
                 required:true,
                 digits:true,
+                minlength: 9,
 		        maxlength: 10
+            },           
+            address: {
+                required: true,
+                minlength: 2,
+                maxlength: 30
             },
-            is_active: {
+            country_id: {
                 required: true
+            },
+            state_id: {
+                required: true
+            },
+            city_id: {
+                required: true
+            },
+            zipcode: {
+                required: true,
+                number:true,
+                digits:true
+            },
+            fax_no: {
+                required: true,
+                number:true,
+                digits:true
             }
+
         },
         messages: {
-            'expiry_date': {
-                greaterThan: 'Please select expiry date greater than start date.' 
-            }
+
         },
         debug: true,
         errorElement: 'span',
@@ -618,6 +644,88 @@ $(document).ready(function () {
             }
         }
     });
-    
+
+    $("#update_employee").validate({
+        rules: {
+            fname: {
+                required: true
+            },
+            lname: {
+                required: true
+            },
+            role: {
+                required: true
+            },
+            phone_no: {
+                required:true,
+                digits:true,
+                minlength: 9,
+		        maxlength: 10
+            },
+            usr_role: {
+                required: true
+            },
+            address: {
+                required: true,
+                minlength: 2,
+                maxlength: 30
+            },
+            country_id: {
+                required: false
+            },
+            state_id: {
+                required: false
+            },
+            city_id: {
+                required: false
+            },
+            zipcode: {
+                required: true,
+                number:true,
+                digits:true
+            },
+            fax_no: {
+                required: true,
+                number:true,
+                digits:true
+            }
+
+        },
+        messages: {
+
+        },
+        debug: true,
+        errorElement: 'span',
+        errorPlacement: function (error, element) {
+            var placement = $(element).data('error');
+            if (placement) {
+                $(placement).append(error)
+            } else {
+                error.insertAfter(element);
+            }
+        }
+    });
+
+    $("#reply_customer_enquiry").validate({
+        rules: {
+            admin_reply: {
+                required: true
+            }           
+
+        },
+        messages: {
+
+        },
+        debug: true,
+        errorElement: 'span',
+        errorPlacement: function (error, element) {
+            var placement = $(element).data('error');
+            if (placement) {
+                $(placement).append(error)
+            } else {
+                error.insertAfter(element);
+            }
+        }
+    });
     
 });

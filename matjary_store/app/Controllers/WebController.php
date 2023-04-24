@@ -1121,7 +1121,7 @@ class WebController extends BaseController
                     }elseif($couponCodeStatus['responseCode']==5){
                         $min_amount = isset($couponCodeStatus['responseData']->min_amount)?$couponCodeStatus['responseData']->min_amount:'';
                         $resp['responseCode'] = 500;
-                        $resp['responseMessage'] = $this->ses_lang=='en'?'Coupon Code is Valid On Cart Amount Above ':'كود الكوبون صالح على قيمة سلة التسوق أعلاه'.$min_amount;
+                        $resp['responseMessage'] = $this->ses_lang=='en'?'Minimum Order Value SAR '.$min_amount.' ':'الحد الأدنى لقيمة الطلب '.$min_amount.' ريال سعودي';
                         $resp['responseData'] = $couponCodeStatus['responseData'];
                         return json_encode($resp); exit;
                     }

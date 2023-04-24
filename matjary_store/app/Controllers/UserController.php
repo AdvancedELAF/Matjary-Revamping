@@ -733,6 +733,7 @@ class UserController extends BaseController
             if(isset($data) && !empty($data)){
                 /* check customer has already raised password reset request or not */
                 $is_exist = $this->UserModel->chk_reset_pass_request_exist($data->id);
+               
                 if($is_exist==true){                                  
                     $resp['responseCode'] = 500;
                     $resp['responseMessage'] =  $this->ses_lang=='en' ? "you already raised password reset request so please check your registered email inbox/span folder for password reset link or contact administrator for further assistance." : "لقد قدمت بالفعل طلب إعادة تعيين كلمة المرور ، لذا يرجى التحقق من مجلد البريد الوارد / البريد المسجل الخاص بك للحصول على رابط إعادة تعيين كلمة المرور أو الاتصال بالمسؤول للحصول على مزيد من المساعدة.";                    
@@ -745,6 +746,7 @@ class UserController extends BaseController
                         "reset_flag" => 1,
                         "created_at" => DATETIME
                     ));
+                   
                     if(is_int($insertedId)){
 
                         $server_site_path = base_url();
@@ -786,17 +788,17 @@ class UserController extends BaseController
                             if (isset($this->pageData['storeSettingInfo']->support_email) && !empty($this->pageData['storeSettingInfo']->support_email)) {
                                 $supportEmail = $this->pageData['storeSettingInfo']->support_email;
                             }
-                        }
-                        $resetLink = base_url('admin/user-reset-new-password/'.$data->id);
+                        }                        
+                       
+                        $resetLink = base_url('admin/user-reset-new-password/'.$data->id);                  
                         $this->pageData['storeLogo'] = $store_logo;
-                        //$this->pageData['templateName'] = $templateName;
                         $this->pageData['sociaFB'] = $sociaFB;
                         $this->pageData['socialTwitter'] = $socialTwitter;
                         $this->pageData['socialYoutube'] = $socialYoutube;
                         $this->pageData['socialLinkedin'] = $socialLinkedin;
                         $this->pageData['socialInstagram'] = $socialInstagram;       
                         $this->pageData['address'] = $address;
-                        $this->pageData['name'] = $_POST['name'];
+                        $this->pageData['name'] = $_POST['email'];
                         $this->pageData['supportEmail'] = $supportEmail;
                         $this->pageData['storeName'] = $storeName;             
                         $this->pageData['resetLink'] = $resetLink;
@@ -804,6 +806,7 @@ class UserController extends BaseController
                         $mailBody = view('store_admin/email-templates/user-forgoted-password',$this->pageData);
                         $subject ='Store User Password Reset Link';
                         $sendEmail = $this->sendEmail($email,$mailBody,$subject);
+                       
                         if($sendEmail == true){
                             $resp['responseCode'] = 200;
                             $resp['responseMessage'] =  $this->ses_lang=='en' ? "Password Reset Link Sent to Your Registered Mail ID, Please Check Your Registered Mail Inbox/Spam Folder for Reset Link." : "تم إرسال رابط إعادة تعيين كلمة المرور إلى معرف البريد المسجل الخاص بك ، يرجى التحقق من صندوق الوارد للبريد المسجل / مجلد البريد العشوائي الخاص بك من أجل رابط إعادة التعيين.";

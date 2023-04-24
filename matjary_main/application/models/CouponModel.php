@@ -25,6 +25,7 @@ class CouponModel extends CI_Model {
             $query = $this->db->select('*')
                         ->from('coupons')
                         ->where_in('is_active', array(1,2))
+                        ->order_by('id','DESC')
                         ->get();
             if ($query->num_rows() > 0) {
                 return $query->result();
@@ -65,7 +66,7 @@ class CouponModel extends CI_Model {
 
     public function check_coupon_exist($coupon_code){
         try {            
-            $query = $this->db->where('code', $coupon_code)->get('coupons');
+            $query = $this->db->query('select * from coupons where BINARY code="'.$coupon_code.'" and is_active=1 ');
             if ($query->num_rows() > 0) {
                 return $query->row();
             } else {

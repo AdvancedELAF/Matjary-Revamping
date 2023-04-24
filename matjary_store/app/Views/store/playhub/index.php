@@ -859,8 +859,8 @@ $ses_lang = $session->get('ses_lang');
                 <div class="row">
                     <div class="col-md-6">
                         <div class="ui-title text-white">
-                            <h4>Newletter Subscription</h4>
-                            <h5>Subscribe to our newsletter and stay updated to receive exciting offers!</h5>
+                            <h4><?php echo $language['Newletter Subscription']; ?></h4>
+                            <h5><?php echo $language['Subscribe to our newsletter and stay updated to receive exciting offers!']; ?></h5>
                         </div>
                         <?php 
                             $attributes = ['name' => 'save_subscribe_form', 'id' => 'save_subscribe_form', 'autocomplete' => 'off']; 

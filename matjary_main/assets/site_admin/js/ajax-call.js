@@ -1,12 +1,17 @@
 $(document).ready(function () {
     let base_url = window.location.origin;
-       /* //submit user login form */
-        /* Product Action Common js for delete.activate,deactivate operations start */
-        let confirm = 'Are you sure You Want to Deactivate this Record ?';
-        let RecordIsSafe = 'Record is safe.';
-        let Deactivated = 'Deactivated';
-        let Activated = 'Activated !';
-        let record_is_safe = "Record is safe .";
+    if(base_url == "http://localhost"){
+        base_url= '/Matjary-Revamping/matjary_main';        
+    }else{
+        base_url;
+    }
+    /* //submit user login form */
+    /* Product Action Common js for delete.activate,deactivate operations start */
+    let confirm = 'Are you sure You Want to Deactivate this Record ?';
+    let RecordIsSafe = 'Record is safe.';
+    let Deactivated = 'Deactivated';
+    let Activated = 'Activated !';
+    let record_is_safe = "Record is safe .";
 
     $("#listingWrapper").on('click', '.actionBtn', function(){
         let action_page = $(this).data('actionurl');
@@ -591,7 +596,7 @@ $(document).ready(function () {
         }
     }));
 
-    $("#myChartglobal").load("dashboard.php", function(){        
+    $("#myChartglobal").load("dashboard.php", function(){  
         var action_page = base_url+'/site-admin/get-dashboard-data';
         $.ajax({
             url: action_page,
@@ -619,7 +624,7 @@ $(document).ready(function () {
     });
 
     $("#myChart").load("dashboard.php", function(){
-        var action_page = base_url+'/site-admin/get-oreder-sales-data';        
+        var action_page = base_url+'/site-admin/get-oreder-sales-data';           
         $.ajax({
             url: action_page,
             type: "POST",
@@ -642,31 +647,8 @@ $(document).ready(function () {
         });
     });
 
-    // $("#chartIds").load("dashboard.php", function(){        
-    //     var action_page = base_url+'/Matjary-Revamping/matjary_main/site-admin/get-dashboard-data';        
-    //     $.ajax({
-    //         url: action_page,
-    //         type: "POST",
-    //         enctype: 'multipart/form-data',
-    //         data: '',            
-    //         success: function (resp) {                
-    //             resp = JSON.parse(resp);
-    //             var chartId = 'chartIds';            
-    //             var getCurrentMonthvalline= resp.getCurrentMonthval;
-    //             var getCurrentMonthvalbar= resp.getCurrentMonthval; 
-    //             var getMonthArry = resp.getMonthArry;
-    //             var chartName = 'User Registration Mixed Chart'; 
-    //             if (resp.responseCode == 200) {                   
-    //                 drawMixedChart(chartId,getCurrentMonthvalline,getCurrentMonthvalbar,getMonthArry,chartName);                     
-    //             } else {
-    //                 swal({title: "Fail", closeOnClickOutside: false, text: resp.responseMessage, type: "error"});
-    //             }
-    //         }
-    //     });
-    // });
-
-    $("#SalesOrders").load("dashboard.php", function(){        
-        var action_page = base_url+'/site-admin/get-oreder-sales-data';        
+    $("#SalesOrders").load("dashboard.php", function(){
+        var action_page = base_url+'/site-admin/get-oreder-sales-data';              
         $.ajax({
             url: action_page,
             type: "POST",
@@ -692,7 +674,7 @@ $(document).ready(function () {
     });
 
     $("#revenueCharts").load("dashboard.php", function(){        
-        var action_page = base_url+'/site-admin/get-revenue-data';        
+        var action_page = base_url+'/site-admin/get-revenue-data';               
         $.ajax({
             url: action_page,
             type: "POST",
@@ -751,15 +733,59 @@ $(document).ready(function () {
         }
     }));
 
-    $("#update_coupon").on('submit', (function (e) {
+    $("#save_employee").on('submit', (function (e) {
         e.preventDefault();
-        var isvalidate = $("#update_coupon").valid();
+        var isvalidate = $("#save_employee").valid();
         if (!isvalidate) {
             return false;
         } else {
-            var form = $('#update_coupon')[0];
+            var form = $('#save_employee')[0];
             var requestData = new FormData(form);
-            var action_page = $("#update_coupon").attr('action');
+            var action_page = $("#save_employee").attr('action');
+            $.ajax({
+                url: action_page,
+                type: "POST",
+                enctype: 'multipart/form-data',
+                data: requestData,
+                contentType: false,
+                cache: false,
+                processData: false,
+                timeout: 600000,
+                beforeSend: function() {
+                    swal({
+                        title: "",
+                        text: "Processing...",
+                        imageUrl: "https://media.tenor.com/OzAxe6-8KvkAAAAi/blue_spinner.gif",
+                        showConfirmButton: false
+                    });
+                },
+                success: function (resp) {
+                    console.log(resp);
+                    resp = JSON.parse(resp);
+                    if (resp.responseCode == 200) {
+                          swal({title: "", text: resp.responseMessage, type: "success"},
+		                    function(){
+                                $("#save_employee")[0].reset();
+		                        window.location.href = resp.redirectUrl;
+		                    }
+		                );
+                    }else {
+                        swal({title: "Fail", closeOnClickOutside: false, text: resp.responseMessage, type: "error"});
+                    }
+                }
+            });
+        }
+    }));
+
+    $("#update_employee").on('submit', (function (e) {
+        e.preventDefault();
+        var isvalidate = $("#update_employee").valid();
+        if (!isvalidate) {
+            return false;
+        } else {
+            var form = $('#update_employee')[0];
+            var requestData = new FormData(form);
+            var action_page = $("#update_employee").attr('action');
             $.ajax({
                 url: action_page,
                 type: "POST",
@@ -785,7 +811,43 @@ $(document).ready(function () {
             });
         }
     }));
-  
+
+    $("#reply_customer_enquiry").on('submit', (function (e) {
+        e.preventDefault();
+        var isvalidate = $("#reply_customer_enquiry").valid();
+        if (!isvalidate) {
+            return false;
+        } else {
+            var form = $('#reply_customer_enquiry')[0];
+            var requestData = new FormData(form);
+            var action_page = $("#reply_customer_enquiry").attr('action');
+            $.ajax({
+                url: action_page,
+                type: "POST",
+                enctype: 'multipart/form-data',
+                data: requestData,
+                contentType: false,
+                cache: false,
+                processData: false,
+                timeout: 600000,
+                success: function (resp) {
+                    console.log(resp);
+                    resp = JSON.parse(resp);
+                    if (resp.responseCode == 200) {
+                        swal({title: "", text: resp.responseMessage, type: "success"},
+                        function(){
+                            window.location.reload();
+                        }
+                       );
+                    } else {
+                        swal({title: "Fail", closeOnClickOutside: false, text: resp.responseMessage, type: "error"});
+                    }
+                }
+            });
+        }
+    }));
+
+      
 
 });
 /* theme filter function start */

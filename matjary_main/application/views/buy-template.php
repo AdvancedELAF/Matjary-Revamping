@@ -1,10 +1,13 @@
-<?php include("common/header.php"); ?>
+<?php $this->load->view("common/header.php"); ?>
 <section>
     <form action="<?php echo base_url('proceed-template-payment'); ?>" name="proceed_template_payment_form" id="proceed_template_payment_form" method="post" enctype="multipart/form-data">
         <input type="hidden" name="plan_id" value="0">
         <input type="hidden" name="user_id" value="<?php echo isset($template_data['user_id']) ? $template_data['user_id'] : ''; ?>">
         <input type="hidden" name="template_cost" value="<?php echo isset($template_data['template_cost']) ? $template_data['template_cost'] : ''; ?>">
         <input type="hidden" name="template_id" value="<?php echo isset($template_data['template_id']) ? $template_data['template_id'] : ''; ?>">
+        <input type="hidden" name="is_coupon_applied" id="is_coupon_applied" value="0">
+        <input type="hidden" name="coupon_id" id="coupon_id" value="0">
+        <input type="hidden" name="coupon_amount" id="coupon_amount" value="0">
         <div class="custom-container">
             <div class="billing-form-wrapper blue-bg">
                 <h3><?php echo $this->lang->line('user-bill-txt-1'); ?></h3>
@@ -60,7 +63,7 @@
             </div>
 
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="billing-table-wrapper">
                         <div class="table-title">
                             <h4><?php echo $this->lang->line('user-bill-txt-2'); ?></h4>
@@ -76,35 +79,48 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><?php echo $template_data['name_ar'] . " (" . $template_data['name'] . ")"; ?></td>
-                                        <td></td>
+                                        <td>
+                                            <?php 
+                                                $template_name = '';
+                                                if($site_lang=='en'){
+                                                    if(isset($template_data['name']) && !empty($template_data['name'])){
+                                                        $template_name = $template_data['name'];
+                                                    }else{
+                                                        $template_name = $template_data['name_ar'];
+                                                    }
+                                                }else{
+                                                    if(isset($template_data['name_ar']) && !empty($template_data['name_ar'])){
+                                                        $template_name = $template_data['name_ar'];
+                                                    }else{
+                                                        $template_name = $template_data['name'];
+                                                    }
+                                                }
+                                                echo $template_name; 
+                                            ?> 
+                                                (<a target="_blank" href="<?php echo $template_data['demo_link']; ?>" >Demo Link</a>)
+                                        </td>
                                         <td><?php echo $this->lang->line('SAR'); ?> <?php echo isset($template_data['template_cost']) ? number_format((float)$template_data['template_cost'], 2, '.', '') : ''; ?></td>
                                     </tr>
-
                                     <tr>
-                                        <td></td>
                                         <td><?php echo $this->lang->line('subtotal'); ?></td>
-                                        <td><?php echo $this->lang->line('SAR'); ?> <?php echo isset($template_data['template_cost']) ? number_format((float)$template_data['template_cost'], 2, '.', '') : ''; ?></td>
+                                        <td><?php echo $this->lang->line('SAR'); ?> <span id="plan_subtotal"><?php echo isset($template_data['template_cost']) ? number_format((float)$template_data['template_cost'], 2, '.', '') : ''; ?></span></td>
                                     </tr>
-
                                     <tr>
-                                        <td></td>
                                         <td><?php echo $this->lang->line('discount'); ?></td>
-                                        <td><?php echo $this->lang->line('SAR'); ?> <?php echo isset($template_data['discount']) ? number_format((float)$template_data['discount'], 2, '.', '') : 0.00; ?></td>
+                                        <td><?php echo $this->lang->line('SAR'); ?> <span id="discount_span">0.00</span></td>
                                     </tr>
-
                                     <tr class="total-row">
-                                        <td></td>
                                         <td><?php echo $this->lang->line('user-acc-txt-40'); ?></td>
                                         <td>
-                                            <?php echo $this->lang->line('SAR'); ?> <?php echo isset($template_data['template_cost']) ? number_format((float)$template_data['template_cost'], 2, '.', '') : ''; ?>
+                                            <?php echo $this->lang->line('SAR'); ?> <span id="plan_total_price_span"> <?php echo isset($template_data['template_cost']) ? number_format((float)$template_data['template_cost'], 2, '.', '') : ''; ?></span>
+                                            <input type="hidden" name="plan_total_price" id="plan_total_price" value="<?php echo isset($template_data['template_cost']) ? number_format((float)$template_data['template_cost'], 2, '.', '') : ''; ?>">
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
 
-                        <div class="form-wrapper d-none">
+                        <!-- <div class="form-wrapper d-none">
                             <div class="form-row">
                                 <div class="col-lg-6">
                                     <input type="text" name="coupon_code" class="form-control mb-2 coupon-field" placeholder="<?php echo $this->lang->line('user-bill-txt-5'); ?>">
@@ -116,10 +132,28 @@
                                     <button class="btn btn-primary brand-btn-purple pl-4 pr-4 align-mid"><?php echo $this->lang->line('remove'); ?></button>
                                 </div>
                             </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="billing-table-wrapper">
+                        <div class="payment-title">
+                            <h4>Apply Coupon</h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <input type="text" name="coupon_code" id="coupon_code" minlength="1" maxlength="10" data-userid="<?php echo isset($template_data['user_id']) ? $template_data['user_id'] : ''; ?>" class="form-control mb-2 coupon-field nospecialchars" placeholder="<?php echo $this->lang->line('user-bill-txt-5'); ?>">
+                                <span id="couponMsg"></span>
+                            </div>
+                            <div class="col-lg-3">
+                                <a href="javascript:void(0);" id="applyCouponCodeBtn" data-userid="<?php echo isset($template_data['user_id']) ? $template_data['user_id'] : ''; ?>" class="btn btn-primary brand-btn-pink pl-4 pr-4 align-mid"><?php echo $this->lang->line('apply'); ?></a>
+                            </div>
+                            <div class="col-lg-3">
+                                <a  href="javascript:void(0);" id="removeCouponCodeBtn" class="btn btn-primary brand-btn-purple pl-4 pr-4 align-mid"><?php echo $this->lang->line('remove'); ?></a>
+                            </div>
                         </div>
                     </div>
                 </div>
-
             </div>
             <div class="row">
                 <div class="col-lg-6"></div>
@@ -132,7 +166,7 @@
 </section>
 
 <!-- Footer section  -->
-<?php include("common/footer.php"); ?>
+<?php $this->load->view("common/footer.php"); ?>
 <script>
     $(document).ready(function () {
         $("#country_id").trigger('change');

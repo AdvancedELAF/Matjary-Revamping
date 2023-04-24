@@ -1,4 +1,4 @@
-<?php include("modals/invoice_modal.php"); ?>
+<?php $this->load->view("modals/invoice_modal"); ?>
 <section class="">
     <div class="custom-container">
         <div class="user-sec-title">
@@ -28,7 +28,7 @@
                                         <th scope="col"><?php echo $this->lang->line('footer-txt-21'); ?></th>
                                         <th scope="col"><?php echo $this->lang->line('user-acc-txt-38'); ?></th>                                   
                                         <th scope="col"><?php echo $this->lang->line('user-acc-txt-39'); ?></th>
-                                        <!--<th scope="col">Discount</th>-->
+                                        <th scope="col">Discount</th>
                                         <th scope="col"><?php echo $this->lang->line('user-acc-txt-40'); ?></th>
                                         <th scope="col"><?php echo $this->lang->line('user-acc-txt-41'); ?></th>
                                         <th scope="col"><?php echo $this->lang->line('user-acc-txt-42'); ?></th>
@@ -43,9 +43,12 @@
                                         foreach ($user_payment_history['user_stores_purchased_history'] as $orderData) {
                                             //echo '<pre>'; print_r($orderData); 
                                             $invoice_no = isset($orderData['id'])?$orderData['id']:'';
+                                            
                                             $plan_cost = isset($orderData['plan_cost'])?$orderData['plan_cost']:'';
                                             $template_cost = isset($orderData['template_cost'])?$orderData['template_cost']:'';
-                                            $total_cost = number_format((float)$plan_cost, 2, '.', '') + number_format((float)$template_cost, 2, '.', '');
+                                            $subtotal = number_format((float)$plan_cost, 2, '.', '') + number_format((float)$template_cost, 2, '.', '');
+                                            $coupon_amount = isset($orderData['coupon_amount'])?number_format((float)$orderData['coupon_amount'], 2, '.', ''):'0.00';
+                                            $total_cost = number_format((float)$subtotal, 2, '.', '') - number_format((float)$coupon_amount, 2, '.', '');
                                             $store_link = isset($orderData['store_link'])?$orderData['store_link']:'';
                                             $plan_start_dt = isset($orderData['plan_start_dt'])?$orderData['plan_start_dt']:'';
                                             $plan_expiry_dt = isset($orderData['plan_expiry_dt'])?$orderData['plan_expiry_dt']:'';
@@ -58,8 +61,8 @@
                                             <td><a href="javascript:void(0);" class="userPurchaseInvoice" data-actionurl="<?php echo base_url('get-user-purchased-store-payment-info-api/') . $invoice_no; ?>" data-invoiceid="<?php echo $invoice_no; ?>">MATPL<?php echo $invoice_no; ?></a></td>
                                             <td><?php echo $plan_desc . " " . $validity_in_months . " <br/>" . $store_link; ?></td>
                                             <td><a target="_blank" href="https://<?php echo $store_link; ?>"><?php echo $store_link; ?></a></td>
-                                            <td><?php echo $this->lang->line('SAR'); ?> <?php echo $total_cost; ?></td>
-                                            <!--<td>SAR 0.00</td>-->
+                                            <td><?php echo $this->lang->line('SAR'); ?> <?php echo $subtotal; ?></td>
+                                            <td><?php echo $this->lang->line('SAR').' '.$coupon_amount; ?></td>
                                             <td><?php echo $this->lang->line('SAR'); ?> <?php echo $total_cost; ?></td>
                                             <td><?php echo $plan_start_dt; ?></td>
                                             <td>
@@ -104,6 +107,7 @@
                                         <th scope="col"><?php echo $this->lang->line('Invoice Number'); ?></th>
                                         <th scope="col"><?php echo $this->lang->line('Template Name'); ?></th>
                                         <th scope="col"><?php echo $this->lang->line('Amount'); ?></th>
+                                        <th scope="col">Discount</th>
                                         <th scope="col"><?php echo $this->lang->line('Total'); ?></th>
                                         <th scope="col"><?php echo $this->lang->line('Status'); ?></th>
                                         <th scope="col"><?php echo $this->lang->line('Payment Date'); ?></th>
@@ -115,13 +119,16 @@
                                         $k = 1;
                                         foreach ($user_payment_history['user_templates_purchased_history'] as $value) {
                                             //echo '<pre>'; print_r($value); exit;
+                                            $coupon_amount = isset($value['coupon_amount'])?number_format((float)$value['coupon_amount'], 2, '.', ''):0.00;
+                                            $total_cost = number_format((float)$value['template_cost'], 2, '.', '') - number_format((float)$value['coupon_amount'], 2, '.', '');
                                     ?>
                                             <tr>
                                                 <th scope="row"><?php echo $k; ?></th>
                                                 <td><a href="javascript:void(0);" class="userPurchasedTemplateInvoice" data-actionurl="<?php echo base_url('get-user-purchased-template-payment-info-api/') . $value['id']; ?>" data-invoiceid="<?php echo $value['id']; ?>">MATPL<?php echo $value['id']; ?></a></td>
                                                 <td><?php echo $value['template_name']; ?></td>
                                                 <td><?php echo $this->lang->line('SAR'); ?> <?php echo $value['template_cost']; ?></td>
-                                                <td><?php echo $this->lang->line('SAR'); ?> <?php echo $value['template_cost']; ?></td>
+                                                <td><?php echo $this->lang->line('SAR').' '.$coupon_amount; ?></td>
+                                                <td><?php echo $this->lang->line('SAR'); ?> <?php echo $total_cost; ?></td>
                                                 <td><?php echo $this->lang->line('paid'); ?></td>
                                                 <td><?php echo isset($value['created_at'])?date("Y-m-d",strtotime($value['created_at'])):'NA'; ?></td>
                                             </tr>

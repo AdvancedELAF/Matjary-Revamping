@@ -46,7 +46,7 @@ $ses_custmr_id = $session->get('ses_custmr_id');
                             <?php if(isset($customerDetails->profile_image) && !empty($customerDetails->profile_image)){ ?>
                                 <img src="<?php echo base_url('/uploads/customer_profile_picture/'); ?>/<?php echo isset($customerDetails->profile_image)?$customerDetails->profile_image:''; ?>" alt="Profile image" class="img img-responsive" style="width:auto;min-width:100px;max-width:100px;heihgt:auto;min-height:100px;max-height:100px;">
                                                                
-                                <a href="javascript:void(0);" id="rempveProfileImage" data-baseurl="<?php echo base_url(); ?>" data-actionurl="<?php echo base_url('customer/remove-profile-picture'); ?>" data-customerid="<?php echo $ses_custmr_id; ?>" ><img style="width:auto;min-width:100px;max-width:100px;heihgt:auto;min-height:100px;max-height:100px;" src="https://atzshopp.sa-matjary.com/img/remove.png"></a>
+                                <a href="javascript:void(0);" id="rempveProfileImage" data-baseurl="<?php echo base_url(); ?>" data-actionurl="<?php echo base_url('customer/remove-profile-picture'); ?>" data-customerid="<?php echo $ses_custmr_id; ?>" ><i class="icofont-trash text-danger"></i></a>
                             <?php }else{ ?>
                                 <img src="<?php echo base_url('store_admin/assets/images/profile_default_image.png'); ?>" alt="Profile image | Default" class="img img-responsive" style="width:auto;min-width:100px;max-width:100px;height:auto;min-height:100px;max-height:100px;">
                             <?php } ?> 

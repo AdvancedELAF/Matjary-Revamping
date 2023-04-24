@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class AdminCntr extends MY_Controller {   
+class AdminCntr extends MY_Controller {
 
     function __construct() {
         parent::__construct();
@@ -44,8 +44,7 @@ class AdminCntr extends MY_Controller {
     
     public function get_dashboard_data() {
         if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {
-            $pageData['getUserRegMonthReport'] = $this->DashboardModel->get_monthly_user_register_report();
-          
+            $pageData['getUserRegMonthReport'] = $this->DashboardModel->get_monthly_user_register_report();            
             if(isset($pageData['getUserRegMonthReport']) && !empty($pageData['getUserRegMonthReport'])){
                 $getTotal = '';
                 $GetMonths = '';
@@ -144,7 +143,7 @@ class AdminCntr extends MY_Controller {
     public function get_revenue_data() {        
         if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {        
             /* Get Sales Report Data */
-            $pageData['getRevenueMonthReport'] = $this->DashboardModel->get_monthly_sales_report();
+            $pageData['getRevenueMonthReport'] = $this->DashboardModel->get_monthly_revenue_report();
             if(isset($pageData['getRevenueMonthReport']) && !empty($pageData['getRevenueMonthReport'])){
                 $getTotal = '';
                 $GetMonths = '';
@@ -183,8 +182,6 @@ class AdminCntr extends MY_Controller {
         if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {
             $pageData['pageId'] = 3;
             $pageData['countries'] = $this->CommonModel->country_list();
-            $pageData['states'] = $this->CommonModel->state_list();
-            $pageData['UserroleList'] = $this->UsrModel->get_admin_role_list(); 
             $this->load->view('site_admin/user/create',$pageData);
         }else {
             redirect('site-admin/login');
@@ -219,100 +216,104 @@ class AdminCntr extends MY_Controller {
                                     $this->response['responseCode'] = 404;
                                     $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_14');
                                     echo json_encode($this->response); exit;
-                                }
-                                if (isset($_POST['usr_role']) & !empty($_POST['usr_role'])) {
-                                    if (!preg_match("/^[1-9][0-9]*$/", $_POST['usr_role'])) {
+                                }                                
+                                if (isset($_POST['zipcode']) & !empty($_POST['zipcode'])) {
+                                    if (!preg_match("/^[1-9][0-9]*$/", $_POST['zipcode'])) {
                                         /* validate 12-digit mobile numbers */
                                         $this->response['responseCode'] = 404;
-                                        $this->response['responseMessage'] = 'User Role is Required.';
+                                        $this->response['responseMessage'] = 'Zipcode is Required.';
                                         echo json_encode($this->response); exit;
                                     }
-                                    if (isset($_POST['zipcode']) & !empty($_POST['zipcode'])) {
-                                        if (!preg_match("/^[1-9][0-9]*$/", $_POST['zipcode'])) {
-                                            /* validate 12-digit mobile numbers */
-                                            $this->response['responseCode'] = 404;
-                                            $this->response['responseMessage'] = 'Zipcode is Required.';
-                                            echo json_encode($this->response); exit;
-                                        }
-                                        $email = trim($_POST['email'], " ");
-                                        $emailExist = $this->UsrModel->chk_email_exist($email);
-                                        if ($emailExist == true) {
-                                            $this->response['responseCode'] = 405;
-                                            $this->response['responseMessage'] = 'Email Already Exist!';
-                                            echo json_encode($this->response); exit;
-                                        }
-                                        $usrData = new stdClass();
-                                        $requestData = array(
-                                            'fname' => isset($_POST['fname']) ? $_POST['fname'] : '',
-                                            'lname' => isset($_POST['lname']) ? $_POST['lname'] : '',
-                                            'email' => isset($_POST['email']) ? $_POST['email'] : '',
-                                            'phone_no' => isset($_POST['phone_no']) ? $_POST['phone_no'] : '',
-                                            'usr_role' => isset($_POST['usr_role']) ? $_POST['usr_role'] : '',
-                                            'country_id' => isset($_POST['country_id']) ? $_POST['country_id'] : '',
-                                            'state_id' => isset($_POST['state_id']) ? $_POST['state_id'] : '',
-                                            'city_id' => isset($_POST['city_id']) ? $_POST['city_id'] : '',
-                                            'zipcode' => isset($_POST['zipcode']) ? $_POST['zipcode'] : '',
-                                            'fax_no' => isset($_POST['fax_no']) ? $_POST['fax_no'] : '',
-                                            'address' => isset($_POST['address']) ? $_POST['address'] : '',
-                                            'is_active' => 1
-                                            
+                                    $email = trim($_POST['email'], " ");
+                                    $emailExist = $this->UsrModel->chk_email_exist($email);
+                                    if ($emailExist == true) {
+                                        $this->response['responseCode'] = 405;
+                                        $this->response['responseMessage'] = 'Email Already Exist!';
+                                        echo json_encode($this->response); exit;
+                                    }
+                                    $usrData = new stdClass();
+                                    $requestData = array(
+                                        'fname' => isset($_POST['fname']) ? $_POST['fname'] : '',
+                                        'lname' => isset($_POST['lname']) ? $_POST['lname'] : '',
+                                        'email' => isset($_POST['email']) ? $_POST['email'] : '',
+                                        'phone_no' => isset($_POST['phone_no']) ? $_POST['phone_no'] : '',
+                                        'usr_role' => 3,
+                                        'country_id' => isset($_POST['country_id']) ? $_POST['country_id'] : '',
+                                        'state_id' => isset($_POST['state_id']) ? $_POST['state_id'] : '',
+                                        'city_id' => isset($_POST['city_id']) ? $_POST['city_id'] : '',
+                                        'zipcode' => isset($_POST['zipcode']) ? $_POST['zipcode'] : '',
+                                        'fax_no' => isset($_POST['fax_no']) ? $_POST['fax_no'] : '',
+                                        'address' => isset($_POST['address']) ? $_POST['address'] : '',
+                                        'is_active' => 1
+                                    );
+                                    $usrId = $this->UsrModel->save_usr($requestData);
+                                    if ($usrId == false) {
+                                        $this->response['responseCode'] = 500;
+                                        $this->response['responseMessage'] = 'Error while adding new user information';
+                                        echo json_encode($this->response); exit;
+                                    } else {                                              
+
+                                        /* // set password */
+                                        $pass = hash_hmac("SHA256", random_alpha_num(8), SECRET_KEY);
+                                        $saveUsrPass = array(
+                                            'user_id' => $usrId,
+                                            'pswrd' => $pass
                                         );
-                                        $usrId = $this->UsrModel->save_usr($requestData);
-                                        if ($usrId == false) {
-                                            $this->response['responseCode'] = 500;
-                                            $this->response['responseMessage'] = 'Error while adding new user information';
-                                            echo json_encode($this->response); exit;
-                                        } else {                                              
-    
-                                            $server_site_path = SERVER_SITE_PATH;
-                                            $userLoginUrl = SERVER_SITE_PATH;
-                                            $stvr_rt_pth_asts = SERVER_ROOT_PATH_ASSETS;
-
-                                            /* set params for password request raised */
-                                            $pwd_rst_data = array(
-                                                'user_id' => $usrId,
-                                                'token' => random_alpha_num(8),
-                                                'reset_flag' => '1'
-                                            );
-                                            /* send data to database by module */
-                                            $save_rst_pwd_request = $this->UsrModel->insert_rst_pwd_request($pwd_rst_data);
-                                            $rst_pwd_request_id = $this->db->insert_id();
-
-                                            /* adding last inserted id in to the requst to encode */
-                                            $pwd_rst_data['rst_pwd_request_id'] = $rst_pwd_request_id;
-
-                                            $rst_pwd_request_encd = JWT::encode($pwd_rst_data, JWT_TOKEN);
-                                            $rst_pwd_request_link = SERVER_SITE_PATH . "/reset-pwd-form/" . $rst_pwd_request_encd;
-
-                                            $email_data = array(
-                                                'email_title' => 'Welcome to Matjary',
-                                                'username' => $_POST['fname'] . " " . $_POST['lname'],
-                                                'pass_reset' => $rst_pwd_request_link
-                                            );
-                                            $email_subject = "Welcome to Matjary";
-                                            $email_message = $this->load->view('site_admin/emails/welcome-mail-new-admin-user', $email_data, TRUE);
-                                            $emailStatus = sendEmail($_POST['email'], $email_message, $email_subject);    
-                                            if ($emailStatus == true) {
-                                                $this->response['responseCode'] = 200;
-                                                $this->response['responseMessage'] = 'User Added Successfully.';
-                                                $this->response['redirectUrl'] = base_url('site-admin/all-users');
-                                                echo json_encode($this->response); exit;
-                                            }else{
+                                        /* //save user creadentials */
+                                        $passSaveResult = $this->UsrModel->saveUsrPass($saveUsrPass);
+                                        if ($passSaveResult == false) {
+                                            /* remove this user data from database */
+                                            $status = $this->UsrModel->delete_usr($usrId);
+                                            if ($status == false) {
                                                 $this->response['responseCode'] = 500;
-                                                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_11');
+                                                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_8');
                                                 echo json_encode($this->response); exit;
                                             }
+                                            $this->response['responseCode'] = 500;
+                                            $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_9');
+                                            echo json_encode($this->response); exit;
                                         }
-                                    } else {
-                                        $this->response['responseCode'] = 404;
-                                        $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_14');
-                                        echo json_encode($this->response); exit;
+
+                                        /* set params for password request raised */
+                                        $pwd_rst_data = array(
+                                            'user_id' => $usrId,
+                                            'token' => random_alpha_num(8),
+                                            'reset_flag' => '1'
+                                        );
+                                        /* send data to database by module */
+                                        $save_rst_pwd_request = $this->UsrModel->insert_rst_pwd_request($pwd_rst_data);
+                                        $rst_pwd_request_id = $this->db->insert_id();
+
+                                        /* adding last inserted id in to the requst to encode */
+                                        $pwd_rst_data['rst_pwd_request_id'] = $rst_pwd_request_id;
+
+                                        $rst_pwd_request_encd = JWT::encode($pwd_rst_data, JWT_TOKEN);
+                                        $rst_pwd_request_link = SERVER_SITE_PATH . "/reset-pwd-form/" . $rst_pwd_request_encd;
+
+                                        $email_data = array(
+                                            'email_title' => 'Welcome to Matjary',
+                                            'username' => $_POST['fname'] . " " . $_POST['lname'],
+                                            'pass_reset' => $rst_pwd_request_link
+                                        );
+                                        $email_subject = "Welcome to Matjary";
+                                        $email_message = $this->load->view('site_admin/emails/welcome-mail-new-admin-user', $email_data, TRUE);
+                                        $emailStatus = sendEmail($_POST['email'], $email_message, $email_subject);    
+                                        if ($emailStatus == true) {
+                                            $this->response['responseCode'] = 200;
+                                            $this->response['responseMessage'] = 'User Added Successfully.';
+                                            $this->response['redirectUrl'] = base_url('site-admin/all-users');
+                                            echo json_encode($this->response); exit;
+                                        }else{
+                                            $this->response['responseCode'] = 500;
+                                            $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_11');
+                                            echo json_encode($this->response); exit;
+                                        }
                                     }
                                 } else {
                                     $this->response['responseCode'] = 404;
                                     $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_14');
                                     echo json_encode($this->response); exit;
-                                }
+                                }                               
                             } else {
                                 $this->response['responseCode'] = 404;
                                 $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_14');
@@ -344,7 +345,6 @@ class AdminCntr extends MY_Controller {
         if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {
             $pageData['pageId'] = 4;
             $pageData['singleUserData'] = $this->UsrModel->get_single_user_details($id); 
-            $pageData['UserroleList'] = $this->UsrModel->get_admin_role_list(); 
             $pageData['countryList'] = $this->CommonModel->country_list(); 
 			$pageData['stateList'] = '';
 			$pageData['cityList'] = '';
@@ -396,7 +396,7 @@ class AdminCntr extends MY_Controller {
 									'fname' => isset($_POST['fname']) ? $_POST['fname'] : '',
 									'lname' => isset($_POST['lname']) ? $_POST['lname'] : '',
 									'phone_no' => isset($_POST['phone_no']) ? $_POST['phone_no'] : '',
-									'usr_role' => isset($_POST['usr_role']) ? $_POST['usr_role'] : '',
+									'usr_role' => 3,
 									'country_id' => isset($_POST['country_id']) ? $_POST['country_id'] : '',
 									'state_id' => isset($_POST['state_id']) ? $_POST['state_id'] : '',
 									'city_id' => isset($_POST['city_id']) ? $_POST['city_id'] : '',
@@ -550,9 +550,8 @@ class AdminCntr extends MY_Controller {
                                 $this->response['responseMessage'] = "Error While Data Insertion.";
                                 echo json_encode($this->response); exit;
                             } else {                                              
-                                $errorMsg = "Template Category Added Successfully.";                                 
                                 $this->response['responseCode'] = 200;
-                                $this->response['responseMessage'] = $errorMsg;
+                                $this->response['responseMessage'] = "Template Category Added Successfully."; 
                                 echo json_encode($this->response); exit;                               
                             }
                         }else {
@@ -609,9 +608,8 @@ class AdminCntr extends MY_Controller {
                                 $this->response['responseMessage'] = "Error While Template Data Insertion.";
                                 echo json_encode($this->response); exit;
                             } else {                                              
-                                $errorMsg = "Data Updated Successfully.";                                 
                                 $this->response['responseCode'] = 200;
-                                $this->response['responseMessage'] = $errorMsg;
+                                $this->response['responseMessage'] = "Data Updated Successfully."; 
                                 echo json_encode($this->response); exit;                               
                             }
                         }else {
@@ -1589,12 +1587,11 @@ class AdminCntr extends MY_Controller {
     public function store_details($id) {
         if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {
             $pageData['pageId'] = 23;
-            $GetUsrInvoiceDetails = $this->PlanModel->get_user_store_payment_info($id);
-            if (isset($GetUsrInvoiceDetails) && !empty($GetUsrInvoiceDetails)) {
-            $pageData['billingAddress'] = unserialize($GetUsrInvoiceDetails->bill_info_address);
+            $storeDetails = $this->PlanModel->get_store_info($id);
+            if (isset($storeDetails) && !empty($storeDetails)) {
+            $pageData['billingAddress'] = unserialize($storeDetails->bill_info_address);
             }
-            
-            $pageData['GetUsrInvoiceDetails'] = $GetUsrInvoiceDetails;           
+            $pageData['storeDetails'] = $storeDetails;           
             $this->load->view('site_admin/store/store-details', $pageData);
         }else{
             redirect('site-admin/login');
@@ -1680,77 +1677,16 @@ class AdminCntr extends MY_Controller {
             return $e->getMessage();
         }
     }
-    public function edit_coupon($id) {
+    public function view_coupon($id) {
         if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {
             $pageData['pageId'] = 22;
             $pageData['GetSingleCouponDetails'] = $this->CouponModel->get_single_coupon_details($id);
-            $this->load->view('site_admin/coupon/edit-coupon', $pageData);
+            $this->load->view('site_admin/coupon/view-coupon', $pageData);
         }else{
             redirect('site-admin/login');
         }
     }
-    public function update_coupon(){
-        try {
-            if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {
-                if(isset($_POST['id']) & !empty($_POST['id'])){                  
-                        if (isset($_POST['discount_in_percent']) & !empty($_POST['discount_in_percent'])) {                                           
-                            if (isset($_POST['start_date']) & !empty($_POST['start_date'])) {
-                                if (isset($_POST['expiry_date']) & !empty($_POST['expiry_date'])) {
-                                    if (isset($_POST['is_active']) & !empty($_POST['is_active'])) {     
-                                        
-                                        $start_date = date('Y-m-d', strtotime($_POST['start_date']));
-                                        $expiry_date = date('Y-m-d', strtotime($_POST['expiry_date']));
-                                                
-                                        $updateData = array(
-                                            'discount_in_percent' => isset($_POST['discount_in_percent']) ? $_POST['discount_in_percent'] : '',
-                                            'start_date' => isset($start_date) ? $start_date : '', 
-                                            'expiry_date' => isset($expiry_date) ? $expiry_date : '',                                      
-                                            'is_active' => isset($_POST['is_active']) ? $_POST['is_active'] : ''
-                                        );
-                                        $updateDatas = $this->CouponModel->update_data($updateData,$_POST['id']);
-                                        if ($updateDatas == false) {
-                                            $this->response['responseCode'] = 500;
-                                            $this->response['responseMessage'] = "Error While Coupon Data Updation.";
-                                            echo json_encode($this->response); exit;
-                                        } else {                         
-                                            $this->response['responseCode'] = 200;
-                                            $this->response['responseMessage'] = "Coupon Data Updated Successfully.";  
-                                            echo json_encode($this->response); exit;                               
-                                        }
-                                    }else {
-                                        $this->response['responseCode'] = 404;
-                                        $this->response['responseMessage'] = 'Is Active is required.';
-                                        echo json_encode($this->response);exit;
-                                    }
-                                }else {
-                                    $this->response['responseCode'] = 404;
-                                    $this->response['responseMessage'] = 'Expiry Date is required.';
-                                    echo json_encode($this->response);exit;
-                                }
-                            }else {
-                                $this->response['responseCode'] = 404;
-                                $this->response['responseMessage'] = 'Start Date is required.';
-                                echo json_encode($this->response);exit;
-                            }
-                        } else {
-                            $this->response['responseCode'] = 404;
-                            $this->response['responseMessage'] = 'Discount is required.';
-                            echo json_encode($this->response);
-                            exit;
-                        }
-                } else {
-                    $this->response['responseCode'] = 404;
-                    $this->response['responseMessage'] = 'Id is required ';
-                    echo json_encode($this->response);
-                    exit;
-                }
-            }else {
-                redirect('site-admin/login');
-            }  
-        } catch (Exception $e) {
-            return $e->getMessage();
-        }
-    }
+    
     public function deactivate_coupon(){
         if(isset($_POST['id']) && !empty($_POST['id'])){
             /* update user status in database table name as 'users' */
@@ -1813,5 +1749,428 @@ class AdminCntr extends MY_Controller {
             $resp['responseMessage'] =  "Coupon Id Is Required.";
             echo json_encode($resp); exit;
         }
+    }
+    public function all_employees() {     
+        if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {
+            $pageData['pageId'] = 25;
+            $pageData['getEmployeeData'] = $this->EmployeeModel->get_user_data();
+            $this->load->view('site_admin/employee/all-employees',$pageData);
+        }else {
+            redirect('site-admin/login');
+        }   
+    }
+    public function add_employee() {   
+        if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {
+            $pageData['pageId'] = 26;
+            $pageData['countries'] = $this->CommonModel->country_list();
+            $pageData['states'] = $this->CommonModel->state_list();
+            $pageData['UserroleList'] = $this->EmployeeModel->get_admin_role_list();
+            $this->load->view('site_admin/employee/add-employee',$pageData);
+        }else {
+            redirect('site-admin/login');
+        }  
+    }
+    public function save_employee() {   
+        if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {
+            try {
+                if (isset($_POST['fname']) & !empty($_POST['fname'])) {
+                    if (preg_match('/[\'^£$%&*()}{@#~?><>|=+]/', $_POST['fname'])) {
+                        /* one or more of the 'special characters' found in string */
+                        $this->response['responseCode'] = 404;                        
+                        $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_2');
+                        echo json_encode($this->response); exit;
+                    }
+                    if (isset($_POST['lname']) & !empty($_POST['lname'])) {
+                        if (preg_match('/[\'^£$%&*()}{@#~?><>|=+]/', $_POST['lname'])) {
+                            /* one or more of the 'special characters' found in string */
+                            $this->response['responseCode'] = 404;
+                            $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_3');
+                            echo json_encode($this->response); exit;
+                        }
+                        if (isset($_POST['email']) & !empty($_POST['email'])) {
+                            if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+                                $this->response['responseCode'] = 404;
+                                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_4');
+                                echo json_encode($this->response); exit;
+                            }
+                            if (isset($_POST['phone_no']) & !empty($_POST['phone_no'])) {
+                                if (!preg_match("/^[1-9][0-9]*$/", $_POST['phone_no'])) {
+                                    /* validate 12-digit mobile numbers */
+                                    $this->response['responseCode'] = 404;
+                                    $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_14');
+                                    echo json_encode($this->response); exit;
+                                }                                
+                                if (isset($_POST['zipcode']) & !empty($_POST['zipcode'])) {
+                                    if (!preg_match("/^[1-9][0-9]*$/", $_POST['zipcode'])) {
+                                        /* validate 12-digit mobile numbers */
+                                        $this->response['responseCode'] = 404;
+                                        $this->response['responseMessage'] = 'Zipcode is Required.';
+                                        echo json_encode($this->response); exit;
+                                    }
+                                    $email = trim($_POST['email'], " ");
+                                    $emailExist = $this->EmployeeModel->chk_email_exist($email);
+                                    if ($emailExist == true) {
+                                        $this->response['responseCode'] = 405;
+                                        $this->response['responseMessage'] = 'Email Already Exist!';
+                                        echo json_encode($this->response); exit;
+                                    }
+                                    $usrData = new stdClass();
+                                    $requestData = array(
+                                        'fname' => isset($_POST['fname']) ? $_POST['fname'] : '',
+                                        'lname' => isset($_POST['lname']) ? $_POST['lname'] : '',
+                                        'email' => isset($_POST['email']) ? $_POST['email'] : '',
+                                        'phone_no' => isset($_POST['phone_no']) ? $_POST['phone_no'] : '',
+                                        'usr_role' => isset($_POST['role']) ? $_POST['role'] : '',
+                                        'country_id' => isset($_POST['country_id']) ? $_POST['country_id'] : '',
+                                        'state_id' => isset($_POST['state_id']) ? $_POST['state_id'] : '',
+                                        'city_id' => isset($_POST['city_id']) ? $_POST['city_id'] : '',
+                                        'zipcode' => isset($_POST['zipcode']) ? $_POST['zipcode'] : '',
+                                        'fax_no' => isset($_POST['fax_no']) ? $_POST['fax_no'] : '',
+                                        'address' => isset($_POST['address']) ? $_POST['address'] : '',
+                                        'is_active' => 1
+                                        
+                                    );
+                                    $usrId = $this->UsrModel->save_usr($requestData);
+                                    if ($usrId == false) {
+                                        $this->response['responseCode'] = 500;
+                                        $this->response['responseMessage'] = 'Error while adding new Employee information';
+                                        echo json_encode($this->response); exit;
+                                    } else {                                              
+
+                                        $server_site_path = SERVER_SITE_PATH;
+                                        $userLoginUrl = SERVER_SITE_PATH;
+                                        $stvr_rt_pth_asts = SERVER_ROOT_PATH_ASSETS;
+
+                                         /* // set password */
+                                         $pass = hash_hmac("SHA256", random_alpha_num(8), SECRET_KEY);
+                                         $saveUsrPass = array(
+                                             'user_id' => $usrId,
+                                             'pswrd' => $pass
+                                         );
+
+                                         /* //save user creadentials */
+                                         $passSaveResult = $this->UsrModel->saveUsrPass($saveUsrPass);
+                                         if ($passSaveResult == false) {
+                                             /* remove this user data from database */
+                                             $status = $this->UsrModel->delete_usr($usrId);
+                                             if ($status == false) {
+                                                 $this->response['responseCode'] = 500;
+                                                 $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_8');
+                                                 echo json_encode($this->response); exit;
+                                             }
+                                             $this->response['responseCode'] = 500;
+                                             $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_9');
+                                             echo json_encode($this->response); exit;
+                                         }
+
+                                        /* set params for password request raised */
+                                        $pwd_rst_data = array(
+                                            'user_id' => $usrId,
+                                            'token' => random_alpha_num(8),
+                                            'reset_flag' => '1'
+                                        );
+                                        /* send data to database by module */
+                                        $save_rst_pwd_request = $this->UsrModel->insert_rst_pwd_request($pwd_rst_data);
+                                        $rst_pwd_request_id = $this->db->insert_id();
+
+                                        /* adding last inserted id in to the requst to encode */
+                                        $pwd_rst_data['rst_pwd_request_id'] = $rst_pwd_request_id;
+
+                                        $rst_pwd_request_encd = JWT::encode($pwd_rst_data, JWT_TOKEN);
+                                        $rst_pwd_request_link = SERVER_SITE_PATH . "/reset-pwd-form/" . $rst_pwd_request_encd;
+
+                                        $email_data = array(
+                                            'email_title' => 'Welcome to Matjary',
+                                            'username' => $_POST['fname'] . " " . $_POST['lname'],
+                                            'pass_reset' => $rst_pwd_request_link
+                                        );
+                                        $email_subject = "Welcome to Matjary";
+                                        $email_message = $this->load->view('site_admin/emails/welcome-mail-new-employee', $email_data, TRUE);
+                                        $emailStatus = sendEmail($_POST['email'], $email_message, $email_subject);    
+                                        if ($emailStatus == true) {
+                                            $this->response['responseCode'] = 200;
+                                            $this->response['responseMessage'] = 'Employee Added Successfully.';
+                                            $this->response['redirectUrl'] = base_url('site-admin/all-employees');
+                                            echo json_encode($this->response); exit;
+                                        }else{
+                                            $this->response['responseCode'] = 500;
+                                            $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_11');
+                                            echo json_encode($this->response); exit;
+                                        }
+                                    }
+                                } else {
+                                    $this->response['responseCode'] = 404;
+                                    $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_14');
+                                    echo json_encode($this->response); exit;
+                                }                               
+                            } else {
+                                $this->response['responseCode'] = 404;
+                                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_14');
+                                echo json_encode($this->response); exit;
+                            }
+                        } else {
+                            $this->response['responseCode'] = 404;
+                            $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_15');
+                            echo json_encode($this->response); exit;
+                        }
+                    } else {
+                        $this->response['responseCode'] = 404;
+                        $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_16');
+                        echo json_encode($this->response); exit;
+                    }
+                } else {
+                    $this->response['responseCode'] = 404;
+                    $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_17');
+                    echo json_encode($this->response); exit;
+                }
+            } catch (Exception $e) {
+                return $e->getMessage();
+            }           
+        }else {
+            redirect('site-admin/login');
+        }  
+    }
+    public function edit_employee($id) {
+        if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {
+            $pageData['pageId'] = 27;
+            $pageData['singleUserData'] = $this->EmployeeModel->get_single_user_details($id); 
+            $pageData['UserroleList'] = $this->EmployeeModel->get_admin_role_list(); 
+            $pageData['countryList'] = $this->CommonModel->country_list(); 
+			$pageData['stateList'] = '';
+			$pageData['cityList'] = '';
+            if(isset($pageData['singleUserData'][0]->country_id) && !empty($pageData['singleUserData'][0]->country_id)){  
+                $pageData['stateList'] = $this->CommonModel->get_country_states($pageData['singleUserData'][0]->country_id);
+            }
+			if(isset($pageData['singleUserData'][0]->state_id) && !empty($pageData['singleUserData'][0]->state_id)){    
+                $pageData['cityList'] = $this->CommonModel->get_state_cities($pageData['singleUserData'][0]->state_id);
+            }
+            $this->load->view('site_admin/employee/edit-employee', $pageData);
+        }else{
+            redirect('site-admin/login');
+        }  
+    }
+    public function update_employee() {
+        if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {
+            try {
+                if (isset($_POST['fname']) & !empty($_POST['fname'])) {
+                    if (preg_match('/[\'^£$%&*()}{@#~?><>|=+]/', $_POST['fname'])) {
+                        /* one or more of the 'special characters' found in string */
+                        $this->response['responseCode'] = 404;
+                        $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_2');
+                        echo json_encode($this->response); exit;
+                    }
+                    if (isset($_POST['lname']) & !empty($_POST['lname'])) {
+                        if (preg_match('/[\'^£$%&*()}{@#~?><>|=+]/', $_POST['lname'])) {
+                            /* one or more of the 'special characters' found in string */
+                            $this->response['responseCode'] = 404;
+                            $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_3');
+                            echo json_encode($this->response); exit;
+                        }                        
+                        if (isset($_POST['phone_no']) & !empty($_POST['phone_no'])) {
+                            if (!preg_match("/^[1-9][0-9]*$/", $_POST['phone_no'])) {
+                                /* validate 12-digit mobile numbers */
+                                $this->response['responseCode'] = 404;
+                                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_14');
+                                echo json_encode($this->response); exit;
+                            } 
+                            if (isset($_POST['zipcode']) & !empty($_POST['zipcode'])) {
+                                if (!preg_match("/^[1-9][0-9]*$/", $_POST['zipcode'])) {
+                                    /* validate 12-digit mobile numbers */
+                                    $this->response['responseCode'] = 404;
+                                    $this->response['responseMessage'] = 'Zipcode is Required.';
+                                    echo json_encode($this->response); exit;
+                                }                                
+
+								$usrData = new stdClass();
+								$updateData = array(
+									'fname' => isset($_POST['fname']) ? $_POST['fname'] : '',
+									'lname' => isset($_POST['lname']) ? $_POST['lname'] : '',
+									'phone_no' => isset($_POST['phone_no']) ? $_POST['phone_no'] : '',
+									'country_id' => isset($_POST['country_id']) ? $_POST['country_id'] : '',
+									'state_id' => isset($_POST['state_id']) ? $_POST['state_id'] : '',
+									'city_id' => isset($_POST['city_id']) ? $_POST['city_id'] : '',
+									'zipcode' => isset($_POST['zipcode']) ? $_POST['zipcode'] : '',
+									'fax_no' => isset($_POST['fax_no']) ? $_POST['fax_no'] : '',
+									'address' => isset($_POST['address']) ? $_POST['address'] : ''                                        
+								);
+								$UsrInsertData = $this->EmployeeModel->update_user_data($updateData, $_POST['user_id']);
+								if ($UsrInsertData == false) {
+									$this->response['responseCode'] = 404;
+									$this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_35');
+									echo json_encode($this->response); exit;
+								} else {
+									$this->response['responseCode'] = 200;
+									$this->response['responseMessage'] = 'Employee Data Updated Sucessfully.';
+									echo json_encode($this->response); exit;
+								}
+                            } else {
+                                $this->response['responseCode'] = 404;
+                                 $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_14');
+                                echo json_encode($this->response); exit;
+                            }                            
+                        } else {
+                            $this->response['responseCode'] = 404;
+                            $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_14');
+                            echo json_encode($this->response); exit;
+                        }                        
+                    } else {
+                        $this->response['responseCode'] = 404;
+                        $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_16');
+                        echo json_encode($this->response); exit;
+                    }
+                } else {
+                    $this->response['responseCode'] = 404;
+                    $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_17');
+                    echo json_encode($this->response); exit;
+                }
+            } catch (Exception $e) {
+                return $e->getMessage();
+            } 
+        }else{
+            redirect('site-admin/login');
+        }  
+    }
+    public function deactivate_employee(){
+        if(isset($_POST['id']) && !empty($_POST['id'])){
+            /* update user status in database table name as 'users' */
+            $affectedRowId = $this->EmployeeModel->update_data($_POST['id'], array(
+                "is_active" => 2,
+                "updated_datetime" => DATETIME
+            ));
+            if($affectedRowId == true){
+                $resp['responseCode'] = 200;
+                $resp['responseMessage'] = "Employee Deactivated Successfully.";
+                $resp['redirectUrl'] = base_url('site-admin/all-employees');
+                echo json_encode($resp); exit;
+            }else{
+                $resp['responseCode'] = 404;
+                $resp['responseMessage'] =  "Error While employee  Deletion.";
+                echo json_encode($resp); exit;
+            }
+        }else{
+            $resp['responseCode'] = 404;
+            $resp['responseMessage'] =  "Employee Id Is Required.";
+            echo json_encode($resp); exit;
+        }
+    }
+    public function activate_employee(){
+        if(isset($_POST['id']) && !empty($_POST['id'])){
+            /* update user status in database table name as 'users' */
+            $affectedRowId = $this->EmployeeModel->update_data($_POST['id'], array(
+                "is_active" => 1,
+                "updated_datetime" => DATETIME
+            ));
+            if($affectedRowId == true){
+                $resp['responseCode'] = 200;
+                $resp['responseMessage'] =  "Employee Activated Successfully.";
+                $resp['redirectUrl'] = base_url('site-admin/all-employees');
+                echo json_encode($resp); exit;
+            }else{
+                $resp['responseCode'] = 404;
+                $resp['responseMessage'] =  "Error While Employees Deletion.";
+                echo json_encode($resp); exit;
+            }
+        }else{
+            $resp['responseCode'] = 404;
+            $resp['responseMessage'] =  "Employee Id Is Required.";
+            echo json_encode($resp); exit;
+        }
+    }
+    public function delete_employee(){
+        if(isset($_POST['id']) && !empty($_POST['id'])){
+            /* update user status in database table name as 'users' */
+            $affectedRowId = $this->EmployeeModel->update_data($_POST['id'], array(
+                "is_active" => 3,
+                "updated_datetime" => DATETIME
+            ));
+            if($affectedRowId == true){
+                $resp['responseCode'] = 200;
+                $resp['responseMessage'] =  "Employee Removed Successfully.";
+                $resp['redirectUrl'] = base_url('site-admin/all-employees');
+                echo json_encode($resp); exit;
+            }else{
+                $resp['responseCode'] = 404;
+                $resp['responseMessage'] =  "Error While Employee Deletion."; 
+                echo json_encode($resp); exit;
+            }
+        }else{
+            $resp['responseCode'] = 404;
+            $resp['responseMessage'] =  "Employee Id Is Required.";
+            echo json_encode($resp); exit;
+        }
+    }
+
+    public function all_customer_enquiry() {     
+        if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {
+            $pageData['pageId'] = 29;
+            $pageData['getContactEnquieryData'] = $this->EmployeeModel->get_contact_data();
+            $this->load->view('site_admin/customer-enquiry/all-customer-enquiry',$pageData);
+        }else {
+            redirect('site-admin/login');
+        }   
+    }
+    
+    public function view_coustomer_enquiry($id) {
+        if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {
+            $pageData['pageId'] = 30;
+            $pageData['GetSingleEnquiryDetails'] = $this->EmployeeModel->get_single_enquiry_details($id);
+            $pageData['GetadminEnquiryDetails'] = $this->EmployeeModel->get_single_admin_enquiry_details($id);
+            //echo '<pre>'; print_r($pageData['GetadminEnquiryDetails']); die; 
+            $this->load->view('site_admin/customer-enquiry/view-coustomer-enquiry', $pageData);
+        }else{
+            redirect('site-admin/login');
+        }
+    }
+
+    public function reply_customer_enquiry() {
+        if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {
+            try {
+                if (isset($_POST['admin_reply']) & !empty($_POST['admin_reply'])) {
+                    if (preg_match('/[\'^£$%&*()}{@#~?><>|=+]/', $_POST['admin_reply'])) {
+                        /* one or more of the 'special characters' found in string */
+                        $this->response['responseCode'] = 404;
+                        $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_2');
+                        echo json_encode($this->response); exit;
+                    }
+
+                    $usrData = new stdClass();
+                    
+                    $insertDataMeassage = array(        
+                        'ticket_id' => isset($_POST['ticket_id']) ? $_POST['ticket_id'] : '',
+                        'message' => isset($_POST['admin_reply']) ? $_POST['admin_reply'] : '',
+                        'created_by' => isset($this->loggedInSuperAdminData['id']) ? $this->loggedInSuperAdminData['id'] : '' 
+                    );
+                    $UsrInsertData = $this->EmployeeModel->submit_contact_measage_data($insertDataMeassage);  
+                    
+                    $pageData['name'] = $_POST['name'];
+                    $pageData['massage'] = $_POST['cusmeassage'];
+                    $pageData['adminReply'] = $_POST['admin_reply'];
+                    $pageData['ticket_id'] = $_POST['ticket_id'];
+                    $pageData['emailSubject'] = $_POST['cont_subject'];
+
+                    
+                    $email_subject = "Response From Support - Matjary Site";
+                    $email_message = $this->load->view('site_admin/emails/admin-reply-contact-enquiry', $pageData, TRUE);                    
+                    $emailStatus = sendEmail($_POST['email'],$email_message,$email_subject);
+                    if ($UsrInsertData == false) {
+                        $this->response['responseCode'] = 404;
+                        $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_35');
+                        echo json_encode($this->response); exit;
+                    } else {
+                        $this->response['responseCode'] = 200;
+                        $this->response['responseMessage'] = 'Reply Sent Successfully to Customer.';
+                        echo json_encode($this->response); exit;
+                    }   
+                } else {
+                    $this->response['responseCode'] = 404;
+                    $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_17');
+                    echo json_encode($this->response); exit;
+                }
+            } catch (Exception $e) {
+                return $e->getMessage();
+            } 
+        }else{
+            redirect('site-admin/login');
+        }  
     }
 }

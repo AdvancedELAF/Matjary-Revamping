@@ -89,11 +89,13 @@ $route['update-usr-pro-pass-frm'] = 'UsrCntr/update_usr_pro_pass_frm';
 $route['store-details/(:any)'] = 'UsrCntr/store_details_cont';
 $route['free-trail-store-details/(:any)'] = 'UsrCntr/store_details_cont';
 $route['create-store'] = 'UsrCntr/create_store_con';
-$route['create-free-trial-store'] = 'UsrCntr/create_free_trial_store';
 $route['order-status'] = 'UsrCntr/pg_response';
+
+$route['create-free-trial-store'] = 'UsrCntr/create_free_trial_store';
 $route['free-trial-store'] = 'UsrCntr/free_trial_store';
 $route['free-trial-form'] = 'UsrCntr/free_trial_form';
 $route['create-free-store'] = 'UsrCntr/create_free_trial_store';
+
 $route['send-reset-password-link'] = 'UsrCntr/send_reset_password_link';
 $route['set-usr-reset-password'] = 'UsrCntr/set_usr_reset_password';
 
@@ -147,6 +149,7 @@ $route['store-template-details/(:any)'] = 'UsrCntr/store_template_details';
 $route['check-template-purchased'] = 'ApiCntr/check_template_purchased';
 $route['check-coupon-valid'] = 'ApiCntr/check_coupon_valid';
 
+$route['matjary-config'] = 'ApiCntr/matjary_config';
 
 /* Admin Panel Route Start*/
 $route['site-admin'] = 'AuthCntr/login';
@@ -234,17 +237,34 @@ $route['site-admin/get-revenue-data'] = 'AdminCntr/get_revenue_data';
 $route['site-admin/all-coupons'] = 'AdminCntr/all_coupons';
 $route['site-admin/add-coupon'] = 'AdminCntr/add_coupon';
 $route['save-coupon'] = 'AdminCntr/save_coupon';
-$route['site-admin/edit-coupon/(:num)'] = 'AdminCntr/edit_coupon/$1';
-$route['update-coupon'] = 'AdminCntr/update_coupon';
+$route['site-admin/view-coupon/(:num)'] = 'AdminCntr/view_coupon/$1';
+//$route['update-coupon'] = 'AdminCntr/update_coupon';
 $route['site-admin/deactivate-coupon'] = 'AdminCntr/deactivate_coupon';
 $route['site-admin/activate-coupon'] = 'AdminCntr/activate_coupon';
 $route['site-admin/delete-coupon'] = 'AdminCntr/delete_coupon';
 
 /* Matjary Coupons End */
 
+/**Employees */
+$route['site-admin/all-employees'] = 'AdminCntr/all_employees';
+$route['site-admin/add-employee'] = 'AdminCntr/add_employee'; 
+$route['save-employee'] = 'AdminCntr/save_employee';
+$route['site-admin/edit-employee/(:num)'] = 'AdminCntr/edit_employee/$1';
+$route['update-employee'] = 'AdminCntr/update_employee';
+$route['site-admin/deactivate-employee'] = 'AdminCntr/deactivate_employee';
+$route['site-admin/activate-employee'] = 'AdminCntr/activate_employee';
+$route['site-admin/delete-employee'] = 'AdminCntr/delete_employee';
+/**Employees */
 
+/* all-customer-enquiry */
+$route['site-admin/all-customer-enquiry'] = 'AdminCntr/all_customer_enquiry';
+$route['site-admin/view-coustomer-enquiry/(:num)'] = 'AdminCntr/view_coustomer_enquiry/$1';
+$route['reply-customer-enquiry'] = 'AdminCntr/reply_customer_enquiry';
+$route['ticket-details/(:num)'] = 'UsrCntr/view_coustomer_enquiry_details/$1';
+$route['submit-customer-enquiry-form'] = 'UsrCntr/submit_customer_enquiry_form';
 
 /* Admin Panel Route End */
+
 
 
 
