@@ -26,7 +26,7 @@
         </div>
         <div style="font-family: sans-serif;">
             <h2 style="text-align: center; margin-top: 0; margin-bottom: 10px; color: #4BB543; border-bottom: 1px solid #dfdfdf; padding-bottom: 1rem;">Reset Password</h2>
-            <h3 style="margin-bottom: 10px;">Hi, <?php echo $name; ?></h3>
+            <h3 style="margin-bottom: 10px;">Hi <?php echo $name; ?>,</h3>
             <p style="line-height: 1.8; color: #000000; margin-bottom: 5px;">A request has been received to change the password for your Matjary store account.</p>
             <div style="text-align: center; margin-top: 1.5rem; margin-bottom: 1.5rem;">
                 <a href="<?php echo $resetLink; ?>" type="button" style="color: #FFFFFF; padding: 1rem; width: 100%; background-color: #5294F7; border-radius: 5px; text-decoration: none;">Reset Password</a>
