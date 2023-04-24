@@ -174,7 +174,7 @@ class CommonModel extends CI_Model {
 
     public function submit_contact_form_api($requestData) {
         try {
-            $query = $this->db->insert('contact_request', $requestData);
+            $query = $this->db->insert('support_tickets', $requestData);
             if ($query == true) {
                 return true;
             } else {
@@ -240,7 +240,7 @@ class CommonModel extends CI_Model {
         } catch (Exception $e) {
             return $e->getMessage();
         }
-    }
+    }   
 
 }
 

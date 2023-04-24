@@ -61,14 +61,17 @@ class CommonCntr extends MY_Controller {
             $usrData = new stdClass();
             $saveContactInfo = base_url('submit-contact-form-api');
             $requestData = array(
+                'user_id' => $this->input->post('user_id') != '' ? $this->input->post('user_id') : '',
+                'ticket_id' => $this->input->post('ticket_id') != '' ? $this->input->post('ticket_id') : '',
                 'cont_name' => $this->input->post('cont_name') != '' ? $this->input->post('cont_name') : '',
                 'cont_email' => $this->input->post('cont_email') != '' ? $this->input->post('cont_email') : '',
                 'con_phone_no' => $this->input->post('con_phone_no') != '' ? $this->input->post('con_phone_no') : '',
                 'cont_subject' => $this->input->post('cont_subject') != '' ? $this->input->post('cont_subject') : '',
-                'cont_message' => $this->input->post('cont_message') != '' ? $this->input->post('cont_message') : ''
+                'cont_message' => $this->input->post('cont_message') != '' ? $this->input->post('cont_message') : '',
+                'created_by' => $this->input->post('user_id') != '' ? $this->input->post('user_id') : ''
+                
             );
             $header[0] = 'form-data';
-
             /* //send request to api */
             $inptData['token'] = JWT::encode($requestData, JWT_TOKEN);
             $urlJsonData = $this->restclient->post($saveContactInfo, $inptData, $header);

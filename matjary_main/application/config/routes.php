@@ -245,7 +245,23 @@ $route['site-admin/delete-coupon'] = 'AdminCntr/delete_coupon';
 
 /* Matjary Coupons End */
 
+/**Employees */
+$route['site-admin/all-employees'] = 'AdminCntr/all_employees';
+$route['site-admin/add-employee'] = 'AdminCntr/add_employee'; 
+$route['save-employee'] = 'AdminCntr/save_employee';
+$route['site-admin/edit-employee/(:num)'] = 'AdminCntr/edit_employee/$1';
+$route['update-employee'] = 'AdminCntr/update_employee';
+$route['site-admin/deactivate-employee'] = 'AdminCntr/deactivate_employee';
+$route['site-admin/activate-employee'] = 'AdminCntr/activate_employee';
+$route['site-admin/delete-employee'] = 'AdminCntr/delete_employee';
+/**Employees */
 
+/* all-customer-enquiry */
+$route['site-admin/all-customer-enquiry'] = 'AdminCntr/all_customer_enquiry';
+$route['site-admin/view-coustomer-enquiry/(:num)'] = 'AdminCntr/view_coustomer_enquiry/$1';
+$route['reply-customer-enquiry'] = 'AdminCntr/reply_customer_enquiry';
+$route['ticket-details/(:num)'] = 'UsrCntr/view_coustomer_enquiry_details/$1';
+$route['submit-customer-enquiry-form'] = 'UsrCntr/submit_customer_enquiry_form';
 
 /* Admin Panel Route End */
 

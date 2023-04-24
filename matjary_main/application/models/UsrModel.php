@@ -94,7 +94,8 @@ class UsrModel extends CI_Model {
     public function updateUsrPass($user_id, $pswrd) {
         try {
             $update_data = ['pswrd' => $pswrd];
-            $dataInserted = $this->db->where('id', $user_id)->update('user_credentials', $update_data);
+            $this->db->where('user_id', $user_id);
+            $dataInserted = $this->db->update('user_credentials', $update_data);
             if ($dataInserted) {
                 return true;
             } else {
@@ -171,7 +172,7 @@ class UsrModel extends CI_Model {
             ->join('user_credentials as uc', 'uc.user_id=u.id', 'inner')
             ->where('u.email', $email)
             ->where('uc.pswrd', $pass)
-            ->where('u.usr_role', 1)
+            ->where_in('u.usr_role', array(1,2,4,5))
             ->where('u.is_active', 1)
             ->get();
             if ($query->num_rows() > 0) {
@@ -248,7 +249,9 @@ class UsrModel extends CI_Model {
                 ->from('user_subscriptions as us')
                 ->where('us.user_id', $user_id)
                 ->where('us.is_active', 1) 
-                ->order_by("plan_expiry_dt", "asc")
+                ->order_by('us.plan_expiry_dt', 'ASC')
+                ->order_by('us.id', 'DESC')
+                /*->order_by(array('us.plan_expiry_dt' => 'ASC', 'us.id' => 'DESC')) */
                 ->get();
             if ($query->num_rows() > 0) {
                 $rowData = $query->result();
@@ -799,6 +802,9 @@ class UsrModel extends CI_Model {
                 '
                 upi.id, 
                 upi.bill_info_address,
+                upi.is_coupon_applied,
+                upi.coupon_id,
+                upi.coupon_amount,
                 upi.total_price,
                 upi.order_status,
                 upi.payment_type,
@@ -808,11 +814,14 @@ class UsrModel extends CI_Model {
                 upi.template_cost,
                 upi.created_at,
                 mt.name as template_name,
+                c.code as coupon_code,
+                c.discount_in_percent as coupon_discount_percent 
                 '
                 )
                 ->from('user_store_templates as ust')
                 ->join('user_payment_info as upi', 'upi.template_id = ust.template_id', 'left')
                 ->join('matjary_templates as mt', 'mt.id = ust.template_id', 'left')
+                ->join('coupons as c', 'c.id=upi.coupon_id', 'left')
                 ->where('upi.id', $invoiceId)
                 ->get();
             if ($query->num_rows() > 0) {
@@ -892,6 +901,70 @@ class UsrModel extends CI_Model {
             $dataInserted = $this->db->update('users', $data);
             if ($dataInserted) {
                 return true;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function get_customer_wise_data($ticketId) {
+        try {                     
+            $query = $this->db->select(
+                '                             
+                    tm.id ,
+                    tm.ticket_id as ticketno,
+                    tm.message,
+                    tm.created_by,
+                    u.id as user_id,
+                    u.fname,
+                    u.usr_role,
+                    ur.role_id,
+                    ur.role_name
+                    	 
+                '
+            )
+            ->from('ticket_messages as tm')
+            ->join('users as u', 'u.id = tm.created_by', 'left')
+            ->join('user_roles as ur', 'ur.role_id = u.usr_role', 'left')
+            ->where('tm.ticket_id',$ticketId)
+            ->get();
+            if ($query->num_rows() > 0) {
+                    return $query->result();
+                } else {
+                    return false;
+                }
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function get_customer_wise_contact_data($userId) {
+        try {          
+            $query  = $this->db->select('*')
+                    ->from('support_tickets') 
+                    ->where('user_id',$userId)           
+                     ->order_by('id','DESC')
+                    ->get();
+                    if ($query->num_rows() > 0) {
+                        return $query->result();
+                    } else {
+                        return false;
+                    }
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function get_loged_user_details($roleId) {
+        try {
+            $query = $this->db->select('*')
+            ->from('user_roles')
+            ->where_in('role_id', $roleId)
+            ->get();
+            if ($query->num_rows() > 0) {
+                return $query->result();
             } else {
                 return false;
             }

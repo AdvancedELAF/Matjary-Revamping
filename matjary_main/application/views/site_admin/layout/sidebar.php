@@ -13,10 +13,11 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) --> 
-      <!-- Sidebar Menu -->
+      <!-- Sidebar Menu --> 
+      <?php //echo '<pre>'; print_r($this->menuArray); ?>
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          
+        <?php if (in_array( 1, $this->menuArrayValues)){ ?>
           <li class="nav-item menu-open">          
             <ul class="nav nav-treeview">              
               <li class="nav-item">
@@ -27,6 +28,8 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
               </li>
             </ul>
           </li>
+        <?php } ?>
+        <?php if (in_array(2, $this->menuArrayValues)){ ?>
           <li class="nav-item <?php if(isset($pageId) && $pageId==2 || isset($pageId) && $pageId==3 || isset($pageId) && $pageId==4 ){echo'menu-open';}else{echo'';} ?>">
               <a href="#" class="nav-link <?php if(isset($pageId) && $pageId==2 || isset($pageId) && $pageId==3 || isset($pageId) && $pageId==4){echo'active';}else{echo'';} ?>">
               <i class="fa fa-user" aria-hidden="true"></i>
@@ -50,6 +53,33 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                   </li>                          
               </ul>
           </li>
+          <?php } ?>
+          <?php if (in_array(3, $this->menuArrayValues)){ ?>
+          <li class="nav-item <?php if(isset($pageId) && $pageId==25 || isset($pageId) && $pageId==26 || isset($pageId) && $pageId==27 ){echo'menu-open';}else{echo'';} ?>">
+              <a href="#" class="nav-link <?php if(isset($pageId) && $pageId==25 || isset($pageId) && $pageId==26 || isset($pageId) && $pageId==27){echo'active';}else{echo'';} ?>">
+              <i class="fa fa-user" aria-hidden="true"></i>
+                <p>
+                  Employee
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="<?php echo base_url('site-admin/all-employees'); ?>" class="nav-link <?php if(isset($pageId) && $pageId==25 || isset($pageId) && $pageId==27){echo'active';}else{echo'';} ?>">
+                    <i class="fa fa-list" aria-hidden="true"></i>
+                      <p>All Employees</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="<?php echo base_url('site-admin/add-employee'); ?>" class="nav-link <?php if(isset($pageId) && $pageId==26){echo'active';}else{echo'';} ?>">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                      <p>Add Employee</p>
+                    </a>
+                  </li>                          
+              </ul>
+          </li>
+          <?php } ?>
+          <?php if (in_array(4, $this->menuArrayValues)){ ?>
           <li class="nav-item <?php if(isset($pageId) && $pageId==5 || isset($pageId) && $pageId==6 || isset($pageId) && $pageId==7){echo'menu-open';}else{echo'';} ?>"> 
               <a href="#" class="nav-link <?php if(isset($pageId) && $pageId==5 || isset($pageId) && $pageId==6 || isset($pageId) && $pageId==7){echo'active';}else{echo'';} ?>">
               <i class="fa fa-list-alt" aria-hidden="true"></i>
@@ -73,6 +103,8 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                   </li>                          
               </ul>
           </li>
+          <?php } ?>
+          <?php if (in_array(5, $this->menuArrayValues)){ ?>
           <li class="nav-item <?php if(isset($pageId) && $pageId==10 ){echo'menu-open';}else{echo'';} ?>">
               <a href="#" class="nav-link <?php if(isset($pageId) && $pageId==10 ){echo'active';}else{echo'';} ?>">
               <i class="fa fa-envelope"></i>
@@ -89,7 +121,9 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                     </a>
                   </li>                                           
               </ul>
-          </li>    
+          </li>
+          <?php } ?> 
+          <?php if (in_array(6, $this->menuArrayValues)){ ?>   
           <li class="nav-item <?php if(isset($pageId) && $pageId==8 || isset($pageId) && $pageId==11 || isset($pageId) && $pageId==9 ){echo'menu-open';}else{echo'';} ?>">
             <a href="#" class="nav-link <?php if(isset($pageId) && $pageId==8 || isset($pageId) && $pageId==11 || isset($pageId) && $pageId==9 ){echo'active';}else{echo'';} ?>">
             <i class="fas fa-address-book"></i>
@@ -113,9 +147,11 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
               </li>                          
             </ul>
           </li> 
+          <?php } ?>
+          <?php if (in_array(7, $this->menuArrayValues)){ ?>
           <li class="nav-item <?php if(isset($pageId) && $pageId==13 || isset($pageId) && $pageId==14 || isset($pageId) && $pageId==17){echo'menu-open';}else{echo'';} ?>">
             <a href="#" class="nav-link <?php if(isset($pageId) && $pageId==13 || isset($pageId) && $pageId==14 || isset($pageId) && $pageId==17){echo'active';}else{echo'';} ?>">
-            <i class="fas fa-rupee-sign"></i>
+            <i class="fas fa-dollar-sign"></i>
               <p>
                 Matjary Plans
                 <i class="fas fa-angle-left right"></i>
@@ -136,6 +172,8 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
               </li>                          
             </ul>
           </li>
+          <?php } ?>
+          <?php if (in_array(8, $this->menuArrayValues)){ ?>
           <li class="nav-item <?php if(isset($pageId) && $pageId==18 ){echo'menu-open';}else{echo'';} ?>">
             <a href="#" class="nav-link <?php if(isset($pageId) && $pageId==18 ){echo'active';}else{echo'';} ?>">
             <i class="fas fa-store"></i>
@@ -154,7 +192,9 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                                       
             </ul>
           </li>
-		  <li class="nav-item <?php if(isset($pageId) && $pageId==20 || isset($pageId) && $pageId==21|| isset($pageId) && $pageId==22){echo'menu-open';}else{echo'';} ?>">
+          <?php } ?>
+          <?php if (in_array(9, $this->menuArrayValues)){ ?>
+		    <li class="nav-item <?php if(isset($pageId) && $pageId==20 || isset($pageId) && $pageId==21|| isset($pageId) && $pageId==22){echo'menu-open';}else{echo'';} ?>">
             <a href="#" class="nav-link <?php if(isset($pageId) && $pageId==20 || isset($pageId) && $pageId==21|| isset($pageId) && $pageId==22){echo'active';}else{echo'';} ?>">
             <i class="fas fa-ticket-alt"></i>
               <p>
@@ -178,16 +218,38 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                                       
             </ul>
           </li>
-		  <li class="nav-item menu-open">          
-            <ul class="nav nav-treeview">              
-              <li class="nav-item <?php if(isset($pageId) && $pageId==15 ){echo'menu-open';}else{echo'';} ?>">
-                <a href="<?php echo base_url('site-admin/profile'); ?>" class="nav-link <?php if(isset($pageId) && $pageId==15 ){echo'active';}else{echo'';} ?>">
-                <i class="fa fa-users" aria-hidden="true"></i>
-                  <p>Profile</p>
-                </a>
-              </li>
-            </ul>
-          </li>               
+          <?php } ?>
+          <?php if (in_array(11, $this->menuArrayValues)){ ?>
+          <li class="nav-item <?php if(isset($pageId) && $pageId==10 ){echo'menu-open';}else{echo'';} ?>">
+              <a href="#" class="nav-link <?php if(isset($pageId) && $pageId==10 ){echo'active';}else{echo'';} ?>">
+              <i class="fas fa-comment"></i>
+              <p>
+                  User Tickets
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="<?php echo base_url('site-admin/all-customer-enquiry'); ?>" class="nav-link <?php if(isset($pageId) && $pageId==10){echo'active';}else{echo'';} ?>">
+                    <i class="fa fa-list" aria-hidden="true"></i>
+                      <p>All User Tickets</p>
+                    </a>
+                  </li>                                           
+              </ul>
+          </li> 
+          <?php } ?>
+          <?php if (in_array(10, $this->menuArrayValues)){ ?>
+        <li class="nav-item menu-open">          
+              <ul class="nav nav-treeview">              
+                <li class="nav-item <?php if(isset($pageId) && $pageId==15 ){echo'menu-open';}else{echo'';} ?>">
+                  <a href="<?php echo base_url('site-admin/profile'); ?>" class="nav-link <?php if(isset($pageId) && $pageId==15 ){echo'active';}else{echo'';} ?>">
+                  <i class="fa fa-users" aria-hidden="true"></i>
+                    <p>Profile</p>
+                  </a>
+                </li>
+              </ul>
+            </li>  
+            <?php } ?>             
           <li class="nav-item menu-open">            
             <ul class="nav nav-treeview">              
               <li class="nav-item">

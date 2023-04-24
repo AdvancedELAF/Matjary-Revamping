@@ -35,6 +35,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
               </div>
               <!-- /.card-header -->
               <!-- form start -->
+              <?php //echo '<pre>'; print_r($getCategoryList);?>
               <form method="POST" action="<?php echo base_url('save-template'); ?>" name="save_template" id="save_template" enctype="multipart/form-data">
                 <div class="card-body">
                     <div class="row">
@@ -78,9 +79,10 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                                 <select class="form-control"  name="category_id" id="category_id">
                                     <option disabled selected >Template Category</option>                                             
                                     <?php if (isset($getCategoryList) && !empty($getCategoryList)) {
-                                        foreach ($getCategoryList as $value) { ?>
+                                        foreach ($getCategoryList as $value) { 
+                                            if($value->is_active == 1 ){ ?>
                                         <option value="<?php echo $value->id; ?>"><?php echo $value->theme_cat_name;?></option>
-                                    <?php } }?>    
+                                    <?php } } }?>    
                                 </select>
                             </div>
                         </div> 

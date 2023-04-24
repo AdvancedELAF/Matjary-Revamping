@@ -296,6 +296,11 @@ class UsrCntr extends MY_Controller {
             /* MyAccount -> Templates Tab */
             $user_store_template_details = $this->UsrModel->user_purchased_templates($this->loggedInUsrData['id']);
             $pageData['user_purchased_templates'] = $user_store_template_details;
+
+            /**Customer Enquiry List */
+            $customer_enquiry_details = $this->UsrModel->get_customer_wise_contact_data($this->loggedInUsrData['id']);
+            $pageData['EnquiryList'] = $customer_enquiry_details;
+            //echo '<pre>'; print_r($pageData['EnquiryList']); die;
             
             $this->load->view('user-dashboard-list', $pageData); /* send data page */
         } else {
@@ -1159,6 +1164,7 @@ class UsrCntr extends MY_Controller {
             if ($this->input->post() != "") {
                 $pwd_tkn = $this->input->post('pwd_tkn');
                 $new_pwd = $this->input->post('cnf_new_rst_pwd');
+                
                 if (isset($pwd_tkn) && !empty($pwd_tkn)) {
                     $usrData_temp = new stdClass();
                     $saveUsrPass = base_url('set-usr-reset-password-api');
@@ -1166,6 +1172,7 @@ class UsrCntr extends MY_Controller {
                         'cnf_new_rst_pwd' => $new_pwd,
                         'new_pwd_tkn' => $pwd_tkn
                     );
+                    
                     $header[0] = 'form-data';
                     /* send request to api */
                     $inptData['token'] = JWT::encode($requestData, JWT_TOKEN);
@@ -1220,6 +1227,12 @@ class UsrCntr extends MY_Controller {
             $user_profile_details = $this->get_user_profile_details();
             $userData = json_decode($user_profile_details, TRUE);
             $pageData['user_profile_details'] = $userData['responseData'];
+            /* session check for user login */
+            $pageData['site_lang'] = 'ar';
+            if ($this->session->userdata('site_lang')) {
+                $pageData['site_lang'] = $this->session->userdata('site_lang');
+            }
+            /* send plan data to template choosing page */
             $this->load->view('buy-template', $pageData);
         } else {
             redirect('login');
@@ -1320,8 +1333,11 @@ class UsrCntr extends MY_Controller {
                         'b_city' => isset($_POST['b_city']) ? $_POST['b_city'] : '',
                         'b_state' => isset($_POST['b_state']) ? $_POST['b_state'] : '',
                         'b_zipcode' => isset($_POST['b_zipcode']) ? $_POST['b_zipcode'] : '',
+                        'is_coupon_applied' => isset($_POST['is_coupon_applied']) ? $_POST['is_coupon_applied'] : 0,
+                        'coupon_id' => isset($_POST['coupon_id']) ? $_POST['coupon_id'] : 0,
+                        'coupon_amount' => isset($_POST['coupon_amount']) ? $_POST['coupon_amount'] : 0.00,
                         'template_cost' => isset($_POST['template_cost']) ? $_POST['template_cost'] : '',
-                        'total_price' => isset($_POST['template_cost']) ? $_POST['template_cost'] : '',
+                        'total_price' => isset($_POST['plan_total_price']) ? $_POST['plan_total_price'] : '',
                         'pg_req' => $paytabs_response,
                         'cartId' => $paytabs_response_temp['cart_id'],
                         'tranRef' => $paytabs_response_temp['tran_ref'],
@@ -1475,6 +1491,80 @@ class UsrCntr extends MY_Controller {
         } catch (Exception $e) {
             return $e->getMessage();
         }
+    }
+
+    public function view_coustomer_enquiry_details($ticketId) {
+        $pageData = array();
+        if (isset($this->loggedInUsrData['id']) && !empty($this->loggedInUsrData['id'])) {
+            $pageData['getContactEnquieryData'] = $this->UsrModel->get_customer_wise_data($ticketId);
+            $pageData['getContactData'] = $this->EmployeeModel->get_single_contact_data($ticketId);
+            
+           // echo '<pre>'; print_r($pageData['getContactData']); die;
+            $pageData['getTicketID'] = $ticketId;
+            $this->load->view('view-coustomer-enquiry-details',$pageData);
+        } else {
+            redirect('login');
+        }        
+    }
+
+    
+    public function submit_customer_enquiry_form() {
+        if (isset($_POST['cont_message']) && !empty($_POST['cont_message'])) {
+           /** Meassage Insert in table */
+           //echo '<pre>'; print_r($_POST); die;
+            $insertDataMeassage = array(        
+            'ticket_id' => isset($_POST['ticket_id']) ? $_POST['ticket_id'] : '',
+            'message' => isset($_POST['cont_message']) ? $_POST['cont_message'] : '',
+            'created_by' => isset($this->loggedInUsrData['id']) ? $this->loggedInUsrData['id'] : '' 
+            );
+            $UsrInsertDataMeassage = $this->EmployeeModel->submit_contact_measage_data($insertDataMeassage);
+                                              
+            if ($UsrInsertDataMeassage == false) {
+                $this->response['responseCode'] = 404;
+                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_35');
+                echo json_encode($this->response);
+                exit;
+            } else {                 
+                                
+                /* Send mail to admin */
+                $email_data = array(
+                    'email_title' => 'Enquiry from Contact Page - Matjary Site',
+                    'cont_name' => $_POST['cont_name'],
+                    'cont_email' => $_POST['cont_email'],
+                    'con_phone_no' => $_POST['con_phone_no'],
+                    'cont_subject' => $_POST['cont_subject'],
+                    'cont_message' => $_POST['cont_message']
+                );
+
+               
+                $email_subject = "Enquiry from Contact Page - Matjary Site";                   
+                if (isset($_POST['cont_email']) && !empty($_POST['cont_email'])) {
+                    $email_message = $this->load->view('emails/contact-enquiry', $email_data, TRUE);
+                    $emailStatus = sendEmail($_POST['cont_email'],$email_message,$email_subject);                        
+                }
+                //$adminEmail = "prashant.mane@advancedelaf.com";
+                $adminEmail = "kadogo4009@fitzola.com";
+                $email_message = $this->load->view('emails/contact-enquiry-mail-admin', $email_data, TRUE);
+                $emailStatus = sendEmail($adminEmail,$email_message,$email_subject);
+                if ($emailStatus) {
+                    /* Send acknowledge mail to user email */
+                    $this->response['responseCode'] = 200;
+                    $this->response['responseMessage'] = $this->lang->line('contact-txt-4');
+                    echo json_encode($this->response); exit;
+                } else {
+                    $this->response['responseCode'] = 404;
+                    $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_35');
+                    echo json_encode($this->response); exit;
+                }
+            }
+           // $this->load->view('view-coustomer-enquiry-details',$pageData);
+
+        } else {
+            $this->response['responseCode'] = 404;
+            $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_35');
+            echo json_encode($this->response);
+            exit;
+        }      
     }
 
 }

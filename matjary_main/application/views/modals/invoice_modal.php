@@ -212,16 +212,22 @@
                                         </div>
                                         <div class="headers clearfix">
                                             <div class="row">
-                                                <div class="col-3 invoice-title"><?php echo $this->lang->line('Theme Name'); ?></div>
-                                                <div class="col-4 invoice-title"><?php echo $this->lang->line('Sub Total'); ?></div>
-                                                <div class="col-5 invoice-title"><?php echo $this->lang->line('Grand Total'); ?></div>
+                                                <div class="col-2 invoice-title"><?php echo $this->lang->line('Theme Name'); ?></div>
+                                                <div class="col-2 invoice-title"><?php echo $this->lang->line('Sub Total'); ?></div>
+                                                <div class="col-2 invoice-title coupon_div ">Coupon Code</div>
+                                                <div class="col-2 invoice-title coupon_div">Coupon Discount</div>
+                                                <div class="col-2 invoice-title coupon_div">Coupon Amount</div>
+                                                <div class="col-2 invoice-title"><?php echo $this->lang->line('Grand Total'); ?></div>
                                             </div>
                                         </div>
                                         <div class="items">
                                             <div class="row item">
-                                                <div class="col-3 desc" id="theme_name">Theme Name</div>
-                                                <div class="col-4 desc" id="subtotal">Sub Total</div>
-                                                <div class="col-5 desc" id="grand_total">Grand Total</div>
+                                                <div class="col-2 desc" id="theme_name">Theme Name</div>
+                                                <div class="col-2 desc" id="subtotal">Sub Total</div>
+                                                <div class="col-2 desc coupon_div" id="coupon_code">COUPONCODE</div>
+                                                <div class="col-2 desc coupon_div" id="coupon_discount">0%</div>
+                                                <div class="col-2 desc coupon_div" id="coupon_amount">0.00</div>
+                                                <div class="col-2 desc" id="grand_total">0.00</div> 
                                             </div>
                                         </div>
                                     </div>

@@ -5,8 +5,7 @@ $(document).ready(function () {
     let processing = 'Processing...';
     let selectCountry = 'Select Country';
     let selectState = 'Select State';
-    let selectCity = 'Select City';
-
+    let selectCity = 'Select City';    
 
     $('#country_id').change(function (e) {
         e.preventDefault();
@@ -153,6 +152,12 @@ $(document).ready(function () {
     /* add-remove-input-field-dynamically-with-jquery end*/   
 
     Chart.register(ChartDataLabels); /** Chart Value Shows On Chart */
+
+    //Contact Us replay
+    $("#replayadmin").click(function(){
+        $("#replayEmail").show();
+    }); 
+    
 });
 
 $(function () {
