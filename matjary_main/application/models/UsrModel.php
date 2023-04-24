@@ -249,7 +249,9 @@ class UsrModel extends CI_Model {
                 ->from('user_subscriptions as us')
                 ->where('us.user_id', $user_id)
                 ->where('us.is_active', 1) 
-                ->order_by("plan_expiry_dt", "asc")
+                ->order_by('us.plan_expiry_dt', 'ASC')
+                ->order_by('us.id', 'DESC')
+                /*->order_by(array('us.plan_expiry_dt' => 'ASC', 'us.id' => 'DESC')) */
                 ->get();
             if ($query->num_rows() > 0) {
                 $rowData = $query->result();
@@ -800,6 +802,9 @@ class UsrModel extends CI_Model {
                 '
                 upi.id, 
                 upi.bill_info_address,
+                upi.is_coupon_applied,
+                upi.coupon_id,
+                upi.coupon_amount,
                 upi.total_price,
                 upi.order_status,
                 upi.payment_type,
@@ -809,11 +814,14 @@ class UsrModel extends CI_Model {
                 upi.template_cost,
                 upi.created_at,
                 mt.name as template_name,
+                c.code as coupon_code,
+                c.discount_in_percent as coupon_discount_percent 
                 '
                 )
                 ->from('user_store_templates as ust')
                 ->join('user_payment_info as upi', 'upi.template_id = ust.template_id', 'left')
                 ->join('matjary_templates as mt', 'mt.id = ust.template_id', 'left')
+                ->join('coupons as c', 'c.id=upi.coupon_id', 'left')
                 ->where('upi.id', $invoiceId)
                 ->get();
             if ($query->num_rows() > 0) {

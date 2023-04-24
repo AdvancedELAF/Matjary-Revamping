@@ -1227,6 +1227,12 @@ class UsrCntr extends MY_Controller {
             $user_profile_details = $this->get_user_profile_details();
             $userData = json_decode($user_profile_details, TRUE);
             $pageData['user_profile_details'] = $userData['responseData'];
+            /* session check for user login */
+            $pageData['site_lang'] = 'ar';
+            if ($this->session->userdata('site_lang')) {
+                $pageData['site_lang'] = $this->session->userdata('site_lang');
+            }
+            /* send plan data to template choosing page */
             $this->load->view('buy-template', $pageData);
         } else {
             redirect('login');
@@ -1327,8 +1333,11 @@ class UsrCntr extends MY_Controller {
                         'b_city' => isset($_POST['b_city']) ? $_POST['b_city'] : '',
                         'b_state' => isset($_POST['b_state']) ? $_POST['b_state'] : '',
                         'b_zipcode' => isset($_POST['b_zipcode']) ? $_POST['b_zipcode'] : '',
+                        'is_coupon_applied' => isset($_POST['is_coupon_applied']) ? $_POST['is_coupon_applied'] : 0,
+                        'coupon_id' => isset($_POST['coupon_id']) ? $_POST['coupon_id'] : 0,
+                        'coupon_amount' => isset($_POST['coupon_amount']) ? $_POST['coupon_amount'] : 0.00,
                         'template_cost' => isset($_POST['template_cost']) ? $_POST['template_cost'] : '',
-                        'total_price' => isset($_POST['template_cost']) ? $_POST['template_cost'] : '',
+                        'total_price' => isset($_POST['plan_total_price']) ? $_POST['plan_total_price'] : '',
                         'pg_req' => $paytabs_response,
                         'cartId' => $paytabs_response_temp['cart_id'],
                         'tranRef' => $paytabs_response_temp['tran_ref'],

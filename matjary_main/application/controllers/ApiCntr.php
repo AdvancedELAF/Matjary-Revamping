@@ -499,6 +499,9 @@ class ApiCntr extends MY_Controller {
                                                     'customer_id' => isset($decode_data['user_id']) ? $decode_data['user_id'] : '',
                                                     'bill_info_address' => serialize($bill_info),
                                                     'user_subscriptions_id' => $user_subscriptions_id,
+                                                    'is_coupon_applied' => isset($decode_data['is_coupon_applied']) ? $decode_data['is_coupon_applied'] : 0,
+                                                    'coupon_id' => isset($decode_data['coupon_id']) ? $decode_data['coupon_id'] : 0,
+                                                    'coupon_amount' => isset($decode_data['coupon_amount']) ? $decode_data['coupon_amount'] : 0.00,
                                                     'plan_cost' => isset($decode_data['plan_cost']) ? $decode_data['plan_cost'] : '',
                                                     'template_cost' => isset($decode_data['template_cost']) ? $decode_data['template_cost'] : '',
                                                     'template_id' => isset($decode_data['template_id']) ? $decode_data['template_id'] : '',
@@ -1519,6 +1522,9 @@ class ApiCntr extends MY_Controller {
                     'customer_id' => isset($decode_data['user_id']) ? $decode_data['user_id'] : '',
                     'bill_info_address' => serialize($bill_info),
                     'user_subscriptions_id' => 0,
+                    'is_coupon_applied' => isset($decode_data['is_coupon_applied']) ? $decode_data['is_coupon_applied'] : 0,
+                    'coupon_id' => isset($decode_data['coupon_id']) ? $decode_data['coupon_id'] : 0,
+                    'coupon_amount' => isset($decode_data['coupon_amount']) ? $decode_data['coupon_amount'] : 0.00,
                     'template_cost' => isset($decode_data['template_cost']) ? $decode_data['template_cost'] : 0,
                     'template_id' => isset($decode_data['template_id']) ? $decode_data['template_id'] : '',
                     'total_price' => isset($decode_data['total_price']) ? $decode_data['total_price'] : '',
@@ -1637,37 +1643,29 @@ class ApiCntr extends MY_Controller {
     }
 
     public function check_coupon_valid(){
-        //echo '<pre>'; print_r($_POST); exit;
         if(isset($_POST['user_id']) && !empty($_POST['user_id'])){
             if(isset($_POST['coupon_code']) && !empty($_POST['coupon_code'])){
                 $couponData = $this->CouponModel->check_coupon_exist($_POST['coupon_code']);
-                //echo '<pre>'; print_r($couponData); exit;
                 if(isset($couponData) && !empty($couponData)){
-                    /* same coupon already used by same user */
-                    $couponAlreadyUsedStatus = $this->CouponModel->coupon_already_used($couponData->id,$_POST['user_id']);
-                    //echo '<pre>'; print_r($couponAlreadyUsedStatus); exit;
-                    if($couponAlreadyUsedStatus==false){
-
-                        //echo '<pre>'; print_r($couponData); exit;
-                        /* check coupon not expired */
-                        $current_date = date("Y-m-d"); // Get the current date in YYYY-MM-DD format
-                        $expiration_date = date("Y-m-d", strtotime($couponData->expiry_date));
-                        
-                        if(strtotime($current_date) <= strtotime($expiration_date)){
+                    /* check coupon not expired */
+                    $current_date = date("Y-m-d"); /* Get the current date in YYYY-MM-DD format */
+                    $expiration_date = date("Y-m-d", strtotime($couponData->expiry_date));
+                    if(strtotime($current_date) <= strtotime($expiration_date)){
+                        /* same coupon already used by same user */
+                        $couponAlreadyUsedStatus = $this->CouponModel->coupon_already_used($couponData->id,$_POST['user_id']);
+                        if($couponAlreadyUsedStatus==false){
                             $this->response['responseCode'] = 200;
                             $this->response['responseMessage'] = 'Success.';
                             $this->response['responseData'] = $couponData;
                             echo json_encode($this->response); exit;
                         }else{
                             $this->response['responseCode'] = 404;
-                            $this->response['responseMessage'] = 'Coupon not valid.'; /* coupon code has been expired. */
+                            $this->response['responseMessage'] = 'Coupon already used.';
                             echo json_encode($this->response); exit;
                         }
-
-                        
                     }else{
                         $this->response['responseCode'] = 404;
-                        $this->response['responseMessage'] = 'Coupon already used.';
+                        $this->response['responseMessage'] = 'Coupon not valid.'; /* coupon code has been expired. */
                         echo json_encode($this->response); exit;
                     }
                 }else{
@@ -1675,7 +1673,6 @@ class ApiCntr extends MY_Controller {
                     $this->response['responseMessage'] = 'Coupon not valid.';
                     echo json_encode($this->response); exit;
                 }
-                
             }else{
                 $this->response['responseCode'] = 404;
                 $this->response['responseMessage'] = 'Coupon Code is Required.';
@@ -1686,7 +1683,6 @@ class ApiCntr extends MY_Controller {
             $this->response['responseMessage'] = 'User Id is Required.';
             echo json_encode($this->response); exit;
         }
-        
     }
 
 }
