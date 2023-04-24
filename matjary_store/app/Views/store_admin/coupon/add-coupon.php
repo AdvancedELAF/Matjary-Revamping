@@ -92,7 +92,7 @@ $ses_lang = $session->get('ses_lang');
                                 </select>
                             </div>
                         </div>
-                        <div class="col-md-6" id="min_amount" style="display:none;">
+                        <div class="col-md-6" id="min_amount_div" style="display:none;">
                             <label><?php echo $language['Minimum Applicable Amount']; ?></label>
                             <div class="mb-2">
                                 <input type="text" class="form-control floatNumberOnly" maxlength="8"  placeholder="<?php echo $language['Minimum Applicable Amount']; ?>" id="min_amount" name="min_amount">                               

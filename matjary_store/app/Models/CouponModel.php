@@ -88,10 +88,8 @@ class CouponModel extends Model {
         if(isset($is_exist) && !empty($is_exist)){
             $isExpired = $this->db->query('select * from '. $this->table .' where coupon_code="'.$coupon_code.'" and CURDATE() between coupon_startdate and coupon_expirydate ');
             $is_expired = $isExpired->getRow();
-            //echo '<pre>'; print_r($is_expired); exit;
             if(isset($is_expired) && !empty($is_expired)){
-                //echo '<pre>'; print_r($is_exist); exit;
-                $coupon_id = $is_exist->id;
+                $coupon_id = $is_expired->id;
                 $isCpnAlreadyUsedBySameCustomer = $this->db->query(
                     '
                     select 
@@ -101,10 +99,7 @@ class CouponModel extends Model {
                     where CouponsUsed.coupon_id = '.$coupon_id.'  
                     and CouponsUsed.customer_id='.$customer_id
                 );
-                // $last_query = $this->db->getLastQuery($isAlreadyUsedBySameCustomer);
-                // echo '<pre>'; print_r($last_query); exit;
                 $is_CpnUsedBySameCustomer = $isCpnAlreadyUsedBySameCustomer->getRow();
-                //echo '<pre>'; print_r($is_expired); exit;
                 if(isset($is_CpnUsedBySameCustomer) && !empty($is_CpnUsedBySameCustomer)){
                     $response['responseCode'] = 3;
                     $response['responseMessage'] = 'coupon code is already used by same customer previously';
@@ -112,7 +107,7 @@ class CouponModel extends Model {
                 }else{
                     $is_CpnForAllOrderQry = $this->db->query('select * from '. $this->table .' where coupon_code="'.$coupon_code.'" and for_orders=1');
                     $CpnForAllOrderData = $is_CpnForAllOrderQry->getRow();
-                    if(isset($is_CpnUsedBySameCustomer) && !empty($is_CpnUsedBySameCustomer)){
+                    if(isset($CpnForAllOrderData) && !empty($CpnForAllOrderData)){
                         $couponQry = $this->db->query('select * from '. $this->table .' where coupon_code="'.$coupon_code.'" ');
                         $couponData = $couponQry->getRow();
                         $response['responseCode'] = 4;
@@ -120,18 +115,9 @@ class CouponModel extends Model {
                         $response['responseData'] = $couponData;
                         return $response;
                     }else{
-                        $is_CpnForAllOrderQry = $this->db->query('select * from '. $this->table .' where coupon_code="'.$coupon_code.'" and for_orders=1');
-                        $CpnForAllOrderData = $is_CpnForAllOrderQry->getRow();
-                        //echo $this->db->getLastQuery();
+                        $is_CpnForOrderOverQry = $this->db->query('select * from '. $this->table .' where coupon_code="'.$coupon_code.'" and for_orders=2');
+                        $CpnForAllOrderData = $is_CpnForOrderOverQry->getRow();
                         if(isset($CpnForAllOrderData) && !empty($CpnForAllOrderData)){
-                            $couponQry = $this->db->query('select * from '. $this->table .' where coupon_code="'.$coupon_code.'" ');
-                            $couponData = $couponQry->getRow();
-                            $response['responseCode'] = 4;
-                            $response['responseMessage'] = 'coupon code is valid.';
-                            $response['responseData'] = $couponData;
-                            return $response;
-                        }else{
-
                             $is_CpnForMinOrderQry = $this->db->query('select * from '. $this->table .' where coupon_code="'.$coupon_code.'" and for_orders=2 and min_amount <= '.$total_price);
                             $CpnForMinOrderData = $is_CpnForMinOrderQry->getRow();
                             if(isset($CpnForMinOrderData) && !empty($CpnForMinOrderData)){
@@ -140,6 +126,7 @@ class CouponModel extends Model {
                                 $response['responseCode'] = 4;
                                 $response['responseMessage'] = 'coupon code is valid.';
                                 $response['responseData'] = $couponData;
+                                return $response;
                             }else{
                                 $couponQry = $this->db->query('select * from '. $this->table .' where coupon_code="'.$coupon_code.'" ');
                                 $couponData = $couponQry->getRow();
@@ -148,7 +135,7 @@ class CouponModel extends Model {
                                 $response['responseData'] = $couponData;
                                 return $response;
                             }
-                        }
+                        }                    
                     }
                 }
             }else{
@@ -161,10 +148,6 @@ class CouponModel extends Model {
             $response['responseMessage'] = 'coupon code is not exist.';
             return $response;
         }
-
-
-
-        //echo '<pre>'; print_r($res); exit;
     }
 }
 

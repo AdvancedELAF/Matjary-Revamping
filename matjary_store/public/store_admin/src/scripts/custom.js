@@ -598,16 +598,18 @@ $(document).ready(function () {
 
     $('#for_orders').on('change', function () { 
         if(this.value == "2"){
-            $("#min_amount").show();
+            $("#min_amount_div").show();
         } else {
-            $("#min_amount").hide();
+            $("#min_amount").val('0');
+            $("#min_amount_div").hide();
         }
     });
     var getorderval = $('#for_orders').find(":selected").val();  
     if(getorderval == "2"){
-        $("#min_amount").show();
+        $("#min_amount_div").show();
     }else{
-        $("#min_amount").hide();
+        $("#min_amount").val('0');
+        $("#min_amount_div").hide();
     }
 
     //Contact Us replay
