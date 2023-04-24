@@ -18,6 +18,13 @@ class MY_Controller extends CI_Controller {
 
         if ($this->session->userdata('loggedInSuperAdminData')) {
             $this->loggedInSuperAdminData = $this->session->userdata('loggedInSuperAdminData');
+           
+            /** Menu Hide Show Role wise Start */
+            $this->getEmployeeData= $this->UsrModel->get_loged_user_details($this->loggedInSuperAdminData['usr_role']);
+            $this->menuArray = unserialize($this->getEmployeeData[0]->role_access); 
+            $this->menuArrayValues = array_values($this->menuArray);
+            /** Menu Hide Show Role wise Start End*/
+            
         }
     }
 

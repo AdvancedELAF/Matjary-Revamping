@@ -1090,21 +1090,30 @@ class ApiCntr extends MY_Controller {
 
             if (isset($decode_data['cont_email']) && !empty($decode_data['cont_email'])) {
 
-                $insertData = array(
+                $insertData = array(    
+                    'user_id' => isset($decode_data['user_id']) ? $decode_data['user_id'] : '',                
+                    'ticket_id' => isset($decode_data['ticket_id']) ? $decode_data['ticket_id'] : '',
                     'cont_name' => isset($decode_data['cont_name']) ? $decode_data['cont_name'] : '',
                     'cont_email' => isset($decode_data['cont_email']) ? $decode_data['cont_email'] : '',
                     'con_phone_no' => isset($decode_data['con_phone_no']) ? $decode_data['con_phone_no'] : '',
-                    'cont_subject' => isset($decode_data['cont_subject']) ? $decode_data['cont_subject'] : '',
-                    'cont_message' => isset($decode_data['cont_message']) ? $decode_data['cont_message'] : ''
+                    'cont_subject' => isset($decode_data['cont_subject']) ? $decode_data['cont_subject'] : ''
                 );
                 $UsrInsertData = $this->CommonModel->submit_contact_form_api($insertData);
-
+                                                  
                 if ($UsrInsertData == false) {
                     $this->response['responseCode'] = 404;
                     $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_35');
                     echo json_encode($this->response);
                     exit;
-                } else {
+                } else {  
+                    /** Meassage Insert in table */
+                    $insertDataMeassage = array(        
+                        'ticket_id' => isset($decode_data['ticket_id']) ? $decode_data['ticket_id'] : '',
+                        'message' => isset($decode_data['cont_message']) ? $decode_data['cont_message'] : '',
+                        'created_by' => isset($decode_data['user_id']) ? $decode_data['user_id'] : '' 
+                    );
+                    $UsrInsertDataMeassage = $this->EmployeeModel->submit_contact_measage_data($insertDataMeassage);
+                                    
                     /* Send mail to admin */
                     $email_data = array(
                         'email_title' => 'Enquiry from Contact Page - Matjary Site',
@@ -1114,12 +1123,16 @@ class ApiCntr extends MY_Controller {
                         'cont_subject' => $decode_data['cont_subject'],
                         'cont_message' => $decode_data['cont_message']
                     );
-                    $adminEmail = "prashant.mane@advancedelaf.com";
-                    $email_subject = "Enquiry from Contact Page - Matjary Site";
-                    $email_message = $this->load->view('emails/contact-enquiry', $email_data, TRUE);
+
+                   
+                    $email_subject = "Enquiry from Contact Page - Matjary Site";                   
                     if (isset($decode_data['cont_email']) && !empty($decode_data['cont_email'])) {
-                        $emailStatus = sendEmail($decode_data['cont_email'],$email_message,$email_subject);
+                        $email_message = $this->load->view('emails/contact-enquiry', $email_data, TRUE);
+                        $emailStatus = sendEmail($decode_data['cont_email'],$email_message,$email_subject);                        
                     }
+                    //$adminEmail = "prashant.mane@advancedelaf.com";
+                    $adminEmail = "kadogo4009@fitzola.com";
+                    $email_message = $this->load->view('emails/contact-enquiry-mail-admin', $email_data, TRUE);
                     $emailStatus = sendEmail($adminEmail,$email_message,$email_subject);
                     if ($emailStatus) {
                         /* Send acknowledge mail to user email */
@@ -1593,7 +1606,7 @@ class ApiCntr extends MY_Controller {
                     //echo '---'.print_r($usrData); die;
                     if ($usrData == false) {
                         $this->response['responseCode'] = 404;
-                        $this->response['responseMessage'] = 'Invalid details----. ';
+                        $this->response['responseMessage'] = 'Invalid details. ';
                         echo json_encode($this->response);
                         exit;
                     } else {

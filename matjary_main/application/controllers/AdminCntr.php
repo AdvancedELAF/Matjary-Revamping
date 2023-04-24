@@ -2114,6 +2114,8 @@ class AdminCntr extends MY_Controller {
         if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {
             $pageData['pageId'] = 30;
             $pageData['GetSingleEnquiryDetails'] = $this->EmployeeModel->get_single_enquiry_details($id);
+            $pageData['GetadminEnquiryDetails'] = $this->EmployeeModel->get_single_admin_enquiry_details($id);
+            //echo '<pre>'; print_r($pageData['GetadminEnquiryDetails']); die; 
             $this->load->view('site_admin/customer-enquiry/view-coustomer-enquiry', $pageData);
         }else{
             redirect('site-admin/login');
@@ -2132,14 +2134,20 @@ class AdminCntr extends MY_Controller {
                     }
 
                     $usrData = new stdClass();
-                    $updateData = array(
-                        'admin_reply' => isset($_POST['admin_reply']) ? $_POST['admin_reply'] : ''                                       
+                    
+                    $insertDataMeassage = array(        
+                        'ticket_id' => isset($_POST['ticket_id']) ? $_POST['ticket_id'] : '',
+                        'message' => isset($_POST['admin_reply']) ? $_POST['admin_reply'] : '',
+                        'created_by' => isset($this->loggedInSuperAdminData['id']) ? $this->loggedInSuperAdminData['id'] : '' 
                     );
-                    $UsrInsertData = $this->EmployeeModel->update_enquiry_data($updateData, $_POST['id']);
-
+                    $UsrInsertData = $this->EmployeeModel->submit_contact_measage_data($insertDataMeassage);  
+                    
                     $pageData['name'] = $_POST['name'];
                     $pageData['massage'] = $_POST['cusmeassage'];
                     $pageData['adminReply'] = $_POST['admin_reply'];
+                    $pageData['ticket_id'] = $_POST['ticket_id'];
+                    $pageData['emailSubject'] = $_POST['cont_subject'];
+
                     
                     $email_subject = "Response From Support - Matjary Site";
                     $email_message = $this->load->view('site_admin/emails/admin-reply-contact-enquiry', $pageData, TRUE);                    

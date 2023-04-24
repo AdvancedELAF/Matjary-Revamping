@@ -36,6 +36,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                                         <tr>
                                         <th>ID</th>
                                         <th>Name</th>
+                                        <th>Role</th>
                                         <th>Email </th>
                                         <th>Contact No.</th>
                                         <th>Status</th>
@@ -51,6 +52,21 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                             <tr>
                                         <th scope="row"><?php echo $i; ?></th>
                                         <td><?php echo isset($value->fname) ? $value->fname : 'NA'; ?></td>
+                                        <td>
+                                            <?php 
+                                                if($value->usr_role == 1){
+                                                    echo 'Super Admin';
+                                                }elseif($value->usr_role == 2){
+                                                echo 'Admin';
+                                                }elseif($value->usr_role == 3){
+                                                echo 'User';
+                                                }elseif($value->usr_role == 4){
+                                                echo 'Manager';
+                                                }elseif($value->usr_role == 5){
+                                                echo 'Customer Support Executive';
+                                                }
+                                            ?>
+                                        </td>
                                         <td><?php echo isset($value->email) ? $value->email : 'NA'; ?></td>                                        
                                         <td><?php echo isset($value->phone_no) ? $value->phone_no : 'NA'; ?></td>
                                         <td><?php if ($value->is_active == 1) {

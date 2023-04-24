@@ -172,8 +172,7 @@ class UsrModel extends CI_Model {
             ->join('user_credentials as uc', 'uc.user_id=u.id', 'inner')
             ->where('u.email', $email)
             ->where('uc.pswrd', $pass)
-            //->where('u.usr_role', 1)
-            ->where_in('u.usr_role', array(1,4))
+            ->where_in('u.usr_role', array(1,2,4,5))
             ->where('u.is_active', 1)
             ->get();
             if ($query->num_rows() > 0) {
@@ -894,6 +893,70 @@ class UsrModel extends CI_Model {
             $dataInserted = $this->db->update('users', $data);
             if ($dataInserted) {
                 return true;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function get_customer_wise_data($ticketId) {
+        try {                     
+            $query = $this->db->select(
+                '                             
+                    tm.id ,
+                    tm.ticket_id as ticketno,
+                    tm.message,
+                    tm.created_by,
+                    u.id as user_id,
+                    u.fname,
+                    u.usr_role,
+                    ur.role_id,
+                    ur.role_name
+                    	 
+                '
+            )
+            ->from('ticket_messages as tm')
+            ->join('users as u', 'u.id = tm.created_by', 'left')
+            ->join('user_roles as ur', 'ur.role_id = u.usr_role', 'left')
+            ->where('tm.ticket_id',$ticketId)
+            ->get();
+            if ($query->num_rows() > 0) {
+                    return $query->result();
+                } else {
+                    return false;
+                }
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function get_customer_wise_contact_data($userId) {
+        try {          
+            $query  = $this->db->select('*')
+                    ->from('support_tickets') 
+                    ->where('user_id',$userId)           
+                     ->order_by('id','DESC')
+                    ->get();
+                    if ($query->num_rows() > 0) {
+                        return $query->result();
+                    } else {
+                        return false;
+                    }
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function get_loged_user_details($roleId) {
+        try {
+            $query = $this->db->select('*')
+            ->from('user_roles')
+            ->where_in('role_id', $roleId)
+            ->get();
+            if ($query->num_rows() > 0) {
+                return $query->result();
             } else {
                 return false;
             }

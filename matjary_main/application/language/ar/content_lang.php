@@ -488,6 +488,10 @@ $lang['user-acc-txt-41'] = 'خلقت';
 $lang['user-acc-txt-42'] = 'تاريخ الاستحقاق';
 $lang['user-acc-txt-43'] = 'إجابة';
 $lang['user-acc-txt-44'] = 'موعد الدفع';
+$lang['user-acc-txt-45'] = 'تذاكر الاستفسار';
+$lang['user-acc-txt-46'] = 'معرف التذكرة';
+$lang['user-acc-txt-47'] = 'فعل';
+
 /* User Account page end */
 
 /* invoice model start */
@@ -604,3 +608,6 @@ $lang['FREE'] = 'حر';
 $lang['Expires-In'] = 'ينتهي في';
 $lang['days'] = 'أيام';
 $lang['Expired'] = 'منتهي الصلاحية';
+
+/**Employee List */
+$lang['Reply'] = 'رد';

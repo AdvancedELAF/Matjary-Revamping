@@ -481,4 +481,28 @@ $(document).ready(function () {
         }
     });
 
+    $("#submit_customer_enquiry_form").validate({
+        rules: {            
+            cont_subject: {
+            },
+            cont_message: {
+                required: true
+            }
+        },
+        messages: {          
+            cont_subject: "",
+            cont_message: validQuery
+        },
+        debug: true,
+        errorElement: 'span',
+        errorPlacement: function (error, element) {
+            var placement = $(element).data('error');
+            if (placement) {
+                $(placement).append(error)
+            } else {
+                error.insertAfter(element);
+            }
+        }
+    });
+
 });

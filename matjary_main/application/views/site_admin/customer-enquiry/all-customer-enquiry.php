@@ -15,12 +15,12 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                 <div class="container-fluid">
                     <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">All Customer Enquiry</h1>
+                        <h1 class="m-0">All User Tickets</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?php echo base_url('site-admin/dashboard'); ?>">Home</a></li>
-                        <li class="breadcrumb-item active">All Customer Enquiry</li>
+                        <li class="breadcrumb-item active">All User Tickets</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -36,7 +36,8 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                         <table class="table table-bordered table-striped" id="viewAllSubscribersList">
                             <thead>
                                 <tr>
-                                <th>ID</th>  
+                                <th>ID</th> 
+                                <th>Ticket ID</th> 
                                 <th>Name</th>                             
                                 <th>Email</th>
                                 <th>Contact No.</th>   
@@ -51,6 +52,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                                     ?>
                                 <tr>
                                     <td scope="row"><?php echo $i; ?></td>
+                                    <td><?php echo isset($value->ticket_id ) ? $value->ticket_id : 'NA'; ?></td> 
                                     <td><?php echo isset($value->cont_name ) ? $value->cont_name : 'NA'; ?></td>                                    
                                     <td><?php echo isset($value->cont_email ) ? $value->cont_email : 'NA'; ?></td>
                                     <td><?php echo isset($value->con_phone_no ) ? $value->con_phone_no : 'NA'; ?></td>                                   
@@ -60,7 +62,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                                             <i class="fa fa-align-justify" aria-hidden="true"></i>
                                             </button>
                                             <div class="dropdown-menu">                                          
-                                            <a class="dropdown-item" href="<?php echo base_url('site-admin/view-coustomer-enquiry/' . $value->id); ?>"><i class="dw dw-edit2"></i>View</a>
+                                            <a class="dropdown-item" href="<?php echo base_url('site-admin/view-coustomer-enquiry/' . $value->ticket_id); ?>"><i class="dw dw-edit2"></i>Details</a>
                                             </div>
                                         </div>
                                     </td>

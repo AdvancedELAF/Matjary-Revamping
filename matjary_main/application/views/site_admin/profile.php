@@ -35,8 +35,16 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
 
                 <p class="text-muted">
                   <?php 
-                    if($getAdminUserData->usr_role == '1'){
-                        echo 'Site Admin';
+                    if($getAdminUserData->usr_role == 1){
+                        echo 'Super Admin';
+                    }elseif($getAdminUserData->usr_role == 2){
+                      echo 'Admin';
+                    }elseif($getAdminUserData->usr_role == 3){
+                      echo 'User';
+                    }elseif($getAdminUserData->usr_role == 4){
+                      echo 'Manager';
+                    }elseif($getAdminUserData->usr_role == 5){
+                      echo 'Customer Support Executive';
                     }
                   ?>
                 </p>

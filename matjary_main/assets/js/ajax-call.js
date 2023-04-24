@@ -1166,6 +1166,87 @@ function show_template_details(template_id, template_price,free_paid_flag,tmp_pu
         }
     });
 }
+
+$("#submit_customer_enquiry_form").on('submit', (function (e) {
+    e.preventDefault();
+    var isvalidate = $("#submit_customer_enquiry_form").valid();
+    if (!isvalidate) {
+        return false;
+    } else {
+        var form = $('#submit_customer_enquiry_form')[0];
+        var requestData = new FormData(form);
+        var action_page = $("#submit_customer_enquiry_form").attr('action');
+        $.ajax({
+            url: action_page,
+            type: "POST",
+            enctype: 'multipart/form-data',
+            data: requestData,
+            contentType: false,
+            cache: false,
+            processData: false,
+            timeout: 600000,
+            success: function (resp) {
+                console.log(resp);
+                resp = JSON.parse(resp);
+                if (resp.responseCode == 200) {
+                    swal({title: "", text: resp.responseMessage, type: "success"},
+                    function(){
+                        window.location.reload();
+                    }
+                   );
+                } else {
+                    swal({title: "Fail", closeOnClickOutside: false, text: resp.responseMessage, type: "error"});
+                }
+            }
+        });
+    }
+}));
+
+// $("#submit_customer_enquiry_form").on('submit', (function (e) {
+//     e.preventDefault();
+//     var isvalidate = $("#submit_customer_enquiry_form").valid();
+//     if (!isvalidate) {
+//         return false;
+//     } else {
+//         var form = $('#submit_customer_enquiry_form')[0];
+//         var requestData = new FormData(form);
+//         var action_page = $("#submit_customer_enquiry_form").attr('action');
+//         $.ajax({
+//             url: action_page,
+//             type: "POST",
+//             enctype: 'multipart/form-data',
+//             data: requestData,
+//             contentType: false,
+//             cache: false,
+//             processData: false,
+//             timeout: 600000,
+//             beforeSend: function () {
+//                 swal({
+//                     title: "",
+//                     text: processing,
+//                     imageUrl: base_url + "/assets/images/loader/matjary-loader.gif",
+//                     buttons: false,
+//                     closeOnClickOutside: false,
+//                     timer: 3000
+//                 });
+//             },
+//             success: function (resp) {
+//                 resp = JSON.parse(resp);
+//                 if (resp.responseCode == 200) {
+//                     swal({title: "", text: resp.responseMessage, type: "success"},
+//                     function(){
+//                         window.location.reload();
+//                     }
+//                    );
+//                 } else {
+//                     swal({title: "Fail", closeOnClickOutside: false, text: resp.responseMessage, type: "error"});
+//                 }
+//                 $('#submit_customer_enquiry_form')[0].reset();
+//             }
+//         });
+//     }
+// }));
+
 /* theme filter function start */
 
 
