@@ -1,4 +1,4 @@
-<?php include("modals/template_modal.php"); ?>
+<?php $this->load->view("modals/template_modal"); ?>
 
 <section class="">
     <div class="custom-container">
