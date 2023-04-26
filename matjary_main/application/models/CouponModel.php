@@ -79,7 +79,7 @@ class CouponModel extends CI_Model {
 
     public function coupon_already_used($coupon_id,$user_id){
         try {            
-            $query = $this->db->where('customer_id', $user_id)->where('coupon_id', $coupon_id)->get('user_payment_info');
+            $query = $this->db->where('customer_id', $user_id)->where('coupon_id', $coupon_id)->where('is_active', 1)->get('user_payment_info');
             if ($query->num_rows() > 0) {
                 return true;
             } else {
