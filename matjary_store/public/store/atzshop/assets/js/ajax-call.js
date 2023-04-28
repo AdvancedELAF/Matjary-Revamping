@@ -925,7 +925,7 @@ $(document).ready(function(){
         // }else{
         //     coupon_amount = parseFloat(subtotal) - parseFloat(coupon_amount);
         // }
-        let total_price = '';
+        let total_price = 0;
         let coupon_amount = $("#coupon_amount").val();
         if(coupon_amount=='' || coupon_amount==undefined || coupon_amount==null){
             total_price = parseFloat(subtotal);
@@ -938,12 +938,12 @@ $(document).ready(function(){
                 let dscntPerValue = (parseFloat(subtotal) * parseInt(discount_value)) / 100;
                 $('#coupon_amount').val(dscntPerValue.toFixed(2));
                 $("#promotion_applied_amount_span").text(dscntPerValue.toFixed(2));
-                dscntTotalPrice = parseFloat(subtotal) - parseFloat(dscntPerValue);
+                let dscntTotalPrice = parseFloat(subtotal) - parseFloat(dscntPerValue);
                 total_price = dscntTotalPrice;
             }else if(discount_type==2){
-                $('#coupon_amount').val(discount_value.toFixed(2));
-                $("#promotion_applied_amount_span").text(dscntPerValue.toFixed(2));
-                dscntTotalPrice = parseInt(subtotal) - parseInt(discount_value);
+                $('#coupon_amount').val(discount_value);
+                $("#promotion_applied_amount_span").text(dscntPerValue+'.00');
+                let dscntTotalPrice = parseInt(subtotal) - parseInt(discount_value);
                 total_price = dscntTotalPrice;
             }
             
@@ -1007,7 +1007,7 @@ $(document).ready(function(){
         $("#subtotal_span").text(subtotal.toFixed(2));
         $("#subtotal").val(subtotal.toFixed(2));
                 
-        let total_price = '';
+        let total_price = 0;
         let coupon_amount = $("#coupon_amount").val();
         if(coupon_amount=='' || coupon_amount==undefined || coupon_amount==null){
             total_price = parseFloat(subtotal);
@@ -1016,18 +1016,18 @@ $(document).ready(function(){
 
             //coupon_amount = parseFloat(subtotal) - parseFloat(coupon_amount);
 
-            var discount_type = $("#discount_type").val();
-            var discount_value = $("#discount_value").val();
+            let discount_type = $("#discount_type").val();
+            let discount_value = $("#discount_value").val();
             if(discount_type==1){
                 let dscntPerValue = (parseFloat(subtotal) * parseInt(discount_value)) / 100;
                 $('#coupon_amount').val(dscntPerValue.toFixed(2));
                 $("#promotion_applied_amount_span").text(dscntPerValue.toFixed(2));
-                dscntTotalPrice = parseFloat(subtotal) - parseFloat(dscntPerValue);
+                var dscntTotalPrice = parseFloat(subtotal) - parseFloat(dscntPerValue);
                 total_price = dscntTotalPrice;
             }else if(discount_type==2){
-                $('#coupon_amount').val(discount_value.toFixed(2));
-                $("#promotion_applied_amount_span").text(dscntPerValue.toFixed(2));
-                dscntTotalPrice = parseInt(subtotal) - parseInt(discount_value);
+                $('#coupon_amount').val(discount_value);
+                $("#promotion_applied_amount_span").text(discount_value+'.00');
+                var dscntTotalPrice = parseInt(subtotal) - parseInt(discount_value);
                 total_price = dscntTotalPrice;
             }
             

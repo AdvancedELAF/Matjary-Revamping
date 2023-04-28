@@ -141,7 +141,15 @@ $(document).ready(function () {
         $(".giftCardInput").css({"display":"block"});
     });
 
-     /* Allow Only Number Validation */
+    /* prevent onpaste event on input */
+    var preventPasteInputs = document.querySelectorAll('.numberonly');
+    for (var i = 0; i < preventPasteInputs.length; i++) {
+        preventPasteInputs[i].addEventListener('paste', function(e) {
+            e.preventDefault();
+        });
+    }
+    
+    /* Allow Only Number Validation */
      $('.numberonly').keypress(function (e) {  
         var charCode = (e.which) ? e.which : event.keyCode   
             if (String.fromCharCode(charCode).match(/[^0-9]/g))    

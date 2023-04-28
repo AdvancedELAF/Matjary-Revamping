@@ -154,6 +154,14 @@ $(document).ready(function () {
             return false;
     });
 
+    /* prevent onpaste event on input */
+    var preventPasteInputs = document.querySelectorAll('.numberonly');
+    for (var i = 0; i < preventPasteInputs.length; i++) {
+        preventPasteInputs[i].addEventListener('paste', function(e) {
+            e.preventDefault();
+        });
+    }
+
     /* Flat Number Only Validation */
     $('.floatNumberOnly').keypress(function (e) {
         var charCode = (e.which) ? e.which : event.keyCode
