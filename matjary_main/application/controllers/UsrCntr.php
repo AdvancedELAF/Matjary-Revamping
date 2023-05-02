@@ -1548,7 +1548,6 @@ class UsrCntr extends MY_Controller {
                     'cont_message' => $_POST['cont_message'],
                     'ticket_link' => base_url('/ticket-details/'.$_POST['ticket_id'])
                 );
-
                
                 $email_subject = "Enquiry from Contact Page - Matjary Site";                   
                 if (isset($_POST['cont_email']) && !empty($_POST['cont_email'])) {

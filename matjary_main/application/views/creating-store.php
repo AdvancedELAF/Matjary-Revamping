@@ -52,7 +52,7 @@
                                         <tr class="total-row">
                                             <td><?php echo $this->lang->line('user-acc-txt-40'); ?></td>
                                             <td></td>
-                                            <td>SAR <?php echo $total_price; ?></td>
+                                            <td><?php echo $this->lang->line('SAR') . " " . $total_price; ?></td>
                                         </tr>
                                     </tbody>
                                 </table>

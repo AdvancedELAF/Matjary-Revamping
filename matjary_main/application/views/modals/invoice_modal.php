@@ -66,7 +66,7 @@
                                             <div class="row item">
                                                 <div class="col-4 desc" id="plan_name">Basic</div>
                                                 <div class="col-3 qty" id="validity_in_months">3</div>
-                                                <div class="col-5 amount arabic-right" id="plan_cost">SAR 60.00</div>
+                                                <div class="col-5 amount arabic-right" id="plan_cost"><?php echo $this->lang->line('SAR'); ?> 60.00</div>
                                             </div>
                                         </div>
                                         <div class="headers mt-3 clearfix">

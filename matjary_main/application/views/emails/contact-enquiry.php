@@ -5,5 +5,6 @@
     <p>Our team will get back to you shortly with a response, so please keep an eye out for our email. You can also check the status of your enquiry ticket by logging into Matjary.in.</p>
     <p>If you have any further queries, please feel free to contact us at support@matjary.com.</p>
     <p>We appreciate your patience and look forward to helping you asoon.</p>
+   
 </div>
 <?php include 'email_head_foot/email_foot.php'; ?>

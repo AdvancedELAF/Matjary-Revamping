@@ -103,7 +103,7 @@ define("NATIVEAPPTOKENS", json_encode(array("xKAEiSiNrd8YsDctgmZ6Gjm2", "bNZUV3B
 
 define("DOMAIN_EXP_TRESHOLD", "25");
 
-define("ADMIN_EMAIL", "santoshpaskanti@gmail.com");
+define("ADMIN_EMAIL", "s.paskanti@advancedelaf.com");
 
 define("FREE_TRIAL_VALIDITY", '14');
 define("FREE_TRIAL_PLAN_ID", '7');
