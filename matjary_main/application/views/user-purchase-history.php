@@ -98,7 +98,7 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="nav-pt" role="tabpanel" aria-labelledby="nav-pt-tab">
-                    <div class="billing-table">
+                    <div class="billing-table arabic-right">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="user_order_table_templates">
                                 <thead class="thead">

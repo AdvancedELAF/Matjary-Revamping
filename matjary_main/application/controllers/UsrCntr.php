@@ -4,6 +4,15 @@ class UsrCntr extends MY_Controller {
 
     function __construct() {
         parent::__construct();
+
+        /*//load helper for language*/
+        $this->load->helper('language');
+        /*//content_lang is the language file within language folder*/
+        if(isset($_SESSION['site_lang'])){
+            $this->lang->load('content_lang',$_SESSION['site_lang']);
+        }else{
+            $this->lang->load('content_lang','ar');
+        }
     }
 
     public function register() {
@@ -922,6 +931,7 @@ class UsrCntr extends MY_Controller {
                     );
                     $header[0] = 'form-data';
                     $urlJsonData_1 = $this->restclient->post($saveUsrPass, $requestData, $header);
+
                     if ($urlJsonData_1->info->http_code == 200) {
                         $storeData_1->apiResponse = json_decode($urlJsonData_1->response);
                         if ($storeData_1->apiResponse->responseCode == 200) {
@@ -1430,7 +1440,7 @@ class UsrCntr extends MY_Controller {
                     $urlJsonData = $this->restclient->post($updateUserPaymentInfo, $inptData, $header);
                     /* updating pg response to tables end */
                     if ($urlJsonData->info->http_code == 200) {
-                        //$usrApiRes = json_decode($urlJsonData->response, true);
+                        /*//$usrApiRes = json_decode($urlJsonData->response, true);*/
                         $usrData->apiResponse = json_decode($urlJsonData->response);
                         if ($usrData->apiResponse->responseCode == 200) {
                             /* setting user session */
@@ -1471,11 +1481,13 @@ class UsrCntr extends MY_Controller {
                                     $invoice_email_message = $this->load->view('emails/purchase-invoice', $invoice_email_data, TRUE);
                                     $invoice_emailStatus = sendEmail($usrData_temp->email, $invoice_email_message, $invoice_email_subject);
                                 /* send purchase template invoice mail to user end */
-                                $this->session->set_flashdata('msg', 'Template Added Succesfully.');
+                                $_msg =  "<span style='color:green';>".$this->lang->line('usr_cntr_msg_44')."</span>";
+                                $this->session->set_flashdata('msg', $_msg);
                                 $this->session->set_flashdata('msg_class', 'alert-success');
                                 /* Redirect to store creation page */
                             } else {
-                                $this->session->set_flashdata('msg', 'Somthing Went wrong, Please try again!');
+                                $_msg =  $this->lang->line('usr_cntr_msg_39');
+                                $this->session->set_flashdata('msg', $_msg);
                                 $this->session->set_flashdata('msg_class', 'alert-danger');
                             }
                             /* user login & redirect */
@@ -1533,7 +1545,8 @@ class UsrCntr extends MY_Controller {
                     'cont_email' => $_POST['cont_email'],
                     'con_phone_no' => $_POST['con_phone_no'],
                     'cont_subject' => $_POST['cont_subject'],
-                    'cont_message' => $_POST['cont_message']
+                    'cont_message' => $_POST['cont_message'],
+                    'ticket_link' => base_url('/ticket-details/'.$_POST['ticket_id']);
                 );
 
                
@@ -1542,8 +1555,8 @@ class UsrCntr extends MY_Controller {
                     $email_message = $this->load->view('emails/contact-enquiry', $email_data, TRUE);
                     $emailStatus = sendEmail($_POST['cont_email'],$email_message,$email_subject);                        
                 }
-                //$adminEmail = "prashant.mane@advancedelaf.com";
-                $adminEmail = "kadogo4009@fitzola.com";
+                
+                $adminEmail = "do-notreply@advancedelaf.com";
                 $email_message = $this->load->view('emails/contact-enquiry-mail-admin', $email_data, TRUE);
                 $emailStatus = sendEmail($adminEmail,$email_message,$email_subject);
                 if ($emailStatus) {

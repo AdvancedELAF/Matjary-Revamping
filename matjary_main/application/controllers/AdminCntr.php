@@ -7,6 +7,15 @@ class AdminCntr extends MY_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model('CatModel');
+
+        /*//load helper for language*/
+        $this->load->helper('language');
+        /*//content_lang is the language file within language folder*/
+        if(isset($_SESSION['site_lang'])){
+            $this->lang->load('content_lang',$_SESSION['site_lang']);
+        }else{
+            $this->lang->load('content_lang','ar');
+        }
     }
 
     public function index() {
@@ -2147,8 +2156,8 @@ class AdminCntr extends MY_Controller {
                     $pageData['adminReply'] = $_POST['admin_reply'];
                     $pageData['ticket_id'] = $_POST['ticket_id'];
                     $pageData['emailSubject'] = $_POST['cont_subject'];
+                    $pageData['ticket_link'] = base_url('/ticket-details/'.$_POST['ticket_id']);                   
 
-                    
                     $email_subject = "Response From Support - Matjary Site";
                     $email_message = $this->load->view('site_admin/emails/admin-reply-contact-enquiry', $pageData, TRUE);                    
                     $emailStatus = sendEmail($_POST['email'],$email_message,$email_subject);

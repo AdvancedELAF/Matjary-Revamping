@@ -7,17 +7,13 @@
         </div>
 
         <div class="dash-wrap blue-bg mb-4">
-
-            <div class="alert <?php echo isset($msg_class)?$msg_class:''; ?> alert-dismissible fade show mx-auto text-center billing-alert" role="alert">
+        <?php if ($msg = $this->session->flashdata('msg')) { ?>
+            <div class="alert alert-info alert-dismissible fade show mx-auto text-center billing-alert" role="alert">
                 <strong>
-                    <?php
-                    if ($msg = $this->session->flashdata('msg')) {
-                        $msg_class = $this->session->flashdata('msg_class');
-                        echo $msg;
-                    }
-                    ?>
+                    <?php echo $msg; ?>
                 </strong>
             </div> 
+            <?php }?>
 
             <div class="row">
                 <?php

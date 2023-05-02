@@ -819,6 +819,10 @@ h4.chooseDomain-modal-title {
     text-align: right;
 }
 
+.arabic-right-float{
+    float: right;
+}
+
 .section-one-content {
     margin: 1rem 0;
 }
