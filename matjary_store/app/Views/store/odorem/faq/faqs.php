@@ -18,7 +18,6 @@ $ses_lang = $session->get('ses_lang');
 <section class="section-spacing <?php if($locale=='ar'){echo 'text-right';} ?>">
     <div class="container">
             <?php
-        $checkfaqData = $locale=='en'?'FAQ Content/Information Not Available Yet!.':'الأسئلة الشائعة المحتوى / المعلومات غير متوفرة بعد !.';
             if (isset($faqList) && !empty($faqList)) {
                 foreach ($faqList as $i => $faqData) {
                     $question = '';
@@ -63,11 +62,8 @@ $ses_lang = $session->get('ses_lang');
                 </div>
             <?php
                 }
-        }else{ ?>
-            <div class="page-content">
-                <?php echo $checkfaqData; ?>
-            </div>
-        <?php } ?>
-    </div>
+            }
+            ?>
+        </div>
 </section>
 <?php $this->endSection(); ?>

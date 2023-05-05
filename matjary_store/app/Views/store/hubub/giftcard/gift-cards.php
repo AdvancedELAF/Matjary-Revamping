@@ -6,8 +6,7 @@ $ses_lang = $session->get('ses_lang');
 ?>
 <?php $this->extend('store/'.$storeActvTmplName.'/layouts/store_layout'); ?>
 <?php $this->section('content'); ?>
-<!-- GIFT CARD LISITNG SECTION STARTS -->
-<section class="ot-banner <?php if($locale=='ar'){echo 'text-right';} ?>">
+<section class="ot-banner">
     <div class="container">
         <div class="page-title">
             <h1><?php echo $language['Gift cards']; ?></h1>
@@ -18,12 +17,9 @@ $ses_lang = $session->get('ses_lang');
 <section class="section-spacing <?php if($locale=='ar'){echo 'text-right';} ?>">
     <div class="container">        
         <div class="row">
-            <?php 
-            $giftCard = $locale=='en'?'Data Not Available Yet!.':'البيانات غير متوفرة بعد!';          
-            //echo '<pre>'; print_r($GiftCardList); die;  
+            <?php //echo '<pre>'; print_r($GiftCardList);
             if(isset($GiftCardList) && !empty($GiftCardList)){
                 foreach($GiftCardList as $GiftCardData){
-                    $today = date("Y-m-d");
                     $name = '';
                     if($ses_lang=='en'){
                         if(isset($GiftCardData->name) && !empty($GiftCardData->name)){
@@ -42,7 +38,7 @@ $ses_lang = $session->get('ses_lang');
                             }
                         }                                                        
                     }
-                  
+                    $today = date("Y-m-d");
                     if(date("Y-m-d",strtotime($GiftCardData->expiry_date)) >= $today){
             ?>
             <div class="col-md-6 col-lg-3">
@@ -70,12 +66,8 @@ $ses_lang = $session->get('ses_lang');
             <?php
                     }
                 }
-            }else{ ?>
-                <div class="prod-detail text-center">                    
-                    <h4><?php echo $giftCard; ?></h4>                   
-                </div>
-            <?php }
-            ?>          
+            }
+            ?>
         </div>
     </div>
 </section>

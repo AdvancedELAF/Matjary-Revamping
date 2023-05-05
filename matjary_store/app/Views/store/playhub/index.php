@@ -71,69 +71,12 @@ $ses_lang = $session->get('ses_lang');
             </div>
             <div class="col-lg-4">
                 <div class="fixed-banner">
-                    <!-- <a href="#">
+                    <a href="#">
                         <img src="https://images.pexels.com/photos/1413412/pexels-photo-1413412.jpeg">
                         <div class="fixed-banner-content">
                             <h4>Get the best offers on Play Stations</h4>
                         </div>
-                    </a> -->
-                    <?php
-                   // echo '<pre>'; print_r($advertisementList); die;
-                if (isset($advertisementList) && !empty($advertisementList)) {
-                    foreach ($advertisementList as $advertisementData) {
-                        $title = '';
-                        $sub_title = '';
-                        if($ses_lang=='en'){
-                            if(isset($advertisementData->title) && !empty($advertisementData->title)){
-                                $title = $advertisementData->title;
-                            }else{
-                                if(isset($advertisementData->title_ar) && !empty($advertisementData->title_ar)){
-                                    $title = $advertisementData->title_ar;
-                                }
-                            }
-                            
-                            if(isset($advertisementData->sub_title) && !empty($advertisementData->sub_title)){
-                                $sub_title = $advertisementData->sub_title;
-                            }else{
-                                if(isset($advertisementData->sub_title_ar) && !empty($advertisementData->sub_title_ar)){
-                                    $sub_title = $advertisementData->sub_title_ar;
-                                }
-                            }
-                        }else{
-                            if(isset($advertisementData->title_ar) && !empty($advertisementData->title_ar)){
-                                $title = $advertisementData->title_ar;
-                            }else{
-                                if(isset($advertisementData->title) && !empty($advertisementData->title)){
-                                    $title = $advertisementData->title;
-                                }
-                            }
-                            if(isset($advertisementData->sub_title_ar) && !empty($advertisementData->sub_title_ar)){
-                                $sub_title = $advertisementData->sub_title_ar;
-                            }else{
-                                if(isset($advertisementData->sub_title) && !empty($advertisementData->sub_title)){
-                                    $sub_title = $advertisementData->sub_title;
-                                }
-                            }                                 
-                        }
-                        if ($advertisementData->add_position == 1) { ?>
-                            <a href="<?php echo $advertisementData->advertise_link; ?>">
-                                <img src="<?php echo base_url('uploads/advertisement/'); ?>/<?php echo isset($advertisementData->add_img) ? $advertisementData->add_img : ''; ?>">
-                                <div class="fixed-banner-content">
-                                    <h4><?php echo $title; ?></h4>
-                                    <p><?php echo $sub_title; ?></p>
-                                </div>
-                            </a>
-                        <?php } 
-                            }
-                        }else{?>
-                        <a href="#">
-                            <img src="https://images.pexels.com/photos/1413412/pexels-photo-1413412.jpeg">
-                            <div class="fixed-banner-content">
-                                <h4>Get the best offers on Play Stations</h4>
-                            </div>
-                        </a>
-                        <?php }
-                    ?>  
+                    </a>
                 </div>
             </div>
         </div>
@@ -469,7 +412,7 @@ $ses_lang = $session->get('ses_lang');
                                 }
                             }                                 
                         }
-                        if ($advertisementData->add_position == '2') { ?>
+                        if ($advertisementData->add_position == '1') { ?>
                             <div class="col-md-4">
                                 <div class="ad-wrapper">
                                     <img src="<?php echo base_url('uploads/advertisement/'); ?>/<?php echo isset($advertisementData->add_img) ? $advertisementData->add_img : ''; ?>">
@@ -482,7 +425,7 @@ $ses_lang = $session->get('ses_lang');
                                 </div>
                             </div>   
 
-                        <?php } if ($advertisementData->add_position == '3') { ?>
+                        <?php } if ($advertisementData->add_position == '2') { ?>
                             <div class="col-md-4">
                                 <div class="ad-wrapper">
                                     <img src="<?php echo base_url('uploads/advertisement/'); ?>/<?php echo isset($advertisementData->add_img) ? $advertisementData->add_img : ''; ?>">
@@ -494,7 +437,7 @@ $ses_lang = $session->get('ses_lang');
                                     </div>
                                 </div>
                          </div>
-                        <?php } if ($advertisementData->add_position == '4') { ?>
+                        <?php } if ($advertisementData->add_position == '3') { ?>
                             <div class="col-md-4">
                                 <div class="ad-wrapper">
                                     <img src="<?php echo base_url('uploads/advertisement/'); ?>/<?php echo isset($advertisementData->add_img) ? $advertisementData->add_img : ''; ?>">
@@ -508,80 +451,13 @@ $ses_lang = $session->get('ses_lang');
                          </div>
                         <?php  } 
                         }
-                        }else{?>
-                            <a href="#">
-                                <img src="https://images.pexels.com/photos/1413412/pexels-photo-1413412.jpeg">
-                                <div class="fixed-banner-content">
-                                    <h4>Get the best offers on Play Stations</h4>
-                                </div>
-                            </a>
-                            <?php }
-            ?>         
+                        }
+                    ?>         
         </div>
 
         <div class="ad-video mt-3">
-            <!-- <video autoplay loop muted src="<?php echo base_url('/store/' . $storeActvTmplName . '/assets/images/ces-homepage-1920x600.mp4'); ?>"></video> -->
-            <?php
-                if (isset($advertisementList) && !empty($advertisementList)) {
-                    foreach ($advertisementList as $advertisementData) {
-                        $title = '';
-                        $sub_title = '';
-                        if($ses_lang=='en'){
-                            if(isset($advertisementData->title) && !empty($advertisementData->title)){
-                                $title = $advertisementData->title;
-                            }else{
-                                if(isset($advertisementData->title_ar) && !empty($advertisementData->title_ar)){
-                                    $title = $advertisementData->title_ar;
-                                }
-                            }
-                            
-                            if(isset($advertisementData->sub_title) && !empty($advertisementData->sub_title)){
-                                $sub_title = $advertisementData->sub_title;
-                            }else{
-                                if(isset($advertisementData->sub_title_ar) && !empty($advertisementData->sub_title_ar)){
-                                    $sub_title = $advertisementData->sub_title_ar;
-                                }
-                            }
-                        }else{
-                            if(isset($advertisementData->title_ar) && !empty($advertisementData->title_ar)){
-                                $title = $advertisementData->title_ar;
-                            }else{
-                                if(isset($advertisementData->title) && !empty($advertisementData->title)){
-                                    $title = $advertisementData->title;
-                                }
-                            }
-                            if(isset($advertisementData->sub_title_ar) && !empty($advertisementData->sub_title_ar)){
-                                $sub_title = $advertisementData->sub_title_ar;
-                            }else{
-                                if(isset($advertisementData->sub_title) && !empty($advertisementData->sub_title)){
-                                    $sub_title = $advertisementData->sub_title;
-                                }
-                            }                                 
-                        }
-                        if ($advertisementData->add_position == '5') { ?>
-                            <div class="col-md-4">
-                                <div class="ad-wrapper">
-                                    <img src="<?php echo base_url('uploads/advertisement/'); ?>/<?php echo isset($advertisementData->add_img) ? $advertisementData->add_img : ''; ?>">
-                                    <div class="ad-content text-white">
-                                        <h5><?php echo $title; ?></h5>
-                                        <p><?php echo $sub_title; ?></p>
-                                        <!--button class="brand-btn-ad-black">Shop Now</button-->
-                                        <a href="<?php echo $advertisementData->advertise_link; ?>" class="brand-btn-ad-black"><?php echo $language['Shop Now']; ?></a>
-                                    </div>
-                                </div>
-                            </div>   
-
-                        <?php } 
-                            }
-                            }else{ ?>
-                                <a href="#">
-                                    <img src="https://images.pexels.com/photos/1413412/pexels-photo-1413412.jpeg">
-                                    <div class="fixed-banner-content">
-                                        <h4>Get the best offers on Play Stations</h4>
-                                    </div>
-                                </a>
-                            <?php }
-                    ?>  
+            <video autoplay loop muted src="<?php echo base_url('/store/' . $storeActvTmplName . '/assets/images/ces-homepage-1920x600.mp4'); ?>"></video>
+            
         </div>
     </div>
 </section>

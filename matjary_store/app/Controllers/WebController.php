@@ -37,26 +37,8 @@ class WebController extends BaseController
         $this->pageData['BrandInfo'] = $this->BrandModel->get_all_brand_name_data();
         $this->pageData['AboutUsInfo'] = $this->AboutUsModel->get_all_data(); 
         $this->pageData['GiftCardList'] = $this->GiftCardModel->get_all_active_data();
-        $this->pageData['advertisementList'] = $this->AdvertisementModel->get_all_active_data();
-        
-    //     foreach($this->pageData['advertisementList'] as $getimages){
-    //         $getImagesPoswise = '';
-    //         if($getimages->add_position == 1){
-    //         $getImagesPoswise1 = $getimages->add_img;
-    //         }if($getimages->add_position == 2){
-    //             $getImagesPoswise2 = $getimages->add_img;
-    //             }if($getimages->add_position == 3){
-    //                 $getImagesPoswise3 = $getimages->add_img;
-    //                 }if($getimages->add_position == 4){
-    //                     $getImagesPoswise4 = $getimages->add_img;
-    //                     }if($getimages->add_position == 5){
-    //                         $getImagesPoswise5 = $getimages->add_img;
-    //                         }
-    //         //echo '<pre>'; print_r($getImagesPoswise); 
-    //         $this->pageData['advertiseList'] = $getImagesPoswise;
-    //     }
-    //    //die;
-       
+        $this->pageData['advertisementList'] = $this->AdvertisementModel->get_all_data();
+
         if(isset($this->ses_logged_in) && $this->ses_logged_in===true){
             $customerCartProducts = $this->CartModel->get_single_customer_cart_products($this->ses_custmr_id);
             if(isset($customerCartProducts) && !empty($customerCartProducts)){

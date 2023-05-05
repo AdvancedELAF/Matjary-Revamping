@@ -3,39 +3,10 @@ $session = \Config\Services::session();
 $lang_session = $session->get('lang_session');
 $ses_lang = $session->get('ses_lang');
 
-    $title = $locale=='en'?'Terms and Conditions Title Not Available Yet!.':'عنوان الشروط والأحكام غير متوفر بعد !.';
-    $description = $locale=='en'?'Terms and Conditions Description Not Available Yet!.':'وصف الشروط والأحكام غير متوفر بعد !.';
-    if($ses_lang=='en'){
-        if(isset($GetTCInfo->title) && !empty($GetTCInfo->title)){
-            $title = $GetTCInfo->title;
-        }else{
-            if(isset($GetTCInfo->title_ar) && !empty($GetTCInfo->title_ar)){
-                $title = $GetTCInfo->title_ar;
-            }
-        } 
-        if(isset($GetTCInfo->description) && !empty($GetTCInfo->description)){
-            $description = $GetTCInfo->description;
-        }else{
-            if(isset($GetTCInfo->description_ar) && !empty($GetTCInfo->description_ar)){
-                $description = $GetTCInfo->description_ar;
-            }
-        }
-    }else{
-        if(isset($GetTCInfo->title_ar) && !empty($GetTCInfo->title_ar)){
-            $title = $GetTCInfo->title_ar;
-        }else{
-            if(isset($GetTCInfo->title) && !empty($GetTCInfo->title)){
-                $title = $GetTCInfo->title;
-            }
-        }         
-        if(isset($GetTCInfo->description_ar) && !empty($GetTCInfo->description_ar)){
-            $description = $GetTCInfo->description_ar;
-        }else{
-            if(isset($GetTCInfo->description) && !empty($GetTCInfo->description)){
-                $description = $GetTCInfo->description;
-            }
-        }                                               
-    }                  
+$title = isset($GetTCInfo->title)?$GetTCInfo->title:'';
+$title_ar = isset($GetTCInfo->title_ar)?$GetTCInfo->title_ar:'';
+$description = isset($GetTCInfo->description)?$GetTCInfo->description:'';
+$description_ar = isset($GetTCInfo->description_ar)?$GetTCInfo->description_ar:'';
 ?>
 <?php $this->extend('store/'.$storeActvTmplName.'/layouts/store_layout'); ?>
 <?php $this->section('content'); ?>
@@ -49,14 +20,14 @@ $ses_lang = $session->get('ses_lang');
 </section>
 <!-- PAGE BAR ENDS -->
 <!-- ABOUT US US SECTION SPACING STARTS -->
-<section class="section-spacing <?php if($locale=='ar'){echo 'text-right';} ?>">
+<section class="section-spacing">
     <div class="container">
         <div class="page-content">
-            <p><?php echo $title; ?></p>
+            <p><?php echo $ses_lang=='en' ? $title : $title_ar; ?></p>
         </div>
 
         <div class="page-content">
-            <p><?php echo $description;  ?></p>
+            <p><?php echo $ses_lang=='en' ? $description : $description_ar;  ?></p>
         </div>
     </div>
 </section>

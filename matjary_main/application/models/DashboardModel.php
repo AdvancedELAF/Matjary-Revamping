@@ -70,7 +70,6 @@ class DashboardModel extends CI_Model {
             return $e->getMessage();
         }
     }
-
     public function get_monthly_sales_report() {
         try {
         $query = $this->db->query("SELECT 
@@ -89,7 +88,7 @@ class DashboardModel extends CI_Model {
             FROM
             (SELECT 
                 MIN(DATE_FORMAT(created_at, '%b')) AS month,
-                SUM(total_price) AS total
+                count(id) AS total
             FROM
                 user_payment_info
             WHERE YEAR(created_at)=YEAR(now()) and is_active='1'

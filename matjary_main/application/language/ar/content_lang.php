@@ -596,6 +596,7 @@ $lang['pwd-reset-txt-7'] = '';
 /* templates/thems page*/
 $lang['Themes We Offer'] = 'الموضوعات التي نقدمها';
 $lang['Professional'] = 'احترافي';
+$lang['Matjary'] = 'متجري';
 $lang['Themes for any business that can sell products online.'] = 'سمات أي عمل يمكنه بيع المنتجات عبر الإنترنت.';
 $lang['Our ambition is to provide unique and beautiful templates, that can enhance your business.'] = 'طموحنا هو تقديم قوالب فريدة وجميلة من شأنها تعزيز عملك.';
 $lang['All'] = 'الجميع';

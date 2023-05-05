@@ -160,14 +160,6 @@ $(document).ready(function () {
         $(".giftCardInput").css({"display":"block"});
     });
 
-    /* prevent onpaste event on input */
-    var preventPasteInputs = document.querySelectorAll('.numberonly');
-    for (var i = 0; i < preventPasteInputs.length; i++) {
-        preventPasteInputs[i].addEventListener('paste', function(e) {
-            e.preventDefault();
-        });
-    }
-
      /* Allow Only Number Validation */
      $('.numberonly').keypress(function (e) {  
         var charCode = (e.which) ? e.which : event.keyCode   

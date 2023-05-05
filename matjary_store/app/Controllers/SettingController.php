@@ -26,7 +26,7 @@ class SettingController extends BaseController
                 "user_id"=>isset($this->pageData['storeInfo']['responseData']['user_id'])?$this->pageData['storeInfo']['responseData']['user_id']:''
             ));
             //echo '<pre>'; print_r($requestData); exit;
-            $matjaryTmpltListApi = $this->callAPI('POST', 'https://www.matjary.in/user-store-template-details', $requestData);
+            $matjaryTmpltListApi = $this->callAPI('POST', 'https://www.matjary.sa/user-store-template-details', $requestData);
             $matjaryTmpltList = json_decode($matjaryTmpltListApi, true);
             
             if(isset($matjaryTmpltList['responseCode']) && $matjaryTmpltList['responseCode']==200){
