@@ -108,7 +108,8 @@ class AdminCntr extends MY_Controller {
                     }else{
                         $getOrderTotal .=''.$data_count.'';
                     }                         
-                }            
+                }  
+                         
                 $pageData['getCurrentOrderTotal'] = $getOrderTotal.'';
                 $pageData['getCurrentOrderMonth'] = $GetMonths;                
             }

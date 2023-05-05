@@ -663,7 +663,6 @@ $(document).ready(function () {
                 var chartName = 'Month on Month sales /orders';                
                 var yAxesLabel = 'No. of sales/orders';
                 var xAxesLabel = 'Months';
-
                 if (resp.responseCode == 200) {                   
                     drawMixedChart(chartId,getCurrentOrderTotal,getCurrentSalesTotal,getMonthArry,chartName,yAxesLabel,xAxesLabel);                     
                 } else {
