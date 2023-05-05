@@ -1523,7 +1523,6 @@ class UsrCntr extends MY_Controller {
     public function submit_customer_enquiry_form() {
         if (isset($_POST['cont_message']) && !empty($_POST['cont_message'])) {
            /** Meassage Insert in table */
-           //echo '<pre>'; print_r($_POST); die;
             $insertDataMeassage = array(        
             'ticket_id' => isset($_POST['ticket_id']) ? $_POST['ticket_id'] : '',
             'message' => isset($_POST['cont_message']) ? $_POST['cont_message'] : '',
@@ -1569,7 +1568,6 @@ class UsrCntr extends MY_Controller {
                     echo json_encode($this->response); exit;
                 }
             }
-           // $this->load->view('view-coustomer-enquiry-details',$pageData);
 
         } else {
             $this->response['responseCode'] = 404;
