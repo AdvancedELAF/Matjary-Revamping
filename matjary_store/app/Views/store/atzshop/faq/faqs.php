@@ -15,6 +15,7 @@ $ses_lang = $session->get('ses_lang');
             <h4><?php echo $language['FAQ']; ?></h4>
         </div>
         <?php
+        $checkfaqData = $locale=='en'?'FAQ Content/Information Not Available Yet!.':'الأسئلة الشائعة المحتوى / المعلومات غير متوفرة بعد !.';
         if (isset($faqList) && !empty($faqList)) {
             foreach ($faqList as $i => $faqData) {
                 $question = '';
@@ -59,9 +60,11 @@ $ses_lang = $session->get('ses_lang');
             </div>
         <?php
             }
-        }
-        ?>
-
+        }else{ ?>
+            <div class="page-content">
+                <?php echo $checkfaqData; ?>
+            </div>
+        <?php } ?>
     </div>
 </section>
 <?php $this->endSection(); ?>

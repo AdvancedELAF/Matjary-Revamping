@@ -199,8 +199,8 @@ abstract class BaseController extends Controller
         }
         $this->pageData['storeActvTmplName'] = '';
         /* call store info api start */
-        $store_link = base_url();
-        //$store_link = 'http://store19.matjary.in';
+        //$store_link = base_url();
+        $store_link = 'http://test12.matjary.in';
         $store_token = $this->pageData['storeSettingInfo']->auth_tkn;
        // echo $store_token; exit;
         if(isset($this->pageData['storeSettingInfo']->auth_tkn) && !empty($this->pageData['storeSettingInfo']->auth_tkn)){
@@ -208,6 +208,7 @@ abstract class BaseController extends Controller
                 "store_link" => $store_link,
                 "store_token" => $store_token
             );
+           // echo '<pre>'; print_r($data_array); exit;
             $make_call = $this->callAPI('POST', 'https://www.matjary.in/store-info', json_encode($data_array));
             //echo '<pre>'; print_r($make_call); exit;
             $response = json_decode($make_call, true);

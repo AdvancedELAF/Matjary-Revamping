@@ -143,6 +143,7 @@ if (isset($_SESSION['site_lang']) && !empty($_SESSION['site_lang']) && $_SESSION
 <script src="<?php echo SERVER_ROOT_PATH_ASSETS; ?>js/loader.js"></script>
 <!-- Common js Script -->
 <script src="<?php echo SERVER_ROOT_PATH_ASSETS; ?>js/common.js"></script>
+<script src="https://rawgit.com/beaver71/Chart.PieceLabel.js/master/build/Chart.PieceLabel.min.js"></script>
 
 <script>
     /*WOW JS INTITATED*/

@@ -2,6 +2,26 @@
 $session = \Config\Services::session(); 
 $lang_session = $session->get('lang_session');
 $ses_lang = $session->get('ses_lang');
+$customer_help = $locale=='en'?'Data Not Available Yet!.':'البيانات غير متوفرة بعد!';   
+    if($ses_lang=='en'){
+        if(isset($CusHelpData->customer_help) && !empty($CusHelpData->customer_help)){
+            $customer_help = $CusHelpData->customer_help;
+        }else{
+            if(isset($CusHelpData->customer_help_ar) && !empty($CusHelpData->customer_help_ar)){
+                $customer_help = $CusHelpData->customer_help_ar;
+            }
+        } 
+      
+    }else{
+        if(isset($CusHelpData->customer_help_ar) && !empty($CusHelpData->customer_help_ar)){
+            $customer_help = $CusHelpData->customer_help_ar;
+        }else{
+            if(isset($CusHelpData->customer_help) && !empty($CusHelpData->customer_help)){
+                $customer_help = $CusHelpData->customer_help;
+            }
+        }         
+                                                 
+    } 
 ?>
 <?php $this->extend('store/'.$storeActvTmplName.'/layouts/store_layout'); ?>
 <?php $this->section('content'); ?>
@@ -13,7 +33,7 @@ $ses_lang = $session->get('ses_lang');
                 <div class="col-12">
                     <div class="tab-content help-content" id="v-pills-tabContent">
                         <div class="tab-pane help-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">                            
-                            <p><?php echo $ses_lang=='en' ? $CusHelpData->customer_help : $CusHelpData->customer_help_ar; ?></p>
+                            <p><?php echo $customer_help; ?></p>
                         </div>                       
                     </div>
                 </div>
