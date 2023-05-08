@@ -311,9 +311,16 @@ $ses_lang = $session->get('ses_lang');
                                 <?php } else { ?>
                                     <img src="https://placehold.jp/100x100.png" alt="Logo Image" class="img img-responsive" style="width:auto;min-width:100px;max-width:100px;height:auto;min-height:100px;max-height:100px;">
                                 <?php } ?>
-                            <div class="footer-logo-desc">
-                                <p><?php echo $language['footer_tagline']; ?></p>
-                            </div>
+                                <?php if (isset($AboutUsInfo) && !empty($AboutUsInfo)) { ?>
+                                    <div class="footer-logo-desc">
+                                        <p><?php echo $AboutUsInfo->short_description; ?></p>
+                                    </div>
+                                    <?php }else{ ?>
+                                    <div class="footer-logo-desc">
+                                        <p><?php echo $language['About Store Information not added yet!']; ?></p>
+                                    </div>
+                                <?php } ?>
+                            
                         </div>
                     </div>
                     <div class="col-lg-4">

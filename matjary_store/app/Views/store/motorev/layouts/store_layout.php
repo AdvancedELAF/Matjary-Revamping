@@ -301,9 +301,15 @@ $ses_lang = $session->get('ses_lang');
                                 <img src="https://placehold.jp/100x100.png" alt="Logo Image" class="img img-responsive" style="width:auto;min-width:100px;max-width:100px;height:auto;min-height:100px;max-height:100px;">
                             <?php } ?>
                         </div>
-                        <div class="footer-desc">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                        </div>
+                        <?php if (isset($AboutUsInfo) && !empty($AboutUsInfo)) { ?>
+                            <div class="footer-desc">
+                                <p><?php echo $AboutUsInfo->short_description; ?></p>
+                            </div>
+                            <?php }else{ ?>
+                            <div class="footer-desc">
+                                <p><?php echo $language['About Store Information not added yet!']; ?></p>
+                            </div>
+                            <?php } ?>
                         <div class="footer-subtitle">
                             <h3><?php echo $language['Address']; ?>:</h3>
                         </div>
