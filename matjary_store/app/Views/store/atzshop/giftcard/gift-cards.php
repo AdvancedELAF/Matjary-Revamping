@@ -13,9 +13,12 @@ $ses_lang = $session->get('ses_lang');
             <h4><?php echo $language['Gift cards']; ?></h4>
         </div>
         <div class="row">
+                    
             <?php //echo '<pre>'; print_r($GiftCardList);
+            $giftCard = $locale=='en'?'Data Not Available Yet!.':'البيانات غير متوفرة بعد!';  
             if(isset($GiftCardList) && !empty($GiftCardList)){
                 foreach($GiftCardList as $GiftCardData){
+                    $today = date("Y-m-d");
                     $name = '';
                     if($ses_lang=='en'){
                         if(isset($GiftCardData->name) && !empty($GiftCardData->name)){
@@ -55,8 +58,12 @@ $ses_lang = $session->get('ses_lang');
             <?php
                     }
                 }
-            }
-            ?>
+            }else{ ?>
+                <div class="gc-detail">                    
+                    <h4><?php echo $giftCard; ?></h4>                   
+                </div>
+            <?php }
+            ?>          
         </div>
     </div>
 </section>

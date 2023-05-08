@@ -212,7 +212,10 @@ function drawLineChart(id,chartData,label,chartName,yAxesLabel,xAxesLabel) {
                     font: {
                         weight: 'bold',
                         size: 16
-                    }
+                    },
+                    display: function(context) { /**Datalabels Zero then hide */
+                    return context.dataset.data[context.dataIndex] > 1;
+                }
                 },
                 legend: {
                     display: false,
@@ -264,7 +267,10 @@ function drawBarChart(id,chartData,label,chartName,yAxesLabel,xAxesLabel) {
                     font: {
                         weight: 'bold',
                         size: 16
-                    }
+                    },
+                    display: function(context) { /**Datalabels Zero then hide */
+                    return context.dataset.data[context.dataIndex] > 1;
+                }
                 },
                 legend: {
                     display: false,
@@ -294,15 +300,16 @@ function drawMixedChart(id,chartDataLine,chartDataBar,label,chartName,yAxesLabel
     let GetChartId = id;
     var chartIds = new Chart(GetChartId, {
          type: 'scatter',
+         
          data: {
 			datasets: [{
             type: 'bar',
-            label: 'Order',
+            label: 'Sales',
             data: lineChartbar
             //data: [12,15,20,0,55,30,22,24,20,19,30,13]
         }, {
             type: 'line',
-            label: 'Sales',
+            label: 'Order',
             data: lineChartline,
             //data: [45,30,40,30,25,15,66,12,54,13,15,3],
         }],
@@ -321,6 +328,9 @@ function drawMixedChart(id,chartDataLine,chartDataBar,label,chartName,yAxesLabel
                     font: {
                         weight: 'bold',
                         size: 16
+                    },
+                    display: function(context) { /**Datalabels Zero then hide */
+                        return context.dataset.data[context.dataIndex] > 1;
                     }
                 },            
             },            
@@ -330,8 +340,10 @@ function drawMixedChart(id,chartDataLine,chartDataBar,label,chartName,yAxesLabel
                   title: {
                     display: true,
                     text: yAxesLabel
-                  }
-                }
+                  },
+                 
+                },
+               
             }
          },
     });
