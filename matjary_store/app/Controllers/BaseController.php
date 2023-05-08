@@ -200,7 +200,7 @@ abstract class BaseController extends Controller
         $this->pageData['storeActvTmplName'] = '';
         /* call store info api start */
         //$store_link = base_url();
-        $store_link = 'http://test12.matjary.in';
+        $store_link = 'http://test9.matjary.sa';
         $store_token = $this->pageData['storeSettingInfo']->auth_tkn;
        // echo $store_token; exit;
         if(isset($this->pageData['storeSettingInfo']->auth_tkn) && !empty($this->pageData['storeSettingInfo']->auth_tkn)){
@@ -209,7 +209,7 @@ abstract class BaseController extends Controller
                 "store_token" => $store_token
             );
            // echo '<pre>'; print_r($data_array); exit;
-            $make_call = $this->callAPI('POST', 'https://www.matjary.in/store-info', json_encode($data_array));
+            $make_call = $this->callAPI('POST', 'https://www.matjary.sa/store-info', json_encode($data_array));
             //echo '<pre>'; print_r($make_call); exit;
             $response = json_decode($make_call, true);
            //echo '<pre>'; print_r($response); exit;
@@ -231,7 +231,7 @@ abstract class BaseController extends Controller
                             $this->storeTemplateId = 1;
                         }
 
-                        $matjaryTmpltListApi = $this->callAPI('POST', 'https://www.matjary.in/template-list', '');
+                        $matjaryTmpltListApi = $this->callAPI('POST', 'https://www.matjary.sa/template-list', '');
                         $matjaryTmpltList = json_decode($matjaryTmpltListApi, true);
                         // echo '<pre>'; print_r($matjaryTmpltList); 
                         if(isset($matjaryTmpltList['responseCode']) && $matjaryTmpltList['responseCode']==200){
@@ -560,7 +560,7 @@ abstract class BaseController extends Controller
         $data_array =  array(
             "slag" => 'sendgrid'
         );
-        $make_call = $this->callAPI('POST', 'https://www.matjary.in/matjary-config', json_encode($data_array));
+        $make_call = $this->callAPI('POST', 'https://www.matjary.sa/matjary-config', json_encode($data_array));
         $response = json_decode($make_call, true);
         $emailSentStatus = true;
         $name = $email;
@@ -631,7 +631,7 @@ abstract class BaseController extends Controller
                 $mail->Port = 587;                                    // TCP port to connect to
 
                 //Recipients
-                $mail->setFrom('info@matjary.in', $subdomain);
+                $mail->setFrom('info@matjary.sa', $subdomain);
                 $mail->addAddress($email, $email);     // Add a recipient
 
                 // Content
