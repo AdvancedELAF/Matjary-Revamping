@@ -1218,7 +1218,7 @@ $(document).ready(function(){
         if(coupon_code=='' || coupon_code==undefined || coupon_code==null){
             
             $("#couponCodeMsg").text((lang == "en") ?'كود القسيمة مطلوب.':'Coupon code is required.');
-            $("#couponCodeMsg").css('color','red');
+            $("#couponCodeMsg").css('color','white');
             $("#coupon_applied_tr").hide();
             $("#promotion_applied_amount_span").text('');
             $("#discount_type").val();
@@ -1293,7 +1293,7 @@ $(document).ready(function(){
                             $("#discount_type").val();
                             $("#discount_value").val();
                             $("#couponCodeMsg").text(respData.responseMessage);
-                            $("#couponCodeMsg").css('color','red');
+                            $("#couponCodeMsg").css('color','white');
 
                             let subtotal = $("#subtotal").val();
                             $("#total_price").val(subtotal);
