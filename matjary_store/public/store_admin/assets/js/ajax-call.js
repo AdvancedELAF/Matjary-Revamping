@@ -2635,7 +2635,6 @@ $(document).ready(function(){
         }));
 
         /* user forgeted password end */
-
         
         $('#setDefaultShipStngs').on('click', function(e) {
             e.preventDefault();
@@ -2657,19 +2656,13 @@ $(document).ready(function(){
                 },
                 success: function(resp){  /* A function to be called if request succeeds */
                     respData = JSON.parse(resp);
-                    //console.log(respData);
-                    swal.close();
                     if(respData.responseCode == 200){
-                        //$("#preloader").hide();
                         swal({title: "", text: respData.responseMessage, type: "success"},
                             function(){ 
-                                //$("#save_product_category_form")[0].reset();
-                                //window.location.href = respData.redirectUrl;
                                 window.location.reload();
                             }
                         );
                     }else{
-                        //$("#preloader").hide();
                         swal({title: "", text: respData.responseMessage, type: "error"});
                     }
                 }

@@ -1,4 +1,4 @@
-<?php include("common/header.php"); ?>
+<?php $this->load->view("common/header"); ?>
 
 <!-- LOGIN SECTION STARTS -->
 <section>
@@ -29,4 +29,4 @@
     </div>
 </section>
 <!-- Footer section  -->
-<?php include("common/footer.php"); ?>
+<?php $this->load->view("common/footer"); ?>

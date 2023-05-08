@@ -523,7 +523,7 @@ class UsrCntr extends MY_Controller {
                                         if (isset($_POST['b_email']) && !empty($_POST['b_email'])) {
                                             if (isset($_POST['plan_total_price']) && !empty($_POST['plan_total_price'])) {
 
-                                                $storeUrl = $sub_domain_name . '.matjary.in';
+                                                $storeUrl = $sub_domain_name . '.matjary.sa';
                                                 $store_admin_url = $storeUrl . '/admin';
                                                 $plan_months = isset($_POST['pd_plan_months']) ? $_POST['pd_plan_months'] : '';
                                                 $today = date('Y-m-d');
@@ -542,7 +542,7 @@ class UsrCntr extends MY_Controller {
                                                 $data_array =  array(
                                                     "slag" => 'paytab'
                                                 );
-                                                $make_call = callAPI('POST', 'https://www.matjary.in/matjary-config', json_encode($data_array));
+                                                $make_call = callAPI('POST', 'https://www.matjary.sa/matjary-config', json_encode($data_array));
                                                 $paytabConfig = json_decode($make_call, true);
                                                 $paytabsinfo['profile_id'] = $paytabConfig['responseData']['paytab_profile_id_test'];
                                                 $paytabsinfo['tran_type'] = 'sale';
@@ -1066,7 +1066,7 @@ class UsrCntr extends MY_Controller {
         $tranRef = random_alpha_num(8);
         $cartId = random_alpha_num(4);
         /* save info user */
-        $storeUrl = $_POST['sub_domain_name'] . '.matjary.in';
+        $storeUrl = $_POST['sub_domain_name'] . '.matjary.sa';
         $store_admin_url = $storeUrl . '/admin';
         $plan_months = FREE_TRIAL_VALIDITY;
         $today = date('Y-m-d');
@@ -1270,7 +1270,7 @@ class UsrCntr extends MY_Controller {
                 $data_array =  array(
                     "slag" => 'paytab'
                 );
-                $make_call = callAPI('POST', 'https://www.matjary.in/matjary-config', json_encode($data_array));
+                $make_call = callAPI('POST', 'https://www.matjary.sa/matjary-config', json_encode($data_array));
                 $paytabConfig = json_decode($make_call, true);
                 $paytabsinfo['profile_id'] = $paytabConfig['responseData']['paytab_profile_id_test'];
                 $paytabsinfo['tran_type'] = 'sale';
@@ -1523,6 +1523,7 @@ class UsrCntr extends MY_Controller {
     public function submit_customer_enquiry_form() {
         if (isset($_POST['cont_message']) && !empty($_POST['cont_message'])) {
            /** Meassage Insert in table */
+           //echo '<pre>'; print_r($_POST); die;
             $insertDataMeassage = array(        
             'ticket_id' => isset($_POST['ticket_id']) ? $_POST['ticket_id'] : '',
             'message' => isset($_POST['cont_message']) ? $_POST['cont_message'] : '',
@@ -1547,6 +1548,7 @@ class UsrCntr extends MY_Controller {
                     'cont_message' => $_POST['cont_message'],
                     'ticket_link' => base_url('/ticket-details/'.$_POST['ticket_id'])
                 );
+
                
                 $email_subject = "Enquiry from Contact Page - Matjary Site";                   
                 if (isset($_POST['cont_email']) && !empty($_POST['cont_email'])) {
@@ -1568,6 +1570,7 @@ class UsrCntr extends MY_Controller {
                     echo json_encode($this->response); exit;
                 }
             }
+           // $this->load->view('view-coustomer-enquiry-details',$pageData);
 
         } else {
             $this->response['responseCode'] = 404;

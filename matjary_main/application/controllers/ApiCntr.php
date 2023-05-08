@@ -11,7 +11,7 @@ class ApiCntr extends MY_Controller {
         /*//load helper for language*/
         $this->load->helper('language');
         /*//content_lang is the language file within language folder*/
-        //echo '<pre>'; print_r($_SESSION); die;
+        //echo '<pre>'; print_r($_SESSION); die; 
         if(isset($_SESSION['site_lang'])){
             $this->lang->load('content_lang',$_SESSION['site_lang']);
         }else{
@@ -898,7 +898,7 @@ class ApiCntr extends MY_Controller {
                          
                         /* send mail to user on success payment & store creation start */
                         /* // send welcome mail to customer on succesfull store creation */
-                        $store_link = $decode_data['store_sub_domain'].'.matjary.in';
+                        $store_link = $decode_data['store_sub_domain'].'.matjary.sa';
                         $storeInfo = $this->UsrModel->get_store_info($store_link,$decode_data['store_tkn']);
                         //echo '<pre>'; print_r($storeInfo); exit;
                         $subscription_type = $storeInfo['responseData']->subscription_type;
@@ -1671,27 +1671,27 @@ class ApiCntr extends MY_Controller {
                             echo json_encode($this->response); exit;
                         }else{
                             $this->response['responseCode'] = 404;
-                            $this->response['responseMessage'] = $this->lang->line('user-bill-txt-10');
+                            $this->response['responseMessage'] = 'Coupon already used.';
                             echo json_encode($this->response); exit;
                         }
                     }else{
                         $this->response['responseCode'] = 404;
-                        $this->response['responseMessage'] = $this->lang->line('user-bill-txt-11'); /* coupon code has been expired. */
+                        $this->response['responseMessage'] = 'Coupon not valid.'; /* coupon code has been expired. */
                         echo json_encode($this->response); exit;
                     }
                 }else{
                     $this->response['responseCode'] = 404;
-                    $this->response['responseMessage'] = $this->lang->line('user-bill-txt-11');
+                    $this->response['responseMessage'] = 'Coupon not valid.';
                     echo json_encode($this->response); exit;
                 }
             }else{
                 $this->response['responseCode'] = 404;
-                $this->response['responseMessage'] = $this->lang->line('user-bill-txt-8');
+                $this->response['responseMessage'] = 'Coupon Code is Required.';
                 echo json_encode($this->response); exit;
             }
         }else{
             $this->response['responseCode'] = 404;
-            $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_34');
+            $this->response['responseMessage'] = 'User Id is Required.';
             echo json_encode($this->response); exit;
         }
     }
