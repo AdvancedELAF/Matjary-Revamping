@@ -5,7 +5,7 @@ $ses_lang = $session->get('ses_lang');
 $customer_help = $locale=='en'?'Data Not Available Yet!.':'البيانات غير متوفرة بعد!';   
     if($ses_lang=='en'){
         if(isset($CusHelpData->customer_help) && !empty($CusHelpData->customer_help)){
-            $customer_help = $CusHelpData->customer_help;
+            $customer_help = $$CusHelpData->customer_help;
         }else{
             if(isset($CusHelpData->customer_help_ar) && !empty($CusHelpData->customer_help_ar)){
                 $customer_help = $CusHelpData->customer_help_ar;

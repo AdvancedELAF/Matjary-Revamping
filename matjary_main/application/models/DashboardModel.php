@@ -70,7 +70,6 @@ class DashboardModel extends CI_Model {
             return $e->getMessage();
         }
     }
-
     public function get_monthly_sales_report() {
         try {
         $query = $this->db->query("SELECT 

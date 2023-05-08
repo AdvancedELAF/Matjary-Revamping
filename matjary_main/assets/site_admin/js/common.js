@@ -274,8 +274,7 @@ function drawBarChart(id,chartData,label,chartName,yAxesLabel,xAxesLabel) {
                 },
                 legend: {
                     display: false,
-                }, 
-                         
+                },          
             },
             scales: {
                 y: {
