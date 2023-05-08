@@ -75,10 +75,6 @@ $ses_lang = $session->get('ses_lang');
                 <div class="page-content">       
                     <p><?php if($giftCardDefaultMsg == false ){echo $giftCard; } ?></p>                   
                 </div>
-            <?php ?>
-                <div class="page-content">       
-                    <p><?php if($giftCardDefaultMsg == false ){echo $giftCard; } ?></p>                   
-                </div>
             <?php
             }else{ ?>
                 <div class="prod-detail text-center">                    
