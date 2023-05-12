@@ -239,11 +239,4 @@ class ProductModel extends Model {
 	
 }
 
-
-
-
-
-
-
-
 ?>

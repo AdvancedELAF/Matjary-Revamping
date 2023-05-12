@@ -88,8 +88,7 @@ class BannerController extends BaseController
             }
 
         }    
-        $enarRqrdFldsAry = array_merge($enRqrdFldsAry,$arRqrdFldsAry); 
-        
+        $enarRqrdFldsAry = array_merge($enRqrdFldsAry,$arRqrdFldsAry);         
         $banner_url	= $this->request->getPost('banner_url');             
         if(isset($_FILES['image']['name']) && !empty($_FILES['image']['name'])){
             $path 				= 'uploads/banners/';
@@ -320,7 +319,6 @@ class BannerController extends BaseController
 		if ($image->isValid() && ! $image->hasMoved()) {
 			$newName = $image->getRandomName();
 			$image->move('./'.$path, $newName);
-			//return $path.$image->getName();
             return $image->getName();
 		}
 		return "";

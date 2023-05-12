@@ -170,7 +170,6 @@ class UserModel extends Model {
             AND c.is_active=1"
         );
         $result = $query->getRow();
-        //echo '<pre>'; print_r($result); exit;
         if(isset($result) && !empty($result)){
             return $result;
         }else{

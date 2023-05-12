@@ -116,10 +116,10 @@ $ses_lang = $session->get('ses_lang');
             <div class="row align-items-center">
                 <div class="col-md-9">                    
                     <div class="d-flex search-btn">   
-                        <input type="text" value="<?php echo isset($_REQUEST['query'])?$_REQUEST['query']:''; ?>" placeholder="<?php echo $language['publicSearch']; ?>" id="gsearchsimple" class="brand-input ml-2 input-search" />
+                        <input type="textarea" value="<?php echo isset($_REQUEST['query'])?$_REQUEST['query']:''; ?>" placeholder="<?php echo $language['publicSearch']; ?>" id="gsearchsimple" class="brand-input ml-2 input-search search-list" />
                         <a href="javascript:void(0);" id="gsearchBtn" class="brand-btn-black ml-2"><i class="icofont-search"></i></a>
                     </div>
-                    <ul class="list-group" > </ul>     
+                    <ul id="search_dropdown" class="list-group"> </ul>     
                 </div>                
                 <div class="col-md-3 text-right">
                     <div class="dropdown <?php if($locale=='ar'){echo 'text-left';} ?> mt-sm-2 mt-md-0 mt-0">

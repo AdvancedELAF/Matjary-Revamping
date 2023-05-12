@@ -31,7 +31,6 @@ class UserController extends BaseController
             $this->pageData['pageTitle'] = 'All Users';
             $this->pageData['adminPageId'] = 14;
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
             $this->pageData['UserList'] = $this->UserModel->get_all_data(); /* Get all rows */
             $this->pageData['UserroleList'] = $this->UserRoleModel->get_all_data();  
             return view('store_admin/user/all-users',$this->pageData);
@@ -44,8 +43,7 @@ class UserController extends BaseController
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){
             $this->is_all_mandotory_modules_filled();
             $this->pageData['UserroleList'] = $this->UserRoleModel->get_all_data(); 
-            $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();      
+            $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();     
             return view('store_admin/user/add-user',$this->pageData);
         }else{
             return redirect()->to('/admin/login');
@@ -93,7 +91,6 @@ class UserController extends BaseController
                                                 "created_at" => DATETIME
                                             ));
                                             $server_site_path = base_url();
-                                           // $store_logo = '<img class="img-fluid" style="width: 400px !important;margin-left: auto;margin-right: auto;display: block;" src="'.$server_site_path.'/store/'.$this->storeActvTmplName.'/assets/images/logo.png">';
                                             $store_logo = $server_site_path.'/store_admin/assets/images/logo.png';
                                             $sociaFB = 'javascript:void(0);';
                                             $socialTwitter = 'javascript:void(0);';
@@ -152,8 +149,6 @@ class UserController extends BaseController
                                             if($sendEmail == true){
                                                 $resp['responseCode'] = 200;
                                                 $resp['responseMessage'] =  $this->ses_lang=='en' ? "User Added Successfully." : "تمت إضافة المستخدم بنجاح.";
-                                               
-                                                //$resp['redirectUrl'] = $_SERVER['HTTP_REFERER'];
                                                 $resp['redirectUrl'] = base_url('admin/all-users');
                                                 return json_encode($resp); exit; 
                                             }else{
@@ -257,7 +252,6 @@ class UserController extends BaseController
             $this->pageData['userDetails'] = $this->UserModel->find($id);
             $this->pageData['UserroleList'] = $this->UserRoleModel->get_all_data();
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
             return view('store_admin/user/edit-user',$this->pageData); 
         }else{
             return redirect()->to('/admin/login');
@@ -395,11 +389,7 @@ class UserController extends BaseController
     }
 
     public function login(){ 
-        $this->pageData['pageTitle'] = 'User Login';
-        //$this->pageData['loggedInUserData'] = $this->UserModel->get_login_user_data($this->ses_user_id);
-        //$this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-        //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
-        //$this->pageData['productCategories'] = $this->ProdCatModel->get_all_active_data();
+        $this->pageData['pageTitle'] = 'User Login';        
         return view('store_admin/login',$this->pageData);
     }
 
@@ -583,8 +573,7 @@ class UserController extends BaseController
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){
             $this->is_all_mandotory_modules_filled();
             $this->pageData['pageTitle'] = 'Change Password';  
-            $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data(); 
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();     
+            $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();   
             return view('store_admin/user/change-user-password',$this->pageData);
         }else{
             return redirect()->to('/admin/login');
@@ -711,7 +700,6 @@ class UserController extends BaseController
 		if ($image->isValid() && ! $image->hasMoved()) {
 			$newName = $image->getRandomName();
 			$image->move('./'.$path, $newName);
-			//return $path.$image->getName();
             return $image->getName();
 		}
 		return "";
@@ -757,7 +745,6 @@ class UserController extends BaseController
                         $socialLinkedin = 'javascript:void(0);';
                         $socialInstagram = 'javascript:void(0);';
                         $address = '';
-                        //$storeName = '';
                         $supportEmail = '';
 
                         if(isset($this->pageData['storeSettingInfo']) && !empty($this->pageData['storeSettingInfo'])){
@@ -874,9 +861,7 @@ class UserController extends BaseController
             return json_encode($resp); exit;
         }
     }
-
     /* user forgoted password end */
-
 }
 
 ?>

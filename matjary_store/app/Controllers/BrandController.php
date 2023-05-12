@@ -28,9 +28,7 @@ class BrandController extends BaseController
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){
             $this->pageData['pageTitle'] = 'All Product Brands';
             $this->pageData['adminPageId'] = 9;
-            $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
-          
+            $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();          
             // Get all rows
             $this->pageData['productBrandList'] = $this->BrandModel->get_all_data();
             return view('store_admin/product_brand/all-product-brands',$this->pageData);
@@ -43,7 +41,6 @@ class BrandController extends BaseController
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){
             $this->pageData['pageTitle'] = 'Add Product Brand';
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
             return view('store_admin/product_brand/add-product-brand',$this->pageData);
         }else{
             return redirect()->to('/admin/login');
@@ -110,8 +107,7 @@ class BrandController extends BaseController
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){
             $this->pageData['pageTitle'] = 'Edit Product Brand';
             $this->pageData['prodBrandDetails'] = $this->BrandModel->find($prodBrandId);
-            $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();   
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();      
+            $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();      
             return view('store_admin/product_brand/edit-product-brand',$this->pageData);
         }else{
             return redirect()->to('/admin/login');
@@ -260,9 +256,6 @@ class BrandController extends BaseController
 		}
 		return "";
 	}
-
-
-
 }
 
 ?>

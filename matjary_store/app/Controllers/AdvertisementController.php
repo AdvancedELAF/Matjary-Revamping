@@ -14,8 +14,7 @@ class AdvertisementController extends BaseController
         LoggerInterface $logger
     ) {
         parent::initController($request, $response, $logger);
-
-        // Add your code here.
+        /* Add your code here. */
         $this->is_all_mandotory_modules_filled();
     }
 
@@ -351,7 +350,6 @@ class AdvertisementController extends BaseController
 		if ($image->isValid() && ! $image->hasMoved()) {
 			$newName = $image->getRandomName();
 			$image->move('./'.$path, $newName);
-			//return $path.$image->getName();
             return $image->getName();
 		}
 		return "";

@@ -261,19 +261,14 @@ class GiftCardModel extends Model {
     }
 
     public function update_single_purchased_gc_details($giftcard_prchsed_id, $gc_refund_amount){
-        // $this->db->table('GiftCardPurchased')->update($data, array(
-        //     "order_id" => $orderid,
-        // ));
-        // return $this->db->affectedRows();
-
+       
         $aftectedId = $this->db
             ->table('GiftCardPurchased')
             ->where(["id" => $giftcard_prchsed_id])
             ->set(["gc_balance" => $gc_refund_amount])
             ->set(["updated_at" => DATETIME])
             ->update();
-        // $getLastQuery = $this->db->getLastQuery();
-		// echo '<pre>'; print_r($getLastQuery); exit;
+       
         $aftectedId = $this->db->affectedRows();
         if(is_int($aftectedId)){
             return true;

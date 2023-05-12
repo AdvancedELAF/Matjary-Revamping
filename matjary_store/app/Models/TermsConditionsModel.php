@@ -67,9 +67,7 @@ class TermsConditionsModel extends Model {
             "id" => $id,
         ));
         return $this->db->affectedRows();
-    }  
-
-    
+    } 
 }
 
 ?>

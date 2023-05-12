@@ -324,7 +324,6 @@ class CommonController extends BaseController
     }
 
     public function get_state_cities(){
-       // echo '<pre>'; print_r($_POST); die;
         if(isset($_POST['state_id']) && !empty($_POST['state_id'])){
             $result = $this->CommonModel->get_state_cities($_POST['state_id']);
             if(isset($result) && !empty($result)){
@@ -536,22 +535,22 @@ class CommonController extends BaseController
         $mail = new PHPMailer(true);
 
         try {
-            //Server settings
-            $mail->SMTPDebug = 2;                                 // Enable verbose debug output
-            $mail->isSMTP();                                      // Set mailer to use SMTP
-            $mail->Host = 'mail.motorgate.com';                    // Specify main and backup SMTP servers
-            $mail->SMTPAuth = true;                               // Enable SMTP authentication
-            $mail->Username = 'smtpmail@motorgate.com';                   // SMTP username
-            $mail->Password = '2NrW_q,i9Z;%';                   // SMTP password
-            $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-            $mail->Port = 587;                                    // TCP port to connect to
+            /* Server settings */
+            $mail->SMTPDebug = 2;                                 /* Enable verbose debug output */
+            $mail->isSMTP();                                      /* Set mailer to use SMTP */
+            $mail->Host = 'mail.motorgate.com';                    /* Specify main and backup SMTP servers */
+            $mail->SMTPAuth = true;                               /* Enable SMTP authentication */
+            $mail->Username = 'smtpmail@motorgate.com';                   /* SMTP username */
+            $mail->Password = '2NrW_q,i9Z;%';                   /* SMTP password */
+            $mail->SMTPSecure = 'tls';                            /* Enable TLS encryption, `ssl` also accepted */
+            $mail->Port = 587;                                    /* TCP port to connect to */
 
-            //Recipients
+            /*Recipients */
             $mail->setFrom('smtpmail@motorgate.com', 'Sender Name');
-            $mail->addAddress('saiatpadkar15@gmail.com', 'Recipient Name');     // Add a recipient
+            $mail->addAddress('saiatpadkar15@gmail.com', 'Recipient Name');     /* Add a recipient */
 
-            // Content
-            $mail->isHTML(true);                                  // Set email format to HTML
+            /* Content */
+            $mail->isHTML(true);                                  /* Set email format to HTML */
             $mail->Subject = 'Test Email via SMTP';
             $mail->Body    = 'This is a test email sent via SMTP using PHPMailer.';
 

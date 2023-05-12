@@ -76,7 +76,6 @@ class SizeModel extends Model {
         $query = $this->db->query('select * from ' . $this->table . ' where size = "'.$data['size'].'"');
         $query = $query->getResult();
 
-        //echo print_r($query); exit;
         if(count($query) > 0){
             return false;
         }else{
@@ -108,27 +107,7 @@ class SizeModel extends Model {
             ');
         return $query->getResult();
     }
-    // public function get_productwise_size($prodId) 
-    // {
-	// 	$query = $this->db->query("select Products.id as pro_id,Products.is_active ,Products.size_id ,Products.color_id ,Sizes.id as size_id, Sizes.size            
-    //            from Products
-    //            LEFT JOIN Sizes ON Products.size_id = Sizes.id  
-	// 		   where Products.id = '.$prodId.' and Products.is_active in (1,2)			           
-    //            ORDER by Products.id"); 
-	// 		return $query->getResult();
-		
-    // }
-
-    
-
-	
+    	
 }
-
-
-
-
-
-
-
 
 ?>

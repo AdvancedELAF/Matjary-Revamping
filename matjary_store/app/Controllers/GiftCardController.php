@@ -29,7 +29,6 @@ class GiftCardController extends BaseController
             $this->pageData['pageTitle'] = 'All Gift Cards';
             $this->pageData['adminPageId'] = 25;
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
             $this->pageData['GiftCardList'] = $this->GiftCardModel->get_all_data();
             return view('store_admin/gift_card/all_gift_cards',$this->pageData);
         }else{
@@ -42,7 +41,6 @@ class GiftCardController extends BaseController
             $this->pageData['pageTitle'] = 'Add Gift Card';
             $this->pageData['CheckList'] = $this->GiftCardModel->get_all_data();
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
             return view('store_admin/gift_card/add-gift-card',$this->pageData);
         }else{
             return redirect()->to('/admin/login');
@@ -142,7 +140,6 @@ class GiftCardController extends BaseController
             $this->pageData['pageTitle'] = 'Edit Gift Card';
             $this->pageData['GiftCardDetails'] = $this->GiftCardModel->find($Id);
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
             return view('store_admin/gift_card/edit-gift-card',$this->pageData);
         }else{
             return redirect()->to('/admin/login');

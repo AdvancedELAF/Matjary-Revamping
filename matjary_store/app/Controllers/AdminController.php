@@ -14,9 +14,7 @@ class AdminController extends BaseController
         LoggerInterface $logger
     ) {
         parent::initController($request, $response, $logger);
-
-        // Add your code here.
-        
+        /* Add your code here. */       
     }
 
     public function index(){
@@ -25,7 +23,6 @@ class AdminController extends BaseController
             $this->pageData['pageTitle'] = 'Dashboard';
             $this->pageData['dashboardAnalytics'] = $this->CommonModel->dashboard_analytics();
             $this->pageData['getCurrentYrProfit'] = $this->CommonModel->get_current_year_profit();
-            //$this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data($this->ses_lang);
             if(isset($this->pageData['getCurrentYrProfit'][0]) && !empty($this->pageData['getCurrentYrProfit'][0])){
                 $getTotalAmt[0] = '';
                 $GetMonths = '';
@@ -54,7 +51,6 @@ class AdminController extends BaseController
 
     public function login(){
         $this->pageData['pageTitle'] = 'Store Admin Login';
-        //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
         return view('store_admin/user/login',$this->pageData);
     }    
 
@@ -64,8 +60,6 @@ class AdminController extends BaseController
             $this->pageData['pageTitle'] = 'Dashboard';
             $this->pageData['dashboardAnalytics'] = $this->CommonModel->dashboard_analytics();
             $this->pageData['getCurrentYrProfit'] = $this->CommonModel->get_current_year_profit();
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
-            //$this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data($this->ses_lang);
             if(isset($this->pageData['getCurrentYrProfit'][0]) && !empty($this->pageData['getCurrentYrProfit'][0])){
                 $getTotalAmt[0] = '';
                 $GetMonths = '';
@@ -99,7 +93,6 @@ class AdminController extends BaseController
     }
    
 }
-
 ?>
 
 

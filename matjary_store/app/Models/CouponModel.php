@@ -74,13 +74,6 @@ class CouponModel extends Model {
         return $this->db->affectedRows();
     }
 
-    // public function delete_data($id)
-    // {
-    //     return $this->db->table($this->table)->delete(array(
-    //         "id" => $id,
-    //     ));
-    // }
-
     public function chk_coupon_code_valid($coupon_code,$customer_id,$total_price){
         $response = array();
         $couponExist = $this->db->query('select * from '. $this->table .' where coupon_code="'.$coupon_code.'" and is_active=1');
