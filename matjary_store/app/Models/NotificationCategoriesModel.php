@@ -87,10 +87,6 @@ class NotificationCategoriesModel extends Model {
             "id" => $id,
         ));
     }
-
-     
-
-	
 }
 
 

@@ -46,13 +46,12 @@ class ContactUsModel extends Model {
     {
         parent::__construct();
         $this->db = \Config\Database::connect();
-        // OR $this->db = db_connect();
     }
 
     public function get_all_data() //$customerId
     {
         $query = $this->db->query('select * from ' . $this->table .' where is_active in(1,2) order by id desc');
-       // $query = $this->db->query("SELECT * FROM ".$this->table." WHERE id=".$customerId);
+       
         return $query->getResult();
     }
 

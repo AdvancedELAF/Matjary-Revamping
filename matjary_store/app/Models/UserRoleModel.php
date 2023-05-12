@@ -65,7 +65,6 @@ class UserRoleModel extends Model {
 			return $query->getResult();
 		
     }
-
   
 }
 

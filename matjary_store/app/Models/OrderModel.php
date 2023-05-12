@@ -50,9 +50,7 @@ class OrderModel extends Model {
 
     public function insert_data($data = array())
     {
-        $query = $this->db->table($this->table)->insert($data);
-		// $getLastQuery = $this->db->getLastQuery();
-		// echo '<pre>'; print_r($getLastQuery); exit;
+        $query = $this->db->table($this->table)->insert($data);		
         return $this->db->insertID();
     }
 
@@ -63,9 +61,7 @@ class OrderModel extends Model {
         if(isset($row) && !empty($row)){
             return $row->id;
         }else{
-            $query = $this->db->table('RefundRequest')->insert($data);
-            // $getLastQuery = $this->db->getLastQuery();
-            // echo '<pre>'; print_r($getLastQuery); exit;
+            $query = $this->db->table('RefundRequest')->insert($data);            
             return $this->db->insertID();
         }
         
@@ -164,12 +160,10 @@ class OrderModel extends Model {
         );
         
         $result['orderInfo'] = $orderQuery->getRow();
-        // $getLastQuery = $this->db->getLastQuery();
-        // echo '<pre>'; print_r($getLastQuery); exit;
+        
         if(isset($result['orderInfo']) && !empty($result['orderInfo'])){
             
             $orderId = isset($result['orderInfo']->id)?$result['orderInfo']->id:'';
-            //echo '<pre>'; print_r($orderId); exit;
             if(isset($result['orderInfo']->is_giftcard_purchased) && !empty($result['orderInfo']->is_giftcard_purchased)){
                 $orderItemsQuery = $this->db->query(
                     '
@@ -194,8 +188,7 @@ class OrderModel extends Model {
                     left join Products on Products.id=OrderItems.product_id  
                     where OrderItems.order_id='.$orderId
                 );
-                // $getLastQuery = $this->db->getLastQuery();
-                // echo '<pre>'; print_r($getLastQuery); exit;
+              
                 $result['orderProductItemsInfo'] = $orderItemsQuery->getResult();
             }
         }

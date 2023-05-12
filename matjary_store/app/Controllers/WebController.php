@@ -4365,9 +4365,7 @@ class WebController extends BaseController
                                                         return json_encode($resp); exit;
                                                     }
                                                     /* Email Sending For Customer Code For order palced End*/ 
-                                                    // $this->pageData['orderStatusCode'] = 200;
-                                                    // $this->pageData['orderMessage'] = 'Congratulations! Your Order is Successfully Placed....';
-                                                    
+                                                      
                                                     if(isset($this->storeActvTmplName) && !empty($this->storeActvTmplName)){
                                                         return view('store/'.$this->storeActvTmplName.'/customer/order-success',$this->pageData);   
                                                     }else{
@@ -4917,7 +4915,6 @@ class WebController extends BaseController
                                                         "created_at" => DATETIME
                                                     ));
                                                     /* Notification Code For order palced  End*/   
-
                                                     /* Email Sending For Customer Code For Product Purchased start*/
                                                    
                                                     $templateName = $this->storeActvTmplName;
@@ -6608,7 +6605,6 @@ class WebController extends BaseController
 		if ($image->isValid() && ! $image->hasMoved()) {
 			$newName = $image->getRandomName();
 			$image->move('./'.$path, $newName);
-			//return $path.$image->getName();
             return $image->getName();
 		}
 		return "";
@@ -6649,7 +6645,6 @@ class WebController extends BaseController
         }else{
             return view('store/atzshop/index',$this->pageData);
         }       
-    }
-    
+    }    
 }
 ?>

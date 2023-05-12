@@ -2166,12 +2166,18 @@ $(document).ready(function(){
     // });
 
     /* =================================Store Front-end js end ================================= */
-    
+   
     /* autosearch start */
-    $('#gsearchsimple').keyup(function(){
+    $('#gsearchsimple').keyup(function(e){
+        e.preventDefault();
         var query = $('#gsearchsimple').val();
+      
         $('#detail').html('');
-
+        if (e.key === "Enter") {
+            document.getElementById("gsearchBtn").click();            
+        }
+       
+        
         $('.list-group').css({
             'display' : '',
             'position' : 'absolute',
@@ -2183,7 +2189,7 @@ $(document).ready(function(){
         });
 
         if(query.length >= 2)
-        {
+        {         
             var action_page = base_url+'/product/products?query='+query;
             $("#gsearchBtn").attr('href',action_page);
             $.ajax({
@@ -2194,6 +2200,7 @@ $(document).ready(function(){
                 {
                     $('.list-group').html(data);
                     $('.list-group').css('background-color','rgb(255, 255, 255)');
+                    
                 }
             })
         }
@@ -2208,7 +2215,64 @@ $(document).ready(function(){
         var text = $(this).text();
         $('#gsearchsimple').val(text);
         $('.list-group').css('display', 'none');
-    });
+    });    
+
+    let ul = document.getElementById('search_dropdown');
+    let liSelected;
+    let index = -1;
+
+    document.addEventListener('keydown', function(event) {
+        //console.log(event.which);
+        //console.log(event.key);
+        //console.log(liSelected);
+        if (event.key === "Enter") {
+            document.getElementById("gsearchBtn").click();}
+
+        var len = ul.getElementsByTagName('li').length - 1;
+        if (event.which === 40) {
+            index++;
+            //down 
+            if (liSelected) {
+                removeClass(liSelected, 'active');
+                next = ul.getElementsByTagName('li')[index];
+                if (typeof next !== undefined && index <= len) {
+
+                    liSelected = next;
+                } else {
+                    index = 0;
+                    liSelected = ul.getElementsByTagName('li')[0];
+                }
+                addClass(liSelected, 'active');
+                console.log(index);
+            } else {
+                index = 0;
+
+                liSelected = ul.getElementsByTagName('li')[0];
+                addClass(liSelected, 'active');
+            }
+        } else if (event.which === 38) {
+            
+            //up
+            if (liSelected) {
+                removeClass(liSelected, 'active');
+                index--;
+                console.log(index);
+                next = ul.getElementsByTagName('li')[index];
+                if (typeof next !== undefined && index >= 0) {
+                    liSelected = next;
+                } else {
+                    index = len;
+                    liSelected = ul.getElementsByTagName('li')[len];
+                }
+                addClass(liSelected, 'active');
+            } else {
+                index = 0;
+                liSelected = ul.getElementsByTagName('li')[len];
+                addClass(liSelected, 'active');
+            }
+        }
+    },false);
+
 
     /* autosearch end */
 
@@ -2462,11 +2526,25 @@ $(document).ready(function(){
         
     });
 
-    /* ===================== Store Front-end motorev js end =================== */
-
-    
+    /* ===================== Store Front-end motorev js end =================== */    
 
 });
+
+function removeClass(el, className) {
+    if (el.classList) {
+      el.classList.remove(className);
+    } else {
+      el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+    }
+  };
+  
+  function addClass(el, className) {
+    if (el.classList) {
+      el.classList.add(className);
+    } else {
+      el.className += ' ' + className;
+    }
+  };
 
 
 

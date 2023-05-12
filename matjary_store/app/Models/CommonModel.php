@@ -163,10 +163,7 @@ class CommonModel extends Model {
 	
 	public function get_current_year_profit(){
 		
-		// $query = $this->db->query("select year(created_at) as year ,month(created_at) as month ,sum(total_price) as total_price
-		// from Orders
-		// group by year(created_at),month(created_at)
-		// order by year(created_at),month(created_at)");
+		
 		$query = $this->db->query("SELECT 
 		SUM(IF(month = 'Jan', total, 0)) AS 'Jan',
 		SUM(IF(month = 'Feb', total, 0)) AS 'Feb',
@@ -199,16 +196,9 @@ class CommonModel extends Model {
 			$query = $this->db->query("SELECT title_ar,keywords_ar,tags_ar FROM Products WHERE title LIKE '%".trim($query)."%' OR keywords LIKE '%".trim($query)."%' OR tags LIKE '%".trim($query)."%' OR title_ar LIKE '%".trim($query)."%' OR keywords_ar LIKE '%".trim($query)."%' OR tags_ar LIKE '%".trim($query)."%' AND is_active in(1) ORDER BY id ASC");
 		}
 		return $query->getResult();
-	}
-	
+	}	
 
 }
-
-
-
-
-
-
 
 
 ?>
