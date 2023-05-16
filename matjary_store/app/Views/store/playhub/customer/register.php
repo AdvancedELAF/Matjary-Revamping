@@ -1,6 +1,5 @@
 <?php $this->extend('store/'.$storeActvTmplName.'/layouts/store_layout'); ?>
 <?php $this->section('content'); ?>
-
 <!-- SIGN UP SECTION STARTS -->
 <section class="section-spacing signup-bg <?php if($locale=='ar'){echo 'text-right';} ?>">
     <div class="container-fluid">

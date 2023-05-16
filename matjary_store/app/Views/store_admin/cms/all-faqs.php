@@ -63,7 +63,6 @@ $ses_lang = $session->get('ses_lang');
                         <tr>
                             <td><h5 class="font-16"><?php echo $i; ?></h5></td>
                             <td><h5 class="font-16"><?php echo $question; ?></h5></td>
-                            <!--<td><h5 class="font-16"><?php //echo isset($value->answear)?$value->answear:'NA'; ?></h5></td>                            -->
                             <td><?php if($value->is_active==1){ echo $language['Active'];}else{echo $language['Deactivated'];} ?></td>
                             <td>
                                 <div class="dropdown">

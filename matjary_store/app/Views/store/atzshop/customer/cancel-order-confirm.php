@@ -177,11 +177,7 @@ $ses_custmr_id = $session->get('ses_custmr_id');
                                 <th scope="col"><?php echo $language['Total Price']; ?>Total Price</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <?php
-                                
-                                    //echo '<pre>'; print_r($orderDetails['orderGiftCardInfo']->name); exit;
-                            ?>
+                        <tbody>                           
                             <tr>
                                 <th scope="row"><?php echo $language['GiftCard Detail']; ?></th>
                                 <td><h6><?php echo isset($orderDetails['orderGiftCardInfo']->name)?$orderDetails['orderGiftCardInfo']->name:''; ?></h6></td>

@@ -17,8 +17,7 @@ $ses_lang = $session->get('ses_lang');
     </div>
 </section>
 <section class="section-spacing <?php if($locale=='ar'){echo 'text-right';} ?>">
-    <div class="container">
-        
+    <div class="container">        
         <div class="row mb-3">
             <?php
                 if(isset($prodCatList) && !empty($prodCatList)){

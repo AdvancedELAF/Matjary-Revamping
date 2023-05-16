@@ -159,7 +159,6 @@ $ses_lang = $session->get('ses_lang');
                                             $wishlistActnClass = 'addProdToWshlst';
 
                                             $actionPrdctCarturl = base_url('customer/add-product-cart');
-                                            //$anchorCartBtnText = 'Add to Cart';
                                             $anchorCartBtnText = $language['Add to Cart'];
                                             $actionCartBtnClass = 'addToCart';
 
@@ -178,7 +177,6 @@ $ses_lang = $session->get('ses_lang');
                                                 foreach($snglCstmrCartProductList as $snglCstmrCartProductData){
                                                     if($snglCstmrCartProductData->product_id==$productData->id){
                                                         $actionPrdctCarturl = base_url('customer/remove-product-cart');
-                                                        //$anchorCartBtnText = 'Remove From Cart';
                                                         $anchorCartBtnText =  $language['Remove From Cart'];
                                                         $actionCartBtnClass = 'removeFromCart';
                                                     }
@@ -270,7 +268,6 @@ $ses_lang = $session->get('ses_lang');
                     $wishlistActnClass = 'addProdToWshlst';
 
                     $actionPrdctCarturl = base_url('customer/add-product-cart');
-                    //$anchorCartBtnText = 'Add to Cart';
                     $anchorCartBtnText = $language['Add to Cart'];
                     $actionCartBtnClass = 'addToCart';
 
@@ -288,7 +285,6 @@ $ses_lang = $session->get('ses_lang');
                         foreach($snglCstmrCartProductList as $snglCstmrCartProductData){
                             if($snglCstmrCartProductData->product_id==$productData->id){
                                 $actionPrdctCarturl = base_url('customer/remove-product-cart');
-                                //$anchorCartBtnText = 'Remove From Cart';
                                 $anchorCartBtnText =  $language['Remove From Cart'];
                                 $actionCartBtnClass = 'removeFromCart';
                             }
@@ -419,7 +415,6 @@ $ses_lang = $session->get('ses_lang');
                                     <div class="ad-content text-white">
                                         <h5><?php echo $title; ?></h5>
                                         <p><?php echo $sub_title; ?></p>
-                                        <!--button class="brand-btn-ad-black">Shop Now</button-->
                                         <a href="<?php echo $advertisementData->advertise_link; ?>" class="brand-btn-ad-black"><?php echo $language['Shop Now']; ?></a>
                                     </div>
                                 </div>
@@ -432,7 +427,6 @@ $ses_lang = $session->get('ses_lang');
                                     <div class="ad-content text-white">
                                         <h5><?php echo $title; ?></h5>
                                         <p><?php echo $sub_title; ?></p>
-                                        <!--button class="brand-btn-ad-black">Shop Now</button-->
                                         <a href="<?php echo $advertisementData->advertise_link; ?>" class="brand-btn-ad-black"><?php echo $language['Shop Now']; ?></a>
                                     </div>
                                 </div>
@@ -444,7 +438,6 @@ $ses_lang = $session->get('ses_lang');
                                     <div class="ad-content text-white">
                                         <h5><?php echo $title; ?></h5>
                                         <p><?php echo $sub_title; ?></p>
-                                        <!--button class="brand-btn-ad-black">Shop Now</button-->
                                         <a href="<?php echo $advertisementData->advertise_link; ?>" class="brand-btn-ad-black"><?php echo $language['Shop Now']; ?></a>
                                     </div>
                                 </div>
@@ -481,7 +474,6 @@ $ses_lang = $session->get('ses_lang');
                         $wishlistActnClass = 'addProdToWshlst';
 
                         $actionPrdctCarturl = base_url('customer/add-product-cart');
-                        //$anchorCartBtnText = 'Add to Cart';
                         $anchorCartBtnText = $language['Add to Cart'];
                         $actionCartBtnClass = 'addToCart';
 
@@ -499,7 +491,6 @@ $ses_lang = $session->get('ses_lang');
                             foreach($snglCstmrCartProductList as $snglCstmrCartProductData){
                                 if($snglCstmrCartProductData->product_id==$productData->id){
                                     $actionPrdctCarturl = base_url('customer/remove-product-cart');
-                                    //$anchorCartBtnText = 'Remove From Cart';
                                     $anchorCartBtnText =  $language['Remove From Cart'];
                                     $actionCartBtnClass = 'removeFromCart';
                                 }
@@ -634,7 +625,6 @@ $ses_lang = $session->get('ses_lang');
                                             $wishlistActnClass = 'addProdToWshlst';
 
                                             $actionPrdctCarturl = base_url('customer/add-product-cart');
-                                            //$anchorCartBtnText = 'Add to Cart';
                                             $anchorCartBtnText = $language['Add to Cart'];
                                             $actionCartBtnClass = 'addToCart';
 
@@ -652,7 +642,6 @@ $ses_lang = $session->get('ses_lang');
                                                 foreach($snglCstmrCartProductList as $snglCstmrCartProductData){
                                                     if($snglCstmrCartProductData->product_id==$productData->id){
                                                         $actionPrdctCarturl = base_url('customer/remove-product-cart');
-                                                        //$anchorCartBtnText = 'Remove From Cart';
                                                         $anchorCartBtnText =  $language['Remove From Cart'];
                                                         $actionCartBtnClass = 'removeFromCart';
                                                     }
@@ -831,7 +820,6 @@ $ses_lang = $session->get('ses_lang');
                                         </a>
                                     </div>                       
                                     <div class="text-center mb-3">
-                                        <!--button class="brand-btn-add-cart">Add to Cart</button-->
                                         <a href="<?php echo base_url('giftcard/giftcard-details/'.$GiftCardData->id); ?>" class="brand-btn brand-btn-add-cart"><?php echo $language['Details']; ?></a>
                                     </div>
                                 </div>
@@ -842,8 +830,7 @@ $ses_lang = $session->get('ses_lang');
                 }
                 ?> 
             </div>
-            <div class="text-center">
-                <!--button class="brand-btn-orange"><?php //echo $language['View All']; ?></button-->
+            <div class="text-center">               
                 <a href="<?php echo base_url('giftcard/gift-cards'); ?>" class="brand-btn-orange"><?php echo $language['View All']; ?></a>
             </div>
         </div>

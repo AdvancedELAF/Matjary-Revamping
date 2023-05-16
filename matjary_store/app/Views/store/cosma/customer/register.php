@@ -41,10 +41,6 @@
                     <div class="mb-3">
                         <input type="password" name="cnf_password" id="cnf_password" class="form-control" placeholder="<?php echo $language['Confirm Password']; ?>*">
                     </div>
-                    <!-- <div class="custom-control custom-checkbox newsletter-checkbox mb-2">
-                        <input type="checkbox" class="custom-control-input" id="newsletterCheck">
-                        <label class="custom-control-label" for="newsletterCheck">Subscribe Newsletter</label>
-                    </div> -->
                     <div class="d-grid gap-2 d-md-block <?php if ($locale == 'ar') {
                                                             echo 'text-right';
                                                         } ?>">

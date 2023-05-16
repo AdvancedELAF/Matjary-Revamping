@@ -121,13 +121,7 @@ $ses_lang = $session->get('ses_lang');
 									<span class="input-group-text"></span>
 								</div>
 							</div>
-							<div class="row pb-30">
-								<!--<div class="col-6">
-									<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input" id="customCheck1">
-										<label class="custom-control-label" for="customCheck1">Remember</label>
-									</div>
-								</div>-->
+							<div class="row pb-30">							
 								<div class="col-12">
 									<div class="forgot-password <?php if($locale=='ar'){echo 'text-left';} ?>"><a href="<?php echo base_url('admin/user-forgot-password'); ?>"><?php echo $language['Forgot Password']; ?></a></div>
 								</div>
@@ -137,10 +131,7 @@ $ses_lang = $session->get('ses_lang');
 									<div class="input-group mb-0">			
                                         <button type="submit" class="btn btn-primary btn-lg btn-block"><?php echo $language['Login']; ?></button>
 									</div>
-									<!-- <div class="font-16 weight-600 pt-10 pb-10 text-center" data-color="#707373">OR</div>
-									<div class="input-group mb-0">
-										<a class="btn btn-outline-primary btn-lg btn-block" href="register.html">Register To Create Account</a>
-									</div> -->
+							
 								</div>
 							</div>
                         <?php echo form_close(); ?>

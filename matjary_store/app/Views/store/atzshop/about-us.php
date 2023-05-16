@@ -2,7 +2,6 @@
 include("functions.php");
 include("header.php")
 ?>
-
 <section class="section-spacing">
     <div class="container">
         <div class="section-title mb-3">
@@ -14,7 +13,6 @@ include("header.php")
         </div>
     </div>
 </section>
-
 <?php
 include("footer.php")
 ?>

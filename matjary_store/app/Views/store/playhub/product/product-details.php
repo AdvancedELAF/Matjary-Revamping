@@ -163,7 +163,6 @@ if($ses_lang=='en'){
                                     if($cstmrWishPrdctData->product_id==$productDetails->id){
 
                                         $actionWishlisturl = base_url('customer/remove-product-wishlist');
-                                        //$anchorWishlistBtnText = 'Remove From Wishlist';
                                         $anchorWishlistBtnText = $language['Remove From Wishlist'];
                                         $actionWishlistBtnClass = 'removeFromWishlist';
                                     }
@@ -195,7 +194,6 @@ if($ses_lang=='en'){
                             </a>
                         <?php }else{ ?>
                             <a href="<?php echo base_url('customer/login'); ?>"><h4><i class="icofont-ui-edit"></i> <?php echo $language['Post a feedback']; ?></h4></a>
-                            <!--<a href="<?php //echo base_url('customer/login'); ?>"><h4><i class="icofont-eye-alt"></i>View all feebacks</h4></a>-->
                             <a class="viewFeedback" href="#"><h4><i class="icofont-eye-alt"></i> <?php echo $language['View all feebacks']; ?></h4></a>
                         <?php } ?>
                     </div>

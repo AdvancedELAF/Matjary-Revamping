@@ -1,7 +1,6 @@
 <?php $this->extend('store/'.$storeActvTmplName.'/layouts/store_layout'); ?>
 <?php $this->section('content'); ?>
 <!-- PAGE BAR STARTS -->
-
 <section>
     <div class="container-fluid <?php if($locale=='ar'){echo 'text-right';} ?>">
         <div class="trans-page-title">
@@ -76,12 +75,9 @@
                     <div class="text-<?php if($locale=='ar'){echo 'left';}else{echo 'right';} ?>">
                         <a href="<?php echo base_url('customer/my-account'); ?>" class="brand-btn-black"><?php echo $language['Back']; ?></a> 
                     </div>
-                </div>
-                
+                </div>                
             </div>                
-        </div>
-        
+        </div>        
 </section>
-
 <!-- MY ORDERS TABLE ENDS -->
 <?php $this->endSection(); ?>

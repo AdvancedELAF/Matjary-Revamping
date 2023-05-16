@@ -8,7 +8,7 @@ $ses_custmr_id = $session->get('ses_custmr_id');
 <?php $this->section('content'); ?>
 <section class="section-spacing">
     <div class="container">
-        <?php //echo '<pre>'; print_r($GiftCardDetails); die;?>
+        
         <div class="section-title text-center mb-3">
             <h4><?php echo isset($GiftCardDetails->title)?$GiftCardDetails->title:''; ?></h4>
         </div>
@@ -39,8 +39,7 @@ $ses_custmr_id = $session->get('ses_custmr_id');
                         <label>Enter Feedback*</label>
                         <textarea class="form-control" rows="3" id="feedback" name="feedback" ><?php //echo isset($ProductFeedBackDetails[0]->feedback)?$ProductFeedBackDetails[0]->feedback:''; ?></textarea>
                     </div>
-                    <div class="d-grid gap-2 d-md-block">
-                        <!--<a class="btn btn-primary brand-btn-black-outline" href="<?php //echo base_url('giftcard/giftcard-details/'.$gcDetails->id); ?>">Back</a>                        -->
+                    <div class="d-grid gap-2 d-md-block">                        
                         <button class="btn btn-primary brand-btn-black" type="submit">Save</button>                        
                     </div>
                 </div>

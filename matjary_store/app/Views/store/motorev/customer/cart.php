@@ -15,7 +15,6 @@ $ses_lang = $session->get('ses_lang');
         </div>
     </div>
 </section>
-
 <?php if(isset($customerCartData) && !empty($customerCartData)){ ?>
 
 <!-- CART TABLE STARTS -->
@@ -46,18 +45,15 @@ $ses_lang = $session->get('ses_lang');
                             $i=1;
                             $index = 0;
                             foreach($customerCartData as $customerCartValues){
-                                //echo '<pre>'; print_r($customerCartValues); exit;
                                 
                                 $productId = isset($customerCartValues->id)?$customerCartValues->id:'';
                                 $product_price = isset($customerCartValues->product_price)?number_format((float)$customerCartValues->product_price, 2, '.', ''):'';
                                 $sales_tax = isset($customerCartValues->sales_tax)?number_format((float)$customerCartValues->sales_tax, 2, '.', ''):'';
                                 $product_weight = isset($customerCartValues->weight)?number_format((float)$customerCartValues->weight, 2, '.', ''):'';
-                                //$product_weight = isset($product_weight)?$product_weight:$customerCartValues->weight;
-                                //echo '<pre>'; print_r($product_weight); exit;
+                               
                                 $cartItemCheked = '';
                                 $cartBuyItem = $session->get('cartBuyItem');
                                 if(isset($cartBuyItem) && !empty($cartBuyItem)){
-                                    //echo '<pre>'; print_r($cartBuyItem); exit;
                                     if(isset($cartBuyItem['productid']) && !empty($cartBuyItem['productid'])){
                                         if($cartBuyItem['productid']==$productId){
                                             $cartItemCheked = 'checked';

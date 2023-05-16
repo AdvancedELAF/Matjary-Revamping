@@ -87,8 +87,6 @@ $ses_lang = $session->get('ses_lang');
                 </div>
             </div>
         </div>
-
     </div>
-
 </div>
 <?php $this->endSection(); ?>

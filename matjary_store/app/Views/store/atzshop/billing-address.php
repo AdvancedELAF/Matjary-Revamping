@@ -2,13 +2,11 @@
 include("functions.php");
 include("header.php")
 ?>
-
 <section class="section-spacing">
     <div class="container">
         <div class="section-title text-center mb-4">
             <h4>Billing Address</h4>
         </div>
-
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">

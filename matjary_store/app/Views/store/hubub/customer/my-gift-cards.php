@@ -8,9 +8,7 @@
     </div>
 </section>
 <!-- GIFT CARD LISITNG SECTION STARTS -->
-<section class="section-spacing <?php if ($locale == 'ar') {
-                                    echo 'text-right';
-                                } ?>">
+<section class="section-spacing <?php if ($locale == 'ar') { echo 'text-right'; } ?>">
     <div class="container">
         <div class="row">
             <?php
@@ -22,9 +20,7 @@
                             <a href="<?php echo base_url('customer/my-giftcard-details/' . $GiftCardData->giftcard_prchsed_id); ?>">
                                 <img src="<?php echo base_url('/uploads/giftcards/'); ?>/<?php echo isset($GiftCardData->image) ? $GiftCardData->image : ''; ?>">
                             </a>
-                            <!--div class="wishlist">
-                        <i class="icofont-heart"></i>
-                    </div-->
+                           
                             <div class="prod-details">
                                 <a href="<?php echo base_url('customer/my-giftcard-details/' . $GiftCardData->giftcard_prchsed_id); ?>">
                                     <h6><?php echo $language['Code']; ?></h6>

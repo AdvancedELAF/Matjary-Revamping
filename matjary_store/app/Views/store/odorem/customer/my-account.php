@@ -1,9 +1,7 @@
 <?php $this->extend('store/'.$storeActvTmplName.'/layouts/store_layout'); ?>
 <?php $this->section('content'); ?>
 <!-- PAGE BAR STARTS -->
-<section class="ot-banner-bg <?php if ($locale == 'ar') {
-                                    echo 'text-right';
-                                } ?>">
+<section class="ot-banner-bg <?php if ($locale == 'ar') { echo 'text-right'; } ?>">
     <div class="container">
         <div class="section-title text-center">
             <h2><i class="icofont-star-alt-1"></i> <?php echo $language['MY ACCOUNT']; ?> <i class="icofont-star-alt-1"></i> </h2>

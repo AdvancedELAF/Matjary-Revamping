@@ -18,8 +18,7 @@ $ses_lang = $session->get('ses_lang');
     <div class="container">
         <div class="row">
             <?php 
-            $giftCard = $locale=='en'?'Data Not Available Yet!.':'البيانات غير متوفرة بعد!';          
-            //echo '<pre>'; print_r($GiftCardList); die;  
+            $giftCard = $locale=='en'?'Data Not Available Yet!.':'البيانات غير متوفرة بعد!';      
             if(isset($GiftCardList) && !empty($GiftCardList)){
                 foreach($GiftCardList as $GiftCardData){
                     $giftCardDefaultMsg = false;
@@ -78,6 +77,5 @@ $ses_lang = $session->get('ses_lang');
     </div>
 </section>
 <!-- GIFT CARD LISTING SECTION ENDS -->
-
 <!-- Footer section  -->
 <?php $this->endSection(); ?>

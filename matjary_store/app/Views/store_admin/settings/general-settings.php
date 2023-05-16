@@ -94,9 +94,8 @@ if($ses_lang == 'en'){
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="mb-2">
-                                <label><?php echo $language['Logo']; ?></label>
-                                <input type="file" class="form-control"  name="logo"  value="<?php echo isset($settingModel[0]['logo'])?$settingModel[0]['logo']:''; ?>">
-                                <!--<p><?php //echo isset($settingModel[0]['logo'])?$settingModel[0]['logo']:''; ?></p>-->
+                                    <label><?php echo $language['Logo']; ?></label>
+                                    <input type="file" class="form-control"  name="logo"  value="<?php echo isset($settingModel[0]['logo'])?$settingModel[0]['logo']:''; ?>">
                                 </div>
                             </div>
                             <div class="col-md-2">
@@ -109,9 +108,8 @@ if($ses_lang == 'en'){
                             </div> 
                             <div class="col-md-4">
                                 <div class="mb-2">
-                                <label><?php echo $language['favicon']; ?></label>
-                                <input type="file" class="form-control"   name="favicon" id="favicon" value="<?php echo isset($settingModel[0]['favicon'])?$settingModel[0]['favicon']:''; ?>">
-                                <!--<p><?php //echo isset($settingModel[0]['favicon'])?$settingModel[0]['favicon']:''; ?></p>-->
+                                    <label><?php echo $language['favicon']; ?></label>
+                                    <input type="file" class="form-control"   name="favicon" id="favicon" value="<?php echo isset($settingModel[0]['favicon'])?$settingModel[0]['favicon']:''; ?>">
                                 </div>
                             </div>
                             <div class="col-md-2">
@@ -229,40 +227,7 @@ if($ses_lang == 'en'){
                                     <input type="url" class="form-control" placeholder="Linkedin URL" id="social_linkedin_link" name="social_linkedin_link" value="<?php echo isset($settingModel[0]['social_linkedin_link'])?$settingModel[0]['social_linkedin_link']:''; ?>">
                                 </div>
                             </div>
-                        </div>
-                        <!-- <h5 class="h4 text-blue mb-20 mt-3">SMTP Credentials</h5>                               
-                        <div class="row">
-                            <div class="col-md-6 col-lg-3">
-                                <div class="mb-2">
-                                    <label>SMTP Host</label>
-                                    <input type="text" class="form-control" placeholder="SMTP Host" id="smtp_host" name="smtp_host" value="<?php echo isset($settingModel[0]['smtp_host'])?$settingModel[0]['smtp_host']:''; ?>">
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-3">
-                                <div class="mb-2">
-                                    <label>SMTP Username</label>
-                                    <input type="text" class="form-control" placeholder="SMTP Username" id="smtp_username" name="smtp_username" value="<?php echo isset($settingModel[0]['smtp_username'])?$settingModel[0]['smtp_username']:''; ?>" >
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-3">
-                                <div class="mb-2">
-                                    <label>SMTP Password</label>
-                                    <input type="password" class="form-control" placeholder="SMTP Password" id="smtp_password" name="smtp_password"  value="<?php echo isset($settingModel[0]['smtp_password'])?$settingModel[0]['smtp_password']:''; ?>">
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-3">
-                                <div class="mb-2">
-                                    <label>SMTP Port</label>
-                                    <input type="text" class="form-control" placeholder="SMTP Port" id="smtp_port" name="smtp_port" value="<?php echo isset($settingModel[0]['smtp_port'])?$settingModel[0]['smtp_port']:''; ?>">
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-3">
-                                <div class="mb-2">
-                                    <label>SMTP Form Email</label>
-                                    <input type="email" class="form-control" placeholder="SMTP Form" id="smtp_from" name="smtp_from" value="<?php echo isset($settingModel[0]['smtp_from'])?$settingModel[0]['smtp_from']:''; ?>">
-                                </div>
-                            </div>
-                        </div>-->
+                        </div>                        
                         <div class="d-grid gap-2 d-md-block text-<?php echo $ses_lang == 'en'?'right':'left'; ?> mt-4">
                             <?php if(!empty($settingModel)){ ?>
                             <button class="btn btn-primary" type="submit"><?php echo $language['Update']; ?></button>

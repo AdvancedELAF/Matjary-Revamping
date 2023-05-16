@@ -14,7 +14,7 @@ $ses_custmr_id = $session->get('ses_custmr_id');
         <div class="row">
             <div class="col-md-12">
                 <div class="feedback-wrapper">  
-                    <?php //echo '<pre>'; print_r($GetProductFeedbacks);
+                    <?php
                      if(isset($GetProductFeedbacks) && !empty($GetProductFeedbacks)){
                         foreach($GetProductFeedbacks as $key => $GetProductFeedbacksData){ ?>
                         <h4 class="prod-main-content-title">Customer Reviews</h4>

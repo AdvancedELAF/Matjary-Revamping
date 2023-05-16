@@ -1,6 +1,5 @@
 <?php $this->extend('store/'.$storeActvTmplName.'/layouts/store_layout'); ?>
 <?php $this->section('content'); ?>
-
 <!-- LOGIN SECTION STARTS -->
 <section class="section-spacing login-bg <?php if($locale=='ar'){echo 'text-right';} ?>">
     <div class="container-fluid">
@@ -53,6 +52,5 @@
         </div>
     </div>
 </section>
-
 <!-- LOGIN SECTION ENDS -->
 <?php $this->endSection(); ?>

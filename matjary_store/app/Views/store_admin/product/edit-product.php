@@ -291,9 +291,6 @@ $ses_lang = $session->get('ses_lang');
                             </div>
                         </div>
                     </div>
-
-
-
                     <div class="d-grid gap-2 d-md-block text-<?php echo $ses_lang == 'en'?'right':'left'; ?> mt-4">
                         <button class="btn btn-primary" type="submit"><?php echo $language['Update']; ?></button>
                         <a href="<?php echo base_url('admin/all-products'); ?>" class="btn btn-secondary"><?php echo $language['Cancel']; ?></a>
@@ -302,8 +299,6 @@ $ses_lang = $session->get('ses_lang');
                 </div>
             </div>
         </div>
-
     </div>
-
 </div>
 <?php $this->endSection(); ?>

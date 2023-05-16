@@ -17,9 +17,7 @@ $ses_lang = $session->get('ses_lang');
 </section>
 <section class="section-spacing">
     <div class="container">            
-        <!--div class="category-title text-center">
-            <h2><i class="icofont-star-alt-1"></i> <?php //echo $value->category_name;?> <i class="icofont-star-alt-1"></i></h2>
-        </div-->
+        
         <div class="category-carousel-wrapper mt-3 mb-5">
             <div class="owl-carousel owl-theme category-carousel">
             <?php 

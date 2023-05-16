@@ -7,7 +7,6 @@
         </div>
     </div>
 </section>
-
 <section class="section-spacing <?php if($locale=='ar'){echo 'text-right';} ?>">
 <div class="container-fluid">
     <div class="order-table-count">
@@ -119,5 +118,4 @@
     </div>
 </div>
 </section>
-
 <?php $this->endSection(); ?>

@@ -17,7 +17,6 @@ $ses_lang = $session->get('ses_lang');
                     <img src="<?php echo base_url('/uploads/giftcards/'); ?>/<?php echo isset($mySnglGCDetails->image)?$mySnglGCDetails->image:''; ?>">
                 </div>
             </div>
-            <?php //echo '<pre>'; print_r($mySnglGCDetails);?>
             <div class="col-lg-8">
                 <div class="prod-main-detail">                  
                     <div class="prod-detail-title">

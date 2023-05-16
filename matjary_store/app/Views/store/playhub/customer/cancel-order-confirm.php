@@ -14,7 +14,6 @@ $ses_custmr_id = $session->get('ses_custmr_id');
         </div>
     </div>
 </section>
-
 <!-- PAGE BAR ENDS -->
 <!-- ORDER DETAIL TABLE STARTS -->
 <section class="section-spacing <?php if($locale=='ar'){echo 'text-right';} ?>">
@@ -264,8 +263,7 @@ $ses_custmr_id = $session->get('ses_custmr_id');
                 </div>
                 <span class="text-danger" id="cancel_reason_error_msgs" ></span>
             </div>
-        </div>
-        
+        </div>        
     </div>
 </section>
 <!-- ORDER DETAIL TABLE ENDS -->

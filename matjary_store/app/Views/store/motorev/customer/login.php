@@ -39,6 +39,5 @@
         </div>
     </div>
 </section>
-
 <!-- LOGIN SECTION ENDS -->
 <?php $this->endSection(); ?>

@@ -182,9 +182,7 @@
                         </div>
                     <?php } ?> 
                 </div>
-            </div>           
-
-            
+            </div> 
             </div>
             <div class="back-btn">
                 <a href="<?php echo base_url('customer/my-refund-request'); ?>" class="brand-btn-black float-right" ><?php echo $language['Back']; ?></a>
