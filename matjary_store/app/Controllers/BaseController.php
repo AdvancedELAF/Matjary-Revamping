@@ -113,7 +113,7 @@ abstract class BaseController extends Controller
         $this->UserRoleModel        = new UserRoleModel();
         $this->NotificationsModel   = new NotificationsModel();
        
-        // E.g.: $this->session = \Config\Services::session();
+        /* E.g.: $this->session = \Config\Services::session(); */
 
         $this->session = \Config\Services::session();
         $this->ses_logged_in = $this->session->get('ses_logged_in');
@@ -126,9 +126,8 @@ abstract class BaseController extends Controller
         $this->ses_user_name = $this->session->get('ses_user_name');
         $this->ses_user_email = $this->session->get('ses_user_email');
 
-        /* loading engilsh/arabic content start*/
+        /* loading engilsh/arabic content start */
         $this->pageData['locale'] = $this->request->getLocale();
-        //echo '<pre>'; print_r($this->pageData['locale']); exit;
         $this->lang_session = $this->session->get('lang_session');
         $this->ses_lang = $this->session->get('ses_lang');
         if(isset($this->lang_session) && $this->lang_session===true){
@@ -170,7 +169,6 @@ abstract class BaseController extends Controller
                 }
                 
             }
-
         }
 
         if(isset($this->ses_logged_in) && $this->ses_logged_in===true){
@@ -197,53 +195,42 @@ abstract class BaseController extends Controller
         }
         $this->pageData['storeActvTmplName'] = '';
         /* call store info api start */
-       // $store_link = base_url();
-        $store_link = 'https://test9.matjary.sa';
+        $store_link = base_url(); /* at server side */
+        /* $store_link = 'https://test9.matjary.sa'; */
         $store_token = $this->pageData['storeSettingInfo']->auth_tkn;
-       // echo $store_token; exit;
         if(isset($this->pageData['storeSettingInfo']->auth_tkn) && !empty($this->pageData['storeSettingInfo']->auth_tkn)){
             $data_array =  array(
                 "store_link" => $store_link,
                 "store_token" => $store_token
             );
             $make_call = $this->callAPI('POST', 'https://www.matjary.sa/store-info', json_encode($data_array));
-            //echo '<pre>'; print_r($make_call); exit;
             $response = json_decode($make_call, true);
-           //echo '<pre>'; print_r($response); exit;
             $this->pageData['storeInfo'] = $response;
             if(isset($response['responseCode']) && $response['responseCode']==200){
                 if(isset($response['responseData']) && !empty($response['responseData'])){
-
                     $todayDate = date('Y-m-d');
                     $todayDate = date('Y-m-d', strtotime($todayDate));
                     $planDateBegin = date('Y-m-d', strtotime($response['responseData']['plan_start_dt']));
                     $planDateEnd = date('Y-m-d', strtotime($response['responseData']['plan_expiry_dt']));
-                    //if (($todayDate >= $planDateBegin) && ($todayDate <= $planDateEnd)){
                     if ($todayDate <= $planDateEnd){
                         $storeTplId = $this->pageData['storeSettingInfo']->template_id;
-                        //echo '<pre>'; print_r($storeTplId); 
                         if(isset($storeTplId) && !empty($storeTplId)){
                             $this->storeTemplateId = $storeTplId;
                         }else{
                             $this->storeTemplateId = 1;
                         }
-
                         $matjaryTmpltListApi = $this->callAPI('POST', 'https://www.matjary.sa/template-list', '');
                         $matjaryTmpltList = json_decode($matjaryTmpltListApi, true);
-                        // echo '<pre>'; print_r($matjaryTmpltList); 
                         if(isset($matjaryTmpltList['responseCode']) && $matjaryTmpltList['responseCode']==200){
                             if(isset($matjaryTmpltList['responseData']) && !empty($matjaryTmpltList['responseData'])){
                                 foreach ($matjaryTmpltList['responseData'] as $value) {
                                     if($this->storeTemplateId==$value['id']){
-                                        //echo '<pre>'; print_r($value); 
                                         $this->storeActvTmplName = strtolower($value['name']);
                                     }
                                 }
                             }
                         }
-                        
                         $this->pageData['storeActvTmplName'] = $this->storeActvTmplName;
-                        //echo '<pre>'; print_r($this->pageData['storeActvTmplName']); exit;
                     }else{
                         $resp = array(
                             'responseCode'=>404,
@@ -267,7 +254,6 @@ abstract class BaseController extends Controller
     }
 
     function callAPI($method, $url, $data){
-        
         $curl = curl_init();
         switch ($method){
            case "POST":
@@ -338,28 +324,7 @@ abstract class BaseController extends Controller
     public function aramex_create_shipment($param=''){
         echo '<pre>'; print_r($param); exit;
         echo '<pre>'; print_r(json_encode($param)); exit;
-        // $aramex_api_url = 'https://ws.aramex.net/ShippingAPI.V2/Shipping/Service_1_0.svc/json/CreateShipments';
-
-        // // $data = array("first_name" => "First name","last_name" => "last name","email"=>"email@gmail.com","addresses" => array ("address1" => "some address" ,"city" => "city","country" => "CA", "first_name" =>  "Mother","last_name" =>  "Lastnameson","phone" => "555-1212", "province" => "ON", "zip" => "123 ABC" ) );
-
-        // // $data_string = json_encode(array("customer" =>$data));
-
-        // $ch = curl_init($aramex_api_url);
-
-        // curl_setopt($ch, CURLOPT_POSTFIELDS, $param);
-
-        // curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
-
-        // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-        // $result = curl_exec($ch);
-
-        // curl_close($ch);
-
-        // return $result;
-
         $curl = curl_init();
-
         curl_setopt_array($curl, array(
         CURLOPT_URL => 'https://ws.aramex.net/ShippingAPI.V2/Shipping/Service_1_0.svc/json/CreateShipments',
         CURLOPT_RETURNTRANSFER => true,
@@ -369,188 +334,15 @@ abstract class BaseController extends Controller
         CURLOPT_FOLLOWLOCATION => true,
         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
         CURLOPT_CUSTOMREQUEST => 'POST',
-        // CURLOPT_POSTFIELDS =>'{
-        //     "ClientInfo": {
-        //         "UserName": "aramex-shipping@matjary.sa",
-        //         "Password": "Aramex@elaf321$",
-        //         "Version": "v1",
-        //         "AccountNumber": "60527593",
-        //         "AccountPin": "226316",
-        //         "AccountEntity": "RUH",
-        //         "AccountCountryCode": "SA",
-        //         "Source": 24
-        //     },
-        //     "LabelInfo": null,
-        //     "Shipments": [
-        //         {
-        //             "Reference1": "",
-        //             "Reference2": "",
-        //             "Reference3": "",
-        //             "Shipper": {
-        //                 "Reference1": "",
-        //                 "Reference2": "",
-        //                 "AccountNumber": "60527593",
-        //                 "PartyAddress": {
-        //                     "Line1": "Test",
-        //                     "Line2": "",
-        //                     "Line3": "",
-        //                     "City": "Riyadh",
-        //                     "StateOrProvinceCode": "",
-        //                     "PostCode": "",
-        //                     "CountryCode": "SA",
-        //                     "Longitude": 0,
-        //                     "Latitude": 0,
-        //                     "BuildingNumber": null,
-        //                     "BuildingName": null,
-        //                     "Floor": null,
-        //                     "Apartment": null,
-        //                     "POBox": null,
-        //                     "Description": null
-        //                 },
-        //                 "Contact": {
-        //                     "Department": "",
-        //                     "PersonName": "aramex",
-        //                     "Title": "",
-        //                     "CompanyName": "aramex",
-        //                     "PhoneNumber1": "00966551511111",
-        //                     "PhoneNumber1Ext": "",
-        //                     "PhoneNumber2": "",
-        //                     "PhoneNumber2Ext": "",
-        //                     "FaxNumber": "",
-        //                     "CellPhone": "00966551511111",
-        //                     "EmailAddress": "test@test.com",
-        //                     "Type": ""
-        //                 }
-        //             },
-        //             "Consignee": {
-        //                 "Reference1": "",
-        //                 "Reference2": "",
-        //                 "AccountNumber": "",
-        //                 "PartyAddress": {
-        //                     "Line1": "Test",
-        //                     "Line2": "",
-        //                     "Line3": "",
-        //                     "City": "riyadh",
-        //                     "StateOrProvinceCode": "",
-        //                     "PostCode": "",
-        //                     "CountryCode": "SA",
-        //                     "Longitude": 0,
-        //                     "Latitude": 0,
-        //                     "BuildingNumber": "",
-        //                     "BuildingName": "",
-        //                     "Floor": "",
-        //                     "Apartment": "",
-        //                     "POBox": null,
-        //                     "Description": ""
-        //                 },
-        //                 "Contact": {
-        //                     "Department": "",
-        //                     "PersonName": "aramex",
-        //                     "Title": "",
-        //                     "CompanyName": "aramex",
-        //                     "PhoneNumber1": "00966551511111",
-        //                     "PhoneNumber1Ext": "",
-        //                     "PhoneNumber2": "",
-        //                     "PhoneNumber2Ext": "",
-        //                     "FaxNumber": "",
-        //                     "CellPhone": "00966551511111",
-        //                     "EmailAddress": "test@test.com",
-        //                     "Type": ""
-        //                 }
-        //             },
-        //             "ThirdParty": {
-        //                 "Reference1": "",
-        //                 "Reference2": "",
-        //                 "AccountNumber": "60527593",
-        //                 "PartyAddress": {
-        //                     "Line1": "",
-        //                     "Line2": "",
-        //                     "Line3": "",
-        //                     "City": "riyadh",
-        //                     "StateOrProvinceCode": "",
-        //                     "PostCode": "",
-        //                     "CountryCode": "SA",
-        //                     "Longitude": 0,
-        //                     "Latitude": 0,
-        //                     "BuildingNumber": null,
-        //                     "BuildingName": null,
-        //                     "Floor": null,
-        //                     "Apartment": null,
-        //                     "POBox": null,
-        //                     "Description": null
-        //                 },
-        //                 "Contact": {
-        //                     "Department": "",
-        //                     "PersonName": "TEST",
-        //                     "Title": "",
-        //                     "CompanyName": "",
-        //                     "PhoneNumber1": "966512345678",
-        //                     "PhoneNumber1Ext": "",
-        //                     "PhoneNumber2": "",
-        //                     "PhoneNumber2Ext": "",
-        //                     "FaxNumber": "",
-        //                     "CellPhone": "966512345678",
-        //                     "EmailAddress": "test@test.com",
-        //                     "Type": ""
-        //                 }
-        //             },
-        //             "ShippingDateTime": "\\/Date(1667996680000)\\/",
-        //             "DueDate": "\\/Date(1668169480000)\\/",
-        //             "Comments": "",
-        //             "PickupLocation": "",
-        //             "OperationsInstructions": "",
-        //             "AccountingInstrcutions": "",
-        //             "Details": {
-        //                 "Dimensions": null,
-        //                 "ActualWeight": {
-        //                     "Unit": "KG",
-        //                     "Value": 0.5
-        //                 },
-        //                 "ChargeableWeight": null,
-        //                 "DescriptionOfGoods": "Books",
-        //                 "GoodsOriginCountry": "SA",
-        //                 "NumberOfPieces": 1,
-        //                 "ProductGroup": "DOM",
-        //                 "ProductType": "CDS",
-        //                 "PaymentType": "P",
-        //                 "PaymentOptions": "",
-        //                 "CustomsValueAmount": null,
-        //                 "CashOnDeliveryAmount":null,
-        //                 "InsuranceAmount": null,
-        //                 "CashAdditionalAmount": null,
-        //                 "CashAdditionalAmountDescription": "",
-        //                 "CollectAmount": null,
-        //                 "Services": "",
-        //                 "Items": []
-        //             },
-        //             "Attachments": [],
-        //             "ForeignHAWB": "",
-        //             "TransportType ": 0,
-        //             "PickupGUID": "",
-        //             "Number": null,
-        //             "ScheduledDelivery": null
-        //         }
-        //     ],
-        //     "Transaction": {
-        //         "Reference1": "",
-        //         "Reference2": "",
-        //         "Reference3": "",
-        //         "Reference4": "",
-        //         "Reference5": ""
-        //     }
-        // }',
         CURLOPT_POSTFIELDS => $param,
         CURLOPT_HTTPHEADER => array(
             'Content-Type: application/json',
             'Accept: application/json'
         ),
         ));
-
         $response = curl_exec($curl);
-
         curl_close($curl);
         return $response;
-
     }
 
     public function sendEmail($email,$message,$subject){
@@ -603,11 +395,8 @@ abstract class BaseController extends Controller
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $response = curl_exec($ch);
         curl_close($ch);
-
-        // print everything out
-        //echo '<pre>'; print_r($response); exit;
         if(isset($response) && !empty($response)){
-            //echo $mail->ErrorInfo;
+            /* echo $mail->ErrorInfo; */
             $emailSentStatus = false;
         }else{          
             $emailSentStatus = true; 
@@ -617,33 +406,29 @@ abstract class BaseController extends Controller
             require '../vendor/autoload.php';
             $mail = new PHPMailer(true);
             try {
-                //Server settings
-                $mail->SMTPDebug = false;                                 // Enable verbose debug output
-                $mail->isSMTP();                                      // Set mailer to use SMTP
-                $mail->Host = 'email-smtp.ap-south-1.amazonaws.com';                    // Specify main and backup SMTP servers
-                $mail->SMTPAuth = true;                               // Enable SMTP authentication
-                $mail->Username = 'AKIA3LCPB7FIGCGZJY5Q';                   // SMTP username
-                $mail->Password = 'BEACNaCDKzntvdAt8FCRfnw26RSSN22SckwC3E7zixcc';                   // SMTP password
-                $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-                $mail->Port = 587;                                    // TCP port to connect to
+                /* Server settings */
+                $mail->SMTPDebug = false;                                               /* Enable verbose debug output */
+                $mail->isSMTP();                                                        /* Set mailer to use SMTP */
+                $mail->Host = 'email-smtp.ap-south-1.amazonaws.com';                    /* Specify main and backup SMTP servers */
+                $mail->SMTPAuth = true;                                                 /* Enable SMTP authentication */
+                $mail->Username = 'AKIA3LCPB7FIGCGZJY5Q';                               /* SMTP username */
+                $mail->Password = 'BEACNaCDKzntvdAt8FCRfnw26RSSN22SckwC3E7zixcc';       /* SMTP password */
+                $mail->SMTPSecure = 'tls';                                              /* Enable TLS encryption, `ssl` also accepted */
+                $mail->Port = 587;                                                      /* TCP port to connect to */
 
-                //Recipients
+                /* Recipients */
                 $mail->setFrom('no-reply@matjary.sa', $subdomain);
-                $mail->addAddress($email, $email);     // Add a recipient
+                $mail->addAddress($email, $email);                                      /* Add a recipient */
 
-                // Content
-                $mail->isHTML(true);                                  // Set email format to HTML
+                /* Content */
+                $mail->isHTML(true);                                                    /* Set email format to HTML */
                 $mail->Subject = $subject;
                 $mail->Body    = $body;
-
-                //echo 'Message has been sent';
-                //$mail->AddCC($superAdminEmail);
                 if($mail->Send()) {
-                    //echo 'Email Send Successfully.';
                     $emailSentStatus = true;
                 }
             } catch (Exception $e) {
-                //echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+                /* echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}"; */
                 $emailSentStatus = false;
             }
         }

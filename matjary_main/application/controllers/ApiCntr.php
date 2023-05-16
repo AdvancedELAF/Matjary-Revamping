@@ -884,7 +884,6 @@ class ApiCntr extends MY_Controller {
         try {
 
             $decode_data = (array) JWT::decode($this->input->post('token'), JWT_TOKEN);
-
             if (isset($decode_data['store_tkn']) && !empty($decode_data['store_tkn'])) {
                 /* call store creation api start */
                 $curl_res = store_creation_api($decode_data['store_sub_domain'], $decode_data['template_id'], $decode_data['store_tkn'], $decode_data['email']);
