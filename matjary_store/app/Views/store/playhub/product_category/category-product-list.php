@@ -46,7 +46,6 @@ if($ses_lang=='en'){
                     $wishlistActnClass = 'addProdToWshlst';
 
                     $actionPrdctCarturl = base_url('customer/add-product-cart');
-                    //$anchorCartBtnText = 'Add to Cart';
                     $anchorCartBtnText = $language['Add to Cart'];
                     $actionCartBtnClass = 'addToCart';
 
@@ -64,7 +63,6 @@ if($ses_lang=='en'){
                         foreach($snglCstmrCartProductList as $snglCstmrCartProductData){
                             if($snglCstmrCartProductData->product_id==$productData->id){
                                 $actionPrdctCarturl = base_url('customer/remove-product-cart');
-                                //$anchorCartBtnText = 'Remove From Cart';
                                 $anchorCartBtnText =  $language['Remove From Cart'];
                                 $actionCartBtnClass = 'removeFromCart';
                             }

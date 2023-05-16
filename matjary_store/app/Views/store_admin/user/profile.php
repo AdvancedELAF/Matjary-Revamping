@@ -178,7 +178,6 @@ $ses_user_id = $session->get('ses_user_id');
 																</div>
 																<div class="mr-2">
 																	<input type="radio" name="gender" value="2" data-error=".error2" <?php if ($loggedInUserData->gender == 2) {
-																																			echo 'checked';
 																																		} ?>> <?php echo $language['Female']; ?>
 																</div>
 

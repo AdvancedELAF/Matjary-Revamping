@@ -8,9 +8,7 @@ $ses_lang = $session->get('ses_lang');
 ?>
 <?php $this->extend('store/'.$storeActvTmplName.'/layouts/store_layout'); ?>
 <?php $this->section('content'); ?>
-
 <?php if(isset($customerCartData) && !empty($customerCartData)){ ?>
-
 <!-- CART TABLE STARTS -->
 <?php 
     $attributes = ['name' => 'proceed_cart_form', 'id' => 'proceed_cart_form', 'autocomplete' => 'off']; 
@@ -42,18 +40,14 @@ $ses_lang = $session->get('ses_lang');
                             $i=1;
                             $index = 0;
                             foreach($customerCartData as $customerCartValues){
-                                //echo '<pre>'; print_r($customerCartValues); exit;
-                                
                                 $productId = isset($customerCartValues->id)?$customerCartValues->id:'';
                                 $product_price = isset($customerCartValues->product_price)?number_format((float)$customerCartValues->product_price, 2, '.', ''):'';
                                 $sales_tax = isset($customerCartValues->sales_tax)?number_format((float)$customerCartValues->sales_tax, 2, '.', ''):'';
                                 $product_weight = isset($customerCartValues->weight)?number_format((float)$customerCartValues->weight, 2, '.', ''):'';
-                                //$product_weight = isset($product_weight)?$product_weight:$customerCartValues->weight;
-                                //echo '<pre>'; print_r($product_weight); exit;
+                               
                                 $cartItemCheked = '';
                                 $cartBuyItem = $session->get('cartBuyItem');
                                 if(isset($cartBuyItem) && !empty($cartBuyItem)){
-                                    //echo '<pre>'; print_r($cartBuyItem); exit;
                                     if(isset($cartBuyItem['productid']) && !empty($cartBuyItem['productid'])){
                                         if($cartBuyItem['productid']==$productId){
                                             $cartItemCheked = 'checked';
@@ -65,7 +59,6 @@ $ses_lang = $session->get('ses_lang');
                         <tr class="cartItemsTr">
                             <th>
                                 <?php if($customerCartValues->stock_quantity==0){ ?>
-                                    <!-- <span class="text-danger">Out of Stock</span> -->
                                 <?php }else{ ?>
                                 <input type="checkbox" name="index[]" value="<?php echo $index; ?>" class="cartItem" data-productid="<?php echo $productId; ?>" <?php echo $cartItemCheked; ?>>
                                 <?php } ?>

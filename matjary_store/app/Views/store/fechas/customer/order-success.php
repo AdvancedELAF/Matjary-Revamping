@@ -259,7 +259,7 @@ $ses_lang = $session->get('ses_lang');
                     </div>
 
                 <?php } ?>                
-            <!--/div><--Print Div End-->
+           
                 <hr>
                 <div class="row">
                          

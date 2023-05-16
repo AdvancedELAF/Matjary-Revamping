@@ -9,7 +9,6 @@ $ses_lang = $session->get('ses_lang');
 <?php $this->extend('store/'.$storeActvTmplName.'/layouts/store_layout'); ?>
 <?php $this->section('content'); ?>
 <!-- PAGE BAR STARTS -->
-
 <section>
     <div class="container-fluid <?php if($locale=='ar'){echo 'text-right';} ?>">
         <div class="trans-page-title">
@@ -89,7 +88,6 @@ $ses_lang = $session->get('ses_lang');
             }
             ?>
         </div>
-
     </div>
 </section>
 <?php $this->endSection(); ?>

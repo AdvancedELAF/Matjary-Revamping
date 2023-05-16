@@ -34,7 +34,6 @@ $ses_lang = $session->get('ses_lang');
                         $wishlistActnClass = 'addProdToWshlst';
 
                         $actionPrdctCarturl = base_url('customer/add-product-cart');
-                        //$anchorCartBtnText = 'Add to Cart';
                         $anchorCartBtnText = $language['Add to Cart'];
                         $actionCartBtnClass = 'addToCart';
 
@@ -52,7 +51,6 @@ $ses_lang = $session->get('ses_lang');
                             foreach($snglCstmrCartProductList as $snglCstmrCartProductData){
                                 if($snglCstmrCartProductData->product_id==$productData->id){
                                     $actionPrdctCarturl = base_url('customer/remove-product-cart');
-                                    //$anchorCartBtnText = 'Remove From Cart';
                                     $anchorCartBtnText =  $language['Remove From Cart'];
                                     $actionCartBtnClass = 'removeFromCart';
                                 }
@@ -99,9 +97,7 @@ $ses_lang = $session->get('ses_lang');
                     <i class="icofont-heart <?php echo $press; ?> <?php echo $wishlistActnClass; ?>" data-productid="<?php echo $productData->id; ?>" data-customerid="<?php echo isset($ses_custmr_id)?$ses_custmr_id:''; ?>"></i>
                     </div>
                     <div class="text-center mb-2">
-                        <!--button class="brand-btn-add-cart">Add to Cart</button-->
-                        <!--a href="<?php //echo base_url('product/product-details/'.$productData->id); ?>" class="brand-btn-add-cart"><?php //echo $language['Details']; ?></a-->   
-                        <?php if(isset($ses_logged_in) && $ses_logged_in===true){ ?> 
+                       <?php if(isset($ses_logged_in) && $ses_logged_in===true){ ?> 
                             <span class="product_<?php echo $productData->id; ?>_cartBtn">
                                 <a type="button" href="javascript:void(0);" data-baseurl="<?php echo base_url(); ?>" data-actionurl="<?php echo $actionPrdctCarturl; ?>" data-productid="<?php echo $productData->id; ?>" data-customerid="<?php echo $ses_custmr_id; ?>"  data-lang="<?php echo $locale; ?>" class="brand-btn-add-cart <?php echo $actionCartBtnClass; ?>"><?php echo $anchorCartBtnText; ?></a>
                             </span>

@@ -106,7 +106,6 @@ $ses_lang = $session->get('ses_lang');
                     <?php
                     }
                     ?>
-
                 </tbody>
             </table>
         </div>

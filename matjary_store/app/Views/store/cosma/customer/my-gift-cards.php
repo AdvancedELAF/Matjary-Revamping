@@ -7,7 +7,7 @@
             <h4><?php echo $language['My Gift cards']; ?></h4>
         </div>
         <div class="row">
-            <?php //echo '<pre>'; print_r($GetGiftCardPurchasedInfo);?>
+           
             <?php 
             if(isset($GetGiftCardPurchasedInfo) && !empty($GetGiftCardPurchasedInfo)){
                 foreach($GetGiftCardPurchasedInfo as $GiftCardData){

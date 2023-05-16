@@ -74,9 +74,7 @@ if($ses_lang=='en'){
                                 <span class="strike-amount"><?php echo $language['SAR']; ?> <?php echo isset($productData->retail_price)?number_format((float)$productData->retail_price, 2, '.', ''):''; ?></span>
                                 <span class="sale-amount"><?php echo $language['SAR']; ?> <?php echo isset($productData->product_price)?number_format((float)$productData->product_price, 2, '.', ''):''; ?></span>                            
                         </div>
-                            <div class="prod-btn d-grid">
-                                <!--button class="btn btn-primary btn-block brand-btn">Add to Cart</button>
-                                <button class="btn btn-primary btn-block brand-btn">Add to Wishlist</button-->
+                            <div class="prod-btn d-grid">                               
                                 <a href="<?php echo base_url('product/product-details/'.$productData->id); ?>" class="btn btn-primary btn-block brand-btn"><?php echo $language['Details']; ?></a>
                             </div>
                         </div>

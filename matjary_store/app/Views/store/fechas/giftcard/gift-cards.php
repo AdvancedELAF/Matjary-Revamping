@@ -14,7 +14,6 @@ $ses_lang = $session->get('ses_lang');
         </div>
     </div>
 </section>
-
 <section class="section-spacing <?php if($locale=='ar'){echo 'text-right';} ?>">
     <div class="container">
         <div class="row">
@@ -77,8 +76,6 @@ $ses_lang = $session->get('ses_lang');
         </div>
     </div>
 </section>
-
 <!-- GIFT CARD LISTING SECTION ENDS -->
-
 <!-- Footer section  -->
 <?php $this->endSection(); ?>

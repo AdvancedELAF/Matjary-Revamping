@@ -142,7 +142,6 @@ $ses_lang = $session->get('ses_lang');
                                     <div class="wishlist">
                                         <i class="icofont-heart <?php echo $press; ?> <?php echo $wishlistActnClass; ?>" data-actionurl="<?php echo $actionWishlisturl; ?>" data-productid="<?php echo $productData->id; ?>" data-customerid="<?php echo isset($ses_custmr_id)?$ses_custmr_id:''; ?>"></i> 
                                     </div>
-                                    <!-- <button class="brand-btn">Add to Cart</button> -->
                                     <a href="<?php echo base_url('product/product-details/'.$productData->id); ?>" class="brand-btn"><?php echo $language['Details']; ?></a>
                                 </div>
                             </div>
@@ -224,7 +223,6 @@ $ses_lang = $session->get('ses_lang');
                                     <div class="wishlist">
                                         <i class="icofont-heart <?php echo $press; ?> <?php echo $wishlistActnClass; ?>" data-productid="<?php echo $productData->id; ?>" data-customerid="<?php echo isset($ses_custmr_id)?$ses_custmr_id:''; ?>"></i>
                                     </div>
-                                    <!-- <button class="brand-btn">Add to Cart</button> -->
                                     <a href="<?php echo base_url('product/product-details/'.$productData->id); ?>" class="brand-btn"><?php echo $language['Details']; ?></a>
                                 </div>
                             </div>
@@ -443,7 +441,6 @@ $ses_lang = $session->get('ses_lang');
                                     <div class="wishlist">
                                         <i class="icofont-heart <?php echo $press; ?> <?php echo $wishlistActnClass; ?>" data-productid="<?php echo $productData->id; ?>" data-customerid="<?php echo isset($ses_custmr_id)?$ses_custmr_id:''; ?>"></i>
                                     </div>
-                                    <!-- <button class="brand-btn">Add to Cart</button> -->
                                     <a href="<?php echo base_url('product/product-details/'.$productData->id); ?>" class="brand-btn"><?php echo $language['Details']; ?></a>
                                 </div>
                             </div>
@@ -470,24 +467,7 @@ $ses_lang = $session->get('ses_lang');
 <!-- ADVERTISEMENT SECTION STARTS -->
 <?php  if(isset($advertisementList) && !empty($advertisementList)){ ?>
 <section class="section-spacing <?php if($locale=='ar'){echo 'text-right';} ?>">
-    <div class="container">
-        <!--div class="row">
-            <?php
-            if(isset($advertisementList) && !empty($advertisementList)){
-                foreach($advertisementList as $advertisementData){
-            ?>
-            <div class="col-md-6">
-                <div class="ad-banner">
-                    <a href="javascript:void(0);">
-                        <img class="img-fluid" src="<?php echo base_url('/uploads/advertisement/'); ?>/<?php echo isset($advertisementData->add_img)?$advertisementData->add_img:''; ?>">
-                    </a>
-                </div>
-            </div>
-            <?php
-                }
-            }
-            ?>
-        </div-->
+    <div class="container">        
         <div class="carousel-wrapper">
             <div id="ad-carousel" class="owl-carousel owl-theme">
                 <?php
@@ -629,11 +609,7 @@ $ses_lang = $session->get('ses_lang');
                             <a href="<?php echo base_url('giftcard/giftcard-details/'.$GiftCardData->id); ?>">
                                 <h4><?php echo $name; ?></h4>
                             </a>
-                            <!-- <div class="home-prod-price mb-2">
-                                <span class="strike-amount">SAR 250.00</span>
-                                <span class="sale-amount">SAR 100.00</span>
-                            </div> -->
-                            <!-- <button class="brand-btn">Add to Cart</button> -->
+                            
                             <a href="<?php echo base_url('giftcard/giftcard-details/'.$GiftCardData->id); ?>" class="brand-btn"><?php echo $language['Details']; ?></a>
                         </div>
                     </div>

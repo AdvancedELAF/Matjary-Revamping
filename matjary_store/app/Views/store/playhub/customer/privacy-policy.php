@@ -30,6 +30,5 @@ $description_ar = isset($GetTCInfo->description_ar)?$GetTCInfo->description_ar:'
         </div>
     </div>
 </section>
-
 <!-- ABOUT US US SECTION SPACING ENDS -->
 <?php $this->endSection(); ?>

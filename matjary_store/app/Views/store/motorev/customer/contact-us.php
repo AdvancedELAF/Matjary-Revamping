@@ -9,7 +9,6 @@
     </div>
 </section>
 <!-- PAGE BAR ENDS -->
-
 <!-- CONTACT US SECTION SPACING STARTS -->
 <section class="section-spacing <?php if($locale=='ar'){echo 'text-right';} ?>">
     <div class="container">

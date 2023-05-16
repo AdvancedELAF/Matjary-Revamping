@@ -47,9 +47,7 @@
                     </div>
                     <?php echo form_close(); ?>
                     <br>
-                    <!--div class="section-title text-center mb-4">
-                        <h5><a href="<?php //echo base_url('customer/login'); ?>"><?php //echo $language['Already a User? Log in']; ?></a></h5>
-                    </div-->
+                   
                 </div>
             </div>
             <div class="col-md-3"></div>

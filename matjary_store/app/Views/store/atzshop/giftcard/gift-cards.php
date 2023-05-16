@@ -71,8 +71,6 @@ $ses_lang = $session->get('ses_lang');
         </div>
     </div>
 </section>
-
 <!-- GIFT CARD LISTING SECTION ENDS -->
-
 <!-- Footer section  -->
 <?php $this->endSection(); ?>

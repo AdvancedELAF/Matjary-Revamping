@@ -37,7 +37,7 @@ $ses_custmr_id = $session->get('ses_custmr_id');
         <div class="row" id="addEditAddressFormRow">
             <div class="col-md-12">
                 <div class="checkout-wrapper">
-                    <?php //echo '<pre>'; print_r(json_encode($GetcountryList));?>
+                    
                     <?php 
                         $attributes = ['name' => 'save_customer_deliver_address_form', 'id' => 'save_customer_deliver_address_form', 'class' => 'customer_address_form', 'autocomplete' => 'off']; 
                         echo form_open_multipart('customer/save-customer-deliver-address',$attributes); 

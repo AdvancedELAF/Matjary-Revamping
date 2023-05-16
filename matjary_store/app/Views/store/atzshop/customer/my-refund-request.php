@@ -1,7 +1,5 @@
 <?php $this->extend('store/'.$storeActvTmplName.'/layouts/store_layout'); ?>
 <?php $this->section('content'); ?>
-<!-- PAGE BAR STARTS -->
-<!-- PAGE BAR ENDS -->
 <!-- MY ORDERS TABLE STARTS -->
 <section class="section-spacing <?php if($locale=='ar'){echo 'text-right';} ?>">
     <div class="container">

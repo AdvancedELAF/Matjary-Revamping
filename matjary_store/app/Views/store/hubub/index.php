@@ -15,7 +15,7 @@ $ses_lang = $session->get('ses_lang');
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <?php
-            //echo '<pre>'; print_r($BannerList);  die;
+            
             if (isset($BannerList) && !empty($BannerList)) {
                 $j = 1;
                 foreach ($BannerList as $i => $value) {
@@ -342,8 +342,7 @@ $ses_lang = $session->get('ses_lang');
                             }
                         }
                     }                    
-                    //$checkshortDesc = isset($AboutUsInfo->short_description)?substr($AboutUsInfo->short_description, 0, 500):'Short Description Not Available For NowStore About Us Content/Information Not Available Yet!.';
-
+                   
                     ?>
                 <div class="about-content">
                     <p><?php echo isset($checkshortDesc)?$checkshortDesc:''; ?></p>
@@ -465,9 +464,7 @@ $ses_lang = $session->get('ses_lang');
                     <a href="<?php echo base_url('giftcard/giftcard-details/' . $GiftCardData->id); ?>">
                         <img src="<?php echo base_url('/uploads/giftcards/'); ?>/<?php echo isset($GiftCardData->image) ? $GiftCardData->image : ''; ?>">
                     </a>
-                    <!--div class="wishlist">
-                        <i class="icofont-heart"></i>
-                    </div-->
+                   
                     <div class="prod-cart-btn">
                         <a href="<?php echo base_url('giftcard/giftcard-details/' . $GiftCardData->id); ?>">
                             <div class="d-flex justify-content-center">

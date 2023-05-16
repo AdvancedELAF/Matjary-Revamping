@@ -25,18 +25,14 @@ $customer_help = $locale=='en'?'Data Not Available Yet!.':'البيانات غي
 ?>
 <?php $this->extend('store/'.$storeActvTmplName.'/layouts/store_layout'); ?>
 <?php $this->section('content'); ?>
-<section class="ot-banner <?php if ($locale == 'ar') {
-                                echo 'text-right';
-                            } ?>">
+<section class="ot-banner <?php if ($locale == 'ar') {echo 'text-right'; } ?>">
     <div class="container">
         <div class="page-title">
             <h1><?php echo $language['Customer Help']; ?></h1>
         </div>
     </div>
 </section>
-<section class="section-spacing <?php if ($locale == 'ar') {
-                                    echo 'text-right';
-                                } ?>">
+<section class="section-spacing <?php if ($locale == 'ar') { echo 'text-right';} ?>">
     <div class="container">
         <div class="help-tab">
             <div class="row">             

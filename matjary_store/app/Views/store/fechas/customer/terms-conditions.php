@@ -59,6 +59,5 @@ $ses_lang = $session->get('ses_lang');
         </div>
     </div>
 </section>
-
 <!-- ABOUT US US SECTION SPACING ENDS -->
 <?php $this->endSection(); ?>

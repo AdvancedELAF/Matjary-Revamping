@@ -30,7 +30,7 @@ $ses_lang = $session->get('ses_lang');
                     <div class="section-title mb-3">
                         <h4><?php echo $language['Tracking details']; ?></h4>
                     </div>
-                    <?php //echo '<pre>'; print_r($orderDetails); exit;  ?>
+                    
                     <div class="order-detail-table">
                         <div class="table-responsive">
                             <table class="table">
@@ -57,7 +57,7 @@ $ses_lang = $session->get('ses_lang');
                     <div class="section-title mb-3">
                         <h4><?php echo $language['Order Details']; ?></h4>
                     </div>
-                    <?php //echo '<pre>'; print_r($orderDetails); exit;  ?>
+                    
                     <div class="order-detail-table">
                         <div class="table-responsive">
                             <table class="table">

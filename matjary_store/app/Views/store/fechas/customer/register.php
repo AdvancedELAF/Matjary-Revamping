@@ -8,7 +8,6 @@
         </div>
     </div>
 </section>
-
 <!-- PAGE BAR ENDS -->
 <!-- SIGN UP SECTION STARTS -->
 <section class="section-spacing <?php if($locale=='ar'){echo 'text-right';} ?>">

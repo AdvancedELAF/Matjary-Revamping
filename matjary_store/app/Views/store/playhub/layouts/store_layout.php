@@ -36,8 +36,7 @@ $ses_lang = $session->get('ses_lang');
     <?php //if (isset($pageTitle) && in_array($pageTitle, $allowedDatatablePagesAry)) { ?>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <?php //} ?>
-    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script-->
-
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/css/style.css">
@@ -146,7 +145,6 @@ $ses_lang = $session->get('ses_lang');
             </div>
         </div>
     </div>
-    <?php //echo '<pre>'; print_r($productCategories['subcat']); ?>
     <!-- HEADER STARTS -->
     <nav class="navbar navbar-expand-lg navbar-light header-nav" id="main_navbar">
         <a class="navbar-brand" href="index.php">

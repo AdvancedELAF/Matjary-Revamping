@@ -8,9 +8,7 @@ $ses_lang = $session->get('ses_lang');
 ?>
 <?php $this->extend('store/' . $storeActvTmplName . '/layouts/store_layout'); ?>
 <?php $this->section('content'); ?>
-<section class="ot-banner <?php if ($locale == 'ar') {
-                                echo 'text-right';
-                            } ?>">
+<section class="ot-banner <?php if ($locale == 'ar') { echo 'text-right'; } ?>">
     <div class="container">
         <div class="page-title">
             <h1><?php echo $language['My Gift cards']; ?></h1>
@@ -18,9 +16,7 @@ $ses_lang = $session->get('ses_lang');
     </div>
 </section>
 <!-- PRODUCT DETAIL STARTS -->
-<section class="section-spacing <?php if ($locale == 'ar') {
-                                    echo 'text-right';
-                                } ?>">
+<section class="section-spacing <?php if ($locale == 'ar') { echo 'text-right'; } ?>">
     <div class="container">
         <div class="row">
             <div class="col-lg-4">
@@ -28,8 +24,7 @@ $ses_lang = $session->get('ses_lang');
                     <img src="<?php echo base_url('/uploads/giftcards/'); ?>/<?php echo isset($mySnglGCDetails->image) ? $mySnglGCDetails->image : ''; ?>">
                 </div>
             </div>
-            <?php //echo '<pre>'; print_r($mySnglGCDetails);
-            ?>
+            
             <div class="col-lg-8">
                 <div class="prod-main-detail mb-3">
                     <div class="prod-detail-title">
@@ -176,7 +171,6 @@ $ses_lang = $session->get('ses_lang');
                             </tbody>
                         </table>
                     </div>
-
                 </div>
             </div>
         </div>

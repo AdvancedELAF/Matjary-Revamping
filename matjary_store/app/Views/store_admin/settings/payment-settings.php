@@ -5,7 +5,6 @@ $ses_lang = $session->get('ses_lang');
 ?>
 <?php $this->extend('store_admin/layouts/dashboard_layout'); ?>
 <?php $this->section('content'); ?>     
-
         <div class="pd-ltr-20 xs-pd-20-10">
             <div class="min-height-200px">
                 <div class="page-header">

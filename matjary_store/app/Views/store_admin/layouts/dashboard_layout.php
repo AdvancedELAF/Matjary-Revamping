@@ -3,10 +3,8 @@ $session = \Config\Services::session();
 $ses_user_logged_in = $session->get('ses_user_logged_in');
 $ses_user_name = $session->get('ses_user_name');
 $ses_user_id = $session->get('ses_user_id');
-
 $lang_session = $session->get('lang_session');
 $ses_lang = $session->get('ses_lang');
-
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +41,6 @@ $ses_lang = $session->get('ses_lang');
 
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/store_admin/vendors/styles/icon-font.min.css">
 	<!--DataTable css start-->
-	<!-- <link rel="stylesheet" type="text/css" href="/store_admin/src/plugins/datatables/css/jquery.dataTables.min.css"> -->
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/store_admin/src/plugins/datatables/css/dataTables.bootstrap4.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/store_admin/src/plugins/datatables/css/responsive.bootstrap4.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/store_admin/src/plugins/datatables/css/responsive.dataTables.min.css">
@@ -72,8 +69,7 @@ $ses_lang = $session->get('ses_lang');
 <body>
 	<div class="pre-loader">
 		<div class="pre-loader-box">
-			<!--<div class="loader-logo"><img src="<?php echo base_url(); ?>/store_admin/vendors/images/matjary_logo.png" alt=""></div>-->
-            <?php if (isset($storeSettingInfo->logo) && !empty($storeSettingInfo->logo)) { ?>
+			<?php if (isset($storeSettingInfo->logo) && !empty($storeSettingInfo->logo)) { ?>
                 <div class="loader-logo"><img src="<?php echo base_url('/uploads/logo/'); ?>/<?php echo isset($storeSettingInfo->logo) ? $storeSettingInfo->logo : ''; ?>" alt=""></div>
             <?php } else { ?>
                 <div class="loader-logo"><img src="https://www.matjary.in/assets/images/loader/matjary-loader.gif" alt=""></div>
@@ -176,11 +172,7 @@ $ses_lang = $session->get('ses_lang');
 		</div>
 	</div>
 	<div class="left-side-bar">
-        <div class="brand-logo">
-            <!--a href="<?php //echo base_url('admin/dashboard'); ?>">
-                <img src="<?php //echo base_url('uploads/logo/'); ?>/<?php //echo isset($storeSettingInfo->logo)?$storeSettingInfo->logo:''; ?>" alt="" class="dark-logo" style="width:auto;min-width:100px;max-width:100px;heihgt:auto;min-height:100px;max-height:100px;"> 
-                <img src="<?php //echo base_url('uploads/logo/'); ?>/<?php //echo isset($storeSettingInfo->logo)?$storeSettingInfo->logo:''; ?>" alt="" class="light-logo" style="width:auto;min-width:100px;max-width:100px;heihgt:auto;min-height:100px;max-height:100px;">
-            </a-->
+        <div class="brand-logo">        
             <?php if (isset($storeSettingInfo->logo) && !empty($storeSettingInfo->logo)) { ?>
                 <a href="<?php echo base_url('admin/dashboard'); ?>"><img src="<?php echo base_url('/uploads/logo/'); ?>/<?php echo isset($storeSettingInfo->logo) ? $storeSettingInfo->logo : ''; ?>" alt="Logo Image" class="light-logo" style="width:auto;min-width:100px;max-width:100px;heihgt:auto;min-height:100px;max-height:100px;"></a>
             <?php } else { ?>
@@ -218,29 +210,11 @@ $ses_lang = $session->get('ses_lang');
                         <ul class="submenu">
                             <li><a href="<?php echo base_url('admin/all-products'); ?>" class="nav-row-list-link <?php //if(isset($adminPageId) && $adminPageId==7){echo'active';}else{echo'';} ?>"><?php echo $language['All Products']; ?></a></li>
                             <li><a href="<?php echo base_url('admin/all-product-categories'); ?>" class="nav-row-list-link <?php //if(isset($adminPageId) && $adminPageId==8){echo'active';}else{echo'';} ?>"><?php echo $language['Product Categories']; ?></a></li>
-                            <!-- <li><a href="product-inventory.html">Product Inventory</a></li>
-                            <li><a href="product-attributes.html">Product Attributes</a></li> -->
-							<li><a href="<?php echo base_url('admin/all-product-brands'); ?>" class="nav-row-list-link <?php //if(isset($adminPageId) && $adminPageId==9){echo'active';}else{echo'';} ?>"><?php echo $language['Brands']; ?></a></li>
+                            <li><a href="<?php echo base_url('admin/all-product-brands'); ?>" class="nav-row-list-link <?php //if(isset($adminPageId) && $adminPageId==9){echo'active';}else{echo'';} ?>"><?php echo $language['Brands']; ?></a></li>
 							<li><a href="<?php echo base_url('admin/all-product-colors'); ?>" class="nav-row-list-link <?php //if(isset($adminPageId) && $adminPageId==10){echo'active';}else{echo'';} ?>"><?php echo $language['Colors']; ?></a></li>
 							<li><a href="<?php echo base_url('admin/all-product-sizes'); ?>" class="nav-row-list-link <?php //if(isset($adminPageId) && $adminPageId==11){echo'active';}else{echo'';} ?>"><?php echo $language['Sizes']; ?></a></li>
                         </ul>
-                    </li>
-                    <!-- <li class="dropdown">
-                        <a href="javascript:;" class="dropdown-toggle">
-                            <span class="mtext">Reports</span>
-                        </a>
-                        <ul class="submenu">
-                            <li><a href="#">Product Reports</a></li>
-                            <li><a href="#">Product SKU Reports</a></li>
-                            <li><a href="#">Sales Report</a></li>
-                            <li><a href="#">Monthly Sales Report</a></li>
-                            <li><a href="#">Tax by Rate Report</a></li>
-                            <li><a href="#">User Report</a></li>
-                            <li><a href="#">User Activity Report</a></li>
-                            <li><a href="#">Promo Code Report</a></li>
-                            <li><a href="#">Gift Card Report</a></li>
-                        </ul>
-                    </li> -->
+                    </li>                   
                     <li class="dropdown">
                         <a href="javascript:;" class="dropdown-toggle">
                             <span class="mtext"><?php echo $language['Coupons']; ?></span>
@@ -249,15 +223,6 @@ $ses_lang = $session->get('ses_lang');
                             <li><a href="<?php echo base_url('admin/all-coupons'); ?>" class="nav-row-list-link <?php //if(isset($adminPageId) && $adminPageId==12){echo'active';}else{echo'';} ?>"><?php echo $language['All Coupons']; ?></a></li>
                         </ul>
                     </li>
-                    <!-- <li class="dropdown">
-                        <a href="javascript:;" class="dropdown-toggle">
-                            <span class="mtext">Feedbacks</span>
-                        </a>
-                        <ul class="submenu">
-                            <li><a href="#">Customer Feedbacks</a></li>
-                            <li><a href="#">Website Feedbacks</a></li>
-                        </ul>
-                    </li> -->
 					<li class="dropdown">
                         <a href="javascript:;" class="dropdown-toggle">
                             <span class="mtext"><?php echo $language['Customers']; ?></span>
@@ -289,19 +254,9 @@ $ses_lang = $session->get('ses_lang');
                         <ul class="submenu">
                             <li><a href="<?php echo base_url('admin/general-settings'); ?>" class="nav-row-list-link <?php //if(isset($adminPageId) && $adminPageId==16){echo'active';}else{echo'';} ?>"><?php echo $language['General Settings']; ?></a></li>
                             <li><a href="<?php echo base_url('admin/shipping-settings'); ?>" class="nav-row-list-link <?php //if(isset($adminPageId) && $adminPageId==17){echo'active';}else{echo'';} ?>"><?php echo $language['Shipping Setting']; ?></a></li>
-                            <!-- <li><a href="tax-settings.html">Tax Settings</a></li>
-                            <li><a href="#">Appearance Settings</a></li> -->
+                           
                         </ul>
                     </li>
-                    <!-- <li class="dropdown">
-                        <a href="javascript:;" class="dropdown-toggle">
-                            <span class="mtext">Imports</span>
-                        </a>
-                        <ul class="submenu">
-                            <li><a href="import-products.html">Import Products</a></li>
-                            <li><a href="import-product-images.html">Import Product Images</a></li>
-                        </ul>
-                    </li> -->
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle">
                             <span class="mtext">CMS</span>
@@ -341,11 +296,6 @@ $ses_lang = $session->get('ses_lang');
                             <li><a href="<?php echo base_url('admin/all-gift-cards'); ?>" class="nav-row-list-link <?php //if(isset($adminPageId) && $adminPageId==25){echo'active';}else{echo'';} ?>"><?php echo $language['All Gift Cards']; ?></a></li>
                         </ul>
                     </li>
-                    <!-- <li class="dropdown">
-                        <a href="javascript:;" class="single-menu">
-                            <span class="mtext">Domain/Subdomain</span>
-                        </a>
-                    </li> -->
                 </ul>
             </div>
         </div>
@@ -367,8 +317,7 @@ $ses_lang = $session->get('ses_lang');
 		</div>
 	</div>
 	
-	<!-- js -->
-	<!--<script src="https://cdn.ckeditor.com/4.12.1/standard-all/ckeditor.js"></script>	-->	
+	<!-- js -->	
 	<script src="<?php echo base_url(); ?>/store_admin/vendors/scripts/core.js"></script>
 	<script src="<?php echo base_url(); ?>/store_admin/vendors/scripts/script.min.js"></script>
 	<script src="<?php echo base_url(); ?>/store_admin/vendors/scripts/process.js"></script>
@@ -403,8 +352,6 @@ $ses_lang = $session->get('ses_lang');
 	<!-- Loader Script -->
 	<script src="<?php echo base_url(); ?>/store_admin/assets/js/loader.js"></script>
 	<!-- Costom Script -->
-	<script src="<?php echo base_url(); ?>/store_admin/src/scripts/custom.js"></script>
-	
+	<script src="<?php echo base_url(); ?>/store_admin/src/scripts/custom.js"></script>	
 </body>
-
 </html>
