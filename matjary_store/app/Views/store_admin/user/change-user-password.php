@@ -73,9 +73,7 @@ $ses_lang = $session->get('ses_lang');
                         <?php echo form_close(); ?>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
-
-    <?php $this->endSection(); ?>
+<?php $this->endSection(); ?>

@@ -249,7 +249,6 @@
                 title: {
                     text: 'Anual Months'
                 },
-                //categories: [<?php //echo isset($getCurrentMonth)?$getCurrentMonth:'0';?>],
                 categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
                 labels: {
                     style: {

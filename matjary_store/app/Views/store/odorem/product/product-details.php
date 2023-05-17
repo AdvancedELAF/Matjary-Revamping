@@ -149,12 +149,10 @@ if($ses_lang=='en'){
                         <?php if(isset($ses_logged_in) && $ses_logged_in===true){ ?>
                             <?php 
                             $actionPrdctCarturl = base_url('customer/add-product-cart');
-                           // $anchorCartBtnText = 'Add to Cart';
                             $anchorCartBtnText = $language['Add to Cart'];
                             $actionCartBtnClass = 'addToCart';
 
                             $actionWishlisturl = base_url('customer/add-product-wishlist');
-                            //$anchorWishlistBtnText = 'Wishlist';
                             $anchorWishlistBtnText = $language['Wishlist'];
                             $actionWishlistBtnClass = 'addToWishlist';
 
@@ -162,7 +160,6 @@ if($ses_lang=='en'){
                                 foreach($snglCstmrCartProductList as $snglCstmrCartProductData){
                                     if($snglCstmrCartProductData->product_id==$productDetails->id){
                                         $actionPrdctCarturl = base_url('customer/remove-product-cart');
-                                        //$anchorCartBtnText = 'Remove From Cart';
                                         $anchorCartBtnText =  $language['Remove From Cart'];
                                         $actionCartBtnClass = 'removeFromCart';
                                     }
@@ -174,7 +171,6 @@ if($ses_lang=='en'){
                                     if($cstmrWishPrdctList->product_id==$productDetails->id){
 
                                         $actionWishlisturl = base_url('customer/remove-product-wishlist');
-                                        //$anchorWishlistBtnText = 'Remove From Wishlist';
                                         $anchorWishlistBtnText = $language['Remove From Wishlist'];
                                         $actionWishlistBtnClass = 'removeFromWishlist';
                                     }
@@ -239,7 +235,6 @@ if($ses_lang=='en'){
                             </div>
                                 </div>
                                 <div class="modal-footer">
-                                 <!--  <button class="btn btn-primary brand-btn-black" type="submit">Save</button>   -->
                                     <input type="submit" value="<?php echo $language['Submit']; ?>" class="btn btn-primary brand-btn">
                                     <button type="button" class="btn btn-primary brand-btn" data-dismiss="modal"><?php echo $language['Close']; ?></button>
                                 </div>
@@ -275,7 +270,7 @@ if($ses_lang=='en'){
                     </div>
                     <div class="tab-pane prod-main-pane fade" id="pills-reviews" role="tabpanel" aria-labelledby="pills-reviews-tab">
                         
-                        <?php //echo '<pre>'; print_r($GetProductFeedbacks); ?>
+                        
                        <?php if(isset($GetProductFeedbacks) && !empty($GetProductFeedbacks)){
                             foreach($GetProductFeedbacks as $key => $GetProductFeedbacksData){ 
                                 $feedback = '';

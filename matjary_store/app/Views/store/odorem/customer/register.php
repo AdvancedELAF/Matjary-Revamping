@@ -28,10 +28,7 @@
                     <input type="email" name="email" id="email" class="form-control mb-0 mt-3" placeholder="<?php echo $language['Email Address']; ?>*">
                     <input type="password" name="password" id="password" class="form-control mb-0 mt-3" placeholder="<?php echo $language['Password']; ?>*">
                     <input type="password" name="cnf_password" id="cnf_password" class="form-control mb-0 mt-3" placeholder="<?php echo $language['Confirm Password']; ?>*">
-                    <!--div class="custom-control custom-checkbox newsletter-checkbox mb-2">
-                        <input type="checkbox" class="custom-control-input" id="newsletterCheck">
-                        <label class="custom-control-label" for="newsletterCheck">Subscribe Newsletter</label>
-                    </div-->
+                    
                     <div class="d-grid gap-2 d-md-block mt-3 <?php if($locale=='ar'){echo 'text-right';} ?>">
                         <button type="reset" class="btn btn-primary brand-btn"><?php echo $language['Reset']; ?></button>
                         <button type="submit" class="btn btn-primary brand-btn"><?php echo $language['Sign up']; ?></button>

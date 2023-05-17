@@ -81,15 +81,7 @@ class FaqModel extends Model {
             "id" => $id,
         ));
     }
-
   
 }
-
-
-
-
-
-
-
 
 ?>

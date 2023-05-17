@@ -882,25 +882,19 @@ class ApiCntr extends MY_Controller {
 
     public function create_store_api() {
         try {
-
             $decode_data = (array) JWT::decode($this->input->post('token'), JWT_TOKEN);
-
             if (isset($decode_data['store_tkn']) && !empty($decode_data['store_tkn'])) {
                 /* call store creation api start */
                 $curl_res = store_creation_api($decode_data['store_sub_domain'], $decode_data['template_id'], $decode_data['store_tkn'], $decode_data['email']);
                 /* call store creation api end */
-                
                 if (isset($curl_res) && !empty($curl_res)) {
-
                     $curl_res_decode = json_decode($curl_res, true);
-
                     if (isset($curl_res_decode['responseCode']) && $curl_res_decode['responseCode'] == 200) {
-                         
+                        
                         /* send mail to user on success payment & store creation start */
-                        /* // send welcome mail to customer on succesfull store creation */
+                        /* send welcome mail to customer on succesfull store creation */
                         $store_link = $decode_data['store_sub_domain'].'.matjary.sa';
                         $storeInfo = $this->UsrModel->get_store_info($store_link,$decode_data['store_tkn']);
-                        //echo '<pre>'; print_r($storeInfo); exit;
                         $subscription_type = $storeInfo['responseData']->subscription_type;
                         
                         $user_id = $storeInfo['responseData']->user_id;
@@ -967,6 +961,7 @@ class ApiCntr extends MY_Controller {
 
                             
                         }
+                        
                         /* Apache Restart API call */
                         $curl_res_apache = apache_reboot($decode_data['store_sub_domain'], $decode_data['store_tkn']);
                         if (isset($curl_res_apache) && !empty($curl_res_apache)) {
@@ -986,8 +981,7 @@ class ApiCntr extends MY_Controller {
                             }
                         }
 
-                        echo json_encode($this->response);
-                        exit;
+                        echo json_encode($this->response); exit;
                     } elseif (isset($curl_res_decode['message']) && !empty($curl_res_decode['message'])) {
                         $this->response['responseCode'] = $curl_res_decode['responseCode'];
                         $this->response['responseMessage'] = $curl_res_decode['message'];

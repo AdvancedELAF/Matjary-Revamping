@@ -112,17 +112,6 @@ class BrandModel extends Model {
 
         return $query->getResult();
     }
-
-    
-
-	
 }
-
-
-
-
-
-
-
 
 ?>

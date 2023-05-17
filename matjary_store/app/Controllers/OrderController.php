@@ -12,7 +12,6 @@ class OrderController extends BaseController
         LoggerInterface $logger
     ) {
         parent::initController($request, $response, $logger);
-
         // Add your code here.
         $this->is_all_mandotory_modules_filled();
     }
@@ -21,7 +20,6 @@ class OrderController extends BaseController
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){
             $this->pageData['pageTitle'] = 'All Customer Orders';  
             $this->pageData['adminPageId'] = 3;
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
             $this->pageData['AllOrders'] = $this->OrderModel->get_all_data();     
             return view('store_admin/order/all-orders',$this->pageData); 
@@ -35,8 +33,6 @@ class OrderController extends BaseController
             $this->pageData['pageTitle'] = 'Order Details';  
             $this->pageData['orderDetails'] = $this->OrderModel->get_single_order_details($orderId);
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();  
-            //echo '<pre>'; print_r($this->pageData['orderDetails']); exit;    
             return view('store_admin/order/order-details',$this->pageData); 
         }else{
             return redirect()->to('/admin/login');
@@ -47,7 +43,6 @@ class OrderController extends BaseController
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){
             $this->pageData['pageTitle'] = 'Refund Details';  
             $this->pageData['adminPageId'] = 4;
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
             $this->pageData['all_refund_request'] = $this->OrderModel->all_refund_request();
             
@@ -61,10 +56,8 @@ class OrderController extends BaseController
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){
             $this->pageData['pageTitle'] = 'Refund Details';  
             $this->pageData['orderDetails'] = $this->OrderModel->get_single_refund_details($orderId);  
-            $this->pageData['checkrefundApproved'] = $this->OrderModel->check_refund_detals($orderId);    
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
+            $this->pageData['checkrefundApproved'] = $this->OrderModel->check_refund_detals($orderId); 
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-            //echo '<pre>'; print_r($this->pageData['checkrefundApproved']); exit;    
             return view('store_admin/order/refund-details',$this->pageData); 
         }else{
             return redirect()->to('/admin/login');
@@ -403,9 +396,7 @@ class OrderController extends BaseController
         }else{
             return redirect()->to('/admin/login');
         }
-    }
-
-  
+    }  
 }
 
 ?>

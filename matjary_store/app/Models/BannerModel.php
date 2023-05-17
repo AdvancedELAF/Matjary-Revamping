@@ -81,12 +81,6 @@ class BannerModel extends Model {
             "id" => $id,
         ));
     }
-
-   
-
-    
-
-	
 }
 
 

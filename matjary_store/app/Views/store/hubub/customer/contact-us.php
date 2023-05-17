@@ -9,7 +9,6 @@
     </div>
 </section>
 <!-- PAGE BAR ENDS -->
-
 <!-- CONTACT US SECTION SPACING STARTS -->
 <section class="section-spacing <?php if($locale=='ar'){echo 'text-right';} ?>">
     <div class="container">
@@ -44,7 +43,6 @@
                 </div>
                 <?php echo form_close(); ?>
             </div>
-
             <div class="col-md-6">
             <div class="contact-map mb-3">
             <iframe width="100%" height="500" src="https://maps.google.com/maps?q=<?php echo isset($GetGeneralSettingInfo->address)?$GetGeneralSettingInfo->address:''; ?>&output=embed"></iframe> 
@@ -53,6 +51,5 @@
         </div>
     </div>
 </section>
-
 <!-- CONTACT US SECTION SPACING ENDS -->
 <?php $this->endSection(); ?>

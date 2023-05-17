@@ -79,13 +79,11 @@ $(document).ready(function(){
                 },
                 success: function(resp){  /* A function to be called if request succeeds */
                     respData = JSON.parse(resp);
-                    //swal.close();
                     if(respData.responseCode == 200){
                         swal({title: "", text: respData.responseMessage, type: "success"},
 		                    function(){ 
                                 $("#save_customer_register_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -125,18 +123,10 @@ $(document).ready(function(){
                 },
                 success: function(resp){  /* A function to be called if request succeeds */
                     respData = JSON.parse(resp);
-                    //swal.close();
-                    if(respData.responseCode == 200){
-                        // swal({title: "", text: respData.responseMessage, type: "success"},
-		                //     function(){ 
-                        //         $("#customer_login_form")[0].reset();
-		                //         window.location.href = respData.redirectUrl;
-		                //         //window.location.reload();
-		                //     }
-		                // );
+                    
+                    if(respData.responseCode == 200){                        
                         $("#customer_login_form")[0].reset();
                         window.location.href = respData.redirectUrl;
-                        //window.location.reload();
                     }else{
                         swal({title: "", text: respData.responseMessage, type: "error"});
                     }
@@ -174,13 +164,11 @@ $(document).ready(function(){
                 },
                 success: function(resp){  /* A function to be called if request succeeds */
                     respData = JSON.parse(resp);
-                    //swal.close();
                     if(respData.responseCode == 200){
                         swal({title: "", text: respData.responseMessage, type: "success"},
 		                    function(){ 
                                 $("#customer_reset_forgot_pass_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -219,14 +207,12 @@ $(document).ready(function(){
                     });
                 },
                 success: function(resp){  /* A function to be called if request succeeds */
-                    respData = JSON.parse(resp);
-                    //swal.close();
+                    respData = JSON.parse(resp);                    
                     if(respData.responseCode == 200){
                         swal({title: "", text: respData.responseMessage, type: "success"},
 		                    function(){ 
                                 $("#customer_set_new_password_form")[0].reset();
-		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
+		                        window.location.href = respData.redirectUrl;		                        
 		                    }
 		                );
                     }else{
@@ -403,7 +389,6 @@ $(document).ready(function(){
         let cancel_reason = $("#cancel_reason").val();
         let other_reason = $('#other_reason').val();       
         if(cancel_reason==''){
-            //swal({title: "Fail", text: 'Reason Of Cancelation Should Not Be Empty!', type: "error"});
             var cancelationReason = (lang == "en") ? "حدد سبب الإلغاء!" : "Select a Reason Of Cancelation!";
             $("#cancel_reason_error_msg").text(cancelationReason);
             return false;
@@ -449,12 +434,10 @@ $(document).ready(function(){
                     },
                     success: function(resp){  /* A function to be called if request succeeds */
                         respData = JSON.parse(resp);
-                        //swal.close();
                         if(respData.responseCode == 200){
                             swal({title: "", text: respData.responseMessage, type: "success"},
                                 function(){ 
                                     window.location.href = respData.redirectUrl;
-                                    //window.location.reload();
                                 }
                             );
                         }else{
@@ -472,8 +455,7 @@ $(document).ready(function(){
 
     $("#saveUpdateBtn").on("click", function (e) {   
         let customer_deliver_address_form = $("#saveUpdateBtn").closest("form[id]").attr('id');
-        //alert(customer_deliver_address_form);
-        //$("#"+customer_deliver_address_form).submit();
+        
     });
 
     $("#addEditAddressFormRow").on("submit","#save_customer_deliver_address_form", function(e) {
@@ -510,13 +492,10 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#save_customer_deliver_address_form")[0].reset();
 		                        let isCheckoutPage = respData.isCheckoutPage;
-                                let customerAddressList = respData.customerAddressList;
-                                //console.log(isCheckoutPage);
-                                //console.log(customerAddressList);
+                                let customerAddressList = respData.customerAddressList;                                
                                 if(isCheckoutPage==1){
                                     $("#deliveryAddressWrapper").empty('');
                                     $.each(customerAddressList,function(key, value){
-                                        //console.log(value);
                                         var lastAddrId = '';
                                         var checked = '';
                                         if(lastAddrId==value.id){
@@ -534,15 +513,14 @@ $(document).ready(function(){
                                         '</div>';
                                         $("#deliveryAddressWrapper").append(html_content);
                                     });
-                                    //swal.close();
+                                    
                                 }else{
                                     window.location.reload();
                                 }
 		                    }
 		                );
                     }else{
-                        swal({title: "", text: respData.responseMessage, type: "error"});
-                        //swal.close();
+                        swal({title: "", text: respData.responseMessage, type: "error"});                        
                     }
                 }
             });
@@ -583,13 +561,11 @@ $(document).ready(function(){
                             function(){ 
                                 $("#update_customer_deliver_address_form")[0].reset();
                                 let isCheckoutPage = respData.isCheckoutPage;
-                                let customerAddressList = respData.customerAddressList;
-                                //console.log(isCheckoutPage);
-                                //console.log(customerAddressList);
+                                let customerAddressList = respData.customerAddressList;                               
                                 if(isCheckoutPage==1){
                                     $("#deliveryAddressWrapper").empty('');
                                     $.each(customerAddressList,function(key, value){
-                                        //console.log(value);
+                                        
                                         var lastAddrId = '';
                                         var checked = '';
                                         if(lastAddrId==value.id){
@@ -607,7 +583,6 @@ $(document).ready(function(){
                                         '</div>';
                                         $("#deliveryAddressWrapper").append(html_content);
                                     });
-                                    //swal.close();
                                 }else{
                                     window.location.reload();
                                 }
@@ -721,7 +696,6 @@ $(document).ready(function(){
                     $.each(stateList,function(stateKey, stateValues){
                         $("#state_id").append('<option value=' + stateValues.id + '>' + stateValues.name + '</option>');
                     });
-                    //$('#state_id option').eq(parseInt(addressData.state_id)).prop('selected', true);
                     $('#state_id option[value='+addressData.state_id+']').prop('selected', true);
                     $.each(cityList,function(cityKey, cityValues){
                         $("select#city_id").append('<option value=' + cityValues.id + '>' + cityValues.name + '</option>');
@@ -767,8 +741,6 @@ $(document).ready(function(){
         e.preventDefault();
         let gc_code = $("#giftcard_code").val();
         if(gc_code=='' || gc_code==undefined || gc_code==null){
-            // $("#preloader").hide();
-            // swal({title: "Fail", text: "Gift Card Code Should not be empty.", type: "error"});
             var gccodenotbeempty = (lang == "en") ? "يجب ألا يكون رمز بطاقة الهدايا فارغًا." : "Gift Card Code Should Not Be Empty.";
             $("#giftcard_code_applied_span").text(gccodenotbeempty);
             $("#giftcard_code_applied_span").addClass('text-danger');
@@ -788,28 +760,21 @@ $(document).ready(function(){
             type: "POST",             /* Type of request to be send, called as method */
             enctype: 'multipart/form-data',
             data: requestData, 		  /* Data sent to server, a set of key/value pairs (i.e. form fields and values) */
-            // beforeSend: function() {
-            //     $("#preloader").show();
-            // },
+            
             success: function(resp){  /* A function to be called if request succeeds */
                 let respData = JSON.parse(resp);
-                //console.log(respData);
                 if(respData.responseCode == 200){
-                    //$("#preloader").hide();
                     $("#giftcard_code_applied_span").text(respData.responseMessage);
                     $("#giftcard_code_applied_span").removeClass('text-danger');
                     $("#giftcard_code_applied_span").addClass('text-success');
                     let gcData = respData.responseData;
-                    //console.log(gcData);
                     $("#is_giftcard_applied").val(1);
                     $("#giftcard_id").val(gcData.id);
                     $("#giftcard_prchsed_id").val(gcData.giftcard_prchsed_id);
                     $("#giftcard_amount").val(totalprice);
                 }else{
-                    //$("#preloader").hide();
                     $("#giftcard_code_applied_span").text(respData.responseMessage);
                     $("#giftcard_code_applied_span").addClass('text-danger');
-                    //swal({title: "Fail", text: respData.responseMessage, type: "error"});
                     $("#is_giftcard_applied").val('');
                     $("#giftcard_id").val('');
                     $("#giftcard_prchsed_id").val('');
@@ -919,19 +884,12 @@ $(document).ready(function(){
         $("#subtotal_span").text(subtotal.toFixed(2));
         $("#subtotal").val(subtotal.toFixed(2));
 
-        // let coupon_amount = $("#coupon_amount").val();
-        // if(coupon_amount=='' || coupon_amount==undefined || coupon_amount==null){
-        //     coupon_amount = parseFloat(subtotal);
-        // }else{
-        //     coupon_amount = parseFloat(subtotal) - parseFloat(coupon_amount);
-        // }
         let total_price = 0;
         let coupon_amount = $("#coupon_amount").val();
         if(coupon_amount=='' || coupon_amount==undefined || coupon_amount==null){
             total_price = parseFloat(subtotal);
             
         }else{
-            //coupon_amount = parseFloat(subtotal) - parseFloat(coupon_amount);
             var discount_type = $("#discount_type").val();
             var discount_value = $("#discount_value").val();
             if(discount_type==1){
@@ -1014,8 +972,6 @@ $(document).ready(function(){
             
         }else{
 
-            //coupon_amount = parseFloat(subtotal) - parseFloat(coupon_amount);
-
             var discount_type = $("#discount_type").val();
             var discount_value = $("#discount_value").val();
             if(discount_type==1){
@@ -1067,7 +1023,7 @@ $(document).ready(function(){
                     });
                 },
                 success: function(resp){  /* A function to be called if request succeeds */
-                    //swal.close();
+                    
                     respData = JSON.parse(resp);
                     if(respData.responseCode == 200){
                         swal({title: "", text: respData.responseMessage, type: "success"});
@@ -1102,7 +1058,7 @@ $(document).ready(function(){
             },
             success: function(resp){  /* A function to be called if request succeeds */
                 respData = JSON.parse(resp);
-                //console.log(respData);
+                
                 if(respData.responseCode == 200){
                     window.location.href = respData.redirectUrl;
                 }else{
@@ -1115,11 +1071,9 @@ $(document).ready(function(){
     $('#couponCodeApplyBtn').click(function() {
         
         let selft = $(this);
-        //let base_url = $("#base_url").val();
         let coupon_code = $("#coupon_code").val();
         let customerid = $(this).data('customerid');
         let total_price = $("#total_price_span").text();
-        //console.log(total_price);
         var action_page 		= $(this).data('actionurl');
         if(coupon_code=='' || coupon_code==undefined || coupon_code==null){
             
@@ -1162,7 +1116,6 @@ $(document).ready(function(){
                         respData = JSON.parse(resp);
                         swal.close();
                         if(respData.responseCode == 200){
-                            //$("#preloader").hide();
                             $("#couponCodeMsg").empty('');
                             
                             $("#couponCodeMsg").text(respData.responseMessage);
@@ -1191,8 +1144,7 @@ $(document).ready(function(){
                             $("#coupon_id").val(couponInfo.id);
                             $("#coupon_amount").val(disApldAmnt);
                         }else{
-                            //$("#preloader").hide();
-                            
+                                                        
                             $("#couponCodeMsg").empty('');
                             $("#coupon_applied_tr").hide();
                             $("#promotion_applied_amount_span").text('');
@@ -1251,7 +1203,6 @@ $(document).ready(function(){
                     },
                     success: function(resp){  /* A function to be called if request succeeds */
                         respData = JSON.parse(resp);
-                        //swal.close();
                         if(respData.responseCode == 200){
                             swal({title: "", text: respData.responseMessage, type: "success"},
                                 function(){ 
@@ -1384,11 +1335,8 @@ $(document).ready(function(){
             return false;
         }else if (/^[0-9]{1,3}$/.test(product_qty)) { 
 
-            let prodId = $(this).data('productid');
-            //console.log(prodId);
-
+            let prodId = $(this).data('productid');            
             let action_page = $(this).data('actionurl');
-            //console.log(action_page);
             let requestData = 'prodId='+prodId;
             $.ajax
             ({
@@ -1396,17 +1344,13 @@ $(document).ready(function(){
                 type: "POST",             /* Type of request to be send, called as method */
                 enctype: 'multipart/form-data',
                 data: requestData, 		  /* Data sent to server, a set of key/value pairs (i.e. form fields and values) */
-                // beforeSend: function() {
-                //     $("#preloader").show();
-                // },
+                
                 success: function(resp){  /* A function to be called if request succeeds */
                     let respData = JSON.parse(resp);
-                    //console.log(respData);
-                    //console.log(respData.responseData.productDetails.order_limit_quantity);
+                   
                     if(parseInt(product_qty) > parseInt(respData.responseData.productDetails.order_limit_quantity)){
-                        //let qty = product_qty-1;
+                        
                         $(self).val(1);
-
                         let subtotal = 0;
                         let taxtotal = 0;
                         $(".cartItemsTr .product_qty").each(function() {
@@ -1434,14 +1378,8 @@ $(document).ready(function(){
                                
                                 taxtotal += parseFloat(qty_sales_tax);
                                 $("#sales_taxs_span").text(taxtotal.toFixed(2));
-
-                                // let coupon_code = $("#coupon_code").val();
-                                // alert(coupon_code);
-
-
-
+                               
                             }else{
-                                //alert('not checked');
                                 let product_og_price = $(this).closest(".cartItemsTr").find("#product_price_"+productid).val();
                                 let qty_product_price = parseFloat(product_og_price) * product_qty_val;
                                 $("#new_product_price_"+productid).val(qty_product_price.toFixed(2));
@@ -1464,9 +1402,6 @@ $(document).ready(function(){
                         if(coupon_amount=='' || coupon_amount==undefined || coupon_amount==null){
                             total_price = parseFloat(subtotal);
                         }else{
-                            
-                            //coupon_amount = parseFloat(subtotal) - parseFloat(coupon_amount);
-
                             var discount_type = $("#discount_type").val();
                             var discount_value = $("#discount_value").val();
                             if(discount_type==1){
@@ -1517,16 +1452,10 @@ $(document).ready(function(){
                                 $("#subtotal").val(subtotal.toFixed(2));
                               
                                 taxtotal += parseFloat(qty_sales_tax);
-                                $("#sales_taxs_span").text(taxtotal.toFixed(2));
-
-                                // let coupon_code = $("#coupon_code").val();
-                                // alert(coupon_code);
-
-
+                                $("#sales_taxs_span").text(taxtotal.toFixed(2));                                
 
                             }else{
-                                //alert('not checked');
-
+                               
                                 let product_og_price = $(this).closest(".cartItemsTr").find("#product_price_"+productid).val();
                                 let qty_product_price = parseFloat(product_og_price) * product_qty_val;
                                 $("#new_product_price_"+productid).val(qty_product_price.toFixed(2));
@@ -1542,7 +1471,6 @@ $(document).ready(function(){
                                 $("#new_product_weight_"+productid).val(qty_weight.toFixed(2));
 
                                 subtotal += 0;
-                                //totaltax += 0;
                                
                             }
                         });
@@ -1552,9 +1480,6 @@ $(document).ready(function(){
                         if(coupon_amount=='' || coupon_amount==undefined || coupon_amount==null){
                             total_price = parseFloat(subtotal);
                         }else{
-                            
-                            //coupon_amount = parseFloat(subtotal) - parseFloat(coupon_amount);
-
                             var discount_type = $("#discount_type").val();
                             var discount_value = $("#discount_value").val();
                             if(discount_type==1){
@@ -1579,8 +1504,8 @@ $(document).ready(function(){
             });
 
         }else{
-            alert((lang == "en") ?"يسمح بحد أقصى 3 أرقام!":'Max 3 digits are allowed!'); // you can write your own logic to warn users 
-            //showErrorMessage(classNameOfField);
+            alert((lang == "en") ?"يسمح بحد أقصى 3 أرقام!":'Max 3 digits are allowed!'); /* you can write your own logic to warn users */
+            
             return false;
         }
 
@@ -1729,7 +1654,6 @@ $(document).ready(function(){
                     });
                 },
                 success: function(resp){  /* A function to be called if request succeeds */
-                    //swal.close();
                     respData = JSON.parse(resp);
                     if(respData.responseCode == 200){
                         $("#preloader").hide();
@@ -1737,7 +1661,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#update_my_profile_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -1779,14 +1702,12 @@ $(document).ready(function(){
                     });
                 },
                 success: function(resp){  /* A function to be called if request succeeds */
-                    //swal.close();
                     respData = JSON.parse(resp);
                     if(respData.responseCode == 200){
                         swal({title: "", text: respData.responseMessage, type: "success"},
 		                    function(){ 
                                 $("#update_change_password_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -1829,14 +1750,12 @@ $(document).ready(function(){
                     });
                 },
                 success: function(resp){  /* A function to be called if request succeeds */
-                    //swal.close();
                     respData = JSON.parse(resp);
                     if(respData.responseCode == 200){
                         swal({title: "", text: respData.responseMessage, type: "success"},
 		                    function(){ 
                                 $("#save_feedback_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -1878,14 +1797,12 @@ $(document).ready(function(){
                     });
                 },
                 success: function(resp){  /* A function to be called if request succeeds */
-                    //swal.close();
                     respData = JSON.parse(resp);
                     if(respData.responseCode == 200){
                         swal({title: "", text: respData.responseMessage, type: "success"},
 		                    function(){ 
                                 $("#gift_card_save_feedback_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -1927,14 +1844,12 @@ $(document).ready(function(){
                     });
                 },
                 success: function(resp){  /* A function to be called if request succeeds */
-                    //swal.close();
                     respData = JSON.parse(resp);
                     if(respData.responseCode == 200){
                         swal({title: "", text: respData.responseMessage, type: "success"},
 		                    function(){ 
                                 $("#save_contactus_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -1983,7 +1898,6 @@ $(document).ready(function(){
                             function(){ 
                                 $("#save_subscribe_form")[0].reset();
                                 window.location.href = respData.redirectUrl;
-                                //window.location.reload();
                             }
                         );
                     }else{
@@ -2050,21 +1964,7 @@ $(document).ready(function(){
         });
 
     });
-    /* Subscribes js start End */
-    
-    // $('#viewAllMyOrderList').DataTable({
-    //     'paging': true,
-    //     'deferRender': true,
-    //     'lengthChange': true,
-    //     'searching': true,
-    //     'info': true,
-    //     'dom': 'Bfrtip',
-    //     'buttons': [
-    //         'copy', 'csv', 'excel', 'pdf', 'print'
-    //     ],
-    //     'pageLength': 10,
-    //     'processing': true
-    // });
+    /* Subscribes js start End */    
 
     /* =================================Store Front-end js end ================================= */
     
@@ -2188,9 +2088,7 @@ $(document).ready(function(){
             });
         }
         
-    });
-
-    
+    });    
 
 });
 

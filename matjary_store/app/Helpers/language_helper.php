@@ -604,9 +604,11 @@ function language($lang){
             "No Data Found" => "لاتوجد بيانات",
             "Newletter Subscription"=>"اشتراك إلكتروني جديد",
             "Subscribe to our newsletter and stay updated to receive exciting offers!"=>"اشترك في النشرة الإخبارية لدينا وابق على اطلاع لتلقي العروض المثيرة!",
+            "About Store Information not added yet!"=>"حول معلومات المتجر لم تتم إضافتها بعد!",
         ];
     }else{
         return [ 
+            "About Store Information not added yet!"=>"About Store Information not added yet!",
             "Subscribe to our newsletter and stay updated to receive exciting offers!" => "Subscribe to our newsletter and stay updated to receive exciting offers!",
             "Newletter Subscription"=>"Newletter Subscription",
             "Special Offers" => "Special Offers",

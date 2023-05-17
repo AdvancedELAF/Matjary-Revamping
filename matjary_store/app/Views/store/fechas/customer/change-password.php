@@ -47,6 +47,5 @@
         </div>
     </div>
 </section>
-
 <!-- RESET PASSWORD FORM ENDS -->
 <?php $this->endSection(); ?>

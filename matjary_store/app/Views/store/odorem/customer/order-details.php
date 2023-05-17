@@ -77,13 +77,10 @@ $ses_custmr_id = $session->get('ses_custmr_id');
                                 <h6>
                                     <?php  
                                     if($orderDetails['orderInfo']->payment_type==1){ 
-                                       // echo 'Cash On Deliwary';
                                        echo $language['Cash On Delivery'];
                                     }elseif($orderDetails['orderInfo']->payment_type==2){ 
-                                           // echo 'Online Banking';
                                        echo $language['Online Banking'];
                                     }elseif($orderDetails['orderInfo']->payment_type==3){
-                                       // echo 'Gift Cart';
                                         echo $language['Gift Cart'];
                                     }
                                     ?>
@@ -191,10 +188,7 @@ $ses_custmr_id = $session->get('ses_custmr_id');
                             </tr>
                         </thead>
                         <tbody>
-                            <?php
-                                
-                                    //echo '<pre>'; print_r($orderDetails['orderGiftCardInfo']->name); exit;
-                            ?>
+                           
                             <tr>
                                 <th scope="row"><?php echo $language['GiftCard Detail']; ?></th>
                                 <td><h6><?php echo isset($orderDetails['orderGiftCardInfo']->name)?$orderDetails['orderGiftCardInfo']->name:''; ?></h6></td>

@@ -25,7 +25,6 @@ $ses_lang = $session->get('ses_lang');
         <div class="pd-20">
             <a href="<?php echo  base_url('admin/add-product'); ?>" class="btn btn-primary pull-<?php echo $ses_lang == 'en'?'right':'left'; ?>"><?php echo $language['Add Product']; ?></a>
         </div>
-
         <div class="table-responsive pd-20">
             <table class="data-table table nowrap" id="viewAllProductList">
                 <thead>

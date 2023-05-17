@@ -134,7 +134,6 @@ $ses_lang = $session->get('ses_lang');
                                     </div>
                                     <div class="prod-btn d-grid">
                                         <a href="<?php echo base_url('product/product-details/'.$productData->id); ?>" class="btn btn-primary btn-block brand-btn"><?php echo $language['Details']; ?></a>
-                                        <!--button class="btn btn-primary btn-block brand-btn">Add to Wishlist</button-->
                                     </div>
                                 </div>
                             </div>
@@ -194,9 +193,7 @@ $ses_lang = $session->get('ses_lang');
                                         <span class="sale-amount"><?php echo $language['SAR']; ?> <?php echo isset($productData->product_price)?number_format((float)$productData->product_price, 2, '.', ''):''; ?></span>                            
                                 </div>
                                     <div class="prod-btn d-grid">
-                                        <!--button class="btn btn-primary btn-block brand-btn">Add to Cart</button>
-                                        <button class="btn btn-primary btn-block brand-btn">Add to Wishlist</button-->
-                                        <a href="<?php echo base_url('product/product-details/'.$productData->id); ?>" class="btn btn-primary btn-block brand-btn"><?php echo $language['Details']; ?></a>
+                                       <a href="<?php echo base_url('product/product-details/'.$productData->id); ?>" class="btn btn-primary btn-block brand-btn"><?php echo $language['Details']; ?></a>
                                     </div>
                                 </div>
                             </div>
@@ -256,8 +253,6 @@ $ses_lang = $session->get('ses_lang');
                                         <span class="sale-amount"><?php echo $language['SAR']; ?> <?php echo isset($productData->product_price)?number_format((float)$productData->product_price, 2, '.', ''):''; ?></span>                        
                                     </div>
                                     <div class="prod-btn d-grid">
-                                        <!--button class="btn btn-primary btn-block brand-btn">Add to Cart</button>
-                                        <button class="btn btn-primary btn-block brand-btn">Add to Wishlist</button-->
                                         <a href="<?php echo base_url('product/product-details/'.$productData->id); ?>" class="btn btn-primary btn-block brand-btn"><?php echo $language['Details']; ?></a>
                                     </div>
                                 </div>

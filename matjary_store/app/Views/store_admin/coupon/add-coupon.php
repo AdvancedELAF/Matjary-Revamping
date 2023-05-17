@@ -56,16 +56,8 @@ $ses_lang = $session->get('ses_lang');
                             <div class="mb-2">
                                 <input type="date" class="form-control" placeholder="<?php echo $language['End Date']; ?>" id="coupon_expirydate" name="coupon_expirydate">
                             </div>
-                        </div>                      
+                        </div>                     
                         
-                        <!-- <div class="col-md-6">
-                        <label>Number Of Times This Discount Can Be Used</label>
-                            <div class="mb-2">
-                                <input type="text" class="form-control" placeholder="Quantity" id="quantity" name="quantity">                               
-                            </div>
-                        </div>
-                        </div> -->
-
                         <div class="col-md-6">
                             <label><?php echo $language['Discount Type']; ?></label>
                             <div class="mb-2">
@@ -104,7 +96,6 @@ $ses_lang = $session->get('ses_lang');
                                 <textarea class="form-control" name="coupon_desc" id="coupon_desc" placeholder="<?php echo $language['Description']; ?>"></textarea>
                             </div>
                         </div>
-
                     </div>
                     <div class="d-grid gap-2 d-md-block text-<?php echo $ses_lang == 'en'?'right':'left'; ?> mt-4">
                         <button class="btn btn-primary" type="submit"><?php echo $language['Save']; ?></button>
@@ -114,10 +105,7 @@ $ses_lang = $session->get('ses_lang');
                 </div>
             </div>
         </div>
-
     </div>
-
 </div>
-
 <?php $this->endSection(); ?>
 

@@ -1,7 +1,6 @@
 <?php $this->extend('store/'.$storeActvTmplName.'/layouts/store_layout'); ?>
 <?php $this->section('content'); ?>
 <!-- PAGE BAR STARTS -->
-
 <section <?php if($locale=='ar'){echo 'text-right';} ?>>
     <div class="container-fluid">
         <div class="trans-page-title">
@@ -51,7 +50,5 @@
         </div>
     </div>
 </section>
-
-
 <!-- SET NEW PASSWORD SECTION ENDS -->
 <?php $this->endSection(); ?>

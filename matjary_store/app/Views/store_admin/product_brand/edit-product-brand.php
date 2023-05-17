@@ -24,7 +24,6 @@ $ses_lang = $session->get('ses_lang');
     <div class="row clearfix">
         <div class="col-lg-12 col-md-12 col-sm-12 mb-30">
             <div class="pd-20 card-box">
-
                 <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                     <?php 
                         $attributes = ['name' => 'update_product_brand_form', 'id' => 'update_product_brand_form', 'autocomplete' => 'off']; 
@@ -63,8 +62,6 @@ $ses_lang = $session->get('ses_lang');
                 </div>
             </div>
         </div>
-
     </div>
-
 </div>
 <?php $this->endSection(); ?>

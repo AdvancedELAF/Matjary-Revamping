@@ -98,7 +98,6 @@ class WishlistModel extends Model {
     public function chk_prod_exist_with_same_customer($productId,$customerId){
         $query = $this->db->query("SELECT * FROM ".$this->table." WHERE customer_id=".$customerId." AND product_id=".$productId);
         $result = $query->getRow();
-        //echo '<pre>'; print_r($result); exit;
         if(isset($result) && !empty($result)){
             return true;
         }else{

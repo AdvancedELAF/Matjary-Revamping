@@ -1,9 +1,6 @@
 <?php $this->extend('store/' . $storeActvTmplName . '/layouts/store_layout'); ?>
 <?php $this->section('content'); ?>
-
-<section class="section-spacing <?php if ($locale == 'ar') {
-                                    echo 'text-right';
-                                } ?>">
+<section class="section-spacing <?php if ($locale == 'ar') { echo 'text-right'; } ?>">
     <div class="container">
         <div class="section-title text-center mb-3">
             <h4><?php echo $language['MY ACCOUNT']; ?></h4>

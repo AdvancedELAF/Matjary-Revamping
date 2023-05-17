@@ -600,7 +600,6 @@ class PaymentController extends BaseController
     }
     
     public function update_payment_setting(){
-        //echo '<pre>'; print_r($_POST); exit; 
         $result = true;
         if(isset($_POST['pay_cmp_id']) && !empty($_POST['pay_cmp_id'])){
             $totalCount = count($_POST['pay_cmp_id']);

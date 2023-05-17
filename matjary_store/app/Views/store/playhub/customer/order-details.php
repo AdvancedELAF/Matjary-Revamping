@@ -21,7 +21,6 @@ $ses_custmr_id = $session->get('ses_custmr_id');
         </div>
     </div>
 </section>
-
 <!-- PAGE BAR ENDS -->
 <!-- ORDER DETAIL TABLE STARTS -->
 <section class="section-spacing <?php if($locale=='ar'){echo 'text-right';} ?>">

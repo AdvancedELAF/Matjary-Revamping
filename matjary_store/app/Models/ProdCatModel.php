@@ -199,16 +199,9 @@ class ProdCatModel extends Model {
             where pcat.parent_cat_id = '.$parent_cat_id.' and pcat.is_active in(1) order by pcat.id desc
         ');
         return $query->getResult();
-    }
-    
+    }   
 	
 }
-
-
-
-
-
-
 
 
 ?>

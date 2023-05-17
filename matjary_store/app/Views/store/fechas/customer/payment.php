@@ -24,9 +24,6 @@ $ses_custmr_id = $session->get('ses_custmr_id');
                 </div>
                 <div class="checkout-wrapper">
                    
-                    <!-- <div class="cart-value text-center">
-                        <h4>Cart Amount : <?php echo isset($cartTotal['total_price']) ? $cartTotal['total_price'] : 'NA'; ?></h4>
-                    </div> -->
                     <?php
                     $attributes = ['name' => 'proceed_payment_form', 'id' => 'proceed_payment_form', 'autocomplete' => 'off'];
                     echo form_open_multipart('customer/proceed-payment', $attributes);
@@ -45,41 +42,7 @@ $ses_custmr_id = $session->get('ses_custmr_id');
                     <input type="hidden" name="subtotal" value="<?php echo isset($cartTotal['subtotal']) ? $cartTotal['subtotal'] : ''; ?>">
                     <input type="hidden" name="total_price" value="<?php echo isset($cartTotal['total_price']) ? $cartTotal['total_price'] : ''; ?>">
                     <input type="hidden" name="locale" id="locale" value="<?php echo $locale; ?>">
-                    <!-- <div class="row">
-                        <div class="col-md-4">
-                            <div class="form-group row">
-                                <label class="col-sm-12 col-md-12 col-form-label">Online Payment</label>
-                                <div class="col-sm-12 col-md-12">
-                                    <input type="radio" name="payment_option" value="2" class="paymentMethod" checked>
-                                </div>
-                            </div>
-                        </div>
-                        <?php if (isset($cartTotal['is_giftcard_purchasing']) && $cartTotal['is_giftcard_purchasing'] == 1) { ?>
-                        <?php } else { ?>
-                            <div class="col-md-4">
-                                <div class="form-group row">
-                                    <label class="col-sm-12 col-md-12 col-form-label">Cash On Delivery</label>
-                                    <div class="col-sm-12 col-md-12">
-                                        <input type="radio" name="payment_option" value="1" class="paymentMethod">
-                                    </div>
-                                </div>
-                            </div>
-                        <?php } ?>
-
-
-                        <?php if (isset($cartTotal['is_giftcard_purchasing']) && $cartTotal['is_giftcard_purchasing'] == 1) { ?>
-                        <?php } else { ?>
-                            <div class="col-md-4">
-                                <div class="form-group row">
-                                    <label class="col-sm-12 col-md-12 col-form-label">Gift Cart Payment</label>
-                                    <div class="col-sm-12 col-md-12">
-                                        <input type="radio" name="payment_option" value="3" class="paymentMethod">
-                                    </div>
-                                </div>
-                            </div>
-                        <?php } ?>
-                    </div> -->
-
+                    
                     <div class="row mb-3">
                         <div class="col-md-4">
                             <div class="form-check">

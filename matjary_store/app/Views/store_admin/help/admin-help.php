@@ -4,7 +4,6 @@
         <div class="section-title mb-4">
             <h4>Help menu</h4>
         </div>
-
         <div class="help-tab">
             <div class="row">
                 <div class="col-3">

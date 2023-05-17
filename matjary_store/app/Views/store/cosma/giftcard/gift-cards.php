@@ -19,6 +19,7 @@ $ses_lang = $session->get('ses_lang');
             $giftCard = $locale=='en'?'Data Not Available Yet!.':'البيانات غير متوفرة بعد!';          
             if(isset($GiftCardList) && !empty($GiftCardList)){
                 foreach($GiftCardList as $GiftCardData){
+                    $giftCardDefaultMsg = false;
                     $today = date("Y-m-d");
                     $name = '';
                     if($ses_lang=='en'){
@@ -40,7 +41,9 @@ $ses_lang = $session->get('ses_lang');
                     }
                   
                     if(date("Y-m-d",strtotime($GiftCardData->expiry_date)) >= $today){
+                    $giftCardDefaultMsg = True;
             ?>
+            
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="main-gift-wrapper">
                     <a href="<?php echo base_url('giftcard/giftcard-details/'.$GiftCardData->id); ?>">
@@ -56,9 +59,11 @@ $ses_lang = $session->get('ses_lang');
                     <a href="<?php echo base_url('giftcard/giftcard-details/'.$GiftCardData->id); ?>" class="btn btn-primary brand-btn-black"><?php echo $language['Details']; ?></a>
                 </div>
             </div>
+            <?php } } ?>
+                <div class="page-content">       
+                    <p><?php if($giftCardDefaultMsg == false ){echo $giftCard; } ?></p>                   
+                </div>
             <?php
-                    }
-                }
             }else{ ?>
                 <div class="prod-detail text-center">                    
                     <h4><?php echo $giftCard; ?></h4>                   
@@ -68,8 +73,5 @@ $ses_lang = $session->get('ses_lang');
         </div>
     </div>
 </section>
-
-<!-- GIFT CARD LISTING SECTION ENDS -->
-
 <!-- Footer section  -->
 <?php $this->endSection(); ?>

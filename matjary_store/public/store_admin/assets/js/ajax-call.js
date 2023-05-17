@@ -35,7 +35,6 @@ $(document).ready(function(){
         record_is_safe = "السجل آمن.";
     }
     /* ================================= Store Admin js start ==================================== */
-
     /* Product Category js start */
     $("#save_product_category_form").on('submit',(function(e) {
 		e.preventDefault();
@@ -72,7 +71,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#save_product_category_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -118,7 +116,6 @@ $(document).ready(function(){
                         swal({title: "", text: respData.responseMessage, type: "success"},
 		                    function(){ 
                                 $("#update_product_category_form")[0].reset();
-		                        //window.location.href = respData.redirectUrl;
 		                        window.location.reload();
 		                    }
 		                );
@@ -167,8 +164,7 @@ $(document).ready(function(){
                         swal({title: "", text: respData.responseMessage, type: "success"},
 		                    function(){ 
                                 $("#save_product_brand_form")[0].reset();
-		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
+		                        window.location.href = respData.redirectUrl;		                       
 		                    }
 		                );
                     }else{
@@ -215,7 +211,7 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#update_product_brand_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
+		                       
 		                    }
 		                );
                     }else{
@@ -274,8 +270,7 @@ $(document).ready(function(){
                         }else{
                             $("#preloader").hide();
                             resp_error = resp.responseMessage;
-                            resp_notifications = resp.responseNotifications;;
-                            //swal("Error", resp_error, "error");
+                            resp_notifications = resp.responseNotifications;
                             swal({
                                 title: resp_notifications,
                                 text: resp_error,
@@ -595,7 +590,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#save_general_setting_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -642,7 +636,7 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#update_general_setting_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
+		                       
 		                    }
 		                );
                     } 
@@ -692,7 +686,7 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#save_product_color_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
+		                       
 		                    }
 		                );
                     }else{
@@ -739,7 +733,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#update_product_color_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -788,7 +781,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#save_product_size_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -834,7 +826,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#update_product_size_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -883,7 +874,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#save_shipping_setting_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -929,7 +919,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#update_shipping_setting_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -940,8 +929,8 @@ $(document).ready(function(){
             });
         }
     }));
-    /* Shipping Setting ajx end */
 
+    /* Shipping Setting ajx end */
     $("#submit_create_pickup_request_form").on('submit',(function(e) {
 		e.preventDefault();
         var isvalidate = $("#submit_create_pickup_request_form").valid();
@@ -977,7 +966,6 @@ $(document).ready(function(){
                                 swal.close();
                                 $("#submit_create_pickup_request_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -1025,7 +1013,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#save_payment_setting_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -1036,6 +1023,7 @@ $(document).ready(function(){
             }); 
         }
     }));
+
     $("#update_payment_setting_form").on('submit',(function(e) {
 		e.preventDefault();
         var isvalidate = $("#update_payment_setting_form").valid();
@@ -1071,7 +1059,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#update_payment_setting_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -1083,7 +1070,6 @@ $(document).ready(function(){
         }
     }));
      /* Payment Setting ajx end */
-
      /* Product js start */
     $("#save_product_form").on('submit',(function(e) {
 		e.preventDefault();
@@ -1120,7 +1106,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#save_product_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -1166,7 +1151,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#update_product_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -1178,7 +1162,6 @@ $(document).ready(function(){
         }
     }));
     /* Product js end */
-
     /* User js start */
     $("#save_user_form").on('submit',(function(e) {
 		e.preventDefault();
@@ -1207,7 +1190,7 @@ $(document).ready(function(){
                         showConfirmButton: false
                     });
                 },
-                success: function(resp){  // A function to be called if request succeeds
+                success: function(resp){  /* A function to be called if request succeeds */
                     respData = JSON.parse(resp);
                     if(respData.responseCode == 200){
                         $("#preloader").hide();
@@ -1215,7 +1198,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#save_user_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -1283,7 +1265,7 @@ $(document).ready(function(){
             var form = $('#save_customer_form')[0];  /* Get form */
             var requestData = new FormData(form);  /* Create an FormData object */
             var action_page 		= $("#save_customer_form").attr('action');
-            // processData & contentType should be set to false
+            /* processData & contentType should be set to false */
             $.ajax
             ({
                 url: action_page, 		 /* Url to which the request is send */
@@ -1352,7 +1334,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#update_customer_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -1363,7 +1344,6 @@ $(document).ready(function(){
         }
     }));
     /* Customer js end */
-
     /* Coupon js start */
     $("#save_coupon_form").on('submit',(function(e) {
 		e.preventDefault();
@@ -1399,7 +1379,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#save_coupon_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -1490,7 +1469,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#save_banner_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -1546,8 +1524,6 @@ $(document).ready(function(){
         }
     }));
     /* Banner js End */
-
-
     /* ================================= Store Admin js end ==================================== */
 
     /* Faq js Start */
@@ -1585,7 +1561,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#save_faq_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -1681,7 +1656,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#save_customer_help_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -1730,7 +1704,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#update_customer_help_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -1781,7 +1754,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#update_terms_conditions_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -1830,7 +1802,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#save_terms_conditions_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -1881,7 +1852,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#save_about_us_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -1929,7 +1899,6 @@ $(document).ready(function(){
                         swal({title: "", text: respData.responseMessage, type: "success"},
 		                    function(){ 
                                 $("#update_about_us_form")[0].reset();
-		                        //window.location.href = respData.redirectUrl;
 		                        window.location.reload();
 		                    }
 		                );
@@ -1977,7 +1946,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#save_gift_card_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -2031,57 +1999,7 @@ $(document).ready(function(){
                 }
             });
         }
-    }));
-    /* Gift Card Js End */
-    //    $("#user_login_form").on('submit',(function(e) {
-	// 	e.preventDefault();
-    //     var isvalidate = $("#user_login_form").valid();
-	//     if (!isvalidate) {
-	//         return false;
-	//     }else{
-    //         var form = $('#user_login_form')[0];  /* Get form */
-    //         var requestData = new FormData(form);  /* Create an FormData object  */
-    //         var action_page 		= $("#user_login_form").attr('action');
-    //         $.ajax
-    //         ({
-    //             url: action_page, 		  /* Url to which the request is send */
-    //             type: "POST",             /* Type of request to be send, called as method */
-    //             enctype: 'multipart/form-data',
-    //             data: requestData, 		  /* Data sent to server, a set of key/value pairs (i.e. form fields and values) */
-    //             contentType: false,       /* The content type used when sending data to the server. */
-    //             cache: false,             /* To unable request pages to be cached */
-    //             processData:false,        /* Important! To send DOMDocument or non processed data file it is set to false */
-    //             timeout: 600000,
-    //             beforeSend: function() {
-                        // swal({
-                        //     title: "",
-                        //     text: (lang == "en") ? "معالجة..." : "Processing...",
-                        //     imageUrl: "https://media.tenor.com/OzAxe6-8KvkAAAAi/blue_spinner.gif",
-                        //     showConfirmButton: false
-                        // });
-    //             },
-    //             success: function(resp){  /* A function to be called if request succeeds */
-    //                 respData = JSON.parse(resp);
-    //                 console.log(respData);
-    //                 if(respData.responseCode == 200){
-    //                     // swal({title: "", text: respData.responseMessage, type: "success"},
-	// 	                //     function(){ 
-    //                     //         $("#customer_login_form")[0].reset();
-	// 	                //         window.location.href = respData.redirectUrl;
-	// 	                //         //window.location.reload();
-	// 	                //     }
-	// 	                // );
-    //                     $("#user_login_form")[0].reset();
-    //                     window.location.href = respData.redirectUrl;
-    //                     //window.location.reload();
-    //                 }else{
-    //                     $("#preloader").hide();
-    //                     swal({title: "Fail", text: respData.responseMessage, type: "error"});
-    //                 }
-    //             }
-    //         });
-    //     }
-    // }));
+    }));    
 
      /* Advertisement js Start */
      $("#save_advertisement_form").on('submit',(function(e) {
@@ -2118,7 +2036,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#save_advertisement_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -2174,7 +2091,6 @@ $(document).ready(function(){
         }
     }));
     /* Advertisement js End */
-
     $("#user_set_new_password_form").on('submit',(function(e) {
 		e.preventDefault();
         var isvalidate = $("#user_set_new_password_form").valid();
@@ -2209,7 +2125,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#user_set_new_password_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -2250,17 +2165,9 @@ $(document).ready(function(){
                 success: function(resp){  /* A function to be called if request succeeds */
                     respData = JSON.parse(resp);
                     if(respData.responseCode == 200){
-                        $("#preloader").hide();
-                        // swal({title: "", text: respData.responseMessage, type: "success"},
-		                //     function(){ 
-                        //         $("#user_login_form")[0].reset();
-		                //         window.location.href = respData.redirectUrl;
-		                //         //window.location.reload();
-		                //     }
-		                // );
+                        $("#preloader").hide();                        
                         $("#user_login_form")[0].reset();
                         window.location.href = respData.redirectUrl;
-                        //window.location.reload();
                     }else{
                         $("#preloader").hide();
                         swal({title: "", text: respData.responseMessage, type: "error"});
@@ -2304,7 +2211,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#update_user_profile_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -2349,7 +2255,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#update_user_change_password_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -2382,7 +2287,6 @@ $(document).ready(function(){
             success: function(resp){  /* A function to be called if request succeeds */
                 respData = JSON.parse(resp);                
                 if(respData.responseCode == 200){
-                    //$("#preloader").hide();
                     swal.close();
                     $("#state_id").empty('');
                     $("#state_id").append('<option value="">Select State</option>');
@@ -2390,8 +2294,7 @@ $(document).ready(function(){
                     $.each(stateList,function(key, value){
                         $("#state_id").append('<option value=' + value.id + '>' + value.name + '</option>');
                     });
-                }else{
-                    //$("#preloader").hide();
+                }else{                   
                     swal.close();
                     swal({title: "", text: respData.responseMessage, type: "error"});
                 }
@@ -2421,7 +2324,7 @@ $(document).ready(function(){
             success: function(resp){  /* A function to be called if request succeeds */
                 respData = JSON.parse(resp);
                 if(respData.responseCode == 200){
-                    // $("#preloader").hide();
+                    
                     swal.close();
                     $("#city_id").empty('');
                     $("#city_id").append('<option value="">Select City</option>');
@@ -2430,14 +2333,14 @@ $(document).ready(function(){
                         $("#city_id").append('<option value=' + value.id + '>' + value.name + '</option>');
                     });
                 }else{
-                    //$("#preloader").hide();
+                    
                     swal.close();
                     swal({title: "", text: respData.responseMessage, type: "error"});
                 }
             }
         });
     });
-    // reply contact form
+    /* reply contact form */
     $("#reply_contact_form").on('submit',(function(e) { 
 		e.preventDefault();
         var isvalidate = $("#reply_contact_form").valid();
@@ -2472,7 +2375,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#reply_contact_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -2483,7 +2385,7 @@ $(document).ready(function(){
         }
     }));
 
-    // Admin Profile Picture
+   /* Admin Profile Picture */
     $("#user_profile_picture").on('submit',(function(e) { 
 		e.preventDefault();
         var isvalidate = $("#user_profile_picture").valid();
@@ -2518,7 +2420,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#user_profile_picture")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -2529,7 +2430,7 @@ $(document).ready(function(){
             });
         }
     }));
-   // Refund Request by admin
+   /* Refund Request by admin */
     $('#ApprovedRefund').on('click', function(e) {
         e.preventDefault();
         let orderid = $(this).data('orderid');
@@ -2566,14 +2467,12 @@ $(document).ready(function(){
                             },
                             success: function(resp){  /* A function to be called if request succeeds */
                                 respData = JSON.parse(resp);
-                                //console.log(respData);
+                                
                                 if(respData.responseCode == 200){
                                     $("#preloader").hide();
                                     swal({title: "", text: respData.responseMessage, type: "success"},
-                                        function(){ 
-                                            //$("#save_product_category_form")[0].reset();
-                                            window.location.href = respData.redirectUrl;
-                                            //window.location.reload();
+                                        function(){                                            
+                                            window.location.href = respData.redirectUrl;                                           
                                         }
                                     );
                                 }else{
@@ -2589,63 +2488,26 @@ $(document).ready(function(){
         );
     });
 
-        /* user forgeted password start */
-
-        $("#chk_password_forgoted_user_email").on('submit',(function(e) { 
-            e.preventDefault();
-            var isvalidate = $("#chk_password_forgoted_user_email").valid();
-            if (!isvalidate) {
-                return false;
-            }else{
-                var form = $('#chk_password_forgoted_user_email')[0];  /* Get form */
-                var requestData = new FormData(form);  /* Create an FormData object  */
-                var action_page 		= $("#chk_password_forgoted_user_email").attr('action');
-                $.ajax
-                ({
-                    url: action_page, 		  /* Url to which the request is send */
-                    type: "POST",             /* Type of request to be send, called as method */
-                    enctype: 'multipart/form-data',
-                    data: requestData, 		  /* Data sent to server, a set of key/value pairs (i.e. form fields and values) */
-                    contentType: false,       /* The content type used when sending data to the server. */
-                    cache: false,             /* To unable request pages to be cached */
-                    processData:false,        /* Important! To send DOMDocument or non processed data file it is set to false */
-                    timeout: 600000,
-                    beforeSend: function() {
-                        swal({
-                            title: "",
-                            text: (lang == "en") ? "معالجة..." : "Processing...",
-                            imageUrl: "https://media.tenor.com/OzAxe6-8KvkAAAAi/blue_spinner.gif",
-                            showConfirmButton: false
-                        });
-                    },
-                    success: function(resp){  /* A function to be called if request succeeds */
-                        respData = JSON.parse(resp);
-                        if(respData.responseCode == 200){
-                            swal({title: "", text: respData.responseMessage, type: "success"},
-                                function(){ 
-                                    window.location.href = respData.redirectUrl;
-                                }
-                            );
-                        }else{
-                            swal({title: "", text: respData.responseMessage, type: "error"});
-                        }
-                    }
-                });
-            }
-        }));
-
-        /* user forgeted password end */
-        
-        $('#setDefaultShipStngs').on('click', function(e) {
-            e.preventDefault();
-            let action_page = $(this).data('actionurl');
-            let requestData = '';
+    /* user forgeted password start */
+    $("#chk_password_forgoted_user_email").on('submit',(function(e) { 
+        e.preventDefault();
+        var isvalidate = $("#chk_password_forgoted_user_email").valid();
+        if (!isvalidate) {
+            return false;
+        }else{
+            var form = $('#chk_password_forgoted_user_email')[0];  /* Get form */
+            var requestData = new FormData(form);  /* Create an FormData object  */
+            var action_page 		= $("#chk_password_forgoted_user_email").attr('action');
             $.ajax
             ({
                 url: action_page, 		  /* Url to which the request is send */
                 type: "POST",             /* Type of request to be send, called as method */
                 enctype: 'multipart/form-data',
                 data: requestData, 		  /* Data sent to server, a set of key/value pairs (i.e. form fields and values) */
+                contentType: false,       /* The content type used when sending data to the server. */
+                cache: false,             /* To unable request pages to be cached */
+                processData:false,        /* Important! To send DOMDocument or non processed data file it is set to false */
+                timeout: 600000,
                 beforeSend: function() {
                     swal({
                         title: "",
@@ -2659,7 +2521,7 @@ $(document).ready(function(){
                     if(respData.responseCode == 200){
                         swal({title: "", text: respData.responseMessage, type: "success"},
                             function(){ 
-                                window.location.reload();
+                                window.location.href = respData.redirectUrl;
                             }
                         );
                     }else{
@@ -2667,12 +2529,40 @@ $(document).ready(function(){
                     }
                 }
             });
+        }
+    }));
+
+    /* user forgeted password end */    
+    $('#setDefaultShipStngs').on('click', function(e) {
+        e.preventDefault();
+        let action_page = $(this).data('actionurl');
+        let requestData = '';
+        $.ajax
+        ({
+            url: action_page, 		  /* Url to which the request is send */
+            type: "POST",             /* Type of request to be send, called as method */
+            enctype: 'multipart/form-data',
+            data: requestData, 		  /* Data sent to server, a set of key/value pairs (i.e. form fields and values) */
+            beforeSend: function() {
+                swal({
+                    title: "",
+                    text: (lang == "en") ? "معالجة..." : "Processing...",
+                    imageUrl: "https://media.tenor.com/OzAxe6-8KvkAAAAi/blue_spinner.gif",
+                    showConfirmButton: false
+                });
+            },
+            success: function(resp){  /* A function to be called if request succeeds */
+                respData = JSON.parse(resp);
+                if(respData.responseCode == 200){
+                    swal({title: "", text: respData.responseMessage, type: "success"},
+                        function(){ 
+                            window.location.reload();
+                        }
+                    );
+                }else{
+                    swal({title: "", text: respData.responseMessage, type: "error"});
+                }
+            }
         });
-
+    });
 });
-
-
-
-
-
-

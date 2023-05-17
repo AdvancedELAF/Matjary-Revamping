@@ -31,9 +31,7 @@
                         <?php
                         if (isset($customerOrderHistoryList) && !empty($customerOrderHistoryList)) {
                             $i = 1;
-                            foreach ($customerOrderHistoryList as $value) {
-                                //echo '<pre>'; print_r($value); exit;
-                        ?>
+                            foreach ($customerOrderHistoryList as $value) { ?>
                                 <tr>
                                     <th scope="row"><?php echo $i; ?></th>
                                     <td class="order-number-data">
@@ -51,10 +49,8 @@
                                             if($value->payment_type==1){ 
                                                 echo $language['Cash On Delivery']; 
                                             }elseif($value->payment_type==2){ 
-                                                // echo 'Online Banking';
                                                 echo $language['Online Banking'];
                                             }elseif($value->payment_type==3){
-                                                //echo 'Gift Cart';
                                                 echo $language['Gift Cart'];
                                             } 
                                         ?>
@@ -64,13 +60,10 @@
                                         <h5>
                                         <?php 
                                             if($value->payment_status==1){ 
-                                                //echo 'Complete';
                                                 echo $language['Complete'];
-                                            }elseif($value->payment_status==2){ 
-                                                    //echo 'Pending';
+                                            }elseif($value->payment_status==2){
                                                 echo $language['Pending'];
                                             }elseif($value->payment_status==3){ 
-                                                //echo 'Cancel';
                                                 echo $language['Cancel'];
                                             }
                                             ?>
@@ -127,20 +120,3 @@
 </section>
 <!-- MY ORDERS TABLE ENDS -->
 <?php $this->endSection(); ?>
-<script>
-    $(document).ready(function() {
-        // $('#viewAllMyOrderList').DataTable({
-        //     'paging': true,
-        //     'deferRender': true,
-        //     'lengthChange': true,
-        //     'searching': true,
-        //     'info': true,
-        //     'dom': 'Bfrtip',
-        //     'buttons': [
-        //         'copy', 'csv', 'excel', 'pdf', 'print'
-        //     ],
-        //     'pageLength': 10,
-        //     'processing': true
-        // });
-    });
-</script>

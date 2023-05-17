@@ -2,7 +2,6 @@
 $session = \Config\Services::session();
 $lang_session = $session->get('lang_session');
 $ses_lang = $session->get('ses_lang');
-
 ?>
 <?php $this->extend('store_admin/layouts/dashboard_layout'); ?>
 <?php $this->section('content'); ?>
@@ -63,7 +62,7 @@ $ses_lang = $session->get('ses_lang');
                                     }
                                 }
                             }
-                    ?>
+                        ?>
                             <tr>
                                 <td>
                                     <h5 class="font-16"><?php echo $i; ?></h5>

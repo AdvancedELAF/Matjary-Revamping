@@ -25,7 +25,6 @@ $ses_lang = $session->get('ses_lang');
         <div class="pd-20">
             <a href="<?php echo base_url('admin/add-product-brand'); ?>" class="btn btn-primary pull-<?php echo $ses_lang == 'en'?'right':'left'; ?>"><?php echo $language['Add New Brand']; ?></a>
         </div>
-
         <div class="table-responsive pd-20">
             <table class="data-table table nowrap" id="viewAllProductBrandList">
                 <thead>
@@ -53,11 +52,7 @@ $ses_lang = $session->get('ses_lang');
                                 <td>
                                     <h5 class="font-16"><?php echo isset($value->brand_name) ? $value->brand_name : 'NA'; ?></h5>
                                 </td>
-                                <td><?php if ($value->is_active == 1) {
-                                        echo $language['Active'];
-                                    } else {
-                                        echo $language['Deactivated'];
-                                    } ?></td>
+                                <td><?php if ($value->is_active == 1) { echo $language['Active']; } else { echo $language['Deactivated']; } ?></td>
                                 <td>
                                     <div class="dropdown">
                                         <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">

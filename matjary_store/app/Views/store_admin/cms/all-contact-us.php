@@ -65,8 +65,7 @@
                         </tr>
                     <?php
                     }
-                    ?>
-                    
+                    ?>                    
                 </tbody>
             </table>
         </div>

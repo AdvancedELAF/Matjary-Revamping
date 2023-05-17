@@ -1,11 +1,6 @@
 <?php $this->extend('store/'.$storeActvTmplName.'/layouts/store_layout'); ?>
 <?php $this->section('content'); ?>
-<!-- PAGE BAR STARTS -->
-
-<!-- PAGE BAR ENDS -->
-
 <!-- CONTACT US SECTION SPACING STARTS -->
-
 <div class="section-spacing <?php if($locale=='ar'){echo 'text-right';} ?>">
     <div class="container">
         <div class="section-title mb-3 text-center">

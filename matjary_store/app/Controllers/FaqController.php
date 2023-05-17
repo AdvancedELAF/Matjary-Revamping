@@ -29,7 +29,6 @@ class FaqController extends BaseController
             $this->pageData['pageTitle'] = 'All Faqs';
             $this->pageData['adminPageId'] = 18;
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
             $this->pageData['FaqList'] = $this->FaqModel->get_all_data();
             return view('store_admin/cms/all-faqs',$this->pageData);
         }else{
@@ -41,7 +40,6 @@ class FaqController extends BaseController
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){
             $this->pageData['pageTitle'] = 'Add Faq';
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
             return view('store_admin/cms/add-faq',$this->pageData);
         }else{
             return redirect()->to('/admin/login');
@@ -121,7 +119,6 @@ class FaqController extends BaseController
             $this->pageData['pageTitle'] = 'Edit Faq';
             $this->pageData['faqDetails'] = $this->FaqModel->find($Id);
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
             return view('store_admin/cms/edit-faq',$this->pageData);
         }else{
             return redirect()->to('/admin/login');
@@ -273,7 +270,6 @@ class FaqController extends BaseController
             $this->pageData['pageTitle'] = 'Customer Help';
             $this->pageData['adminPageId'] = 24;
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
             $this->pageData['CustomerHelp'] = $this->SettingModel->find();
             return view('store_admin/help/customer-help',$this->pageData);
         }else{
@@ -391,8 +387,7 @@ class FaqController extends BaseController
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){
             $this->pageData['pageTitle'] = 'Admin Help';  
             $this->pageData['adminPageId'] = 23;
-            $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();     
+            $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();    
             return view('store_admin/help/admin-help',$this->pageData);
         }else{
             return redirect()->to('/admin/login');
@@ -404,7 +399,6 @@ class FaqController extends BaseController
             $this->pageData['pageTitle'] = 'Terms And Conditions';
             $this->pageData['adminPageId'] = 20;
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
             $GetTermsconditonData = $this->TermsConditionsModel->get_all_data();
             if(isset($GetTermsconditonData) && !empty($GetTermsconditonData)){
                 $this->pageData['GetTermsconditonInfo'] = $GetTermsconditonData;
@@ -798,7 +792,6 @@ class FaqController extends BaseController
             $this->pageData['pageTitle'] = 'All Subscribes';
             $this->pageData['adminPageId'] = 21;
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
             $this->pageData['SubscribesList'] = $this->SubscribesModel->get_all_data();
             return view('store_admin/cms/all-subscribes',$this->pageData);
         }else{
@@ -881,7 +874,6 @@ class FaqController extends BaseController
             $this->pageData['pageTitle'] = 'All Contact Us';
             $this->pageData['adminPageId'] = 22;
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
             $this->pageData['ContactUsList'] = $this->ContactUsModel->get_all_data();
             return view('store_admin/cms/all-contact-us',$this->pageData);
         }else{
@@ -894,7 +886,6 @@ class FaqController extends BaseController
             $this->pageData['pageTitle'] = 'View Contact Us';
             $this->pageData['ContactUsInfo'] = $this->ContactUsModel->get_single_data($id);
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
             return view('store_admin/cms/view-contact-us',$this->pageData);
         }else{
             return redirect()->to('/admin/login');
@@ -1070,7 +1061,6 @@ class FaqController extends BaseController
     }
 
 }
-
 ?>
 
 

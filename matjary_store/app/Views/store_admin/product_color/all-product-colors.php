@@ -25,7 +25,6 @@ $ses_lang = $session->get('ses_lang');
         <div class="pd-20">
             <a href="<?php echo base_url('admin/add-product-color'); ?>" class="btn btn-primary pull-<?php echo $ses_lang == 'en'?'right':'left'; ?>"><?php echo $language['Add New Color']; ?></a>
         </div>
-
         <div class="table-responsive pd-20">
             <table class="data-table table nowrap" id="viewAllProductColorList">
                 <thead>
@@ -80,7 +79,6 @@ $ses_lang = $session->get('ses_lang');
                     <?php
                     }
                     ?>
-
                 </tbody>
             </table>
         </div>

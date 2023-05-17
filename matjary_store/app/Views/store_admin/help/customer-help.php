@@ -73,7 +73,6 @@ if($ses_lang == 'en'){
             </div>
         </div>
     </div>
-
 </div>
 <script type="text/javascript">
     CKEDITOR.replace('customer_help');

@@ -4,7 +4,6 @@ $ses_logged_in = $session->get('ses_logged_in');
 $ses_custmr_name = $session->get('ses_custmr_name');
 $ses_custmr_id = $session->get('ses_custmr_id');
 ?>
-
 <?php $this->extend('store/'.$storeActvTmplName.'/layouts/store_layout'); ?>
 <?php $this->section('content'); ?>
 <section <?php if($locale=='ar'){echo 'text-right';} ?>">
@@ -14,13 +13,11 @@ $ses_custmr_id = $session->get('ses_custmr_id');
         </div>
     </div>
 </section>
-
 <section class="section-spacing <?php if($locale=='ar'){echo 'text-right';} ?>">
     <div class="container-fluid">
         <div class="ui-title text-black">
             <h4><?php echo $language['Add A New Address']; ?></h4>
         </div>
-
         <div class="address-wrap" id="addEditAddressFormRow">
             <div class="container">
                  <?php
@@ -119,18 +116,11 @@ $ses_custmr_id = $session->get('ses_custmr_id');
                     <p class="text-black"><?php echo isset($customerAddressData->address) ? $customerAddressData->address : ''; ?> <?php echo isset($customerAddressData->city_name) ? $customerAddressData->city_name : ''; ?> <?php echo isset($customerAddressData->state_name) ? $customerAddressData->state_name : ''; ?> <?php echo isset($customerAddressData->zipcode) ? $customerAddressData->zipcode : ''; ?> <?php echo isset($customerAddressData->country_name) ? $customerAddressData->country_name : ''; ?></p>
 
                     <div class="form-check">
-                        <!--a href="javascript:void(0);">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                            <label class="form-check-label" for="exampleRadios1">
-                                Deliver to this address
-                            </label>
-                        </a-->
+                        
                         <a href="javascript:void(0);"><input type="radio" name="customer_address_id" class="form-check-input cstmrAddrId" value="<?php echo $customerAddressData->id; ?>" data-error=".error1" <?php if ($lastAddrId == $customerAddressData->id) { echo 'checked'; } ?>> <?php echo $language['Deliver to this Address']; ?></a>
                     </div>
                     <p class="error1"></p>
                     <div class="mt-2 text-right">
-                        <!--button class="brand-btn-orange">Edit</button>
-                        <button class="brand-btn-black">Delete</button-->
                         <a href="javascript:void(0);" class="brand-btn-orange editMyAddress" data-customerid="<?php echo isset($ses_custmr_id) ? $ses_custmr_id : ''; ?>" data-actionurl="<?php echo base_url('customer/edit-customer-deliver-address'); ?>" data-id="<?php echo $customerAddressData->id; ?>" data-lang="<?php echo $locale; ?>"><?php echo $language['Edit']; ?></a>
                         <a href="javascript:void(0);" class="brand-btn-black removeMyAddressbtn" id="rempveAddress" data-actionurl="<?php echo base_url('customer/delete-customer-deliver-address'); ?>" data-id="<?php echo $customerAddressData->id; ?>" data-operation="delete"><i class="dw dw-delete-3"></i> <?php echo $language['Delete']; ?></a>
                         

@@ -2,7 +2,6 @@
 $session = \Config\Services::session();
 $lang_session = $session->get('lang_session');
 $ses_lang = $session->get('ses_lang');
-//echo '<pre>'; print_r($ses_lang); exit;
 ?>
 <?php $this->extend('store_admin/layouts/dashboard_layout'); ?>
 <?php $this->section('content'); ?>
@@ -48,8 +47,6 @@ $ses_lang = $session->get('ses_lang');
                 </div>
             </div>
         </div>
-
     </div>
-
 </div>
 <?php $this->endSection(); ?>
