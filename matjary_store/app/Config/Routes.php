@@ -21,11 +21,13 @@ $routes->setDefaultController('WebController');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
-// The Auto Routing (Legacy) is very dangerous. It is easy to create vulnerable apps
-// where controller filters or CSRF protection are bypassed.
-// If you don't want to define all routes, please use the Auto Routing (Improved).
-// Set `$autoRoutesImproved` to true in `app/Config/Feature.php` and set the following to true.
-// $routes->setAutoRoute(false);
+/* 
+The Auto Routing (Legacy) is very dangerous. It is easy to create vulnerable apps
+where controller filters or CSRF protection are bypassed.
+If you don't want to define all routes, please use the Auto Routing (Improved).
+Set `$autoRoutesImproved` to true in `app/Config/Feature.php` and set the following to true.
+$routes->setAutoRoute(false);
+/*
 
 /*
  * --------------------------------------------------------------------
@@ -33,8 +35,9 @@ $routes->set404Override();
  * --------------------------------------------------------------------
  */
 
-// We get a performance increase by specifying the default
-// route since we don't have to scan directories.
+/* We get a performance increase by specifying the default
+   route since we don't have to scan directories.
+*/
 $routes->match(["get", "post"], '/', 'WebController::index');
 $routes->match(["get", "post"], '/home', 'WebController::index');
 $routes->match(["get", "post"], '/language', 'CommonController::language');
@@ -116,7 +119,7 @@ $routes->group("giftcard", function ($routes) {
     $routes->match(["get", "post"], 'gift-cards', 'WebController::gift_cards', ['as' => 'giftcard.gift_cards']);
     $routes->match(["get", "post"], "giftcard-details/(:num)", "WebController::giftcard_details/$1", ['as' => 'giftcard.giftcard_details']);
 
-    //Feedback
+    /* Feedback */
     $routes->match(["get", "post"], "post-feedbacks/(:num)", "WebController::gift_card_post_feedback/$1", ['as' => 'giftcard.gift_card_post_feedback']);
     $routes->match(["get", "post"], "save-gift-card-feedback", "WebController::save_gift_card_feedback", ['as' => 'giftcard.save_gift_card_feedback']);
     $routes->match(["get", "post"], "view-feedbacks/(:num)", "WebController::view_gift_card_feedback/$1", ['as' => 'giftcard.view_gift_card_feedback']);
