@@ -22,39 +22,38 @@
         <div class="col-lg-6">
             <div class="contact-wrapper mb-3">
                 <h3 class="contact-title"><?php echo $language['Contact Us']; ?></h3>
-
-            <?php 
-                $attributes = ['name' => 'save_contactus_form', 'id' => 'save_contactus_form', 'autocomplete' => 'off']; 
-                echo form_open_multipart('customer/save-contact-us',$attributes); 
-            ?>
-            <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
-            <div class="mb-3">
-                <input type="text" class="brand-input" placeholder="<?php echo $language['Name']; ?>" id="name" name="name">
-            </div>
-            <div class="mb-3">
-                 <input type="email" class="brand-input" placeholder="<?php echo $language['Email Address']; ?>" id="email" name="email">
-            </div>
-            <div class="mb-3">
-                <input type="text" class="brand-input numberonly" placeholder="<?php echo $language['Contact No.']; ?>*" minlength="9" maxlength="10" id="contact_no" name="contact_no" minlength="9" maxlength="10">
-            </div>
-            <div class="mb-3">
-                <textarea type="text" class="brand-input" placeholder="<?php echo $language['Your Message']; ?>" rows="5" id="massage" maxlength = "500" name="massage"></textarea></br>
-            </div>
-                 <button class="g-brand-btn btn-block"><?php echo $language['Submit']; ?></button>
-            <?php echo form_close(); ?>
+                <?php 
+                    $attributes = ['name' => 'save_contactus_form', 'id' => 'save_contactus_form', 'autocomplete' => 'off']; 
+                    echo form_open_multipart('customer/save-contact-us',$attributes); 
+                ?>
+                <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
+                <div class="mb-3">
+                    <input type="text" class="brand-input" placeholder="<?php echo $language['Name']; ?>" id="name" name="name">
+                </div>
+                <div class="mb-3">
+                    <input type="email" class="brand-input" placeholder="<?php echo $language['Email Address']; ?>" id="email" name="email">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="brand-input numberonly" placeholder="<?php echo $language['Contact No.']; ?>*" minlength="9" maxlength="10" id="contact_no" name="contact_no" minlength="9" maxlength="10">
+                </div>
+                <div class="mb-3">
+                    <textarea type="text" class="brand-input" placeholder="<?php echo $language['Your Message']; ?>" rows="5" id="massage" maxlength = "500" name="massage"></textarea></br>
+                </div>
+                    <button class="g-brand-btn btn-block"><?php echo $language['Submit']; ?></button>
+                <?php echo form_close(); ?>
             </div>
 
             <div class="row">
                 <div class="col-lg-6">
                     <div class="cont-box text-center mb-2">
                         <i class="icofont-envelope"></i>
-                        <a href="mailto:webmaster@example.com"><h6><?php echo isset($GetGeneralSettingInfo->support_email)?$GetGeneralSettingInfo->support_email:''; ?><h6></a>
+                        <a href="mailto:<?php echo isset($GetGeneralSettingInfo->support_email)?$GetGeneralSettingInfo->support_email:'webmaster@example.com'; ?>"><h6><?php echo isset($GetGeneralSettingInfo->support_email)?$GetGeneralSettingInfo->support_email:''; ?><h6></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="cont-box text-center mb-2">
                         <i class="icofont-telephone"></i>
-                        <a href="tel:+9661123456789">
+                        <a href="tel:+966<?php echo isset($GetGeneralSettingInfo->contact_no)?$GetGeneralSettingInfo->contact_no:'123456789'; ?>">
                             <h6><?php echo isset($GetGeneralSettingInfo->contact_no)?$GetGeneralSettingInfo->contact_no:''; ?></h6>
                         </a>
                     </div>

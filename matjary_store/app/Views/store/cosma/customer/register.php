@@ -10,9 +10,7 @@
 </div>
 <!-- PAGE BAR ENDS -->
 <!-- SIGN UP SECTION STARTS -->
-<section class="section-spacing <?php if ($locale == 'ar') {
-                                    echo 'text-right';
-                                } ?>">
+<section class="section-spacing <?php if ($locale == 'ar') { echo 'text-right'; } ?>">
     <div class="container">
         <div class="section-title text-center mb-3">
             <h4><?php echo $language['New User? Register']; ?></h4>
