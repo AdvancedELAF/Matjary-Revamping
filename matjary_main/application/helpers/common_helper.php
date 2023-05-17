@@ -52,7 +52,7 @@ if (!function_exists('curl_call')) {
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
+            CURLOPT_TIMEOUT => 30,
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'GET',
@@ -76,7 +76,7 @@ if (!function_exists('curl_call')) {
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
+            CURLOPT_TIMEOUT => 30,
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'GET',
@@ -126,90 +126,83 @@ if (!function_exists('curl_call')) {
 
     function sendEmail($email, $message, $subject) {
         $data_array =  array(
-            "slag" => 'sendgrid'
+            "slag" => 'smtp'
         );
-        $make_call = callAPI('POST', 'https://www.matjary.in/matjary-config', json_encode($data_array));
+        $make_call = callAPI('POST', 'https://www.matjary.sa/matjary-config', json_encode($data_array));
         $response = json_decode($make_call, true);
         $emailSentStatus = true;
         $name = $email;
         $body = $message;
         $domain = str_ireplace('www.', '', parse_url(base_url(), PHP_URL_HOST));
-        $headers = array(
-            'Authorization: Bearer '.$response['responseData']['sendgrid_bearer_token'],
-            'Content-Type: application/json'
-        ); 
-        $data = array(
-            "personalizations" => array(
-                array(
-                    "to" => array(
-                        array(
-                            "email" => $email,
-                            "name" => $name
+
+        require_once(APPPATH . 'third_party/phpmailer/PHPMailerAutoload.php');
+        $mail = new PHPMailer(true);
+        try {
+            /* Server settings */
+            $mail->SMTPDebug = false;                                                       /* Enable verbose debug output */
+            $mail->isSMTP();                                                                /* Set mailer to use SMTP */
+            $mail->Host = $response['responseData']['smpt_host'];                           /* Specify main and backup SMTP servers */
+            $mail->SMTPAuth = true;                                                         /* Enable SMTP authentication */
+            $mail->Username = $response['responseData']['smpt_username'];                   /* SMTP username */
+            $mail->Password = $response['responseData']['smpt_password'];                   /* SMTP password */
+            $mail->SMTPSecure = 'tls';                                                      /* Enable TLS encryption, `ssl` also accepted */
+            $mail->Port = 587;                                                              /* TCP port to connect to */
+            /* recipients */
+            $mail->setFrom($response['responseData']['smtp_email_from'], ucwords($domain));
+            $mail->addAddress($email, $name);                                               /* Add a recipient  */
+            /* Content */
+            $mail->isHTML(true);                                                            /* Set email format to HTML */
+            $mail->Subject = $subject;
+            $mail->Body    = $body;
+            if($mail->Send()) {
+                $emailSentStatus = true;
+            }
+        } catch (Exception $e) {
+            $emailSentStatus = false;                                                       /* echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}"; */
+        }
+
+        if($emailSentStatus==false){
+            $headers = array(
+                'Authorization: Bearer '.$response['responseData']['sendgrid_bearer_token'],
+                'Content-Type: application/json'
+            ); 
+            $data = array(
+                "personalizations" => array(
+                    array(
+                        "to" => array(
+                            array(
+                                "email" => $email,
+                                "name" => $name
+                            )
                         )
                     )
+                ),
+                "from" => array(
+                    "email" => $response['responseData']['sendgrid_email_from'],
+                    "name" => ucwords($domain)
+                ),
+                "subject" => $subject,
+                "content" => array(
+                    array(
+                        "type" => "text/html",
+                        "value" => $body
+                    )
                 )
-            ),
-            "from" => array(
-                "email" => $response['responseData']['sendgrid_email_from'],
-                "name" => ucwords($domain)
-            ),
-            "subject" => $subject,
-            "content" => array(
-                array(
-                    "type" => "text/html",
-                    "value" => $body
-                )
-            )
-        );
+            );
 
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "https://api.sendgrid.com/v3/mail/send");
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        $response = curl_exec($ch);
-        curl_close($ch);
-        if(isset($response) && !empty($response)){
-            //echo $mail->ErrorInfo;
-            $emailSentStatus = false;
-        }else{          
-            $emailSentStatus = true; 
-        }
-        
-        if($emailSentStatus==false){
-            require_once(APPPATH . 'third_party/phpmailer/PHPMailerAutoload.php');
-            $mail = new PHPMailer(true);
-            try {
-                //Server settings
-                $mail->SMTPDebug = false;                                 // Enable verbose debug output
-                $mail->isSMTP();                                      // Set mailer to use SMTP
-                $mail->Host = 'mail.motorgate.com';                    // Specify main and backup SMTP servers
-                $mail->SMTPAuth = true;                               // Enable SMTP authentication
-                $mail->Username = 'smtpmail@motorgate.com';                   // SMTP username
-                $mail->Password = '2NrW_q,i9Z;%';                   // SMTP password
-                $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-                $mail->Port = 587;                                    // TCP port to connect to
-
-                //Recipients
-                $mail->setFrom('smtpmail@motorgate.com', ucwords($domain));
-                $mail->addAddress($email, $name);     // Add a recipient
-
-                // Content
-                $mail->isHTML(true);                                  // Set email format to HTML
-                $mail->Subject = $subject;
-                $mail->Body    = $body;
-
-                //echo 'Message has been sent';
-                //$mail->AddCC($superAdminEmail);
-                if($mail->Send()) {
-                    //echo 'Email Send Successfully.';
-                    $emailSentStatus = true;
-                }
-            } catch (Exception $e) {
-                //echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-                $emailSentStatus = false;
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, "https://api.sendgrid.com/v3/mail/send");
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            $response = curl_exec($ch);
+            curl_close($ch);
+            if(isset($response) && !empty($response)){
+                $emailSentStatus = false; /* echo $mail->ErrorInfo; */
+            }else{          
+                $emailSentStatus = true; 
             }
         }
         

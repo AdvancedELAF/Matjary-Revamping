@@ -457,7 +457,6 @@ $(document).ready(function () {
 				},
 				success: function (resp) {
 					var resp = JSON.parse(resp);
-					console.log(resp);
 					if (resp.responseCode == 200) {
 						$(".progess_txt").html(info_msg3);
 						setTimeout(function () {
