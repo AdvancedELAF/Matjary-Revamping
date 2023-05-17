@@ -126,7 +126,7 @@ $routes->group("giftcard", function ($routes) {
 });
 
 $routes->group("category", function ($routes) {
-    $routes->match(["get", "post"], "category-details/(:num)", "WebController::category_details/$1", ['as' => 'category.category_details']);
+    /* $routes->match(["get", "post"], "category-details/(:num)", "WebController::category_details/$1", ['as' => 'category.category_details']); */
     $routes->match(["get", "post"], "all-categories", "WebController::all_categories", ['as' => 'category.all_categories']);
     $routes->match(["get", "post"], "category-product-list/(:num)", "WebController::category_product_list/$1", ['as' => 'category.category_product_list']);
 });
