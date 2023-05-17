@@ -1,5 +1,0 @@
-<?php
-// Functions go here
-
-
-?>

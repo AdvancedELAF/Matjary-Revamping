@@ -162,6 +162,11 @@ if (!function_exists('curl_call')) {
         }
 
         if($emailSentStatus==false){
+			$data_array =  array(
+                "slag" => 'sendgrid'
+            );
+            $make_call = callAPI('POST', 'https://www.matjary.sa/matjary-config', json_encode($data_array));
+            $response = json_decode($make_call, true);
             $headers = array(
                 'Authorization: Bearer '.$response['responseData']['sendgrid_bearer_token'],
                 'Content-Type: application/json'
