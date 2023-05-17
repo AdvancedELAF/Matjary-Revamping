@@ -194,12 +194,8 @@ $ses_lang = $session->get('ses_lang');
                         <div class="col-md-6">
                             <div class="mb-2">
                                 <label><?php echo $language['Is This Product in Promotion ?']; ?></label><br>
-                                <input type="radio" name="promotion_status" value="1" data-error=".error1" <?php if ($prodDetails['promotion_status'] == 1) {
-                                                                                                                echo 'checked';
-                                                                                                            } ?>> <?php echo $language['Yes']; ?>
-                                <input type="radio" name="promotion_status" value="2" data-error=".error1" <?php if ($prodDetails['promotion_status'] == 2) {
-                                                                                                                echo 'checked';
-                                                                                                            } ?>> <?php echo $language['No']; ?>
+                                <input type="radio" name="promotion_status" value="1" data-error=".error1" <?php if ($prodDetails['promotion_status'] == 1) { echo 'checked'; } ?>> <?php echo $language['Yes']; ?>
+                                <input type="radio" name="promotion_status" value="2" data-error=".error1" <?php if ($prodDetails['promotion_status'] == 2) { echo 'checked'; } ?>> <?php echo $language['No']; ?>
                                 </br><span class="error1"></span>
                             </div>
                         </div>

@@ -347,7 +347,7 @@ abstract class BaseController extends Controller
 
     public function sendEmail($email,$message,$subject){
         $data_array =  array(
-            "slag" => 'sendgrid'
+            "slag" => 'smtp'
         );
         $make_call = $this->callAPI('POST', 'https://www.matjary.sa/matjary-config', json_encode($data_array));
         $response = json_decode($make_call, true);
@@ -358,78 +358,79 @@ abstract class BaseController extends Controller
         $parsedUrl = parse_url($getSubdomain);
         $host = explode('.', $parsedUrl['host']);        
         $subdomain = $host[0];
-        $headers = array(
-            'Authorization: Bearer '.$response['responseData']['sendgrid_bearer_token'],
-            'Content-Type: application/json'
-        );
-        $data = array(
-            "personalizations" => array(
-                array(
-                    "to" => array(
-                        array(
-                            "email" => $email,
-                            "name" => $name
+        require '../vendor/autoload.php';
+        $mail = new PHPMailer(true);
+        try {
+            /* Server settings */
+            $mail->SMTPDebug = false;                                                       /* Enable verbose debug output */
+            $mail->isSMTP();                                                                /* Set mailer to use SMTP */
+            $mail->Host = $response['responseData']['smpt_host'];                           /* Specify main and backup SMTP servers */
+            $mail->SMTPAuth = true;                                                         /* Enable SMTP authentication */
+            $mail->Username = $response['responseData']['smpt_username'];                   /* SMTP username */
+            $mail->Password = $response['responseData']['smpt_password'];                   /* SMTP password */
+            $mail->SMTPSecure = 'tls';                                                      /* Enable TLS encryption, `ssl` also accepted */
+            $mail->Port = 587;                                                              /* TCP port to connect to */
+            /* recipients */
+            $mail->setFrom($response['responseData']['smtp_email_from'], ucwords($subdomain));
+            $mail->addAddress($email, $name);                                               /* Add a recipient  */
+            /* Content */
+            $mail->isHTML(true);                                                            /* Set email format to HTML */
+            $mail->Subject = $subject;
+            $mail->Body    = $body;
+            if($mail->Send()) {
+                $emailSentStatus = true;
+            }
+        } catch (Exception $e) {
+            $emailSentStatus = false;                                                       /* echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}"; */
+        }
+
+        if($emailSentStatus==false){
+            $data_array =  array(
+                "slag" => 'sendgrid'
+            );
+            $make_call = $this->callAPI('POST', 'https://www.matjary.sa/matjary-config', json_encode($data_array));
+            $response = json_decode($make_call, true);
+            $headers = array(
+                'Authorization: Bearer '.$response['responseData']['sendgrid_bearer_token'],
+                'Content-Type: application/json'
+            ); 
+            $data = array(
+                "personalizations" => array(
+                    array(
+                        "to" => array(
+                            array(
+                                "email" => $email,
+                                "name" => $name
+                            )
                         )
                     )
+                ),
+                "from" => array(
+                    "email" => $response['responseData']['sendgrid_email_from'],
+                    "name" => ucwords($subdomain)
+                ),
+                "subject" => $subject,
+                "content" => array(
+                    array(
+                        "type" => "text/html",
+                        "value" => $body
+                    )
                 )
-            ),          
-            "from" => array(
-                "email" => $response['responseData']['sendgrid_email_from'],
-                "name" => $subdomain
-            ),
-            "subject" => $subject,
-            "content" => array(
-                array(
-                    "type" => "text/html",
-                    "value" => $body
-                )
-            )
-        );
+            );
 
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "https://api.sendgrid.com/v3/mail/send");
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        $response = curl_exec($ch);
-        curl_close($ch);
-        if(isset($response) && !empty($response)){
-            /* echo $mail->ErrorInfo; */
-            $emailSentStatus = false;
-        }else{          
-            $emailSentStatus = true; 
-        }
-        
-        if($emailSentStatus==false){
-            require '../vendor/autoload.php';
-            $mail = new PHPMailer(true);
-            try {
-                /* Server settings */
-                $mail->SMTPDebug = false;                                               /* Enable verbose debug output */
-                $mail->isSMTP();                                                        /* Set mailer to use SMTP */
-                $mail->Host = 'email-smtp.ap-south-1.amazonaws.com';                    /* Specify main and backup SMTP servers */
-                $mail->SMTPAuth = true;                                                 /* Enable SMTP authentication */
-                $mail->Username = 'AKIA3LCPB7FIGCGZJY5Q';                               /* SMTP username */
-                $mail->Password = 'BEACNaCDKzntvdAt8FCRfnw26RSSN22SckwC3E7zixcc';       /* SMTP password */
-                $mail->SMTPSecure = 'tls';                                              /* Enable TLS encryption, `ssl` also accepted */
-                $mail->Port = 587;                                                      /* TCP port to connect to */
-
-                /* Recipients */
-                $mail->setFrom('no-reply@matjary.sa', $subdomain);
-                $mail->addAddress($email, $email);                                      /* Add a recipient */
-
-                /* Content */
-                $mail->isHTML(true);                                                    /* Set email format to HTML */
-                $mail->Subject = $subject;
-                $mail->Body    = $body;
-                if($mail->Send()) {
-                    $emailSentStatus = true;
-                }
-            } catch (Exception $e) {
-                /* echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}"; */
-                $emailSentStatus = false;
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, "https://api.sendgrid.com/v3/mail/send");
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            $response = curl_exec($ch);
+            curl_close($ch);
+            if(isset($response) && !empty($response)){
+                $emailSentStatus = false; /* echo $mail->ErrorInfo; */
+            }else{          
+                $emailSentStatus = true; 
             }
         }
 
