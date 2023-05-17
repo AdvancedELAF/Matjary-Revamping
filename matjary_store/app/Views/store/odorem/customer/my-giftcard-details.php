@@ -58,19 +58,19 @@ $ses_lang = $session->get('ses_lang');
                         <div class="col-md-4">
                             <p><?php echo $language['Acitive / Expired']; ?> :</p>
                             <?php 
-                            $today = date("Y-m-d");
-                            $expiry_date = date("Y-m-d",strtotime($mySnglGCDetails->expiry_date));
-                            if($expiry_date >= $today){
-                                if($mySnglGCDetails->gc_status==1){
-                                    echo '<h5 class="text-success">'.$language['Active'].'</h5>';
-                                }elseif($mySnglGCDetails->gc_status==2){
-                                    echo '<h5 class="text-warning">'.$language['Utilized'].'</h5>';
+                                $today = date("Y-m-d");
+                                $expiry_date = date("Y-m-d",strtotime($mySnglGCDetails->expiry_date));
+                                if($expiry_date >= $today){
+                                    if($mySnglGCDetails->gc_status==1){
+                                        echo '<h5 class="text-success">'.$language['Active'].'</h5>';
+                                    }elseif($mySnglGCDetails->gc_status==2){
+                                        echo '<h5 class="text-warning">'.$language['Utilized'].'</h5>';
+                                    }else{
+                                        echo'<h5 class="text-default">'.$language['NA'].'</h5>';
+                                    } 
                                 }else{
-                                    echo'<h5 class="text-default">'.$language['NA'].'</h5>';
-                                } 
-                            }else{
-                                echo'<h5 class="text-danger">'.$language['Expired'].'</h5>';
-                            }
+                                    echo'<h5 class="text-danger">'.$language['Expired'].'</h5>';
+                                }
                             ?>
                         </div>
                     </div>
@@ -131,13 +131,16 @@ $ses_lang = $session->get('ses_lang');
                             <td><h6><?php echo isset($value->transaction_id)?$value->transaction_id:''; ?></h6></td>
                             <td><h6><?php echo isset($value->created_at)?date("d M Y",strtotime($value->created_at)):''; ?></h6></td>
                             <td>
-                                <h6><?php if($value->payment_status == '1'){
-                                        echo $language['Complete'];
-                                    }if($value->payment_status == '2'){
-                                        echo $language['Pending'];
-                                    }if($value->payment_status == '3'){
-                                        echo $language['Cancel'];
-                                    } ?>
+                                <h6>
+                                    <?php 
+                                        if($value->payment_status == '1'){
+                                            echo $language['Complete'];
+                                        }if($value->payment_status == '2'){
+                                            echo $language['Pending'];
+                                        }if($value->payment_status == '3'){
+                                            echo $language['Cancel'];
+                                        } 
+                                    ?>
                                 </h6>
                             </td>
                             <td><h6><?php echo isset($value->giftcard_amount)?$value->giftcard_amount:''; ?></h6></td>

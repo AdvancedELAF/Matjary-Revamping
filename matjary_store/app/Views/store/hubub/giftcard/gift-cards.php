@@ -50,12 +50,10 @@ $ses_lang = $session->get('ses_lang');
                 <div class="product-wrapper">
                     <a href="<?php echo base_url('giftcard/giftcard-details/'.$GiftCardData->id); ?>">
                         <img src="<?php echo base_url('/uploads/giftcards/'); ?>/<?php echo isset($GiftCardData->image)?$GiftCardData->image:''; ?>">
-                    </a>
-                   
+                    </a>                   
                     <div class="prod-details">
                             <h5><?php echo $name; ?></h5>                      
-                    </div>
-                    
+                    </div>                    
                     <div class="prod-cart-btn">
                         <a href="<?php echo base_url('giftcard/giftcard-details/'.$GiftCardData->id); ?>">
                             <div class="d-flex justify-content-center">

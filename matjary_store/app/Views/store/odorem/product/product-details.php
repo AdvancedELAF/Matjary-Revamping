@@ -94,7 +94,6 @@ if($ses_lang=='en'){
                     </div>
                     <div class="prod-detail-price">
                         <p>
-                            <!-- SAR <?php echo isset($productDetails->product_price)?number_format((float)$productDetails->product_price, 2, '.', ''):''; ?> -->
                             <span class="strike-amount"><?php echo $language['SAR']; ?> <?php echo isset($productDetails->retail_price)?number_format((float)$productDetails->retail_price, 2, '.', ''):''; ?></span>
                             <span class="sale-amount"><?php echo $language['SAR']; ?> <?php echo isset($productDetails->product_price)?number_format((float)$productDetails->product_price, 2, '.', ''):''; ?></span>
                         </p>
@@ -269,9 +268,7 @@ if($ses_lang=='en'){
                         <p><?php echo $short_desc;  ?></p>
                     </div>
                     <div class="tab-pane prod-main-pane fade" id="pills-reviews" role="tabpanel" aria-labelledby="pills-reviews-tab">
-                        
-                        
-                       <?php if(isset($GetProductFeedbacks) && !empty($GetProductFeedbacks)){
+                        <?php if(isset($GetProductFeedbacks) && !empty($GetProductFeedbacks)){
                             foreach($GetProductFeedbacks as $key => $GetProductFeedbacksData){ 
                                 $feedback = '';
                                 if($ses_lang=='en'){

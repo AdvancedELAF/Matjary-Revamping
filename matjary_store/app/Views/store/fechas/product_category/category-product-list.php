@@ -95,9 +95,9 @@ if($ses_lang=='en'){
                 }
             }else{
                 ?>
-                    <div>
+                <div>
                     <?php echo $language['No Product Found in this category']; ?>.
-                    </div>
+                </div>
                 <?php
             }
             ?>            

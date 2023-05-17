@@ -7,7 +7,6 @@
         </div>
     </div>
 </section>
-
 <!-- GIFT CARD LISITNG SECTION STARTS -->
 <section class="section-spacing <?php if($locale=='ar'){echo 'text-right';} ?>">
     <div class="container">

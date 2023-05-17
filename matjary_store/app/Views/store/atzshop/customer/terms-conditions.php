@@ -39,7 +39,6 @@ $ses_lang = $session->get('ses_lang');
 ?>
 <?php $this->extend('store/'.$storeActvTmplName.'/layouts/store_layout'); ?>
 <?php $this->section('content'); ?>
-
 <!-- ABOUT US US SECTION SPACING STARTS -->
 <section class="section-spacing <?php if($locale=='ar'){echo 'text-right';} ?>">
     <div class="container">
@@ -56,6 +55,5 @@ $ses_lang = $session->get('ses_lang');
         </div>
     </div>
 </section>
-
 <!-- ABOUT US US SECTION SPACING ENDS -->
 <?php $this->endSection(); ?>

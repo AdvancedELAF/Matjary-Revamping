@@ -112,7 +112,6 @@ $ses_custmr_id = $session->get('ses_custmr_id');
                             ?>
                         </select>
                     </div>
-
                     <div class="col-md-6 col-lg-3">
                         <label class="brand-label text-orange"><?php echo $language['City']; ?></label>                   
                         <select name="city_id" id="city_id" class="brand-select">
@@ -134,7 +133,6 @@ $ses_custmr_id = $session->get('ses_custmr_id');
                             ?>
                         </select>
                     </div>
-
                     <div class="col-md-6 col-lg-3">
                         <div class="mb-2">
                             <label class="brand-label text-orange"><?php echo $language['Zipcode']; ?></label>
@@ -143,7 +141,6 @@ $ses_custmr_id = $session->get('ses_custmr_id');
                     </div>
                 </div>
             </div>
-
             <div class="text-right">
                 <button class="brand-btn-orange"><?php echo $language['Save']; ?></button>
                 <a href="<?php echo base_url('customer/change-password'); ?>" class="brand-btn-black"><?php echo $language['Change Password']; ?></a>

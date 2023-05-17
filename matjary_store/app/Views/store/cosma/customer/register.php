@@ -41,9 +41,7 @@
                     <div class="mb-3">
                         <input type="password" name="cnf_password" id="cnf_password" class="form-control" placeholder="<?php echo $language['Confirm Password']; ?>*">
                     </div>
-                    <div class="d-grid gap-2 d-md-block <?php if ($locale == 'ar') {
-                                                            echo 'text-right';
-                                                        } ?>">
+                    <div class="d-grid gap-2 d-md-block <?php if ($locale == 'ar') { echo 'text-right'; } ?>">
                         <button type="reset" class="btn btn-primary brand-btn-black-outline"><?php echo $language['Reset']; ?></button>
                         <button type="submit" class="btn btn-primary brand-btn-black"><?php echo $language['Register']; ?></button>
                     </div>

@@ -34,10 +34,8 @@
                         <label class="brand-label text-orange"><?php echo $language['Your Message']; ?> <span class="required-mark">*</span></label>
                         <textarea type="text" class="brand-input mt-3" placeholder="<?php echo $language['Your Message']; ?>" rows="5" id="massage" maxlength = "500" name="massage"></textarea>
                     </div>
-
                     <button class="brand-btn-orange btn-block"><?php echo $language['Send Message']; ?></button>
-
-                    <?php echo form_close(); ?>
+                <?php echo form_close(); ?>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4">

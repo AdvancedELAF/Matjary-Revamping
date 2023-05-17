@@ -41,14 +41,12 @@
             padding: 1rem 2rem;
 
         }
-
         .bg-wrap {
             background-color: #E9F6FE;
             padding: 1.5rem;
             border-radius: 1rem;
             margin-bottom: 2rem;
         }
-
         .mail-title h3 {
             font-family: 'Kodchasan', sans-serif;
             font-weight: 700;
@@ -56,7 +54,6 @@
             font-size: 1.5rem;
             margin-bottom: 1rem;
         }
-
         .mail-details h5 {
             color: #8D4FDE;
             font-weight: 600;
@@ -172,9 +169,7 @@
         .place-right {
             text-align: right;
         }
-
         /* MEDIA QUERY STARTS */
-
         @media (max-width: 815px) {
             .resp-align {
                 display: block;
@@ -184,8 +179,7 @@
                 text-align: left;
                 margin-top: 1.5rem;
             }
-        }
- 
+        } 
         /* MEDIA QUERY ENDS */
     </style>
 </head>
@@ -339,8 +333,6 @@
                 <p>Grand Total: SAR <?php echo isset($orderDetails['orderInfo']->total_price)?$orderDetails['orderInfo']->total_price:0.00; ?></p>
             </div>
             <a href="javascript:window.print();" >Download/Invoice</a>
-
-
             <div class="mail-back-btn">
                 <a href="<?php echo base_url('customer/my-orders'); ?>">Back to Orders</a>
             </div>

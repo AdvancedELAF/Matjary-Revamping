@@ -70,12 +70,10 @@ $ses_lang = $session->get('ses_lang');
     <!--Sweetalert js start -->
     <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/js/sweetalert.min.js"></script>
     <!--Sweetalert js end -->
-
     <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/js/ajax-call.js"></script>
     <!-- Loader Script -->
     <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/js/loader.js"></script>
     <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/js/main.js"></script>
-
     <?php
     $base_url = base_url();
     if (isset($pageCostomCss) && !empty($pageCostomCss)) {

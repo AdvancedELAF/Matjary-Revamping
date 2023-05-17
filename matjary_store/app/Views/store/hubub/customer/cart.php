@@ -67,7 +67,6 @@ $ses_lang = $session->get('ses_lang');
                         <tr class="cartItemsTr">
                             <th>
                                 <?php if($customerCartValues->stock_quantity==0){ ?>
-                                    <!-- <span class="text-danger">Out of Stock</span> -->
                                 <?php }else{ ?>
                                 <input type="checkbox" name="index[]" value="<?php echo $index; ?>" class="cartItem" data-productid="<?php echo $productId; ?>" <?php echo $cartItemCheked; ?>>
                                 <?php } ?>
@@ -183,16 +182,14 @@ $ses_lang = $session->get('ses_lang');
     </div>
 </section>
 <?php echo form_close(); ?>
-
 <?php }else{ ?>
-
-<section class="section-spacing <?php if($locale=='ar'){echo 'text-right';} ?>">
-    <div class="container">
-        <div class="section-title text-center">
-            <h4 class="mb-3"><?php echo $language['Your cart is currently empty']; ?>!</h4>
-            <a href="<?php echo base_url('product/products'); ?>" class="brand-btn"><?php echo $language['Continue Shopping']; ?></a>
+    <section class="section-spacing <?php if($locale=='ar'){echo 'text-right';} ?>">
+        <div class="container">
+            <div class="section-title text-center">
+                <h4 class="mb-3"><?php echo $language['Your cart is currently empty']; ?>!</h4>
+                <a href="<?php echo base_url('product/products'); ?>" class="brand-btn"><?php echo $language['Continue Shopping']; ?></a>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 <?php } ?>
 <?php $this->endSection(); ?>

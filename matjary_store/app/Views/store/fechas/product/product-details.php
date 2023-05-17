@@ -104,22 +104,29 @@ if($ses_lang=='en'){
                                 <i class="icofont-star <?php echo $ratingClass; ?>" aria-label="Left Align"></i>
                             <?php } ?>
                             <div class="prod-detail-rating">
-                                <h6>( <?php if (isset($cstratingCount) && !empty($cstratingCount)) {
+                                <h6>( <?php 
+                                    if (isset($cstratingCount) && !empty($cstratingCount)) {
                                             echo count($cstratingCount);
                                         } else {
                                             echo '0';
-                                        } ?> <?php echo $language['Customer Review']; ?>)</h6>
+                                        } ?> <?php echo $language['Customer Review']; ?>
+                                    )</h6>
                             </div>
                         </div>
 
                         <div class="prod-stock-count">
-                            <h4><?php echo $language['Stock']; ?>: <?php if ($productDetails->stock_quantity == 0) {
-                                                                        echo '<span class="text-danger">' . $language['Out of Stock'] . '</span>';
-                                                                    } elseif ($productDetails->stock_quantity <= $productDetails->threshold_quantity) {
-                                                                        echo '<span class="text-warning">' . $language['Only'] . ' ' . $productDetails->stock_quantity . ' ' . $language['Units Left'] . '</span>';
-                                                                    } else {
-                                                                        echo '<span class="text-success">' . $language['Available'] . '</span>';
-                                                                    } ?></h4>
+                            <h4>
+                                <?php echo $language['Stock']; ?>: 
+                                    <?php   
+                                        if ($productDetails->stock_quantity == 0) {
+                                            echo '<span class="text-danger">' . $language['Out of Stock'] . '</span>';
+                                        } elseif ($productDetails->stock_quantity <= $productDetails->threshold_quantity) {
+                                            echo '<span class="text-warning">' . $language['Only'] . ' ' . $productDetails->stock_quantity . ' ' . $language['Units Left'] . '</span>';
+                                        } else {
+                                            echo '<span class="text-success">' . $language['Available'] . '</span>';
+                                        } 
+                                    ?>
+                            </h4>
                         </div>
                         <div class="prod-detail-desc">
                         <p><?php echo $short_desc; ?></p>
@@ -272,20 +279,14 @@ if($ses_lang=='en'){
                             <a class="nav-link prod-main-link" id="pills-summary-tab" data-toggle="pill" href="#pills-summary" role="tab" aria-controls="pills-summary" aria-selected="false"><?php echo $language['Summary']; ?></a>
                         </li>
                         <li class="nav-item prod-main-item" role="presentation">
-                            <a class="nav-link prod-main-link" id="pills-reviews-tab" data-toggle="pill" href="#pills-reviews" role="tab" aria-controls="pills-reviews" aria-selected="false"><?php echo $language['Reviews']; ?> (<?php if (isset($cstratingCount) && !empty($cstratingCount)) {
-                                                                                                                                                                                                                                        echo count($cstratingCount);
-                                                                                                                                                                                                                                    } else {
-                                                                                                                                                                                                                                        echo '0';
-                                                                                                                                                                                                                                    } ?>)</a>
+                            <a class="nav-link prod-main-link" id="pills-reviews-tab" data-toggle="pill" href="#pills-reviews" role="tab" aria-controls="pills-reviews" aria-selected="false"><?php echo $language['Reviews']; ?> (<?php if (isset($cstratingCount) && !empty($cstratingCount)) { echo count($cstratingCount); } else { echo '0'; } ?>)</a>
                         </li>
                     </ul>
                     <div class="tab-content prod-main-content" id="pills-tabContent">
                         <div class="tab-pane prod-main-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
-
                         <p><?php echo $long_desc; ?></p>
                         </div>
                         <div class="tab-pane prod-main-pane fade" id="pills-summary" role="tabpanel" aria-labelledby="pills-summary-tab">
-
                         <p><?php echo $short_desc; ?></p>
                         </div>
                         <div class="tab-pane prod-main-pane fade" id="pills-reviews" role="tabpanel" aria-labelledby="pills-reviews-tab">

@@ -6,8 +6,7 @@
         <div class="section-title text-center mb-5">
             <h4><?php echo $language['My Gift cards']; ?></h4>
         </div>
-        <div class="row">
-           
+        <div class="row">           
             <?php 
             if(isset($GetGiftCardPurchasedInfo) && !empty($GetGiftCardPurchasedInfo)){
                 foreach($GetGiftCardPurchasedInfo as $GiftCardData){
@@ -32,7 +31,7 @@
                 </div>
             </div>
             <?php
-                    }
+               }
             }
             ?>
         </div>

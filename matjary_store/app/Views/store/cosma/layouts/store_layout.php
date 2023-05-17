@@ -91,8 +91,7 @@ $ses_lang = $session->get('ses_lang');
     }
     ?>
 </head>
-<body>
-    
+<body>    
     <div class="preloaderBg" id="preloader" style="display: none;">
         <div class="preloader-position">
             <h3><?php echo $language['Please wait till processing.']; ?></h3>
@@ -263,13 +262,10 @@ $ses_lang = $session->get('ses_lang');
         <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/js/buttons.html5.min.js"></script>
         <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/js/buttons.bootstrap4.min.js"></script>
         <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/js/buttons.flash.min.js"></script>
-        
         <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/js/buttons.print.min.js"></script>
-        
         <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/js/pdfmake.min.js"></script>
         <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/js/vfs_fonts.js"></script>
         <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/js/data-table-page.js"></script>
-        
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/css/dataTables.bootstrap4.min.css">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/css/responsive.bootstrap4.min.css">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/css/responsive.dataTables.min.css">

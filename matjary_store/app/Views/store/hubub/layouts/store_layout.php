@@ -5,7 +5,6 @@ $ses_custmr_name = $session->get('ses_custmr_name');
 $ses_custmr_id = $session->get('ses_custmr_id');
 $allowedDatatablePagesAry = array('My Gift Details','My Orders','My Refund Details');
 $ristrictLanguageSwitcherPages = array('Order Success','طلب النجاح');
-
 $lang_session = $session->get('lang_session');
 $ses_lang = $session->get('ses_lang');
 ?>
@@ -71,7 +70,6 @@ $ses_lang = $session->get('ses_lang');
     <!--Sweetalert js start -->
     <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/js/sweetalert.min.js"></script>
     <!--Sweetalert js end -->
-
     <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/js/ajax-call.js"></script>
     <!-- Loader Script -->
     <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/js/loader.js"></script>
@@ -265,13 +263,10 @@ $ses_lang = $session->get('ses_lang');
         <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/js/buttons.html5.min.js"></script>
         <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/js/buttons.bootstrap4.min.js"></script>
         <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/js/buttons.flash.min.js"></script>
-        
         <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/js/buttons.print.min.js"></script>
-        
         <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/js/pdfmake.min.js"></script>
         <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/js/vfs_fonts.js"></script>
         <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/js/data-table-page.js"></script>
-        
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/css/dataTables.bootstrap4.min.css">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/css/responsive.bootstrap4.min.css">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/css/responsive.dataTables.min.css">
@@ -303,7 +298,6 @@ $ses_lang = $session->get('ses_lang');
                             <p><?php echo isset($storeSettingInfo->contact_no) ? $storeSettingInfo->contact_no : ''; ?></p>
                         </div>
                     </div>
-
                     <div class="col-md-4 col-lg-4">
                         <div class="footer-title">
                             <h4><?php echo $language['Important Links']; ?></h4>
@@ -332,7 +326,6 @@ $ses_lang = $session->get('ses_lang');
                             </li>
                         </ul>
                     </div>
-
                     <div class="col-md-4 col-lg-4">
                         <div class="footer-title">
                             <h4><?php echo $language['Follow Us']; ?></h4>

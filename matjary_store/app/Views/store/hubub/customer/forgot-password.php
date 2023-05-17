@@ -25,8 +25,7 @@
                         <h6><?php echo $language['Request for a new Password']; ?></h6>
                     </div>
                     <div class="mb-3">
-                        <!--label class="form-label mb-2"><?php //echo $language['Email Address']; ?> <span class="required-mark">*</span></label-->
-                        <input type="email" name="email" id="email" class="brand-input" placeholder="<?php echo $language['Email']; ?>">
+                       <input type="email" name="email" id="email" class="brand-input" placeholder="<?php echo $language['Email']; ?>">
                     </div>
                     <div class="d-grid gap-2 d-md-block">
                         <a href="<?php echo base_url('customer/login'); ?>" class="btn btn-primary brand-btn" ><?php echo $language['Cancel']; ?></a>

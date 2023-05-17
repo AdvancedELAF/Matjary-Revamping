@@ -265,8 +265,7 @@ if($ses_lang=='en'){
                         <p><?php echo $short_desc;  ?></p>
                     </div>
                     <div class="tab-pane prod-main-pane fade" id="pills-reviews" role="tabpanel" aria-labelledby="pills-reviews-tab">
-                        
-                        <?php //echo '<pre>'; print_r($GetProductFeedbacks); ?>
+                       
                        <?php if(isset($GetProductFeedbacks) && !empty($GetProductFeedbacks)){
                             foreach($GetProductFeedbacks as $key => $GetProductFeedbacksData){ 
                                 $feedback = '';

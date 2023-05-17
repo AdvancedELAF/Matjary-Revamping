@@ -173,9 +173,7 @@ $ses_lang = $session->get('ses_lang');
     </div>
 </section>
 <?php echo form_close(); ?>
-
 <?php }else{ ?>
-
 <section class="section-spacing <?php if($locale=='ar'){echo 'text-right';} ?>">
     <div class="container">
         <div class="section-title text-center">
@@ -184,7 +182,5 @@ $ses_lang = $session->get('ses_lang');
         </div>
     </div>
 </section>
-
 <?php } ?>
-
 <?php $this->endSection(); ?>

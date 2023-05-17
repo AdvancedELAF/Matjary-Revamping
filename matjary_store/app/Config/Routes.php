@@ -135,7 +135,7 @@ $routes->group("product", function ($routes) {
     $routes->match(["get", "post"], 'products', 'WebController::products', ['as' => 'product.products']);
     $routes->match(["get", "post"], "product-details/(:num)", "WebController::product_details/$1", ['as' => 'product.product_details']);
 
-    //Feedback
+    /* Feedback */
     $routes->match(["get", "post"], "post-feedback/(:num)", "WebController::post_feedback/$1", ['as' => 'product.post_feedback']);
     $routes->match(["get", "post"], "save-feedback", "WebController::save_feedback", ['as' => 'product.save_feedback']);
     $routes->match(["get", "post"], "view-feedback/(:num)", "WebController::view_feedback/$1", ['as' => 'product.view_feedback']);
@@ -157,11 +157,7 @@ $routes->group("admin", function ($routes) {
     $routes->match(["get", "post"], "delete-user", "UserController::delete_user", ['as' => 'admin.delete_user']);
     $routes->match(["get", "post"], "activate-user", "UserController::activate_user", ['as' => 'admin.activate_user']);
     $routes->match(["get", "post"], "deactivate-user", "UserController::deactivate_user", ['as' => 'admin.deactivate_user']);
-
-    // $routes->match(["get", "post"], "user-reset-new-password/(:num)", "UserController::reset_new_password/$1", ['as'=>'admin.reset_new_password']);
-    // $routes->match(["get", "post"], "save-reset-passwords", "UserController::save_reset_password", ['as'=>'admin.save_reset_password']);
-    // $routes->match(["get", "post"], "login", "UserController::login", ['as'=>'admin.login']);
-
+   
     $routes->match(["get", "post"], "user-forgot-password", "UserController::user_forgot_password", ['as' => 'admin.forgot_password']);
     $routes->match(["get", "post"], "chk-password-forgoted-user-email", "UserController::chk_password_forgoted_user_email", ['as' => 'admin.chk_password_forgoted_user_email']);
     $routes->match(["get", "post"], "user-reset-new-password/(:num)", "UserController::user_reset_new_password/$1", ['as' => 'admin.reset_new_password']);

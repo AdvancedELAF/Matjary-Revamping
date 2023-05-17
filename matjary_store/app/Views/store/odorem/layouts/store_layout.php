@@ -264,9 +264,7 @@ $ses_lang = $session->get('ses_lang');
         <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/js/buttons.html5.min.js"></script>
         <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/js/buttons.bootstrap4.min.js"></script>
         <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/js/buttons.flash.min.js"></script>
-        
         <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/js/buttons.print.min.js"></script>
-        
         <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/js/pdfmake.min.js"></script>
         <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/js/vfs_fonts.js"></script>
         <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/js/data-table-page.js"></script>

@@ -122,8 +122,7 @@ $ses_custmr_id = $session->get('ses_custmr_id');
                             <p><?php echo $language['SAR']; ?> 0</p>
                         </div>
                     </div>
-                    <?php } ?>                    
-                    
+                    <?php } ?>  
                     <div class="cart-value text-center">
                         <h4><?php echo $language['Total Amount']; ?> : <?php echo $language['SAR']; ?> <?php echo isset($cartTotal['total_price']) ? $cartTotal['total_price'] : '0'; ?></h4>
                     </div>

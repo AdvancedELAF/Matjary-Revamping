@@ -10,9 +10,7 @@
 </div>
 <!-- PAGE BAR ENDS -->
 <!-- LOGIN SECTION STARTS -->
-<section class="section-spacing <?php if ($locale == 'ar') {
-                                    echo 'text-right';
-                                } ?>">
+<section class="section-spacing <?php if ($locale == 'ar') { echo 'text-right';  } ?>">
     <div class="container">
         <div class="section-title text-center mb-3">
             <h4><?php echo $language['Already a User? Log in']; ?>!</h4>
@@ -34,9 +32,7 @@
                         <input type="password" name="password" id="password" class="form-control" placeholder="<?php echo $language['Password']; ?>*">
                     </div>
 
-                    <div class="d-grid gap-2 d-md-block <?php if ($locale == 'ar') {
-                                                            echo 'text-right';
-                                                        } ?>">
+                    <div class="d-grid gap-2 d-md-block <?php if ($locale == 'ar') { echo 'text-right';} ?>">
                         <button type="reset" class="btn btn-primary brand-btn-black-outline"><?php echo $language['Reset']; ?></button>
                         <button type="submit" class="btn btn-primary brand-btn-black"><?php echo $language['Login']; ?></button>
                     </div>

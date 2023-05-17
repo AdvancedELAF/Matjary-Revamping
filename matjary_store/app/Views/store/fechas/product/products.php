@@ -17,7 +17,6 @@ $ses_lang = $session->get('ses_lang');
                 if(isset($_REQUEST['query']) && !empty($_REQUEST['query'])){
                     echo ''.$language['Search Results'] .'('.count($productList).')';
                 }else{
-                    //echo 'Latest Products';
                     echo $language['Latest Products'];
                 }
                 ?>

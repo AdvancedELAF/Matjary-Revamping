@@ -59,8 +59,7 @@ $ses_lang = $session->get('ses_lang');
                     <div class="prod-detail-price"><?php echo $language['SAR']; ?> <input type="text" name="gc_amount" id="gc_amount" value="1000" maxlength="5" placeholder="Enter Gift Card Amount"><h6 id="gcAmountErrMsg"></h6></div>
                     
                     <div class="prod-detail-icon">
-                        <?php  
-                            //$cstavgCount = array();                       
+                        <?php                                                 
                             for ($i = 1; $i <= 5; $i++) {
                                 $ratingClass = "icofont-star btn-grey";
                                 if(isset($cstavgCount) && !empty($cstavgCount)){
@@ -125,7 +124,6 @@ $ses_lang = $session->get('ses_lang');
                                         <textarea class="form-control" rows="3" id="feedback" name="feedback" maxlength="5002"><?php //echo isset($ProductFeedBackDetails[0]->feedback)?$ProductFeedBackDetails[0]->feedback:''; ?></textarea>
                                     </div>
                                     <div class="modal-footer">
-                                        <!--<a class="btn btn-primary brand-btn-black-outline" href="<?php //echo base_url('giftcard/giftcard-details/'.$gcDetails->id); ?>">Back</a>                        -->
                                         <button class="btn btn-primary brand-btn" type="submit"><?php echo $language['Save']; ?></button>  
                                         <button type="button" class="btn btn-default brand-btn" data-dismiss="modal"><?php echo $language['Close']; ?></button>                      
                                     </div>

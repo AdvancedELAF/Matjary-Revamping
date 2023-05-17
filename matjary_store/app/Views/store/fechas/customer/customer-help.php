@@ -11,7 +11,6 @@ $customer_help = $locale=='en'?'Data Not Available Yet!.':'البيانات غي
                 $customer_help = $CusHelpData->customer_help_ar;
             }
         } 
-      
     }else{
         if(isset($CusHelpData->customer_help_ar) && !empty($CusHelpData->customer_help_ar)){
             $customer_help = $CusHelpData->customer_help_ar;
@@ -19,8 +18,7 @@ $customer_help = $locale=='en'?'Data Not Available Yet!.':'البيانات غي
             if(isset($CusHelpData->customer_help) && !empty($CusHelpData->customer_help)){
                 $customer_help = $CusHelpData->customer_help;
             }
-        }         
-                                                 
+        }                                        
     } 
 ?>
 <?php $this->extend('store/' . $storeActvTmplName . '/layouts/store_layout'); ?>

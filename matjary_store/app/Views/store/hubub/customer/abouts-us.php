@@ -7,7 +7,6 @@
         </div>
     </div>
 </section>
-
 <section class="section-spacing">
     <div class="container">
         <?php 
