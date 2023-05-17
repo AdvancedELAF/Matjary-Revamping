@@ -23,7 +23,6 @@
                 <h5>congratulations !
                     Your Account hasbeen successfully created.
                 </h5>
-
             </div>
             <hr>
             <div class="mail-template-footer" style="text-align: center;">

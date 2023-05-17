@@ -164,8 +164,7 @@ $(document).ready(function(){
                         swal({title: "", text: respData.responseMessage, type: "success"},
 		                    function(){ 
                                 $("#save_product_brand_form")[0].reset();
-		                        window.location.href = respData.redirectUrl;
-		                       
+		                        window.location.href = respData.redirectUrl;		                       
 		                    }
 		                );
                     }else{
@@ -930,8 +929,8 @@ $(document).ready(function(){
             });
         }
     }));
-    /* Shipping Setting ajx end */
 
+    /* Shipping Setting ajx end */
     $("#submit_create_pickup_request_form").on('submit',(function(e) {
 		e.preventDefault();
         var isvalidate = $("#submit_create_pickup_request_form").valid();
@@ -1024,6 +1023,7 @@ $(document).ready(function(){
             }); 
         }
     }));
+
     $("#update_payment_setting_form").on('submit',(function(e) {
 		e.preventDefault();
         var isvalidate = $("#update_payment_setting_form").valid();
@@ -1070,7 +1070,6 @@ $(document).ready(function(){
         }
     }));
      /* Payment Setting ajx end */
-
      /* Product js start */
     $("#save_product_form").on('submit',(function(e) {
 		e.preventDefault();
@@ -1163,7 +1162,6 @@ $(document).ready(function(){
         }
     }));
     /* Product js end */
-
     /* User js start */
     $("#save_user_form").on('submit',(function(e) {
 		e.preventDefault();
@@ -1192,7 +1190,7 @@ $(document).ready(function(){
                         showConfirmButton: false
                     });
                 },
-                success: function(resp){  // A function to be called if request succeeds
+                success: function(resp){  /* A function to be called if request succeeds */
                     respData = JSON.parse(resp);
                     if(respData.responseCode == 200){
                         $("#preloader").hide();
@@ -1267,7 +1265,7 @@ $(document).ready(function(){
             var form = $('#save_customer_form')[0];  /* Get form */
             var requestData = new FormData(form);  /* Create an FormData object */
             var action_page 		= $("#save_customer_form").attr('action');
-            // processData & contentType should be set to false
+            /* processData & contentType should be set to false */
             $.ajax
             ({
                 url: action_page, 		 /* Url to which the request is send */
@@ -1346,7 +1344,6 @@ $(document).ready(function(){
         }
     }));
     /* Customer js end */
-
     /* Coupon js start */
     $("#save_coupon_form").on('submit',(function(e) {
 		e.preventDefault();
@@ -1527,8 +1524,6 @@ $(document).ready(function(){
         }
     }));
     /* Banner js End */
-
-
     /* ================================= Store Admin js end ==================================== */
 
     /* Faq js Start */
@@ -2096,7 +2091,6 @@ $(document).ready(function(){
         }
     }));
     /* Advertisement js End */
-
     $("#user_set_new_password_form").on('submit',(function(e) {
 		e.preventDefault();
         var isvalidate = $("#user_set_new_password_form").valid();
@@ -2346,7 +2340,7 @@ $(document).ready(function(){
             }
         });
     });
-    // reply contact form
+    /* reply contact form */
     $("#reply_contact_form").on('submit',(function(e) { 
 		e.preventDefault();
         var isvalidate = $("#reply_contact_form").valid();
@@ -2391,7 +2385,7 @@ $(document).ready(function(){
         }
     }));
 
-    // Admin Profile Picture
+   /* Admin Profile Picture */
     $("#user_profile_picture").on('submit',(function(e) { 
 		e.preventDefault();
         var isvalidate = $("#user_profile_picture").valid();
@@ -2436,7 +2430,7 @@ $(document).ready(function(){
             });
         }
     }));
-   // Refund Request by admin
+   /* Refund Request by admin */
     $('#ApprovedRefund').on('click', function(e) {
         e.preventDefault();
         let orderid = $(this).data('orderid');
@@ -2494,63 +2488,26 @@ $(document).ready(function(){
         );
     });
 
-        /* user forgeted password start */
-
-        $("#chk_password_forgoted_user_email").on('submit',(function(e) { 
-            e.preventDefault();
-            var isvalidate = $("#chk_password_forgoted_user_email").valid();
-            if (!isvalidate) {
-                return false;
-            }else{
-                var form = $('#chk_password_forgoted_user_email')[0];  /* Get form */
-                var requestData = new FormData(form);  /* Create an FormData object  */
-                var action_page 		= $("#chk_password_forgoted_user_email").attr('action');
-                $.ajax
-                ({
-                    url: action_page, 		  /* Url to which the request is send */
-                    type: "POST",             /* Type of request to be send, called as method */
-                    enctype: 'multipart/form-data',
-                    data: requestData, 		  /* Data sent to server, a set of key/value pairs (i.e. form fields and values) */
-                    contentType: false,       /* The content type used when sending data to the server. */
-                    cache: false,             /* To unable request pages to be cached */
-                    processData:false,        /* Important! To send DOMDocument or non processed data file it is set to false */
-                    timeout: 600000,
-                    beforeSend: function() {
-                        swal({
-                            title: "",
-                            text: (lang == "en") ? "معالجة..." : "Processing...",
-                            imageUrl: "https://media.tenor.com/OzAxe6-8KvkAAAAi/blue_spinner.gif",
-                            showConfirmButton: false
-                        });
-                    },
-                    success: function(resp){  /* A function to be called if request succeeds */
-                        respData = JSON.parse(resp);
-                        if(respData.responseCode == 200){
-                            swal({title: "", text: respData.responseMessage, type: "success"},
-                                function(){ 
-                                    window.location.href = respData.redirectUrl;
-                                }
-                            );
-                        }else{
-                            swal({title: "", text: respData.responseMessage, type: "error"});
-                        }
-                    }
-                });
-            }
-        }));
-
-        /* user forgeted password end */
-        
-        $('#setDefaultShipStngs').on('click', function(e) {
-            e.preventDefault();
-            let action_page = $(this).data('actionurl');
-            let requestData = '';
+    /* user forgeted password start */
+    $("#chk_password_forgoted_user_email").on('submit',(function(e) { 
+        e.preventDefault();
+        var isvalidate = $("#chk_password_forgoted_user_email").valid();
+        if (!isvalidate) {
+            return false;
+        }else{
+            var form = $('#chk_password_forgoted_user_email')[0];  /* Get form */
+            var requestData = new FormData(form);  /* Create an FormData object  */
+            var action_page 		= $("#chk_password_forgoted_user_email").attr('action');
             $.ajax
             ({
                 url: action_page, 		  /* Url to which the request is send */
                 type: "POST",             /* Type of request to be send, called as method */
                 enctype: 'multipart/form-data',
                 data: requestData, 		  /* Data sent to server, a set of key/value pairs (i.e. form fields and values) */
+                contentType: false,       /* The content type used when sending data to the server. */
+                cache: false,             /* To unable request pages to be cached */
+                processData:false,        /* Important! To send DOMDocument or non processed data file it is set to false */
+                timeout: 600000,
                 beforeSend: function() {
                     swal({
                         title: "",
@@ -2564,7 +2521,7 @@ $(document).ready(function(){
                     if(respData.responseCode == 200){
                         swal({title: "", text: respData.responseMessage, type: "success"},
                             function(){ 
-                                window.location.reload();
+                                window.location.href = respData.redirectUrl;
                             }
                         );
                     }else{
@@ -2572,12 +2529,40 @@ $(document).ready(function(){
                     }
                 }
             });
+        }
+    }));
+
+    /* user forgeted password end */    
+    $('#setDefaultShipStngs').on('click', function(e) {
+        e.preventDefault();
+        let action_page = $(this).data('actionurl');
+        let requestData = '';
+        $.ajax
+        ({
+            url: action_page, 		  /* Url to which the request is send */
+            type: "POST",             /* Type of request to be send, called as method */
+            enctype: 'multipart/form-data',
+            data: requestData, 		  /* Data sent to server, a set of key/value pairs (i.e. form fields and values) */
+            beforeSend: function() {
+                swal({
+                    title: "",
+                    text: (lang == "en") ? "معالجة..." : "Processing...",
+                    imageUrl: "https://media.tenor.com/OzAxe6-8KvkAAAAi/blue_spinner.gif",
+                    showConfirmButton: false
+                });
+            },
+            success: function(resp){  /* A function to be called if request succeeds */
+                respData = JSON.parse(resp);
+                if(respData.responseCode == 200){
+                    swal({title: "", text: respData.responseMessage, type: "success"},
+                        function(){ 
+                            window.location.reload();
+                        }
+                    );
+                }else{
+                    swal({title: "", text: respData.responseMessage, type: "error"});
+                }
+            }
         });
-
+    });
 });
-
-
-
-
-
-

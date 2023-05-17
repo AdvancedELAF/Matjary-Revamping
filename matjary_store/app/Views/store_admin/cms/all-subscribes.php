@@ -50,7 +50,6 @@
                                         <?php }else{ ?> 
                                             <a class="dropdown-item actionBtn" href="javascript:void(0);" data-actionurl="<?php echo base_url('admin/activate-subscribes'); ?>" data-id="<?php echo $value->id; ?>" data-operation="activate"><i class="dw dw-check"></i> <?php echo $language['Activate']; ?></a>
                                         <?php } ?>
-                                        <!--<a class="dropdown-item" href="<?php echo base_url('admin/edit-faq/'.$value->id); ?>"><i class="dw dw-edit2"></i> Edit</a>-->
                                         <a class="dropdown-item actionBtn" href="javascript:void(0);" data-actionurl="<?php echo base_url('admin/delete-subscribes'); ?>" data-id="<?php echo $value->id; ?>" data-operation="delete"><i class="dw dw-delete-3"></i> <?php echo $language['Delete']; ?></a>
                                     </div>
                                 </div>

@@ -24,7 +24,6 @@ $ses_lang = $session->get('ses_lang');
     <div class="row clearfix">
         <div class="col-lg-12 col-md-12 col-sm-12 mb-30">
             <div class="pd-20 card-box">
-
                 <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                     <?php
                     $attributes = ['name' => 'update_product_form', 'id' => 'update_product_form', 'autocomplete' => 'off'];
@@ -194,31 +193,21 @@ $ses_lang = $session->get('ses_lang');
                         <div class="col-md-6">
                             <div class="mb-2">
                                 <label><?php echo $language['Is This Product in Promotion ?']; ?></label><br>
-                                <input type="radio" name="promotion_status" value="1" data-error=".error1" <?php if ($prodDetails['promotion_status'] == 1) {
-                                                                                                                echo 'checked';
-                                                                                                            } ?>> <?php echo $language['Yes']; ?>
-                                <input type="radio" name="promotion_status" value="2" data-error=".error1" <?php if ($prodDetails['promotion_status'] == 2) {
-                                                                                                                echo 'checked';
-                                                                                                            } ?>> <?php echo $language['No']; ?>
+                                <input type="radio" name="promotion_status" value="1" data-error=".error1" <?php if ($prodDetails['promotion_status'] == 1) { echo 'checked'; } ?>> <?php echo $language['Yes']; ?>
+                                <input type="radio" name="promotion_status" value="2" data-error=".error1" <?php if ($prodDetails['promotion_status'] == 2) { echo 'checked'; } ?>> <?php echo $language['No']; ?>
                                 </br><span class="error1"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-2">
                                 <label><?php echo $language['Is This Feature Product ?']; ?></label><br>
-                                <input type="radio" name="feature" value="1" data-error=".error2" <?php if ($prodDetails['feature'] == 1) {
-                                                                                                        echo 'checked';
-                                                                                                    } ?>> <?php echo $language['Yes']; ?>
-                                <input type="radio" name="feature" value="2" data-error=".error2" <?php if ($prodDetails['feature'] == 2) {
-                                                                                                        echo 'checked';
-                                                                                                    } ?>> <?php echo $language['No']; ?>
+                                <input type="radio" name="feature" value="1" data-error=".error2" <?php if ($prodDetails['feature'] == 1) { echo 'checked'; } ?>> <?php echo $language['Yes']; ?>
+                                <input type="radio" name="feature" value="2" data-error=".error2" <?php if ($prodDetails['feature'] == 2) { echo 'checked'; } ?>> <?php echo $language['No']; ?>
                                 </br><span class="error2"></span>
                             </div>
                         </div>
                     </div>
-
                     <h5 class="h4 text-blue mt-3 mb-3"><?php echo $language['Pricing Details']; ?></h5>
-
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-2">
@@ -247,7 +236,6 @@ $ses_lang = $session->get('ses_lang');
                     </div>
 
                     <h5 class="h4 text-blue mt-3 mb-3"><?php echo $language['Inventory Details']; ?></h5>
-
                     <div class="row">
                         <div class="col-md-6 col-lg-4">
                             <div class="mb-2">

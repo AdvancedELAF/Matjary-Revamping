@@ -9,22 +9,22 @@ $(document).ready(function() {
     }, (lang == "en") ?'سلسلة الإدخال الخاصة بك تحتوي على أحرف غير قانونية.':'Your input string contains illegal characters.');
 
     $.validator.addMethod("validStringSpecalChr", function(value, element) {
-        // allow any non-whitespace characters as the host part
+        /*  allow any non-whitespace characters as the host part */
         return this.optional( element ) || /^[a-zA-Z0-9- %.]*$/.test( value );
     }, (lang == "en") ?'سلسلة الإدخال الخاصة بك تحتوي على أحرف غير قانونية.':'Your input string contains illegal characters.');
 
     $.validator.addMethod("productKeywords", function(value, element) {
-        // allow any non-whitespace characters as the host part
+        /* allow any non-whitespace characters as the host part */
         return this.optional( element ) || /^[a-zA-Z0-9-, ,]*$/.test( value );
     }, (lang == "en") ?'كلماتك الرئيسية الإدخال تحتوي على أحرف غير قانونية.':'Your input keywords contains illegal characters.');
     
     $.validator.addMethod("productTags", function(value, element) {
-        // allow any non-whitespace characters as the host part
+        /* allow any non-whitespace characters as the host part */
         return this.optional( element ) || /^[a-zA-Z0-9-, ,]*$/.test( value );
     }, (lang == "en") ?'كلماتك الرئيسية الإدخال تحتوي على أحرف غير قانونية.':'Your input keywords contains illegal characters.');
 
     $.validator.addMethod("notEqualTo", function(value, element, param) {
-        // Bind to the blur event of the target in order to revalidate whenever the target field is updated
+        /*  Bind to the blur event of the target in order to revalidate whenever the target field is updated */
         var target = $( param );
         if ( this.settings.onfocusout && target.not( ".validate-equalTo-blur" ).length ) {
             target.addClass( "validate-equalTo-blur" ).on( "blur.validate-equalTo", function() {
@@ -32,11 +32,11 @@ $(document).ready(function() {
             } );
         }
         return value !== target.val();
-        // condition returns true or false
+        /* condition returns true or false */
     }, (lang == "en") ?'يجب أن تكون القيم فريدة.':'Values Must Be Unique.');
 
     $.validator.addMethod("adminnotEqualTosupport", function(value, element, param) {
-        // Bind to the blur event of the target in order to revalidate whenever the target field is updated
+        /* Bind to the blur event of the target in order to revalidate whenever the target field is updated */
         var target = $( param );
         if ( this.settings.onfocusout && target.not( ".validate-equalTo-blur" ).length ) {
             target.addClass( "validate-equalTo-blur" ).on( "blur.validate-equalTo", function() {
@@ -44,7 +44,7 @@ $(document).ready(function() {
             } );
         }
         return value !== target.val();
-        // condition returns true or false
+       /* condition returns true or false */
     }, "Values must be unique");
 
     $.validator.addMethod('greaterThan', function(value, element) {
@@ -53,18 +53,18 @@ $(document).ready(function() {
         return dateTo >= dateFrom;
     });
 
-    //Custom validation for file extension
+    /*Custom validation for file extension */
     $.validator.addMethod("extension", function (value, element, param) {
         param = typeof param === "string" ? param.replace(/,/g, '|') : "png|jpe?g|gif";
         return this.optional(element) || value.match(new RegExp(".(" + param + ")$", "i"));
     }, jQuery.format((lang == "en") ?"تنسيق صورة غير صالح! يجب أن يكون تنسيق الصورة JPG أو JPEG أو PNG أو GIF.":"Invalid Image Format! Image Format Must Be JPG, JPEG, PNG or GIF."));
   
-    //Custom validation for file size
+    /* Custom validation for file size */
     $.validator.addMethod('filesize', function (value, element, param) {
         return this.optional(element) || (element.files[0].size <= param * 500000) 
     }, (lang == "en") ?'الحد الأقصى لحجم الملف هو 500 كيلو بايت.':'Maximum File Size Limit is 500kb.');
 
-    //Custom validation for file imageWidth
+    /* Custom validation for file imageWidth */
     $.validator.addMethod('minImageWidth', function(value, element, minWidth) {
         return ($(element).data('imageWidth') || 0) > minWidth;
       }, function(minWidth, element) {
@@ -100,7 +100,7 @@ $(document).ready(function() {
             }
 
         },
-        //For custom messages
+       /* For custom messages */
         messages: {
             
         },
@@ -137,7 +137,7 @@ $(document).ready(function() {
             }
 
         },
-        //For custom messages
+        /* For custom messages */
         messages: {
             
         },
@@ -171,7 +171,7 @@ $(document).ready(function() {
             }
 
         },
-        //For custom messages
+        /* For custom messages */
         messages: {
             
         },
@@ -202,7 +202,7 @@ $(document).ready(function() {
             }
 
         },
-        //For custom messages
+        /* For custom messages */
         messages: {
             
         },
@@ -230,7 +230,7 @@ $(document).ready(function() {
             }
 
         },
-        //For custom messages
+        /* For custom messages */
         messages: {
             
         },
@@ -306,7 +306,6 @@ $(document).ready(function() {
             },          
             smtp_host:{
                 required:true,
-                //digits:true
             },             
             smtp_username:{
                 required:true
@@ -323,7 +322,7 @@ $(document).ready(function() {
             },
 
         },
-        //For custom messages
+        /* For custom messages */
         messages: {
             'logo':{
                 required: (lang == "en") ?"الرجاء تحميل الشعار.":"Please upload logo."
@@ -437,7 +436,6 @@ $(document).ready(function() {
             },           
              smtp_host:{
                 required:true,
-                //digits:true
              },             
              smtp_username:{
                 required:true
@@ -454,7 +452,7 @@ $(document).ready(function() {
              },
 
         },
-        //For custom messages
+        /* For custom messages */
         messages: {
             'logo':{
                 required: (lang == "en") ?"الرجاء تحميل الشعار.":"Please upload logo."
@@ -476,7 +474,7 @@ $(document).ready(function() {
                 required:(lang == "en") ?"الرجاء إدخال بريد إلكتروني صالح للمسؤول.":"Please enter a valid administrator email.",
                 notEqualTo:(lang == "en") ?"يجب ألا يكون البريد الإلكتروني للمسؤول مساويًا للبريد الإلكتروني الخاص بالموقع والبريد الإلكتروني للدعم.":"Administrator email should not equal to site email and support email."
             },
-            //'contact_no': "Please enter a contact number.",
+            
             'contact_no': { 
                 required:(lang == "en") ?"الرجاء إدخال رقم الاتصال.":"Please enter a contact number.",
                 number: (lang == "en") ?"من فضلك أدخل رقما صالحا.":"Please enter a valid number."
@@ -522,7 +520,7 @@ $(document).ready(function() {
             }
 
         },
-        //For custom messages
+        /* For custom messages */
         messages: {
             
         },
@@ -545,7 +543,7 @@ $(document).ready(function() {
             }
 
         },
-        //For custom messages
+       /* For custom messages */
         messages: {
             
         },
@@ -571,7 +569,7 @@ $(document).ready(function() {
             }
 
         },
-        //For custom messages
+        /* For custom messages */
         messages: {
             
         },
@@ -594,7 +592,7 @@ $(document).ready(function() {
             }
 
         },
-        //For custom messages
+        /* For custom messages */
         messages: {
             
         },
@@ -635,7 +633,7 @@ $(document).ready(function() {
             }           
 
         },
-        //For custom messages
+        /* For custom messages */
         messages: {
             'address':{
                 maxlength: (lang == "en") ?'يجب ألا يزيد العنوان عن 50 حرفًا.':'Address should not be greater than 50 characters.'
@@ -675,7 +673,7 @@ $(document).ready(function() {
             }       
 
         },
-        //For custom messages
+       /* For custom messages */
         messages: {           
             'address':{
                 maxlength: (lang == "en") ?'يجب ألا يزيد العنوان عن 50 حرفًا.':'Address should not be greater than 50 characters.'
@@ -699,7 +697,7 @@ $(document).ready(function() {
             }
 
         },
-        //For custom messages
+        /* For custom messages */
         messages: {
            
         },
@@ -732,7 +730,7 @@ $(document).ready(function() {
             }           
 
         },
-        //For custom messages
+       /* For custom messages */
         messages: {
            
         },
@@ -762,7 +760,7 @@ $(document).ready(function() {
             }       
 
         },
-        //For custom messages
+        /* For custom messages */
         messages: {
            
         },
@@ -859,7 +857,7 @@ $(document).ready(function() {
             }
 
         },
-        //For custom messages
+        /* For custom messages */
         messages: {
             
         },
@@ -953,7 +951,7 @@ $(document).ready(function() {
             }
 
         },
-        //For custom messages
+        /* For custom messages */
         messages: {
             
         },
@@ -997,7 +995,7 @@ $(document).ready(function() {
             },           
 
         },
-        //For custom messages
+        /* For custom messages */
         messages: {
             
         },
@@ -1038,14 +1036,9 @@ $(document).ready(function() {
             },           
 
         },
-        //For custom messages
+        /* For custom messages */
         messages: {
-            // 'name': "Please enter name.",
-            // 'email': "Please enter a valid email address.",
-            // 'addr_residential': "Please enter a residential address.",
-            // 'addr_permanent': "Please enter a permanent address.",           
-            // 'contact_no': "Please enter contact number.",
-            // 'role_id': "Please select a role.",  
+           
         },
         debug: true,
         errorElement: 'span',
@@ -1079,7 +1072,7 @@ $(document).ready(function() {
                   
 
         },
-        //For custom messages
+        /* For custom messages */
         messages: {       
             
         },
@@ -1111,7 +1104,7 @@ $(document).ready(function() {
             },  
             
         },
-        //For custom messages
+        /* For custom messages */
         messages: {
                      
         },
@@ -1168,7 +1161,7 @@ $(document).ready(function() {
                   
 
         },
-        //For custom messages
+        /* For custom messages */
         messages: {     
             'coupon_expirydate': {
                 greaterThan: (lang == "en") ?'الرجاء تحديد تاريخ انتهاء أكبر من تاريخ البدء.':'Please select end date greater than start date.' 
@@ -1208,11 +1201,10 @@ $(document).ready(function() {
              }, 
              min_amount:{
                 required:true                      
-             },    
-                  
+             },                    
 
         },
-        //For custom messages
+        /* For custom messages */
         messages: {      
             'coupon_desc': (lang == "en") ?'الرجاء إدخال وصف القسيمة.':"Please enter coupon description.",
             'coupon_startdate': (lang == "en") ?'الرجاء تحديد تاريخ البدء.':"Please select start date.",
@@ -1267,7 +1259,7 @@ $(document).ready(function() {
             }            
 
         },
-        //For custom messages
+       /* For custom messages */
         messages: {
             
         },
@@ -1308,7 +1300,7 @@ $(document).ready(function() {
             }  
 
         },
-        //For custom messages
+        /* For custom messages */
         messages: {
             
         },
@@ -1342,7 +1334,7 @@ $(document).ready(function() {
             }
 
         },
-        //For custom messages
+        /* For custom messages */
         messages: {
             
         },
@@ -1373,7 +1365,7 @@ $(document).ready(function() {
             }
 
         },
-        //For custom messages
+        /* For custom messages */
         messages: {
             
         },
@@ -1406,7 +1398,7 @@ $(document).ready(function() {
 
            }
         },
-        //For custom messages
+        /* For custom messages */
         messages: {
             description:{
                 required: (lang == "en") ?'هذه الخانة مطلوبه.':'This field is required.',
@@ -1439,7 +1431,7 @@ $(document).ready(function() {
 
            }
         },
-        //For custom messages
+        /* For custom messages */
         messages: {
             description:{
                 required: (lang == "en") ?'هذه الخانة مطلوبه.':'This field is required.',
@@ -1473,7 +1465,7 @@ $(document).ready(function() {
            }          
 
         },
-        //For custom messages
+        /* For custom messages */
         messages: {
             customer_help:{
                 required: (lang == "en") ?'هذه الخانة مطلوبه.':'This field is required.',
@@ -1505,7 +1497,7 @@ $(document).ready(function() {
            }          
 
         },
-        //For custom messages
+        /* For custom messages */
         messages: {
             customer_help:{
                 required: (lang == "en") ?'هذه الخانة مطلوبه.':'This field is required.',
@@ -1545,7 +1537,7 @@ $(document).ready(function() {
             }
 
         },
-        //For custom messages
+        /* For custom messages */
         messages: {
             
         },
@@ -1586,7 +1578,7 @@ $(document).ready(function() {
            }          
 
         },
-        //For custom messages
+        /* For custom messages */
         messages: {
             short_description:{
                 required: (lang == "en") ?'هذه الخانة مطلوبه.':'This field is required.',
@@ -1623,7 +1615,6 @@ $(document).ready(function() {
                 required:true,
                 extension:true,
                 filesize:true
-                //minImageWidth: 500
             },
             start_date:{
                 required:true  
@@ -1633,7 +1624,7 @@ $(document).ready(function() {
             }               
 
         },
-        //For custom messages
+        /* For custom messages */
         messages: {
             
         },
@@ -1661,7 +1652,6 @@ $(document).ready(function() {
                 required:false,
                 extension:true,
                 filesize:true
-                //minImageWidth: 500
             },
             start_date:{
                 required:true  
@@ -1671,7 +1661,7 @@ $(document).ready(function() {
             }       
 
         },
-        //For custom messages
+        /* For custom messages */
         messages: {
             
         },
@@ -1718,7 +1708,7 @@ $(document).ready(function() {
             }            
 
         },
-        //For custom messages
+        /* For custom messages */
         messages: {
             
         },
@@ -1762,7 +1752,7 @@ $(document).ready(function() {
             }   
 
         },
-        //For custom messages
+        /* For custom messages */
         messages: {
             
         },
@@ -1796,7 +1786,7 @@ $(document).ready(function() {
             }
 
         },
-        //For custom messages
+        /* For custom messages */
         messages: {
             cnf_password:(lang == "en") ?'يجب أن تكون كلمة المرور وتأكيد كلمة المرور متطابقة.كلمة المرور':'Password & confirm Password should be same.'
         },
@@ -1824,7 +1814,7 @@ $(document).ready(function() {
             }
 
         },
-        //For custom messages
+        /* For custom messages */
         messages: {
             
         },
@@ -1900,7 +1890,7 @@ $(document).ready(function() {
 
 
         },
-        //For custom messages 
+        /* For custom messages */
         messages: {
             'address':{
                 maxlength:(lang == "en") ?'يجب ألا يزيد العنوان عن 50 حرفًا.':"Address should not be greater than 50 characters."
@@ -1926,9 +1916,7 @@ $(document).ready(function() {
                 minlength: 6
             },
             password:{
-                required:true,
-                // minlength: 6,
-                // pwdLength: true
+                required:true,               
                 pwdLength:true,
                 pwdUpper:true,
                 pwdLower:true,
@@ -1942,7 +1930,7 @@ $(document).ready(function() {
             }
 
         },
-        //For custom messages 
+        /* For custom messages */
         messages: {
             cnf_password:(lang == "en") ?'يجب أن تكون كلمة المرور وتأكيد كلمة المرور متطابقة.':"Password & Confirm Password should be same.",
         },
@@ -1968,7 +1956,7 @@ $(document).ready(function() {
             }
 
         },
-        //For custom messages
+        /* For custom messages */
         messages: {
             
         },
@@ -1993,7 +1981,7 @@ $(document).ready(function() {
                 filesize:true               
             }
         },
-        //For custom messages
+        /* For custom messages */
         messages: {
             
         },
@@ -2007,7 +1995,6 @@ $(document).ready(function() {
                 error.insertAfter(element);
             }
         }
-    });
-    
+    });   
 
 });

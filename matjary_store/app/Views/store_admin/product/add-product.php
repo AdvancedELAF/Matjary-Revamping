@@ -179,9 +179,7 @@ $ses_lang = $session->get('ses_lang');
                         </div>
                     </div>
 
-                    <h5 class="h4 text-blue mt-3 mb-3"><?php echo $language['Pricing Details']; ?></h5>
-
-                    <div class="row">
+                    <h5 class="h4 text-blue mt-3 mb-3"><?php echo $language['Pricing Details']; ?></h5>                    <div class="row">
                         <div class="col-md-6">
                             <div class="mb-2">
                                 <label><?php echo $language['Retail Price']; ?></label>
@@ -209,7 +207,6 @@ $ses_lang = $session->get('ses_lang');
                     </div>
 
                     <h5 class="h4 text-blue mt-3 mb-3"><?php echo $language['Inventory Details']; ?></h5>
-
                     <div class="row">
                         <div class="col-md-6 col-lg-4">
                             <div class="mb-2">
@@ -252,7 +249,6 @@ $ses_lang = $session->get('ses_lang');
                             </div>
                         </div>
                     </div>
-
                     <div class="d-grid gap-2 d-md-block text-<?php echo $ses_lang == 'en'?'right':'left'; ?> mt-4">
                         <button class="btn btn-primary" type="submit"><?php echo $language['Save']; ?></button>
                         <a href="<?php echo base_url('admin/all-products'); ?>" class="btn btn-secondary"><?php echo $language['Cancel']; ?></a>

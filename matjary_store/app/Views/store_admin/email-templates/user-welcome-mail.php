@@ -32,7 +32,6 @@
             <p style="line-height: 1.8; color: #000000; margin-top: 0;">Thank you for registering with Matjary.</p>
             <a href="<?php echo $resetLink; ?>" target="blank">click here to reset password</a>
             <p>Team Matjary,</p>
-
             <div style="text-align: center; margin-top: 1rem; border-top: 5px solid #f5f5f5">
                 <p style="margin-bottom: 5px;">Powered by <a href="<?php echo $supportEmail;?>" target="_blank style="text-decoration: none; color: #5294F7;"><?php echo $storeName; ?></a></p>
                 <small>Address: <?php echo $address; ?> <a href="mailto:<?php echo $supportEmail;?>" style="text-decoration: none; color: #5294F7;"><?php echo $supportEmail;?></a></small>

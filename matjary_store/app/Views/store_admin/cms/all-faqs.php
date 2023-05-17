@@ -92,8 +92,7 @@ $ses_lang = $session->get('ses_lang');
                         </tr>
                     <?php
                     }
-                    ?>
-                    
+                    ?>                    
                 </tbody>
             </table>
         </div>

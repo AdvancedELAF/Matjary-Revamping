@@ -39,7 +39,6 @@ $ses_lang = $session->get('ses_lang');
                     </tr>
                 </thead>
                 <tbody>
-
                     <?php
                     if (isset($bannerList) && !empty($bannerList)) {
                         $i = 1;
@@ -131,7 +130,6 @@ $ses_lang = $session->get('ses_lang');
                     <?php
                     }
                     ?>
-
                 </tbody>
             </table>
         </div>

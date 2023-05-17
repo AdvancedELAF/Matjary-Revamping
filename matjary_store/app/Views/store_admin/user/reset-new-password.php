@@ -17,8 +17,7 @@ $ses_lang = $session->get('ses_lang');
 	<link rel="apple-touch-icon" sizes="180x180" href="<?php echo base_url(); ?>/store_admin/src/images/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="<?php echo base_url(); ?>/store_admin/src/images/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url(); ?>/store_admin/src/images/favicon-16x16.png">
-
-	<!-- Mobile Specific Metas -->
+    <!-- Mobile Specific Metas -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 	<!-- Google Font -->
@@ -132,10 +131,8 @@ $ses_lang = $session->get('ses_lang');
 	<script src="<?php echo base_url(); ?>/store_admin/vendors/scripts/core.js"></script>
 	<script src="<?php echo base_url(); ?>/store_admin/vendors/scripts/script.min.js"></script>
 	<script src="<?php echo base_url(); ?>/store_admin/vendors/scripts/process.js"></script>
-	<script src="<?php echo base_url(); ?>/store_admin/vendors/scripts/layout-settings.js"></script>
-    
-	<script src="<?php echo base_url(); ?>/store_admin/vendors/scripts/dashboard.js"></script>
-	
+	<script src="<?php echo base_url(); ?>/store_admin/vendors/scripts/layout-settings.js"></script>    
+	<script src="<?php echo base_url(); ?>/store_admin/vendors/scripts/dashboard.js"></script>	
 	<!--Jquery Validation js start-->
 	<script src="<?php echo base_url(); ?>/store_admin/assets/js/jquery-validate.js"></script>
 	<script src="<?php echo base_url(); ?>/store_admin/assets/js/form-validation.js"></script>
@@ -143,7 +140,6 @@ $ses_lang = $session->get('ses_lang');
 	<!--Sweetalert js start -->
 	<script src="<?php echo base_url(); ?>/store_admin/assets/js/sweetalert.min.js"></script>
 	<!--Sweetalert js end -->
-
 	<script src="<?php echo base_url(); ?>/store_admin/assets/js/ajax-call.js"></script>
 	<!-- Loader Script -->
 	<script src="<?php echo base_url(); ?>/store_admin/assets/js/loader.js"></script>
