@@ -15,7 +15,6 @@ $ses_lang = $session->get('ses_lang');
     </div>
 </section>
 <!-- PAGE BAR ENDS -->
-
 <section class="section-spacing <?php if($locale=='ar'){echo 'text-right';} ?>">
     <div class="container">       
         <?php

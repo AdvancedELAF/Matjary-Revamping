@@ -51,11 +51,9 @@ $ses_lang = $session->get('ses_lang');
 <!-- ABOUT US US SECTION SPACING STARTS -->
 <section class="section-spacing <?php if($locale=='ar'){echo 'text-right';} ?>">
     <div class="container">
-        <?php //echo '<pre>'; print_r($GetTCInfo);?>
         <div class="section-title text-center mb-3">
             <h4><?php echo $title; ?></h4>
         </div>
-
         <div class="page-content">
             <p><?php echo $description;  ?></p>
         </div>

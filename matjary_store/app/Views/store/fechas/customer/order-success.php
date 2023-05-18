@@ -24,7 +24,6 @@ $ses_lang = $session->get('ses_lang');
                     <div class="success-message text-center">
                         <p class="text-success"><?php echo isset($orderMessage)?$orderMessage:'NA'; ?></p>
                     </div>
-
                     <div class="container">
                         <?php if(isset($orderDetails['orderProductItemsInfo']) && !empty($orderDetails['orderProductItemsInfo'])){ ?>
                         <div class="section-title mb-3">
@@ -77,13 +76,13 @@ $ses_lang = $session->get('ses_lang');
                                             <td>
                                                 <h6>
                                                     <?php  
-                                                    if($orderDetails['orderInfo']->payment_type==1){ 
-                                                        echo $language['Cash On Delivery'];
-                                                    }elseif($orderDetails['orderInfo']->payment_type==2){ 
-                                                        echo $language['Online Banking'];
-                                                    }elseif($orderDetails['orderInfo']->payment_type==3){
-                                                        echo $language['Gift Cart'];
-                                                    }
+                                                        if($orderDetails['orderInfo']->payment_type==1){ 
+                                                            echo $language['Cash On Delivery'];
+                                                        }elseif($orderDetails['orderInfo']->payment_type==2){ 
+                                                            echo $language['Online Banking'];
+                                                        }elseif($orderDetails['orderInfo']->payment_type==3){
+                                                            echo $language['Gift Cart'];
+                                                        }
                                                     ?>
                                                 </h6>
                                             </td>
@@ -92,29 +91,29 @@ $ses_lang = $session->get('ses_lang');
                                             </td>
                                             <td>
                                                 <h6>
-                                                <?php 
-                                                    if($orderDetails['orderInfo']->payment_status==1){ 
-                                                        echo '<span class="text-success">'.$language['Complete'].'</span>';
-                                                    }elseif($orderDetails['orderInfo']->payment_status==2){ 
+                                                    <?php 
+                                                        if($orderDetails['orderInfo']->payment_status==1){ 
+                                                            echo '<span class="text-success">'.$language['Complete'].'</span>';
+                                                        }elseif($orderDetails['orderInfo']->payment_status==2){ 
                                                             echo '<span class="text-warning">'.$language['Pending'].'</span>';
-                                                    }elseif($orderDetails['orderInfo']->payment_status==3){ 
-                                                        echo '<span class="text-danger">'.$language['Cancelled'].'</span>';
-                                                    }
+                                                        }elseif($orderDetails['orderInfo']->payment_status==3){ 
+                                                            echo '<span class="text-danger">'.$language['Cancelled'].'</span>';
+                                                        }
                                                     ?>
                                                 </h6>
                                             </td>
                                             <td>
                                                 <h6>
-                                                <?php 
-                                                    if($orderDetails['orderInfo']->order_status==1){ 
-                                                        echo '<span class="text-success">'.$language['Complete'].'</span>';
-                                                    }elseif($orderDetails['orderInfo']->order_status==2){ 
-                                                        echo '<span class="text-warning">'.$language['Pending'].'</span>';
-                                                    }elseif($orderDetails['orderInfo']->order_status==3){ 
-                                                        echo '<span class="text-danger">'.$language['Cancelled'].'</span>';
-                                                    }else{ 
-                                                        echo $language['NA'];
-                                                    }
+                                                    <?php 
+                                                        if($orderDetails['orderInfo']->order_status==1){ 
+                                                            echo '<span class="text-success">'.$language['Complete'].'</span>';
+                                                        }elseif($orderDetails['orderInfo']->order_status==2){ 
+                                                            echo '<span class="text-warning">'.$language['Pending'].'</span>';
+                                                        }elseif($orderDetails['orderInfo']->order_status==3){ 
+                                                            echo '<span class="text-danger">'.$language['Cancelled'].'</span>';
+                                                        }else{ 
+                                                            echo $language['NA'];
+                                                        }
                                                     ?>
                                                 </h6>
                                             </td>
@@ -250,19 +249,15 @@ $ses_lang = $session->get('ses_lang');
                                 </div>
                             </div>
                         </div>
-            </div><!--Print Div End-->  
+                </div><!--Print Div End-->  
                     </div>
                 <?php }else{ ?>
-
                     <div class="success-message text-center">
                         <p><?php echo isset($orderMessage)?$orderMessage:'NA'; ?></p>
                     </div>
-
-                <?php } ?>                
-           
+                <?php } ?>
                 <hr>
-                <div class="row">
-                         
+                <div class="row">                         
                 </div>
                 <div class="d-grid gap-2 d-md-block text-center">
                     <button class="db-brand-btn mb-2 hide-from-printer">

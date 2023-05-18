@@ -130,15 +130,13 @@ $ses_custmr_id = $session->get('ses_custmr_id');
                             <div class="col-md-3">
                                 <label><?php echo $language['Zipcode']; ?></label>
                                 <input type="text" name="zipcode" id="zipcode" class="form-control mb-0 numberonly" value="<?php echo isset($customerDetails->zipcode)?$customerDetails->zipcode:''; ?>" placeholder="<?php echo $language['Enter Zipcode']; ?>." minlength="5" maxlength="6" >
-                            </div>
-                            
+                            </div>                            
                         </div>                       
                     </div>
                     <div class="d-grid gap-2 d-md-block">                       
                         <button class="btn btn-primary brand-btn"><?php echo $language['Save']; ?></button>
                         <a href="<?php echo base_url('customer/change-password'); ?>" class="btn btn-primary brand-btn" ><?php echo $language['Change Password']; ?></a>
                         <a href="<?php echo base_url('customer/my-account'); ?>" class="btn btn-primary brand-btn" ><?php echo $language['Cancel']; ?></a>
-                        
                     </div>
                     <?php echo form_close(); ?>
                 </div>

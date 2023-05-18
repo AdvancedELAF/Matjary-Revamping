@@ -43,29 +43,31 @@
                 <p style="margin-bottom: 3px; margin-top: 10px;">Date: <?php echo isset($orderDetails['orderInfo']->created_at)?date("Y-m-d",strtotime($orderDetails['orderInfo']->created_at)):'NA'; ?></p>
                 <p style="margin-bottom: 3px; margin-top: 10px;">Payment Mode: <?php if($orderDetails['orderInfo']->payment_type==1){ echo 'Cash On Deliwary';}elseif($orderDetails['orderInfo']->payment_type==2){ echo 'Online Banking';}elseif($orderDetails['orderInfo']->payment_type==3){ echo 'Gift Cart'; }?></p>
                 <p style="margin-bottom: 3px; margin-top: 10px;">Transaction ID: <?php echo isset($orderDetails['orderInfo']->transaction_id)?$orderDetails['orderInfo']->transaction_id:'NA'; ?></p>
-                <p style="margin-bottom: 3px; margin-top: 10px;">Payment Status: 
-                    <?php  
-                    if($orderDetails['orderInfo']->payment_status==1){ 
-                        echo '<span class="text-success">Complete</span>';
-                    }elseif($orderDetails['orderInfo']->payment_status==2){ 
-                        echo '<span class="text-warning">Pending</span>';
-                    }elseif($orderDetails['orderInfo']->payment_status==3){ 
-                        echo '<span class="text-danger">Cancelled</span>';
-                    }
-                    ?>
+                <p style="margin-bottom: 3px; margin-top: 10px;">
+                    Payment Status: 
+                        <?php  
+                            if($orderDetails['orderInfo']->payment_status==1){ 
+                                echo '<span class="text-success">Complete</span>';
+                            }elseif($orderDetails['orderInfo']->payment_status==2){ 
+                                echo '<span class="text-warning">Pending</span>';
+                            }elseif($orderDetails['orderInfo']->payment_status==3){ 
+                                echo '<span class="text-danger">Cancelled</span>';
+                            }
+                        ?>
                 </p>
-                <p style="margin-bottom: 3px; margin-top: 10px;">Order Status: 
-                    <?php  
-                    if($orderDetails['orderInfo']->order_status==1){ 
-                        echo '<span class="text-success">Complete</span>';
-                    }elseif($orderDetails['orderInfo']->order_status==2){ 
-                        echo '<span class="text-warning">Pending</span>';
-                    }elseif($orderDetails['orderInfo']->order_status==3){ 
-                        echo '<span class="text-danger">Cancelled</span>';
-                    }else{ 
-                        echo 'NA';
-                    }
-                    ?>
+                <p style="margin-bottom: 3px; margin-top: 10px;">
+                    Order Status: 
+                        <?php  
+                            if($orderDetails['orderInfo']->order_status==1){ 
+                                echo '<span class="text-success">Complete</span>';
+                            }elseif($orderDetails['orderInfo']->order_status==2){ 
+                                echo '<span class="text-warning">Pending</span>';
+                            }elseif($orderDetails['orderInfo']->order_status==3){ 
+                                echo '<span class="text-danger">Cancelled</span>';
+                            }else{ 
+                                echo 'NA';
+                            }
+                        ?>
                 </p>
                 <p style="margin-bottom: 3px; margin-top: 10px;">Total Amount: SAR <?php echo isset($orderDetails['orderInfo']->total_price)?$orderDetails['orderInfo']->total_price:0.00; ?></p>
             </div>

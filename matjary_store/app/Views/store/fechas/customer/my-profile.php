@@ -37,15 +37,14 @@ $ses_custmr_id = $session->get('ses_custmr_id');
                                 <input type="text" class="brand-input" id="name" name="name" value="<?php echo isset($customerDetails->name)?$customerDetails->name:''; ?>">
                             </div>
                             <div class="col-md-3">
-                                    <div class="mb-2">
-                                        <label><?php echo $language['Profile Picture']; ?></label>
-                                        <input type="file" name="profile_image" id="profile_image" class="brand-input" >
-                                    </div>
+                                <div class="mb-2">
+                                    <label><?php echo $language['Profile Picture']; ?></label>
+                                    <input type="file" name="profile_image" id="profile_image" class="brand-input" >
+                                </div>
                             </div>
                             <div class="col-md-3">                            
                             <?php if(isset($customerDetails->profile_image) && !empty($customerDetails->profile_image)){ ?>
                                 <img src="<?php echo base_url('/uploads/customer_profile_picture/'); ?>/<?php echo isset($customerDetails->profile_image)?$customerDetails->profile_image:''; ?>" alt="Profile image" class="img img-responsive" style="width:auto;min-width:100px;max-width:100px;heihgt:auto;min-height:100px;max-height:100px;">
-                                                               
                                 <a href="javascript:void(0);" id="rempveProfileImage" data-baseurl="<?php echo base_url(); ?>" data-actionurl="<?php echo base_url('customer/remove-profile-picture'); ?>" data-customerid="<?php echo $ses_custmr_id; ?>" ><i class="icofont-trash text-danger"></i></a>
                             <?php }else{ ?>
                                 <img src="<?php echo base_url('store_admin/assets/images/profile_default_image.png'); ?>" alt="Profile image | Default" class="img img-responsive" style="width:auto;min-width:100px;max-width:100px;height:auto;min-height:100px;max-height:100px;">
@@ -58,8 +57,7 @@ $ses_custmr_id = $session->get('ses_custmr_id');
                             <div class="col-md-6">
                                 <label><?php echo $language['Contact No.']; ?></label>
                                 <input type="text" class="brand-input numberonly"  id="contact_no" name="contact_no" value="<?php echo isset($customerDetails->contact_no)?$customerDetails->contact_no:''; ?>" minlength="9" maxlength="10">
-                            </div>
-                           
+                            </div>                           
                             <div class="col-md-12">
                                 <label><?php echo $language['Address']; ?></label>
                                 <textarea name="address" id="address" rows="2" maxlength ="52" class="brand-input" placeholder="<?php echo $language['Enter Address']; ?>..."><?php echo isset($customerDetails->address)?$customerDetails->address:''; ?></textarea>
@@ -137,8 +135,7 @@ $ses_custmr_id = $session->get('ses_custmr_id');
                     <div class="d-grid gap-2 d-md-block">                       
                         <button class="btn btn-primary g-brand-btn"><?php echo $language['Save']; ?></button>
                         <a href="<?php echo base_url('customer/change-password'); ?>" class="btn btn-primary g-brand-btn" type="button"><?php echo $language['Change Password']; ?></a>
-                        <a href="<?php echo base_url('customer/my-account'); ?>" class="btn btn-primary g-brand-btn" type="button"><?php echo $language['Cancel']; ?></a>
-                        
+                        <a href="<?php echo base_url('customer/my-account'); ?>" class="btn btn-primary g-brand-btn" type="button"><?php echo $language['Cancel']; ?></a>                        
                     </div>
                     <?php echo form_close(); ?>
                 </div>

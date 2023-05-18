@@ -185,7 +185,6 @@ $ses_lang = $session->get('ses_lang');
                                 <span class="sale-amount"><?php echo $language['SAR']; ?> <?php echo isset($productData->product_price)?number_format((float)$productData->product_price, 2, '.', ''):''; ?></span>                            
                             </div>
                             <div class="text-center mt-3">
-                                <!-- <button class="btn btn-primary brand-btn-black">Add to Cart</button>-->
                                 <a href="<?php echo base_url('product/product-details/'.$productData->id); ?>" class="btn btn-primary brand-btn-black"><?php echo $language['Details']; ?></a>
                             </div>
                         </div>
@@ -250,7 +249,6 @@ $ses_lang = $session->get('ses_lang');
                                 <span class="sale-amount"><?php echo $language['SAR']; ?> <?php echo isset($productData->product_price)?number_format((float)$productData->product_price, 2, '.', ''):''; ?></span>
                             </div>
                             <div class="text-center mt-3">
-                                <!-- <button class="btn btn-primary brand-btn-black">Add to Cart</button>-->
                                 <a href="<?php echo base_url('product/product-details/'.$productData->id); ?>" class="btn btn-primary brand-btn-black"><?php echo $language['Details']; ?></a>
                             </div>
                         </div>
@@ -286,10 +284,7 @@ $ses_lang = $session->get('ses_lang');
                     <?php } ?>  
                 </div>
             </div>
-            <div class="col-md-6">
-                <!--  <div class="section-tagline">
-                    <h6>know us better</h6>
-                </div>-->
+            <div class="col-md-6">             
                 <div class="section-title text-<?php echo $ses_lang == 'en'?'left':'right'; ?>">
                     <h4><?php echo $language['who we are']; ?></h4>
                 </div>
@@ -311,10 +306,7 @@ $ses_lang = $session->get('ses_lang');
                                 $checkshortDesc = substr($AboutUsInfo->short_description, 0, 500);
                             }
                         }
-                    }
-                    
-                    //$checkshortDesc = isset($AboutUsInfo->short_description)?substr($AboutUsInfo->short_description, 0, 500):'Short Description Not Available For NowStore About Us Content/Information Not Available Yet!.';
-
+                    }                   
                 ?>
                 <div class="section-subpara">
                     <p><?php echo isset($checkshortDesc)?$checkshortDesc:''; ?></p>

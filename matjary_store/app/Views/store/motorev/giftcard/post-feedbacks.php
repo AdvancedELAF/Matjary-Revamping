@@ -36,7 +36,7 @@ $ses_custmr_id = $session->get('ses_custmr_id');
                     </div>
                     <div class="mb-2">
                         <label>Enter Feedback*</label>
-                        <textarea class="form-control" rows="3" id="feedback" name="feedback" ><?php //echo isset($ProductFeedBackDetails[0]->feedback)?$ProductFeedBackDetails[0]->feedback:''; ?></textarea>
+                        <textarea class="form-control" rows="3" id="feedback" name="feedback" ></textarea>
                     </div>
                     <div class="d-grid gap-2 d-md-block">
                         <button class="btn btn-primary brand-btn-black" type="submit">Save</button>                        

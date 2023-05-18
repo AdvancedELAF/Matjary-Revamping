@@ -49,8 +49,7 @@ $ses_lang = $session->get('ses_lang');
                         </div>
                         <div class="category-name">
                             <h4 class="categories-title"><?php echo $category_name; ?></h4>
-                        </div>
-                        
+                        </div>                        
                     </div>  
                 <?php }
             }else{

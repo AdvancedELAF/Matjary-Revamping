@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invoice Mail</title>
-
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Quicksand:wght@300;400;500;600;700&display=swap');
 
@@ -36,19 +35,15 @@
             text-align: center;
             color: #5294F7;
         }
-
         .mail-body {
             padding: 1rem 2rem;
-
         }
-
         .bg-wrap {
             background-color: #E9F6FE;
             padding: 1.5rem;
             border-radius: 1rem;
             margin-bottom: 2rem;
         }
-
         .mail-title h3 {
             font-family: 'Kodchasan', sans-serif;
             font-weight: 700;
@@ -56,31 +51,26 @@
             font-size: 1.5rem;
             margin-bottom: 1rem;
         }
-
         .mail-details h5 {
             color: #8D4FDE;
             font-weight: 600;
             margin-bottom: 0.5rem;
             font-size: 1.25rem;
         }
-
         .resp-align {
             display: flex;
             justify-content: space-between;
             margin-bottom: 1rem;
         }
-
         .mail-details p {
             color: #8D4FDE;
             font-weight: 600;
             margin-bottom: 3px;
         }
-
         .orderDetails {
             text-align: right;
             margin-left:239px;
         }
-
         .table {
             width: 100%;
             margin-bottom: 1rem;
@@ -88,61 +78,49 @@
             vertical-align: top;
             border-color: #dee2e6;
         }
-
         table {
             caption-side: bottom;
             border-collapse: collapse;
         }
-
         .table>thead {
             vertical-align: bottom;
         }
-
         thead {
             border-color: inherit;
             border-style: solid;
             border-width: 0;
         }
-
         tr {
             border-color: inherit;
             border-style: solid;
             border-width: 0;
         }
-
         .mail-table {
             overflow-x: auto;
             text-align: left;
         }
-
         .mail-table th {
             padding: 0.5rem 0.5rem;
         }
-
         .mail-table thead {
             background-color: #8D4FDE;
             color: #FFFFFF;
             text-align: left;
         }
-
         .mail-table img {
             width: 100px;
             height: 100px;
             object-fit: contain;
         }
-
         .mail-body tr {
             border-bottom: 1px solid #efefef;
         }
-
         .mail-body td {
             padding: 0.5rem;
         }
-
         .text-right {
             text-align: right;
         }
-
         .mail-back-btn a {
             padding: 0.5rem;
             background-color: #8D4FDE;
@@ -150,31 +128,24 @@
             margin-top: 1rem;
             color: #FFFFFF;
         }
-
         .mail-footer {
             text-align: center;
         }
-
         .mail-footer p {
             color: #E63A7B;
         }
-
         .mail-footer a {
             font-family: 'Kodchasan', sans-serif;
             color: #8D4FDE;
         }
-
         .mail-back-btn {
             margin-top: 1rem;
             margin-bottom: 1rem;
         }
-
         .place-right {
             text-align: right;
         }
-
         /* MEDIA QUERY STARTS */
-
         @media (max-width: 815px) {
             .resp-align {
                 display: block;
@@ -226,30 +197,35 @@
                         <p>Date: <?php echo isset($orderDetails['orderInfo']->created_at)?date("Y-m-d",strtotime($orderDetails['orderInfo']->created_at)):'NA'; ?></p>
                         <p>Payment Mode: <?php if($orderDetails['orderInfo']->payment_type==1){ echo 'Cash On Deliwary';}elseif($orderDetails['orderInfo']->payment_type==2){ echo 'Online Banking';}elseif($orderDetails['orderInfo']->payment_type==3){ echo 'Gift Cart'; }?></p>
                         <p>Transaction Id: <?php echo isset($orderDetails['orderInfo']->transaction_id)?$orderDetails['orderInfo']->transaction_id:'NA'; ?></p>
-                        <p>Payment Status:  <?php 
-                                                if($orderDetails['orderInfo']->payment_status==1){ 
-                                                    echo '<span class="text-success">Complete</span>';
-                                                }elseif($orderDetails['orderInfo']->payment_status==2){ 
-                                                        echo '<span class="text-warning">Pending</span>';
-                                                }elseif($orderDetails['orderInfo']->payment_status==3){ 
-                                                    echo '<span class="text-danger">Cancelled</span>';
-                                                }
-                                                ?></p>
-                        <p>Order Status:  <?php 
-                                                if($orderDetails['orderInfo']->order_status==1){ 
-                                                    echo '<span class="text-success">Complete</span>';
-                                                }elseif($orderDetails['orderInfo']->order_status==2){ 
-                                                    echo '<span class="text-warning">Pending</span>';
-                                                }elseif($orderDetails['orderInfo']->order_status==3){ 
-                                                    echo '<span class="text-danger">Cancelled</span>';
-                                                }else{ 
-                                                    echo 'NA';
-                                                }
-                                                ?></p>
+                        <p>
+                            Payment Status:  
+                                <?php 
+                                    if($orderDetails['orderInfo']->payment_status==1){ 
+                                        echo '<span class="text-success">Complete</span>';
+                                    }elseif($orderDetails['orderInfo']->payment_status==2){ 
+                                        echo '<span class="text-warning">Pending</span>';
+                                    }elseif($orderDetails['orderInfo']->payment_status==3){ 
+                                        echo '<span class="text-danger">Cancelled</span>';
+                                    }
+                                ?>
+                        </p>
+                        <p>
+                            Order Status:  
+                                <?php 
+                                    if($orderDetails['orderInfo']->order_status==1){ 
+                                        echo '<span class="text-success">Complete</span>';
+                                    }elseif($orderDetails['orderInfo']->order_status==2){ 
+                                        echo '<span class="text-warning">Pending</span>';
+                                    }elseif($orderDetails['orderInfo']->order_status==3){ 
+                                        echo '<span class="text-danger">Cancelled</span>';
+                                    }else{ 
+                                        echo 'NA';
+                                    }
+                                ?>
+                        </p>
                         <p>Total Amount: SAR <?php echo isset($orderDetails['orderInfo']->total_price)?$orderDetails['orderInfo']->total_price:0.00; ?></p>
                     </div>
-                </div>
-                
+                </div>                
             </div>
         </div>
         <div class="mail-title">

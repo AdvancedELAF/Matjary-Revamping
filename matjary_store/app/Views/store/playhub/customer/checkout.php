@@ -52,21 +52,18 @@ $ses_custmr_id = $session->get('ses_custmr_id');
                                 ?>
                         </select>
                     </div>
-
                     <div class="col-md-6 col-lg-3">
                         <label class="brand-label text-orange"><?php echo $language['State']; ?></label>
                         <select name="state_id" id="state_id" data-actionurl="<?php echo base_url('get-state-cities'); ?>" class="brand-select">
                             <option value=""><?php echo $language['Select State']; ?></option>
                         </select>
                     </div>
-
                     <div class="col-md-6 col-lg-3">
                         <label class="brand-label text-orange"><?php echo $language['City']; ?></label>
                         <select name="city_id" id="city_id" class="brand-select">
                          <option value=""><?php echo $language['Select City']; ?></option>
                         </select>
                     </div>
-
                     <div class="col-md-6 col-lg-3">
                         <label class="brand-label text-orange"><?php echo $language['Zipcode']; ?></label>
                         <input type="text"  class="numberonly brand-input"  name="zipcode" id="zipcode" placeholder="<?php echo $language['Enter Zipcode']; ?>." data-error=".error1" minlength="5" maxlength="6">

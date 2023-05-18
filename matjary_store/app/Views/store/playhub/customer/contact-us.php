@@ -34,10 +34,8 @@
                         <label class="brand-label text-orange"><?php echo $language['Your Message']; ?> <span class="required-mark">*</span></label>
                         <textarea type="text" class="brand-input mt-3" placeholder="<?php echo $language['Your Message']; ?>" rows="5" id="massage" maxlength = "500" name="massage"></textarea>
                     </div>
-
                     <button class="brand-btn-orange btn-block"><?php echo $language['Send Message']; ?></button>
-
-                    <?php echo form_close(); ?>
+                <?php echo form_close(); ?>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4">
@@ -46,7 +44,7 @@
                         <div class="ui-title text-white">
                             <h4><?php echo $language['Email Address']; ?></h4>
                         </div>
-                        <p><a href="mailto:<?php echo (isset($storeSettingInfo->support_email) && !empty($storeSettingInfo->support_email)) ? $storeSettingInfo->support_email : ''; ?>"><?php echo (isset($storeSettingInfo->support_email) && !empty($storeSettingInfo->support_email)) ? $storeSettingInfo->support_email : 'NA'; ?></a></p>
+                        <p><a href="mailto:<?php echo (isset($storeSettingInfo->support_email) && !empty($storeSettingInfo->support_email)) ? $storeSettingInfo->support_email : ''; ?>"><?php echo (isset($storeSettingInfo->support_email) && !empty($storeSettingInfo->support_email)) ? $storeSettingInfo->support_email : 'webmaster@example.com'; ?></a></p>
                     </div>
                 </div>
                 <div class="contact-wrap">
@@ -54,7 +52,7 @@
                         <div class="ui-title text-white">
                             <h4><?php echo $language['Contact Us']; ?></h4>
                         </div>
-                        <p><a href="tel:+966 <?php echo (isset($storeSettingInfo->contact_no) && !empty($storeSettingInfo->contact_no)) ? $storeSettingInfo->contact_no : 'NA'; ?>"><?php echo (isset($storeSettingInfo->contact_no) && !empty($storeSettingInfo->contact_no)) ? $storeSettingInfo->contact_no : 'NA'; ?></a></p>
+                        <p><a href="tel:+966 <?php echo (isset($storeSettingInfo->contact_no) && !empty($storeSettingInfo->contact_no)) ? $storeSettingInfo->contact_no : 'NA'; ?>"><?php echo (isset($storeSettingInfo->contact_no) && !empty($storeSettingInfo->contact_no)) ? $storeSettingInfo->contact_no : '123456789'; ?></a></p>
                     </div>
                 </div>
                 <div class="contact-wrap">

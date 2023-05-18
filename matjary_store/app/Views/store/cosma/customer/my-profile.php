@@ -21,7 +21,6 @@ $ses_custmr_id = $session->get('ses_custmr_id');
         <div class="section-title text-center mb-3">
             <h4><?php echo $language['My Profile']; ?></h4>
         </div>
-
         <div class="row">
             <div class="col-md-12">
                 <div class="my-profile-wrapper <?php if($locale=='ar'){echo 'text-right';} ?>" id="profileCustomer">                    
@@ -33,18 +32,17 @@ $ses_custmr_id = $session->get('ses_custmr_id');
                     <input type="hidden" name="profile_id" value="<?php echo isset($customerDetails->id)?$customerDetails->id:''; ?>" />
                     <input type="hidden" name="profile_image" value="<?php echo isset($customerDetails->profile_image)?$customerDetails->profile_image:''; ?>" />
                                           
-                    <div class="mb-2">
-                       
+                    <div class="mb-2">                       
                         <div class="row">
                             <div class="col-md-6">
                                 <label><?php echo $language['Name']; ?></label>
                                 <input type="text" class="form-control" id="name" name="name" value="<?php echo isset($customerDetails->name)?$customerDetails->name:''; ?>">
                             </div>
                             <div class="col-md-3">
-                                    <div class="mb-2">
-                                        <label><?php echo $language['Profile Picture']; ?></label>
-                                        <input type="file" name="profile_image" id="profile_image" class="form-control" >
-                                    </div>
+                                <div class="mb-2">
+                                    <label><?php echo $language['Profile Picture']; ?></label>
+                                    <input type="file" name="profile_image" id="profile_image" class="form-control" >
+                                </div>
                             </div>
                             <div class="col-md-3">                            
                             <?php if(isset($customerDetails->profile_image) && !empty($customerDetails->profile_image)){ ?>
@@ -142,7 +140,6 @@ $ses_custmr_id = $session->get('ses_custmr_id');
                         <button class="btn btn-primary brand-btn-black"><?php echo $language['Save']; ?></button>
                         <a href="<?php echo base_url('customer/change-password'); ?>" class="btn btn-primary brand-btn-black-outline" ><?php echo $language['Change Password']; ?></a>
                         <a href="<?php echo base_url('customer/my-account'); ?>" class="btn btn-primary brand-btn-black-outline" ><?php echo $language['Cancel']; ?></a>
-                        
                     </div>
                     <?php echo form_close(); ?>
                 </div>

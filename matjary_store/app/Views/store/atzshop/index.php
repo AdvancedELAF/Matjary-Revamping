@@ -15,7 +15,6 @@ $ses_lang = $session->get('ses_lang');
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <?php
-            //echo '<pre>'; print_r($BannerList);  die;
             if (isset($BannerList) && !empty($BannerList)) {
                 $j = 1;
                 foreach ($BannerList as $i => $value) {
@@ -70,7 +69,6 @@ $ses_lang = $session->get('ses_lang');
     <div class="container">       
         <div class="row">
             <?php
-            //echo '<pre>'; print_r($advertisementList); die;
             if (isset($advertisementList) && !empty($advertisementList)) {
                 foreach ($advertisementList as $advertisementData) {
                     $title = '';

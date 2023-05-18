@@ -30,13 +30,11 @@
                                 </div>
                             </div>
                         </div>
-
                        <div class="mb-2">
                             <label class="brand-label text-orange"><?php echo $language['Email Address']; ?> <span class="required-mark">*</span></label>
                             <input type="email" name="email" id="email" class="brand-input" placeholder="<?php echo $language['Email Address']; ?>">
                             
                         </div>
-
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-2">
@@ -51,7 +49,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="row align-items-center">
                             <div class="col-md-6">
                                 <div class="loginSignupLink text-left mt-3">

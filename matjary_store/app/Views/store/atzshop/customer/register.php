@@ -17,8 +17,7 @@
                         $attributes = ['name' => 'save_customer_register_form', 'id' => 'save_customer_register_form', 'autocomplete' => 'off']; 
                         echo form_open_multipart('customer/save-customer-register',$attributes); 
                     ?>
-                    <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
-                  
+                    <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />                  
                     <div class="mb-3">
                     <label class="form-label mb-2"><?php echo $language['Name']; ?> <span class="required-mark">*</span></label>
                     <input type="text" name="name" id="name" class="form-control form-label mb-2" placeholder="<?php echo $language['Enter Full Name']; ?>*">

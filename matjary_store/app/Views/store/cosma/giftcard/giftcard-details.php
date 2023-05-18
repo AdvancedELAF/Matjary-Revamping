@@ -59,8 +59,7 @@ $ses_lang = $session->get('ses_lang');
                     <div class="prod-detail-price"><?php echo $language['SAR']; ?> <input type="text" name="gc_amount" id="gc_amount" value="1000" maxlength="5" placeholder="Enter Gift Card Amount"><h6 id="gcAmountErrMsg"></h6></div>
                     
                     <div class="prod-detail-icon">
-                        <?php  
-                            //$cstavgCount = array();                       
+                        <?php                     
                             for ($i = 1; $i <= 5; $i++) {
                                 $ratingClass = "icofont-star btn-grey";
                                 if(isset($cstavgCount) && !empty($cstavgCount)){

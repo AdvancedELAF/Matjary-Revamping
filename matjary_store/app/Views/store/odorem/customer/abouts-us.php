@@ -50,7 +50,6 @@
         <div class="section-title text-center mb-3">
             <h4><?php echo $checkshortDesc; ?></h4>
         </div>
-
         <div class="page-content">
             <p><?php echo $checkLongDesc; ?></p>
         </div>

@@ -19,7 +19,6 @@ $ses_custmr_id = $session->get('ses_custmr_id');
             ?>
             <div class="col-md-4" >
                 <div class="checkout-wrapper">
-                    <!-- <h6 class="delivery-name">Address Type</h6> -->
                     <p class="delivery-address"><?php echo isset($customerAddressData->address) ? $customerAddressData->address : ''; ?> <?php echo isset($customerAddressData->city_name) ? $customerAddressData->city_name : ''; ?> <?php echo isset($customerAddressData->state_name) ? $customerAddressData->state_name : ''; ?> <?php echo isset($customerAddressData->zipcode) ? $customerAddressData->zipcode : ''; ?> <?php echo isset($customerAddressData->country_name) ? $customerAddressData->country_name : ''; ?></p>
                     <p class="error1"></p>
                     <button class="btn btn-secondary btn-sm brand-btn editMyAddress" data-customerid="<?php echo isset($ses_custmr_id)?$ses_custmr_id:''; ?>" data-actionurl="<?php echo base_url('customer/edit-customer-deliver-address'); ?>" data-id="<?php echo $customerAddressData->id; ?>"><?php echo $language['Edit']; ?></button>

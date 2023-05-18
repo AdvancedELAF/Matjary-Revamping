@@ -15,9 +15,7 @@ $ses_lang = $session->get('ses_lang');
         </div>
     </div>
 </section>
-
 <?php if(isset($customerCartData) && !empty($customerCartData)){ ?>
-
 <!-- CART TABLE STARTS -->
 <?php 
     $attributes = ['name' => 'proceed_cart_form', 'id' => 'proceed_cart_form', 'autocomplete' => 'off']; 
@@ -66,7 +64,6 @@ $ses_lang = $session->get('ses_lang');
                         <tr class="cartItemsTr">
                             <th>
                                 <?php if($customerCartValues->stock_quantity==0){ ?>
-                                    <!-- <span class="text-danger">Out of Stock</span> -->
                                 <?php }else{ ?>
                                 <input type="checkbox" name="index[]" value="<?php echo $index; ?>" class="cartItem" data-productid="<?php echo $productId; ?>" <?php echo $cartItemCheked; ?>>
                                 <?php } ?>

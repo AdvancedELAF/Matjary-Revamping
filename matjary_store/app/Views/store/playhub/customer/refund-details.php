@@ -135,8 +135,6 @@
                     </div>
 
                     <div class="summary-wrap">
-
-
                         <div class="total-amount text-center text-orange">
                             <h5><?php echo $language['Grand total']; ?>: <?php echo $language['SAR']; ?> <?php echo isset($orderDetails['orderInfo']->total_price)?$orderDetails['orderInfo']->total_price:0.00; ?></h5>
                         </div>

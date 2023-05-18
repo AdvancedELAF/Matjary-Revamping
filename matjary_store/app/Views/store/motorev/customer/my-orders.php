@@ -72,15 +72,15 @@
                                     <td class="order-payment">
                                         <h5>
                                             <?php
-                                            if ($value->order_status == 1) {
-                                                echo '<span class="badge badge-success">'.$language['Complete'].'</span>';
-                                            } elseif ($value->order_status == 2) {
-                                                echo '<span class="badge badge-warning">'.$language['Pending'].'</span>';
-                                            } elseif ($value->order_status == 3) {
-                                                echo '<span class="badge badge-danger">'.$language['Cancelled'].'</span>';
-                                            } else {
-                                                echo '<span class="badge badge-secondary">'.$language['NA'].'</span>';
-                                            }
+                                                if ($value->order_status == 1) {
+                                                    echo '<span class="badge badge-success">'.$language['Complete'].'</span>';
+                                                } elseif ($value->order_status == 2) {
+                                                    echo '<span class="badge badge-warning">'.$language['Pending'].'</span>';
+                                                } elseif ($value->order_status == 3) {
+                                                    echo '<span class="badge badge-danger">'.$language['Cancelled'].'</span>';
+                                                } else {
+                                                    echo '<span class="badge badge-secondary">'.$language['NA'].'</span>';
+                                                }
                                             ?>
                                         </h5>
                                     </td>

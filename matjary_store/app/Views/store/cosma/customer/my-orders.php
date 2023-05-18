@@ -40,41 +40,41 @@
                             <td class="order-payment">
                                 <h5>
                                     <?php 
-                                    if($value->payment_type==1){ 
-                                        echo $language['Cash On Delivery']; 
-                                    }elseif($value->payment_type==2){ 
-                                        echo $language['Online Banking'];
-                                    }elseif($value->payment_type==3){
-                                        echo $language['Gift Cart'];
-                                    } 
+                                        if($value->payment_type==1){ 
+                                            echo $language['Cash On Delivery']; 
+                                        }elseif($value->payment_type==2){ 
+                                            echo $language['Online Banking'];
+                                        }elseif($value->payment_type==3){
+                                            echo $language['Gift Cart'];
+                                        } 
                                     ?>
                                 </h5>
                             </td>
                             <td class="order-payment">
                                 <h5>
                                     <?php 
-                                    if($value->payment_status==1){ 
-                                        echo $language['Complete'];
-                                    }elseif($value->payment_status==2){ 
-                                        echo $language['Pending'];
-                                    }elseif($value->payment_status==3){ 
-                                        echo $language['Cancel'];
-                                    }
+                                        if($value->payment_status==1){ 
+                                            echo $language['Complete'];
+                                        }elseif($value->payment_status==2){ 
+                                            echo $language['Pending'];
+                                        }elseif($value->payment_status==3){ 
+                                            echo $language['Cancel'];
+                                        }
                                     ?>
                                 </h5>
                             </td>
                             <td class="order-payment">
                                 <h5>
                                     <?php 
-                                    if($value->order_status==1){ 
-                                        echo '<span class="badge badge-success">'.$language['Complete'].'</span>';
-                                    }elseif($value->order_status==2){ 
-                                            echo '<span class="badge badge-warning">'.$language['Pending'].'</span>';
-                                    }elseif($value->order_status==3){ 
-                                        echo '<span class="badge badge-danger">'.$language['Cancelled'].'</span>';
-                                    }else{ 
-                                        echo '<span class="badge badge-secondary">'.$language['NA'].'</span>';
-                                    }
+                                        if($value->order_status==1){ 
+                                            echo '<span class="badge badge-success">'.$language['Complete'].'</span>';
+                                        }elseif($value->order_status==2){ 
+                                                echo '<span class="badge badge-warning">'.$language['Pending'].'</span>';
+                                        }elseif($value->order_status==3){ 
+                                            echo '<span class="badge badge-danger">'.$language['Cancelled'].'</span>';
+                                        }else{ 
+                                            echo '<span class="badge badge-secondary">'.$language['NA'].'</span>';
+                                        }
                                     ?>
                                 </h5>
                             </td>

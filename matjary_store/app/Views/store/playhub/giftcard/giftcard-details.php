@@ -65,8 +65,7 @@ $ses_lang = $session->get('ses_lang');
                     </div>
 
                     <div class="prod-detail-icon">
-                        <?php
-                        //$cstavgCount = array();                       
+                        <?php                   
                         for ($i = 1; $i <= 5; $i++) {
                             $ratingClass = "icofont-star btn-grey";
                             if (isset($cstavgCount) && !empty($cstavgCount)) {
@@ -169,11 +168,7 @@ $ses_lang = $session->get('ses_lang');
             <div class="prod-main-tab">
                 <ul class="nav nav-pills prod-main-pills mb-3" id="pills-tab" role="tablist">
                     <li class="nav-item prod-main-item" role="presentation">
-                        <a class="nav-link prod-main-link" id="pills-reviews-tab" data-toggle="pill" href="#pills-reviews" role="tab" aria-controls="pills-reviews" aria-selected="false"><?php echo $language['Reviews']; ?> (<?php if (isset($cstratingCount) && !empty($cstratingCount)) {
-                                                                                                                                                                                                        echo count($cstratingCount);
-                                                                                                                                                                                                    } else {
-                                                                                                                                                                                                        echo '0';
-                                                                                                                                                                                                    } ?>)</a>
+                        <a class="nav-link prod-main-link" id="pills-reviews-tab" data-toggle="pill" href="#pills-reviews" role="tab" aria-controls="pills-reviews" aria-selected="false"><?php echo $language['Reviews']; ?> (<?php if (isset($cstratingCount) && !empty($cstratingCount)) { echo count($cstratingCount); } else { echo '0'; } ?>)</a>
                     </li>
                 </ul>
                 <div class="tab-content prod-main-content" id="pills-tabContent">

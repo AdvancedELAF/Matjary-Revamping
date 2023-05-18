@@ -71,12 +71,10 @@ $ses_lang = $session->get('ses_lang');
     <!--Sweetalert js start -->
     <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/js/sweetalert.min.js"></script>
     <!--Sweetalert js end -->
-
     <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/js/ajax-call.js"></script>
     <!-- Loader Script -->
     <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/js/loader.js"></script>
-    <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/js/main.js"></script>
-    
+    <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/js/main.js"></script>    
     <?php
     $base_url = base_url();
     if (isset($pageCostomCss) && !empty($pageCostomCss)) {
@@ -92,24 +90,7 @@ $ses_lang = $session->get('ses_lang');
     }
     ?>
 </head>
-<body>
-    <!--Cookie Consent Model--->
-    <!-- <div class="modal fade" id="CookieConsentModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button class="db-brand-btn" data-dismiss="modal">×</button>
-                    <h3><?php echo $language['Cookies Consent']; ?></h3>
-                </div>
-                <div class="modal-body pd-5">
-                    <p><?php echo $language['cookie_desc']; ?> <a href="<?php echo base_url('cookie-policy'); ?>"><?php echo $language['Cookie Policy']; ?></a></p>
-                    <button class="btn btn-primary brand-btn" id="acceptCookie"><?php echo $language['Accept']; ?></button>
-                    <button type="button" class="btn btn-primary brand-btn" id="declineCookie" data-dismiss="modal"><?php echo $language['Decline']; ?></button>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!--Cookie Consent Model End--->
+<body>    
     <div class="preloaderBg" id="preloader" style="display: none;">
         <div class="preloader-position">
             <h3><?php echo $language['Please wait till processing.']; ?></h3>

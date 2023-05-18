@@ -47,7 +47,6 @@ $ses_lang = $session->get('ses_lang');
         </div>
     </div>
 </section>
-
 <section class="section-spacing <?php if($locale=='ar'){echo 'text-right';} ?>">
     <div class="container">
         <div class="page-content">
@@ -58,6 +57,5 @@ $ses_lang = $session->get('ses_lang');
         </div>
     </div>
 </section>
-
 <!-- ABOUT US US SECTION SPACING ENDS -->
 <?php $this->endSection(); ?>

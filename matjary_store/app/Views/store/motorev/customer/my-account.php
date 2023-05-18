@@ -10,9 +10,7 @@
 </section>
 <!-- PAGE BAR ENDS -->
 <!-- MY ACCOUNT SECTION STARTS -->
-<section class="section-spacing <?php if ($locale == 'ar') {
-                                    echo 'text-right';
-                                } ?>">
+<section class="section-spacing <?php if ($locale == 'ar') { echo 'text-right'; } ?>">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-4">

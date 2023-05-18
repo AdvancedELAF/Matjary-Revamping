@@ -13,7 +13,6 @@ $ses_lang = $session->get('ses_lang');
         <div class="section-title text-center mb-5">
             <h4><?php echo $language['Gift cards']; ?></h4>
         </div>
-
         <div class="row">
             <?php 
             $giftCard = $locale=='en'?'Data Not Available Yet!.':'البيانات غير متوفرة بعد!';          

@@ -10,9 +10,7 @@
 </div>
 <!-- PAGE BAR ENDS -->
 <!-- SIGN UP SECTION STARTS -->
-<section class="section-spacing <?php if ($locale == 'ar') {
-                                    echo 'text-right';
-                                } ?>">
+<section class="section-spacing <?php if ($locale == 'ar') { echo 'text-right'; } ?>">
     <div class="container">
         <div class="section-title text-center mb-3">
             <h4><?php echo $language['New User? Register']; ?></h4>
@@ -41,9 +39,7 @@
                     <div class="mb-3">
                         <input type="password" name="cnf_password" id="cnf_password" class="form-control" placeholder="<?php echo $language['Confirm Password']; ?>*">
                     </div>
-                    <div class="d-grid gap-2 d-md-block <?php if ($locale == 'ar') {
-                                                            echo 'text-right';
-                                                        } ?>">
+                    <div class="d-grid gap-2 d-md-block <?php if ($locale == 'ar') { echo 'text-right'; } ?>">
                         <button type="reset" class="btn btn-primary brand-btn-black-outline"><?php echo $language['Reset']; ?></button>
                         <button type="submit" class="btn btn-primary brand-btn-black"><?php echo $language['Register']; ?></button>
                     </div>

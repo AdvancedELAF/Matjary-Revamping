@@ -56,7 +56,6 @@ $ses_lang = $session->get('ses_lang');
                                     <tr class="cartItemsTr">
                                         <th>
                                             <?php if ($customerCartValues->stock_quantity == 0) { ?>
-                                                <!-- <span class="text-danger">Out of Stock</span> -->
                                             <?php } else { ?>
                                                 <input type="checkbox" name="index[]" value="<?php echo $index; ?>" class="cartItem" data-productid="<?php echo $productId; ?>" <?php echo $cartItemCheked; ?>>
                                             <?php } ?>
@@ -114,9 +113,7 @@ $ses_lang = $session->get('ses_lang');
             </div>
         </div>
     </section>
-    <section class="section-spacing <?php if ($locale == 'ar') {
-                                        echo 'text-right';
-                                    } ?>">
+    <section class="section-spacing <?php if ($locale == 'ar') { echo 'text-right'; } ?>">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -134,19 +131,19 @@ $ses_lang = $session->get('ses_lang');
                                             <td class="cart-structure-name"><?php echo $language['Subtotal']; ?></td>
                                             <td>
                                                 <div class="cart-price">
-                                                    <h5><?php echo $language['SAR']; ?> <span id="subtotal_span">
+                                                    <h5>
+                                                        <?php echo $language['SAR']; ?> 
+                                                        <span id="subtotal_span">
                                                         <?php if ($cartItemChekedTrue == true) {
                                                                 echo isset($cartTotal['subtotal']) ? number_format((float)$cartTotal['subtotal'], 2, '.', '') : 0.00;
                                                             } else {
                                                                 echo '0.00';
-                                                            } ?></span></h5>
+                                                            } ?>
+                                                        </span>
+                                                    </h5>
                                                 </div>
                                             </td>
-                                            <input type="hidden" name="subtotal" id="subtotal" value="<?php if ($cartItemChekedTrue == true) {
-                                                                echo isset($cartTotal['subtotal']) ? number_format((float)$cartTotal['subtotal'], 2, '.', '') : 0.00;
-                                                            } else {
-                                                                echo '0.00';
-                                                            } ?>">
+                                            <input type="hidden" name="subtotal" id="subtotal" value="<?php if ($cartItemChekedTrue == true) { echo isset($cartTotal['subtotal']) ? number_format((float)$cartTotal['subtotal'], 2, '.', '') : 0.00; } else { echo '0.00';  } ?>">
                                         </tr>
                                         <tr id="coupon_applied_tr" style="display: none;">
                                             <td class="cart-structure-name"><?php echo $language['Promotion Applied']; ?></td>
@@ -157,7 +154,6 @@ $ses_lang = $session->get('ses_lang');
                                             </td>
 					                        <input type="hidden" name="discount_type" id="discount_type" value="">
                                             <input type="hidden" name="discount_value" id="discount_value" value="">
-                                       
                                             <input type="hidden" name="is_coupon_applied" id="is_coupon_applied">
                                             <input type="hidden" name="coupon_id" id="coupon_id">
                                             <input type="hidden" name="coupon_amount" id="coupon_amount">
@@ -166,18 +162,10 @@ $ses_lang = $session->get('ses_lang');
                                             <td class="cart-structure-name"><?php echo $language['Grand/Order Total']; ?></td>
                                             <td>
                                                 <div class="cart-price">
-                                                    <h5><?php echo $language['SAR']; ?> <span id="total_price_span"><?php if ($cartItemChekedTrue == true) {
-                                                                                                                        echo isset($cartTotal['total_price']) ? number_format((float)$cartTotal['total_price'], 2, '.', '') : 0.00;
-                                                                                                                    } else {
-                                                                                                                        echo '0.00';
-                                                                                                                    } ?></span></h5>
+                                                    <h5><?php echo $language['SAR']; ?> <span id="total_price_span"><?php if ($cartItemChekedTrue == true) { echo isset($cartTotal['total_price']) ? number_format((float)$cartTotal['total_price'], 2, '.', '') : 0.00;} else { echo '0.00';} ?></span></h5>
                                                 </div>
                                             </td>
-                                            <input type="hidden" name="total_price" id="total_price" value="<?php if ($cartItemChekedTrue == true) {
-                                                                                                                echo isset($cartTotal['total_price']) ? number_format((float)$cartTotal['total_price'], 2, '.', '') : 0.00;
-                                                                                                            } else {
-                                                                                                                echo '0.00';
-                                                                                                            } ?>">
+                                            <input type="hidden" name="total_price" id="total_price" value="<?php if ($cartItemChekedTrue == true) { echo isset($cartTotal['total_price']) ? number_format((float)$cartTotal['total_price'], 2, '.', '') : 0.00;} else { echo '0.00';  } ?>">
                                         </tr>
                                     </tbody>
                                 </table>
@@ -204,12 +192,8 @@ $ses_lang = $session->get('ses_lang');
         </div>
     </section>
     <?php echo form_close(); ?>
-
 <?php } else { ?>
-
-    <section class="section-spacing <?php if ($locale == 'ar') {
-                                        echo 'text-right';
-                                    } ?>">
+    <section class="section-spacing <?php if ($locale == 'ar') { echo 'text-right'; } ?>">
         <div class="container">
             <div class="section-title text-center">
                 <h4><?php echo $language['Your cart is currently empty']; ?>!</h4>
@@ -217,7 +201,5 @@ $ses_lang = $session->get('ses_lang');
             </div>
         </div>
     </section>
-
 <?php } ?>
-
 <?php $this->endSection(); ?>
