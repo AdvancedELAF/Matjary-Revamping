@@ -345,8 +345,6 @@
                 <p>Grand Total: SAR <?php echo isset($orderDetails['orderInfo']->total_price)?$orderDetails['orderInfo']->total_price:0.00; ?></p>
             </div>
             <a href="javascript:window.print();" >Download/Invoice</a>
-
-
             <div class="mail-back-btn">
                 <a href="<?php echo base_url('customer/my-orders'); ?>">Back to Orders</a>
             </div>
