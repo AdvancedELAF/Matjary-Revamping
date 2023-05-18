@@ -43,13 +43,11 @@
                     <div class="col-md-8">
                       <input type="password" class="form-control" name="conf_password" id="conf_password" placeholder="Confirm Password">
                     </div>
-                  </div>
-                  
+                  </div>                  
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
                   <button type="submit" class="btn btn-info">Submit</button>
-                  <!--button type="submit" class="btn btn-default float-right">Cancel</button-->
                 </div>
                 <!-- /.card-footer -->
         </form>      

@@ -10,8 +10,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Matjary Admin</title>
   <link rel="icon" type="image/png" sizes="32x32" href="<?php echo SERVER_ROOT_PATH_ASSETS; ?>site_admin/dist/img/logo.png"> 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
-  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>   
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- IonIcons -->
@@ -27,7 +26,6 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo SERVER_ROOT_PATH_ASSETS; ?>site_admin/dist/css/adminlte.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -36,10 +34,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
   <link rel="stylesheet" href="<?php echo SERVER_ROOT_PATH_ASSETS; ?>site_admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo SERVER_ROOT_PATH_ASSETS; ?>site_admin/dist/css/adminlte.min.css">
-
-
   <link rel="stylesheet" href="<?php echo SERVER_ROOT_PATH_ASSETS; ?>site_admin/css/sweetalert.css" />
-
   <!-- Animate CSS & JS -->
   <link rel="stylesheet" href="<?php echo SERVER_ROOT_PATH_ASSETS; ?>site_admin/css/animate.css" />
   <!-- Loader CSS -->
@@ -58,10 +53,8 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>      
     </ul>
-
     <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
-      
+    <ul class="navbar-nav ml-auto">      
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
@@ -93,13 +86,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
         </a>
-      </li>
-      <!--li class="nav-item">
-        <?php //if (isset($loggedInSuperAdminData) && !empty($loggedInSuperAdminData)) { ?>
-            <a class="nav-link" href="<?php echo base_url('user-dashboard'); ?>">My Account</a>
-        <?php //} ?>
-      </li-->     
-     
+      </li>     
     </ul>
   </nav>
   <!-- /.navbar -->

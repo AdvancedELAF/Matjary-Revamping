@@ -11,15 +11,15 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
         <div class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0">Enquiry Details</h1>
-                    </div><!-- /.col -->
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?php echo base_url('site-admin/dashboard'); ?>">Home</a></li>
-                        <li class="breadcrumb-item active">Enquiry Details</li>
-                        </ol>
-                    </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            <h1 class="m-0">Enquiry Details</h1>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="<?php echo base_url('site-admin/dashboard'); ?>">Home</a></li>
+                            <li class="breadcrumb-item active">Enquiry Details</li>
+                            </ol>
+                        </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
@@ -110,8 +110,8 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                                 </div>
                             </form>
                         </div>    
-                            </div>
-                        <!-- /.card-body -->                                           
+                    </div>
+                    <!-- /.card-body -->                                           
                 </div> <!-- /.card -->
             </div>
           <!--/.col (left) -->

@@ -7,10 +7,9 @@ class AdminCntr extends MY_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model('CatModel');
-
-        /*//load helper for language*/
+        /*load helper for language*/
         $this->load->helper('language');
-        /*//content_lang is the language file within language folder*/
+        /*content_lang is the language file within language folder*/
         if(isset($_SESSION['site_lang'])){
             $this->lang->load('content_lang',$_SESSION['site_lang']);
         }else{
@@ -165,8 +164,7 @@ class AdminCntr extends MY_Controller {
                     }                         
                 }            
                 $pageData['getCurrentRevenueTotal'] = $getTotal.'';
-                $pageData['getCurrentRevenueMonth'] = $GetMonths;
-                
+                $pageData['getCurrentRevenueMonth'] = $GetMonths;                
             }
             /* End Sales Reort Data */
             $pageData['getMonthArray'] = MONTHS;            
@@ -187,6 +185,7 @@ class AdminCntr extends MY_Controller {
             redirect('site-admin/login');
         }   
     }
+
     public function create() {   
         if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {
             $pageData['pageId'] = 3;
@@ -268,7 +267,7 @@ class AdminCntr extends MY_Controller {
                                             'user_id' => $usrId,
                                             'pswrd' => $pass
                                         );
-                                        /* //save user creadentials */
+                                        /* save user creadentials */
                                         $passSaveResult = $this->UsrModel->saveUsrPass($saveUsrPass);
                                         if ($passSaveResult == false) {
                                             /* remove this user data from database */
@@ -1958,6 +1957,7 @@ class AdminCntr extends MY_Controller {
             redirect('site-admin/login');
         }  
     }
+    
     public function update_employee() {
         if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {
             try {
@@ -2124,7 +2124,6 @@ class AdminCntr extends MY_Controller {
             $pageData['pageId'] = 30;
             $pageData['GetSingleEnquiryDetails'] = $this->EmployeeModel->get_single_enquiry_details($id);
             $pageData['GetadminEnquiryDetails'] = $this->EmployeeModel->get_single_admin_enquiry_details($id);
-            //echo '<pre>'; print_r($pageData['GetadminEnquiryDetails']); die; 
             $this->load->view('site_admin/customer-enquiry/view-coustomer-enquiry', $pageData);
         }else{
             redirect('site-admin/login');

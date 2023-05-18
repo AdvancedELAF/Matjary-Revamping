@@ -8,8 +8,7 @@ if ($this->session->userdata('loggedInUsrData')) {
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Matjary - Ecommerce Store in Saudi Arabia</title>
-       
+        <title>Matjary - Ecommerce Store in Saudi Arabia</title>       
         <!-- Google Font: Source Sans Pro -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
         <!-- Font Awesome -->
@@ -18,19 +17,14 @@ if ($this->session->userdata('loggedInUsrData')) {
         <link rel="stylesheet" href="<?php echo SERVER_ROOT_PATH_ASSETS; ?>admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
         <!-- Theme style -->
         <link rel="stylesheet" href="<?php echo SERVER_ROOT_PATH_ASSETS; ?>admin/dist/css/adminlte.min.css">
-
-
         <link rel="stylesheet" href="<?php echo SERVER_ROOT_PATH_ASSETS; ?>css/sweetalert.css" />
-
         <!-- Animate CSS & JS -->
         <link rel="stylesheet" href="<?php echo SERVER_ROOT_PATH_ASSETS; ?>css/animate.css" />
         <!-- Loader CSS -->
         <link rel="stylesheet" href="<?php echo SERVER_ROOT_PATH_ASSETS; ?>css/loader.css" />
-
     </head>
     <body>
-        <header>
-            
+        <header>            
         </header>
         <!-- FREE TRIAL MODAL STARTS -->
         <div class="modal fade" id="trialModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -60,7 +54,6 @@ if ($this->session->userdata('loggedInUsrData')) {
                             <button type="button" class="btn btn-primary brand-btn-pink-popup mx-auto d-block"><?php echo $this->lang->line('create-store-now'); ?></button>
                         </div>
                     </div>
-
                     <div class="modal-footer trial-modal-footer">
                         <small><?php echo $this->lang->line('powered_by'); ?> <a href="https://www.advancedelaf.com" target="_blank"><?php echo $this->lang->line('advanced-elaf'); ?></a></small>
                     </div>
@@ -76,5 +69,4 @@ if ($this->session->userdata('loggedInUsrData')) {
             </div>
         </div>
     </body>
-
 </html>

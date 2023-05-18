@@ -2,10 +2,8 @@
 if ($this->session->userdata('loggedInSuperAdminData')) {
     $loggedInSuperAdminData = $this->session->userdata('loggedInSuperAdminData');
 }
-?>
-<?php  
-    $this->load->view('site_admin/layout/header.php');
-    $this->load->view('site_admin/layout/sidebar.php');
+$this->load->view('site_admin/layout/header.php');
+$this->load->view('site_admin/layout/sidebar.php');
 ?>
 <section class="content">
     <div class="container-fluid">
@@ -14,24 +12,23 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0">All User Tickets</h1>
-                    </div><!-- /.col -->
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?php echo base_url('site-admin/dashboard'); ?>">Home</a></li>
-                        <li class="breadcrumb-item active">All User Tickets</li>
-                        </ol>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
+                        <div class="col-sm-6">
+                            <h1 class="m-0">All User Tickets</h1>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="<?php echo base_url('site-admin/dashboard'); ?>">Home</a></li>
+                            <li class="breadcrumb-item active">All User Tickets</li>
+                            </ol>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
             </div>
             <!-- /.content-header -->
             <div class="row"><!-- /.row -->
                 <div class="col-12">
                     <div class="card">     
                     <!-- /.card-header -->
-                    <?php //echo '<pre>'; print_r($getContactEnquieryData); die;?>
                     <div class="card-body" id="listingWrapper">
                         <table class="table table-bordered table-striped" id="viewAllSubscribersList">
                             <thead>
@@ -77,8 +74,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                                     </tr>
                                 <?php
                                 }
-                                ?>
-                                
+                                ?>                                
                             </tbody>
                         </table>
                     </div>

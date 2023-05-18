@@ -5,7 +5,6 @@
     <p>Subject :  <?php echo $emailSubject; ?></p>    
     <hr>
     <p>Support Team: <?php echo $adminReply; ?> </p>
-
     <br/><br/>
     <p><strong>Ticket Details</strong><a href="<?php echo $ticket_link;?>">You can check ticket status here</a> </p>
 </div>

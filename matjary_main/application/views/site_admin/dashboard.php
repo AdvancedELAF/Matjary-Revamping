@@ -203,7 +203,7 @@ $this->load->view('site_admin/layout/sidebar.php');
                 </div>
               </div>
               <div class="card-body">                
-				<canvas id="SalesOrders" aria-label="chart" heigth="400" width="400"></canvas>
+				        <canvas id="SalesOrders" aria-label="chart" heigth="400" width="400"></canvas>
               </div>
               <!-- /.card-body-->
             </div>

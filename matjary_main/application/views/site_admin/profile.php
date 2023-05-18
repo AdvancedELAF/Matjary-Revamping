@@ -1,16 +1,13 @@
 <?php
 if ($this->session->userdata('loggedInSuperAdminData')) {
     $loggedInSuperAdminData = $this->session->userdata('loggedInSuperAdminData');
-}
-?>
-<?php  
-    $this->load->view('site_admin/layout/header.php');
-    $this->load->view('site_admin/layout/sidebar.php');
+} 
+$this->load->view('site_admin/layout/header.php');
+$this->load->view('site_admin/layout/sidebar.php');
 ?>
   <div class="content-wrapper">
     <!-- Content Header (Page header) --> 
     <!-- Main content -->
-    <?php //echo '<pre>'; print_r($getAdminUserData);?>
     <section class="content">
       <div class="container-fluid">
         <div class="row">
@@ -32,21 +29,20 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
               <!-- /.card-header -->
               <div class="card-body">
                 <strong><i class="fas fa-book mr-1"></i> Role</strong>
-
                 <p class="text-muted">
-                  <?php 
-                    if($getAdminUserData->usr_role == 1){
-                        echo 'Super Admin';
-                    }elseif($getAdminUserData->usr_role == 2){
-                      echo 'Admin';
-                    }elseif($getAdminUserData->usr_role == 3){
-                      echo 'User';
-                    }elseif($getAdminUserData->usr_role == 4){
-                      echo 'Manager';
-                    }elseif($getAdminUserData->usr_role == 5){
-                      echo 'Customer Support Executive';
-                    }
-                  ?>
+                    <?php 
+                        if($getAdminUserData->usr_role == 1){
+                            echo 'Super Admin';
+                        }elseif($getAdminUserData->usr_role == 2){
+                          echo 'Admin';
+                        }elseif($getAdminUserData->usr_role == 3){
+                          echo 'User';
+                        }elseif($getAdminUserData->usr_role == 4){
+                          echo 'Manager';
+                        }elseif($getAdminUserData->usr_role == 5){
+                          echo 'Customer Support Executive';
+                        }
+                    ?>
                 </p>
                 <hr>
                 <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
@@ -159,7 +155,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                                             }
                                         }
                                 ?>
-                                        <option value="<?php echo isset($cityData->id) ? $cityData->id : ''; ?>" <?php echo $selected; ?>><?php echo isset($cityData->name) ? $cityData->name : ''; ?></option>
+                                <option value="<?php echo isset($cityData->id) ? $cityData->id : ''; ?>" <?php echo $selected; ?>><?php echo isset($cityData->name) ? $cityData->name : ''; ?></option>
                                 <?php
                                     }
                                 }
@@ -212,5 +208,4 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
 <?php $this->load->view('site_admin/layout/footer.php'); ?>
