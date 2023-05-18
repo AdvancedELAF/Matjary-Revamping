@@ -248,13 +248,13 @@ $ses_lang = $session->get('ses_lang');
                                     </div>
                                 </div>
                             </div>
-                        </div><!--Print Div End-->  
-                    </div>
-                <?php }else{ ?>
-                    <div class="success-message text-center">
-                        <p><?php echo isset($orderMessage)?$orderMessage:'NA'; ?></p>
-                    </div>
-                <?php } ?>   
+                        </div>
+                    <?php }else{ ?>
+                        <div class="success-message text-center">
+                            <p><?php echo isset($orderMessage)?$orderMessage:'NA'; ?></p>
+                        </div>
+                    <?php } ?>  
+                </div><!--Print Div End-->                           
                 <hr>
                 <div class="row">                         
                 </div>

@@ -37,14 +37,15 @@
             <div class="col-md-6">
                 <div class="contact-detail">
                     <h3><?php echo $language['Email Address']; ?></h3>                   
-                    <h5><a href="mailto:webmaster@example.com"><?php echo isset($GetGeneralSettingInfo->support_email)?$GetGeneralSettingInfo->support_email:''; ?></a></h5>
+                    <h5><a href="mailto:<?php echo isset($GetGeneralSettingInfo->support_email)?$GetGeneralSettingInfo->support_email:'webmaster@example.com'; ?>"><h6><?php echo isset($GetGeneralSettingInfo->support_email)?$GetGeneralSettingInfo->support_email:''; ?></a></h5>
+                    
                 </div>
-
                 <div class="contact-detail">
                     <h3><?php echo $language['Contact Number']; ?></h3>
-                    <h5><a href="#"><?php echo isset($GetGeneralSettingInfo->contact_no)?$GetGeneralSettingInfo->contact_no:''; ?></a></h5>
+                    <h5><a href="tel:+966<?php echo isset($GetGeneralSettingInfo->contact_no)?$GetGeneralSettingInfo->contact_no:'123456789'; ?>">
+                            <?php echo isset($GetGeneralSettingInfo->contact_no)?$GetGeneralSettingInfo->contact_no:''; ?>
+                        </a></h5>
                 </div>
-
                 <div class="contact-detail">
                     <h3><?php echo $language['Address']; ?></h3>
                     <h5><?php echo isset($GetGeneralSettingInfo->address)?$GetGeneralSettingInfo->address:''; ?></h5>

@@ -249,7 +249,7 @@ $ses_lang = $session->get('ses_lang');
                                 </div>
                             </div>
                         </div>
-            </div><!--Print Div End-->  
+                </div><!--Print Div End-->  
                     </div>
                 <?php }else{ ?>
                     <div class="success-message text-center">
