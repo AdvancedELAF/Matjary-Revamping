@@ -39,7 +39,6 @@ class ContactUsModel extends Model {
 	protected $beforeDelete         = [];
 	protected $afterDelete          = [];
 
-    // .. other member variables
     protected $db;
 
     public function __construct()
@@ -48,7 +47,7 @@ class ContactUsModel extends Model {
         $this->db = \Config\Database::connect();
     }
 
-    public function get_all_data() //$customerId
+    public function get_all_data() 
     {
         $query = $this->db->query('select * from ' . $this->table .' where is_active in(1,2) order by id desc');
        

@@ -39,14 +39,12 @@ class ProdCatModel extends Model {
 	protected $beforeDelete         = [];
 	protected $afterDelete          = [];
 
-    // .. other member variables
     protected $db;
 
     public function __construct()
     {
         parent::__construct();
         $this->db = \Config\Database::connect();
-        // OR $this->db = db_connect();
     }
 
     public function check_category_name_exist($cat_name){
@@ -77,8 +75,6 @@ class ProdCatModel extends Model {
         }
         
         $query = $query->getResult();
-
-        //echo print_r($query); exit;
         if(count($query) > 0){
             return false;
         }else{
@@ -199,9 +195,7 @@ class ProdCatModel extends Model {
             where pcat.parent_cat_id = '.$parent_cat_id.' and pcat.is_active in(1) order by pcat.id desc
         ');
         return $query->getResult();
-    }   
-	
+    }   	
 }
-
 
 ?>

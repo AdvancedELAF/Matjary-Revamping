@@ -38,22 +38,18 @@ class UserModel extends Model {
 	protected $afterFind            = [];
 	protected $beforeDelete         = [];
 	protected $afterDelete          = [];
-
-    // .. other member variables
+    
     protected $db;
 
     public function __construct()
     {
         parent::__construct();
         $this->db = \Config\Database::connect();
-        // OR $this->db = db_connect();
     }
 
     public function get_all_data()
     {
-        // $query = $this->db->query('select * from ' . $this->table .' where is_active in(1,2) order by id desc');
-        // return $query->getResult();
-
+       
         $query = $this->db->query(
             "select 
             Users.id as user_id,
@@ -98,7 +94,6 @@ class UserModel extends Model {
             LEFT JOIN UserRoles ON Users.role_id = UserRoles.id  
             where Users.id = ".$userId."  and Users.is_active in (1,2)			           
             ORDER by Users.id DESC"); 
-		//return $query->getResult();
         return $query->getFirstRow();
     }
 
@@ -226,7 +221,6 @@ class UserModel extends Model {
             ->table($this->table)
             ->where(["id" => $id])
             ->set(["profile_image" => ''])
-            //->set(["updated_at" => DATETIME])
             ->update();
         return $this->db->affectedRows();
     }

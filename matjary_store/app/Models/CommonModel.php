@@ -39,32 +39,16 @@ class CommonModel extends Model {
 	protected $beforeDelete         = [];
 	protected $afterDelete          = [];
 
-    // .. other member variables
+   
     protected $db;
-	//public $db_samatjary;
-
+	
     public function __construct()
     {
         parent::__construct();
 
         $this->db = \Config\Database::connect();
-        // OR $this->db = db_connect();
-		//$this->db_samatjary = db_connect('samatjary');
 
     }
-
-	// public function get_store_owner_subscription_details($baseUrl){
-	// 	//$baseUrl = 'http://RRRe.matjary.in';
-	// 	if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on'){
-	// 		$baseUrl = str_replace("https://","",$baseUrl);
-	// 	}else {
-	// 		$baseUrl = str_replace("http://","",$baseUrl);
-	// 	}
-	// 	$baseUrl = str_replace("www.","",$baseUrl);
-		
-	// 	$query = $this->db_samatjary->query('select * from user_subscriptions where store_link="'.$baseUrl.'" order by id desc');
-    //     return $query->getResult();
-	// }
 
 	public function get_all_country_data(){
 		$query = $this->db->query('select * from Countries order by name asc');
@@ -197,8 +181,6 @@ class CommonModel extends Model {
 		}
 		return $query->getResult();
 	}	
-
 }
-
 
 ?>

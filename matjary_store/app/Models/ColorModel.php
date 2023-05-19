@@ -39,14 +39,12 @@ class ColorModel extends Model {
 	protected $beforeDelete         = [];
 	protected $afterDelete          = [];
 
-    // .. other member variables
     protected $db;
 
     public function __construct()
     {
         parent::__construct();
         $this->db = \Config\Database::connect();
-        // OR $this->db = db_connect();
     }
 
     public function get_all_data()
@@ -75,8 +73,6 @@ class ColorModel extends Model {
     {
         $query = $this->db->query('select * from ' . $this->table . ' where color_name = "'.$data['color_name'].'"');
         $query = $query->getResult();
-
-        //echo print_r($query); exit;
         if(count($query) > 0){
             return false;
         }else{
@@ -107,18 +103,6 @@ class ColorModel extends Model {
             where id='.$id.' 
             ');
         return $query->getResult();
-    }
-
-    
-
-	
+    }	
 }
-
-
-
-
-
-
-
-
 ?>

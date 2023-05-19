@@ -46,7 +46,6 @@ class CustomerAddressesModel extends Model {
     {
         parent::__construct();
         $this->db = \Config\Database::connect();
-        // OR $this->db = db_connect();
     }
 
     public function get_all_data()
@@ -135,8 +134,7 @@ class CustomerAddressesModel extends Model {
             '
         );
         return $query->getRow();
-    }
-   
+    }   
 }
 
 ?>
