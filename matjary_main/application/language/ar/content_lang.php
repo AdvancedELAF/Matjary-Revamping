@@ -128,13 +128,28 @@ $lang['usr_cntr_msg_41'] = 'لقد قمت بتسجيل الدخول بنجاح!'
 $lang['usr_cntr_msg_42'] = 'كلمة المرور القديمة غير متطابقة ، يرجى المحاولة مرة أخرى';
 $lang['usr_cntr_msg_43'] = 'السعر الإجمالي للخطة المطلوبة';
 $lang['usr_cntr_msg_44'] = 'تمت إضافة الموضوع بنجاح';
-$lang['usr_cntr_msg_45'] = '';
-$lang['usr_cntr_msg_46'] = '';
-$lang['usr_cntr_msg_47'] = '';
-$lang['usr_cntr_msg_48'] = '';
-$lang['usr_cntr_msg_49'] = '';
-$lang['usr_cntr_msg_50'] = '';
+$lang['usr_cntr_msg_45'] = 'بريد إلكتروني خاطئ.';
+$lang['usr_cntr_msg_46'] = 'خطأ أثناء إدخال معلومات قالب المستخدم.';
+$lang['usr_cntr_msg_47'] = 'يرجى الانتظار أثناء إعادة توجيهك إلى بوابة الدفع';
+$lang['usr_cntr_msg_48'] = 'رد بوابة الدفع فارغ';
+$lang['usr_cntr_msg_49'] = 'حدث خطأ ما أثناء تحديث معلومات الدفع.';
+$lang['usr_cntr_msg_50'] = 'لا يوجد سجلات.';
+$lang['usr_cntr_msg_51'] = 'البريد الالكتروني موجود مسبقا.';
 /*  common text end */
+
+/* save user api */
+$lang['save_usr_msg_1'] = 'تم التسجيل بنجاح ، بالنسبة إلى البريد الترحيبي ، يرجى التحقق من صندوق البريد الإلكتروني المسجل / مجلد البريد العشوائي.';
+$lang['save_usr_msg_2'] = 'خطأ أثناء إزالة سجل غير هام للمستخدم';
+$lang['save_usr_msg_3'] = 'خطأ أثناء إرسال بريد ترحيبي للمستخدم';
+$lang['save_usr_msg_4'] = '';
+/* save user api */
+
+/* save subscrion data */
+$lang['save_sbrptn_msg_1'] = 'مطلوب ارتباط مسؤول المتجر.';
+$lang['save_sbrptn_msg_2'] = 'رابط المتجر مطلوب.';
+$lang['save_sbrptn_msg_3'] = 'البريد الالكتروني مطلوب.';
+$lang['save_sbrptn_msg_4'] = '';
+/* save subscrion data */
 
 /* Index Page text start */
 /* HERO SECTION starts */
@@ -545,6 +560,15 @@ $lang['user-bill-txt-11'] = 'القسيمة غير صالحة';
 
 /* billing info page */
 
+/* payment response api */
+$lang['pg_resp_1'] = 'تم الدفع بنجاح ، يرجى الانتظار أثناء معالجة طلبك.';
+$lang['pg_resp_2'] = 'تم الدفع بنجاح ، إنشاء متجرك يرجى الانتظار.';
+$lang['pg_resp_3'] = 'لم يتم الدفع ، يرجى المحاولة لاحقًا.';
+$lang['pg_resp_4'] = '';
+$lang['pg_resp_5'] = '';
+$lang['pg_resp_6'] = '';
+/* payment response api */
+
 /* Footer text start */
 $lang['footer-txt-1'] = 'روابط مفيدة';
 $lang['footer-txt-2'] = 'معلومات عنا';
@@ -612,3 +636,18 @@ $lang['Expired'] = 'منتهي الصلاحية';
 
 /**Employee List */
 $lang['Reply'] = 'رد';
+
+/* sai */
+$lang['com_msg_1'] = 'لم تتم معالجة الطلب في لحظة ، يرجى المحاولة مرة أخرى';
+$lang['com_msg_2'] = 'خطأ أثناء تحديث علامة إعادة تعيين كلمة المرور ، يرجى المحاولة مرة أخرى';
+$lang['com_msg_3'] = 'تم تحديث كلمة السر بنجاح';
+$lang['com_msg_4'] = 'رمز مفقود';
+$lang['com_msg_5'] = 'لا توجد بيانات نشر';
+$lang['com_msg_6'] = 'خطأ أثناء إدراج معلومات النموذج الذي اشتراه المستخدم';
+$lang['com_msg_7'] = '';
+$lang['com_msg_8'] = '';
+$lang['com_msg_10'] = '';
+$lang['com_msg_11'] = '';
+$lang['com_msg_12'] = '';
+$lang['com_msg_13'] = '';
+$lang['com_msg_14'] = '';

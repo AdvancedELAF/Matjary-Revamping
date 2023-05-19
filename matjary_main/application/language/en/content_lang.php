@@ -128,13 +128,28 @@ $lang['usr_cntr_msg_41'] = 'You have Successfully logged in!';
 $lang['usr_cntr_msg_42'] = 'Old Password did not Matched, Please try again';
 $lang['usr_cntr_msg_43'] = 'Plan total price';
 $lang['usr_cntr_msg_44'] = 'Template Added Succesfully';
-$lang['usr_cntr_msg_45'] = '';
-$lang['usr_cntr_msg_46'] = '';
-$lang['usr_cntr_msg_47'] = '';
-$lang['usr_cntr_msg_48'] = '';
-$lang['usr_cntr_msg_49'] = '';
-$lang['usr_cntr_msg_50'] = '';
+$lang['usr_cntr_msg_45'] = 'Invalid Email.';
+$lang['usr_cntr_msg_46'] = 'Error While inserting user template information.';
+$lang['usr_cntr_msg_47'] = 'Please Hold While you are redirected to Payment Gateway';
+$lang['usr_cntr_msg_48'] = 'Payment Gateway Response is Empty';
+$lang['usr_cntr_msg_49'] = 'Something Went Wrong While Updating Payment Information.';
+$lang['usr_cntr_msg_50'] = 'No Record Found.';
+$lang['usr_cntr_msg_51'] = 'Email already exist.';
 /*  common text end */
+
+/* save user api */
+$lang['save_usr_msg_1'] = 'Registered successfully, for welcome mail please check your registered email inbox/spam folder.';
+$lang['save_usr_msg_2'] = 'Error While removing junk record of user';
+$lang['save_usr_msg_3'] = 'Error While sending welcome mail to user';
+$lang['save_usr_msg_4'] = '';
+/* save user api */
+
+/* save subscrion data */
+$lang['save_sbrptn_msg_1'] = 'Store admin link is required.';
+$lang['save_sbrptn_msg_2'] = 'Store link is required.';
+$lang['save_sbrptn_msg_3'] = 'Email is required.';
+$lang['save_sbrptn_msg_4'] = '';
+/* save subscrion data */
 
 /* Index Page text start */
 /* HERO SECTION starts */
@@ -543,11 +558,16 @@ $lang['user-bill-txt-8'] = 'Coupon Code Required';
 $lang['user-bill-txt-9'] = 'Coupon Applied Successfully';
 $lang['user-bill-txt-10'] = 'Coupon already used';
 $lang['user-bill-txt-11'] = 'Coupon not valid';
-
-
-
 /* billing info page */
 
+/* payment response api */
+$lang['pg_resp_1'] = 'Payment Successfull, Please hold while we process your order.';
+$lang['pg_resp_2'] = 'Payment Successfull, Creating your store please hold on.';
+$lang['pg_resp_3'] = 'Payment did not went through, kindly try later.';
+$lang['pg_resp_4'] = '';
+$lang['pg_resp_5'] = '';
+$lang['pg_resp_6'] = '';
+/* payment response api */
 
 /* Footer text start */
 $lang['footer-txt-1'] = 'Useful Links';
@@ -616,3 +636,18 @@ $lang['Expired'] = 'Expired';
 
 /**Employee List */
 $lang['Reply'] = 'Reply';
+
+/* sai */
+$lang['com_msg_1'] = 'Request Not Processed at Moment, please try again';
+$lang['com_msg_2'] = 'Error While updating password reset flag, please try again';
+$lang['com_msg_3'] = 'Password Updated Succesfully';
+$lang['com_msg_4'] = 'Token Missing';
+$lang['com_msg_5'] = 'No Post Data';
+$lang['com_msg_6'] = 'Error while inserting user purchased template info';
+$lang['com_msg_7'] = '';
+$lang['com_msg_8'] = '';
+$lang['com_msg_10'] = '';
+$lang['com_msg_11'] = '';
+$lang['com_msg_12'] = '';
+$lang['com_msg_13'] = '';
+$lang['com_msg_14'] = '';

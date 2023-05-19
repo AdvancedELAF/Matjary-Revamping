@@ -96,6 +96,20 @@ $(document).ready(function () {
 			cache: false,
 			context: document.body,
 			success: function () {
+				var language = 'ar';
+				if (current_lang == 'ar') {
+					language = 'en';
+				} else if (current_lang == 'en') {
+					language = 'ar';
+				}
+				
+				/* setting cookie for 1 month, after one month it'll be expired automatically */
+				document.cookie = "site_lang="+language+"; max-age="+60*60*24*30;
+				if(document.cookie){ /* if cookie is set */
+				  	/* alert('cookie is set'); */
+				}else{ /* if cookie not set then alert an error */
+				  alert((current_lang == "en") ?"لا يمكن تعيين ملف تعريف الارتباط! يرجى إلغاء حظر هذا الموقع من إعداد ملفات تعريف الارتباط في متصفحك.":"Cookie can't be set! Please unblock this site from the cookie setting of your browser.");
+				}
 				location.reload();
 			},
 			error: function (exception) {
