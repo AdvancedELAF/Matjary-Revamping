@@ -8,18 +8,18 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
 <section class="content">
     <div class="container-fluid">
         <div class="content-wrapper">
-        <div class="content-header">
+            <div class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0">View Coupon</h1>
-                    </div><!-- /.col -->
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?php echo base_url('site-admin/dashboard'); ?>">Home</a></li>
-                        <li class="breadcrumb-item active">View Coupon</li>
-                        </ol>
-                    </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            <h1 class="m-0">View Coupon</h1>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="<?php echo base_url('site-admin/dashboard'); ?>">Home</a></li>
+                            <li class="breadcrumb-item active">View Coupon</li>
+                            </ol>
+                        </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
@@ -29,7 +29,6 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                         <h3 class="card-title">&nbsp;</h3>
                     </div> <!-- /.card-header -->
                     <!-- form start -->
-                    <?php //echo '<pre>'; print_r($GetSingleCouponDetails); die;?>
                     <form method="POST" action="<?php echo base_url('update-coupon'); ?>" name="update_coupon" id="update_coupon" enctype="multipart/form-data">
                         <input type="hidden" name="id" value="<?php echo isset($GetSingleCouponDetails->id)?$GetSingleCouponDetails->id:''; ?>" />
                             <div class="card-body">

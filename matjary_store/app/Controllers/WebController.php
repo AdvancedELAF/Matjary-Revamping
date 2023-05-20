@@ -1100,7 +1100,8 @@ class WebController extends BaseController
         if(isset($_POST['coupon_code']) && !empty($_POST['coupon_code'])){
             if(isset($_POST['customer_id']) && !empty($_POST['customer_id'])){
                 if(isset($_POST['total_price']) && !empty($_POST['total_price'])){
-                    $couponCodeStatus = $this->CouponModel->chk_coupon_code_valid($_POST['coupon_code'],$_POST['customer_id'],$_POST['total_price']);
+                    $checkLang = $this->ses_lang;
+                    $couponCodeStatus = $this->CouponModel->chk_coupon_code_valid($_POST['coupon_code'],$_POST['customer_id'],$_POST['total_price'],$checkLang);
                     if($couponCodeStatus['responseCode']==1){
                         $resp['responseCode'] = 500;
                         $resp['responseMessage'] = $this->ses_lang=='en'?'Coupon Code Invalid.':'رمز القسيمة غير صالح.';
@@ -6170,7 +6171,8 @@ class WebController extends BaseController
         if(isset($_POST['gc_code']) && !empty($_POST['gc_code'])){
             if(isset($_POST['customerid']) && !empty($_POST['customerid'])){
                 if(isset($_POST['totalprice']) && !empty($_POST['totalprice'])){
-                    $gcStatus = $this->GiftCardModel->is_customer_gc_valid($_POST['gc_code'],$_POST['customerid'],$_POST['totalprice']);
+                    $checkLang = $this->ses_lang;
+                    $gcStatus = $this->GiftCardModel->is_customer_gc_valid($_POST['gc_code'],$_POST['customerid'],$_POST['totalprice'],$checkLang);
                     $resp['responseCode'] = $gcStatus['statusCode'];
                     $resp['responseMessage'] = $gcStatus['statusMessage'];
                     $resp['responseData'] = isset($gcStatus['statusData'])?$gcStatus['statusData']:'';

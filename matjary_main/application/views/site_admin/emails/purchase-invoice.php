@@ -31,6 +31,5 @@
             <td style="border: 1px solid #DDDDDD; padding: 8px;"><?php echo $payment_status; ?></td>
         </tr>
     </table>
-
 </div>
 <?php include 'email_head_foot/email_foot.php'; ?>

@@ -38,14 +38,13 @@ class ShippingModel extends Model {
 	protected $beforeDelete         = [];
 	protected $afterDelete          = [];
 
-    // .. other member variables
+    
     protected $db;
 
     public function __construct()
     {
         parent::__construct();
         $this->db = \Config\Database::connect();
-        // OR $this->db = db_connect();
     }
 
 	public function get_all_shipping_companies(){

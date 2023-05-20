@@ -47,47 +47,41 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                                 <div class="col-md-12"> 
                                     <label for="is_active">Features</label>
                                     <div id="planFeaturesWrapper">
-                                        <?php 
-                                            if(isset($getPlanFetauresList) && !empty($getPlanFetauresList)){
-                                        ?>
-                                                <div class="featureItem">
-                                                    <div class="row">
-                                                        <div class="col-md-5">
-                                                            <div class="form-group">
-                                                                <label class="control-label" for="feature_name_en">List In English:</label>
-                                                            </div>
+                                        <?php if(isset($getPlanFetauresList) && !empty($getPlanFetauresList)){ ?>
+                                            <div class="featureItem">
+                                                <div class="row">
+                                                    <div class="col-md-5">
+                                                        <div class="form-group">
+                                                            <label class="control-label" for="feature_name_en">List In English:</label>
                                                         </div>
-                                                        <div class="col-md-5">
-                                                            <div class="form-group">
-                                                                <label class="control-label" for="feature_name_ar">List In Arabic:</label>
-                                                            </div>   
-                                                        </div>
-                                                    </div> 
+                                                    </div>
+                                                    <div class="col-md-5">
+                                                        <div class="form-group">
+                                                            <label class="control-label" for="feature_name_ar">List In Arabic:</label>
+                                                        </div>   
+                                                    </div>
                                                 </div> 
-                                        <?php
-                                                foreach($getPlanFetauresList as $featureData){
-                                        ?>
-                                                    <div class="featureItem">
-                                                        <div class="row">
-                                                            <div class="col-md-5">
-                                                                <div class="form-group">
-                                                                    <input type="text" value="<?php echo isset($featureData->feature_name_en)?$featureData->feature_name_en:$featureData->feature_name_en; ?>" class="form-control" id="feature_name_en" placeholder="Enter Feature In English" name="feature_name_en[]" autocomplete="off">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-5">
-                                                                <div class="form-group">
-                                                                    <input type="text" value="<?php echo isset($featureData->feature_name_ar)?$featureData->feature_name_ar:$featureData->feature_name_ar; ?>" class="form-control" id="feature_name_ar" placeholder="Enter Feature In Arabic" name="feature_name_ar[]" autocomplete="off">
-                                                                </div>   
-                                                            </div>
-                                                            <div class="col-md-2">
-                                                                <a href="javascript:void(0);" class="btn btn-danger removePlanFeature">X</a>
-                                                            </div>
-                                                        </div> 
-                                                    </div> 
-                                        <?php
-                                                }
-                                            }else{
-                                        ?>
+                                            </div> 
+                                        <?php foreach($getPlanFetauresList as $featureData){ ?>
+                                            <div class="featureItem">
+                                                <div class="row">
+                                                    <div class="col-md-5">
+                                                        <div class="form-group">
+                                                            <input type="text" value="<?php echo isset($featureData->feature_name_en)?$featureData->feature_name_en:$featureData->feature_name_en; ?>" class="form-control" id="feature_name_en" placeholder="Enter Feature In English" name="feature_name_en[]" autocomplete="off">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-5">
+                                                        <div class="form-group">
+                                                            <input type="text" value="<?php echo isset($featureData->feature_name_ar)?$featureData->feature_name_ar:$featureData->feature_name_ar; ?>" class="form-control" id="feature_name_ar" placeholder="Enter Feature In Arabic" name="feature_name_ar[]" autocomplete="off">
+                                                        </div>   
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                           <a href="javascript:void(0);" class="btn btn-danger removePlanFeature">X</a>
+                                                    </div>
+                                                </div> 
+                                            </div> 
+                                        <?php } ?>
+                                        <?php }else{ ?>
                                             <div>
                                                 <div class="row">
                                                     <div class="col-md-5">

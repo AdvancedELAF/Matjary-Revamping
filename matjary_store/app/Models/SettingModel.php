@@ -37,15 +37,13 @@ class SettingModel extends Model {
 	protected $afterFind            = [];
 	protected $beforeDelete         = [];
 	protected $afterDelete          = [];
-
-    // .. other member variables
+    
     protected $db;
 
     public function __construct()
     {
         parent::__construct();
         $this->db = \Config\Database::connect();
-        // OR $this->db = db_connect();
     }
 
     public function insert_data($settingModel = array())
@@ -71,8 +69,7 @@ class SettingModel extends Model {
     {
         $query = $this->db->query('select * from ' . $this->table );
         return $query->getFirstRow();
-    }
-    	
+    }    	
 }
 
 ?>

@@ -39,14 +39,12 @@ class ProductFeedBackModel extends Model {
 	protected $beforeDelete         = [];
 	protected $afterDelete          = [];
 
-    // .. other member variables
     protected $db;
 
     public function __construct()
     {
         parent::__construct();
         $this->db = \Config\Database::connect();
-        // OR $this->db = db_connect();
     }
 
     public function get_all_data()
@@ -68,7 +66,6 @@ class ProductFeedBackModel extends Model {
     }
 
     public function get_customer_feedback_products($prodId){
-       // $query = $this->db->query("SELECT * FROM ".$this->table." WHERE product_id = ".$prodId);
         $query = $this->db->query(
         "SELECT c.*, cc.name,cc.email FROM ProductFeedbacks as c left join Customers as cc on cc.id=c.customer_id WHERE c.customer_id=cc.id AND c.product_id = $prodId AND c.is_active=1;"
         );
@@ -98,9 +95,6 @@ class ProductFeedBackModel extends Model {
         }else{
             return false;
         }
-    }
-    
-
+    }  
 }
-
 ?>

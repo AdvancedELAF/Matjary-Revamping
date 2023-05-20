@@ -38,14 +38,12 @@ class OrderModel extends Model {
 	protected $beforeDelete         = [];
 	protected $afterDelete          = [];
 
-    // .. other member variables
     protected $db;
 
     public function __construct()
     {
         parent::__construct();
         $this->db = \Config\Database::connect();
-        // OR $this->db = db_connect();
     }
 
     public function insert_data($data = array())
@@ -94,21 +92,7 @@ class OrderModel extends Model {
 
     public function get_all_shipment_pickups(){
         $query = $this->db->query('select * from ' . $this->table .' where pickup_req_flag=1 and is_giftcard_purchased=0 and is_active=1 group by pickup_req_ref_id');
-        return $query->getResult();
-
-        // $builder = $this->db->table($this->table);
-		// $builder->select('*');
-        // $array = ['pickup_req_flag' => 1, 'is_giftcard_purchased' => 0, 'is_active' => 1];
-        // $builder->where($array);
-		// $builder->groupBy('pickup_req_ref_id');
-		// $query = $builder->get();
-
-		// echo "<pre>";
-		// print_r($query->getResult());
-        //return $query->getResult();
-      
-        // To get last query executed
-        //return $this->db->getLastQuery();
+        return $query->getResult();   
 
     }
     public function get_single_shipment_pickups($guId){
@@ -208,12 +192,10 @@ class OrderModel extends Model {
         );
         
         $result['orderInfo'] = $orderQuery->getRow();
-        // $getLastQuery = $this->db->getLastQuery();
-        // echo '<pre>'; print_r($getLastQuery); exit;
         if(isset($result['orderInfo']) && !empty($result['orderInfo'])){
             
             $orderId = isset($result['orderInfo']->id)?$result['orderInfo']->id:'';
-            //echo '<pre>'; print_r($orderId); exit;
+            
             if(isset($result['orderInfo']->is_giftcard_purchased) && !empty($result['orderInfo']->is_giftcard_purchased)){
                 $orderItemsQuery = $this->db->query(
                     '
@@ -238,8 +220,7 @@ class OrderModel extends Model {
                     left join Products on Products.id=OrderItems.product_id  
                     where OrderItems.order_id='.$orderId
                 );
-                // $getLastQuery = $this->db->getLastQuery();
-                // echo '<pre>'; print_r($getLastQuery); exit;
+               
                 $result['orderProductItemsInfo'] = $orderItemsQuery->getResult();
             }
         }
@@ -367,8 +348,7 @@ class OrderModel extends Model {
             where r.is_active=1 
             and o.order_status=3 
             order by r.id desc'
-        );   
-        //echo $this->db->getLastQuery(); exit;
+        ); 
         return $query->getResult();
     }
 
@@ -511,8 +491,6 @@ class OrderModel extends Model {
                 '
             );   
         return $query->getResult();
-    }
-    	
+    }    	
 }
-
 ?>

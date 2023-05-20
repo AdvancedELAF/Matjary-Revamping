@@ -46,7 +46,6 @@ class CustomerModel extends Model {
     {
         parent::__construct();
         $this->db = \Config\Database::connect();
-        // OR $this->db = db_connect();
     }
 
     public function get_all_data()
@@ -200,7 +199,6 @@ class CustomerModel extends Model {
             ->table($this->table)
             ->where(["id" => $id])
             ->set(["profile_image" => ''])
-            //->set(["updated_at" => DATETIME])
             ->update();
         return $this->db->affectedRows();
     }

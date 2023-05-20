@@ -1,11 +1,9 @@
 <?php
 if ($this->session->userdata('loggedInSuperAdminData')) {
     $loggedInSuperAdminData = $this->session->userdata('loggedInSuperAdminData');
-}
-?>
-<?php  
-    $this->load->view('site_admin/layout/header.php');
-    $this->load->view('site_admin/layout/sidebar.php');
+} 
+$this->load->view('site_admin/layout/header.php');
+$this->load->view('site_admin/layout/sidebar.php');
 ?>
 <section class="content">
     <div class="container-fluid">
@@ -53,11 +51,14 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                                     <td><?php echo isset($value->theme_cat_name) ? $value->theme_cat_name : 'NA'; ?></td>
                                     <td><?php echo isset($value->theme_cat_name_ar) ? $value->theme_cat_name_ar : 'NA'; ?></td>                                
                                     </td>
-                                    <td><?php if ($value->is_active == 1) {
+                                    <td>
+                                        <?php 
+                                        if ($value->is_active == 1) {
                                             echo 'Active';
                                         } else {
                                             echo 'Deactivated';
-                                        } ?></td>
+                                        } ?>
+                                    </td>
                                     <td>
                                     <div class="dropdown">
                                         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
