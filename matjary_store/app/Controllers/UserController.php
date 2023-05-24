@@ -471,97 +471,77 @@ class UserController extends BaseController
     
     public function update_user_profile_form(){ 
         if(isset($_POST['user_id']) && !empty($_POST['user_id'])){
-           // if(isset($_POST['name']) && !empty($_POST['name'])){
-                    if(isset($_POST['addr_permanent']) && !empty($_POST['addr_permanent'])){
-                        if(isset($_POST['contact_no']) && !empty($_POST['contact_no'])){
-                                if(isset($_POST['date_of_birth']) && !empty($_POST['date_of_birth'])){
-                                    if(isset($_POST['zipcode']) && !empty($_POST['zipcode'])){
-                                        if(isset($_POST['social_fb_link']) && !empty($_POST['social_fb_link'])){
-                                            if(isset($_POST['social_twitter_link']) && !empty($_POST['social_twitter_link'])){
-                                
-                                                    //$name	= $this->request->getPost('name');
-                                                    $addr_residential = $this->request->getPost('addr_residential');
-                                                    $addr_permanent = $this->request->getPost('addr_permanent');
-                                                    $contact_no = $this->request->getPost('contact_no');
-                                                    //$role_id = $this->request->getPost('role_id');
-                                                    //$email = $this->request->getPost('email');  
-                                                    $date_of_birth = date('Y-m-d', strtotime($_POST['date_of_birth']));
-                                                    $gender = $this->request->getPost('gender');                                                                
-                                                    $country_id = $this->request->getPost('country_id');  
-                                                    $state_id = $this->request->getPost('state_id');  
-                                                    $city_id = $this->request->getPost('city_id');  
-                                                    $zipcode = $this->request->getPost('zipcode'); 
-                                                    $social_fb_link = $this->request->getPost('social_fb_link'); 
-                                                    $social_twitter_link = $this->request->getPost('social_twitter_link'); 
-                                                    $social_linkedin_link = $this->request->getPost('social_linkedin_link'); 
-                                                    $social_skype_link = $this->request->getPost('social_skype_link');  
+            if(isset($_POST['addr_permanent']) && !empty($_POST['addr_permanent'])){
+                if(isset($_POST['contact_no']) && !empty($_POST['contact_no'])){
+                        if(isset($_POST['date_of_birth']) && !empty($_POST['date_of_birth'])){
+                            if(isset($_POST['zipcode']) && !empty($_POST['zipcode'])){   
+
+                                $addr_residential = $this->request->getPost('addr_residential');
+                                $addr_permanent = $this->request->getPost('addr_permanent');
+                                $contact_no = $this->request->getPost('contact_no');                                                   
+                                $date_of_birth = date('Y-m-d', strtotime($_POST['date_of_birth']));
+                                $gender = $this->request->getPost('gender');                                                                
+                                $country_id = $this->request->getPost('country_id');  
+                                $state_id = $this->request->getPost('state_id');  
+                                $city_id = $this->request->getPost('city_id');  
+                                $zipcode = $this->request->getPost('zipcode'); 
+                                $social_fb_link = $this->request->getPost('social_fb_link'); 
+                                $social_twitter_link = $this->request->getPost('social_twitter_link'); 
+                                $social_linkedin_link = $this->request->getPost('social_linkedin_link'); 
+                                $social_skype_link = $this->request->getPost('social_skype_link');  
 
 
-                                                    $result = $this->UserModel->update_data($_POST['user_id'],array(                                                                           
-                                                        //"name" =>isset($name)?$name:'',
-                                                        "addr_residential" => isset($addr_residential)?$addr_residential:'',
-                                                        "addr_permanent" => isset($addr_permanent)?$addr_permanent:'',
-                                                        "contact_no" => isset($contact_no)?$contact_no:'',
-                                                        //"role_id" => isset($role_id)?$role_id:'',
-                                                        //"email" => isset($email)?$email:'',
-                                                        "date_of_birth" => isset($date_of_birth)?$date_of_birth:'',
-                                                        "gender" => isset($gender)?$gender:'',
-                                                        "country_id" => isset($country_id)?$country_id:'',
-                                                        "state_id" => isset($state_id)?$state_id:'',
-                                                        "city_id" => isset($city_id)?$city_id:'',
-                                                        "zipcode" => isset($zipcode)?$zipcode:'',
-                                                        "social_fb_link" => isset($social_fb_link)?$social_fb_link:'',
-                                                        "social_twitter_link" => isset($social_twitter_link)?$social_twitter_link:'',
-                                                        "social_linkedin_link" => isset($social_linkedin_link)?$social_linkedin_link:'',
-                                                        "social_skype_link" => isset($social_skype_link)?$social_skype_link:'',                                
-                                                        "updated_at" => DATETIME
-                                                    ));
-                                                    if(isset($result) && !empty($result)){ 
-                                                        $resp['responseCode'] = 200;
-                                                        $resp['responseMessage'] =  $this->ses_lang=='en' ? "User Profile Updated Successfully." : "تم تحديث ملف تعريف المستخدم بنجاح.";
-                                                        $resp['redirectUrl'] = base_url('admin/profile');
-                                                        return json_encode($resp); exit; 
-                                                    }else{
-                                                        $errorMsg =  $this->ses_lang=='en' ? "Error While Store User Insertion." : "خطأ أثناء تخزين إدراج المستخدم.";
-                                                        $resp['responseCode'] = 500;
-                                                        $resp['responseMessage'] = $errorMsg;
-                                                        return json_encode($resp); exit;
-                                                    }
-                                            }else{
-                                                $resp['responseCode'] = 404;
-                                                $resp['responseMessage'] =  $this->ses_lang=='en' ? "Twitter Is Required." : "Twitter مطلوب.";
-                                                return json_encode($resp); exit;
-                                            } 
-                                        }else{
-                                            $resp['responseCode'] = 404;
-                                            $resp['responseMessage'] =  $this->ses_lang=='en' ? "Facebook URL Is Required." : "مطلوب عنوان URL الخاص بـ Facebook.";
-                                            return json_encode($resp); exit;
-                                        } 
-                                    }else{
-                                        $resp['responseCode'] = 404;
-                                        $resp['responseMessage'] =  $this->ses_lang=='en' ? "Zipcode Is Required." : "الرمز البريدي مطلوب.";
-                                        return json_encode($resp); exit;
-                                    } 
+                                $result = $this->UserModel->update_data($_POST['user_id'],array(                                                                           
+                                    
+                                    "addr_residential" => isset($addr_residential)?$addr_residential:'',
+                                    "addr_permanent" => isset($addr_permanent)?$addr_permanent:'',
+                                    "contact_no" => isset($contact_no)?$contact_no:'',                                                      
+                                    "date_of_birth" => isset($date_of_birth)?$date_of_birth:'',
+                                    "gender" => isset($gender)?$gender:'',
+                                    "country_id" => isset($country_id)?$country_id:'',
+                                    "state_id" => isset($state_id)?$state_id:'',
+                                    "city_id" => isset($city_id)?$city_id:'',
+                                    "zipcode" => isset($zipcode)?$zipcode:'',
+                                    "social_fb_link" => isset($social_fb_link)?$social_fb_link:'',
+                                    "social_twitter_link" => isset($social_twitter_link)?$social_twitter_link:'',
+                                    "social_linkedin_link" => isset($social_linkedin_link)?$social_linkedin_link:'',
+                                    "social_skype_link" => isset($social_skype_link)?$social_skype_link:'',                                
+                                    "updated_at" => DATETIME
+                                ));
+                                if(isset($result) && !empty($result)){ 
+                                    $resp['responseCode'] = 200;
+                                    $resp['responseMessage'] =  $this->ses_lang=='en' ? "User Profile Updated Successfully." : "تم تحديث ملف تعريف المستخدم بنجاح.";
+                                    $resp['redirectUrl'] = base_url('admin/profile');
+                                    return json_encode($resp); exit; 
                                 }else{
-                                    $resp['responseCode'] = 404;
-                                    $resp['responseMessage'] =  $this->ses_lang=='en' ? "Date Of Birth Is Required." : "تاريخ الميلاد مطلوب.";
+                                    $errorMsg =  $this->ses_lang=='en' ? "Error While Store User Insertion." : "خطأ أثناء تخزين إدراج المستخدم.";
+                                    $resp['responseCode'] = 500;
+                                    $resp['responseMessage'] = $errorMsg;
                                     return json_encode($resp); exit;
-                                }                            
+                                }
+                                    
+                                
+                            }else{
+                                $resp['responseCode'] = 404;
+                                $resp['responseMessage'] =  $this->ses_lang=='en' ? "Zipcode Is Required." : "الرمز البريدي مطلوب.";
+                                return json_encode($resp); exit;
+                            } 
                         }else{
                             $resp['responseCode'] = 404;
-                            $resp['responseMessage'] =  $this->ses_lang=='en' ? "Contact Number Is Required." : "رقم الاتصال مطلوب.";
+                            $resp['responseMessage'] =  $this->ses_lang=='en' ? "Date Of Birth Is Required." : "تاريخ الميلاد مطلوب.";
                             return json_encode($resp); exit;
-                        }
-                    }else{
-                        $resp['responseCode'] = 404;
-                        $resp['responseMessage'] =  $this->ses_lang=='en' ? "Permanat Address Is Required." : "مطلوب العنوان الدائم.";
-                        return json_encode($resp); exit;
-                    }                        
-            // }else{
-            //     $resp['responseCode'] = 404;
-            //     $resp['responseMessage'] = 'Name Is Required.';
-            //    return json_encode($resp); exit;
-            // } 
+                        }                            
+                }else{
+                    $resp['responseCode'] = 404;
+                    $resp['responseMessage'] =  $this->ses_lang=='en' ? "Contact Number Is Required." : "رقم الاتصال مطلوب.";
+                    return json_encode($resp); exit;
+                }
+            }else{
+                $resp['responseCode'] = 404;
+                $resp['responseMessage'] =  $this->ses_lang=='en' ? "Permanat Address Is Required." : "مطلوب العنوان الدائم.";
+                return json_encode($resp); exit;
+            }                        
+           
         }else{
             $resp['responseCode'] = 404;
             $resp['responseMessage'] =  $this->ses_lang=='en' ? "User Id Is Required." : "معرف المستخدم مطلوب.";
