@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12 col-sm-12">
                 <div class="title">
-                    <h4><?php echo $language['All Orders For Shipping']; ?></h4>
+                    <h4><?php echo $language['All Shipping Orders']; ?></h4>
                 </div>
                 <nav aria-label="breadcrumb" role="navigation">
                     <ol class="breadcrumb">

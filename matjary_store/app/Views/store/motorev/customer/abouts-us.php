@@ -13,8 +13,8 @@
 <section class="section-spacing <?php if($locale=='ar'){echo 'text-right';} ?>">
     <div class="container">
             <?php 
-                    $checkshortDesc = $locale=='en'?'Short Description Not Available For NowStore About Us Content/Information Not Available Yet!.':'وصف قصير غير متوفر في الوقت الحالي تخزين معلومات عنا المحتوى / المعلومات غير متوفرة بعد !.';
-                    $checkLongDesc = $locale=='en'?'Long Description Not Available For NowStore About Us Content/Information Not Available Yet!.':'الوصف الطويل غير متوفر في الوقت الحالي تخزين معلومات عنا المحتوى / المعلومات غير متوفرة بعد !.';
+                    $checkshortDesc = $locale=='en'?'Short Description Not Available For Now Store About Us Content/Information Not Available Yet!.':'الوصف المختصر غير متوفر حاليًا قم بتخزين معلومات عنا المحتوى / المعلومات غير متوفرة بعد !.';
+                    $checkLongDesc = $locale=='en'?'Long Description Not Available For Now Store About Us Content/Information Not Available Yet!.':'الوصف الطويل غير متوفر حاليًا قم بتخزين معلومات عنا المحتوى / المعلومات غير متوفرة بعد !.';
                     if($locale=='en'){
                         if(isset($GetAboutUsInfo->short_description) && !empty($GetAboutUsInfo->short_description)){
                             $checkshortDesc = substr($GetAboutUsInfo->short_description, 0, 500);

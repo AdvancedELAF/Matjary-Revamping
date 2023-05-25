@@ -63,7 +63,7 @@ class ColorController extends BaseController
                 )); 
                 if(is_int($insertedId)){
                     $resp['responseCode'] = 200;
-                    $resp['responseMessage'] =  $this->ses_lang=='en' ? "Product Color Inserted Successfully." : "تم إدراج لون المنتج بنجاح.";
+                    $resp['responseMessage'] =  $this->ses_lang=='en' ? "Product Color Added Successfully." : "تم إدراج لون المنتج بنجاح.";
                     $resp['redirectUrl'] = base_url('admin/all-product-colors');
                     return json_encode($resp); exit;
                 }else{                    

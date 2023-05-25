@@ -27,6 +27,7 @@ $ses_lang = $session->get('ses_lang');
     <div class="container">        
         <div class="row">
             <?php 
+            $checkProductData = $locale=='en'?'Product Not Available Yet!.':'البيانات غير متوفرة بعد !.';
             if(isset($productList) && !empty($productList)){
                 foreach($productList as $productData){
                     $title = '';
@@ -67,8 +68,13 @@ $ses_lang = $session->get('ses_lang');
             </div>
             <?php
                 }
-            }
-            ?>
+            }else{ ?>
+                <div class="col-md-6 col-lg-3">                              
+                   <div class="prod-details">                        
+                           <h5><?php echo $checkProductData; ?></h5>                                           
+                   </div>                 
+               </div>   
+            <?php  } ?>            
         </div>
     </div>
 </section>

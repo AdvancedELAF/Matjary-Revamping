@@ -70,7 +70,7 @@ class BrandController extends BaseController
                         )); 
                         if(is_int($insertedId)){
                             $resp['responseCode'] = 200;
-                            $resp['responseMessage'] =  $this->ses_lang=='en' ? "Product Brand Inserted Successfully." : "تم إدراج علامة المنتج التجارية بنجاح."; 
+                            $resp['responseMessage'] =  $this->ses_lang=='en' ? "Product Brand Added Successfully." : "تم إدراج علامة المنتج التجارية بنجاح."; 
                             $resp['redirectUrl'] = base_url('admin/all-product-brands');
                             return json_encode($resp); exit;
                         }else{

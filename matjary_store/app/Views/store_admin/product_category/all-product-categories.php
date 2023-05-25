@@ -31,8 +31,8 @@ $ses_lang = $session->get('ses_lang');
                     <tr>
                         <th scope="col">#</th>
                         <th class="table-plus datatable-nosort"><?php echo $language['Category Image']; ?></th>
-                        <th scope="col"><?php echo $language['Category Name']; ?></th>
                         <th scope="col"><?php echo $language['Parent Category']; ?></th>
+                        <th scope="col"><?php echo $language['Category Name']; ?></th>
                         <th scope="col"><?php echo $language['Status']; ?></th>
                         <th scope="col"><?php echo $language['Action']; ?></th>
                     </tr>
@@ -67,11 +67,11 @@ $ses_lang = $session->get('ses_lang');
                                 </td>
                                 <td class="table-plus">
                                     <img src="<?php echo base_url('uploads/product_category/'); ?>/<?php echo isset($value->category_img) ? $value->category_img : ''; ?>" width="70" height="70" alt="">
-                                </td>
+                                </td>                                
+                                <td><?php echo isset($value->parent_cat_name) ? $value->parent_cat_name : 'Root'; ?></td>
                                 <td>
                                     <h5 class="font-16"><?php echo $category_name; ?></h5>
                                 </td>
-                                <td><?php echo isset($value->parent_cat_name) ? $value->parent_cat_name : 'Root'; ?></td>
                                 <td><?php if ($value->is_active == 1) {
                                         echo 'Active';
                                     } else {

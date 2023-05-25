@@ -32,7 +32,7 @@ $ses_lang = $session->get('ses_lang');
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col"><?php echo $language['Image']; ?></th>
-                        <th scope="col"><?php echo $language['Image']; ?></th>
+                        <th scope="col"><?php echo $language['Title']; ?></th>
                         <th scope="col"><?php echo $language['Sub Title']; ?></th>
                         <th scope="col"><?php echo $language['Status']; ?></th>
                         <th scope="col"><?php echo $language['Action']; ?></th>

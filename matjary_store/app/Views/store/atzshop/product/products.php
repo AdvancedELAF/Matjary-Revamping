@@ -24,7 +24,8 @@ $ses_lang = $session->get('ses_lang');
             </h4>
         </div>
         <div class="row" >
-            <?php 
+            <?php
+            $checkProductData = $locale=='en'?'Product Not Available Yet!.':'البيانات غير متوفرة بعد !.';
             if(isset($productList) && !empty($productList)){
                 foreach($productList as $productData){
                     $actionWishlisturl = base_url('customer/add-product-wishlist');
@@ -81,8 +82,13 @@ $ses_lang = $session->get('ses_lang');
             </div>
             <?php
                 }
-            }
-            ?>
+            }else{ ?>
+                <div class="col-md-6 col-lg-3">                             
+                    <div class="home-prod-price mb-2 text-center">                        
+                        <?php echo $checkProductData; ?>                                      
+                   </div>                 
+               </div>   
+              <?php  } ?>
         </div>
     </div>
 </section>

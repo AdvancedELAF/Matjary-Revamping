@@ -116,7 +116,7 @@
             <a href="<?php echo base_url('admin/all-banners'); ?>">
                 <div class="widget-data">
                     <div class="h4 mb-0"><?php if(isset($dashboardAnalytics['totalBanners']) && !empty($dashboardAnalytics['totalBanners'])){ echo count($dashboardAnalytics['totalBanners']) ; }else{ echo '0'; }?></div>
-                    <div class="weight-600 font-14"><?php echo $language['Total Banner']; ?></div>
+                    <div class="weight-600 font-14"><?php echo $language['Total Banners']; ?></div>
                 </div>
             </a>
         </div>
@@ -136,7 +136,7 @@
             <a href="<?php echo base_url('admin/all-customers'); ?>">
                 <div class="widget-data">
                     <div class="h4 mb-0"><?php if(isset($dashboardAnalytics['totalResentCustomers']) && !empty($dashboardAnalytics['totalResentCustomers'])){ echo count($dashboardAnalytics['totalResentCustomers']) ; }else{ echo '0'; }?></div>
-                    <div class="weight-600 font-14"><?php echo $language['Resent Customers']; ?></div>
+                    <div class="weight-600 font-14"><?php echo $language['Recent Customers']; ?></div>
                 </div>
             </a>
         </div>
@@ -146,7 +146,7 @@
             <a href="<?php echo base_url('admin/all-users'); ?>">
                 <div class="widget-data">
                     <div class="h4 mb-0"><?php if(isset($dashboardAnalytics['totalResentUsers']) && !empty($dashboardAnalytics['totalResentUsers'])){ echo count($dashboardAnalytics['totalResentUsers']) ; }else{ echo '0'; }?></div>
-                    <div class="weight-600 font-14"><?php echo $language['Resent Users']; ?></div>
+                    <div class="weight-600 font-14"><?php echo $language['Recent Users']; ?></div>
                 </div>
             </a>
         </div>
@@ -156,7 +156,7 @@
             <a href="<?php echo base_url('admin/all-subscribes'); ?>">
                 <div class="widget-data">
                     <div class="h4 mb-0"><?php if(isset($dashboardAnalytics['totalResentSubcrs']) && !empty($dashboardAnalytics['totalResentSubcrs'])){ echo count($dashboardAnalytics['totalResentSubcrs']) ; }else{ echo '0'; }?></div>
-                    <div class="weight-600 font-14"><?php echo $language['Resent Subscribers']; ?></div>
+                    <div class="weight-600 font-14"><?php echo $language['Recent Subscribers']; ?></div>
                 </div>
             </a>
         </div>
@@ -165,7 +165,7 @@
 <div class="row">
     <div class="col-xl-12 mb-30">
         <div class="card-box height-100-p pd-20">
-            <h2 class="h4 mb-20"><?php echo $language['Anual Revenue Statistics']; ?></h2>
+            <h2 class="h4 mb-20"><?php echo $language['Annual Revenue']; ?></h2>
             <div id="chart5"></div>
         </div>
     </div>
@@ -183,28 +183,33 @@
         </thead>
         <tbody>
         <?php 
-                if(isset($getSellingProducts) && !empty($getSellingProducts)){
-                    foreach($getSellingProducts as $productData){
-                ?>
-            <tr>
-                <td class="table-plus">
-                <a href="<?php echo base_url('product/product-details/'.$productData[0]->id); ?>">
-                    <img width="70" height="70" src="<?php echo base_url('uploads/product/'); ?>/<?php echo isset($productData[0]->image)?$productData[0]->image:''; ?>">
-                </a>
-                </td>
-                <td>
-                    <h5 class="font-16"><a href="#"><?php echo isset($productData[0]->title)?$productData[0]->title:''; ?> </a></h5>
-                 
-                </td>             
-                <td><?php echo isset($productData[0]->product_price)?number_format((float)$productData[0]->product_price, 2, '.', ''):''; ?></td>
-                <td><?php echo isset($productData[0]->stock_quantity)?$productData[0]->stock_quantity:''; ?></td>
-              
-            </tr>
+            if(isset($getSellingProducts) && !empty($getSellingProducts)){
+                foreach($getSellingProducts as $productData){
+            ?>
+                <tr>
+                    <td class="table-plus">
+                    <a href="<?php echo base_url('product/product-details/'.$productData[0]->id); ?>">
+                        <img width="70" height="70" src="<?php echo base_url('uploads/product/'); ?>/<?php echo isset($productData[0]->image)?$productData[0]->image:''; ?>">
+                    </a>
+                    </td>
+                    <td>
+                        <h5 class="font-16"><a href="#"><?php echo isset($productData[0]->title)?$productData[0]->title:''; ?> </a></h5>
+                    
+                    </td>             
+                    <td><?php echo isset($productData[0]->product_price)?number_format((float)$productData[0]->product_price, 2, '.', ''):''; ?></td>
+                    <td><?php echo isset($productData[0]->stock_quantity)?$productData[0]->stock_quantity:''; ?></td>
+                
+                </tr>
             <?php
                     }
+                }else {
+                    ?>
+                    <tr>
+                        <td colspan="8"><?php echo $language['No record found.']; ?></td>
+                    </tr>
+                <?php
                 }
-                ?>
-           
+                ?>           
         </tbody>
     </table>
 </div>
@@ -247,7 +252,7 @@
             }],
             xaxis: {
                 title: {
-                    text: 'Anual Months'
+                    text: 'Months'
                 },
                 categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
                 labels: {
@@ -262,7 +267,7 @@
             },
             yaxis: {
                 title: {
-                    text: 'Currency in SAR'
+                    text: 'SAR'
                 },
                 labels: {
                     style: {

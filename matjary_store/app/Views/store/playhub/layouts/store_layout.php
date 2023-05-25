@@ -150,7 +150,7 @@ $ses_lang = $session->get('ses_lang');
                 <?php if (isset($storeSettingInfo->logo) && !empty($storeSettingInfo->logo)) { ?>
                     <a href="<?php echo base_url('home'); ?>"><img src="<?php echo base_url('/uploads/logo/'); ?>/<?php echo isset($storeSettingInfo->logo) ? $storeSettingInfo->logo : ''; ?>" width="150px" height="50px"></a>
                 <?php } else { ?>
-                    <img src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/images/logo.png">
+                    <a href="<?php echo base_url('home'); ?>"><img src="<?php echo base_url('/store/' . $storeActvTmplName . '/assets/images/logo.png'); ?>" width="150px" height="50px"></a>
                 <?php } ?>
             </div>
         </a>

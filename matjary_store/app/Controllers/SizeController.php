@@ -63,7 +63,7 @@ class SizeController extends BaseController
                 )); 
                 if(is_int($insertedId)){
                     $resp['responseCode'] = 200;
-                    $resp['responseMessage'] =  $this->ses_lang=='en' ? "Product Size Inserted Successfully." : "تم إدراج حجم المنتج بنجاح.";
+                    $resp['responseMessage'] =  $this->ses_lang=='en' ? "Product Size Added Successfully." : "تم إدراج حجم المنتج بنجاح.";
                     $resp['redirectUrl'] = base_url('admin/all-product-sizes');
                     return json_encode($resp); exit;
                 }else{
