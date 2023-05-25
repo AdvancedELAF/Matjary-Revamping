@@ -1,9 +1,11 @@
 <?php
 if ($this->session->userdata('loggedInSuperAdminData')) {
     $loggedInSuperAdminData = $this->session->userdata('loggedInSuperAdminData');
-} 
-$this->load->view('site_admin/layout/header.php');
-$this->load->view('site_admin/layout/sidebar.php');
+}
+?>
+<?php  
+    $this->load->view('site_admin/layout/header.php');
+    $this->load->view('site_admin/layout/sidebar.php');
 ?>
 <section class="content">
     <div class="container-fluid">
@@ -12,15 +14,15 @@ $this->load->view('site_admin/layout/sidebar.php');
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0">Edit Template</h1>
-                    </div><!-- /.col -->
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="<?php echo base_url('site-admin/dashboard'); ?>">Home</a></li>
-                            <li class="breadcrumb-item active">Edit Template</li>
-                        </ol>
-                    </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <h1 class="m-0">Edit Template</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="<?php echo base_url('site-admin/dashboard'); ?>">Home</a></li>
+                    <li class="breadcrumb-item active">Edit Template</li>
+                    </ol>
+                </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>

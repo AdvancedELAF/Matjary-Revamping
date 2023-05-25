@@ -14,6 +14,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                         <h3 class="card-title">Edit Coupon</h3>
                     </div> <!-- /.card-header -->
                     <!-- form start -->
+                    <?php //echo '<pre>'; print_r($GetSingleCouponDetails); die;?>
                     <form method="POST" action="<?php echo base_url('update-coupon'); ?>" name="update_coupon" id="update_coupon" enctype="multipart/form-data">
                         <input type="hidden" name="id" value="<?php echo isset($GetSingleCouponDetails->id)?$GetSingleCouponDetails->id:''; ?>" />
                             <div class="card-body">
@@ -53,10 +54,10 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
                                 </div>
                             </div>
                         <!-- /.card-body -->
-                            <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Update</button>
-                                <a href="<?php echo base_url('site-admin/all-coupons'); ?>" class="btn btn-secondary">Cancel</a>
-                            </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Update</button>
+                            <a href="<?php echo base_url('site-admin/all-coupons'); ?>" class="btn btn-secondary">Cancel</a>
+                        </div>
                     </form>
                 </div> <!-- /.card -->
             </div>

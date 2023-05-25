@@ -199,6 +199,10 @@ class PlanModel extends CI_Model {
             return $e->getMessage();
         }
     }
-    /* Store list Module End */    
+
+    /* Store list Module End */
+
+    
 }
+
 ?>

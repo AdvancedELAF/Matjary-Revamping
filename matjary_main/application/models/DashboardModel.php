@@ -5,6 +5,7 @@ class DashboardModel extends CI_Model {
     public function __construct() {
         parent::__construct();
         $this->load->database();
+        //$this->check_db = $this->load->database('check_db', TRUE);
     }
 
     public function dashboard_analytics() {

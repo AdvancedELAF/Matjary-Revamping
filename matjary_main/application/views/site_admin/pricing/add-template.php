@@ -2,8 +2,9 @@
 if ($this->session->userdata('loggedInSuperAdminData')) {
     $loggedInSuperAdminData = $this->session->userdata('loggedInSuperAdminData');
 }
-include(APPPATH.'views/site_admin/layout/admin-layout.php'); 
 ?>
+<?php //include('./layout/admin-layout.php');
+include(APPPATH.'views/site_admin/layout/admin-layout.php'); ?>
 <section class="content">
     <div class="container-fluid">
         <div class="content-wrapper">
@@ -28,13 +29,13 @@ include(APPPATH.'views/site_admin/layout/admin-layout.php');
                             <div class="form-group">
                                 <label for="exampleInputFile">Half Banner</label>
                                 <div class="input-group">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                    </div>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">Upload</span>
-                                    </div>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="exampleInputFile">
+                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                </div>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">Upload</span>
+                                </div>
                                 </div>
                             </div>
                         </div>
@@ -42,13 +43,13 @@ include(APPPATH.'views/site_admin/layout/admin-layout.php');
                             <div class="form-group">
                                 <label for="exampleInputFile">Full Banner</label>
                                 <div class="input-group">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                    </div>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">Upload</span>
-                                    </div>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="exampleInputFile">
+                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                </div>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">Upload</span>
+                                </div>
                                 </div>
                             </div>
                         </div>                       
@@ -74,13 +75,17 @@ include(APPPATH.'views/site_admin/layout/admin-layout.php');
                     </div>
                 </div>
                 <!-- /.card-body -->
+
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
               </form>
             </div>
             <!-- /.card -->
+
             <!-- general form elements -->
+        
+
           </div>
           <!--/.col (left) -->
           </div>

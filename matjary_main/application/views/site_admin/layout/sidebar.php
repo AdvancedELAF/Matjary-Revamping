@@ -14,6 +14,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
     <div class="sidebar">
       <!-- Sidebar user panel (optional) --> 
       <!-- Sidebar Menu --> 
+      <?php //echo '<pre>'; print_r($this->menuArray); ?>
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <?php if (in_array( 1, $this->menuArrayValues)){ ?>

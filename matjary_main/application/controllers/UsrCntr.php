@@ -75,12 +75,12 @@ class UsrCntr extends MY_Controller {
                                         $usrData->apiResponse = json_decode($urlJsonData->response);
                                         if ($usrData->apiResponse->responseCode == 200) {
                                             $this->response['responseCode'] = $usrData->apiResponse->responseCode;
-                                            $this->response['responseMessage'] = $usrData->apiResponse->messageCode;
+                                            $this->response['responseMessage'] = $this->lang->line($usrData->apiResponse->messageCode);
                                             $this->response['redirectUrl'] = base_url('login');
                                             echo json_encode($this->response); exit;
                                         } else {
                                             $this->response['responseCode'] = $usrData->apiResponse->responseCode;
-                                            $this->response['responseMessage'] = $usrData->apiResponse->messageCode;
+                                            $this->response['responseMessage'] = $this->lang->line($usrData->apiResponse->messageCode);
                                             echo json_encode($this->response); exit;
                                         }
                                     }
@@ -1577,6 +1577,39 @@ class UsrCntr extends MY_Controller {
             echo json_encode($this->response);
             exit;
         }      
+    }
+
+    public function check_subdomain_availability(){
+        try {
+            if (isset($_POST['sub_domain_name']) && !empty($_POST['sub_domain_name'])) {
+                $subdomainData = new stdClass();
+                $chkSubdomainAvailabilityUrl = base_url('check-subdomain-availability-api');
+                $requestData = array(
+                    'sub_domain_name' => $_POST['sub_domain_name']
+                );
+                $header[0] = 'form-data';
+                $inptData['token'] = JWT::encode($requestData, JWT_TOKEN);
+                $urlJsonData = $this->restclient->post($chkSubdomainAvailabilityUrl, $inptData, $header);
+                if ($urlJsonData->info->http_code == 200) {
+                    $subdomainData->apiResponse = json_decode($urlJsonData->response);
+                    if ($subdomainData->apiResponse->responseCode == 200) {
+                        $this->response['responseCode'] = $subdomainData->apiResponse->responseCode;
+                        $this->response['responseMessage'] = $this->lang->line($subdomainData->apiResponse->messageCode);
+                    } else {
+                        $this->response['responseCode'] = $subdomainData->apiResponse->responseCode;
+                        $this->response['responseMessage'] = $this->lang->line($subdomainData->apiResponse->messageCode);
+                    }
+                    echo json_encode($this->response); exit;
+                }
+            } else {
+                $this->response['responseCode'] = 404;
+                $this->response['responseMessage'] = $this->lang->line('com_msg_9');
+                echo json_encode($this->response); exit;
+            }
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+        
     }
 
 }

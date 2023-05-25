@@ -4,9 +4,7 @@
         <div class="user-sec-title">
             <h4><?php echo $this->lang->line('user-acc-txt-3'); ?></h4>
         </div>
-
         <div class="dash-wrap blue-bg mb-4">
-
             <!-- STORE & PAID TEMPLATE TAB STARTS -->
             <nav>
                 <div class="nav nav-tabs mb-5" id="nav-tab" role="tablist">
@@ -14,9 +12,7 @@
                     <a class="nav-link" id="nav-pt-tab" data-toggle="tab" href="#nav-pt" role="tab" aria-controls="nav-pt" aria-selected="false"><?php echo $this->lang->line('Paid Templates'); ?></a>
                 </div>
             </nav>
-
             <div class="tab-content" id="nav-tabContent">
-
                 <div class="tab-pane fade show active" id="store-details" role="tabpanel" aria-labelledby="nav-sd-tab">
                     <div class="billing-table">
                         <div class="table-responsive">

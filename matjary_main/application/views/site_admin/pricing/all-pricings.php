@@ -2,6 +2,8 @@
 if ($this->session->userdata('loggedInSuperAdminData')) {
     $loggedInSuperAdminData = $this->session->userdata('loggedInSuperAdminData');
 }
+?>
+<?php //include('./layout/admin-layout.php');
 include(APPPATH.'views/site_admin/layout/admin-layout.php'); ?>
 <section class="content">
     <div class="container-fluid">

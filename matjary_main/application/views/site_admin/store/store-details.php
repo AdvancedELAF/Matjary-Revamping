@@ -63,12 +63,14 @@ $this->load->view('site_admin/layout/sidebar.php');
 						</div><!-- /.row -->
 					</div><!-- /.container-fluid -->
 				</div>
+				<?php //echo '<pre>'; print_r($storeDetails); die; ?>
 				<div id="printableArea">					
 					<div id="dvContents">
 						
 					<div class="row" style="margin:0;padding:0;">
 						<div class="col-md" id="listingWrapper">
 							<table class="table table-bordered" cellspacing="0" rules="all" border="1">							
+								<!-- <thead colspan="2" style="font"><strong style>Store Basic Details</strong></thead> -->
 								<tbody>
 								    <tr>
 										<td colspan="2" style="font" scope="col"><strong>Store Basic Details</strong></td>
@@ -105,6 +107,7 @@ $this->load->view('site_admin/layout/sidebar.php');
 						</div>
 						<div class="col-md">
 							<table class="table table-bordered" cellspacing="0" rules="all" border="1">
+								<!-- <thead colspan="2" style="font"><strong style>Store Plan Details</strong></thead> -->
 								<tbody>
 								    <tr>
 										<td colspan="2" style="font" scope="col"><strong>Store Plan Details</strong></td>
@@ -163,6 +166,7 @@ $this->load->view('site_admin/layout/sidebar.php');
 					<div class="row" style="margin:0;padding:0;">
 						<div class="col-md">
 							<table class="table table-bordered" cellspacing="0" rules="all" border="1">
+								<!-- <thead colspan="2" style="font"><strong style>Store Template Details</strong></thead> -->
 								<tbody>
 								    <tr>
 										<td colspan="2" style="font" scope="col"><strong>Store Template Details</strong></td>
@@ -175,11 +179,16 @@ $this->load->view('site_admin/layout/sidebar.php');
 										<td>Template Cost</td>
 										<td><?php echo isset($storeDetails->template_cost)?$storeDetails->template_cost.' SAR':'0.00'; ?></td>
 									</tr>
+									<!-- <tr style="height:50px;">
+										<td></td>
+										<td></td>
+									</tr> -->
 								</tbody>
 							</table>
 						</div>
 						<div class="col-md">
 							<table class="table table-bordered" cellspacing="0" rules="all" border="1">
+								<!-- <thead colspan="2" style="font"><strong style>Payment Details</strong></thead> -->
 								<tbody>
 								    <tr>
 										<td colspan="2" style="font" scope="col"><strong>Payment Details</strong></td>
@@ -248,6 +257,7 @@ $this->load->view('site_admin/layout/sidebar.php');
 					<br/>
 				<div class="text-center">
 				<input type="button" class="btn btn-primary brand-btn mb-2" onclick="PrintTable();" value="Invoice"/>	
+				<!-- <a href="javascript:void(0);" onclick="printPageArea('printableArea')" class="btn btn-primary brand-btn mb-2" >Invoice</a> -->
 				<a href="<?php echo base_url('site-admin/all-stores'); ?>" class="btn btn-primary brand-btn mb-2" > Back</a>
 			</div>
 		</div>										
@@ -256,15 +266,16 @@ $this->load->view('site_admin/layout/sidebar.php');
 <script type="text/javascript">
     function PrintTable() {
         var printWindow = window.open('', '', 'height=200,width=400');
-        printWindow.document.write('<html><head><title>Store Details</title>'); 
-        /* Print the Table CSS. */
+        printWindow.document.write('<html><head><title>Store Details</title>');
+ 
+        //Print the Table CSS.
         var table_style = document.getElementById("table_style").innerHTML;
         printWindow.document.write('<style type = "text/css">');
         printWindow.document.write(table_style);
         printWindow.document.write('</style>');
         printWindow.document.write('</head>');
  
-        /* Print the DIV contents i.e. the HTML Table. */
+        //Print the DIV contents i.e. the HTML Table.
         printWindow.document.write('<body>');
         var divContents = document.getElementById("dvContents").innerHTML;
         printWindow.document.write(divContents);

@@ -123,13 +123,13 @@
                                                 </div> 
                                                 -->
                                                 <div class="field" id="coupon_code_div">
-                                                    Coupon Code <span id="coupon_code">APLRIL2023</span>
+                                                    <?php echo $this->lang->line('com_msg_11'); ?> <span id="coupon_code">APLRIL2023</span>
                                                 </div> 
                                                 <div class="field" id="coupon_discount_div">
-                                                    Coupon Discount <span id="coupon_discount">0</span>%
+                                                    <?php echo $this->lang->line('com_msg_12'); ?> <span id="coupon_discount">0</span>%
                                                 </div> 
                                                 <div class="field" id="coupon_amount_div">
-                                                    Coupon Amount <span id="coupon_amount">0.00</span>
+                                                    <?php echo $this->lang->line('com_msg_13'); ?> <span id="coupon_amount">0.00</span>
                                                 </div>
                                                 <div class="field grand-total">
                                                     <?php echo $this->lang->line('Total'); ?> <span id="grand_total"></span>
@@ -214,9 +214,9 @@
                                             <div class="row">
                                                 <div class="col-2 invoice-title"><?php echo $this->lang->line('Theme Name'); ?></div>
                                                 <div class="col-2 invoice-title"><?php echo $this->lang->line('Sub Total'); ?></div>
-                                                <div class="col-2 invoice-title coupon_div ">Coupon Code</div>
-                                                <div class="col-2 invoice-title coupon_div">Coupon Discount</div>
-                                                <div class="col-2 invoice-title coupon_div">Coupon Amount</div>
+                                                <div class="col-2 invoice-title coupon_div "><?php echo $this->lang->line('com_msg_11'); ?></div>
+                                                <div class="col-2 invoice-title coupon_div"><?php echo $this->lang->line('com_msg_12'); ?></div>
+                                                <div class="col-2 invoice-title coupon_div"><?php echo $this->lang->line('com_msg_13'); ?></div>
                                                 <div class="col-2 invoice-title"><?php echo $this->lang->line('Grand Total'); ?></div>
                                             </div>
                                         </div>

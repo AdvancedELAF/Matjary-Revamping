@@ -89,5 +89,7 @@ class CouponModel extends CI_Model {
             return $e->getMessage();
         }
     }
+
 }
+
 ?>

@@ -16,7 +16,6 @@
                         </div>
                     </div>
                 </div>
-                 <?php //echo '<pre>'; print_r($loggedInUsrData);?>
                 <div class="col-md-6 col-lg-8">
                     <div class="contact-form">
                         <form method="POST" action="<?php echo base_url('submit-contact-form'); ?>" name="submit_contact_form" id="submit_contact_form" enctype="multipart/form-data">
