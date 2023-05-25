@@ -15,12 +15,23 @@
                     <div class="footer-title"><?php echo $this->lang->line('footer-txt-6'); ?></div>
                     <ul class="footer-list">
                         <li><a href="#"><i class="icofont-caret-right"></i><?php echo $this->lang->line('footer-txt-11'); ?></a></li>
+                        <!--
+                        <li><a href="#"><i class="icofont-caret-right"></i><?php echo $this->lang->line('footer-txt-7'); ?></a></li>
+                        <li><a href="#"><i class="icofont-caret-right"></i><?php echo $this->lang->line('footer-txt-8'); ?></a></li>
+                        <li><a href="#"><i class="icofont-caret-right"></i><?php echo $this->lang->line('footer-txt-9'); ?></a></li>
+                        <li><a href="#"><i class="icofont-caret-right"></i><?php echo $this->lang->line('footer-txt-10'); ?></a></li>
+                        <li><a href="#"><i class="icofont-caret-right"></i><?php echo $this->lang->line('footer-txt-12'); ?></a></li>
+                        -->
                     </ul>
                 </div>
                 <div class="col-lg-3">
                     <div class="footer-title"><?php echo $this->lang->line('footer-txt-13'); ?></div>
                     <ul class="footer-list">
                         <li><a href="<?php echo base_url(); ?>help"><i class="icofont-caret-right"></i><?php echo $this->lang->line('footer-txt-14'); ?></a></li>
+                        <!--
+                        <li><a href="#"><i class="icofont-caret-right"></i><?php echo $this->lang->line('footer-txt-15'); ?></a></li>
+                        <li><a href="#"><i class="icofont-caret-right"></i><?php echo $this->lang->line('footer-txt-16'); ?></a></li>
+                        -->
                     </ul>
                 </div>
                 <div class="col-lg-3">
@@ -70,6 +81,7 @@
         <div class="modal-content login-modal-content">
             <div class="modal-header login-modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <!--<span aria-hidden="true">&times;</span>-->
                 </button>
             </div>
             <div class="modal-body login-modal-body">
@@ -91,17 +103,22 @@
     </div>
 </div>
 <!-- LOGIN SUCCESSFULL MODAL ENDS -->
+
 <!-- jQuery -->
 <script src="<?php echo SERVER_ROOT_PATH_ASSETS; ?>plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="<?php echo SERVER_ROOT_PATH_ASSETS; ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo SERVER_ROOT_PATH_ASSETS; ?>dist/js/adminlte.min.js"></script>
+
+
 <!-- JQuery Integration Link -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
 <script src="<?php echo SERVER_ROOT_PATH_ASSETS; ?>js/wow.min.js"></script>
 <script src="<?php echo SERVER_ROOT_PATH_ASSETS; ?>js/sweetalert.min.js"></script>
+
 <!-- form validate js -->
 <script src="<?php echo SERVER_ROOT_PATH_ASSETS; ?>js/jquery-validate.js"></script>
 <script src="<?php echo SERVER_ROOT_PATH_ASSETS; ?>js/form-validation.js"></script>

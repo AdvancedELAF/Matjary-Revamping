@@ -2,8 +2,10 @@
 if ($this->session->userdata('loggedInSuperAdminData')) {
     $loggedInSuperAdminData = $this->session->userdata('loggedInSuperAdminData');
 }
-$this->load->view('site_admin/layout/header.php');
-$this->load->view('site_admin/layout/sidebar.php');
+?>
+<?php  
+    $this->load->view('site_admin/layout/header.php');
+    $this->load->view('site_admin/layout/sidebar.php');
 ?>
 <section class="content">
     <div class="container-fluid">
@@ -12,17 +14,17 @@ $this->load->view('site_admin/layout/sidebar.php');
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1 class="m-0">All Email Subscribers</h1>
-                        </div><!-- /.col -->
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="<?php echo base_url('site-admin/dashboard'); ?>">Home</a></li>
-                                <li class="breadcrumb-item active">All Email Subscribers</li>
-                            </ol>
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-                </div><!-- /.container-fluid -->
+                    <div class="col-sm-6">
+                        <h1 class="m-0">All Email Subscribers</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="<?php echo base_url('site-admin/dashboard'); ?>">Home</a></li>
+                        <li class="breadcrumb-item active">All Email Subscribers</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
             </div>
             <!-- /.content-header -->
             <div class="row"><!-- /.row -->
@@ -41,9 +43,9 @@ $this->load->view('site_admin/layout/sidebar.php');
                             </thead>
                             <tbody>
                                 <?php
-                                if (isset($getSubscribersList) && !empty($getSubscribersList)) {
-                                    $i = 1;
-                                    foreach ($getSubscribersList as $value) {
+                                    if (isset($getSubscribersList) && !empty($getSubscribersList)) {
+                                        $i = 1;
+                                        foreach ($getSubscribersList as $value) {
                                     ?>
                                 <tr>
                                     <th scope="row"><?php echo $i; ?></th>                                    
@@ -80,7 +82,10 @@ $this->load->view('site_admin/layout/sidebar.php');
                                     <tr>
                                         <td colspan="6"><?php echo $language['No record found']; ?>.</td>
                                     </tr>
-                                <?php } ?>                                
+                                <?php
+                                }
+                                ?>
+                                
                             </tbody>
                         </table>
                     </div>

@@ -56,24 +56,29 @@ $this->load->view('site_admin/layout/sidebar.php');
                                                 if($value->usr_role == 1){
                                                     echo 'Super Admin';
                                                 }elseif($value->usr_role == 2){
-                                                    echo 'Admin';
+                                                echo 'Admin';
                                                 }elseif($value->usr_role == 3){
-                                                    echo 'User';
+                                                echo 'User';
                                                 }elseif($value->usr_role == 4){
-                                                    echo 'Manager';
+                                                echo 'Manager';
                                                 }elseif($value->usr_role == 5){
-                                                    echo 'Customer Support Executive';
+                                                echo 'Customer Support Executive';
                                                 }
                                             ?>
                                         </td>
                                         <td><?php echo isset($value->email) ? $value->email : 'NA'; ?></td>                                        
                                         <td><?php echo isset($value->phone_no) ? $value->phone_no : 'NA'; ?></td>
-                                        <td><?php if ($value->is_active == 1) { echo 'Active'; } else { echo 'Deactivated'; } ?></td>
+                                        <td><?php if ($value->is_active == 1) {
+                                                echo 'Active';
+                                            } else {
+                                                echo 'Deactivated';
+                                            } ?></td>
                                         <td>
                                             <div class="dropdown">
                                                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                                                    <i class="fa fa-align-justify" aria-hidden="true"></i>
+                                                <i class="fa fa-align-justify" aria-hidden="true"></i>
                                                 </button>
+
                                                 <div class="dropdown-menu">
                                                     <?php if ($value->is_active == 1) { ?>
                                                         <a class="dropdown-item actionBtn" href="javascript:void(0);" data-actionurl="<?php echo base_url('site-admin/deactivate-employee'); ?>" data-id="<?php echo $value->id; ?>" data-operation="deactivate"><i class="dw dw-check"></i> Deactivate</a>

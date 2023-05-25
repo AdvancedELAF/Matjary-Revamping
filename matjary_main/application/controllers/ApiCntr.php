@@ -397,25 +397,32 @@ class ApiCntr extends MY_Controller {
         }
     }
 
-    public function check_subdomain_availability() {
-        if (isset($_POST['sub_domain_name']) && !empty($_POST['sub_domain_name'])) {
-            $usrData = $this->WebModel->check_subdomain_availability($_POST['sub_domain_name']);
-            if ($usrData == false) {
-                $this->response['responseCode'] = 200;
-                $this->response['responseMessage'] = 'Subdomain is available.';
-                echo json_encode($this->response);
-                exit;
+    public function check_subdomain_availability_api() {
+        try {
+            $decode_data = (array) JWT::decode($this->input->post('token'), JWT_TOKEN);
+            if (isset($decode_data['sub_domain_name']) && !empty($decode_data['sub_domain_name'])) {
+                $usrData = $this->WebModel->check_subdomain_availability($decode_data['sub_domain_name']);
+                if ($usrData == false) {
+                    $this->response['responseCode'] = 200;
+                    $this->response['messageCode'] = 'com_msg_7';
+                    $this->response['responseMessage'] = 'Subdomain is available.';
+                    echo json_encode($this->response); exit;
+                } else {
+                    $this->response['responseCode'] = 404;
+                    $this->response['messageCode'] = 'com_msg_8';
+                    $this->response['responseMessage'] = 'Subdomain is not available';
+                    echo json_encode($this->response); exit;
+                }
             } else {
                 $this->response['responseCode'] = 404;
-                $this->response['responseMessage'] = 'Subdomain is not available';
-                echo json_encode($this->response);
-                exit;
+                $this->response['messageCode'] = 'com_msg_9';
+                $this->response['responseMessage'] = 'Enter Store Subdomain';
+                echo json_encode($this->response); exit;
             }
-        } else {
-            $this->response['responseCode'] = 404;
-            $this->response['responseMessage'] = 'Enter Store Subdomain';
-            echo json_encode($this->response);
-            exit;
+        } catch (Exception $e) {
+            $this->response['responseCode'] = 400;
+            $this->response['responseMessage'] = $e->getMessage();
+            echo json_encode($this->response); exit;
         }
     }
 
@@ -1116,6 +1123,7 @@ class ApiCntr extends MY_Controller {
                                                   
                 if ($UsrInsertData == false) {
                     $this->response['responseCode'] = 404;
+                    $this->response['messageCode'] = 'usr_cntr_msg_35';
                     $this->response['responseMessage'] = 'Somthing went wrong! Please try again later!';
                     echo json_encode($this->response);
                     exit;
@@ -1151,11 +1159,13 @@ class ApiCntr extends MY_Controller {
                     if ($emailStatus) {
                         /* Send acknowledge mail to user email */
                         $this->response['responseCode'] = 200;
+                        $this->response['messageCode'] = 'contact-txt-4';
                         $this->response['responseMessage'] = 'Your Query Submitted Successfully! Our Support Team will get back to you shortly';
                         echo json_encode($this->response);
                         exit;
                     } else {
                         $this->response['responseCode'] = 404;
+                        $this->response['messageCode'] = 'usr_cntr_msg_35';
                         $this->response['responseMessage'] = 'Somthing went wrong! Please try again later!';
                         echo json_encode($this->response);
                         exit;
@@ -1163,6 +1173,7 @@ class ApiCntr extends MY_Controller {
                 }
             } else {
                 $this->response['responseCode'] = 404;
+                $this->response['messageCode'] = 'usr_cntr_msg_35';
                 $this->response['responseMessage'] = 'Somthing went wrong! Please try again later!';
                 echo json_encode($this->response);
                 exit;

@@ -2,8 +2,9 @@
 if ($this->session->userdata('loggedInSuperAdminData')) {
     $loggedInSuperAdminData = $this->session->userdata('loggedInSuperAdminData');
 }
-include(APPPATH.'views/site_admin/layout/admin-layout.php'); 
 ?>
+<?php //include('./layout/admin-layout.php');
+include(APPPATH.'views/site_admin/layout/admin-layout.php'); ?>
 <section class="content">
     <div class="container-fluid">
         <div class="content-wrapper">
@@ -22,7 +23,8 @@ include(APPPATH.'views/site_admin/layout/admin-layout.php');
                                     </button>
                                     </div>
                                 </div>
-                            </div>                                                 
+                            </div>
+                                                 
                         </div>
                     <!-- /.card-header -->
                     <div class="card-body table-responsive p-0">

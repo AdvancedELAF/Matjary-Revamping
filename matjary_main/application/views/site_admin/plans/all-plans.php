@@ -1,9 +1,11 @@
 <?php
 if ($this->session->userdata('loggedInSuperAdminData')) {
     $loggedInSuperAdminData = $this->session->userdata('loggedInSuperAdminData');
-} 
-$this->load->view('site_admin/layout/header.php');
-$this->load->view('site_admin/layout/sidebar.php');
+}
+?>
+<?php  
+    $this->load->view('site_admin/layout/header.php');
+    $this->load->view('site_admin/layout/sidebar.php');
 ?>
 <section class="content">
     <div class="container-fluid">
@@ -12,22 +14,23 @@ $this->load->view('site_admin/layout/sidebar.php');
             <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0">All Matjary Plans</h1>
-                    </div><!-- /.col -->
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="<?php echo base_url('site-admin/dashboard'); ?>">Home</a></li>
-                            <li class="breadcrumb-item active">All Matjary Plans</li>
-                        </ol>
-                    </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <h1 class="m-0">All Matjary Plans</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="<?php echo base_url('site-admin/dashboard'); ?>">Home</a></li>
+                    <li class="breadcrumb-item active">All Matjary Plans</li>
+                    </ol>
+                </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
             </div>
             <!-- /.content-header -->
             <div class="row"><!-- /.row -->
                 <div class="col-12">
-                    <div class="card">       
+                    <div class="card">                       
+                                              
                     <!-- /.card-header -->
                             <div class="card-body" id="listingWrapper">
                                 <table class="table table-bordered table-striped" id="viewAllPlanList">
@@ -63,15 +66,12 @@ $this->load->view('site_admin/layout/sidebar.php');
                                                 ?>
                                             </td>
                                             
-                                            <td>
-                                                <?php 
-                                                    if ($value->is_active == 1) {
-                                                        echo 'Active';
-                                                    } else {
-                                                        echo 'Deactivated';
-                                                    } 
-                                                ?>
-                                            </td>
+                                            <td><?php 
+                                                if ($value->is_active == 1) {
+                                                    echo 'Active';
+                                                } else {
+                                                    echo 'Deactivated';
+                                                } ?></td>
                                             <td>
                                             <div class="dropdown">
                                                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">

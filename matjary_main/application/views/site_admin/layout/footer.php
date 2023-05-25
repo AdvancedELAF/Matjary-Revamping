@@ -5,14 +5,18 @@
     <?php $year = date("Y"); ?>
     <strong>Copyright &copy; <?php echo $year;?> <a href="https://www.matjary.sa" target="_blank">matjary.sa</a>.</strong> <?php echo RIGHTS ?>
 </footer>
+
     <!-- jQuery -->
     <script src="<?php echo SERVER_ROOT_PATH_ASSETS; ?>site_admin/plugins/jquery/jquery.min.js"></script>
     <script src="<?php echo SERVER_ROOT_PATH_ASSETS; ?>site_admin/js/sweetalert.min.js"></script>
     <!-- form validate js -->
-    <script src="<?php echo SERVER_ROOT_PATH_ASSETS; ?>site_admin/js/jquery-validate.js"></script>    
+    <script src="<?php echo SERVER_ROOT_PATH_ASSETS; ?>site_admin/js/jquery-validate.js"></script>
+    
     <script src="<?php echo SERVER_ROOT_PATH_ASSETS; ?>site_admin/js/form-validation.js"></script>
+
     <!-- Bootstrap 4 -->
-    <script src="<?php echo SERVER_ROOT_PATH_ASSETS; ?>site_admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>    
+    <script src="<?php echo SERVER_ROOT_PATH_ASSETS; ?>site_admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    
     <script src="<?php echo SERVER_ROOT_PATH_ASSETS; ?>site_admin/plugins/select2/js/select2.full.min.js"></script>
     <!-- DataTables  & Plugins -->
     <script src="<?php echo SERVER_ROOT_PATH_ASSETS; ?>site_admin/plugins/datatables/jquery.dataTables.min.js"></script>

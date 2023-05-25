@@ -5,7 +5,9 @@ class EmployeeModel extends CI_Model {
     public function __construct() {
         parent::__construct();
         $this->load->database();
-    }    
+    }
+
+    
    
     public function chk_email_exist($email) {
         try {
@@ -284,6 +286,7 @@ class EmployeeModel extends CI_Model {
             ->from('support_tickets as st')
             ->join('ticket_messages as tm', 'tm.ticket_id=st.ticket_id', 'left')
             ->where('st.ticket_id',$id)
+            //->order_by('us.id','DESC')
             ->get();
             if ($query->num_rows() > 0) {
                 $rowData = $query->row();
@@ -358,6 +361,9 @@ class EmployeeModel extends CI_Model {
             return $e->getMessage();
         }
     }
+
      /** Customer Enquery End */
+
 }
+
 ?>

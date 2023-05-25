@@ -143,7 +143,7 @@ $(document).ready(function () {
 					if (resp.responseCode == 200) {
 						$("#preloader").hide();
 						swal(
-							{ title: "Success", text: resp.responseMessage, type: "success" },
+							{ title: "", text: resp.responseMessage, type: "success" },
 							function () {
 								window.location.href = resp.redirectUrl;
 							}
@@ -194,7 +194,7 @@ $(document).ready(function () {
 					} else {
 						$("#preloader").hide();
 						swal({
-							title: "Fail",
+							title: "",
 							closeOnClickOutside: false,
 							text: resp.responseMessage,
 							type: "error",
@@ -335,7 +335,7 @@ $(document).ready(function () {
 					if (resp.responseCode == 200) {
 						$("#preloader").hide();
 						swal(
-							{ title: "Success", text: resp.responseMessage, type: "success" },
+							{ title: "", text: resp.responseMessage, type: "success" },
 							function () {
 								window.location.reload();
 							}
@@ -343,7 +343,7 @@ $(document).ready(function () {
 					} else {
 						$("#preloader").hide();
 						swal({
-							title: "Fail",
+							title: "",
 							closeOnClickOutside: false,
 							text: resp.responseMessage,
 							type: "error",
@@ -379,7 +379,7 @@ $(document).ready(function () {
 					if (resp.responseCode == 200) {
 						$("#preloader").hide();
 						swal(
-							{ title: "Success", text: resp.responseMessage, type: "success" },
+							{ title: "", text: resp.responseMessage, type: "success" },
 							function () {
 								window.location.reload();
 							}
@@ -537,7 +537,7 @@ $(document).ready(function () {
 					resp = JSON.parse(resp);
 					if (resp.responseCode == 200) {
 						swal({
-							title: "Success",
+							title: "",
 							closeOnClickOutside: false,
 							text: resp.responseMessage,
 							type: "success",
@@ -777,7 +777,7 @@ $(document).ready(function () {
 			data: requestData,
 			success: function (resp) {
 				resp = JSON.parse(resp);
-				console.log(resp);
+				//console.log(resp);
 				if (resp.responseCode == 200) {
 					$("#invoiceInfoModal").modal("show");
 					let user_name =
@@ -787,22 +787,21 @@ $(document).ready(function () {
 					let total_price = resp.responseData.total_price;
 					let tran_ref = resp.responseData.tranRef;
 					let created_at = resp.responseData.created_at;
-					let client_address =
-						resp.responseData.bill_info_address.b_address + ", <br>";
-					client_address +=
-						resp.responseData.bill_info_address.b_city_name + ", ";
-					client_address +=
-						resp.responseData.bill_info_address.b_state_name + ", ";
-					client_address +=
-						resp.responseData.bill_info_address.b_country_name + ", ";
-					client_address +=
-						resp.responseData.bill_info_address.b_zipcode + ". <br>";
-					client_address +=
-						resp.responseData.bill_info_address.b_tel + ", <br>";
-					client_address +=
-						'<a href="javascript:void(0);">' +
-						resp.responseData.bill_info_address.b_email +
-						"</a>";
+					var formattedDate = new Date(resp.responseData.created_at);
+					var d = formattedDate.getDate();
+					var m =  formattedDate.getMonth();
+					m += 1;  // JavaScript months are 0-11
+					var y = formattedDate.getFullYear();
+					created_at = y+"-"+m+"-"+d;
+					//let created_at = moment(resp.responseData.created_at).format('YYYY-MM-DD');  
+    
+					let client_address = resp.responseData.bill_info_address.b_address + ", <br>";
+					client_address += resp.responseData.bill_info_address.b_city_name + ", ";
+					client_address += resp.responseData.bill_info_address.b_state_name + ", ";
+					client_address += resp.responseData.bill_info_address.b_country_name + ", ";
+					client_address += resp.responseData.bill_info_address.b_zipcode + ". <br>";
+					client_address += resp.responseData.bill_info_address.b_tel + ", <br>";
+					client_address += '<a href="javascript:void(0);">' + resp.responseData.bill_info_address.b_email + "</a>";
 					let plan_id = resp.responseData.plan_id;
 					let months_days_validity = "Months";
 					if (plan_id == 7) {
@@ -823,41 +822,22 @@ $(document).ready(function () {
 					$("#invoiceInfoModal").find("#created_at").text(created_at);
 					$("#invoiceInfoModal").find("#client_name").text(user_name);
 					$("#invoiceInfoModal").find("#client_address").html(client_address);
-					$("#invoiceInfoModal")
-						.find("#months_days_validity")
-						.text(months_days_validity);
+					$("#invoiceInfoModal").find("#months_days_validity").text(months_days_validity);
 					$("#invoiceInfoModal").find("#plan_name").text(plan_name);
-					$("#invoiceInfoModal")
-						.find("#validity_in_months")
-						.text(validity_in_months);
-					$("#invoiceInfoModal")
-						.find("#plan_cost")
-						.text(SAR + " " + plan_cost);
+					$("#invoiceInfoModal").find("#validity_in_months").text(validity_in_months);
+					$("#invoiceInfoModal").find("#plan_cost").text(SAR + " " + plan_cost);
 					$("#invoiceInfoModal").find("#template_name").text(template_name);
-					$("#invoiceInfoModal")
-						.find("#template_cost")
-						.text(SAR + " " + template_cost);
-
+					$("#invoiceInfoModal").find("#template_cost").text(SAR + " " + template_cost);
 					let subtotal = parseFloat(plan_cost) + parseFloat(template_cost);
-					$("#invoiceInfoModal")
-						.find("#subtotal")
-						.text(SAR + " " + subtotal);
+					$("#invoiceInfoModal").find("#subtotal").text(SAR + " " + subtotal);
 					if (resp.responseData.is_coupon_applied == 1) {
 						$("#invoiceInfoModal").find("#coupon_code_div").show();
-						$("#invoiceInfoModal")
-							.find("#coupon_code")
-							.text(resp.responseData.coupon_code);
+						$("#invoiceInfoModal").find("#coupon_code").text(resp.responseData.coupon_code);
 						$("#invoiceInfoModal").find("#coupon_discount_div").show();
-						$("#invoiceInfoModal")
-							.find("#coupon_discount")
-							.text(resp.responseData.coupon_discount_percent);
+						$("#invoiceInfoModal").find("#coupon_discount").text(resp.responseData.coupon_discount_percent);
 						$("#invoiceInfoModal").find("#coupon_amount_div").show();
-						$("#invoiceInfoModal")
-							.find("#coupon_amount")
-							.text(SAR + " " + resp.responseData.coupon_amount);
-						total_price =
-							parseFloat(subtotal) -
-							parseFloat(resp.responseData.coupon_amount);
+						$("#invoiceInfoModal").find("#coupon_amount").text(SAR + " " + resp.responseData.coupon_amount);
+						total_price = parseFloat(subtotal) - parseFloat(resp.responseData.coupon_amount);
 					} else {
 						$("#invoiceInfoModal").find("#coupon_code").text("");
 						$("#invoiceInfoModal").find("#coupon_code_div").hide();
@@ -865,14 +845,9 @@ $(document).ready(function () {
 						$("#invoiceInfoModal").find("#coupon_discount_div").hide();
 						$("#invoiceInfoModal").find("#coupon_amount").text("0.00");
 						$("#invoiceInfoModal").find("#coupon_amount_div").hide();
-						total_price =
-							parseFloat(subtotal) -
-							parseFloat(resp.responseData.coupon_amount);
+						total_price = parseFloat(subtotal) - parseFloat(resp.responseData.coupon_amount);
 					}
-					$("#invoiceInfoModal")
-						.find("#grand_total")
-						.text(SAR + " " + total_price);
-
+					$("#invoiceInfoModal").find("#grand_total").text(SAR + " " + total_price);
 					$("#invoiceInfoModal").find("#store_name").text(store_name);
 					$("#invoiceInfoModal")
 						.find("#store_link")
