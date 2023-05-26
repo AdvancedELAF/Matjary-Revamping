@@ -15,7 +15,7 @@ class AuthCntr extends MY_Controller {
 
     public function chk_admin_login() {  
         /* // set password */
-       /* echo $pass = hash_hmac("SHA256",'Superadmin@123', SECRET_KEY); die; */
+       // echo $pass = hash_hmac("SHA256",'Superadmin@123', SECRET_KEY); die;
         if (isset($_POST['email']) & !empty($_POST['email'])) {
             if (isset($_POST['password']) & !empty($_POST['password'])) {
                 if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
@@ -25,7 +25,8 @@ class AuthCntr extends MY_Controller {
                     exit;
                 }
                 $usrData = new stdClass();
-                $chkUsrLoginUrl = base_url('chk-admin-credentials');             
+                $chkUsrLoginUrl = base_url('chk-admin-credentials');                  
+               // $pass = hash_hmac("SHA256",$_POST['password'], SECRET_KEY);              
                 $requestData = array(
                     'email' => $_POST['email'],
                     'password' => $_POST['password']
@@ -33,6 +34,7 @@ class AuthCntr extends MY_Controller {
                 $header[0] = 'form-data';
                 $inptData['token'] = JWT::encode($requestData, JWT_TOKEN);
                 $urlJsonData = $this->restclient->post($chkUsrLoginUrl, $inptData, $header);
+                // '<pre>'; print_r($urlJsonData); die;
                 if ($urlJsonData->info->http_code == 200) {
                     $usrData->apiResponse = json_decode($urlJsonData->response); 
                     if ($usrData->apiResponse->responseCode == 200) {                        
@@ -46,7 +48,7 @@ class AuthCntr extends MY_Controller {
                                 'usr_role' => $responseData->usr_role,
                                 'logged_in' => TRUE
                             );                          
-                            /* adding data to session */
+                            //adding data to session
                             $this->session->set_userdata('loggedInSuperAdminData', $superAdminSessiondata);
                         }else {
                             $usrData->apiResponse = '';
@@ -101,5 +103,9 @@ class AuthCntr extends MY_Controller {
             $language = 'ar';
         }
         $this->session->set_userdata('site_lang', $language);
-    }   
+    }
+
+ 
+
+   
 }

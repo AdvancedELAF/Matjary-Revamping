@@ -544,7 +544,7 @@ $(document).ready(function () {
 						});
 					} else {
 						swal({
-							title: "Fail",
+							title: "",
 							closeOnClickOutside: false,
 							text: resp.responseMessage,
 							type: "error",
@@ -787,14 +787,13 @@ $(document).ready(function () {
 					let total_price = resp.responseData.total_price;
 					let tran_ref = resp.responseData.tranRef;
 					let created_at = resp.responseData.created_at;
-					var formattedDate = new Date(resp.responseData.created_at);
+					var formattedDate = new Date(created_at);
 					var d = formattedDate.getDate();
 					var m =  formattedDate.getMonth();
-					m += 1;  // JavaScript months are 0-11
+					m += 1;  /* JavaScript months are 0-11 */
 					var y = formattedDate.getFullYear();
 					created_at = y+"-"+m+"-"+d;
-					//let created_at = moment(resp.responseData.created_at).format('YYYY-MM-DD');  
-    
+	
 					let client_address = resp.responseData.bill_info_address.b_address + ", <br>";
 					client_address += resp.responseData.bill_info_address.b_city_name + ", ";
 					client_address += resp.responseData.bill_info_address.b_state_name + ", ";
@@ -885,97 +884,56 @@ $(document).ready(function () {
 			data: requestData,
 			success: function (resp) {
 				resp = JSON.parse(resp);
-				console.log(resp);
+				//console.log(resp);
 				if (resp.responseCode == 200) {
 					$("#userPurchasedTemplateInvoiceInfoModal").modal("show");
-					let user_name =
-						resp.responseData.bill_info_address.b_fname +
-						" " +
-						resp.responseData.bill_info_address.b_lname;
+					let user_name = resp.responseData.bill_info_address.b_fname +" " +resp.responseData.bill_info_address.b_lname;
 					let template_cost = resp.responseData.template_cost;
 					let subtotal = resp.responseData.template_cost;
 					let total_price = resp.responseData.total_price;
 					let tran_ref = resp.responseData.tranRef;
 					let created_at = resp.responseData.created_at;
-					let client_address =
-						resp.responseData.bill_info_address.b_address + ", <br>";
-					client_address +=
-						resp.responseData.bill_info_address.b_city_name + ", ";
-					client_address +=
-						resp.responseData.bill_info_address.b_state_name + ", ";
-					client_address +=
-						resp.responseData.bill_info_address.b_country_name + ", ";
-					client_address +=
-						resp.responseData.bill_info_address.b_zipcode + ". <br>";
-					client_address +=
-						resp.responseData.bill_info_address.b_tel + ", <br>";
+					var formattedDate = new Date(created_at);
+					var d = formattedDate.getDate();
+					var m =  formattedDate.getMonth();
+					m += 1;  /* JavaScript months are 0-11 */
+					var y = formattedDate.getFullYear();
+					created_at = y+"-"+m+"-"+d;
+					let client_address = resp.responseData.bill_info_address.b_address + ", <br>";
+					client_address += resp.responseData.bill_info_address.b_city_name + ", ";
+					client_address += resp.responseData.bill_info_address.b_state_name + ", ";
+					client_address += resp.responseData.bill_info_address.b_country_name + ", ";
+					client_address += resp.responseData.bill_info_address.b_zipcode + ". <br>";
+					client_address += resp.responseData.bill_info_address.b_tel + ", <br>";
 					client_address +=
 						'<a href="javascript:void(0);">' +
 						resp.responseData.bill_info_address.b_email +
 						"</a>";
 					let template_name = resp.responseData.template_name;
 
-					$("#userPurchasedTemplateInvoiceInfoModal")
-						.find("#user_name")
-						.text(user_name);
-					$("#userPurchasedTemplateInvoiceInfoModal")
-						.find("#invoice_amount")
-						.text(total_price);
-					$("#userPurchasedTemplateInvoiceInfoModal")
-						.find("#tran_ref")
-						.text(tran_ref);
-					$("#userPurchasedTemplateInvoiceInfoModal")
-						.find("#created_at")
-						.text(created_at);
-					$("#userPurchasedTemplateInvoiceInfoModal")
-						.find("#client_name")
-						.text(user_name);
-					$("#userPurchasedTemplateInvoiceInfoModal")
-						.find("#client_address")
-						.html(client_address);
-					$("#userPurchasedTemplateInvoiceInfoModal")
-						.find("#theme_name")
-						.html(template_name);
-					$("#userPurchasedTemplateInvoiceInfoModal")
-						.find("#subtotal")
-						.text(SAR + " " + subtotal);
+					$("#userPurchasedTemplateInvoiceInfoModal").find("#user_name").text(user_name);
+					$("#userPurchasedTemplateInvoiceInfoModal").find("#invoice_amount").text(total_price);
+					$("#userPurchasedTemplateInvoiceInfoModal").find("#tran_ref").text(tran_ref);
+					$("#userPurchasedTemplateInvoiceInfoModal").find("#created_at").text(created_at);
+					$("#userPurchasedTemplateInvoiceInfoModal").find("#client_name").text(user_name);
+					$("#userPurchasedTemplateInvoiceInfoModal").find("#client_address").html(client_address);
+					$("#userPurchasedTemplateInvoiceInfoModal").find("#theme_name").html(template_name);
+					$("#userPurchasedTemplateInvoiceInfoModal").find("#subtotal").text(SAR + " " + subtotal);
 
 					if (resp.responseData.is_coupon_applied == 1) {
-						$("#userPurchasedTemplateInvoiceInfoModal")
-							.find(".coupon_div")
-							.show();
-						$("#userPurchasedTemplateInvoiceInfoModal")
-							.find("#coupon_code")
-							.text(resp.responseData.coupon_code);
-						$("#userPurchasedTemplateInvoiceInfoModal")
-							.find("#coupon_discount")
-							.text(resp.responseData.coupon_discount_percent);
-						$("#userPurchasedTemplateInvoiceInfoModal")
-							.find("#coupon_amount")
-							.text(SAR + " " + resp.responseData.coupon_amount);
-						total_price =
-							parseFloat(subtotal) -
-							parseFloat(resp.responseData.coupon_amount);
+						$("#userPurchasedTemplateInvoiceInfoModal").find(".coupon_div").show();
+						$("#userPurchasedTemplateInvoiceInfoModal").find("#coupon_code").text(resp.responseData.coupon_code);
+						$("#userPurchasedTemplateInvoiceInfoModal").find("#coupon_discount").text(resp.responseData.coupon_discount_percent);
+						$("#userPurchasedTemplateInvoiceInfoModal").find("#coupon_amount").text(SAR + " " + resp.responseData.coupon_amount);
+						total_price = parseFloat(subtotal) - parseFloat(resp.responseData.coupon_amount);
 					} else {
-						$("#userPurchasedTemplateInvoiceInfoModal")
-							.find(".coupon_div")
-							.hide();
-						$("#userPurchasedTemplateInvoiceInfoModal")
-							.find("#coupon_code")
-							.text("");
-						$("#userPurchasedTemplateInvoiceInfoModal")
-							.find("#coupon_discount")
-							.text("0%");
-						$("#userPurchasedTemplateInvoiceInfoModal")
-							.find("#coupon_amount")
-							.text("0.00");
-						total_price =
-							parseFloat(subtotal) -
-							parseFloat(resp.responseData.coupon_amount);
+						$("#userPurchasedTemplateInvoiceInfoModal").find(".coupon_div").hide();
+						$("#userPurchasedTemplateInvoiceInfoModal").find("#coupon_code").text("");
+						$("#userPurchasedTemplateInvoiceInfoModal").find("#coupon_discount").text("0%");
+						$("#userPurchasedTemplateInvoiceInfoModal").find("#coupon_amount").text("0.00");
+						total_price = parseFloat(subtotal) - parseFloat(resp.responseData.coupon_amount);
 					}
-					$("#userPurchasedTemplateInvoiceInfoModal")
-						.find("#grand_total")
-						.text(SAR + " " + total_price);
+					$("#userPurchasedTemplateInvoiceInfoModal").find("#grand_total").text(SAR + " " + total_price);
 					/*
 					$("#userPurchasedTemplateInvoiceInfoModal")
 						.find("#grand_total")
@@ -1208,7 +1166,7 @@ $(document).ready(function () {
 						$("#plan_total_price").val(plan_total_price);
 						$("#plan_total_price_span").text(plan_total_price);
 
-						$("#couponMsg").text(resp.responseMessage);
+						$("#couponMsg").text(resp.messageCode);
 						$("#couponMsg").css("color", "red");
 
 						/* disable payment proceed button till coupon code is not valid or keep empty*/

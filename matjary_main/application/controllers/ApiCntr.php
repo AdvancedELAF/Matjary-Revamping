@@ -1663,17 +1663,18 @@ class ApiCntr extends MY_Controller {
         }
     }
 
-    public function check_coupon_valid(){
-        if(isset($_POST['user_id']) && !empty($_POST['user_id'])){
-            if(isset($_POST['coupon_code']) && !empty($_POST['coupon_code'])){
-                $couponData = $this->CouponModel->check_coupon_exist($_POST['coupon_code']);
+    public function check_coupon_valid_api(){
+        $decode_data = (array) JWT::decode($this->input->post('token'), JWT_TOKEN);
+        if(isset($decode_data['user_id']) && !empty($decode_data['user_id'])){
+            if(isset($decode_data['coupon_code']) && !empty($decode_data['coupon_code'])){
+                $couponData = $this->CouponModel->check_coupon_exist($decode_data['coupon_code']);
                 if(isset($couponData) && !empty($couponData)){
                     /* check coupon not expired */
                     $current_date = date("Y-m-d"); /* Get the current date in YYYY-MM-DD format */
                     $expiration_date = date("Y-m-d", strtotime($couponData->expiry_date));
                     if(strtotime($current_date) <= strtotime($expiration_date)){
                         /* same coupon already used by same user */
-                        $couponAlreadyUsedStatus = $this->CouponModel->coupon_already_used($couponData->id,$_POST['user_id']);
+                        $couponAlreadyUsedStatus = $this->CouponModel->coupon_already_used($couponData->id,$decode_data['user_id']);
                         if($couponAlreadyUsedStatus==false){
                             $this->response['responseCode'] = 200;
                             $this->response['responseMessage'] = 'Success.';
@@ -1681,16 +1682,19 @@ class ApiCntr extends MY_Controller {
                             echo json_encode($this->response); exit;
                         }else{
                             $this->response['responseCode'] = 404;
+                            $this->response['messageCode'] = 'com_msg_15';
                             $this->response['responseMessage'] = 'Coupon already used.';
                             echo json_encode($this->response); exit;
                         }
                     }else{
                         $this->response['responseCode'] = 404;
+                        $this->response['messageCode'] = 'com_msg_16';
                         $this->response['responseMessage'] = 'Coupon not valid.'; /* coupon code has been expired. */
                         echo json_encode($this->response); exit;
                     }
                 }else{
                     $this->response['responseCode'] = 404;
+                    $this->response['messageCode'] = 'com_msg_16';
                     $this->response['responseMessage'] = 'Coupon not valid.';
                     echo json_encode($this->response); exit;
                 }

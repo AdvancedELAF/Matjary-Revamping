@@ -1609,7 +1609,45 @@ class UsrCntr extends MY_Controller {
         } catch (Exception $e) {
             return $e->getMessage();
         }
-        
+    }
+
+    public function check_coupon_valid(){
+        try {
+            if (isset($_POST['user_id']) && !empty($_POST['user_id'])) {
+                if (isset($_POST['coupon_code']) && !empty($_POST['coupon_code'])) {
+                    $couponData = new stdClass();
+                    $chkCouponValidUrl = base_url('check-coupon-valid-api');
+                    $requestData = array(
+                        'user_id'=> $_POST['user_id'],
+                        'coupon_code' => $_POST['coupon_code']
+                    );
+                    $header[0] = 'form-data';
+                    $inptData['token'] = JWT::encode($requestData, JWT_TOKEN);
+                    $urlJsonData = $this->restclient->post($chkCouponValidUrl, $inptData, $header);
+                    if ($urlJsonData->info->http_code == 200) {
+                        $couponData->apiResponse = json_decode($urlJsonData->response);
+                        if ($couponData->apiResponse->responseCode == 200) {
+                            $this->response['responseCode'] = $couponData->apiResponse->responseCode;
+                            $this->response['responseMessage'] = $this->lang->line($couponData->apiResponse->messageCode);
+                        } else {
+                            $this->response['responseCode'] = $couponData->apiResponse->responseCode;
+                            $this->response['responseMessage'] = $this->lang->line($couponData->apiResponse->messageCode);
+                        }
+                        echo json_encode($this->response); exit;
+                    }
+                } else {
+                    $this->response['responseCode'] = 404;
+                    $this->response['responseMessage'] = $this->lang->line('user-bill-txt-8');
+                    echo json_encode($this->response); exit;
+                }
+            } else {
+                $this->response['responseCode'] = 404;
+                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_22');
+                echo json_encode($this->response); exit;
+            }
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
     }
 
 }

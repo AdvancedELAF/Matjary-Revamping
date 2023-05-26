@@ -148,7 +148,8 @@ $route['save-template-subscription'] = 'ApiCntr/save_template_subscription';
 $route['store-template-details/(:any)'] = 'UsrCntr/store_template_details';
 
 $route['check-template-purchased'] = 'ApiCntr/check_template_purchased';
-$route['check-coupon-valid'] = 'ApiCntr/check_coupon_valid';
+$route['check-coupon-valid'] = 'UsrCntr/check_coupon_valid';
+$route['check-coupon-valid-api'] = 'ApiCntr/check_coupon_valid_api';
 
 $route['matjary-config'] = 'ApiCntr/matjary_config';
 

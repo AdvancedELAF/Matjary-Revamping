@@ -164,7 +164,8 @@ class AdminCntr extends MY_Controller {
                     }                         
                 }            
                 $pageData['getCurrentRevenueTotal'] = $getTotal.'';
-                $pageData['getCurrentRevenueMonth'] = $GetMonths;                
+                $pageData['getCurrentRevenueMonth'] = $GetMonths;
+                
             }
             /* End Sales Reort Data */
             $pageData['getMonthArray'] = MONTHS;            
@@ -185,7 +186,6 @@ class AdminCntr extends MY_Controller {
             redirect('site-admin/login');
         }   
     }
-
     public function create() {   
         if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {
             $pageData['pageId'] = 3;
@@ -1957,7 +1957,6 @@ class AdminCntr extends MY_Controller {
             redirect('site-admin/login');
         }  
     }
-    
     public function update_employee() {
         if (isset($this->loggedInSuperAdminData['id']) && !empty($this->loggedInSuperAdminData['id'])) {
             try {

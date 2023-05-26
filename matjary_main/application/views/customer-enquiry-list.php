@@ -45,7 +45,7 @@
                         } else {
                             ?>
                             <tr>
-                                <td colspan="5"><?php echo $this->lang->line('no_store_found'); ?></td>
+                                <td colspan="3" class="text-center"><?php echo $this->lang->line('no_data_found'); ?></td>
                             </tr>
                         <?php
                         }
