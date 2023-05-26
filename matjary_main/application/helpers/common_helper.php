@@ -162,7 +162,7 @@ if (!function_exists('curl_call')) {
         }
 
         if($emailSentStatus==false){
-			$data_array =  array(
+	    $data_array =  array(
                 "slag" => 'sendgrid'
             );
             $make_call = callAPI('POST', 'https://www.matjary.sa/matjary-config', json_encode($data_array));
