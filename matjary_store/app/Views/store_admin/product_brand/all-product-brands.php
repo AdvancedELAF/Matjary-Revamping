@@ -37,10 +37,10 @@ $ses_lang = $session->get('ses_lang');
                         <!-- <th scope="col"><?php //echo $language['Action']; ?></th> -->
                         <th scope="col">
                             <select name="activeBtn" class="form-control" id="multiActionOption" data-table="brands" data-actionurl="<?php echo base_url('multi-action-option'); ?>">
-                                <option value="">Choose Action</option>
-                                <option value="1">Active</option>
-                                <option value="2">Deactive</option>
-                                <option value="3">Delete</option>
+                                <option value=""><?php echo $language['Choose Action'];?></option>
+                                <option value="1"><?php echo $language['Activate'];?></option>
+                                <option value="2"><?php echo $language['Deactivate'];?></option>
+                                <option value="3"><?php echo $language['Delete'];?></option>
                             </select>
                         </th>
                     </tr>

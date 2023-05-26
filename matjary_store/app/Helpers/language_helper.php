@@ -174,8 +174,6 @@ function language($lang){
             "Enter Promo Code" => "إدخال الرمز الترويجي",
             "Apply" => "تطبيق",
             "Your cart is currently empty" => "عربة التسوق فارغة حاليا",
-            "Edit" => "تعديل",
-            "Delete" => "حذف",
             "My Address" => "عنواني",
             "Add a new address" => "أضف عنوانا جديدا",
             "Enter Deliver Address" => "أدخل عنوان التسليم",
@@ -605,9 +603,11 @@ function language($lang){
             "Newletter Subscription"=>"اشتراك إلكتروني جديد",
             "Subscribe to our newsletter and stay updated to receive exciting offers!"=>"اشترك في النشرة الإخبارية لدينا وابق على اطلاع لتلقي العروض المثيرة!",
             "About Store Information not added yet!"=>"حول معلومات المتجر لم تتم إضافتها بعد!",
+            "Choose Action"=>"اختر الإجراء",
         ];
     }else{
         return [ 
+            "Choose Action"=>"Choose Action",
             "About Store Information not added yet!"=>"About Store Information not added yet!",
             "Subscribe to our newsletter and stay updated to receive exciting offers!" => "Subscribe to our newsletter and stay updated to receive exciting offers!",
             "Newletter Subscription"=>"Newletter Subscription",
@@ -1038,8 +1038,6 @@ function language($lang){
             "Enter Promo Code" => "Enter Promo Code",
             "Apply" => "Apply",
             "Your cart is currently empty" => "Your cart is currently empty",
-            "Edit" => "Edit",
-            "Delete" => "Delete",
             "My Address" => "My Address",
             "Add a new address" => "Add a new address",
             "Enter Zipcode" => "Enter Zipcode",
