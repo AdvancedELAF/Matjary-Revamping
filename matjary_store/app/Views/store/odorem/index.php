@@ -405,8 +405,8 @@ $ses_lang = $session->get('ses_lang');
         <div class="subscribe-wrap w-50 mx-auto d-block">           
             <input type="email" class="form-control mb-2" placeholder="<?php echo $language['Email Address']; ?>" id="email" name="email" data-error=".error2">
             <button class="btn btn-primary brand-btn btn-block"><?php echo $language['Subscribe']; ?></button>           
-        </div>
-        </br><span class="error2"></span>   
+            <span class="error2"></span> 
+        </div>          
         <?php echo form_close(); ?>
     </div>
 </section>

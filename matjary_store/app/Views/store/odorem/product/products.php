@@ -69,10 +69,8 @@ $ses_lang = $session->get('ses_lang');
             <?php
                 }
             }else{ ?>
-                <div class="col-md-6 col-lg-3">                              
-                   <div class="prod-details">                        
-                           <h5><?php echo $checkProductData; ?></h5>                                           
-                   </div>                 
+                <div class="col-md-6 col-lg-3">              
+                    <h5><?php echo $checkProductData; ?></h5>
                </div>   
             <?php  } ?>            
         </div>

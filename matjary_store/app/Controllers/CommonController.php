@@ -343,6 +343,63 @@ class CommonController extends BaseController
         }
     }
 
+    public function multi_action_option(){
+        
+        if(isset($_POST['action_id']) && !empty($_POST['action_id'])){
+            if(isset($_POST['checkvalue']) && !empty($_POST['checkvalue'])){
+                if(isset($_POST['table']) && !empty($_POST['table'])){
+                    $callAction = true;
+                    $msg = "";            
+                    $itemIDArray = explode(',' , $_POST['checkvalue']);
+                    if($_POST['action_id'] == 1){                
+                        foreach($itemIDArray as $idData){
+                            $data = array('is_active'=> 1);
+                            $callAction = $this->CommonModel->activate_record($idData,$_POST['table'],$data);
+                        } 
+                        $msg = $this->ses_lang=='en' ? "Records Activated Successfully." : "يتم تنشيط السجلات بنجاح.";              
+                        
+                    }elseif($_POST['action_id'] == 2){ 
+                        foreach($itemIDArray as $idData){
+                            $data = array('is_active'=> 2);
+                            $callAction = $this->CommonModel->deactive_record($idData,$_POST['table'],$data);
+                        } 
+                        $msg = $this->ses_lang=='en' ? "Records Deactivated Successfully." : "تم إلغاء تنشيط السجلات بنجاح.";    
+
+                    }elseif($_POST['action_id'] == 3){
+                        
+                        foreach($itemIDArray as $idData){
+                            $data = array('is_active'=> 3);
+                            $callAction = $this->CommonModel->delete_record($idData,$_POST['table'],$data);
+                        }  
+                        $msg = $this->ses_lang=='en' ? "Records Deleted Successfully." : "تم حذف السجلات بنجاح."; 
+                    
+                    }
+                    if(isset($callAction)){
+                        $resp['responseCode'] = 200;              
+                        $resp['responseMessage'] =  $msg;
+                        return json_encode($resp); exit;
+                    }else{
+                        $resp['responseCode'] = 404;
+                        $resp['responseMessage'] =  $this->ses_lang=='en' ? "Something went Wrong." : "هناك خطأ ما.";
+                        return json_encode($resp); exit;
+                    }
+                }else{
+                    $resp['responseCode'] = 404;
+                    $resp['responseMessage'] =  $this->ses_lang=='en' ? "Table Name Is Required." : "اسم الجدول مطلوب.";
+                    return json_encode($resp); exit;
+                }
+            }else{
+                $resp['responseCode'] = 404;
+                $resp['responseMessage'] =  $this->ses_lang=='en' ? "Item Id Is Required." : "معرف العنصر مطلوب.";
+                return json_encode($resp); exit;
+            }
+        }else{
+            $resp['responseCode'] = 404;
+            $resp['responseMessage'] =  $this->ses_lang=='en' ? "Id Is Required." : "المعرف مطلوب.";
+            return json_encode($resp); exit;
+        }
+    }
+
     public function get_category_products(){
         if(isset($_POST['catid']) && !empty($_POST['catid'])){    
             $productList = $this->ProductModel->get_all_prod_categories($_POST['catid']); 

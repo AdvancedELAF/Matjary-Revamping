@@ -180,7 +180,32 @@ class CommonModel extends Model {
 			$query = $this->db->query("SELECT title_ar,keywords_ar,tags_ar FROM Products WHERE title LIKE '%".trim($query)."%' OR keywords LIKE '%".trim($query)."%' OR tags LIKE '%".trim($query)."%' OR title_ar LIKE '%".trim($query)."%' OR keywords_ar LIKE '%".trim($query)."%' OR tags_ar LIKE '%".trim($query)."%' AND is_active in(1) ORDER BY id ASC");
 		}
 		return $query->getResult();
-	}	
+	}
+	
+	
+	public function activate_record($id, $table, $data = array())
+    {
+        $this->db->table($table)->update($data, array(
+            "id" => $id,
+        ));
+        return $this->db->affectedRows();
+    }
+	
+	public function deactive_record($id, $table, $data = array())
+    {
+        $this->db->table($table)->update($data, array(
+            "id" => $id,
+        ));
+        return $this->db->affectedRows();
+    }
+
+	public function delete_record($id, $table, $data = array())
+    {
+        $this->db->table($table)->update($data, array(
+            "id" => $id,
+        ));
+        return $this->db->affectedRows();
+    }
 }
 
 ?>

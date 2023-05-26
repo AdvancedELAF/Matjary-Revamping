@@ -143,6 +143,12 @@ $routes->group("product", function ($routes) {
 
 $routes->match(["get", "post"], '/admin', 'AdminController::index', ['as' => 'admin.dashboard']);
 $routes->match(["get", "post"], '/admin/dashboard', 'AdminController::dashboard');
+
+/*  Common Routes*/
+$routes->match(["get", "post"], '/multi-action-option', 'CommonController::multi_action_option');
+/* Common rautes End*/
+
+
 $routes->group("admin", function ($routes) {
 
     $routes->match(["get", "post"], 'login', 'AdminController::login', ['as' => 'admin.login']);
@@ -359,6 +365,7 @@ $routes->group("admin", function ($routes) {
     $routes->match(["get", "post"], "activate-advertisement", "AdvertisementController::activate_advertisement", ['as' => 'admin.activate_advertisement']);
     $routes->match(["get", "post"], "deactivate-advertisement", "AdvertisementController::deactivate_advertisement", ['as' => 'admin.deactivate_advertisement']);
     /* Advertisements Routes End */
+    
 });
 
 /* Faq Front Routes Start */

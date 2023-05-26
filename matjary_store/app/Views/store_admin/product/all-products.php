@@ -87,7 +87,7 @@ $ses_lang = $session->get('ses_lang');
                                     <h5 class="font-16"><?php echo $title; ?></h5>
                                 </td>
                                 <td><?php echo $category_name; ?></td>
-                                <td>SAR<?php echo isset($value->retail_price) ? $value->retail_price : 'NA'; ?></td>
+                                <td><?php echo $language['SAR']; ?> <?php echo isset($value->retail_price) ? $value->retail_price : 'NA'; ?></td>
                                 <td><?php echo isset($value->stock_quantity) ? $value->stock_quantity : 0; ?></td>
                                 <td><?php if ($value->is_active == 1) {
                                         echo 'Active';
