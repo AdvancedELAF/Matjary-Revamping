@@ -2577,39 +2577,101 @@ $(document).ready(function(){
         $('.itemId:checked').each(function () {
             checkvalue[i] = (this.checked ? $(this).val() : "");
             i++;        
-        }); 
-             
-        let requestData = 'action_id='+action_id+'&checkvalue='+checkvalue+'&table='+table;
-        console.log(requestData);  
-  
-        $.ajax
-        ({
-            url: action_page, 		  /* Url to which the request is send */
-            type: "POST",             /* Type of request to be send, called as method */
-            enctype: 'multipart/form-data',
-            data: requestData, 		  /* Data sent to server, a set of key/value pairs (i.e. form fields and values) */
-            beforeSend: function() {
-                swal({
-                    title: "",
-                    text: (lang == "en") ? "معالجة..." : "Processing...",
-                    imageUrl: "https://media.tenor.com/OzAxe6-8KvkAAAAi/blue_spinner.gif",
-                    showConfirmButton: false
-                });
-            },
-            success: function(resp){  /* A function to be called if request succeeds */
-                respData = JSON.parse(resp);
-                if(respData.responseCode == 200){  
-                    swal({title: "", text: respData.responseMessage, type: "success"},
-                                function(){ 
-                                    window.location.reload();
-                                }
-                    ); 
-                }else{                    
-                    swal.close();
-                    swal({title: "", text: respData.responseMessage, type: "error"});
-                }
-            }
         });
+        if(checkvalue == ''){  
+            swal({
+                title: "",
+                text: (lang == "en") ?"يرجى تحديد سجل واحد على الأقل.":"Please Select Atleast One Record.",
+                showConfirmButton: true,
+                types : "warning",
+                confirmButtonColor : "#8CD4F5",
+                confirmButtonText : (lang == "en") ?"نعم ، تفعيل!":"ok",
+                showLoaderOnConfirm : true              
+                
+            }); 
+            return false;  
+        }   
+                     
+        let requestData = 'action_id='+action_id+'&checkvalue='+checkvalue+'&table='+table;
+        var titles = '';
+        var texts = '';
+        var types = '';
+        var confirmButtonColors = '';
+        var confirmButtonTexts = '';
+        var showLoaderOnConfirms = '';
+        var cancelButtonTexts = '';
+        
+        if(action_id == 1){
+            var titles = (lang == "en") ?"هل أنت متأكد من أنك على وشك تنشيط هذه السجلات؟":"Are you sure You Want to Activate this Records ?";
+            var texts =  (lang == "en") ?"سيتم إزالة المنتج الخاص بك":"Your Records will Activate";
+            var types = "warning";
+            var confirmButtonColors = "#DD6B55";
+            var confirmButtonTexts = (lang == "en") ?"نعم ، تفعيل!":"Yes, Activate !";
+            var showLoaderOnConfirms = true;
+            var cancelButtonTexts = (lang == "en") ?"لا ، إلغاء من فضلك!":"No, cancel please!";
+        }if(action_id == 2){
+            var titles = (lang == "en") ?"هل أنت متأكد أنك تريد إلغاء تنشيط هذه السجلات؟":"Are you sure You Want to Deactivate this Records ?";
+            var texts = (lang == "en") ?"سيتم إلغاء تنشيط سجلاتك":"Your Records will Deactivate";
+            var types = "warning";
+            var confirmButtonColors = "#DD6B55";
+            var confirmButtonTexts = (lang == "en") ?"نعم ، قم بإلغاء التنشيط!":"Yes, Deactivate !";
+            var showLoaderOnConfirms =  true;
+            var cancelButtonTexts =  (lang == "en") ?"لا ، إلغاء من فضلك!":"No, cancel please!";
+        }if(action_id == 3){
+            var titles = (lang == "en") ?"هل أنت متأكد من حذف هذه السجلات؟":"Are you sure You Want to Remove this Records ?";
+            var texts = (lang == "en") ?"سيتم حذف سجلاتك":"Your Records will Remove";
+            var types = "warning";
+            var confirmButtonColors = "#DD6B55";
+            var confirmButtonTexts = (lang == "en") ?"نعم ، احذف!":"Yes, Remove !";
+            var showLoaderOnConfirms = true;
+            var cancelButtonTexts =  (lang == "en") ?"لا ، إلغاء من فضلك!":"No, cancel please!";
+        }        
+        swal({ 
+            title: titles,
+            text: texts,
+            type: types,
+            showCancelButton: true,
+            confirmButtonColor: confirmButtonColors,
+            confirmButtonText: confirmButtonTexts,
+            showLoaderOnConfirm: showLoaderOnConfirms,
+            cancelButtonText: cancelButtonTexts,
+            closeOnConfirm: false,
+            closeOnCancel: false
+        },
+        function(isConfirm){
+        if (isConfirm) {
+            $.ajax
+            ({
+                url: action_page, 		  /* Url to which the request is send */
+                type: "POST",             /* Type of request to be send, called as method */
+                enctype: 'multipart/form-data',
+                data: requestData, 		  /* Data sent to server, a set of key/value pairs (i.e. form fields and values) */
+                beforeSend: function() {
+                    swal({
+                        title: "",
+                        text: (lang == "en") ? "معالجة..." : "Processing...",
+                        imageUrl: "https://media.tenor.com/OzAxe6-8KvkAAAAi/blue_spinner.gif",
+                        showConfirmButton: false
+                    });
+                },
+                success: function(resp){  /* A function to be called if request succeeds */
+                    respData = JSON.parse(resp);
+                    if(respData.responseCode == 200){  
+                        swal({title: "", text: respData.responseMessage, type: "success"},
+                            function(){ 
+                                window.location.reload();
+                            }
+                        ); 
+                    }else{                    
+                        swal.close();
+                        swal({title: "", text: respData.responseMessage, type: "error"});
+                    }
+                }
+            });
+        } else {
+            swal(Cancelled, record_is_safe, "error");
+        }
+    });
     });
 
 });
