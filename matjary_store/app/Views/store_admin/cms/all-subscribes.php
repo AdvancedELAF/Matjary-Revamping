@@ -15,12 +15,29 @@
                 </nav>
             </div>
         </div>
-    </div>
+    </div>    
     <div class="card-box mb-30">
+        <div class="pd-20">
+            <div class="row">      
+                <div class="col-md-6">            
+                </div>
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-3">
+                    <select class="form-control" id="multiActionOption" data-table="subscribers" data-actionurl="<?php echo base_url('multi-action-option'); ?>">
+                        <option value=""><?php echo $language['Choose Action'];?></option>
+                        <option value="1"><?php echo $language['Activate'];?></option>
+                        <option value="2"><?php echo $language['Deactivate'];?></option>
+                        <option value="3"><?php echo $language['Delete'];?></option>
+                    </select>            
+                </div>
+            </div>   
+        </div>
         <div class="table-responsive pd-20">
             <table class="data-table table nowrap" id="viewAllSubscribesList">
                 <thead>
                     <tr>
+                        <th scope="col"><input type="checkbox" id="checkAll"></th>
                         <th scope="col">#</th>
                         <th scope="col"><?php echo $language['Email']; ?></th>
                         <th scope="col"><?php echo $language['Status']; ?></th>
@@ -35,6 +52,9 @@
                         
                     ?>
                         <tr>
+                            <td>
+                                <input type="checkbox" name="itemId[]"  class="itemId" value="<?php echo isset($value->id) ? $value->id : 'NA'; ?>" />
+                            </td>
                             <td><h5 class="font-16"><?php echo $i; ?></h5></td>
                             <td><h5 class="font-16"><?php echo isset($value->email)?$value->email:'NA'; ?></h5></td>                        
                             <td><?php if($value->is_active==1){ echo $language['Active'];}else{echo $language['Deactivated'];} ?></td>
