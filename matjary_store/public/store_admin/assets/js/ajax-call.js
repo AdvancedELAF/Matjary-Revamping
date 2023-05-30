@@ -2589,6 +2589,7 @@ $(document).ready(function(){
                 showLoaderOnConfirm : true              
                 
             }); 
+            $('#multiActionOption').val('');
             return false;  
         }   
                      
@@ -2609,6 +2610,7 @@ $(document).ready(function(){
             var confirmButtonTexts = (lang == "en") ?"نعم ، تفعيل!":"Yes, Activate !";
             var showLoaderOnConfirms = true;
             var cancelButtonTexts = (lang == "en") ?"لا ، إلغاء من فضلك!":"No, cancel please!";
+            $('#multiActionOption').val('');
         }if(action_id == 2){
             var titles = (lang == "en") ?"هل أنت متأكد أنك تريد إلغاء تنشيط هذه السجلات؟":"Are you sure You Want to Deactivate this Records ?";
             var texts = (lang == "en") ?"سيتم إلغاء تنشيط سجلاتك":"Your Records will Deactivate";
@@ -2617,6 +2619,7 @@ $(document).ready(function(){
             var confirmButtonTexts = (lang == "en") ?"نعم ، قم بإلغاء التنشيط!":"Yes, Deactivate !";
             var showLoaderOnConfirms =  true;
             var cancelButtonTexts =  (lang == "en") ?"لا ، إلغاء من فضلك!":"No, cancel please!";
+            $('#multiActionOption').val('');
         }if(action_id == 3){
             var titles = (lang == "en") ?"هل أنت متأكد من حذف هذه السجلات؟":"Are you sure You Want to Remove this Records ?";
             var texts = (lang == "en") ?"سيتم حذف سجلاتك":"Your Records will Remove";
@@ -2625,6 +2628,7 @@ $(document).ready(function(){
             var confirmButtonTexts = (lang == "en") ?"نعم ، احذف!":"Yes, Remove !";
             var showLoaderOnConfirms = true;
             var cancelButtonTexts =  (lang == "en") ?"لا ، إلغاء من فضلك!":"No, cancel please!";
+            $('#multiActionOption').val('');
         }        
         swal({ 
             title: titles,
