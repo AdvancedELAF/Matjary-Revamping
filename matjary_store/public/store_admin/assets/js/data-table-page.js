@@ -56,7 +56,7 @@ $(document).ready(function(){
         'lengthChange': true,
         'searching': true,
         'info': true,
-        'dom': 'Bfrtip',
+        'dom': '<"container-fluid"<"row"<"col-sm-6"B><"col-sm-4"f><"col-sm-1"l >>>rtip',
         'buttons': [
             'copy', 'csv', 'excel', 'pdf', 'print'
         ],
@@ -90,7 +90,7 @@ $(document).ready(function(){
         'lengthChange': true,
         'searching': true,
         'info': true,
-        'dom': 'Bfrtip',
+        'dom': '<"container-fluid"<"row"<"col-sm-6"B><"col-sm-4"f><"col-sm-1"l >>>rtip',
         'buttons': [
             'copy', 'csv', 'excel', 'pdf', 'print'
         ],
@@ -123,7 +123,7 @@ $(document).ready(function(){
         'lengthChange': true,
         'searching': true,
         'info': true,
-        'dom': 'Bfrtip',
+        'dom': '<"container-fluid"<"row"<"col-sm-6"B><"col-sm-4"f><"col-sm-1"l >>>rtip',
         'buttons': [
             'copy', 'csv', 'excel', 'pdf', 'print'
         ],
@@ -156,7 +156,7 @@ $(document).ready(function(){
         'lengthChange': true,
         'searching': true,
         'info': true,
-        'dom': 'Bfrtip',
+        'dom': '<"container-fluid"<"row"<"col-sm-6"B><"col-sm-4"f><"col-sm-1"l >>>rtip',
         'buttons': [
             'copy', 'csv', 'excel', 'pdf', 'print'
         ],
@@ -189,7 +189,7 @@ $(document).ready(function(){
         'lengthChange': true,
         'searching': true,
         'info': true,
-        'dom': 'Bfrtip',
+        'dom': '<"container-fluid"<"row"<"col-sm-6"B><"col-sm-4"f><"col-sm-1"l >>>rtip',
         'buttons': [
             'copy', 'csv', 'excel', 'pdf', 'print'
         ],
@@ -222,7 +222,7 @@ $(document).ready(function(){
         'lengthChange': true,
         'searching': true,
         'info': true,
-        'dom': 'Bfrtip',
+        'dom': '<"container-fluid"<"row"<"col-sm-6"B><"col-sm-4"f><"col-sm-1"l >>>rtip',
         'buttons': [
             'copy', 'csv', 'excel', 'pdf', 'print'
         ],
@@ -255,7 +255,7 @@ $(document).ready(function(){
         'lengthChange': true,
         'searching': true,
         'info': true,
-        'dom': 'Bfrtip',
+        'dom': '<"container-fluid"<"row"<"col-sm-6"B><"col-sm-4"f><"col-sm-1"l >>>rtip',
         'buttons': [
             'copy', 'csv', 'excel', 'pdf', 'print'
         ],
@@ -288,7 +288,7 @@ $(document).ready(function(){
         'lengthChange': true,
         'searching': true,
         'info': true,
-        'dom': 'Bfrtip',
+        'dom': '<"container-fluid"<"row"<"col-sm-6"B><"col-sm-4"f><"col-sm-1"l >>>rtip',
         'buttons': [
             'copy', 'csv', 'excel', 'pdf', 'print'
         ],
@@ -321,7 +321,7 @@ $(document).ready(function(){
         'lengthChange': true,
         'searching': true,
         'info': true,
-        'dom': 'Bfrtip',
+        'dom': '<"container-fluid"<"row"<"col-sm-6"B><"col-sm-4"f><"col-sm-1"l >>>rtip',
         'buttons': [
             'copy', 'csv', 'excel', 'pdf', 'print'
         ],
@@ -354,7 +354,7 @@ $(document).ready(function(){
         'lengthChange': true,
         'searching': true,
         'info': true,
-        'dom': 'Bfrtip',
+        'dom': '<"container-fluid"<"row"<"col-sm-6"B><"col-sm-4"f><"col-sm-1"l >>>rtip',
         'buttons': [
             'copy', 'csv', 'excel', 'pdf', 'print'
         ],
@@ -386,7 +386,7 @@ $(document).ready(function(){
         'lengthChange': true,
         'searching': true,
         'info': true,
-        'dom': 'Bfrtip',
+        'dom': '<"container-fluid"<"row"<"col-sm-6"B><"col-sm-4"f><"col-sm-1"l >>>rtip',
         'buttons': [
             'copy', 'csv', 'excel', 'pdf', 'print'
         ],
@@ -418,7 +418,7 @@ $(document).ready(function(){
         'lengthChange': true,
         'searching': true,
         'info': true,
-        'dom': 'Bfrtip',
+        'dom': '<"container-fluid"<"row"<"col-sm-6"B><"col-sm-4"f><"col-sm-1"l >>>rtip',
         'buttons': [
             'copy', 'csv', 'excel', 'pdf', 'print'
         ],
@@ -450,7 +450,7 @@ $(document).ready(function(){
         'lengthChange': true,
         'searching': true,
         'info': true,
-        'dom': 'Bfrtip',
+        'dom': '<"container-fluid"<"row"<"col-sm-6"B><"col-sm-4"f><"col-sm-1"l >>>rtip',
         'buttons': [
             'copy', 'csv', 'excel', 'pdf', 'print'
         ],
@@ -482,7 +482,7 @@ $(document).ready(function(){
         'lengthChange': true,
         'searching': true,
         'info': true,
-        'dom': 'Bfrtip',
+        'dom': '<"container-fluid"<"row"<"col-sm-6"B><"col-sm-4"f><"col-sm-1"l >>>rtip',
         'buttons': [
             'copy', 'csv', 'excel', 'pdf', 'print'
         ],
@@ -514,7 +514,7 @@ $(document).ready(function(){
         'lengthChange': true,
         'searching': true,
         'info': true,
-        'dom': 'Bfrtip',
+        'dom': '<"container-fluid"<"row"<"col-sm-6"B><"col-sm-4"f><"col-sm-1"l >>>rtip',
         'buttons': [
             'copy', 'csv', 'excel', 'pdf', 'print'
         ],
@@ -546,7 +546,7 @@ $(document).ready(function(){
         'lengthChange': true,
         'searching': true,
         'info': true,
-        'dom': 'Bfrtip',
+        "dom": '<"container-fluid"<"row"<"col-sm-5"B><"col-sm-4"f><"col-sm-1"l>>>rtip',
         'buttons': [
             'copy', 'csv', 'excel', 'pdf', 'print'
         ],
@@ -579,7 +579,7 @@ $(document).ready(function(){
         'lengthChange': true,
         'searching': true,
         'info': true,
-        'dom': 'Bfrtip',
+        'dom': '<"container-fluid"<"row"<"col-sm-6"B><"col-sm-4"f><"col-sm-1"l >>>rtip',
         'buttons': [
             'copy', 'csv', 'excel', 'pdf', 'print'
         ],
@@ -612,7 +612,7 @@ $(document).ready(function(){
         'lengthChange': true,
         'searching': true,
         'info': true,
-        'dom': 'Bfrtip',
+        'dom': 'Bfrtip','dom': '<"container-fluid"<"row"<"col-sm-6"B><"col-sm-4"f><"col-sm-1"l >>>rtip',
         'buttons': [
             'copy', 'csv', 'excel', 'pdf', 'print'
         ],

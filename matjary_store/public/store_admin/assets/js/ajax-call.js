@@ -19,6 +19,7 @@ $(document).ready(function(){
     let Nocancelplease = 'No, cancel please!';
     let Activated = 'Activated !';
     let record_is_safe = "Record is safe .";
+    let Removed = "Removed!";
 
     if(lang=='en'){
         confirm = 'هل أنت متأكد أنك تريد إلغاء تنشيط هذا السجل؟';
@@ -33,6 +34,7 @@ $(document).ready(function(){
         Nocancelplease = 'لا ، إلغاء من فضلك!';
         Activated = 'مفعل !';
         record_is_safe = "السجل آمن.";
+        Removed = "إزالة!";
     }
     /* ================================= Store Admin js start ==================================== */
     /* Product Category js start */
@@ -364,7 +366,7 @@ $(document).ready(function(){
                             if(resp_statuscode==200){
                                 $("#preloader").hide();
                                 resp_msg = resp.responseMessage;
-                                swal({title: "Removed!", text: resp_msg, type: "success"},
+                                swal({title: Removed, text: resp_msg, type: "success"},
                                     function(){ 
                                        window.location.reload();
                                     }
@@ -531,8 +533,8 @@ $(document).ready(function(){
                             resp_statuscode = resp.responseCode;
                             if(resp_statuscode==200){
                                 $("#preloader").hide();
-                                resp_msg = resp.responseMessage;
-                                swal({title: "Removed!", text: resp_msg, type: "success"},
+                                resp_msg = resp.responseMessage; 
+                                swal({title: Removed, text: resp_msg, type: "success"},
                                     function(){ 
                                         window.location.reload();
                                     }

@@ -294,7 +294,7 @@ $ses_lang = $session->get('ses_lang');
                             </a>
                         </div>
                         <div class="footer-call">
-                            <h5>Call Us At:</h5>
+                            <h5><?php echo $language['Call Us At']; ?>:</h5>
                             <p><?php echo isset($storeSettingInfo->contact_no) ? $storeSettingInfo->contact_no : ''; ?></p>
                         </div>
                     </div>

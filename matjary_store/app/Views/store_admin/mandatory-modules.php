@@ -17,7 +17,7 @@
                 <div class="card-box pd-20 mb-30">
                     <div class="mand-box text-center">
                         <i class="icon-copy dw dw-setting-2" style="font-size: 3rem;"></i>
-                        <h4 class="text-blue h4 mt-2">General Settings</h4>
+                        <h4 class="text-blue h4 mt-2"><?php echo $language['General Settings']; ?></h4>
                         <div class="alert alert-warning" role="alert">
                             <strong><?php echo $language['Warning!']; ?></strong> <?php echo $language['General Setting Module Mandatory to Fill for use Store Admin Pannel.']; ?>
                         </div>
@@ -31,7 +31,7 @@
                 <div class="card-box pd-20 mb-30">
                     <div class="mand-box text-center">
                         <i class="icon-copy dw dw-money-2" style="font-size: 3rem;"></i>
-                        <h4 class="text-blue h4 mt-2">Payment Settings</h4>
+                        <h4 class="text-blue h4 mt-2"><?php echo $language['Payment Settings']; ?></h4>
                         <div class="alert alert-warning" role="alert">
                             <strong><?php echo $language['Warning!']; ?></strong> <?php echo $language['Payment Setting Module Mandatory to Fill for use Store Admin Pannel.']; ?>
                         </div>
@@ -45,7 +45,7 @@
                 <div class="card-box pd-20 mb-30">
                     <div class="mand-box text-center">
                         <i class="icon-copy dw dw-delivery-truck-2" style="font-size: 3rem;"></i>
-                        <h4 class="text-blue h4 mt-2">Shipping Settings</h4>
+                        <h4 class="text-blue h4 mt-2"><?php echo $language['Shipping Settings']; ?></h4>
                         <div class="alert alert-warning" role="alert">
                             <strong><?php echo $language['Warning!']; ?></strong> <?php echo $language['Shipping Setting Module Mandatory to Fill for use Store Admin Pannel.']; ?>
                         </div>

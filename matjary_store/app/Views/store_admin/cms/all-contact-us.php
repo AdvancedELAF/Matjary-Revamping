@@ -18,17 +18,17 @@
     </div>
     <div class="card-box mb-30">
         <div class="pd-20">
-            <div class="row">      
-                <div class="col-md-6">            
-                </div>
-                <div class="col-md-3">
-                </div>
+            <div class="row">
                 <div class="col-md-3">
                     <select class="form-control" id="multiActionOption" data-table="subscribers" data-actionurl="<?php echo base_url('multi-action-option'); ?>">
                         <option value=""><?php echo $language['Choose Action'];?></option>                    
                         <option value="3"><?php echo $language['Delete'];?></option>
                     </select>            
+                </div>      
+                <div class="col-md-6">            
                 </div>
+                <div class="col-md-3">
+                </div>                
             </div>   
         </div>
         <div class="table-responsive pd-20">

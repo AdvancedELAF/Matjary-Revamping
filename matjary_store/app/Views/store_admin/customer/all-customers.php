@@ -23,12 +23,7 @@ $ses_lang = $session->get('ses_lang');
     </div>
     <div class="card-box mb-30">        
         <div class="pd-20">
-            <div class="row">      
-                <div class="col-md-6">            
-                </div>
-                <div class="col-md-3">
-                    <a href="<?php echo base_url('admin/add-customer'); ?>" class="btn btn-primary pull-<?php echo $ses_lang == 'en'?'right':'left'; ?>"><?php echo $language['Add New Customer']; ?></a>
-                </div>
+            <div class="row">
                 <div class="col-md-3">
                     <select class="form-control" id="multiActionOption" data-table="customers" data-actionurl="<?php echo base_url('multi-action-option'); ?>">
                         <option value=""><?php echo $language['Choose Action'];?></option>
@@ -36,7 +31,12 @@ $ses_lang = $session->get('ses_lang');
                         <option value="2"><?php echo $language['Deactivate'];?></option>
                         <option value="3"><?php echo $language['Delete'];?></option>
                     </select>            
+                </div>      
+                <div class="col-md-6">            
                 </div>
+                <div class="col-md-3">
+                    <a href="<?php echo base_url('admin/add-customer'); ?>" class="btn btn-primary pull-<?php echo $ses_lang == 'en'?'right':'left'; ?>"><?php echo $language['Add New Customer']; ?></a>
+                </div>                
             </div>   
         </div>
         <div class="table-responsive pd-20">
