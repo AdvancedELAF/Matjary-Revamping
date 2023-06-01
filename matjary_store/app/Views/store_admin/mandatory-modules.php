@@ -19,7 +19,7 @@
                         <i class="icon-copy dw dw-setting-2" style="font-size: 3rem;"></i>
                         <h4 class="text-blue h4 mt-2"><?php echo $language['General Settings']; ?></h4>
                         <div class="alert alert-warning" role="alert">
-                            <strong><?php echo $language['Warning!']; ?></strong> <?php echo $language['General Setting Module Mandatory to Fill for use Store Admin Pannel.']; ?>
+                            <strong><?php echo $language['Warning!']; ?></strong> <?php echo $language['General Setting Module Mandatory to Fill for use Store Admin Panel.']; ?>
                         </div>
                         <a href="<?php echo base_url('admin/general-settings'); ?>" class="btn btn-primary"><?php echo $language['Click here to fill']; ?></a>
                     </div>
@@ -33,7 +33,7 @@
                         <i class="icon-copy dw dw-money-2" style="font-size: 3rem;"></i>
                         <h4 class="text-blue h4 mt-2"><?php echo $language['Payment Settings']; ?></h4>
                         <div class="alert alert-warning" role="alert">
-                            <strong><?php echo $language['Warning!']; ?></strong> <?php echo $language['Payment Setting Module Mandatory to Fill for use Store Admin Pannel.']; ?>
+                            <strong><?php echo $language['Warning!']; ?></strong> <?php echo $language['Payment Setting Module Mandatory to Fill for use Store Admin Panel.']; ?>
                         </div>
                         <a href="<?php echo base_url('admin/payment-settings'); ?>" class="btn btn-primary"><?php echo $language['Click here to fill']; ?></a>
                     </div>
@@ -50,7 +50,7 @@
                             <strong><?php echo $language['Warning!']; ?></strong> <?php echo $language['Shipping Setting Module Mandatory to Fill for use Store Admin Pannel.']; ?>
                         </div>
                         <a href="<?php echo base_url('admin/shipping-settings'); ?>" class="btn btn-primary"><?php echo $language['Click here to fill']; ?></a>
-                        <button class="btn btn-secondary" id="setDefaultShipStngs" data-actionurl="<?php echo base_url('admin/set-default-shipping-setting'); ?>">Proceed with Default</button>
+                        <button class="btn btn-secondary" id="setDefaultShipStngs" data-actionurl="<?php echo base_url('admin/set-default-shipping-setting'); ?>"><?php echo $language['Proceed with Default']; ?></button>
                     </div>
                 </div>
             </div>
