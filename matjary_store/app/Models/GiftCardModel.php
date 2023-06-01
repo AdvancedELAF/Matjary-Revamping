@@ -46,7 +46,6 @@ class GiftCardModel extends Model {
     {
         parent::__construct();
         $this->db = \Config\Database::connect();
-        // OR $this->db = db_connect();
     }
 
     public function get_all_data()
@@ -57,7 +56,6 @@ class GiftCardModel extends Model {
 
     public function get_all_active_data(){
         $query = $this->db->query('select * from ' . $this->table .' where is_active in(1) order by id desc');
-
         return $query->getResult();
     }  
 
@@ -93,7 +91,6 @@ class GiftCardModel extends Model {
     }
 
     public function get_gift_purchased_details($cusId){      
-        //$query = $this->db->query('select * from GiftCardPurchased where customer_id= "'.$cusId.'" and is_active in(1) ');
         $query = $this->db->query('
             select GiftCardPurchased.*,
             GiftCards.id,
@@ -162,7 +159,7 @@ class GiftCardModel extends Model {
         return $query->getFirstRow();
     }
 
-    public function is_customer_gc_valid($gc_code,$customerId,$totalprice){
+    public function is_customer_gc_valid($gc_code,$customerId,$totalprice,$checkLang){
         $result = [];
         $is_gc_code_exist_qry = $this->db->query('
         select 
@@ -175,8 +172,7 @@ class GiftCardModel extends Model {
         where gcp.egift_code="'.$gc_code.'" 
         and gc.is_active=1 
         ');
-        // $getLastQuery = $this->db->getLastQuery($is_gc_code_exist_qry);
-        // echo '<pre>'; print_r($getLastQuery); exit;
+      
         $isGcCodeExist = $is_gc_code_exist_qry->getRow();
         
         if(isset($isGcCodeExist) && !empty($isGcCodeExist)){
@@ -226,27 +222,27 @@ class GiftCardModel extends Model {
                     $isGcCodeBalanced = $is_gc_code_balance_qry->getRow();
                     if(isset($isGcCodeBalanced) && !empty($isGcCodeBalanced)){
                         $result['statusCode']= 200;
-                        $result['statusMessage'] = $this->ses_lang=='en'?'The Gift Card Has Been Applied Successfully.':'تم تطبيق بطاقة الهدايا بنجاح.';
+                        $result['statusMessage'] = $checkLang=='en'?'The Gift Card Has Been Applied Successfully.':'تم تطبيق بطاقة الهدايا بنجاح.';
                         $result['statusData']= $isGcCodeBalanced;
                         return $result;
                     }else{
                         $result['statusCode']= 404;
-                        $result['statusMessage'] = $this->ses_lang=='en'?'Gift Card Balance Is Low, Your Current Balance Is : ':'رصيد بطاقة الهدايا منخفض ، رصيدك الحالي هو:'.$isGcCodeExpired->gc_balance;
+                        $result['statusMessage'] = $checkLang=='en'?'Gift Card Balance Is Low, Your Current Balance Is : ':'رصيد بطاقة الهدايا منخفض ، رصيدك الحالي هو:'.$isGcCodeExpired->gc_balance;
                         return $result;
                     }
                 }else{
                     $result['statusCode']= 404;
-                    $result['statusMessage'] = $this->ses_lang=='en'?'Gift Card Code Is Expired.':'انتهت صلاحية رمز بطاقة الهدايا.';
+                    $result['statusMessage'] = $checkLang=='en'?'Gift Card Code Is Expired.':'انتهت صلاحية رمز بطاقة الهدايا.';
                     return $result;
                 }
             }else{
                 $result['statusCode']= 404;
-                $result['statusMessage'] = $this->ses_lang=='en'?'You Have Not Purchased This Gift Card.':'لم تقم بشراء بطاقة الهدايا هذه.';
+                $result['statusMessage'] = $checkLang=='en'?'You Have Not Purchased This Gift Card.':'لم تقم بشراء بطاقة الهدايا هذه.';
                 return $result;
             }
         }else{
             $result['statusCode']= 404;
-            $result['statusMessage'] = $this->ses_lang=='en'?'Gift Card Code Is Not Valid':'رمز بطاقة الهدايا غير صالح';
+            $result['statusMessage'] = $checkLang=='en'?'Gift Card Code Is Not Valid':'رمز بطاقة الهدايا غير صالح';
             return $result;
         }
     }
@@ -261,27 +257,20 @@ class GiftCardModel extends Model {
     }
 
     public function update_single_purchased_gc_details($giftcard_prchsed_id, $gc_refund_amount){
-        // $this->db->table('GiftCardPurchased')->update($data, array(
-        //     "order_id" => $orderid,
-        // ));
-        // return $this->db->affectedRows();
-
+       
         $aftectedId = $this->db
             ->table('GiftCardPurchased')
             ->where(["id" => $giftcard_prchsed_id])
             ->set(["gc_balance" => $gc_refund_amount])
             ->set(["updated_at" => DATETIME])
             ->update();
-        // $getLastQuery = $this->db->getLastQuery();
-		// echo '<pre>'; print_r($getLastQuery); exit;
+       
         $aftectedId = $this->db->affectedRows();
         if(is_int($aftectedId)){
             return true;
         }else{
             return false;
         }
-    }
-    
+    }    
 }
-
 ?>

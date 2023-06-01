@@ -31,7 +31,7 @@ class CustomerController extends BaseController
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){
         $this->pageData['pageTitle'] = 'All Customerss';
         $this->pageData['adminPageId'] = 13;
-        //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();	
+        $this->pageData['table'] = $this->Customers;	
         $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
 		$this->pageData['customerList'] = $this->CustomerModel->get_all_data();
         return view('store_admin/customer/all-customers',$this->pageData);

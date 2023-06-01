@@ -7,7 +7,8 @@
             <h1><?php echo $language['My Orders']; ?></h1>
         </div>
     </div>
-</section>><!-- PAGE BAR ENDS -->
+</section>
+<!-- PAGE BAR ENDS -->
 <!-- MY ORDERS TABLE STARTS -->
 <section class="section-spacing <?php if($locale=='ar'){echo 'text-right';} ?>">
     <div class="container">
@@ -153,13 +154,13 @@
                                                 <div class="cart-price">
                                                     <h5>
                                                         <?php  
-                                                        if($checkrefundApproved->refund_status == 0){
-                                                            echo $language['Refund Request Raised by Customer.'];
-                                                        }elseif($checkrefundApproved->refund_status == 1){
-                                                            echo $language['Refund Approved.'];
-                                                        }elseif($checkrefundApproved->refund_status == 2){
-                                                            echo $language['Refunded Amount Received by Customer.'];
-                                                        }
+                                                            if($checkrefundApproved->refund_status == 0){
+                                                                echo $language['Refund Request Raised by Customer.'];
+                                                            }elseif($checkrefundApproved->refund_status == 1){
+                                                                echo $language['Refund Approved.'];
+                                                            }elseif($checkrefundApproved->refund_status == 2){
+                                                                echo $language['Refunded Amount Received by Customer.'];
+                                                            }
                                                         ?>
                                                     </h5>
                                                 </div>

@@ -14,7 +14,6 @@ class CouponController extends BaseController
         LoggerInterface $logger
     ) {
         parent::initController($request, $response, $logger);
-
         // Add your code here.
         $this->is_all_mandotory_modules_filled();
     }
@@ -28,8 +27,8 @@ class CouponController extends BaseController
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){ 
             $this->pageData['pageTitle'] = 'All Customerss';
             $this->pageData['adminPageId'] = 12;	
+            $this->pageData['table'] = $this->Coupons;
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
             $this->pageData['couponList'] = $this->CouponModel->get_all_data();
             return view('store_admin/coupon/all-coupons',$this->pageData);
         }else{
@@ -41,7 +40,6 @@ class CouponController extends BaseController
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){
             $this->pageData['pageTitle'] = 'Add Coupon';
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
             return view('store_admin/coupon/add-coupon',$this->pageData);
         }else{
             return redirect()->to('/admin/login');
@@ -153,7 +151,6 @@ class CouponController extends BaseController
             $this->pageData['pageTitle'] = 'Edit Coupon';
             $this->pageData['couponDetails'] = $this->CouponModel->find($id);
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
             return view('store_admin/coupon/edit-coupon',$this->pageData);
         }else{
             return redirect()->to('/admin/login');

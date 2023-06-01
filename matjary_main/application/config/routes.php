@@ -109,9 +109,10 @@ $route['save-usr'] = 'ApiCntr/save_usr';
 $route['chk-usr-login'] = 'ApiCntr/chk_usr_login';
 $route['plan-list'] = 'ApiCntr/plan_list';
 $route['template-list'] = 'ApiCntr/template_list';
-$route['check-subdomain-availability'] = 'ApiCntr/check_subdomain_availability';
+$route['check-subdomain-availability'] = 'UsrCntr/check_subdomain_availability';
+$route['check-subdomain-availability-api'] = 'ApiCntr/check_subdomain_availability_api';
 $route['save-usr-subscription'] = 'ApiCntr/save_usr_subscription';
-$route['user-domains'] = 'ApiCntr/user_domains';
+$route['user-domains'] = 'ApiCntr/user_domains'; 
 $route['user-profile-details'] = 'ApiCntr/user_profile_details';
 $route['user-order-details'] = 'ApiCntr/user_order_details';
 $route['user-store-template-details'] = 'ApiCntr/user_store_template_details';
@@ -147,7 +148,8 @@ $route['save-template-subscription'] = 'ApiCntr/save_template_subscription';
 $route['store-template-details/(:any)'] = 'UsrCntr/store_template_details';
 
 $route['check-template-purchased'] = 'ApiCntr/check_template_purchased';
-$route['check-coupon-valid'] = 'ApiCntr/check_coupon_valid';
+$route['check-coupon-valid'] = 'UsrCntr/check_coupon_valid';
+$route['check-coupon-valid-api'] = 'ApiCntr/check_coupon_valid_api';
 
 $route['matjary-config'] = 'ApiCntr/matjary_config';
 

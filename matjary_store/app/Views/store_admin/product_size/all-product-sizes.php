@@ -21,15 +21,29 @@ $ses_lang = $session->get('ses_lang');
             </div>
         </div>
     </div>
-    <div class="card-box mb-30">
+    <div class="card-box mb-30">        
         <div class="pd-20">
-            <a href="<?php echo base_url('admin/add-product-size'); ?>" class="btn btn-primary pull-<?php echo $ses_lang == 'en'?'right':'left'; ?>"><?php echo $language['Add New Size']; ?></a>
+            <div class="row"> 
+                <div class="col-md-3">
+                    <select class="form-control" id="multiActionOption" data-table="<?php echo isset($table) ? $table : 'NA'; ?>" data-actionurl="<?php echo base_url('multi-action-option'); ?>">
+                        <option value=""><?php echo $language['Choose Action'];?></option>
+                        <option value="1"><?php echo $language['Activate'];?></option>
+                        <option value="2"><?php echo $language['Deactivate'];?></option>
+                        <option value="3"><?php echo $language['Delete'];?></option>
+                    </select>            
+                </div>     
+                <div class="col-md-6">            
+                </div>
+                <div class="col-md-3">
+                        <a href="<?php echo base_url('admin/add-product-size'); ?>" class="btn btn-primary pull-<?php echo $ses_lang == 'en'?'right':'left'; ?>"><?php echo $language['Add New Size']; ?></a>
+                </div>                
+            </div>   
         </div>
-
         <div class="table-responsive pd-20">
             <table class="data-table table nowrap" id="viewAllProductSizeList">
                 <thead>
                     <tr>
+                        <th scope="col"><input type="checkbox" id="checkAll"></th>
                         <th scope="col">#</th>
                         <th scope="col"><?php echo $language['Size Name']; ?></th>
                         <th scope="col"><?php echo $language['Status']; ?></th>
@@ -44,16 +58,15 @@ $ses_lang = $session->get('ses_lang');
                     ?>
                             <tr>
                                 <td>
+                                    <input type="checkbox" name="itemId[]"  class="itemId" value="<?php echo isset($value->id) ? $value->id : 'NA'; ?>" />
+                                </td>
+                                <td>
                                     <h5 class="font-16"><?php echo $i; ?></h5>
                                 </td>
                                 <td>
                                     <h5 class="font-16"><?php echo isset($value->size) ? $value->size : 'NA'; ?></h5>
                                 </td>
-                                <td><?php if ($value->is_active == 1) {
-                                        echo $language['Active'];
-                                    } else {
-                                        echo $language['Deactivated'];
-                                    } ?></td>
+                                <td><?php if ($value->is_active == 1) { echo $language['Active']; } else { echo $language['Deactivated']; } ?></td>
                                 <td>
                                     <div class="dropdown">
                                         <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown"><i class="dw dw-more"></i></a>

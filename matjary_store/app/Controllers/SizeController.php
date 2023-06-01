@@ -28,9 +28,9 @@ class SizeController extends BaseController
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){
             $this->pageData['pageTitle'] = 'All Product Sizes';
             $this->pageData['adminPageId'] = 11;
+            $this->pageData['table'] = $this->Sizes;
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-            $this->pageData['productSizeList'] = $this->SizeModel->get_all_data();   
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();    
+            $this->pageData['productSizeList'] = $this->SizeModel->get_all_data();    
             return view('store_admin/product_size/all-product-sizes',$this->pageData);
         }else{
             return redirect()->to('/admin/login');
@@ -40,7 +40,6 @@ class SizeController extends BaseController
     public function add_product_size(){
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){
             $this->pageData['pageTitle'] = 'Add Product Size';
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
             return view('store_admin/product_size/add-product-size',$this->pageData);
         }else{
@@ -65,7 +64,7 @@ class SizeController extends BaseController
                 )); 
                 if(is_int($insertedId)){
                     $resp['responseCode'] = 200;
-                    $resp['responseMessage'] =  $this->ses_lang=='en' ? "Product Size Inserted Successfully." : "تم إدراج حجم المنتج بنجاح.";
+                    $resp['responseMessage'] =  $this->ses_lang=='en' ? "Product Size Added Successfully." : "تم إدراج حجم المنتج بنجاح.";
                     $resp['redirectUrl'] = base_url('admin/all-product-sizes');
                     return json_encode($resp); exit;
                 }else{
@@ -86,9 +85,7 @@ class SizeController extends BaseController
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){
             $this->pageData['pageTitle'] = 'Edit Product Color';
             $this->pageData['prodSizeDetails'] = $this->SizeModel->find($prodSizeId);
-            //$this->pageData['loggedInUserData'] = $this->UserModel->get_login_user_data($this->ses_user_id);
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
             return view('store_admin/product_size/edit-product-size',$this->pageData);
         }else{
             return redirect()->to('/admin/login');
@@ -202,7 +199,6 @@ class SizeController extends BaseController
 		if ($image->isValid() && ! $image->hasMoved()) {
 			$newName = $image->getRandomName();
 			$image->move('./'.$path, $newName);
-			//return $path.$image->getName();
             return $image->getName();
 		}
 		return "";

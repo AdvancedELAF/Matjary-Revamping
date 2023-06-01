@@ -407,7 +407,6 @@ $(document).ready(function () {
         "processing": true,
         'language': {
             'sProcessing': sProcessing,
-            //'sLengthMenu': sLengthMenu,
             "slengthMenu": [50,100,500,1000,2000,5000,10000,50000,100000],
             'sZeroRecords': sZeroRecords,
             'sInfo': sInfo,
@@ -441,7 +440,6 @@ $(document).ready(function () {
         "processing": true,
         'language': {
             'sProcessing': sProcessing,
-            //'sLengthMenu': sLengthMenu,
             "slengthMenu": [50,100,500,1000,2000,5000,10000,50000,100000],
             'sZeroRecords': sZeroRecords,
             'sInfo': sInfo,
@@ -498,7 +496,6 @@ $(document).ready(function () {
         "processing": true,
         'language': {
             'sProcessing': sProcessing,
-            //'sLengthMenu': sLengthMenu,
             "slengthMenu": [50,100,500,1000,2000,5000,10000,50000,100000],
             'sZeroRecords': sZeroRecords,
             'sInfo': sInfo,
@@ -511,14 +508,12 @@ $(document).ready(function () {
         }
     });
 
-    //$(document).ready(function() {
-        $('#invoiceList').DataTable( {
+    $('#invoiceList').DataTable( {
             "dom": '<"container-fluid"<"row"<"col-sm-6"B><"col-sm-4"f><"col-sm-1"l >>>rtip', 
             buttons: [
                 'print'
             ]
         } );
-    //} );
     $('.dataTables_length').addClass('bs-select');
 });
 

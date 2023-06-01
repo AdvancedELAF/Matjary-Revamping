@@ -19,6 +19,7 @@ $(document).ready(function(){
     let Nocancelplease = 'No, cancel please!';
     let Activated = 'Activated !';
     let record_is_safe = "Record is safe .";
+    let Removed = "Removed!";
 
     if(lang=='en'){
         confirm = 'هل أنت متأكد أنك تريد إلغاء تنشيط هذا السجل؟';
@@ -33,9 +34,9 @@ $(document).ready(function(){
         Nocancelplease = 'لا ، إلغاء من فضلك!';
         Activated = 'مفعل !';
         record_is_safe = "السجل آمن.";
+        Removed = "إزالة!";
     }
     /* ================================= Store Admin js start ==================================== */
-
     /* Product Category js start */
     $("#save_product_category_form").on('submit',(function(e) {
 		e.preventDefault();
@@ -72,7 +73,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#save_product_category_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -118,7 +118,6 @@ $(document).ready(function(){
                         swal({title: "", text: respData.responseMessage, type: "success"},
 		                    function(){ 
                                 $("#update_product_category_form")[0].reset();
-		                        //window.location.href = respData.redirectUrl;
 		                        window.location.reload();
 		                    }
 		                );
@@ -167,8 +166,7 @@ $(document).ready(function(){
                         swal({title: "", text: respData.responseMessage, type: "success"},
 		                    function(){ 
                                 $("#save_product_brand_form")[0].reset();
-		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
+		                        window.location.href = respData.redirectUrl;		                       
 		                    }
 		                );
                     }else{
@@ -215,7 +213,7 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#update_product_brand_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
+		                       
 		                    }
 		                );
                     }else{
@@ -274,8 +272,7 @@ $(document).ready(function(){
                         }else{
                             $("#preloader").hide();
                             resp_error = resp.responseMessage;
-                            resp_notifications = resp.responseNotifications;;
-                            //swal("Error", resp_error, "error");
+                            resp_notifications = resp.responseNotifications;
                             swal({
                                 title: resp_notifications,
                                 text: resp_error,
@@ -369,7 +366,7 @@ $(document).ready(function(){
                             if(resp_statuscode==200){
                                 $("#preloader").hide();
                                 resp_msg = resp.responseMessage;
-                                swal({title: "Removed!", text: resp_msg, type: "success"},
+                                swal({title: Removed, text: resp_msg, type: "success"},
                                     function(){ 
                                        window.location.reload();
                                     }
@@ -536,8 +533,8 @@ $(document).ready(function(){
                             resp_statuscode = resp.responseCode;
                             if(resp_statuscode==200){
                                 $("#preloader").hide();
-                                resp_msg = resp.responseMessage;
-                                swal({title: "Removed!", text: resp_msg, type: "success"},
+                                resp_msg = resp.responseMessage; 
+                                swal({title: Removed, text: resp_msg, type: "success"},
                                     function(){ 
                                         window.location.reload();
                                     }
@@ -595,7 +592,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#save_general_setting_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -642,7 +638,7 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#update_general_setting_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
+		                       
 		                    }
 		                );
                     } 
@@ -692,7 +688,7 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#save_product_color_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
+		                       
 		                    }
 		                );
                     }else{
@@ -739,7 +735,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#update_product_color_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -788,7 +783,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#save_product_size_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -834,7 +828,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#update_product_size_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -883,7 +876,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#save_shipping_setting_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -929,7 +921,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#update_shipping_setting_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -940,8 +931,8 @@ $(document).ready(function(){
             });
         }
     }));
-    /* Shipping Setting ajx end */
 
+    /* Shipping Setting ajx end */
     $("#submit_create_pickup_request_form").on('submit',(function(e) {
 		e.preventDefault();
         var isvalidate = $("#submit_create_pickup_request_form").valid();
@@ -977,7 +968,6 @@ $(document).ready(function(){
                                 swal.close();
                                 $("#submit_create_pickup_request_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -1025,7 +1015,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#save_payment_setting_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -1036,6 +1025,7 @@ $(document).ready(function(){
             }); 
         }
     }));
+
     $("#update_payment_setting_form").on('submit',(function(e) {
 		e.preventDefault();
         var isvalidate = $("#update_payment_setting_form").valid();
@@ -1071,7 +1061,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#update_payment_setting_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -1083,7 +1072,6 @@ $(document).ready(function(){
         }
     }));
      /* Payment Setting ajx end */
-
      /* Product js start */
     $("#save_product_form").on('submit',(function(e) {
 		e.preventDefault();
@@ -1120,7 +1108,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#save_product_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -1166,7 +1153,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#update_product_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -1178,7 +1164,6 @@ $(document).ready(function(){
         }
     }));
     /* Product js end */
-
     /* User js start */
     $("#save_user_form").on('submit',(function(e) {
 		e.preventDefault();
@@ -1207,7 +1192,7 @@ $(document).ready(function(){
                         showConfirmButton: false
                     });
                 },
-                success: function(resp){  // A function to be called if request succeeds
+                success: function(resp){  /* A function to be called if request succeeds */
                     respData = JSON.parse(resp);
                     if(respData.responseCode == 200){
                         $("#preloader").hide();
@@ -1215,7 +1200,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#save_user_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -1283,7 +1267,7 @@ $(document).ready(function(){
             var form = $('#save_customer_form')[0];  /* Get form */
             var requestData = new FormData(form);  /* Create an FormData object */
             var action_page 		= $("#save_customer_form").attr('action');
-            // processData & contentType should be set to false
+            /* processData & contentType should be set to false */
             $.ajax
             ({
                 url: action_page, 		 /* Url to which the request is send */
@@ -1352,7 +1336,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#update_customer_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -1363,7 +1346,6 @@ $(document).ready(function(){
         }
     }));
     /* Customer js end */
-
     /* Coupon js start */
     $("#save_coupon_form").on('submit',(function(e) {
 		e.preventDefault();
@@ -1399,7 +1381,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#save_coupon_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -1490,7 +1471,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#save_banner_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -1546,8 +1526,6 @@ $(document).ready(function(){
         }
     }));
     /* Banner js End */
-
-
     /* ================================= Store Admin js end ==================================== */
 
     /* Faq js Start */
@@ -1585,7 +1563,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#save_faq_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -1681,7 +1658,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#save_customer_help_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -1730,7 +1706,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#update_customer_help_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -1781,7 +1756,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#update_terms_conditions_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -1830,7 +1804,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#save_terms_conditions_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -1881,7 +1854,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#save_about_us_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -1929,7 +1901,6 @@ $(document).ready(function(){
                         swal({title: "", text: respData.responseMessage, type: "success"},
 		                    function(){ 
                                 $("#update_about_us_form")[0].reset();
-		                        //window.location.href = respData.redirectUrl;
 		                        window.location.reload();
 		                    }
 		                );
@@ -1977,7 +1948,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#save_gift_card_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -2031,57 +2001,7 @@ $(document).ready(function(){
                 }
             });
         }
-    }));
-    /* Gift Card Js End */
-    //    $("#user_login_form").on('submit',(function(e) {
-	// 	e.preventDefault();
-    //     var isvalidate = $("#user_login_form").valid();
-	//     if (!isvalidate) {
-	//         return false;
-	//     }else{
-    //         var form = $('#user_login_form')[0];  /* Get form */
-    //         var requestData = new FormData(form);  /* Create an FormData object  */
-    //         var action_page 		= $("#user_login_form").attr('action');
-    //         $.ajax
-    //         ({
-    //             url: action_page, 		  /* Url to which the request is send */
-    //             type: "POST",             /* Type of request to be send, called as method */
-    //             enctype: 'multipart/form-data',
-    //             data: requestData, 		  /* Data sent to server, a set of key/value pairs (i.e. form fields and values) */
-    //             contentType: false,       /* The content type used when sending data to the server. */
-    //             cache: false,             /* To unable request pages to be cached */
-    //             processData:false,        /* Important! To send DOMDocument or non processed data file it is set to false */
-    //             timeout: 600000,
-    //             beforeSend: function() {
-                        // swal({
-                        //     title: "",
-                        //     text: (lang == "en") ? "معالجة..." : "Processing...",
-                        //     imageUrl: "https://media.tenor.com/OzAxe6-8KvkAAAAi/blue_spinner.gif",
-                        //     showConfirmButton: false
-                        // });
-    //             },
-    //             success: function(resp){  /* A function to be called if request succeeds */
-    //                 respData = JSON.parse(resp);
-    //                 console.log(respData);
-    //                 if(respData.responseCode == 200){
-    //                     // swal({title: "", text: respData.responseMessage, type: "success"},
-	// 	                //     function(){ 
-    //                     //         $("#customer_login_form")[0].reset();
-	// 	                //         window.location.href = respData.redirectUrl;
-	// 	                //         //window.location.reload();
-	// 	                //     }
-	// 	                // );
-    //                     $("#user_login_form")[0].reset();
-    //                     window.location.href = respData.redirectUrl;
-    //                     //window.location.reload();
-    //                 }else{
-    //                     $("#preloader").hide();
-    //                     swal({title: "Fail", text: respData.responseMessage, type: "error"});
-    //                 }
-    //             }
-    //         });
-    //     }
-    // }));
+    }));    
 
      /* Advertisement js Start */
      $("#save_advertisement_form").on('submit',(function(e) {
@@ -2118,7 +2038,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#save_advertisement_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -2174,7 +2093,6 @@ $(document).ready(function(){
         }
     }));
     /* Advertisement js End */
-
     $("#user_set_new_password_form").on('submit',(function(e) {
 		e.preventDefault();
         var isvalidate = $("#user_set_new_password_form").valid();
@@ -2209,7 +2127,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#user_set_new_password_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -2250,17 +2167,9 @@ $(document).ready(function(){
                 success: function(resp){  /* A function to be called if request succeeds */
                     respData = JSON.parse(resp);
                     if(respData.responseCode == 200){
-                        $("#preloader").hide();
-                        // swal({title: "", text: respData.responseMessage, type: "success"},
-		                //     function(){ 
-                        //         $("#user_login_form")[0].reset();
-		                //         window.location.href = respData.redirectUrl;
-		                //         //window.location.reload();
-		                //     }
-		                // );
+                        $("#preloader").hide();                        
                         $("#user_login_form")[0].reset();
                         window.location.href = respData.redirectUrl;
-                        //window.location.reload();
                     }else{
                         $("#preloader").hide();
                         swal({title: "", text: respData.responseMessage, type: "error"});
@@ -2304,7 +2213,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#update_user_profile_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -2349,7 +2257,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#update_user_change_password_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -2382,7 +2289,6 @@ $(document).ready(function(){
             success: function(resp){  /* A function to be called if request succeeds */
                 respData = JSON.parse(resp);                
                 if(respData.responseCode == 200){
-                    //$("#preloader").hide();
                     swal.close();
                     $("#state_id").empty('');
                     $("#state_id").append('<option value="">Select State</option>');
@@ -2390,8 +2296,7 @@ $(document).ready(function(){
                     $.each(stateList,function(key, value){
                         $("#state_id").append('<option value=' + value.id + '>' + value.name + '</option>');
                     });
-                }else{
-                    //$("#preloader").hide();
+                }else{                   
                     swal.close();
                     swal({title: "", text: respData.responseMessage, type: "error"});
                 }
@@ -2421,7 +2326,7 @@ $(document).ready(function(){
             success: function(resp){  /* A function to be called if request succeeds */
                 respData = JSON.parse(resp);
                 if(respData.responseCode == 200){
-                    // $("#preloader").hide();
+                    
                     swal.close();
                     $("#city_id").empty('');
                     $("#city_id").append('<option value="">Select City</option>');
@@ -2430,14 +2335,14 @@ $(document).ready(function(){
                         $("#city_id").append('<option value=' + value.id + '>' + value.name + '</option>');
                     });
                 }else{
-                    //$("#preloader").hide();
+                    
                     swal.close();
                     swal({title: "", text: respData.responseMessage, type: "error"});
                 }
             }
         });
     });
-    // reply contact form
+    /* reply contact form */
     $("#reply_contact_form").on('submit',(function(e) { 
 		e.preventDefault();
         var isvalidate = $("#reply_contact_form").valid();
@@ -2472,7 +2377,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#reply_contact_form")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -2483,7 +2387,7 @@ $(document).ready(function(){
         }
     }));
 
-    // Admin Profile Picture
+   /* Admin Profile Picture */
     $("#user_profile_picture").on('submit',(function(e) { 
 		e.preventDefault();
         var isvalidate = $("#user_profile_picture").valid();
@@ -2518,7 +2422,6 @@ $(document).ready(function(){
 		                    function(){ 
                                 $("#user_profile_picture")[0].reset();
 		                        window.location.href = respData.redirectUrl;
-		                        //window.location.reload();
 		                    }
 		                );
                     }else{
@@ -2529,7 +2432,7 @@ $(document).ready(function(){
             });
         }
     }));
-   // Refund Request by admin
+   /* Refund Request by admin */
     $('#ApprovedRefund').on('click', function(e) {
         e.preventDefault();
         let orderid = $(this).data('orderid');
@@ -2566,14 +2469,12 @@ $(document).ready(function(){
                             },
                             success: function(resp){  /* A function to be called if request succeeds */
                                 respData = JSON.parse(resp);
-                                //console.log(respData);
+                                
                                 if(respData.responseCode == 200){
                                     $("#preloader").hide();
                                     swal({title: "", text: respData.responseMessage, type: "success"},
-                                        function(){ 
-                                            //$("#save_product_category_form")[0].reset();
-                                            window.location.href = respData.redirectUrl;
-                                            //window.location.reload();
+                                        function(){                                            
+                                            window.location.href = respData.redirectUrl;                                           
                                         }
                                     );
                                 }else{
@@ -2589,58 +2490,162 @@ $(document).ready(function(){
         );
     });
 
-        /* user forgeted password start */
-
-        $("#chk_password_forgoted_user_email").on('submit',(function(e) { 
-            e.preventDefault();
-            var isvalidate = $("#chk_password_forgoted_user_email").valid();
-            if (!isvalidate) {
-                return false;
-            }else{
-                var form = $('#chk_password_forgoted_user_email')[0];  /* Get form */
-                var requestData = new FormData(form);  /* Create an FormData object  */
-                var action_page 		= $("#chk_password_forgoted_user_email").attr('action');
-                $.ajax
-                ({
-                    url: action_page, 		  /* Url to which the request is send */
-                    type: "POST",             /* Type of request to be send, called as method */
-                    enctype: 'multipart/form-data',
-                    data: requestData, 		  /* Data sent to server, a set of key/value pairs (i.e. form fields and values) */
-                    contentType: false,       /* The content type used when sending data to the server. */
-                    cache: false,             /* To unable request pages to be cached */
-                    processData:false,        /* Important! To send DOMDocument or non processed data file it is set to false */
-                    timeout: 600000,
-                    beforeSend: function() {
-                        swal({
-                            title: "",
-                            text: (lang == "en") ? "معالجة..." : "Processing...",
-                            imageUrl: "https://media.tenor.com/OzAxe6-8KvkAAAAi/blue_spinner.gif",
-                            showConfirmButton: false
-                        });
-                    },
-                    success: function(resp){  /* A function to be called if request succeeds */
-                        respData = JSON.parse(resp);
-                        if(respData.responseCode == 200){
-                            swal({title: "", text: respData.responseMessage, type: "success"},
-                                function(){ 
-                                    window.location.href = respData.redirectUrl;
-                                }
-                            );
-                        }else{
-                            swal({title: "", text: respData.responseMessage, type: "error"});
-                        }
+    /* user forgeted password start */
+    $("#chk_password_forgoted_user_email").on('submit',(function(e) { 
+        e.preventDefault();
+        var isvalidate = $("#chk_password_forgoted_user_email").valid();
+        if (!isvalidate) {
+            return false;
+        }else{
+            var form = $('#chk_password_forgoted_user_email')[0];  /* Get form */
+            var requestData = new FormData(form);  /* Create an FormData object  */
+            var action_page 		= $("#chk_password_forgoted_user_email").attr('action');
+            $.ajax
+            ({
+                url: action_page, 		  /* Url to which the request is send */
+                type: "POST",             /* Type of request to be send, called as method */
+                enctype: 'multipart/form-data',
+                data: requestData, 		  /* Data sent to server, a set of key/value pairs (i.e. form fields and values) */
+                contentType: false,       /* The content type used when sending data to the server. */
+                cache: false,             /* To unable request pages to be cached */
+                processData:false,        /* Important! To send DOMDocument or non processed data file it is set to false */
+                timeout: 600000,
+                beforeSend: function() {
+                    swal({
+                        title: "",
+                        text: (lang == "en") ? "معالجة..." : "Processing...",
+                        imageUrl: "https://media.tenor.com/OzAxe6-8KvkAAAAi/blue_spinner.gif",
+                        showConfirmButton: false
+                    });
+                },
+                success: function(resp){  /* A function to be called if request succeeds */
+                    respData = JSON.parse(resp);
+                    if(respData.responseCode == 200){
+                        swal({title: "", text: respData.responseMessage, type: "success"},
+                            function(){ 
+                                window.location.href = respData.redirectUrl;
+                            }
+                        );
+                    }else{
+                        swal({title: "", text: respData.responseMessage, type: "error"});
                     }
+                }
+            });
+        }
+    }));
+
+    /* user forgeted password end */    
+    $('#setDefaultShipStngs').on('click', function(e) {
+        e.preventDefault();
+        let action_page = $(this).data('actionurl');
+        let requestData = '';
+        $.ajax
+        ({
+            url: action_page, 		  /* Url to which the request is send */
+            type: "POST",             /* Type of request to be send, called as method */
+            enctype: 'multipart/form-data',
+            data: requestData, 		  /* Data sent to server, a set of key/value pairs (i.e. form fields and values) */
+            beforeSend: function() {
+                swal({
+                    title: "",
+                    text: (lang == "en") ? "معالجة..." : "Processing...",
+                    imageUrl: "https://media.tenor.com/OzAxe6-8KvkAAAAi/blue_spinner.gif",
+                    showConfirmButton: false
                 });
+            },
+            success: function(resp){  /* A function to be called if request succeeds */
+                respData = JSON.parse(resp);
+                if(respData.responseCode == 200){
+                    swal({title: "", text: respData.responseMessage, type: "success"},
+                        function(){ 
+                            window.location.reload();
+                        }
+                    );
+                }else{
+                    swal({title: "", text: respData.responseMessage, type: "error"});
+                }
             }
-        }));
+        });
+    });
 
-        /* user forgeted password end */
-
+    /* Multiple Listing actions */
+    $('#multiActionOption').change(function(e) { 
+        e.preventDefault();
+        let action_id = $(this).val();
+        var action_page = $(this).data('actionurl');
+        var table = $(this).data('table');
+        var checkvalue = [];
+        var i = 0;
+        $('.itemId:checked').each(function () {
+            checkvalue[i] = (this.checked ? $(this).val() : "");
+            i++;        
+        });
+        if(checkvalue == ''){  
+            swal({
+                title: "",
+                text: (lang == "en") ?"يرجى تحديد سجل واحد على الأقل.":"Please Select Atleast One Record.",
+                showConfirmButton: true,
+                types : "warning",
+                confirmButtonColor : "#8CD4F5",
+                confirmButtonText : (lang == "en") ?"نعم ، تفعيل!":"ok",
+                showLoaderOnConfirm : true              
+                
+            }); 
+            $('#multiActionOption').val('');
+            return false;  
+        }   
+                     
+        let requestData = 'action_id='+action_id+'&checkvalue='+checkvalue+'&table='+table;
+        var titles = '';
+        var texts = '';
+        var types = '';
+        var confirmButtonColors = '';
+        var confirmButtonTexts = '';
+        var showLoaderOnConfirms = '';
+        var cancelButtonTexts = '';
         
-        $('#setDefaultShipStngs').on('click', function(e) {
-            e.preventDefault();
-            let action_page = $(this).data('actionurl');
-            let requestData = '';
+        if(action_id == 1){
+            var titles = (lang == "en") ?"هل أنت متأكد من أنك على وشك تنشيط هذه السجلات؟":"Are you sure You Want to Activate this Records ?";
+            var texts =  (lang == "en") ?"سيتم إزالة المنتج الخاص بك":"Your Records will Activate";
+            var types = "warning";
+            var confirmButtonColors = "#DD6B55";
+            var confirmButtonTexts = (lang == "en") ?"نعم ، تفعيل!":"Yes, Activate !";
+            var showLoaderOnConfirms = true;
+            var cancelButtonTexts = (lang == "en") ?"لا ، إلغاء من فضلك!":"No, cancel please!";
+            $('#multiActionOption').val('');
+        }if(action_id == 2){
+            var titles = (lang == "en") ?"هل أنت متأكد أنك تريد إلغاء تنشيط هذه السجلات؟":"Are you sure You Want to Deactivate this Records ?";
+            var texts = (lang == "en") ?"سيتم إلغاء تنشيط سجلاتك":"Your Records will Deactivate";
+            var types = "warning";
+            var confirmButtonColors = "#DD6B55";
+            var confirmButtonTexts = (lang == "en") ?"نعم ، قم بإلغاء التنشيط!":"Yes, Deactivate !";
+            var showLoaderOnConfirms =  true;
+            var cancelButtonTexts =  (lang == "en") ?"لا ، إلغاء من فضلك!":"No, cancel please!";
+            $('#multiActionOption').val('');
+        }if(action_id == 3){
+            var titles = (lang == "en") ?"هل أنت متأكد من حذف هذه السجلات؟":"Are you sure You Want to Remove this Records ?";
+            var texts = (lang == "en") ?"سيتم حذف سجلاتك":"Your Records will Remove";
+            var types = "warning";
+            var confirmButtonColors = "#DD6B55";
+            var confirmButtonTexts = (lang == "en") ?"نعم ، احذف!":"Yes, Remove !";
+            var showLoaderOnConfirms = true;
+            var cancelButtonTexts =  (lang == "en") ?"لا ، إلغاء من فضلك!":"No, cancel please!";
+            $('#multiActionOption').val('');
+        }        
+        swal({ 
+            title: titles,
+            text: texts,
+            type: types,
+            showCancelButton: true,
+            confirmButtonColor: confirmButtonColors,
+            confirmButtonText: confirmButtonTexts,
+            showLoaderOnConfirm: showLoaderOnConfirms,
+            cancelButtonText: cancelButtonTexts,
+            closeOnConfirm: false,
+            closeOnCancel: false
+        },
+        function(isConfirm){
+        if (isConfirm) {
             $.ajax
             ({
                 url: action_page, 		  /* Url to which the request is send */
@@ -2657,29 +2662,22 @@ $(document).ready(function(){
                 },
                 success: function(resp){  /* A function to be called if request succeeds */
                     respData = JSON.parse(resp);
-                    //console.log(respData);
-                    swal.close();
-                    if(respData.responseCode == 200){
-                        //$("#preloader").hide();
+                    if(respData.responseCode == 200){  
                         swal({title: "", text: respData.responseMessage, type: "success"},
                             function(){ 
-                                //$("#save_product_category_form")[0].reset();
-                                //window.location.href = respData.redirectUrl;
                                 window.location.reload();
                             }
-                        );
-                    }else{
-                        //$("#preloader").hide();
+                        ); 
+                    }else{                    
+                        swal.close();
                         swal({title: "", text: respData.responseMessage, type: "error"});
                     }
                 }
             });
-        });
+        } else {
+            swal(Cancelled, record_is_safe, "error");
+        }
+    });
+    });
 
 });
-
-
-
-
-
-

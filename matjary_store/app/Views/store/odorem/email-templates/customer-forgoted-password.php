@@ -32,7 +32,6 @@
             <p style="line-height: 1.8; color: #000000; margin-bottom: 5px;">We received a request to reset the password for your account.</p>
             <p style="line-height: 1.8; color: #000000; margin-bottom: 5px;">Please click the button below to reset your password.</p>
 
-            <!--p style="line-height: 1.8; color: #000000; margin-bottom: 5px;">A request has been received to change the password for your Matjary store account.</p-->
             <div style="text-align: center; margin-top: 1.5rem; margin-bottom: 1.5rem;">
                 <a href="<?php echo $resetLink; ?>" type="button" style="color: #FFFFFF; padding: 1rem; width: 100%; background-color: #5294F7; border-radius: 5px; text-decoration: none;">Reset Password</a>
             </div>

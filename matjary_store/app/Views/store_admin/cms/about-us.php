@@ -42,10 +42,8 @@ if($ses_lang == 'en'){
         $long_description = $GetAboutUsInfo->long_description_ar;
     }else{
         $long_description = isset($GetAboutUsInfo->long_description) ? $GetAboutUsInfo->long_description : '' ;
-    }
-    
-}
-                                 
+    }    
+}                                 
 ?>
 <?php $this->extend('store_admin/layouts/dashboard_layout'); ?>
 <?php $this->section('content'); ?>

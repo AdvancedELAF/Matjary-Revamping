@@ -104,22 +104,29 @@ if($ses_lang=='en'){
                                 <i class="icofont-star <?php echo $ratingClass; ?>" aria-label="Left Align"></i>
                             <?php } ?>
                             <div class="prod-detail-rating">
-                                <h6>( <?php if (isset($cstratingCount) && !empty($cstratingCount)) {
+                                <h6>( <?php 
+                                    if (isset($cstratingCount) && !empty($cstratingCount)) {
                                             echo count($cstratingCount);
                                         } else {
                                             echo '0';
-                                        } ?> <?php echo $language['Customer Review']; ?>)</h6>
+                                        } ?> <?php echo $language['Customer Review']; ?>
+                                    )</h6>
                             </div>
                         </div>
 
                         <div class="prod-stock-count">
-                            <h4><?php echo $language['Stock']; ?>: <?php if ($productDetails->stock_quantity == 0) {
-                                                                        echo '<span class="text-danger">' . $language['Out of Stock'] . '</span>';
-                                                                    } elseif ($productDetails->stock_quantity <= $productDetails->threshold_quantity) {
-                                                                        echo '<span class="text-warning">' . $language['Only'] . ' ' . $productDetails->stock_quantity . ' ' . $language['Units Left'] . '</span>';
-                                                                    } else {
-                                                                        echo '<span class="text-success">' . $language['Available'] . '</span>';
-                                                                    } ?></h4>
+                            <h4>
+                                <?php echo $language['Stock']; ?>: 
+                                    <?php   
+                                        if ($productDetails->stock_quantity == 0) {
+                                            echo '<span class="text-danger">' . $language['Out of Stock'] . '</span>';
+                                        } elseif ($productDetails->stock_quantity <= $productDetails->threshold_quantity) {
+                                            echo '<span class="text-warning">' . $language['Only'] . ' ' . $productDetails->stock_quantity . ' ' . $language['Units Left'] . '</span>';
+                                        } else {
+                                            echo '<span class="text-success">' . $language['Available'] . '</span>';
+                                        } 
+                                    ?>
+                            </h4>
                         </div>
                         <div class="prod-detail-desc">
                         <p><?php echo $short_desc; ?></p>
@@ -152,18 +159,15 @@ if($ses_lang=='en'){
                             <?php } ?>
                         </div>
 
-                        <div class="d-grid gap-2 d-md-block <?php if ($locale == 'ar') {
-                                                                echo 'text-right';
-                                                            } ?>" id="productCartBox">
+                        <div class="d-grid gap-2 d-md-block <?php if ($locale == 'ar') { echo 'text-right';} ?>" id="productCartBox">
                             <?php if (isset($ses_logged_in) && $ses_logged_in === true) { ?>
                                 <?php
                                 $actionPrdctCarturl = base_url('customer/add-product-cart');
-                                //$anchorCartBtnText = 'Add to Cart';
                                 $anchorCartBtnText = $language['Add to Cart'];
                                 $actionCartBtnClass = 'addToCart';
 
                                 $actionWishlisturl = base_url('customer/add-product-wishlist');
-                                //$anchorWishlistBtnText = 'Wishlist';
+                                
                                 $anchorWishlistBtnText = $language['Wishlist'];
                                 $actionWishlistBtnClass = 'addToWishlist';
 
@@ -171,7 +175,6 @@ if($ses_lang=='en'){
                                     foreach ($snglCstmrCartProductList as $snglCstmrCartProductData) {
                                         if ($snglCstmrCartProductData->product_id == $productDetails->id) {
                                             $actionPrdctCarturl = base_url('customer/remove-product-cart');
-                                            //$anchorCartBtnText = 'Remove From Cart';
                                             $anchorCartBtnText =  $language['Remove From Cart'];
                                             $actionCartBtnClass = 'removeFromCart';
                                         }
@@ -183,7 +186,6 @@ if($ses_lang=='en'){
                                         if ($cstmrWishPrdctData->product_id == $productDetails->id) {
 
                                             $actionWishlisturl = base_url('customer/remove-product-wishlist');
-                                            //$anchorWishlistBtnText = 'Remove From Wishlist';
                                             $anchorWishlistBtnText = $language['Remove From Wishlist'];
                                             $actionWishlistBtnClass = 'removeFromWishlist';
                                         }
@@ -219,8 +221,6 @@ if($ses_lang=='en'){
                                 <a href="<?php echo base_url('customer/login'); ?>">
                                     <h4><i class="icofont-ui-edit"></i><?php echo $language['Post a feedback']; ?></h4>
                                 </a>
-                                <!--<a href="<?php //echo base_url('customer/login'); 
-                                                ?>"><h4><i class="icofont-eye-alt"></i>View all feebacks</h4></a>-->
                                 <a class="viewFeedback" href="#">
                                     <h4><i class="icofont-eye-alt"></i><?php echo $language['View all feebacks']; ?></h4>
                                 </a>
@@ -256,7 +256,6 @@ if($ses_lang=='en'){
                                                                                                                                     ?></textarea>
                                         </div>
                                         <div class="modal-footer">
-                                        <!--  <button class="btn btn-primary brand-btn-black" type="submit">Save</button>   -->
                                         <input type="submit" value="<?php echo $language['Submit']; ?>" class="g-brand-btn">
                                         <button type="button" class="db-brand-btn" data-dismiss="modal"><?php echo $language['Close']; ?></button>
                                     </div>
@@ -280,26 +279,18 @@ if($ses_lang=='en'){
                             <a class="nav-link prod-main-link" id="pills-summary-tab" data-toggle="pill" href="#pills-summary" role="tab" aria-controls="pills-summary" aria-selected="false"><?php echo $language['Summary']; ?></a>
                         </li>
                         <li class="nav-item prod-main-item" role="presentation">
-                            <a class="nav-link prod-main-link" id="pills-reviews-tab" data-toggle="pill" href="#pills-reviews" role="tab" aria-controls="pills-reviews" aria-selected="false"><?php echo $language['Reviews']; ?> (<?php if (isset($cstratingCount) && !empty($cstratingCount)) {
-                                                                                                                                                                                                                                        echo count($cstratingCount);
-                                                                                                                                                                                                                                    } else {
-                                                                                                                                                                                                                                        echo '0';
-                                                                                                                                                                                                                                    } ?>)</a>
+                            <a class="nav-link prod-main-link" id="pills-reviews-tab" data-toggle="pill" href="#pills-reviews" role="tab" aria-controls="pills-reviews" aria-selected="false"><?php echo $language['Reviews']; ?> (<?php if (isset($cstratingCount) && !empty($cstratingCount)) { echo count($cstratingCount); } else { echo '0'; } ?>)</a>
                         </li>
                     </ul>
                     <div class="tab-content prod-main-content" id="pills-tabContent">
                         <div class="tab-pane prod-main-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
-
                         <p><?php echo $long_desc; ?></p>
                         </div>
                         <div class="tab-pane prod-main-pane fade" id="pills-summary" role="tabpanel" aria-labelledby="pills-summary-tab">
-
                         <p><?php echo $short_desc; ?></p>
                         </div>
                         <div class="tab-pane prod-main-pane fade" id="pills-reviews" role="tabpanel" aria-labelledby="pills-reviews-tab">
 
-                            <?php //echo '<pre>'; print_r($GetProductFeedbacks); 
-                            ?>
                             <?php if (isset($GetProductFeedbacks) && !empty($GetProductFeedbacks)) {
                                 foreach ($GetProductFeedbacks as $key => $GetProductFeedbacksData) { 
                                     $feedback = '';

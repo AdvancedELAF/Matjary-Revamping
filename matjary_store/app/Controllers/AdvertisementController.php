@@ -14,8 +14,7 @@ class AdvertisementController extends BaseController
         LoggerInterface $logger
     ) {
         parent::initController($request, $response, $logger);
-
-        // Add your code here.
+        /* Add your code here. */
         $this->is_all_mandotory_modules_filled();
     }
 
@@ -28,6 +27,7 @@ class AdvertisementController extends BaseController
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){    
             $this->pageData['pageTitle'] = 'All Advertisements';	
             $this->pageData['adminPageId'] = 5;
+            $this->pageData['table'] = $this->Advertisements;
             $this->pageData['advertisementList'] = $this->AdvertisementModel->get_all_data();            
             return view('store_admin/advertisement/all-advertisements',$this->pageData);           
             
@@ -351,7 +351,6 @@ class AdvertisementController extends BaseController
 		if ($image->isValid() && ! $image->hasMoved()) {
 			$newName = $image->getRandomName();
 			$image->move('./'.$path, $newName);
-			//return $path.$image->getName();
             return $image->getName();
 		}
 		return "";

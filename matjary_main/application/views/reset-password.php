@@ -56,6 +56,9 @@
                     <br/>
                     <div id="Reset_Pwd_Message"></div>
                 </form>
+                <div class="arabic-right">
+                <p><a href="<?php echo base_url(); ?>">Back to Home Page</a></p>
+            </div>
             </div>
         </div>
     </body>

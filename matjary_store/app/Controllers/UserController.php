@@ -30,8 +30,8 @@ class UserController extends BaseController
             $this->is_all_mandotory_modules_filled();
             $this->pageData['pageTitle'] = 'All Users';
             $this->pageData['adminPageId'] = 14;
+            $this->pageData['table'] = $this->Users;
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
             $this->pageData['UserList'] = $this->UserModel->get_all_data(); /* Get all rows */
             $this->pageData['UserroleList'] = $this->UserRoleModel->get_all_data();  
             return view('store_admin/user/all-users',$this->pageData);
@@ -44,8 +44,7 @@ class UserController extends BaseController
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){
             $this->is_all_mandotory_modules_filled();
             $this->pageData['UserroleList'] = $this->UserRoleModel->get_all_data(); 
-            $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();      
+            $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();     
             return view('store_admin/user/add-user',$this->pageData);
         }else{
             return redirect()->to('/admin/login');
@@ -93,7 +92,6 @@ class UserController extends BaseController
                                                 "created_at" => DATETIME
                                             ));
                                             $server_site_path = base_url();
-                                           // $store_logo = '<img class="img-fluid" style="width: 400px !important;margin-left: auto;margin-right: auto;display: block;" src="'.$server_site_path.'/store/'.$this->storeActvTmplName.'/assets/images/logo.png">';
                                             $store_logo = $server_site_path.'/store_admin/assets/images/logo.png';
                                             $sociaFB = 'javascript:void(0);';
                                             $socialTwitter = 'javascript:void(0);';
@@ -152,8 +150,6 @@ class UserController extends BaseController
                                             if($sendEmail == true){
                                                 $resp['responseCode'] = 200;
                                                 $resp['responseMessage'] =  $this->ses_lang=='en' ? "User Added Successfully." : "تمت إضافة المستخدم بنجاح.";
-                                               
-                                                //$resp['redirectUrl'] = $_SERVER['HTTP_REFERER'];
                                                 $resp['redirectUrl'] = base_url('admin/all-users');
                                                 return json_encode($resp); exit; 
                                             }else{
@@ -257,7 +253,6 @@ class UserController extends BaseController
             $this->pageData['userDetails'] = $this->UserModel->find($id);
             $this->pageData['UserroleList'] = $this->UserRoleModel->get_all_data();
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
             return view('store_admin/user/edit-user',$this->pageData); 
         }else{
             return redirect()->to('/admin/login');
@@ -395,11 +390,7 @@ class UserController extends BaseController
     }
 
     public function login(){ 
-        $this->pageData['pageTitle'] = 'User Login';
-        //$this->pageData['loggedInUserData'] = $this->UserModel->get_login_user_data($this->ses_user_id);
-        //$this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-        //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
-        //$this->pageData['productCategories'] = $this->ProdCatModel->get_all_active_data();
+        $this->pageData['pageTitle'] = 'User Login';        
         return view('store_admin/login',$this->pageData);
     }
 
@@ -481,97 +472,77 @@ class UserController extends BaseController
     
     public function update_user_profile_form(){ 
         if(isset($_POST['user_id']) && !empty($_POST['user_id'])){
-           // if(isset($_POST['name']) && !empty($_POST['name'])){
-                    if(isset($_POST['addr_permanent']) && !empty($_POST['addr_permanent'])){
-                        if(isset($_POST['contact_no']) && !empty($_POST['contact_no'])){
-                                if(isset($_POST['date_of_birth']) && !empty($_POST['date_of_birth'])){
-                                    if(isset($_POST['zipcode']) && !empty($_POST['zipcode'])){
-                                        if(isset($_POST['social_fb_link']) && !empty($_POST['social_fb_link'])){
-                                            if(isset($_POST['social_twitter_link']) && !empty($_POST['social_twitter_link'])){
-                                
-                                                    //$name	= $this->request->getPost('name');
-                                                    $addr_residential = $this->request->getPost('addr_residential');
-                                                    $addr_permanent = $this->request->getPost('addr_permanent');
-                                                    $contact_no = $this->request->getPost('contact_no');
-                                                    //$role_id = $this->request->getPost('role_id');
-                                                    //$email = $this->request->getPost('email');  
-                                                    $date_of_birth = date('Y-m-d', strtotime($_POST['date_of_birth']));
-                                                    $gender = $this->request->getPost('gender');                                                                
-                                                    $country_id = $this->request->getPost('country_id');  
-                                                    $state_id = $this->request->getPost('state_id');  
-                                                    $city_id = $this->request->getPost('city_id');  
-                                                    $zipcode = $this->request->getPost('zipcode'); 
-                                                    $social_fb_link = $this->request->getPost('social_fb_link'); 
-                                                    $social_twitter_link = $this->request->getPost('social_twitter_link'); 
-                                                    $social_linkedin_link = $this->request->getPost('social_linkedin_link'); 
-                                                    $social_skype_link = $this->request->getPost('social_skype_link');  
+            if(isset($_POST['addr_permanent']) && !empty($_POST['addr_permanent'])){
+                if(isset($_POST['contact_no']) && !empty($_POST['contact_no'])){
+                        if(isset($_POST['date_of_birth']) && !empty($_POST['date_of_birth'])){
+                            if(isset($_POST['zipcode']) && !empty($_POST['zipcode'])){   
+
+                                $addr_residential = $this->request->getPost('addr_residential');
+                                $addr_permanent = $this->request->getPost('addr_permanent');
+                                $contact_no = $this->request->getPost('contact_no');                                                   
+                                $date_of_birth = date('Y-m-d', strtotime($_POST['date_of_birth']));
+                                $gender = $this->request->getPost('gender');                                                                
+                                $country_id = $this->request->getPost('country_id');  
+                                $state_id = $this->request->getPost('state_id');  
+                                $city_id = $this->request->getPost('city_id');  
+                                $zipcode = $this->request->getPost('zipcode'); 
+                                $social_fb_link = $this->request->getPost('social_fb_link'); 
+                                $social_twitter_link = $this->request->getPost('social_twitter_link'); 
+                                $social_linkedin_link = $this->request->getPost('social_linkedin_link'); 
+                                $social_skype_link = $this->request->getPost('social_skype_link');  
 
 
-                                                    $result = $this->UserModel->update_data($_POST['user_id'],array(                                                                           
-                                                        //"name" =>isset($name)?$name:'',
-                                                        "addr_residential" => isset($addr_residential)?$addr_residential:'',
-                                                        "addr_permanent" => isset($addr_permanent)?$addr_permanent:'',
-                                                        "contact_no" => isset($contact_no)?$contact_no:'',
-                                                        //"role_id" => isset($role_id)?$role_id:'',
-                                                        //"email" => isset($email)?$email:'',
-                                                        "date_of_birth" => isset($date_of_birth)?$date_of_birth:'',
-                                                        "gender" => isset($gender)?$gender:'',
-                                                        "country_id" => isset($country_id)?$country_id:'',
-                                                        "state_id" => isset($state_id)?$state_id:'',
-                                                        "city_id" => isset($city_id)?$city_id:'',
-                                                        "zipcode" => isset($zipcode)?$zipcode:'',
-                                                        "social_fb_link" => isset($social_fb_link)?$social_fb_link:'',
-                                                        "social_twitter_link" => isset($social_twitter_link)?$social_twitter_link:'',
-                                                        "social_linkedin_link" => isset($social_linkedin_link)?$social_linkedin_link:'',
-                                                        "social_skype_link" => isset($social_skype_link)?$social_skype_link:'',                                
-                                                        "updated_at" => DATETIME
-                                                    ));
-                                                    if(isset($result) && !empty($result)){ 
-                                                        $resp['responseCode'] = 200;
-                                                        $resp['responseMessage'] =  $this->ses_lang=='en' ? "User Profile Updated Successfully." : "تم تحديث ملف تعريف المستخدم بنجاح.";
-                                                        $resp['redirectUrl'] = base_url('admin/profile');
-                                                        return json_encode($resp); exit; 
-                                                    }else{
-                                                        $errorMsg =  $this->ses_lang=='en' ? "Error While Store User Insertion." : "خطأ أثناء تخزين إدراج المستخدم.";
-                                                        $resp['responseCode'] = 500;
-                                                        $resp['responseMessage'] = $errorMsg;
-                                                        return json_encode($resp); exit;
-                                                    }
-                                            }else{
-                                                $resp['responseCode'] = 404;
-                                                $resp['responseMessage'] =  $this->ses_lang=='en' ? "Twitter Is Required." : "Twitter مطلوب.";
-                                                return json_encode($resp); exit;
-                                            } 
-                                        }else{
-                                            $resp['responseCode'] = 404;
-                                            $resp['responseMessage'] =  $this->ses_lang=='en' ? "Facebook URL Is Required." : "مطلوب عنوان URL الخاص بـ Facebook.";
-                                            return json_encode($resp); exit;
-                                        } 
-                                    }else{
-                                        $resp['responseCode'] = 404;
-                                        $resp['responseMessage'] =  $this->ses_lang=='en' ? "Zipcode Is Required." : "الرمز البريدي مطلوب.";
-                                        return json_encode($resp); exit;
-                                    } 
+                                $result = $this->UserModel->update_data($_POST['user_id'],array(                                                                           
+                                    
+                                    "addr_residential" => isset($addr_residential)?$addr_residential:'',
+                                    "addr_permanent" => isset($addr_permanent)?$addr_permanent:'',
+                                    "contact_no" => isset($contact_no)?$contact_no:'',                                                      
+                                    "date_of_birth" => isset($date_of_birth)?$date_of_birth:'',
+                                    "gender" => isset($gender)?$gender:'',
+                                    "country_id" => isset($country_id)?$country_id:'',
+                                    "state_id" => isset($state_id)?$state_id:'',
+                                    "city_id" => isset($city_id)?$city_id:'',
+                                    "zipcode" => isset($zipcode)?$zipcode:'',
+                                    "social_fb_link" => isset($social_fb_link)?$social_fb_link:'',
+                                    "social_twitter_link" => isset($social_twitter_link)?$social_twitter_link:'',
+                                    "social_linkedin_link" => isset($social_linkedin_link)?$social_linkedin_link:'',
+                                    "social_skype_link" => isset($social_skype_link)?$social_skype_link:'',                                
+                                    "updated_at" => DATETIME
+                                ));
+                                if(isset($result) && !empty($result)){ 
+                                    $resp['responseCode'] = 200;
+                                    $resp['responseMessage'] =  $this->ses_lang=='en' ? "User Profile Updated Successfully." : "تم تحديث ملف تعريف المستخدم بنجاح.";
+                                    $resp['redirectUrl'] = base_url('admin/profile');
+                                    return json_encode($resp); exit; 
                                 }else{
-                                    $resp['responseCode'] = 404;
-                                    $resp['responseMessage'] =  $this->ses_lang=='en' ? "Date Of Birth Is Required." : "تاريخ الميلاد مطلوب.";
+                                    $errorMsg =  $this->ses_lang=='en' ? "Error While Store User Insertion." : "خطأ أثناء تخزين إدراج المستخدم.";
+                                    $resp['responseCode'] = 500;
+                                    $resp['responseMessage'] = $errorMsg;
                                     return json_encode($resp); exit;
-                                }                            
+                                }
+                                    
+                                
+                            }else{
+                                $resp['responseCode'] = 404;
+                                $resp['responseMessage'] =  $this->ses_lang=='en' ? "Zipcode Is Required." : "الرمز البريدي مطلوب.";
+                                return json_encode($resp); exit;
+                            } 
                         }else{
                             $resp['responseCode'] = 404;
-                            $resp['responseMessage'] =  $this->ses_lang=='en' ? "Contact Number Is Required." : "رقم الاتصال مطلوب.";
+                            $resp['responseMessage'] =  $this->ses_lang=='en' ? "Date Of Birth Is Required." : "تاريخ الميلاد مطلوب.";
                             return json_encode($resp); exit;
-                        }
-                    }else{
-                        $resp['responseCode'] = 404;
-                        $resp['responseMessage'] =  $this->ses_lang=='en' ? "Permanat Address Is Required." : "مطلوب العنوان الدائم.";
-                        return json_encode($resp); exit;
-                    }                        
-            // }else{
-            //     $resp['responseCode'] = 404;
-            //     $resp['responseMessage'] = 'Name Is Required.';
-            //    return json_encode($resp); exit;
-            // } 
+                        }                            
+                }else{
+                    $resp['responseCode'] = 404;
+                    $resp['responseMessage'] =  $this->ses_lang=='en' ? "Contact Number Is Required." : "رقم الاتصال مطلوب.";
+                    return json_encode($resp); exit;
+                }
+            }else{
+                $resp['responseCode'] = 404;
+                $resp['responseMessage'] =  $this->ses_lang=='en' ? "Permanat Address Is Required." : "مطلوب العنوان الدائم.";
+                return json_encode($resp); exit;
+            }                        
+           
         }else{
             $resp['responseCode'] = 404;
             $resp['responseMessage'] =  $this->ses_lang=='en' ? "User Id Is Required." : "معرف المستخدم مطلوب.";
@@ -583,8 +554,7 @@ class UserController extends BaseController
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){
             $this->is_all_mandotory_modules_filled();
             $this->pageData['pageTitle'] = 'Change Password';  
-            $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data(); 
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();     
+            $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();   
             return view('store_admin/user/change-user-password',$this->pageData);
         }else{
             return redirect()->to('/admin/login');
@@ -711,7 +681,6 @@ class UserController extends BaseController
 		if ($image->isValid() && ! $image->hasMoved()) {
 			$newName = $image->getRandomName();
 			$image->move('./'.$path, $newName);
-			//return $path.$image->getName();
             return $image->getName();
 		}
 		return "";
@@ -757,7 +726,6 @@ class UserController extends BaseController
                         $socialLinkedin = 'javascript:void(0);';
                         $socialInstagram = 'javascript:void(0);';
                         $address = '';
-                        //$storeName = '';
                         $supportEmail = '';
 
                         if(isset($this->pageData['storeSettingInfo']) && !empty($this->pageData['storeSettingInfo'])){
@@ -874,9 +842,7 @@ class UserController extends BaseController
             return json_encode($resp); exit;
         }
     }
-
     /* user forgoted password end */
-
 }
 
 ?>

@@ -7,7 +7,8 @@
             <h4><?php echo $language['My Orders']; ?></h4>
         </div>
     </div>
-</div><!-- PAGE BAR ENDS -->
+</div>
+<!-- PAGE BAR ENDS -->
 <!-- MY ORDERS TABLE STARTS -->
 <section class="section-spacing <?php if($locale=='ar'){echo 'text-right';} ?>">
     <div class="container">

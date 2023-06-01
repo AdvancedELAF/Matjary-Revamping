@@ -17,15 +17,29 @@
         </div>
     </div>
     <div class="card-box mb-30">
+        <div class="pd-20">
+            <div class="row">
+                <div class="col-md-3">
+                    <select class="form-control" id="multiActionOption" data-table="<?php echo isset($table) ? $table : 'NA'; ?>" data-actionurl="<?php echo base_url('multi-action-option'); ?>">
+                        <option value=""><?php echo $language['Choose Action'];?></option>                    
+                        <option value="3"><?php echo $language['Delete'];?></option>
+                    </select>            
+                </div>      
+                <div class="col-md-6">            
+                </div>
+                <div class="col-md-3">
+                </div>                
+            </div>   
+        </div>
         <div class="table-responsive pd-20">
             <table class="data-table table nowrap" id="viewAllContactUsList">
                 <thead>
                     <tr>
+                        <th scope="col"><input type="checkbox" id="checkAll"></th>
                         <th scope="col">#</th>
                         <th scope="col"><?php echo $language['Name']; ?></th>
                         <th scope="col"><?php echo $language['Email']; ?></th>
                         <th scope="col"><?php echo $language['Contact No.']; ?></th>
-                        <th scope="col"><?php echo $language['Status']; ?></th>
                         <th scope="col"><?php echo $language['Action']; ?></th>
                     </tr>
                 </thead>
@@ -33,15 +47,17 @@
                     <?php                
                     if(isset($ContactUsList) && !empty($ContactUsList)){
                         $i = 1;
-                        foreach ($ContactUsList as $value) {
-                        
+                        foreach ($ContactUsList as $value) {                        
                     ?>
                         <tr>
+                            <td>
+                                <input type="checkbox" name="itemId[]"  class="itemId" value="<?php echo isset($value->id) ? $value->id : 'NA'; ?>" />
+                            </td>
                             <td><h5 class="font-16"><?php echo $i; ?></h5></td>
                             <td><h5 class="font-16"><?php echo isset($value->name)?$value->name:'NA'; ?></h5></td>                        
                             <td><h5 class="font-16"><?php echo isset($value->email)?$value->email:'NA'; ?></h5></td>
                             <td><h5 class="font-16"><?php echo isset($value->contact_no )?$value->contact_no :'NA'; ?></h5></td>                          
-                            <td><?php if($value->is_active==1){ echo 'Active';}else{echo 'Deactivated';} ?></td>
+                            
                             <td>
                                 <div class="dropdown">
                                     <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
@@ -65,8 +81,7 @@
                         </tr>
                     <?php
                     }
-                    ?>
-                    
+                    ?>                    
                 </tbody>
             </table>
         </div>

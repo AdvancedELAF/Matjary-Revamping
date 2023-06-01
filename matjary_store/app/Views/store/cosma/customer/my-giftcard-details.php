@@ -16,8 +16,7 @@ $ses_lang = $session->get('ses_lang');
                 <div class="prod-detail-image">
                     <img src="<?php echo base_url('/uploads/giftcards/'); ?>/<?php echo isset($mySnglGCDetails->image)?$mySnglGCDetails->image:''; ?>">
                 </div>
-            </div>
-            <?php //echo '<pre>'; print_r($mySnglGCDetails);?>
+            </div>            
             <div class="col-lg-8">
                 <div class="prod-main-detail">                  
                     <div class="prod-detail-title">
@@ -52,19 +51,19 @@ $ses_lang = $session->get('ses_lang');
                         <div class="col-md-4">
                             <p><?php echo $language['Acitive / Expired']; ?> :</p>
                             <?php 
-                            $today = date("Y-m-d");
-                            $expiry_date = date("Y-m-d",strtotime($mySnglGCDetails->expiry_date));
-                            if($expiry_date >= $today){
-                                if($mySnglGCDetails->gc_status==1){
-                                    echo '<h5 class="text-success">'.$language['Active'].'</h5>';
-                                }elseif($mySnglGCDetails->gc_status==2){
-                                    echo '<h5 class="text-warning">'.$language['Utilized'].'</h5>';
+                                $today = date("Y-m-d");
+                                $expiry_date = date("Y-m-d",strtotime($mySnglGCDetails->expiry_date));
+                                if($expiry_date >= $today){
+                                    if($mySnglGCDetails->gc_status==1){
+                                        echo '<h5 class="text-success">'.$language['Active'].'</h5>';
+                                    }elseif($mySnglGCDetails->gc_status==2){
+                                        echo '<h5 class="text-warning">'.$language['Utilized'].'</h5>';
+                                    }else{
+                                        echo'<h5 class="text-default">'.$language['NA'].'</h5>';
+                                    } 
                                 }else{
-                                    echo'<h5 class="text-default">'.$language['NA'].'</h5>';
-                                } 
-                            }else{
-                                echo'<h5 class="text-danger">'.$language['Expired'].'</h5>';
-                            }
+                                    echo'<h5 class="text-danger">'.$language['Expired'].'</h5>';
+                                }
                             ?>
                         </div>
                     </div>

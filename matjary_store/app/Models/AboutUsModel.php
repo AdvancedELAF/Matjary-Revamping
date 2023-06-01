@@ -46,7 +46,6 @@ class AboutUsModel extends Model {
     {
         parent::__construct();
         $this->db = \Config\Database::connect();
-        // OR $this->db = db_connect();
     }
 
     public function get_all_data(){
@@ -67,8 +66,6 @@ class AboutUsModel extends Model {
             "id" => $id,
         ));
         return $this->db->affectedRows();
-    }
-    
+    }    
 }
-
 ?>

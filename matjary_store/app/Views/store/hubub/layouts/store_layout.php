@@ -5,7 +5,6 @@ $ses_custmr_name = $session->get('ses_custmr_name');
 $ses_custmr_id = $session->get('ses_custmr_id');
 $allowedDatatablePagesAry = array('My Gift Details','My Orders','My Refund Details');
 $ristrictLanguageSwitcherPages = array('Order Success','طلب النجاح');
-
 $lang_session = $session->get('lang_session');
 $ses_lang = $session->get('ses_lang');
 ?>
@@ -71,7 +70,6 @@ $ses_lang = $session->get('ses_lang');
     <!--Sweetalert js start -->
     <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/js/sweetalert.min.js"></script>
     <!--Sweetalert js end -->
-
     <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/js/ajax-call.js"></script>
     <!-- Loader Script -->
     <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/js/loader.js"></script>
@@ -93,23 +91,7 @@ $ses_lang = $session->get('ses_lang');
     ?>
 </head>
 <body>
-    <!--Cookie Consent Model--->
-    <!-- <div class="modal fade" id="CookieConsentModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button class="db-brand-btn" data-dismiss="modal">×</button>
-                    <h3><?php echo $language['Cookies Consent']; ?></h3>
-                </div>
-                <div class="modal-body pd-5">
-                    <p><?php echo $language['cookie_desc']; ?> <a href="<?php echo base_url('cookie-policy'); ?>"><?php echo $language['Cookie Policy']; ?></a></p>
-                    <button class="btn btn-primary g-brand-btn" id="acceptCookie"><?php echo $language['Accept']; ?></button>
-                    <button type="button" class="btn btn-primary brand-btn" id="declineCookie" data-dismiss="modal"><?php echo $language['Decline']; ?></button>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!--Cookie Consent Model End--->
+    
     <div class="preloaderBg" id="preloader" style="display: none;">
         <div class="preloader-position">
             <h3><?php echo $language['Please wait till processing.']; ?></h3>
@@ -281,13 +263,10 @@ $ses_lang = $session->get('ses_lang');
         <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/js/buttons.html5.min.js"></script>
         <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/js/buttons.bootstrap4.min.js"></script>
         <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/js/buttons.flash.min.js"></script>
-        
         <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/js/buttons.print.min.js"></script>
-        
         <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/js/pdfmake.min.js"></script>
         <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/js/vfs_fonts.js"></script>
         <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/js/data-table-page.js"></script>
-        
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/css/dataTables.bootstrap4.min.css">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/css/responsive.bootstrap4.min.css">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/css/responsive.dataTables.min.css">
@@ -315,11 +294,10 @@ $ses_lang = $session->get('ses_lang');
                             </a>
                         </div>
                         <div class="footer-call">
-                            <h5>Call Us At:</h5>
+                            <h5><?php echo $language['Call Us At']; ?>:</h5>
                             <p><?php echo isset($storeSettingInfo->contact_no) ? $storeSettingInfo->contact_no : ''; ?></p>
                         </div>
                     </div>
-
                     <div class="col-md-4 col-lg-4">
                         <div class="footer-title">
                             <h4><?php echo $language['Important Links']; ?></h4>
@@ -348,7 +326,6 @@ $ses_lang = $session->get('ses_lang');
                             </li>
                         </ul>
                     </div>
-
                     <div class="col-md-4 col-lg-4">
                         <div class="footer-title">
                             <h4><?php echo $language['Follow Us']; ?></h4>

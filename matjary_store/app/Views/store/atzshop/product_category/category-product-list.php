@@ -81,8 +81,7 @@ if($ses_lang=='en'){
                     </div>
                         <div class="text-center">                 
                             <a href="<?php echo base_url('product/product-details/'.$productData->id); ?>" class="brand-btn"><?php echo $language['Details']; ?></a>
-                        </div>
-                    
+                        </div>                    
                 </div>
             </div>
             <?php

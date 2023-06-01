@@ -130,7 +130,6 @@ $ses_lang = $session->get('ses_lang');
 
                 ?>
                     <div class="checkout-wrapper">
-                        <!-- <h6 class="delivery-name">Address Type</h6> -->
                         <p class="delivery-address"><?php echo isset($customerAddressData->address) ? $customerAddressData->address : ''; ?> <?php echo isset($customerAddressData->city_name) ? $customerAddressData->city_name : ''; ?> <?php echo isset($customerAddressData->state_name) ? $customerAddressData->state_name : ''; ?> <?php echo isset($customerAddressData->zipcode) ? $customerAddressData->zipcode : ''; ?> <?php echo isset($customerAddressData->country_name) ? $customerAddressData->country_name : ''; ?></p>
                         <div class="deliver-add-btn">
                             <a href="javascript:void(0);"><input type="radio" name="customer_address_id" class="cstmrAddrId" value="<?php echo $customerAddressData->id; ?>" data-error=".error1" <?php if ($lastAddrId == $customerAddressData->id) { echo 'checked'; } ?>> <?php echo $language['Deliver To This Address']; ?></a>

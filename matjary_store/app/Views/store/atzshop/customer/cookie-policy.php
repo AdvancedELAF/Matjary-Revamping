@@ -1,6 +1,5 @@
 <?php $this->extend('store/'.$storeActvTmplName.'/layouts/store_layout'); ?>
 <?php $this->section('content'); ?>
-
 <!-- PAGE BAR STARTS -->
 <div class="page-bar">
     <div class="container">
@@ -122,6 +121,5 @@
     </div>
 </section>
 <?php } ?>
-
 <!-- ABOUT US US SECTION SPACING ENDS -->
 <?php $this->endSection(); ?>

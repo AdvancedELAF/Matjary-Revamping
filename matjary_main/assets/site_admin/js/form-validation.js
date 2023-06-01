@@ -459,10 +459,7 @@ $(document).ready(function () {
                 digits:true,
                 minlength: 9,
 		        maxlength: 10
-            },
-            // usr_role: {
-            //     required: true
-            // },
+            },           
             address: {
                 required: true
             },

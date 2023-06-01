@@ -46,12 +46,10 @@ class CustomerModel extends Model {
     {
         parent::__construct();
         $this->db = \Config\Database::connect();
-        // OR $this->db = db_connect();
     }
 
     public function get_all_data()
     {
-        //$query = $this->db->query('select * from ' . $this->table .' where is_active in(1,2) order by id desc');
         $query = $this->db->query("SELECT * FROM ".$this->table." WHERE is_active in(1,2) order by id desc");
         return $query->getResult();
     }
@@ -139,7 +137,6 @@ class CustomerModel extends Model {
                 AND c.is_active=1"
             );        
         $result = $query->getRow();
-        //echo '<pre>'; print_r($result); exit;
         if(isset($result) && !empty($result)){
             return true;
         }else{
@@ -157,7 +154,6 @@ class CustomerModel extends Model {
             AND c.is_active=1"
         );
         $result = $query->getRow();
-        //echo '<pre>'; print_r($result); exit;
         if(isset($result) && !empty($result)){
             return $result;
         }else{
@@ -175,12 +171,9 @@ class CustomerModel extends Model {
             AND cc.password 
             AND c.is_active=1"
         );
-        //$db->table('my_table')->select('title')->countAllResults();
-        //$countAllResults = $query->countAllResults();
-        //echo '<pre>'; print_r($countAllResults); exit;
+       
         $result = $query->getResult();
 
-        //echo '<pre>'; print_r($result); exit;
         if(count($result) > 0){
             return $result;
         }else{
@@ -188,7 +181,6 @@ class CustomerModel extends Model {
         }
     }
     public function chk_verify_password($customer_id){
-       // $query = $this->db->query("SELECT * FROM customerscredentials WHERE password = '".$oldpass."' AND customer_id='".$customer_id."' ");
        $query = $this->db->query("SELECT * FROM CustomersCredentials WHERE id=".$customer_id);
        return $query->getResult();
      
@@ -207,7 +199,6 @@ class CustomerModel extends Model {
             ->table($this->table)
             ->where(["id" => $id])
             ->set(["profile_image" => ''])
-            //->set(["updated_at" => DATETIME])
             ->update();
         return $this->db->affectedRows();
     }

@@ -8,9 +8,7 @@ $ses_lang = $session->get('ses_lang');
 ?>
 <?php $this->extend('store/' . $storeActvTmplName . '/layouts/store_layout'); ?>
 <?php $this->section('content'); ?>
-<section class="ot-banner <?php if ($locale == 'ar') {
-                                echo 'text-right';
-                            } ?>">
+<section class="ot-banner <?php if ($locale == 'ar') { echo 'text-right'; } ?>">
     <div class="container">
         <div class="page-title">
             <h1><?php echo $language['My Gift cards']; ?></h1>
@@ -18,18 +16,14 @@ $ses_lang = $session->get('ses_lang');
     </div>
 </section>
 <!-- PRODUCT DETAIL STARTS -->
-<section class="section-spacing <?php if ($locale == 'ar') {
-                                    echo 'text-right';
-                                } ?>">
+<section class="section-spacing <?php if ($locale == 'ar') { echo 'text-right'; } ?>">
     <div class="container">
         <div class="row">
             <div class="col-lg-4">
                 <div class="prod-detail-image">
                     <img src="<?php echo base_url('/uploads/giftcards/'); ?>/<?php echo isset($mySnglGCDetails->image) ? $mySnglGCDetails->image : ''; ?>">
                 </div>
-            </div>
-            <?php //echo '<pre>'; print_r($mySnglGCDetails);
-            ?>
+            </div>            
             <div class="col-lg-8">
                 <div class="prod-main-detail mb-3">
                     <div class="prod-detail-title">
@@ -93,7 +87,6 @@ $ses_lang = $session->get('ses_lang');
                         </div>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-md-12">
                         <div class="alert alert-warning">
@@ -147,15 +140,18 @@ $ses_lang = $session->get('ses_lang');
                                                 <h6><?php echo isset($value->created_at) ? date("d M Y", strtotime($value->created_at)) : ''; ?></h6>
                                             </td>
                                             <td>
-                                                <h6><?php if ($value->payment_status == '1') {
-                                                        echo $language['Complete'];
-                                                    }
-                                                    if ($value->payment_status == '2') {
-                                                        echo $language['Pending'];
-                                                    }
-                                                    if ($value->payment_status == '3') {
-                                                        echo $language['Cancel'];
-                                                    } ?>
+                                                <h6>
+                                                    <?php 
+                                                        if ($value->payment_status == '1') {
+                                                            echo $language['Complete'];
+                                                        }
+                                                        if ($value->payment_status == '2') {
+                                                            echo $language['Pending'];
+                                                        }
+                                                        if ($value->payment_status == '3') {
+                                                            echo $language['Cancel'];
+                                                        } 
+                                                    ?>
                                                 </h6>
                                             </td>
                                             <td>
@@ -176,7 +172,6 @@ $ses_lang = $session->get('ses_lang');
                             </tbody>
                         </table>
                     </div>
-
                 </div>
             </div>
         </div>

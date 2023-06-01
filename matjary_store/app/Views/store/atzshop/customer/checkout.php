@@ -26,8 +26,6 @@ $ses_lang = $session->get('ses_lang');
                     <input type="hidden" name="customer_id" value="<?php echo isset($ses_custmr_id) ? $ses_custmr_id : ''; ?>">
                     <input type="hidden" name="address_id" id="address_id">
                     <input type="hidden" name="locale" id="locale" value="<?php echo $locale; ?>">
-
-
                     <div class="form-group row">
                         <label class="col-sm-12 col-md-12 col-form-label"><?php echo $language['Address']; ?></label>
                         <div class="col-sm-12 col-md-12">
@@ -90,7 +88,6 @@ $ses_lang = $session->get('ses_lang');
                 </div>
             </div>
         </div>
-
         <?php
         $attributes = ['name' => 'proceed_checkout_form', 'id' => 'proceed_checkout_form', 'autocomplete' => 'off'];
         echo form_open_multipart('customer/proceed-checkout', $attributes);
@@ -123,7 +120,6 @@ $ses_lang = $session->get('ses_lang');
 
                 ?>
                     <div class="checkout-wrapper">
-                        <!-- <h6 class="delivery-name">Address Type</h6> -->
                         <p class="delivery-address"><?php echo isset($customerAddressData->address) ? $customerAddressData->address : ''; ?> <?php echo isset($customerAddressData->city_name) ? $customerAddressData->city_name : ''; ?> <?php echo isset($customerAddressData->state_name) ? $customerAddressData->state_name : ''; ?> <?php echo isset($customerAddressData->zipcode) ? $customerAddressData->zipcode : ''; ?> <?php echo isset($customerAddressData->country_name) ? $customerAddressData->country_name : ''; ?></p>
                         <div class="deliver-add-btn">
                             <a href="javascript:void(0);"><input type="radio" name="customer_address_id" class="cstmrAddrId" value="<?php echo $customerAddressData->id; ?>" data-error=".error1" <?php if ($lastAddrId == $customerAddressData->id) { echo 'checked'; } ?>> <?php echo $language['Deliver To This Address']; ?></a>

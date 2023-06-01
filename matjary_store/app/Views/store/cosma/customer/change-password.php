@@ -9,12 +9,8 @@
     </div>
 </div>
 <!-- PAGE BAR ENDS -->
-
 <!-- RESET PASSWORD FORM STARTS -->
-
-<section class="section-spacing <?php if ($locale == 'ar') {
-                                    echo 'text-right';
-                                } ?>">
+<section class="section-spacing <?php if ($locale == 'ar') {echo 'text-right';} ?>">
     <div class="container">
         <div class="section-title text-center mb-3">
             <h4><?php echo $language['Change Password']; ?></h4>
@@ -57,6 +53,5 @@
         </div>
     </div>
 </section>
-
 <!-- RESET PASSWORD FORM ENDS -->
 <?php $this->endSection(); ?>

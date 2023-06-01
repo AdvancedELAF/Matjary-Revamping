@@ -17,7 +17,7 @@ class ApiCntr extends MY_Controller {
             $isValidTokenResult = $this->is_native_app_token_validate($apiValidToken);
             if ($isValidTokenResult == false) {
                 $this->response['responseCode'] = 404;
-                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_1');
+                $this->response['responseMessage'] = 'Request is Invalid.'; /* //API token not valid. */
             } else {
                 if (isset($apiRequestToken) && !empty($apiRequestToken)) {
                     if (method_exists($this, $apiFunctionName)) {
@@ -39,7 +39,7 @@ class ApiCntr extends MY_Controller {
                         }
                     } else {
                         $this->response['responseCode'] = 404;
-                        $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_1');
+                        $this->response['responseMessage'] = 'Request is Invalid.';
                         echo json_encode($this->response);
                         exit;
                     }
@@ -58,7 +58,7 @@ class ApiCntr extends MY_Controller {
                         }
                     } else {
                         $this->response['responseCode'] = 404;
-                        $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_1');
+                        $this->response['responseMessage'] = 'Request is Invalid.';
                         echo json_encode($this->response);
                         exit;
                     }
@@ -66,7 +66,7 @@ class ApiCntr extends MY_Controller {
             }
         } else {
             $this->response['responseCode'] = 404;
-            $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_1');
+            $this->response['responseMessage'] = 'Request is Invalid.';
             echo json_encode($this->response);
             exit;
         }
@@ -79,7 +79,8 @@ class ApiCntr extends MY_Controller {
                 if (preg_match('/[\'^£$%&*()}{@#~?><>|=+]/', $decode_data['fname'])) {
                     /* // one or more of the 'special characters' found in string */
                     $this->response['responseCode'] = 404;
-                    $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_2');
+                    $this->response['messageCode'] = 'usr_cntr_msg_2';
+                    $this->response['responseMessage'] = 'Invalid first name, contains vulnerable characters';
                     echo json_encode($this->response);
                     exit;
                 }
@@ -87,14 +88,16 @@ class ApiCntr extends MY_Controller {
                     if (preg_match('/[\'^£$%&*()}{@#~?><>|=+]/', $decode_data['lname'])) {
                         /* // one or more of the 'special characters' found in string */
                         $this->response['responseCode'] = 404;
-                        $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_3');
+                        $this->response['messageCode'] = 'usr_cntr_msg_3';
+                        $this->response['responseMessage'] = 'Invalid last name, contains vulnerable characters';
                         echo json_encode($this->response);
                         exit;
                     }
                     if (isset($decode_data['email']) & !empty($decode_data['email'])) {
                         if (!filter_var($decode_data['email'], FILTER_VALIDATE_EMAIL)) {
                             $this->response['responseCode'] = 404;
-                            $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_4');
+                            $this->response['messageCode'] = 'usr_cntr_msg_4';
+                            $this->response['responseMessage'] = 'Invalid Email.';
                             echo json_encode($this->response);
                             exit;
                         }
@@ -104,7 +107,8 @@ class ApiCntr extends MY_Controller {
                                 if (isset($decode_data['passconf']) & !empty($decode_data['passconf'])) {
                                     if (trim($decode_data['password'], ' ') != trim($decode_data['passconf'], ' ')) {
                                         $this->response['responseCode'] = 404;
-                                        $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_5');
+                                        $this->response['messageCode'] = 'usr_cntr_msg_5';
+                                        $this->response['responseMessage'] = 'Password & Confirm Password not Match.';
                                         echo json_encode($this->response);
                                         exit;
                                     }
@@ -113,7 +117,8 @@ class ApiCntr extends MY_Controller {
                                     $emailExist = $this->UsrModel->chk_email_exist($email);
                                     if ($emailExist == true) {
                                         $this->response['responseCode'] = 405;
-                                        $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_6');
+                                        $this->response['messageCode'] = 'usr_cntr_msg_51';
+                                        $this->response['responseMessage'] = 'Email already exist.';
                                         echo json_encode($this->response); exit;
                                     }
                                     $requestData = array(
@@ -130,7 +135,8 @@ class ApiCntr extends MY_Controller {
                                     $usrId = $this->UsrModel->save_usr($requestData);
                                     if ($usrId == false) {
                                         $this->response['responseCode'] = 500;
-                                        $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_7');
+                                        $this->response['messageCode'] = 'usr_cntr_msg_7';
+                                        $this->response['responseMessage'] = 'error while saving user details.';
                                         echo json_encode($this->response); exit;
                                     } else {
                                         /* // set password */
@@ -146,11 +152,13 @@ class ApiCntr extends MY_Controller {
                                             $status = $this->UsrModel->delete_usr($usrId);
                                             if ($status == false) {
                                                 $this->response['responseCode'] = 500;
-                                                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_8');
+                                                $this->response['messageCode'] = 'usr_cntr_msg_8';
+                                                $this->response['responseMessage'] = "User Junk Data Not remove.";
                                                 echo json_encode($this->response); exit;
                                             }
                                             $this->response['responseCode'] = 500;
-                                            $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_9');
+                                            $this->response['messageCode'] = 'usr_cntr_msg_9';
+                                            $this->response['responseMessage'] = "User Password Not Save.";
                                             echo json_encode($this->response); exit;
                                         } else {
                                             /* send welcome mail to user */
@@ -171,7 +179,8 @@ class ApiCntr extends MY_Controller {
                                                 $inptData_send = JWT::encode($responseData_temp, JWT_TOKEN);
                                                 /* this data is for free trai new resgtration /-/ */
                                                 $this->response['responseCode'] = 200;
-                                                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_10');
+                                                $this->response['messageCode'] = 'save_usr_msg_1';
+                                                $this->response['responseMessage'] = 'Registered successfully, for welcome mail please check your registered email inbox/spam folder.';
                                                 $this->response['responseData'] = $inptData_send;
                                                 echo json_encode($this->response); exit;
                                             } else {
@@ -179,10 +188,12 @@ class ApiCntr extends MY_Controller {
                                                 $status = $this->UsrModel->delete_usr($usrId);
                                                 if ($status == false) {
                                                     $this->response['responseCode'] = 500;
-                                                    $this->response['responseMessage'] = 'Error While junk record of user';
+                                                    $this->response['messageCode'] = 'save_usr_msg_2';
+                                                    $this->response['responseMessage'] = 'Error While removing junk record of user';
                                                     echo json_encode($this->response); exit;
                                                 }
                                                 $this->response['responseCode'] = 500;
+                                                $this->response['messageCode'] = 'save_usr_msg_3';
                                                 $this->response['responseMessage'] = 'Error While sending welcome mail to user';
                                                 echo json_encode($this->response); exit;
                                             }
@@ -190,37 +201,37 @@ class ApiCntr extends MY_Controller {
                                     }
                                 } else {
                                     $this->response['responseCode'] = 404;
-                                    $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_12');
+                                    $this->response['responseMessage'] = 'Confirm Password is required.';
                                     echo json_encode($this->response);
                                     exit;
                                 }
                             } else {
                                 $this->response['responseCode'] = 404;
-                                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_13');
+                                $this->response['responseMessage'] = 'Password is required.';
                                 echo json_encode($this->response);
                                 exit;
                             }
                         } else {
                             $this->response['responseCode'] = 404;
-                            $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_14');
+                            $this->response['responseMessage'] = 'Phone Number is required.';
                             echo json_encode($this->response);
                             exit;
                         }
                     } else {
                         $this->response['responseCode'] = 404;
-                        $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_15');
+                        $this->response['responseMessage'] = 'Email is required.';
                         echo json_encode($this->response);
                         exit;
                     }
                 } else {
                     $this->response['responseCode'] = 404;
-                    $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_16');
+                    $this->response['responseMessage'] = 'Last Name is required.';
                     echo json_encode($this->response);
                     exit;
                 }
             } else {
                 $this->response['responseCode'] = 404;
-                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_17');
+                $this->response['responseMessage'] = 'First Name is required.';
                 echo json_encode($this->response);
                 exit;
             }
@@ -238,7 +249,8 @@ class ApiCntr extends MY_Controller {
             if (isset($decode_data['email']) & !empty($decode_data['email'])) {
                 if (!filter_var($decode_data['email'], FILTER_VALIDATE_EMAIL)) {
                     $this->response['responseCode'] = 404;
-                    $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_4');
+                    $this->response['messageCode'] = 'usr_cntr_msg_45';
+                    $this->response['responseMessage'] = 'Invalid Email.';
                     echo json_encode($this->response);
                     exit;
                 }
@@ -250,25 +262,29 @@ class ApiCntr extends MY_Controller {
                     $usrData = $this->UsrModel->chk_usr_crdntls($email, $pass);
                     if ($usrData == false) {
                         $this->response['responseCode'] = 404;
-                        $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_18');
+                        $this->response['messageCode'] = 'usr_cntr_msg_18';
+                        $this->response['responseMessage'] = 'Incorrect Username/Password.';
                         echo json_encode($this->response);
                         exit;
                     } else {
                         $this->response['responseCode'] = 200;
-                        $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_19');
+                        $this->response['messageCode'] = 'usr_cntr_msg_19';
+                        $this->response['responseMessage'] = 'Success';
                         $this->response['responseData'] = $usrData;
                         echo json_encode($this->response);
                         exit;
                     }
                 } else {
                     $this->response['responseCode'] = 404;
-                    $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_13');
+                    $this->response['messageCode'] = 'usr_cntr_msg_13';
+                    $this->response['responseMessage'] = 'Password is required.';
                     echo json_encode($this->response);
                     exit;
                 }
             } else {
                 $this->response['responseCode'] = 404;
-                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_15');
+                $this->response['messageCode'] = 'usr_cntr_msg_15';
+                $this->response['responseMessage'] = 'Email is required.';
                 echo json_encode($this->response);
                 exit;
             }
@@ -298,23 +314,23 @@ class ApiCntr extends MY_Controller {
                     $uptSts = $this->UsrModel->upt_usr_login_hstry($usrLoginHstryData);
                     if ($uptSts == false) {
                         $this->response['responseCode'] = 500;
-                        $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_20');
+                        $this->response['responseMessage'] = 'Error while updating user login history details.';
                         echo json_encode($this->response);
                         exit;
                     }
                     $this->response['responseCode'] = 200;
-                    $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_21');
+                    $this->response['responseMessage'] = 'User Logout Successfully.';
                     echo json_encode($this->response);
                     exit;
                 } else {
                     $this->response['responseCode'] = 200;
-                    $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_21');
+                    $this->response['responseMessage'] = 'User Logout Successfully.';
                     echo json_encode($this->response);
                     exit;
                 }
             } else {
                 $this->response['responseCode'] = 404;
-                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_22');
+                $this->response['responseMessage'] = 'User ID is Required.';
                 echo json_encode($this->response);
                 exit;
             }
@@ -330,13 +346,13 @@ class ApiCntr extends MY_Controller {
         $planData = $this->WebModel->plan_list();
         if (isset($planData) && !empty($planData)) {
             $this->response['responseCode'] = 200;
-            $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_23');
+            $this->response['responseMessage'] = 'Plan Data Retrived Successfully.';
             $this->response['responseData'] = $planData;
             echo json_encode($this->response);
             exit;
         } else {
             $this->response['responseCode'] = 404;
-            $this->response['responseMessage'] = $this->lang->line('no_data_found');
+            $this->response['responseMessage'] = 'No record found.';
             echo json_encode($this->response);
             exit;
         }
@@ -346,13 +362,13 @@ class ApiCntr extends MY_Controller {
         $templateData = $this->CommonModel->template_list();
         if (isset($templateData) && !empty($templateData)) {
             $this->response['responseCode'] = 200;
-            $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_24');
+            $this->response['responseMessage'] = 'Template Data Retrived Successfully.';
             $this->response['responseData'] = $templateData;
             echo json_encode($this->response);
             exit;
         } else {
             $this->response['responseCode'] = 404;
-            $this->response['responseMessage'] = $this->lang->line('no_data_found');
+            $this->response['responseMessage'] = 'No record found.';
             echo json_encode($this->response);
             exit;
         }
@@ -363,45 +379,50 @@ class ApiCntr extends MY_Controller {
             $templateData = $this->CommonModel->template_details_id($this->input->post('template_id'), $this->input->post('lang_var'));
             if (isset($templateData) && !empty($templateData)) {
                 $this->response['responseCode'] = 200;
-                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_24');
+                $this->response['responseMessage'] = 'Template Data Retrived Successfully.';
                 $this->response['responseData'] = $templateData;
                 echo json_encode($this->response);
                 exit;
             } else {
                 $this->response['responseCode'] = 404;
-                $this->response['responseMessage'] = $this->lang->line('no_data_found');
+                $this->response['responseMessage'] = 'No record found';
                 echo json_encode($this->response);
                 exit;
             }
         } else {
             $this->response['responseCode'] = 404;
-            $this->response['responseMessage'] = $this->lang->line('no_data_found');
+            $this->response['responseMessage'] = 'No record found';
             echo json_encode($this->response);
             exit;
         }
     }
 
-    public function check_subdomain_availability() {
-        if (isset($_POST['sub_domain_name']) && !empty($_POST['sub_domain_name'])) {
-            $usrData = $this->WebModel->check_subdomain_availability($_POST['sub_domain_name']);
-            if ($usrData == false) {
-                $this->response['responseCode'] = 200;
-                /* $this->response['responseMessage'] = 'Subdomain is available.'; */
-                $this->response['responseMessage'] = $this->lang->line('domain_available');
-                echo json_encode($this->response);
-                exit;
+    public function check_subdomain_availability_api() {
+        try {
+            $decode_data = (array) JWT::decode($this->input->post('token'), JWT_TOKEN);
+            if (isset($decode_data['sub_domain_name']) && !empty($decode_data['sub_domain_name'])) {
+                $usrData = $this->WebModel->check_subdomain_availability($decode_data['sub_domain_name']);
+                if ($usrData == false) {
+                    $this->response['responseCode'] = 200;
+                    $this->response['messageCode'] = 'com_msg_7';
+                    $this->response['responseMessage'] = 'Subdomain is available.';
+                    echo json_encode($this->response); exit;
+                } else {
+                    $this->response['responseCode'] = 404;
+                    $this->response['messageCode'] = 'com_msg_8';
+                    $this->response['responseMessage'] = 'Subdomain is not available';
+                    echo json_encode($this->response); exit;
+                }
             } else {
                 $this->response['responseCode'] = 404;
-                /* $this->response['responseMessage'] = 'Subdomain is not available'; */
-                $this->response['responseMessage'] = $this->lang->line('domain_not_available');
-                echo json_encode($this->response);
-                exit;
+                $this->response['messageCode'] = 'com_msg_9';
+                $this->response['responseMessage'] = 'Enter Store Subdomain';
+                echo json_encode($this->response); exit;
             }
-        } else {
-            $this->response['responseCode'] = 404;
-            $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_25');
-            echo json_encode($this->response);
-            exit;
+        } catch (Exception $e) {
+            $this->response['responseCode'] = 400;
+            $this->response['responseMessage'] = $e->getMessage();
+            echo json_encode($this->response); exit;
         }
     }
 
@@ -415,7 +436,8 @@ class ApiCntr extends MY_Controller {
                             if (isset($decode_data['user_email']) && !empty($decode_data['user_email'])) {
                                 if (!filter_var($decode_data['user_email'], FILTER_VALIDATE_EMAIL)) {
                                     $this->response['responseCode'] = 404;
-                                    $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_4');
+                                    $this->response['messageCode'] = 'usr_cntr_msg_45';
+                                    $this->response['responseMessage'] = 'Invalid Email.';
                                     echo json_encode($this->response);
                                     exit;
                                 }
@@ -435,6 +457,7 @@ class ApiCntr extends MY_Controller {
                                                 $save_user_tempalte_details = $this->UsrModel->save_user_tempalte_details($tempalteDetails);
                                                 if($save_user_tempalte_details==false){
                                                     $this->response['responseCode'] = 500;
+                                                    $this->response['messageCode'] = 'usr_cntr_msg_46';
                                                     $this->response['responseMessage'] = 'Error While inserting user template information.';
                                                     echo json_encode($this->response); exit;
                                                 }
@@ -485,16 +508,6 @@ class ApiCntr extends MY_Controller {
                                                     'b_zipcode' => isset($decode_data['b_zipcode']) ? $decode_data['b_zipcode'] : '',
                                                 );
 
-                                                /* user store template details entry on purchase start */
-                                                // $tempalteDetails = array(
-                                                //     'user_id' => isset($decode_data['user_id']) ? $decode_data['user_id'] : '',
-                                                //     'user_subscriptions_id' => $user_subscriptions_id,
-                                                //     'template_id' => isset($decode_data['template_id']) ? $decode_data['template_id'] : '',
-                                                //     'template_active' => 1,
-                                                //     'template_type' => 0
-                                                // );
-                                                // $save_user_tempalte_details = $this->UsrModel->save_user_tempalte_details($tempalteDetails);
-                                                /* user store template details enntry on purchase end */
                                                 $requestDataBilling = array(
                                                     'customer_id' => isset($decode_data['user_id']) ? $decode_data['user_id'] : '',
                                                     'bill_info_address' => serialize($bill_info),
@@ -517,7 +530,8 @@ class ApiCntr extends MY_Controller {
                                                 $saveBillInfo = $this->UsrModel->save_subscription_billing_info($requestDataBilling);
                                                 if ($saveBillInfo == false) {
                                                     $this->response['responseCode'] = 404;
-                                                    $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_27');
+                                                    $this->response['messageCode'] = 'usr_cntr_msg_27';
+                                                    $this->response['responseMessage'] = 'Error proceesing your billing data';
                                                     echo json_encode($this->response);
                                                     exit;
                                                 }
@@ -525,58 +539,62 @@ class ApiCntr extends MY_Controller {
                                             }
                                         }
                                         
-
                                         if ($user_subscriptions_id == false) {
                                             $this->response['responseCode'] = 500;
-                                            $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_26');
+                                            $this->response['messageCode'] = 'usr_cntr_msg_27';
+                                            $this->response['responseMessage'] = 'error proceesing your billing data';
                                             echo json_encode($this->response);
                                             exit;
                                         } else {
                                             $this->response['responseCode'] = 200;
-                                            $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_28');
+                                            $this->response['messageCode'] = 'usr_cntr_msg_28';
+                                            $this->response['responseMessage'] = 'You Plan, Billing Info Processed Succesfully';
                                             $this->response['responseData'] = $user_subscriptions_id;
                                             echo json_encode($this->response);
                                             exit;
                                         }
                                     } else {
                                         $this->response['responseCode'] = 404;
-                                        $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_29');
+                                        $this->response['messageCode'] = 'save_sbrptn_msg_1';
+                                        $this->response['responseMessage'] = 'Store admin link is required.';
                                         echo json_encode($this->response);
                                         exit;
                                     }
                                 } else {
                                     $this->response['responseCode'] = 404;
-                                    $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_30');
+                                    $this->response['messageCode'] = 'save_sbrptn_msg_2';
+                                    $this->response['responseMessage'] = 'Store link is required.';
                                     echo json_encode($this->response);
                                     exit;
                                 }
                             } else {
                                 $this->response['responseCode'] = 404;
-                                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_15');
+                                $this->response['messageCode'] = 'save_sbrptn_msg_3';
+                                $this->response['responseMessage'] = 'Email is required.';
                                 echo json_encode($this->response);
                                 exit;
                             }
                         } else {
                             $this->response['responseCode'] = 404;
-                            $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_31');
+                            $this->response['responseMessage'] = 'Sub-domain name is required.';
                             echo json_encode($this->response);
                             exit;
                         }
                     } else {
                         $this->response['responseCode'] = 404;
-                        $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_32');
+                        $this->response['responseMessage'] = 'Template id is required.';
                         echo json_encode($this->response);
                         exit;
                     }
                 } else {
                     $this->response['responseCode'] = 404;
-                    $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_33');
+                    $this->response['responseMessage'] = 'Plan id is required.';
                     echo json_encode($this->response);
                     exit;
                 }
             } else {
                 $this->response['responseCode'] = 404;
-                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_34');
+                $this->response['responseMessage'] = 'User id is required.';
                 echo json_encode($this->response);
                 exit;
             }
@@ -600,12 +618,12 @@ class ApiCntr extends MY_Controller {
                     $doaminsData = $this->UsrModel->user_domains($user_id, $email);
                     if ($doaminsData == false) {
                         $this->response['responseCode'] = 404;
-                        $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_35');
+                        $this->response['responseMessage'] = 'Somthing went wrong! Please try later!';
                         echo json_encode($this->response);
                         exit;
                     } else {
                         $this->response['responseCode'] = 200;
-                        $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_19');
+                        $this->response['responseMessage'] = 'Success';
                         $this->response['responseData'] = $doaminsData;
                         echo json_encode($this->response);
                         exit;
@@ -613,7 +631,7 @@ class ApiCntr extends MY_Controller {
                 }
             } else {
                 $this->response['responseCode'] = 404;
-                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_35');
+                $this->response['responseMessage'] = 'Something went wrong! Please try again';
                 echo json_encode($this->response);
                 exit;
             }
@@ -635,19 +653,19 @@ class ApiCntr extends MY_Controller {
                 $profileData = $this->UsrModel->user_profile_details($user_id);
                 if ($profileData == false) {
                     $this->response['responseCode'] = 404;
-                    $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_35');
+                    $this->response['responseMessage'] = 'Somthing went wrong! Please try later!';
                     echo json_encode($this->response);
                     exit;
                 } else {
                     $this->response['responseCode'] = 200;
-                    $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_19');
+                    $this->response['responseMessage'] = 'Success';
                     $this->response['responseData'] = $profileData;
                     echo json_encode($this->response);
                     exit;
                 }
             } else {
                 $this->response['responseCode'] = 404;
-                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_35');
+                $this->response['responseMessage'] = 'Something went wrong! Please try again';
                 echo json_encode($this->response);
                 exit;
             }
@@ -669,19 +687,19 @@ class ApiCntr extends MY_Controller {
                 $orderData = $this->UsrModel->user_order_details($user_id);
                 if ($orderData == false) {
                     $this->response['responseCode'] = 404;
-                    $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_35');
+                    $this->response['responseMessage'] = 'Somthing went wrong! Please try later!';
                     echo json_encode($this->response);
                     exit;
                 } else {
                     $this->response['responseCode'] = 200;
-                    $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_19');
+                    $this->response['responseMessage'] = 'Success';
                     $this->response['responseData'] = $orderData;
                     echo json_encode($this->response);
                     exit;
                 }
             } else {
                 $this->response['responseCode'] = 404;
-                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_35');
+                $this->response['responseMessage'] = 'Something went wrong! Please try again';
                 echo json_encode($this->response);
                 exit;
             }
@@ -710,20 +728,20 @@ class ApiCntr extends MY_Controller {
                 }
                 if (!isset($templateData) && empty($templateData)) {
                     $this->response['responseCode'] = 404;
-                    $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_35');
+                    $this->response['responseMessage'] = 'Somthing went wrong! Please try later!';
                     $this->response['responseData'] = $templateData;
                     echo json_encode($this->response);
                     exit;
                 } else {
                     $this->response['responseCode'] = 200;
-                    $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_19');
+                    $this->response['responseMessage'] = 'Success';
                     $this->response['responseData'] = $templateData;
                     echo json_encode($this->response);
                     exit;
                 }
             } else {
                 $this->response['responseCode'] = 404;
-                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_35');
+                $this->response['responseMessage'] = 'Something went wrong! Please try again';
                 echo json_encode($this->response);
                 exit;
             }
@@ -755,19 +773,19 @@ class ApiCntr extends MY_Controller {
                     $UsrInsertData = $this->UsrModel->update_user_profile_api($insertData, $decode_data['user_id']);
                     if ($UsrInsertData == false) {
                         $this->response['responseCode'] = 404;
-                        $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_35');
+                        $this->response['responseMessage'] = 'Somthing went wrong! Please try later!';
                         echo json_encode($this->response);
                         exit;
                     } else {
                         $this->response['responseCode'] = 200;
-                        $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_36');
+                        $this->response['responseMessage'] = 'Profile Data Updated Succesfully';
                         echo json_encode($this->response);
                         exit;
                     }
                 }
             } else {
                 $this->response['responseCode'] = 404;
-                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_35');
+                $this->response['responseMessage'] = 'Something went wrong! Please try again';
                 echo json_encode($this->response);
                 exit;
             }
@@ -791,19 +809,19 @@ class ApiCntr extends MY_Controller {
                     $UsrInsertData = $this->UsrModel->update_usr_pro_pass_api($insertData, $decode_data['user_id']);
                     if ($UsrInsertData == false) {
                         $this->response['responseCode'] = 404;
-                        $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_35');
+                        $this->response['responseMessage'] = 'Somthing went wrong! Please try later!';
                         echo json_encode($this->response);
                         exit;
                     } else {
                         $this->response['responseCode'] = 200;
-                        $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_37');
+                        $this->response['responseMessage'] = 'Password Updated Succesfully';
                         echo json_encode($this->response);
                         exit;
                     }
                 }
             } else {
                 $this->response['responseCode'] = 404;
-                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_35');
+                $this->response['responseMessage'] = 'Something went wrong! Please try again';
                 echo json_encode($this->response);
                 exit;
             }
@@ -843,23 +861,28 @@ class ApiCntr extends MY_Controller {
                         $this->response['responseData'] = $UsrRegDomainData;
                         if ($decode_data['payment_status'] == 1) {
                             if($templInfo->plan_tmpl_buy_status==3){
+                                $this->response['messageCode'] = 'pg_resp_1';
                                 $this->response['responseMessage'] = 'Payment Successfull, Please hold while we process your order.';
                             }else{
+                                $this->response['messageCode'] = 'pg_resp_2';
                                 $this->response['responseMessage'] = 'Payment Successfull, Creating your store please hold on.';
                             }
                         } else {
+                            $this->response['messageCode'] = 'pg_resp_3';
                             $this->response['responseMessage'] = 'Payment did not went through, kindly try later.';
                         }
                         echo json_encode($this->response); exit;
                     } else {
                         $this->response['responseCode'] = 404;
-                        $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_35');
+                        $this->response['messageCode'] = 'usr_cntr_msg_35';
+                        $this->response['responseMessage'] = 'Somthing went wrong! Please try again later!';
                         echo json_encode($this->response); exit;
                     }
                 }
             } else {
                 $this->response['responseCode'] = 404;
-                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_35');
+                $this->response['messageCode'] = 'usr_cntr_msg_35';
+                $this->response['responseMessage'] = 'Somthing went wrong! Please try again later!';
                 echo json_encode($this->response); exit;
             }
         } catch (Exception $e) {
@@ -871,25 +894,19 @@ class ApiCntr extends MY_Controller {
 
     public function create_store_api() {
         try {
-
             $decode_data = (array) JWT::decode($this->input->post('token'), JWT_TOKEN);
-
             if (isset($decode_data['store_tkn']) && !empty($decode_data['store_tkn'])) {
                 /* call store creation api start */
                 $curl_res = store_creation_api($decode_data['store_sub_domain'], $decode_data['template_id'], $decode_data['store_tkn'], $decode_data['email']);
                 /* call store creation api end */
-                
                 if (isset($curl_res) && !empty($curl_res)) {
-
                     $curl_res_decode = json_decode($curl_res, true);
-
                     if (isset($curl_res_decode['responseCode']) && $curl_res_decode['responseCode'] == 200) {
-                         
+                        
                         /* send mail to user on success payment & store creation start */
-                        /* // send welcome mail to customer on succesfull store creation */
-                        $store_link = $decode_data['store_sub_domain'].'.matjary.in';
+                        /* send welcome mail to customer on succesfull store creation */
+                        $store_link = $decode_data['store_sub_domain'].'.matjary.sa';
                         $storeInfo = $this->UsrModel->get_store_info($store_link,$decode_data['store_tkn']);
-                        //echo '<pre>'; print_r($storeInfo); exit;
                         $subscription_type = $storeInfo['responseData']->subscription_type;
                         
                         $user_id = $storeInfo['responseData']->user_id;
@@ -956,6 +973,7 @@ class ApiCntr extends MY_Controller {
 
                             
                         }
+                        
                         /* Apache Restart API call */
                         $curl_res_apache = apache_reboot($decode_data['store_sub_domain'], $decode_data['store_tkn']);
                         if (isset($curl_res_apache) && !empty($curl_res_apache)) {
@@ -966,17 +984,17 @@ class ApiCntr extends MY_Controller {
                                 $curl_install_ssl = install_ssl($decode_data['store_sub_domain']);
 
                                 $this->response['responseCode'] = $curl_res_decode['responseCode'];
-                                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_38');
+                                $this->response['responseMessage'] = 'Store create successfully';
                                 $this->response['responseData'] = $curl_res_decode;
                             } else {
                                 $this->response['responseCode'] = $curl_res_apache_decode['responseCode'];
-                                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_39');
+                                $this->response['messageCode'] = 'usr_cntr_msg_39';
+                                $this->response['responseMessage'] = 'Something went wrong kindly contact site admin';
                                 $this->response['responseData'] = '';
                             }
                         }
 
-                        echo json_encode($this->response);
-                        exit;
+                        echo json_encode($this->response); exit;
                     } elseif (isset($curl_res_decode['message']) && !empty($curl_res_decode['message'])) {
                         $this->response['responseCode'] = $curl_res_decode['responseCode'];
                         $this->response['responseMessage'] = $curl_res_decode['message'];
@@ -986,8 +1004,8 @@ class ApiCntr extends MY_Controller {
                     }
                 } else {
                     $this->response['responseCode'] = 404;
-                    /* $this->response['responseMessage'] = 'No Response from Store creation API'; */
-                    $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_35');
+                    $this->response['messageCode'] = 'usr_cntr_msg_35';
+                    $this->response['responseMessage'] = 'Somthing went wrong! Please try again later!';
                     $this->response['responseData'] = '';
                     echo json_encode($this->response);
                     exit;
@@ -995,7 +1013,8 @@ class ApiCntr extends MY_Controller {
             } else {
                 $this->response['responseCode'] = 404;
                 $this->response['responseData'] = '';
-                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_35');
+                $this->response['messageCode'] = 'usr_cntr_msg_35';
+                $this->response['responseMessage'] = 'Somthing went wrong! Please try again later!';
                 echo json_encode($this->response);
                 exit;
             }
@@ -1018,7 +1037,7 @@ class ApiCntr extends MY_Controller {
                 $emailExist = $this->UsrModel->chk_email_exist($decode_data['free_trial_email']);
                 if ($emailExist == true) {
                     $this->response['responseCode'] = 405;
-                    $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_6');
+                    $this->response['responseMessage'] = 'Email already exist';
                     echo json_encode($this->response);
                     exit;
                 } else {
@@ -1053,7 +1072,7 @@ class ApiCntr extends MY_Controller {
 
                         /* send mail to user on success payment & store creation start */
                         $this->response['responseCode'] = $curl_res_decode['responseCode'];
-                        $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_38');
+                        $this->response['responseMessage'] = 'Store create successfully';
                         $this->response['responseData'] = $curl_res_decode;
                         echo json_encode($this->response);
                         exit;
@@ -1066,8 +1085,7 @@ class ApiCntr extends MY_Controller {
                     }
                 } else {
                     $this->response['responseCode'] = 404;
-                    /* $this->response['responseMessage'] = 'No Response from Store creation API'; */
-                    $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_35');
+                    $this->response['responseMessage'] = 'Somthing went wrong! Please try again later!';
                     $this->response['responseData'] = '';
                     echo json_encode($this->response);
                     exit;
@@ -1075,7 +1093,7 @@ class ApiCntr extends MY_Controller {
             } else {
                 $this->response['responseCode'] = 404;
                 $this->response['responseData'] = '';
-                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_35');
+                $this->response['responseMessage'] = 'Somthing went wrong! Please try again later!';
                 echo json_encode($this->response);
                 exit;
             }
@@ -1105,7 +1123,8 @@ class ApiCntr extends MY_Controller {
                                                   
                 if ($UsrInsertData == false) {
                     $this->response['responseCode'] = 404;
-                    $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_35');
+                    $this->response['messageCode'] = 'usr_cntr_msg_35';
+                    $this->response['responseMessage'] = 'Somthing went wrong! Please try again later!';
                     echo json_encode($this->response);
                     exit;
                 } else {  
@@ -1140,19 +1159,22 @@ class ApiCntr extends MY_Controller {
                     if ($emailStatus) {
                         /* Send acknowledge mail to user email */
                         $this->response['responseCode'] = 200;
-                        $this->response['responseMessage'] = $this->lang->line('contact-txt-4');
+                        $this->response['messageCode'] = 'contact-txt-4';
+                        $this->response['responseMessage'] = 'Your Query Submitted Successfully! Our Support Team will get back to you shortly';
                         echo json_encode($this->response);
                         exit;
                     } else {
                         $this->response['responseCode'] = 404;
-                        $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_35');
+                        $this->response['messageCode'] = 'usr_cntr_msg_35';
+                        $this->response['responseMessage'] = 'Somthing went wrong! Please try again later!';
                         echo json_encode($this->response);
                         exit;
                     }
                 }
             } else {
                 $this->response['responseCode'] = 404;
-                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_35');
+                $this->response['messageCode'] = 'usr_cntr_msg_35';
+                $this->response['responseMessage'] = 'Somthing went wrong! Please try again later!';
                 echo json_encode($this->response);
                 exit;
             }
@@ -1239,8 +1261,7 @@ class ApiCntr extends MY_Controller {
                 }
             } else {
                 $this->response['responseCode'] = 404;
-                /* $this->response['responseMessage'] = 'Domain name is required.'; */
-                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_31');
+                $this->response['responseMessage'] = 'Domain name required.';
                 echo json_encode($this->response);
                 exit;
             }
@@ -1263,16 +1284,17 @@ class ApiCntr extends MY_Controller {
                 $emailExist = $this->UsrModel->chk_email_exist($usr_email);
                 if ($emailExist == false) {
                     $this->response['responseCode'] = 405;
-                    $this->response['responseMessage'] = $this->lang->line('pwd-reset-txt-2');
-                    echo json_encode($this->response);
-                    exit;
+                    $this->response['messageCode'] = 'pwd-reset-txt-2';
+                    $this->response['responseMessage'] = 'Email Not Found, Enter Your Registered Email!';
+                    echo json_encode($this->response); exit;
                 } else {
                     /* check if user has already raised reset password request */
                     $check_rst_pwd_request = $this->UsrModel->check_rst_pwd_request($emailExist->user_id);
 
                     if (!empty($check_rst_pwd_request)) {
                         $this->response['responseCode'] = 404;
-                        $this->response['responseMessage'] = $this->lang->line('pwd-reset-txt-3');
+                        $this->response['messageCode'] = 'pwd-reset-txt-3';
+                        $this->response['responseMessage'] = 'Request Already Raised, Kindly Check Your Registered Mail Inbox!';
                         echo json_encode($this->response);
                         exit;
                     }
@@ -1306,8 +1328,8 @@ class ApiCntr extends MY_Controller {
 
                     if ($emailStatus) {
                         $this->response['responseCode'] = 200;
-                        /* $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_6'); */
-                        $this->response['responseMessage'] = $this->lang->line('pwd-reset-txt-4');
+                        $this->response['messageCode'] = 'pwd-reset-txt-4';
+                        $this->response['responseMessage'] = 'A Mail has been sent to you for resetting password';
                         echo json_encode($this->response);
                         exit;
                     } else {
@@ -1316,7 +1338,8 @@ class ApiCntr extends MY_Controller {
                 }
             } else {
                 $this->response['responseCode'] = 404;
-                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_35');
+                $this->response['messageCode'] = 'usr_cntr_msg_35';
+                $this->response['responseMessage'] = 'Somthing went wrong! Please try again later!';
                 echo json_encode($this->response);
                 exit;
             }
@@ -1332,20 +1355,14 @@ class ApiCntr extends MY_Controller {
         try {
             $decode_data = (array) JWT::decode($this->input->post('token'), JWT_TOKEN);
            
-            /*
-              user_id: "7",
-              token: "HUTQCJFN",
-              reset_flag: "1",
-              rst_pwd_request_id: 1
-             */
-            
             if (isset($decode_data['new_pwd_tkn']) && !empty($decode_data['new_pwd_tkn'])) {
                 /* geting user data from the tkn passed through URL append */
                 $decode_usr_data = (array) JWT::decode($decode_data['new_pwd_tkn'], JWT_TOKEN);
                 $check_rst_pwd_request = $this->UsrModel->check_rst_pwd_request($decode_usr_data['user_id'], $decode_usr_data['token']);
                 if ($check_rst_pwd_request == false) {
                     $this->response['responseCode'] = 405;
-                    $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_1');
+                    $this->response['messageCode'] = 'usr_cntr_msg_1';
+                    $this->response['responseMessage'] = 'Invalid Request';
                     echo json_encode($this->response);
                     exit;
                 } else {
@@ -1357,6 +1374,7 @@ class ApiCntr extends MY_Controller {
 
                     if ($passupdateResult == false) {
                         $this->response['responseCode'] = 500;
+                        $this->response['messageCode'] = 'com_msg_1';
                         $this->response['responseMessage'] = "Request Not Processed at Moment, please try again";
                         echo json_encode($this->response); exit;
                     } else {
@@ -1365,13 +1383,15 @@ class ApiCntr extends MY_Controller {
                         $passResetFlagUpdate = $this->UsrModel->passResetFlagUpdate($decode_usr_data['user_id'], $decode_usr_data['token']);
                         if ($passResetFlagUpdate == false) {
                             $this->response['responseCode'] = 500;
+                            $this->response['messageCode'] = 'com_msg_2';
                             $this->response['responseMessage'] = "Error While updating password reset flag, please try again";
                             echo json_encode($this->response); exit;
                         }
 
                         /* update password rest flag end */
                         $this->response['responseCode'] = 200;
-                        $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_37');
+                        $this->response['messageCode'] = 'com_msg_3';
+                        $this->response['responseMessage'] = 'Password Updated Succesfully';
                         echo json_encode($this->response);
                         exit;
                     }
@@ -1385,6 +1405,7 @@ class ApiCntr extends MY_Controller {
                 }
             } else {
                 $this->response['responseCode'] = 404;
+                $this->response['messageCode'] = 'com_msg_4';
                 $this->response['responseMessage'] = "Token Missing";
                 echo json_encode($this->response);
                 exit;
@@ -1407,7 +1428,7 @@ class ApiCntr extends MY_Controller {
             exit;
         } else {
             $this->response['responseCode'] = 404;
-            $this->response['responseMessage'] = $this->lang->line('no_data_found');
+            $this->response['responseMessage'] = 'No Records Found';
             echo json_encode($this->response);
             exit;
         }
@@ -1431,7 +1452,7 @@ class ApiCntr extends MY_Controller {
             exit;
         } else {
             $this->response['responseCode'] = 404;
-            $this->response['responseMessage'] = $this->lang->line('no_data_found');
+            $this->response['responseMessage'] = 'No Records Found';
             echo json_encode($this->response);
             exit;
         }
@@ -1455,7 +1476,7 @@ class ApiCntr extends MY_Controller {
             exit;
         } else {
             $this->response['responseCode'] = 404;
-            $this->response['responseMessage'] = $this->lang->line('no_data_found');
+            $this->response['responseMessage'] = 'No Records Found';
             echo json_encode($this->response);
             exit;
         }
@@ -1471,21 +1492,18 @@ class ApiCntr extends MY_Controller {
                 $insertStatus = $this->UsrModel->save_newsletter_email($insertData);
                 if ($insertStatus == false) {
                     $this->response['responseCode'] = 404;
-                    /* $this->response['responseMessage'] = 'Error while inserting newsletter email'; */
-                    $this->response['responseMessage'] = $this->lang->line('index-txt-45');
+                    $this->response['responseMessage'] = 'Email Already Subscribed';
                     echo json_encode($this->response);
                     exit;
                 } else {
                     $this->response['responseCode'] = 200;
-                    /* $this->response['responseMessage'] = 'You have successfully subscribed.'; */
-                    $this->response['responseMessage'] = $this->lang->line('index-txt-44');
+                    $this->response['responseMessage'] = 'You Have Successfully Subscribed to Newsletter';
                     echo json_encode($this->response);
                     exit;
                 }
             } else {
                 $this->response['responseCode'] = 404;
-                /* $this->response['responseMessage'] = 'Email is Required'; */
-                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_15');
+                $this->response['responseMessage'] = 'Email is Required';
                 echo json_encode($this->response);
                 exit;
             }
@@ -1502,7 +1520,8 @@ class ApiCntr extends MY_Controller {
             $decode_data = (array) JWT::decode($this->input->post('token'), JWT_TOKEN);
             if (!filter_var($decode_data['user_email'], FILTER_VALIDATE_EMAIL)) {
                 $this->response['responseCode'] = 404;
-                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_4');
+                $this->response['messageCode'] = 'usr_cntr_msg_4';
+                $this->response['responseMessage'] = 'Invalid Email';
                 echo json_encode($this->response); exit;
             }
             /* save user billing info data into user_payment_info table start */
@@ -1547,17 +1566,20 @@ class ApiCntr extends MY_Controller {
             /* user store template details enntry on purchase end */
             if ($saveBillInfo == false) {
                 $this->response['responseCode'] = 404;
-                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_27');
+                $this->response['messageCode'] = 'usr_cntr_msg_27';
+                $this->response['responseMessage'] = 'Error proceesing your billing data';
                 echo json_encode($this->response);
                 exit;
             }elseif ($save_user_tempalte_details == false) {
                 $this->response['responseCode'] = 404;
+                $this->response['messageCode'] = 'com_msg_6';
                 $this->response['responseMessage'] = 'Error while inserting user purchased template info.';
                 echo json_encode($this->response);
                 exit;
             } else {
                 $this->response['responseCode'] = 200;
-                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_28');
+                $this->response['messageCode'] = 'usr_cntr_msg_28';
+                $this->response['responseMessage'] = 'You Plan, Billing Info Processed Succesfully';
                 $this->response['responseData'] = '';
                 echo json_encode($this->response);
                 exit;
@@ -1581,14 +1603,14 @@ class ApiCntr extends MY_Controller {
                 exit;
             } else {
                 $this->response['responseCode'] = 404;
-                $this->response['responseMessage'] = $this->lang->line('no_data_found');
+                $this->response['responseMessage'] = 'No Records Found';
                 $this->response['responseData'] = "";
                 echo json_encode($this->response);
                 exit;
             }
         } else {
             $this->response['responseCode'] = 404;
-            $this->response['responseMessage'] = $this->lang->line('no_data_found');
+            $this->response['responseMessage'] = 'No Records Found';
             echo json_encode($this->response);
             exit;
         }
@@ -1599,7 +1621,7 @@ class ApiCntr extends MY_Controller {
             if (isset($decode_data['email']) & !empty($decode_data['email'])) {
                 if (!filter_var($decode_data['email'], FILTER_VALIDATE_EMAIL)) {
                     $this->response['responseCode'] = 404;
-                    $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_4');
+                    $this->response['responseMessage'] = 'Invalid Email';
                     echo json_encode($this->response);
                     exit;
                 }
@@ -1609,7 +1631,6 @@ class ApiCntr extends MY_Controller {
                     $pass1 = trim($decode_data['password'], " ");
                     $pass = hash_hmac("SHA256", $pass1, SECRET_KEY);
                     $usrData = $this->UsrModel->chk_admin_crdntls($email, $pass);
-                    //echo '---'.print_r($usrData); die;
                     if ($usrData == false) {
                         $this->response['responseCode'] = 404;
                         $this->response['responseMessage'] = 'Invalid details. ';
@@ -1624,13 +1645,13 @@ class ApiCntr extends MY_Controller {
                     }
                 } else {
                     $this->response['responseCode'] = 404;
-                    $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_13');
+                    $this->response['responseMessage'] = 'Password required';
                     echo json_encode($this->response);
                     exit;
                 }
             } else {
                 $this->response['responseCode'] = 404;
-                $this->response['responseMessage'] = $this->lang->line('usr_cntr_msg_15');
+                $this->response['responseMessage'] = 'Email required.';
                 echo json_encode($this->response);
                 exit;
             }
@@ -1642,17 +1663,18 @@ class ApiCntr extends MY_Controller {
         }
     }
 
-    public function check_coupon_valid(){
-        if(isset($_POST['user_id']) && !empty($_POST['user_id'])){
-            if(isset($_POST['coupon_code']) && !empty($_POST['coupon_code'])){
-                $couponData = $this->CouponModel->check_coupon_exist($_POST['coupon_code']);
+    public function check_coupon_valid_api(){
+        $decode_data = (array) JWT::decode($this->input->post('token'), JWT_TOKEN);
+        if(isset($decode_data['user_id']) && !empty($decode_data['user_id'])){
+            if(isset($decode_data['coupon_code']) && !empty($decode_data['coupon_code'])){
+                $couponData = $this->CouponModel->check_coupon_exist($decode_data['coupon_code']);
                 if(isset($couponData) && !empty($couponData)){
                     /* check coupon not expired */
                     $current_date = date("Y-m-d"); /* Get the current date in YYYY-MM-DD format */
                     $expiration_date = date("Y-m-d", strtotime($couponData->expiry_date));
                     if(strtotime($current_date) <= strtotime($expiration_date)){
                         /* same coupon already used by same user */
-                        $couponAlreadyUsedStatus = $this->CouponModel->coupon_already_used($couponData->id,$_POST['user_id']);
+                        $couponAlreadyUsedStatus = $this->CouponModel->coupon_already_used($couponData->id,$decode_data['user_id']);
                         if($couponAlreadyUsedStatus==false){
                             $this->response['responseCode'] = 200;
                             $this->response['responseMessage'] = 'Success.';
@@ -1660,16 +1682,19 @@ class ApiCntr extends MY_Controller {
                             echo json_encode($this->response); exit;
                         }else{
                             $this->response['responseCode'] = 404;
+                            $this->response['messageCode'] = 'com_msg_15';
                             $this->response['responseMessage'] = 'Coupon already used.';
                             echo json_encode($this->response); exit;
                         }
                     }else{
                         $this->response['responseCode'] = 404;
+                        $this->response['messageCode'] = 'com_msg_16';
                         $this->response['responseMessage'] = 'Coupon not valid.'; /* coupon code has been expired. */
                         echo json_encode($this->response); exit;
                     }
                 }else{
                     $this->response['responseCode'] = 404;
+                    $this->response['messageCode'] = 'com_msg_16';
                     $this->response['responseMessage'] = 'Coupon not valid.';
                     echo json_encode($this->response); exit;
                 }

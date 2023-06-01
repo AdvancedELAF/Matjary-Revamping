@@ -66,8 +66,7 @@ $ses_lang = $session->get('ses_lang');
                     <div class="prod-detail-price"><?php echo $language['SAR']; ?> <input type="text" name="gc_amount" id="gc_amount" value="1000" maxlength="5" placeholder="Enter Gift Card Amount" class="brand-input w-30"><h6 id="gcAmountErrMsg"></h6></div>
                     
                     <div class="prod-detail-icon">
-                        <?php  
-                            //$cstavgCount = array();                       
+                        <?php                        
                             for ($i = 1; $i <= 5; $i++) {
                                 $ratingClass = "icofont-star btn-grey";
                                 if(isset($cstavgCount) && !empty($cstavgCount)){
@@ -93,9 +92,7 @@ $ses_lang = $session->get('ses_lang');
                     <?php echo form_close(); ?>
                     <div class="feedback-links mt-4">
                         <?php if(isset($ses_logged_in) && $ses_logged_in===true){ ?>
-                            <!--a href="<?php //echo base_url('giftcard/post-feedbacks/'.$giftDetails->id); ?>">
-                                <h4><i class="icofont-ui-edit"></i> Post a feedback</h4>
-                            </a-->
+                           
                             <a href="modal" data-toggle="modal" data-target="#modal"><h4><i class="icofont-ui-edit"></i>  <?php echo $language['Post a feedback']; ?></h4></a> 
                             <a class="viewFeedback" href="#">
                                 <h4><i class="icofont-eye-alt"></i>  <?php echo $language['View all feebacks']; ?></h4>
@@ -135,7 +132,6 @@ $ses_lang = $session->get('ses_lang');
                                         <textarea class="brand-textarea" rows="3" id="feedback" name="feedback" maxlength="5002"><?php //echo isset($ProductFeedBackDetails[0]->feedback)?$ProductFeedBackDetails[0]->feedback:''; ?></textarea>
                                     </div>
                                     <div class="modal-footer">
-                                        <!--<a class="btn btn-primary brand-btn-black-outline" href="<?php //echo base_url('giftcard/giftcard-details/'.$gcDetails->id); ?>">Back</a>                        -->
                                         <button class="g-brand-btn" type="submit"><?php echo $language['Save']; ?></button>  
                                         <button type="button" class="brand-btn" data-dismiss="modal"><?php echo $language['Close']; ?></button>                      
                                     </div>

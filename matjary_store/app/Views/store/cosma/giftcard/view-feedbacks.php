@@ -14,7 +14,7 @@ $ses_custmr_id = $session->get('ses_custmr_id');
         <div class="row">
             <div class="col-md-12">
                 <div class="feedback-wrapper">  
-                    <?php //echo '<pre>'; print_r($GetGiftCardsFeedbacks);
+                    <?php 
                      if(isset($GetGiftCardsFeedbacks) && !empty($GetGiftCardsFeedbacks)){
                         foreach($GetGiftCardsFeedbacks as $key => $GetProductFeedbacksData){ ?>
                         <h4 class="prod-main-content-title">Customer Reviews</h4>

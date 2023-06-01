@@ -1,9 +1,7 @@
 <?php $this->extend('store/' . $storeActvTmplName . '/layouts/store_layout'); ?>
 <?php $this->section('content'); ?>
 <!-- PAGE BAR STARTS -->
-<section class="ot-banner <?php if ($locale == 'ar') {
-                                echo 'text-right';
-                            } ?>">
+<section class="ot-banner <?php if ($locale == 'ar') { echo 'text-right'; } ?>">
     <div class="container">
         <div class="page-title">
             <h1><?php echo $language['My Account']; ?></h1>
@@ -12,9 +10,7 @@
 </section>
 <!-- PAGE BAR ENDS -->
 <!-- MY ACCOUNT SECTION STARTS -->
-<section class="section-spacing <?php if ($locale == 'ar') {
-                                    echo 'text-right';
-                                } ?>">
+<section class="section-spacing <?php if ($locale == 'ar') { echo 'text-right'; } ?>">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-4">

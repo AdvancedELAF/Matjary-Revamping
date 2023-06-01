@@ -154,13 +154,13 @@
                                                 <div class="cart-price">
                                                     <h5>
                                                         <?php  
-                                                        if($checkrefundApproved->refund_status == 0){
-                                                            echo $language['Refund Request Raised by Customer.'];
-                                                        }elseif($checkrefundApproved->refund_status == 1){
-                                                            echo $language['Refund Approved.'];
-                                                        }elseif($checkrefundApproved->refund_status == 2){
-                                                            echo $language['Refunded Amount Received by Customer.'];
-                                                        }
+                                                            if($checkrefundApproved->refund_status == 0){
+                                                                echo $language['Refund Request Raised by Customer.'];
+                                                            }elseif($checkrefundApproved->refund_status == 1){
+                                                                echo $language['Refund Approved.'];
+                                                            }elseif($checkrefundApproved->refund_status == 2){
+                                                                echo $language['Refunded Amount Received by Customer.'];
+                                                            }
                                                         ?>
                                                     </h5>
                                                 </div>

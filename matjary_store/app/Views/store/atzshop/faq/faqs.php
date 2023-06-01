@@ -6,15 +6,13 @@ $ses_lang = $session->get('ses_lang');
 ?>
 <?php $this->extend('store/'.$storeActvTmplName.'/layouts/store_layout'); ?>
 <?php $this->section('content'); ?>
-<!-- PAGE BAR STARTS -->
-
-<!-- PAGE BAR ENDS -->
 <section class="section-spacing <?php if($locale=='ar'){echo 'text-right';} ?>">
     <div class="container">
         <div class="section-title mb-3">
             <h4><?php echo $language['FAQ']; ?></h4>
         </div>
         <?php
+        $checkfaqData = $locale=='en'?'FAQ Content/Information Not Available Yet!.':'الأسئلة الشائعة المحتوى / المعلومات غير متوفرة بعد !.';
         if (isset($faqList) && !empty($faqList)) {
             foreach ($faqList as $i => $faqData) {
                 $question = '';
@@ -59,9 +57,11 @@ $ses_lang = $session->get('ses_lang');
             </div>
         <?php
             }
-        }
-        ?>
-
+        }else{ ?>
+            <div class="page-content">
+                <?php echo $checkfaqData; ?>
+            </div>
+        <?php } ?>
     </div>
 </section>
 <?php $this->endSection(); ?>

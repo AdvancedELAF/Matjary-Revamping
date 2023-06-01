@@ -29,10 +29,7 @@
 <body class="login-page">
 	<div class="login-header box-shadow">
 		<div class="container-fluid d-flex justify-content-between align-items-center">
-			<div class="brand-logo">
-				<!--<a href="login.html">
-					<img src="/store_admin/vendors/images/matjary_logo.png" alt="">
-				</a>-->
+			<div class="brand-logo">				
 				<?php if(isset($storeSettingInfo->logo) && !empty($storeSettingInfo->logo)){ ?>
 						<img src="<?php echo base_url('uploads/logo/'); ?>/<?php echo isset($storeSettingInfo->logo)?$storeSettingInfo->logo:''; ?>" alt="" class="dark-logo" style="width:auto;min-width:100px;max-width:100px;heihgt:auto;min-height:67px;max-height:67px;"> 
 					<?php } else { ?>
@@ -62,7 +59,6 @@
 				<div class="col-md-6 col-lg-5">
 					<div class="login-box bg-white box-shadow border-radius-10">
 						<div class="login-logo">
-							<!--<img src="/store_admin/vendors/images/matjary_logo.png">	-->
 					<?php if(isset($storeSettingInfo->logo) && !empty($storeSettingInfo->logo)){ ?>
 						<img src="<?php echo base_url('uploads/logo/'); ?>/<?php echo isset($storeSettingInfo->logo)?$storeSettingInfo->logo:''; ?>" alt="" class="dark-logo" style="width:auto;min-width:100px;max-width:100px;heihgt:auto;min-height:100px;max-height:100px;"> 
 					<?php } else { ?>
@@ -92,25 +88,14 @@
 							</div>
                         
 							<div class="row pb-30">
-								<div class="col-6">
-									<!--<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input" id="customCheck1">
-										<label class="custom-control-label" for="customCheck1">Remember</label>
-									</div>-->
-								</div>
-								<!--<div class="col-6">
-									<div class="forgot-password"><a href="forgot-password.html">Forgot Password</a></div>
-								</div>-->
+								<div class="col-6">								
+								</div>								
 							</div>
 							<div class="row">
 								<div class="col-sm-12">
 									<div class="input-group mb-0">			
                                         <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
-									</div>
-									<!-- <div class="font-16 weight-600 pt-10 pb-10 text-center" data-color="#707373">OR</div>
-									<div class="input-group mb-0">
-										<a class="btn btn-outline-primary btn-lg btn-block" href="register.html">Register To Create Account</a>
-									</div> -->
+									</div>									
 								</div>
 							</div>
                         <?php echo form_close(); ?>
@@ -138,8 +123,7 @@
 	<script src="/store_admin/src/plugins/datatables/js/vfs_fonts.js"></script>
 	<script src="/store_admin/assets/js/data-table-page.js"></script>
 	<!--DataTable js end-->
-	<script src="/store_admin/vendors/scripts/dashboard.js"></script>
-	
+	<script src="/store_admin/vendors/scripts/dashboard.js"></script>	
 	<!--Jquery Validation js start-->
 	<script src="/store_admin/assets/js/jquery-validate.js"></script>
 	<script src="/store_admin/assets/js/form-validation.js"></script>

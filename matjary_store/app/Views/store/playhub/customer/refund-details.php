@@ -135,8 +135,6 @@
                     </div>
 
                     <div class="summary-wrap">
-
-
                         <div class="total-amount text-center text-orange">
                             <h5><?php echo $language['Grand total']; ?>: <?php echo $language['SAR']; ?> <?php echo isset($orderDetails['orderInfo']->total_price)?$orderDetails['orderInfo']->total_price:0.00; ?></h5>
                         </div>
@@ -182,9 +180,7 @@
                         </div>
                     <?php } ?> 
                 </div>
-            </div>           
-
-            
+            </div> 
             </div>
             <div class="back-btn">
                 <a href="<?php echo base_url('customer/my-refund-request'); ?>" class="brand-btn-black float-right" ><?php echo $language['Back']; ?></a>

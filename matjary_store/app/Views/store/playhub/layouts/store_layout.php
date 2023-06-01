@@ -32,12 +32,9 @@ $ses_lang = $session->get('ses_lang');
     <?php if (isset($pageTitle) && in_array($pageTitle, $allowedDatatablePagesAry)) { ?>
     <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer></script>
     <?php } ?>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <?php //if (isset($pageTitle) && in_array($pageTitle, $allowedDatatablePagesAry)) { ?>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <?php //} ?>
-    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script-->
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/css/style.css">
@@ -116,10 +113,10 @@ $ses_lang = $session->get('ses_lang');
             <div class="row align-items-center">
                 <div class="col-md-9">                    
                     <div class="d-flex search-btn">   
-                        <input type="text" value="<?php echo isset($_REQUEST['query'])?$_REQUEST['query']:''; ?>" placeholder="<?php echo $language['publicSearch']; ?>" id="gsearchsimple" class="brand-input ml-2 input-search" />
+                        <input type="textarea" value="<?php echo isset($_REQUEST['query'])?$_REQUEST['query']:''; ?>" placeholder="<?php echo $language['publicSearch']; ?>" id="gsearchsimple" class="brand-input ml-2 input-search search-list" />
                         <a href="javascript:void(0);" id="gsearchBtn" class="brand-btn-black ml-2"><i class="icofont-search"></i></a>
                     </div>
-                    <ul class="list-group" > </ul>     
+                    <ul id="search_dropdown" class="list-group"> </ul>     
                 </div>                
                 <div class="col-md-3 text-right">
                     <div class="dropdown <?php if($locale=='ar'){echo 'text-left';} ?> mt-sm-2 mt-md-0 mt-0">
@@ -146,7 +143,6 @@ $ses_lang = $session->get('ses_lang');
             </div>
         </div>
     </div>
-    <?php //echo '<pre>'; print_r($productCategories['subcat']); ?>
     <!-- HEADER STARTS -->
     <nav class="navbar navbar-expand-lg navbar-light header-nav" id="main_navbar">
         <a class="navbar-brand" href="index.php">
@@ -154,7 +150,7 @@ $ses_lang = $session->get('ses_lang');
                 <?php if (isset($storeSettingInfo->logo) && !empty($storeSettingInfo->logo)) { ?>
                     <a href="<?php echo base_url('home'); ?>"><img src="<?php echo base_url('/uploads/logo/'); ?>/<?php echo isset($storeSettingInfo->logo) ? $storeSettingInfo->logo : ''; ?>" width="150px" height="50px"></a>
                 <?php } else { ?>
-                    <img src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/images/logo.png">
+                    <a href="<?php echo base_url('home'); ?>"><img src="<?php echo base_url('/store/' . $storeActvTmplName . '/assets/images/logo.png'); ?>" width="150px" height="50px"></a>
                 <?php } ?>
             </div>
         </a>

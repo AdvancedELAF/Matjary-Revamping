@@ -14,7 +14,6 @@ $ses_custmr_id = $session->get('ses_custmr_id');
         </div>
     </div>
 </section>
-
 <!-- PAGE BAR ENDS -->
 <!-- ORDER DETAIL TABLE STARTS -->
 <section class="section-spacing <?php if($locale=='ar'){echo 'text-right';} ?>">
@@ -73,13 +72,13 @@ $ses_custmr_id = $session->get('ses_custmr_id');
                                 <td>
                                     <h6>
                                         <?php  
-                                        if($orderDetails['orderInfo']->payment_type==1){ 
-                                            echo $language['Cash On Delivery'];
-                                        }elseif($orderDetails['orderInfo']->payment_type==2){ 
-                                            echo $language['Online Banking'];
-                                        }elseif($orderDetails['orderInfo']->payment_type==3){
-                                            echo $language['Gift Cart'];
-                                        }
+                                            if($orderDetails['orderInfo']->payment_type==1){ 
+                                                echo $language['Cash On Delivery'];
+                                            }elseif($orderDetails['orderInfo']->payment_type==2){ 
+                                                echo $language['Online Banking'];
+                                            }elseif($orderDetails['orderInfo']->payment_type==3){
+                                                echo $language['Gift Cart'];
+                                            }
                                         ?>
                                     </h6>
                                 </td>
@@ -89,28 +88,28 @@ $ses_custmr_id = $session->get('ses_custmr_id');
                                 <td>
                                     <h6>
                                         <?php 
-                                        if($orderDetails['orderInfo']->payment_status==1){ 
-                                            echo '<span class="text-success">'.$language['Complete'].'</span>';
-                                        }elseif($orderDetails['orderInfo']->payment_status==2){ 
+                                            if($orderDetails['orderInfo']->payment_status==1){ 
+                                                echo '<span class="text-success">'.$language['Complete'].'</span>';
+                                            }elseif($orderDetails['orderInfo']->payment_status==2){ 
                                                 echo '<span class="text-warning">'.$language['Pending'].'</span>';
-                                        }elseif($orderDetails['orderInfo']->payment_status==3){ 
-                                            echo '<span class="text-danger">'.$language['Cancelled'].'</span>';
-                                        }
+                                            }elseif($orderDetails['orderInfo']->payment_status==3){ 
+                                                echo '<span class="text-danger">'.$language['Cancelled'].'</span>';
+                                            }
                                         ?>
                                     </h6>
                                 </td>
                                 <td>
                                     <h6>
                                         <?php
-                                        if($orderDetails['orderInfo']->order_status==1){ 
-                                            echo '<span class="text-success">'.$language['Complete'].'</span>';
-                                        }elseif($orderDetails['orderInfo']->order_status==2){ 
-                                            echo '<span class="text-warning">'.$language['Pending'].'</span>';
-                                        }elseif($orderDetails['orderInfo']->order_status==3){ 
-                                            echo '<span class="text-danger">'.$language['Cancelled'].'</span>';
-                                        }else{ 
-                                            echo $language['NA'];
-                                        }
+                                            if($orderDetails['orderInfo']->order_status==1){ 
+                                                echo '<span class="text-success">'.$language['Complete'].'</span>';
+                                            }elseif($orderDetails['orderInfo']->order_status==2){ 
+                                                echo '<span class="text-warning">'.$language['Pending'].'</span>';
+                                            }elseif($orderDetails['orderInfo']->order_status==3){ 
+                                                echo '<span class="text-danger">'.$language['Cancelled'].'</span>';
+                                            }else{ 
+                                                echo $language['NA'];
+                                            }
                                         ?>
                                     </h6>
                                 </td>
@@ -264,8 +263,7 @@ $ses_custmr_id = $session->get('ses_custmr_id');
                 </div>
                 <span class="text-danger" id="cancel_reason_error_msgs" ></span>
             </div>
-        </div>
-        
+        </div>        
     </div>
 </section>
 <!-- ORDER DETAIL TABLE ENDS -->

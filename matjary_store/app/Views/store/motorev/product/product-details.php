@@ -88,8 +88,7 @@ if($ses_lang=='en'){
                     </div>
                     <div class="prod-detail-price">
                         <p>
-                            <!-- SAR <?php echo isset($productDetails->product_price)?number_format((float)$productDetails->product_price, 2, '.', ''):''; ?> -->
-                            <span class="strike-amount"><?php echo $language['SAR']; ?> <?php echo isset($productDetails->retail_price)?number_format((float)$productDetails->retail_price, 2, '.', ''):''; ?></span>
+                           <span class="strike-amount"><?php echo $language['SAR']; ?> <?php echo isset($productDetails->retail_price)?number_format((float)$productDetails->retail_price, 2, '.', ''):''; ?></span>
                             <span class="sale-amount"><?php echo $language['SAR']; ?> <?php echo isset($productDetails->product_price)?number_format((float)$productDetails->product_price, 2, '.', ''):''; ?></span>
                         </p>
                     </div>
@@ -143,12 +142,10 @@ if($ses_lang=='en'){
                         <?php if(isset($ses_logged_in) && $ses_logged_in===true){ ?>
                             <?php 
                             $actionPrdctCarturl = base_url('customer/add-product-cart');
-                            //$anchorCartBtnText = 'Add to Cart';
                             $anchorCartBtnText = $language['Add to Cart'];
                             $actionCartBtnClass = 'addToCart';
 
                             $actionWishlisturl = base_url('customer/add-product-wishlist');
-                            //$anchorWishlistBtnText = 'Wishlist';
                             $anchorWishlistBtnText = $language['Wishlist'];
                             $actionWishlistBtnClass = 'addToWishlist';
 
@@ -156,7 +153,6 @@ if($ses_lang=='en'){
                                 foreach($snglCstmrCartProductList as $snglCstmrCartProductData){
                                     if($snglCstmrCartProductData->product_id==$productDetails->id){
                                         $actionPrdctCarturl = base_url('customer/remove-product-cart');
-                                        //$anchorCartBtnText = 'Remove From Cart';
                                         $anchorCartBtnText =  $language['Remove From Cart'];
                                         $actionCartBtnClass = 'removeFromCart';
                                     }
@@ -168,7 +164,6 @@ if($ses_lang=='en'){
                                     if($cstmrWishPrdctData->product_id==$productDetails->id){
 
                                         $actionWishlisturl = base_url('customer/remove-product-wishlist');
-                                        //$anchorWishlistBtnText = 'Remove From Wishlist';
                                         $anchorWishlistBtnText = $language['Remove From Wishlist'];
                                         $actionWishlistBtnClass = 'removeFromWishlist';
                                     }
@@ -194,16 +189,13 @@ if($ses_lang=='en'){
                     </div>
                     <div class="feedback-links mt-4">
                         <?php if(isset($ses_logged_in) && $ses_logged_in===true){ ?>
-                            <!--<a href="<?php //echo base_url('product/post-feedback/'.$productDetails->id); ?>">
-                                <h4><i class="icofont-ui-edit"></i> Post a feedback</h4>
-                            </a>---Review Post on Page ---->
+                            
                             <a href="modal" data-toggle="modal" data-target="#modal"><h4><i class="icofont-ui-edit"></i> <?php echo $language['Post a feedback']; ?></h4></a>                            
                             <a class="viewFeedback" href="#">
                                 <h4><i class="icofont-eye-alt"></i> <?php echo $language['View all feebacks']; ?></h4>
                             </a>
                         <?php }else{ ?>
                             <a href="<?php echo base_url('customer/login'); ?>"><h4><i class="icofont-ui-edit"></i><?php echo $language['Post a feedback']; ?></h4></a>
-                            <!--<a href="<?php //echo base_url('customer/login'); ?>"><h4><i class="icofont-eye-alt"></i>View all feebacks</h4></a>-->
                             <a class="viewFeedback" href="#"><h4><i class="icofont-eye-alt"></i><?php echo $language['View all feebacks']; ?></h4></a>
                         <?php } ?>
                     </div>
@@ -237,7 +229,6 @@ if($ses_lang=='en'){
                             </div>
                                 </div>
                                 <div class="modal-footer">
-                                 <!--  <button class="btn btn-primary brand-btn-black" type="submit">Save</button>   -->
                                     <input type="submit" value="<?php echo $language['Submit']; ?>" class="btn brand-btn">
                                     <button type="button" class="btn brand-btn" data-dismiss="modal"><?php echo $language['Close']; ?></button>
                                 </div>

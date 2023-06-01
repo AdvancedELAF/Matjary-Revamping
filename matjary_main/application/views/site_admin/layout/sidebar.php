@@ -57,7 +57,7 @@ if ($this->session->userdata('loggedInSuperAdminData')) {
           <?php if (in_array(3, $this->menuArrayValues)){ ?>
           <li class="nav-item <?php if(isset($pageId) && $pageId==25 || isset($pageId) && $pageId==26 || isset($pageId) && $pageId==27 ){echo'menu-open';}else{echo'';} ?>">
               <a href="#" class="nav-link <?php if(isset($pageId) && $pageId==25 || isset($pageId) && $pageId==26 || isset($pageId) && $pageId==27){echo'active';}else{echo'';} ?>">
-              <i class="fas fa-users"></i>
+              <i class="fa fa-user" aria-hidden="true"></i>
                 <p>
                   Employee
                   <i class="fas fa-angle-left right"></i>

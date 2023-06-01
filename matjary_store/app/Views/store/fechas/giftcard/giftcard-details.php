@@ -65,8 +65,7 @@ $ses_lang = $session->get('ses_lang');
                     </div>
 
                     <div class="prod-detail-icon">
-                        <?php
-                        //$cstavgCount = array();                       
+                        <?php                    
                         for ($i = 1; $i <= 5; $i++) {
                             $ratingClass = "icofont-star btn-grey";
                             if (isset($cstavgCount) && !empty($cstavgCount)) {
@@ -98,10 +97,7 @@ $ses_lang = $session->get('ses_lang');
                     <?php echo form_close(); ?>
                     <div class="feedback-links mt-4">
                         <?php if (isset($ses_logged_in) && $ses_logged_in === true) { ?>
-                            <!--a href="<?php //echo base_url('giftcard/post-feedbacks/'.$giftDetails->id); 
-                                        ?>">
-                                <h4><i class="icofont-ui-edit"></i> Post a feedback</h4>
-                            </a-->
+                            
                             <a href="modal" data-toggle="modal" data-target="#modal">
                                 <h4><i class="icofont-ui-edit"></i> <?php echo $language['Post a feedback']; ?></h4>
                             </a>
@@ -148,8 +144,6 @@ $ses_lang = $session->get('ses_lang');
                                                                                                                                 ?></textarea>
                                     </div>
                                     <div class="modal-footer">
-                                        <!--<a class="btn btn-primary brand-btn-black-outline" href="<?php //echo base_url('giftcard/giftcard-details/'.$gcDetails->id); 
-                                                                                                        ?>">Back</a>                        -->
                                         <button class="g-brand-btn" type="submit"><?php echo $language['Save']; ?></button>
                                         <button type="button" class="db-brand-btn" data-dismiss="modal"><?php echo $language['Close']; ?></button>
                                     </div>
@@ -166,25 +160,16 @@ $ses_lang = $session->get('ses_lang');
             <div class="prod-main-tab">
                 <ul class="nav nav-pills prod-main-pills mb-3" id="pills-tab" role="tablist">
                     <li class="nav-item prod-main-item" role="presentation">
-                        <a class="nav-link prod-main-link" id="pills-reviews-tab" data-toggle="pill" href="#pills-reviews" role="tab" aria-controls="pills-reviews" aria-selected="false"><?php echo $language['Reviews']; ?> (<?php if (isset($cstratingCount) && !empty($cstratingCount)) {
-                                                                                                                                                                                                        echo count($cstratingCount);
-                                                                                                                                                                                                    } else {
-                                                                                                                                                                                                        echo '0';
-                                                                                                                                                                                                    } ?>)</a>
+                        <a class="nav-link prod-main-link" id="pills-reviews-tab" data-toggle="pill" href="#pills-reviews" role="tab" aria-controls="pills-reviews" aria-selected="false"><?php echo $language['Reviews']; ?> (<?php if (isset($cstratingCount) && !empty($cstratingCount)) { echo count($cstratingCount); } else { echo '0'; } ?>)</a>
                     </li>
                 </ul>
                 <div class="tab-content prod-main-content" id="pills-tabContent">
                     <div class="tab-pane prod-main-pane fade" id="pills-reviews" role="tabpanel" aria-labelledby="pills-reviews-tab">
                         <h4 class="prod-main-content-title"><?php echo $language['Customer Reviews']; ?></h4>
-                        <?php //echo '<pre>'; print_r($getGcFeedbackAll); echo $getGcFeedbackAll[0]
-                        ?>
+                        
                         <?php if (isset($getGcFeedbackAll) && !empty($getGcFeedbackAll)) {
                             foreach ($getGcFeedbackAll as $key => $getGcFeedbackAll) { ?>
-                                <!--h6 class="prod-main-content-title"><?php //echo isset($getGcFeedbackAll->name)?$getGcFeedbackAll->name:''; 
-                                                                        ?>  <?php echo isset($getGcFeedbackAll->created_at) ? $getGcFeedbackAll->created_at : ''; ?></h6>
-                            <p><?php //echo isset($getGcFeedbackAll->feedback)?$getGcFeedbackAll->feedback:''; 
-                                ?></p-->
-
+                                
                                 <h6 class="reviewer-name"><?php echo isset($getGcFeedbackAll->name) ? $getGcFeedbackAll->name : ''; ?></h6>
                                 <p class="review-date-time"><?php echo isset($getGcFeedbackAll->created_at) ? date('d M Y', strtotime($getGcFeedbackAll->created_at)) : ''; ?></p>
                                 <p><?php echo isset($getGcFeedbackAll->feedback) ? $getGcFeedbackAll->feedback : ''; ?></p>

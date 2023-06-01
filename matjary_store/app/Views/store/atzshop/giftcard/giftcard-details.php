@@ -59,8 +59,7 @@ $ses_lang = $session->get('ses_lang');
                     <div class="prod-detail-price"><?php echo $language['SAR']; ?> <input type="text" name="gc_amount" id="gc_amount" value="1000" maxlength="5" placeholder="Enter Gift Card Amount"><h6 id="gcAmountErrMsg"></h6></div>
                     
                     <div class="prod-detail-icon">
-                        <?php  
-                            //$cstavgCount = array();                       
+                        <?php                                                 
                             for ($i = 1; $i <= 5; $i++) {
                                 $ratingClass = "icofont-star btn-grey";
                                 if(isset($cstavgCount) && !empty($cstavgCount)){
@@ -85,10 +84,7 @@ $ses_lang = $session->get('ses_lang');
                     </div>
                     <?php echo form_close(); ?>
                     <div class="feedback-links mt-4">
-                        <?php if(isset($ses_logged_in) && $ses_logged_in===true){ ?>
-                            <!--a href="<?php //echo base_url('giftcard/post-feedbacks/'.$giftDetails->id); ?>">
-                                <h4><i class="icofont-ui-edit"></i> Post a feedback</h4>
-                            </a-->
+                        <?php if(isset($ses_logged_in) && $ses_logged_in===true){ ?>                            
                             <a href="modal" data-toggle="modal" data-target="#modal"><h4><i class="icofont-ui-edit"></i>  <?php echo $language['Post a feedback']; ?></h4></a> 
                             <a class="viewFeedback" href="#">
                                 <h4><i class="icofont-eye-alt"></i>  <?php echo $language['View all feebacks']; ?></h4>
@@ -128,7 +124,6 @@ $ses_lang = $session->get('ses_lang');
                                         <textarea class="form-control" rows="3" id="feedback" name="feedback" maxlength="5002"><?php //echo isset($ProductFeedBackDetails[0]->feedback)?$ProductFeedBackDetails[0]->feedback:''; ?></textarea>
                                     </div>
                                     <div class="modal-footer">
-                                        <!--<a class="btn btn-primary brand-btn-black-outline" href="<?php //echo base_url('giftcard/giftcard-details/'.$gcDetails->id); ?>">Back</a>                        -->
                                         <button class="btn btn-primary brand-btn" type="submit"><?php echo $language['Save']; ?></button>  
                                         <button type="button" class="btn btn-default brand-btn" data-dismiss="modal"><?php echo $language['Close']; ?></button>                      
                                     </div>
@@ -143,34 +138,18 @@ $ses_lang = $session->get('ses_lang');
         </div>
         <div id="reviewShow" class="row">
             <div class="prod-main-tab">
-                <ul class="nav nav-pills prod-main-pills mb-3" id="pills-tab" role="tablist">
-                    <!--li class="nav-item prod-main-item" role="presentation">
-                        <a class="nav-link prod-main-link active" id="pills-description-tab" data-toggle="pill" href="#pills-description" role="tab" aria-controls="pills-description" aria-selected="true">Description</a>
-                    </li>
-                    <li class="nav-item prod-main-item" role="presentation">
-                        <a class="nav-link prod-main-link" id="pills-summary-tab" data-toggle="pill" href="#pills-summary" role="tab" aria-controls="pills-summary" aria-selected="false">Summary</a>
-                    </li-->
+                <ul class="nav nav-pills prod-main-pills mb-3" id="pills-tab" role="tablist">                  
                     <li class="nav-item prod-main-item" role="presentation">                        
                         <a class="nav-link prod-main-link" id="pills-reviews-tab" data-toggle="pill" href="#pills-reviews" role="tab" aria-controls="pills-reviews" aria-selected="false">Reviews (<?php if(isset($cstratingCount) && !empty($cstratingCount)){ echo count($cstratingCount) ; }else{ echo '0'; }?>)</a>
                     </li>
                 </ul>
                 <div class="tab-content prod-main-content" id="pills-tabContent">
-                    <!--div class="tab-pane prod-main-pane fade show" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
-                        <h4 class="prod-main-content-title">Description</h4>
-                        <p><?php echo isset($productDetails->long_desc)?$productDetails->long_desc:''; ?></p>
-                    </div>
-                    <div class="tab-pane prod-main-pane fade" id="pills-summary" role="tabpanel" aria-labelledby="pills-summary-tab">
-                        <h4 class="prod-main-content-title">Summary</h4>
-                        <p><?php echo isset($productDetails->short_desc)?$productDetails->short_desc:''; ?></p>
-                    </div-->
+                   
                     <div class="tab-pane prod-main-pane fade active" id="pills-reviews" role="tabpanel" aria-labelledby="pills-reviews-tab">
                         <h4 class="prod-main-content-title"><?php echo $language['Customer Reviews']; ?></h4>
-                        <?php //echo '<pre>'; print_r($getGcFeedbackAll); echo $getGcFeedbackAll[0]?>
+                       
                        <?php if(isset($getGcFeedbackAll) && !empty($getGcFeedbackAll)){
                             foreach($getGcFeedbackAll as $key => $getGcFeedbackAll){ ?>
-                            <!--h6 class="prod-main-content-title"><?php //echo isset($getGcFeedbackAll->name)?$getGcFeedbackAll->name:''; ?>  <?php echo isset($getGcFeedbackAll->created_at)?$getGcFeedbackAll->created_at:''; ?></h6>
-                            <p><?php //echo isset($getGcFeedbackAll->feedback)?$getGcFeedbackAll->feedback:''; ?></p-->
-
                             <h6 class="reviewer-name"><?php echo isset($getGcFeedbackAll->name)?$getGcFeedbackAll->name:''; ?></h6>
                             <p class="review-date-time"><?php echo isset($getGcFeedbackAll->created_at)?date('d M Y',strtotime($getGcFeedbackAll->created_at)):''; ?></p>
                             <p><?php echo isset($getGcFeedbackAll->feedback)?$getGcFeedbackAll->feedback:''; ?></p>

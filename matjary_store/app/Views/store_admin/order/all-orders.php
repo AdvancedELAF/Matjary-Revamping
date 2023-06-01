@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12 col-sm-12">
                 <div class="title">
-                    <h4><?php echo $language['All Customer Orders']; ?></h4>
+                    <h4><?php echo $language['All Orders']; ?></h4>
                 </div>
                 <nav aria-label="breadcrumb" role="navigation">
                     <ol class="breadcrumb">
@@ -53,7 +53,6 @@
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
                                         <a class="dropdown-item" href="<?php echo base_url('admin/single-order-details/'.$value->id); ?>" title="view order details"><i class="dw dw-eye"></i> <?php echo $language['Details']; ?></a>
-                                        <!-- <a class="dropdown-item actionBtn" href="javascript:void(0);" data-actionurl="<?php echo base_url('admin/delete-order'); ?>" data-id="<?php echo $value->id; ?>" data-operation="delete"><i class="dw dw-delete-3"></i> Delete</a> -->
                                     </div>
                                 </div>
                             </td>

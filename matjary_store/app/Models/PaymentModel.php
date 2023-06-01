@@ -38,14 +38,13 @@ class PaymentModel extends Model {
 	protected $beforeDelete         = [];
 	protected $afterDelete          = [];
 
-    // .. other member variables
+    
     protected $db;
 
     public function __construct()
     {
         parent::__construct();
         $this->db = \Config\Database::connect();
-        // OR $this->db = db_connect();
     }
 
 	public function get_all_payment_companies(){
@@ -68,8 +67,7 @@ class PaymentModel extends Model {
 	public function get_pg_data($pg_id)
     {
         $query = $this->db->query('select * from ' . $this->table .' where id='.$pg_id.' and is_active=1');
-		// $last_query = $this->db->getLastQuery();
-		// echo '<pre>'; print_r($last_query); exit;
+		
         return $query->getRow();
     }
 
@@ -103,8 +101,6 @@ class PaymentModel extends Model {
 			where ps.is_active=1'
 		);
         return $query->getResult();
-	}
-    	
+	}    	
 }
-
 ?>

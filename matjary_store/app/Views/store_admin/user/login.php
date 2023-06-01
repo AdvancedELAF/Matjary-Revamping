@@ -3,7 +3,6 @@ $session = \Config\Services::session();
 $ses_user_logged_in = $session->get('ses_user_logged_in');
 $ses_user_name = $session->get('ses_user_name');
 $ses_user_id = $session->get('ses_user_id');
-
 $lang_session = $session->get('lang_session');
 $ses_lang = $session->get('ses_lang');
 ?>
@@ -17,10 +16,8 @@ $ses_lang = $session->get('ses_lang');
 	<link rel="apple-touch-icon" sizes="180x180" href="/store_admin/src/images/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/store_admin/src/images/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/store_admin/src/images/favicon-16x16.png">
-
 	<!-- Mobile Specific Metas -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
 	<!-- Google Font -->
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&amp;display=swap" rel="stylesheet">
@@ -53,10 +50,7 @@ $ses_lang = $session->get('ses_lang');
 <body class="login-page">
 	<div class="login-header box-shadow">
 		<div class="container-fluid d-flex justify-content-between align-items-center">
-			<div class="brand-logo">
-				<!--<a href="login.html">
-					<img src="/store_admin/vendors/images/matjary_logo.png" alt="">
-				</a>-->
+			<div class="brand-logo">				
 				<?php if(isset($storeSettingInfo->logo) && !empty($storeSettingInfo->logo)){ ?>
 					<img src="<?php echo base_url('uploads/logo/'); ?>/<?php echo isset($storeSettingInfo->logo)?$storeSettingInfo->logo:''; ?>" alt="" class="dark-logo" style="width:auto;min-width:100px;max-width:100px;heihgt:auto;min-height:67px;max-height:67px;"> 
 				<?php } else { ?>
@@ -94,7 +88,6 @@ $ses_lang = $session->get('ses_lang');
 				<div class="col-md-6 col-lg-5 <?php if ($locale == 'ar') { echo 'text-right';} ?>">
 					<div class="login-box bg-white box-shadow border-radius-10">
 						<div class="login-logo">
-							<!--<img src="/store_admin/vendors/images/matjary_logo.png">	-->
 							<?php if(isset($storeSettingInfo->logo) && !empty($storeSettingInfo->logo)){ ?>
 								<img src="<?php echo base_url('uploads/logo/'); ?>/<?php echo isset($storeSettingInfo->logo)?$storeSettingInfo->logo:''; ?>" alt="" class="dark-logo" style="width:auto;min-width:100px;max-width:100px;heihgt:auto;min-height:100px;max-height:100px;"> 
 							<?php } else { ?>
@@ -121,13 +114,7 @@ $ses_lang = $session->get('ses_lang');
 									<span class="input-group-text"></span>
 								</div>
 							</div>
-							<div class="row pb-30">
-								<!--<div class="col-6">
-									<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input" id="customCheck1">
-										<label class="custom-control-label" for="customCheck1">Remember</label>
-									</div>
-								</div>-->
+							<div class="row pb-30">							
 								<div class="col-12">
 									<div class="forgot-password <?php if($locale=='ar'){echo 'text-left';} ?>"><a href="<?php echo base_url('admin/user-forgot-password'); ?>"><?php echo $language['Forgot Password']; ?></a></div>
 								</div>
@@ -137,10 +124,7 @@ $ses_lang = $session->get('ses_lang');
 									<div class="input-group mb-0">			
                                         <button type="submit" class="btn btn-primary btn-lg btn-block"><?php echo $language['Login']; ?></button>
 									</div>
-									<!-- <div class="font-16 weight-600 pt-10 pb-10 text-center" data-color="#707373">OR</div>
-									<div class="input-group mb-0">
-										<a class="btn btn-outline-primary btn-lg btn-block" href="register.html">Register To Create Account</a>
-									</div> -->
+							
 								</div>
 							</div>
                         <?php echo form_close(); ?>
@@ -168,8 +152,7 @@ $ses_lang = $session->get('ses_lang');
 	<script src="/store_admin/src/plugins/datatables/js/vfs_fonts.js"></script>
 	<script src="/store_admin/assets/js/data-table-page.js"></script>
 	<!--DataTable js end-->
-	<script src="/store_admin/vendors/scripts/dashboard.js"></script>
-	
+	<script src="/store_admin/vendors/scripts/dashboard.js"></script>	
 	<!--Jquery Validation js start-->
 	<script src="/store_admin/assets/js/jquery-validate.js"></script>
 	<script src="/store_admin/assets/js/form-validation.js"></script>
@@ -177,7 +160,6 @@ $ses_lang = $session->get('ses_lang');
 	<!--Sweetalert js start -->
 	<script src="/store_admin/assets/js/sweetalert.min.js"></script>
 	<!--Sweetalert js end -->
-
 	<script src="/store_admin/assets/js/ajax-call.js"></script>
 	<!-- Loader Script -->
 	<script src="/store_admin/assets/js/loader.js"></script>

@@ -315,7 +315,6 @@ $(document).ready(function () {
                 processData: false,
                 timeout: 600000,
                 success: function (resp) {
-                    //console.log(resp);
                     resp = JSON.parse(resp);
                     if (resp.responseCode == 200) {
                         swal({title: "", text: resp.responseMessage, type: "success"},
@@ -394,7 +393,6 @@ $(document).ready(function () {
                     });
                 },
                 success: function (resp) {
-                    //console.log(resp);
                     resp = JSON.parse(resp);
                     if (resp.responseCode == 200) {
                         swal({title: "", text: resp.responseMessage, type: "success"},
@@ -479,8 +477,6 @@ $(document).ready(function () {
                         swal({title: "", text: resp.responseMessage, type: "success"},
                         function(){
                           window.location.reload();
-                        //   $("#save_plan")[0].reset();
-		                //     window.location.href = respData.redirectUrl;
                         }
                        );
                     } else {
@@ -845,9 +841,7 @@ $(document).ready(function () {
                 }
             });
         }
-    }));
-
-      
+    }));     
 
 });
 /* theme filter function start */

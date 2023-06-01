@@ -28,7 +28,6 @@
                     </thead>
                     <tbody>
                         <?php
-                        //echo '<pre>'; print_r($EnquiryList); die;
                             if (isset($EnquiryList) && !empty($EnquiryList)) {
                                 $i = 1;
                                 foreach ($EnquiryList as $value) {
@@ -38,7 +37,7 @@
                             <td><?php echo isset($value->ticket_id ) ? $value->ticket_id : 'NA'; ?></td>                                   
                             <td>                                         
                                 <a class="dropdown-item" href="<?php echo base_url('ticket-details/' . $value->ticket_id); ?>"><i class="dw dw-edit2"></i>Details</a>
-                             </td>
+                            </td>
                         </tr>
                             <?php
                                 $i++;
@@ -46,7 +45,7 @@
                         } else {
                             ?>
                             <tr>
-                                <td colspan="5"><?php echo 'No record found'; ?></td>
+                                <td colspan="3" class="text-center"><?php echo $this->lang->line('no_data_found'); ?></td>
                             </tr>
                         <?php
                         }

@@ -138,7 +138,6 @@ $ses_custmr_id = $session->get('ses_custmr_id');
                         <button class="btn btn-primary brand-btn"><?php echo $language['Save']; ?></button>
                         <a href="<?php echo base_url('customer/change-password'); ?>" class="btn btn-primary brand-btn" ><?php echo $language['Change Password']; ?></a>
                         <a href="<?php echo base_url('customer/my-account'); ?>" class="btn btn-primary brand-btn" ><?php echo $language['Cancel']; ?></a>
-                        
                     </div>
                     <?php echo form_close(); ?>
                 </div>

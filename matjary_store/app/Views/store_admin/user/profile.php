@@ -32,7 +32,6 @@ $ses_user_id = $session->get('ses_user_id');
 					?>
 					<input type="hidden" name="user_id" value="<?php echo isset($loggedInUserData->user_id) ? $loggedInUserData->user_id : ''; ?>" />
 					<div class="profile-photo">
-
 						<a href="modal" data-toggle="modal" data-target="#modal" class="edit-avatar"><i class="fa fa-pencil"></i></a>
 						<?php if (isset($loggedInUserData->profile_image) && !empty($loggedInUserData->profile_image)) { ?>
 							<a class="actionBtn text-danger profile-delete" href="javascript:void(0);" data-actionurl="<?php echo base_url('admin/delete-user-profile-pic'); ?>" data-id="<?php echo $loggedInUserData->user_id; ?>" data-operation="delete"><i class="dw dw-delete-3"></i></a>
@@ -62,7 +61,6 @@ $ses_user_id = $session->get('ses_user_id');
 							</div>
 						</div>
 					</div>
-
 					<?php echo form_close(); ?>
 					<h5 class="text-center h5 mb-0"><?php echo $ses_user_name; ?></h5>
 					<p class="text-center text-muted font-14"><?php echo isset($loggedInUserData->role_name) ? $loggedInUserData->role_name : ''; ?></p>
@@ -111,14 +109,13 @@ $ses_user_id = $session->get('ses_user_id');
 								</li>
 							</ul>
 							<?php
-										$attributes = ['name' => 'update_user_profile_form', 'id' => 'update_user_profile_form',  'autocomplete' => 'off'];
-										echo form_open_multipart('admin/update-user-profile-form', $attributes);
-										?>
-										<input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
-										<input type="hidden" name="user_id" value="<?php echo isset($ses_user_id) ? $ses_user_id : ''; ?>">
+								$attributes = ['name' => 'update_user_profile_form', 'id' => 'update_user_profile_form',  'autocomplete' => 'off'];
+								echo form_open_multipart('admin/update-user-profile-form', $attributes);
+								?>
+								<input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
+								<input type="hidden" name="user_id" value="<?php echo isset($ses_user_id) ? $ses_user_id : ''; ?>">
 							<div class="tab-content">
-								<!-- Setting Tab start -->
-								
+								<!-- Setting Tab start -->								
 								<div class="tab-pane fade show active" id="setting" role="tabpanel">									
 									<div class="profile-setting">										
 										<ul class="profile-edit-list">
@@ -128,7 +125,6 @@ $ses_user_id = $session->get('ses_user_id');
 													<div class="col-md-6">
 														<div class="form-group">
 															<label><?php echo $language['Full Name']; ?></label>
-															<!--<input class="form-control" type="text" id="name" name="name" value="<?php echo isset($loggedInUserData->name) ? $loggedInUserData->name : ''; ?>">-->
 															<p><?php echo isset($loggedInUserData->name) ? $loggedInUserData->name : ''; ?></p>
 														</div>
 													</div>
@@ -157,7 +153,6 @@ $ses_user_id = $session->get('ses_user_id');
 													<div class="col-md-6">
 														<div class="form-group">
 															<label><?php echo $language['Email']; ?></label>
-															<!--<input disabled class="form-control" type="email" id="email" name="email" value="<?php echo isset($loggedInUserData->email) ? $loggedInUserData->email : ''; ?>">-->
 															<p><?php echo isset($loggedInUserData->email) ? $loggedInUserData->email : ''; ?></p>
 														</div>
 													</div>
@@ -172,14 +167,10 @@ $ses_user_id = $session->get('ses_user_id');
 															<label><?php echo $language['Gender']; ?></label>
 															<div class="d-flex">
 																<div class="mr-2">
-																	<input type="radio" name="gender" value="1" data-error=".error2" <?php if ($loggedInUserData->gender == 1) {
-																																			echo 'checked';
-																																		} ?>> <?php echo $language['Male']; ?>
+																	<input type="radio" name="gender" value="1" data-error=".error2" <?php if ($loggedInUserData->gender == 1) {echo 'checked';} ?>> <?php echo $language['Male']; ?>
 																</div>
 																<div class="mr-2">
-																	<input type="radio" name="gender" value="2" data-error=".error2" <?php if ($loggedInUserData->gender == 2) {
-																																			echo 'checked';
-																																		} ?>> <?php echo $language['Female']; ?>
+																	<input type="radio" name="gender" value="2" data-error=".error2" <?php if ($loggedInUserData->gender == 2) { } ?>> <?php echo $language['Female']; ?>
 																</div>
 
 																</br><span class="error2"></span>
@@ -284,7 +275,6 @@ $ses_user_id = $session->get('ses_user_id');
 									</div>
 								</div>
 								<!-- Setting Tab End -->
-
 								<!-- SOCIAL MEDIA TAB STARTS -->
 								<div class="tab-pane fade show" id="socialMediaLinks" role="tabpanel">
 									<div class="profile-setting">
@@ -326,7 +316,6 @@ $ses_user_id = $session->get('ses_user_id');
 									<?php echo form_close(); ?>
 									</div>
 								</div>
-
 								<!-- SOCIAL MEDIA TAB ENDS -->
 							</div>
 						</div>

@@ -5,7 +5,6 @@ $ses_lang = $session->get('ses_lang');
 ?>
 <?php $this->extend('store_admin/layouts/dashboard_layout'); ?>
 <?php $this->section('content'); ?>     
-
         <div class="pd-ltr-20 xs-pd-20-10">
             <div class="min-height-200px">
                 <div class="page-header">
@@ -22,8 +21,7 @@ $ses_lang = $session->get('ses_lang');
                             </nav>
                         </div>
                     </div>
-                </div>
-               
+                </div>               
                 <div class="row clearfix">
                     <div class="col-lg-12 col-md-12 col-sm-12 mb-30">
                         <div class="pd-20 card-box">
@@ -42,8 +40,7 @@ $ses_lang = $session->get('ses_lang');
                                 <?php
                                     if(isset($paymentCompanies) && !empty($paymentCompanies)){
                                         $i=1;
-                                        foreach($paymentCompanies as $values){
-                                            
+                                        foreach($paymentCompanies as $values){                                            
                                 ?>
                                 <div class="row">
                                     <div class="col-md-12">
@@ -441,8 +438,7 @@ $ses_lang = $session->get('ses_lang');
                                                 </div>
                                     <?php 
                                                 } 
-                                    ?>
-                                                
+                                    ?>                                                
                                     <?php
                                             }
                                         }

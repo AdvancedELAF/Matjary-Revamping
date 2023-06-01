@@ -7,6 +7,14 @@ class AdminCntr extends MY_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model('CatModel');
+        /*load helper for language*/
+        $this->load->helper('language');
+        /*content_lang is the language file within language folder*/
+        if(isset($_SESSION['site_lang'])){
+            $this->lang->load('content_lang',$_SESSION['site_lang']);
+        }else{
+            $this->lang->load('content_lang','ar');
+        }
     }
 
     public function index() {
@@ -259,7 +267,7 @@ class AdminCntr extends MY_Controller {
                                             'user_id' => $usrId,
                                             'pswrd' => $pass
                                         );
-                                        /* //save user creadentials */
+                                        /* save user creadentials */
                                         $passSaveResult = $this->UsrModel->saveUsrPass($saveUsrPass);
                                         if ($passSaveResult == false) {
                                             /* remove this user data from database */
@@ -2115,7 +2123,6 @@ class AdminCntr extends MY_Controller {
             $pageData['pageId'] = 30;
             $pageData['GetSingleEnquiryDetails'] = $this->EmployeeModel->get_single_enquiry_details($id);
             $pageData['GetadminEnquiryDetails'] = $this->EmployeeModel->get_single_admin_enquiry_details($id);
-            //echo '<pre>'; print_r($pageData['GetadminEnquiryDetails']); die; 
             $this->load->view('site_admin/customer-enquiry/view-coustomer-enquiry', $pageData);
         }else{
             redirect('site-admin/login');
@@ -2147,8 +2154,8 @@ class AdminCntr extends MY_Controller {
                     $pageData['adminReply'] = $_POST['admin_reply'];
                     $pageData['ticket_id'] = $_POST['ticket_id'];
                     $pageData['emailSubject'] = $_POST['cont_subject'];
+                    $pageData['ticket_link'] = base_url('/ticket-details/'.$_POST['ticket_id']);                   
 
-                    
                     $email_subject = "Response From Support - Matjary Site";
                     $email_message = $this->load->view('site_admin/emails/admin-reply-contact-enquiry', $pageData, TRUE);                    
                     $emailStatus = sendEmail($_POST['email'],$email_message,$email_subject);

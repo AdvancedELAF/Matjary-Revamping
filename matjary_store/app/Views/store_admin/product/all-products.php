@@ -23,13 +23,28 @@ $ses_lang = $session->get('ses_lang');
     </div>
     <div class="card-box mb-30">
         <div class="pd-20">
-            <a href="<?php echo  base_url('admin/add-product'); ?>" class="btn btn-primary pull-<?php echo $ses_lang == 'en'?'right':'left'; ?>"><?php echo $language['Add Product']; ?></a>
+            <div class="row">
+                <div class="col-md-3">
+                    <select class="form-control" id="multiActionOption" data-table="<?php echo isset($table) ? $table : 'NA'; ?>" data-actionurl="<?php echo base_url('multi-action-option'); ?>">
+                        <option value=""><?php echo $language['Choose Action'];?></option>
+                        <option value="1"><?php echo $language['Activate'];?></option>
+                        <option value="2"><?php echo $language['Deactivate'];?></option>
+                        <option value="3"><?php echo $language['Delete'];?></option>
+                    </select>            
+                </div>     
+                <div class="col-md-6">
+            
+                </div>
+                <div class="col-md-3">
+                    <a href="<?php echo  base_url('admin/add-product'); ?>" class="btn btn-primary pull-<?php echo $ses_lang == 'en'?'right':'left'; ?>"><?php echo $language['Add Product']; ?></a>
+                </div>                
+            </div>   
         </div>
-
         <div class="table-responsive pd-20">
             <table class="data-table table nowrap" id="viewAllProductList">
                 <thead>
                     <tr>
+                        <th scope="col"><input type="checkbox" id="checkAll"></th>
                         <th>#</th>
                         <th class="table-plus datatable-nosort"><?php echo $language['Product Image']; ?></th>
                         <th><?php echo $language['Product Name']; ?></th>
@@ -80,6 +95,9 @@ $ses_lang = $session->get('ses_lang');
                             }
                     ?>
                             <tr>
+                                <td>
+                                    <input type="checkbox" name="itemId[]"  class="itemId" value="<?php echo isset($value->id) ? $value->id : 'NA'; ?>" />
+                                </td>  
                                 <td><?php echo $i; ?></td>
                                 <td class="table-plus">
                                     <img src="<?php echo base_url('uploads/product/'); ?>/<?php echo isset($value->image) ? $value->image : ''; ?>" width="70" height="70" alt="">
@@ -88,7 +106,7 @@ $ses_lang = $session->get('ses_lang');
                                     <h5 class="font-16"><?php echo $title; ?></h5>
                                 </td>
                                 <td><?php echo $category_name; ?></td>
-                                <td>SAR<?php echo isset($value->retail_price) ? $value->retail_price : 'NA'; ?></td>
+                                <td><?php echo $language['SAR']; ?> <?php echo isset($value->retail_price) ? $value->retail_price : 'NA'; ?></td>
                                 <td><?php echo isset($value->stock_quantity) ? $value->stock_quantity : 0; ?></td>
                                 <td><?php if ($value->is_active == 1) {
                                         echo 'Active';

@@ -91,24 +91,7 @@ $ses_lang = $session->get('ses_lang');
     }
     ?>
 </head>
-<body>
-    <!--Cookie Consent Model--->
-    <!-- <div class="modal fade" id="CookieConsentModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button class="db-brand-btn" data-dismiss="modal">×</button>
-                    <h3><?php echo $language['Cookies Consent']; ?></h3>
-                </div>
-                <div class="modal-body pd-5">
-                    <p><?php echo $language['cookie_desc']; ?> <a href="<?php echo base_url('cookie-policy'); ?>"><?php echo $language['Cookie Policy']; ?></a></p>
-                    <button class="btn btn-primary brand-btn-black" id="acceptCookie"><?php echo $language['Accept']; ?></button>
-                    <button type="button" class="btn btn-primary brand-btn-black-outline" id="declineCookie" data-dismiss="modal"><?php echo $language['Decline']; ?></button>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!--Cookie Consent Model End--->
+<body>    
     <div class="preloaderBg" id="preloader" style="display: none;">
         <div class="preloader-position">
             <h3><?php echo $language['Please wait till processing.']; ?></h3>
@@ -279,13 +262,10 @@ $ses_lang = $session->get('ses_lang');
         <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/js/buttons.html5.min.js"></script>
         <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/js/buttons.bootstrap4.min.js"></script>
         <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/js/buttons.flash.min.js"></script>
-        
         <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/js/buttons.print.min.js"></script>
-        
         <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/js/pdfmake.min.js"></script>
         <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/js/vfs_fonts.js"></script>
         <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/js/data-table-page.js"></script>
-        
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/css/dataTables.bootstrap4.min.css">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/css/responsive.bootstrap4.min.css">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/css/responsive.dataTables.min.css">
@@ -311,9 +291,16 @@ $ses_lang = $session->get('ses_lang');
                                 <?php } else { ?>
                                     <img src="https://placehold.jp/100x100.png" alt="Logo Image" class="img img-responsive" style="width:auto;min-width:100px;max-width:100px;height:auto;min-height:100px;max-height:100px;">
                                 <?php } ?>
-                            <div class="footer-logo-desc">
-                                <p><?php echo $language['footer_tagline']; ?></p>
-                            </div>
+                                <?php if (isset($AboutUsInfo) && !empty($AboutUsInfo)) { ?>
+                                    <div class="footer-logo-desc">
+                                        <p><?php echo $AboutUsInfo->short_description; ?></p>
+                                    </div>
+                                    <?php }else{ ?>
+                                    <div class="footer-logo-desc">
+                                        <p><?php echo $language['About Store Information not added yet!']; ?></p>
+                                    </div>
+                                <?php } ?>
+                            
                         </div>
                     </div>
                     <div class="col-lg-4">

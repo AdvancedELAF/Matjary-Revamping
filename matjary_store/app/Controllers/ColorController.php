@@ -14,7 +14,6 @@ class ColorController extends BaseController
         LoggerInterface $logger
     ) {
         parent::initController($request, $response, $logger);
-
         // Add your code here.
         $this->is_all_mandotory_modules_filled();
     }
@@ -28,8 +27,8 @@ class ColorController extends BaseController
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){
             $this->pageData['pageTitle'] = 'All Product Colors';
             $this->pageData['adminPageId'] = 10;
+            $this->pageData['table'] = $this->Colors;
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
             // Get all rows
             $this->pageData['productColorList'] = $this->ColorModel->get_all_data();
             return view('store_admin/product_color/all-product-colors',$this->pageData);
@@ -42,7 +41,6 @@ class ColorController extends BaseController
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){
             $this->pageData['pageTitle'] = 'Add Product Color';
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
             return view('store_admin/product_color/add-product-color',$this->pageData);
         }else{
             return redirect()->to('/admin/login');
@@ -66,7 +64,7 @@ class ColorController extends BaseController
                 )); 
                 if(is_int($insertedId)){
                     $resp['responseCode'] = 200;
-                    $resp['responseMessage'] =  $this->ses_lang=='en' ? "Product Color Inserted Successfully." : "تم إدراج لون المنتج بنجاح.";
+                    $resp['responseMessage'] =  $this->ses_lang=='en' ? "Product Color Added Successfully." : "تم إدراج لون المنتج بنجاح.";
                     $resp['redirectUrl'] = base_url('admin/all-product-colors');
                     return json_encode($resp); exit;
                 }else{                    
@@ -88,7 +86,6 @@ class ColorController extends BaseController
             $this->pageData['pageTitle'] = 'Edit Product Color';
             $this->pageData['prodColorDetails'] = $this->ColorModel->find($prodColorId);
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
             return view('store_admin/product_color/edit-product-color',$this->pageData);
         }else{
             return redirect()->to('/admin/login');

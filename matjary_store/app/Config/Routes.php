@@ -21,11 +21,13 @@ $routes->setDefaultController('WebController');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
-// The Auto Routing (Legacy) is very dangerous. It is easy to create vulnerable apps
-// where controller filters or CSRF protection are bypassed.
-// If you don't want to define all routes, please use the Auto Routing (Improved).
-// Set `$autoRoutesImproved` to true in `app/Config/Feature.php` and set the following to true.
-// $routes->setAutoRoute(false);
+/* 
+The Auto Routing (Legacy) is very dangerous. It is easy to create vulnerable apps
+where controller filters or CSRF protection are bypassed.
+If you don't want to define all routes, please use the Auto Routing (Improved).
+Set `$autoRoutesImproved` to true in `app/Config/Feature.php` and set the following to true.
+$routes->setAutoRoute(false);
+/*
 
 /*
  * --------------------------------------------------------------------
@@ -33,8 +35,9 @@ $routes->set404Override();
  * --------------------------------------------------------------------
  */
 
-// We get a performance increase by specifying the default
-// route since we don't have to scan directories.
+/* We get a performance increase by specifying the default
+   route since we don't have to scan directories.
+*/
 $routes->match(["get", "post"], '/', 'WebController::index');
 $routes->match(["get", "post"], '/home', 'WebController::index');
 $routes->match(["get", "post"], '/language', 'CommonController::language');
@@ -116,14 +119,14 @@ $routes->group("giftcard", function ($routes) {
     $routes->match(["get", "post"], 'gift-cards', 'WebController::gift_cards', ['as' => 'giftcard.gift_cards']);
     $routes->match(["get", "post"], "giftcard-details/(:num)", "WebController::giftcard_details/$1", ['as' => 'giftcard.giftcard_details']);
 
-    //Feedback
+    /* Feedback */
     $routes->match(["get", "post"], "post-feedbacks/(:num)", "WebController::gift_card_post_feedback/$1", ['as' => 'giftcard.gift_card_post_feedback']);
     $routes->match(["get", "post"], "save-gift-card-feedback", "WebController::save_gift_card_feedback", ['as' => 'giftcard.save_gift_card_feedback']);
     $routes->match(["get", "post"], "view-feedbacks/(:num)", "WebController::view_gift_card_feedback/$1", ['as' => 'giftcard.view_gift_card_feedback']);
 });
 
 $routes->group("category", function ($routes) {
-    $routes->match(["get", "post"], "category-details/(:num)", "WebController::category_details/$1", ['as' => 'category.category_details']);
+    /* $routes->match(["get", "post"], "category-details/(:num)", "WebController::category_details/$1", ['as' => 'category.category_details']); */
     $routes->match(["get", "post"], "all-categories", "WebController::all_categories", ['as' => 'category.all_categories']);
     $routes->match(["get", "post"], "category-product-list/(:num)", "WebController::category_product_list/$1", ['as' => 'category.category_product_list']);
 });
@@ -132,7 +135,7 @@ $routes->group("product", function ($routes) {
     $routes->match(["get", "post"], 'products', 'WebController::products', ['as' => 'product.products']);
     $routes->match(["get", "post"], "product-details/(:num)", "WebController::product_details/$1", ['as' => 'product.product_details']);
 
-    //Feedback
+    /* Feedback */
     $routes->match(["get", "post"], "post-feedback/(:num)", "WebController::post_feedback/$1", ['as' => 'product.post_feedback']);
     $routes->match(["get", "post"], "save-feedback", "WebController::save_feedback", ['as' => 'product.save_feedback']);
     $routes->match(["get", "post"], "view-feedback/(:num)", "WebController::view_feedback/$1", ['as' => 'product.view_feedback']);
@@ -140,6 +143,12 @@ $routes->group("product", function ($routes) {
 
 $routes->match(["get", "post"], '/admin', 'AdminController::index', ['as' => 'admin.dashboard']);
 $routes->match(["get", "post"], '/admin/dashboard', 'AdminController::dashboard');
+
+/*  Common Routes*/
+$routes->match(["get", "post"], '/multi-action-option', 'CommonController::multi_action_option');
+/* Common rautes End*/
+
+
 $routes->group("admin", function ($routes) {
 
     $routes->match(["get", "post"], 'login', 'AdminController::login', ['as' => 'admin.login']);
@@ -154,11 +163,7 @@ $routes->group("admin", function ($routes) {
     $routes->match(["get", "post"], "delete-user", "UserController::delete_user", ['as' => 'admin.delete_user']);
     $routes->match(["get", "post"], "activate-user", "UserController::activate_user", ['as' => 'admin.activate_user']);
     $routes->match(["get", "post"], "deactivate-user", "UserController::deactivate_user", ['as' => 'admin.deactivate_user']);
-
-    // $routes->match(["get", "post"], "user-reset-new-password/(:num)", "UserController::reset_new_password/$1", ['as'=>'admin.reset_new_password']);
-    // $routes->match(["get", "post"], "save-reset-passwords", "UserController::save_reset_password", ['as'=>'admin.save_reset_password']);
-    // $routes->match(["get", "post"], "login", "UserController::login", ['as'=>'admin.login']);
-
+   
     $routes->match(["get", "post"], "user-forgot-password", "UserController::user_forgot_password", ['as' => 'admin.forgot_password']);
     $routes->match(["get", "post"], "chk-password-forgoted-user-email", "UserController::chk_password_forgoted_user_email", ['as' => 'admin.chk_password_forgoted_user_email']);
     $routes->match(["get", "post"], "user-reset-new-password/(:num)", "UserController::user_reset_new_password/$1", ['as' => 'admin.reset_new_password']);
@@ -360,6 +365,7 @@ $routes->group("admin", function ($routes) {
     $routes->match(["get", "post"], "activate-advertisement", "AdvertisementController::activate_advertisement", ['as' => 'admin.activate_advertisement']);
     $routes->match(["get", "post"], "deactivate-advertisement", "AdvertisementController::deactivate_advertisement", ['as' => 'admin.deactivate_advertisement']);
     /* Advertisements Routes End */
+    
 });
 
 /* Faq Front Routes Start */

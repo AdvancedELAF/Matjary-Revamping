@@ -28,9 +28,9 @@ class ProdCatController extends BaseController
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){
             $this->pageData['pageTitle'] = 'All Product Categories';
             $this->pageData['adminPageId'] = 8;
+            $this->pageData['table'] = $this->ProductCategories;
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
             $this->pageData['productCategoryList'] = $this->ProdCatModel->get_all_active_category_data();
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
             return view('store_admin/product_category/all-product-categories',$this->pageData);
         }else{
             return redirect()->to('/admin/login');
@@ -42,7 +42,6 @@ class ProdCatController extends BaseController
             $this->pageData['pageTitle'] = 'Add Product Category';
             $this->pageData['allProductCategoryList'] = $this->ProdCatModel->get_all_data();
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
             return view('store_admin/product_category/add-product-category',$this->pageData);
         }else{
             return redirect()->to('/admin/login');
@@ -93,9 +92,7 @@ class ProdCatController extends BaseController
                 return json_encode($resp); exit;
             }else{
                 $parent_cat_id	= $this->request->getPost('parent_cat_id');
-                //$category_name	= $this->remove_special_char_from_string($this->request->getPost('category_name'));
-                //$category_desc	= $this->remove_special_char_from_string($this->request->getPost('category_desc'));
-
+               
                 $path 				= 'uploads/product_category/';
                 $file 			    = $this->request->getFile('category_img');
                 $upload_file 	    = $this->uploadFile($path, $file); /* upload brand image file */
@@ -111,7 +108,7 @@ class ProdCatController extends BaseController
                     $insertedId = $this->ProdCatModel->insert_data($insAry); 
                     if(is_int($insertedId)){
                         $resp['responseCode'] = 200;
-                        $resp['responseMessage'] =  $this->ses_lang=='en' ? "Product Category Inserted Successfully." : "تم إدراج فئة المنتج بنجاح.";
+                        $resp['responseMessage'] =  $this->ses_lang=='en' ? "Product Category Added Successfully." : "تم إدراج فئة المنتج بنجاح.";
                         $resp['redirectUrl'] = base_url('admin/all-product-categories');
                         return json_encode($resp); exit;
                     }else{
@@ -144,7 +141,6 @@ class ProdCatController extends BaseController
             $this->pageData['allProductCategoryList'] = $this->ProdCatModel->get_all_data();
             $this->pageData['prodCatDetails'] = $this->ProdCatModel->find($prodCatId);
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
             return view('store_admin/product_category/edit-product-category',$this->pageData);
         }else{
             return redirect()->to('/admin/login');

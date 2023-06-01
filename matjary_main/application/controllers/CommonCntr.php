@@ -79,22 +79,19 @@ class CommonCntr extends MY_Controller {
                 $usrData->apiResponse = json_decode($urlJsonData->response);
                 if ($usrData->apiResponse->responseCode == 200) {
                     $this->response['responseCode'] = $usrData->apiResponse->responseCode;
-                    $this->response['responseMessage'] = $usrData->apiResponse->responseMessage;
+                    $this->response['responseMessage'] = $this->lang->line($usrData->apiResponse->messageCode);
                     $this->response['redirectUrl'] = base_url('login');
-                    echo json_encode($this->response);
-                    exit;
+                    echo json_encode($this->response); exit;
                 } else {
                     $this->response['responseCode'] = $usrData->apiResponse->responseCode;
-                    $this->response['responseMessage'] = $usrData->apiResponse->responseMessage;
-                    echo json_encode($this->response);
-                    exit;
+                    $this->response['responseMessage'] = $this->lang->line($usrData->apiResponse->messageCode);
+                    echo json_encode($this->response); exit;
                 }
             }
         } else {
             $this->response['responseCode'] = 404;
-            $this->response['responseMessage'] = 'Post data is empty.';
-            echo json_encode($this->response);
-            exit;
+            $this->response['responseMessage'] = $this->lang->line('com_msg_14');
+            echo json_encode($this->response); exit;
         }
     }
 

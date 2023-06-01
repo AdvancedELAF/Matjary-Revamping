@@ -72,7 +72,6 @@ $ses_lang = $session->get('ses_lang');
             </div>
         </div>
     </div>
-
     <div class="card-box pd-20 mb-30">
         <div class="section-title mb-3">
             <h5 class="h4 text-blue mb-20"><?php echo $language['Items Details']; ?></h5>
@@ -231,8 +230,6 @@ $ses_lang = $session->get('ses_lang');
 
             <?php if ($checkrefundApproved->refund_status == '0') { ?>
                 <div class="text-<?php echo $ses_lang == 'en' ? 'right' : 'left'; ?> mb-4">
-                    <!--<a href="<?php //echo base_url('admin/approve-refund-request/'.$orderDetails['orderInfo']->id); 
-                                    ?>" class="btn btn-primary brand-btn-black-outline float-right" >Approve Refund</a>-->
                     <button class="btn btn-primary" id="ApprovedRefund" data-actionurl="<?php echo base_url('/admin/approve-refund-request'); ?>" data-orderid="<?php echo $orderDetails['orderInfo']->id; ?>"><?php echo $language['Approve Refund']; ?></button>
                     <a href="<?php echo base_url('admin/all-refund-request'); ?>" class="btn btn-secondary"><?php echo $language['Back']; ?> </a>
                 </div>

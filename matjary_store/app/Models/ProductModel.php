@@ -39,14 +39,12 @@ class ProductModel extends Model {
 	protected $beforeDelete         = [];
 	protected $afterDelete          = [];
 
-    // .. other member variables
     protected $db;
 
     public function __construct()
     {
         parent::__construct();
         $this->db = \Config\Database::connect();
-        // OR $this->db = db_connect();
     }
 
     public function get_all_data(){
@@ -233,17 +231,9 @@ class ProductModel extends Model {
         $query = $this->db->query(
             'select id  FROM ' . $this->table .' where is_active in(1)'
         ); 
-        $result = $query->getResult();
-       
+        $result = $query->getResult();       
     }
 	
 }
-
-
-
-
-
-
-
 
 ?>

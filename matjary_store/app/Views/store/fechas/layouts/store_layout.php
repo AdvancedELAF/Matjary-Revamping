@@ -69,7 +69,6 @@ $ses_lang = $session->get('ses_lang');
     <!--Sweetalert js start -->
     <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/js/sweetalert.min.js"></script>
     <!--Sweetalert js end -->
-
     <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/js/ajax-call.js"></script>
     <!-- Loader Script -->
     <script src="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/js/loader.js"></script>
@@ -91,23 +90,6 @@ $ses_lang = $session->get('ses_lang');
     ?>
 </head>
 <body>
-    <!--Cookie Consent Model--->
-    <!-- <div class="modal fade" id="CookieConsentModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button class="db-brand-btn" data-dismiss="modal">×</button>
-                    <h3><?php echo $language['Cookies Consent']; ?></h3>
-                </div>
-                <div class="modal-body pd-5">
-                    <p><?php echo $language['cookie_desc']; ?> <a href="<?php echo base_url('cookie-policy'); ?>"><?php echo $language['Cookie Policy']; ?></a></p>
-                    <button class="g-brand-btn" id="acceptCookie"><?php echo $language['Accept']; ?></button>
-                    <button type="button" class="g-brand-btn" id="declineCookie" data-dismiss="modal"><?php echo $language['Decline']; ?></button>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!--Cookie Consent Model End--->
     <div class="preloaderBg" id="preloader" style="display: none;">
         <div class="preloader-position">
             <h3><?php echo $language['Please wait till processing.']; ?>..</h3>
@@ -199,8 +181,7 @@ $ses_lang = $session->get('ses_lang');
                 </ul>
             </nav>
         </div>
-        <!-- nav navigation commerce -->
-        
+        <!-- nav navigation commerce -->        
         <div class="nav-container">
             <nav class="all-category-nav">
                 <label class="open-menu-all" for="open-menu-all">
@@ -256,26 +237,10 @@ $ses_lang = $session->get('ses_lang');
             </nav>
             <nav class="featured-category">
                 <ul class="nav-row">
-                    <li class="nav-row-list"><a href="<?php echo base_url('home'); ?>" class="nav-row-list-link <?php if (isset($pageId) && $pageId == 1) {
-                                                                                                                    echo 'menu-active';
-                                                                                                                } else {
-                                                                                                                    echo '';
-                                                                                                                } ?>"><?php echo $language['navHome']; ?></a></li>
-                    <li class="nav-row-list"><a href="<?php echo base_url('product/products'); ?>" class="nav-row-list-link <?php if (isset($pageId) && $pageId == 2) {
-                                                                                                                                echo 'menu-active';
-                                                                                                                            } else {
-                                                                                                                                echo '';
-                                                                                                                            } ?>"><?php echo $language['navProducts']; ?></a></li>
-                    <li class="nav-row-list"><a href="<?php echo base_url('giftcard/gift-cards'); ?>" class="nav-row-list-link <?php if (isset($pageId) && $pageId == 3) {
-                                                                                                                                    echo 'menu-active';
-                                                                                                                                } else {
-                                                                                                                                    echo '';
-                                                                                                                                } ?>"><?php echo $language['navGiftCards']; ?></a></li>
-                    <li class="nav-row-list"><a href="<?php echo base_url('customer-help'); ?>" class="nav-row-list-link <?php if (isset($pageId) && $pageId == 4) {
-                                                                                                                                echo 'menu-active';
-                                                                                                                            } else {
-                                                                                                                                echo '';
-                                                                                                                            } ?>"><?php echo $language['navHelp']; ?></a></li>
+                    <li class="nav-row-list"><a href="<?php echo base_url('home'); ?>" class="nav-row-list-link <?php if (isset($pageId) && $pageId == 1) { echo 'menu-active'; } else { echo ''; } ?>"><?php echo $language['navHome']; ?></a></li>
+                    <li class="nav-row-list"><a href="<?php echo base_url('product/products'); ?>" class="nav-row-list-link <?php if (isset($pageId) && $pageId == 2) {  echo 'menu-active';} else {echo ''; } ?>"><?php echo $language['navProducts']; ?></a></li>
+                    <li class="nav-row-list"><a href="<?php echo base_url('giftcard/gift-cards'); ?>" class="nav-row-list-link <?php if (isset($pageId) && $pageId == 3) { echo 'menu-active'; } else { echo '';} ?>"><?php echo $language['navGiftCards']; ?></a></li>
+                    <li class="nav-row-list"><a href="<?php echo base_url('customer-help'); ?>" class="nav-row-list-link <?php if (isset($pageId) && $pageId == 4) { echo 'menu-active';} else { echo '';} ?>"><?php echo $language['navHelp']; ?></a></li>
                 </ul>
             </nav>
         </div>
@@ -302,7 +267,7 @@ $ses_lang = $session->get('ses_lang');
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/css/responsive.bootstrap4.min.css">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/store/<?php echo $storeActvTmplName; ?>/assets/datatables/css/responsive.dataTables.min.css">
         <!--DataTable js end-->
-    <?php } ?>
+    <?php } ?>    
     <footer>
         <div id="footer-one">
             <div class="container">
@@ -315,9 +280,15 @@ $ses_lang = $session->get('ses_lang');
                                 <img src="https://placehold.jp/100x100.png" alt="Logo Image" class="img img-responsive" style="width:auto;min-width:100px;max-width:100px;height:auto;min-height:100px;max-height:100px;">
                             <?php } ?>
                         </div>
+                        <?php if (isset($AboutUsInfo) && !empty($AboutUsInfo)) { ?>
                         <div class="footer-desc">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                            <p><?php echo $AboutUsInfo->short_description; ?></p>
                         </div>
+                        <?php }else{ ?>
+                        <div class="footer-desc">
+                            <p><?php echo $language['About Store Information not added yet!']; ?></p>
+                        </div>
+                        <?php } ?>
                         <div class="footer-subtitle">
                             <h3><?php echo $language['Address']; ?>:</h3>
                         </div>

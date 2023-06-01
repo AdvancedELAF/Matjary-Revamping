@@ -654,6 +654,11 @@ $(document).ready(function () {
             }
         });
     });
+    
+    /**Listing table checkbutton */
+    $("#checkAll").click(function () {
+        $('input:checkbox').not(this).prop('checked', this.checked);
+    });
   
 });
 

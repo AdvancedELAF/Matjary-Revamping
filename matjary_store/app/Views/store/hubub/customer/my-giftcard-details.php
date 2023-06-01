@@ -116,13 +116,16 @@ $ses_lang = $session->get('ses_lang');
                             <td><h6><?php echo isset($value->transaction_id)?$value->transaction_id:''; ?></h6></td>
                             <td><h6><?php echo isset($value->created_at)?date("d M Y",strtotime($value->created_at)):''; ?></h6></td>
                             <td>
-                                <h6><?php if($value->payment_status == '1'){
-                                        echo $language['Complete'];
-                                    }if($value->payment_status == '2'){
-                                        echo $language['Pending'];
-                                    }if($value->payment_status == '3'){
-                                        echo $language['Cancel'];
-                                    } ?>
+                                <h6>
+                                    <?php 
+                                        if($value->payment_status == '1'){
+                                            echo $language['Complete'];
+                                        }if($value->payment_status == '2'){
+                                            echo $language['Pending'];
+                                        }if($value->payment_status == '3'){
+                                            echo $language['Cancel'];
+                                        } 
+                                    ?>
                                 </h6>
                             </td>
                             <td><h6><?php echo isset($value->giftcard_amount)?$value->giftcard_amount:''; ?></h6></td>

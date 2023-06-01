@@ -38,15 +38,13 @@ class CouponModel extends Model {
 	protected $afterFind            = [];
 	protected $beforeDelete         = [];
 	protected $afterDelete          = [];
-
-    // .. other member variables
+    
     protected $db;
 
     public function __construct()
     {
         parent::__construct();
         $this->db = \Config\Database::connect();
-        // OR $this->db = db_connect();
     }
 
     public function get_all_data()
@@ -74,14 +72,7 @@ class CouponModel extends Model {
         return $this->db->affectedRows();
     }
 
-    // public function delete_data($id)
-    // {
-    //     return $this->db->table($this->table)->delete(array(
-    //         "id" => $id,
-    //     ));
-    // }
-
-    public function chk_coupon_code_valid($coupon_code,$customer_id,$total_price){
+    public function chk_coupon_code_valid($coupon_code,$customer_id,$total_price,$checkLang){
         $response = array();
         $couponExist = $this->db->query('select * from '. $this->table .' where coupon_code="'.$coupon_code.'" and is_active=1');
         $is_exist = $couponExist->getRow();
@@ -131,7 +122,7 @@ class CouponModel extends Model {
                                 $couponQry = $this->db->query('select * from '. $this->table .' where coupon_code="'.$coupon_code.'" ');
                                 $couponData = $couponQry->getRow();
                                 $response['responseCode'] = 5;
-                                $response['responseMessage'] = 'Cart Amount Is Lesser Than Minimum Order Limit Amount To Apply Coupon Code.';
+                                $response['responseMessage'] = $checkLang=='en'?'Cart Amount Is Lesser Than Minimum Order Limit Amount To Apply Coupon Code.':'مبلغ سلة التسوق أقل من الحد الأدنى لمبلغ الطلب لتطبيق رمز القسيمة.';
                                 $response['responseData'] = $couponData;
                                 return $response;
                             }
@@ -140,12 +131,12 @@ class CouponModel extends Model {
                 }
             }else{
                 $response['responseCode'] = 2;
-                $response['responseMessage'] = 'coupon code is expired or not valid.';
+                $response['responseMessage'] = $checkLang=='en'?'coupon code is expired or not valid.':'رمز القسيمة منتهي الصلاحية أو غير صالح.';                                
                 return $response;
             }
         }else{
             $response['responseCode'] = 1;
-            $response['responseMessage'] = 'coupon code is not exist.';
+            $response['responseMessage'] = $checkLang=='en'?'coupon code is not exist.':'رمز القسيمة غير موجود.';
             return $response;
         }
     }

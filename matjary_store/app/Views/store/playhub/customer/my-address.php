@@ -13,7 +13,6 @@ $ses_custmr_id = $session->get('ses_custmr_id');
         </div>
     </div>
 </section>
-
 <section class="section-spacing <?php if($locale=='ar'){echo 'text-right';} ?>">
     <div class="container-fluid">
         <div class="row mb-2" id="deliveryAddressWrapper">

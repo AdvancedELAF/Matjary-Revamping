@@ -52,12 +52,10 @@ $ses_lang = $session->get('ses_lang');
                                 $product_price = isset($customerCartValues->product_price)?number_format((float)$customerCartValues->product_price, 2, '.', ''):'';
                                 $sales_tax = isset($customerCartValues->sales_tax)?number_format((float)$customerCartValues->sales_tax, 2, '.', ''):'';
                                 $product_weight = isset($customerCartValues->weight)?number_format((float)$customerCartValues->weight, 2, '.', ''):'';
-                                //$product_weight = isset($product_weight)?$product_weight:$customerCartValues->weight;
-                                //echo '<pre>'; print_r($product_weight); exit;
+                                
                                 $cartItemCheked = '';
                                 $cartBuyItem = $session->get('cartBuyItem');
                                 if(isset($cartBuyItem) && !empty($cartBuyItem)){
-                                    //echo '<pre>'; print_r($cartBuyItem); exit;
                                     if(isset($cartBuyItem['productid']) && !empty($cartBuyItem['productid'])){
                                         if($cartBuyItem['productid']==$productId){
                                             $cartItemCheked = 'checked';
@@ -69,7 +67,6 @@ $ses_lang = $session->get('ses_lang');
                         <tr class="cartItemsTr">
                             <th>
                                 <?php if($customerCartValues->stock_quantity==0){ ?>
-                                    <!-- <span class="text-danger">Out of Stock</span> -->
                                 <?php }else{ ?>
                                 <input type="checkbox" name="index[]" value="<?php echo $index; ?>" class="cartItem" data-productid="<?php echo $productId; ?>" <?php echo $cartItemCheked; ?>>
                                 <?php } ?>
@@ -185,18 +182,14 @@ $ses_lang = $session->get('ses_lang');
     </div>
 </section>
 <?php echo form_close(); ?>
-
 <?php }else{ ?>
-
-<section class="section-spacing <?php if($locale=='ar'){echo 'text-right';} ?>">
-    <div class="container">
-        <div class="section-title text-center">
-            <h4 class="mb-3"><?php echo $language['Your cart is currently empty']; ?>!</h4>
-            <a href="<?php echo base_url('product/products'); ?>" class="brand-btn"><?php echo $language['Continue Shopping']; ?></a>
+    <section class="section-spacing <?php if($locale=='ar'){echo 'text-right';} ?>">
+        <div class="container">
+            <div class="section-title text-center">
+                <h4 class="mb-3"><?php echo $language['Your cart is currently empty']; ?>!</h4>
+                <a href="<?php echo base_url('product/products'); ?>" class="brand-btn"><?php echo $language['Continue Shopping']; ?></a>
+            </div>
         </div>
-    </div>
-</section>
-
+    </section>
 <?php } ?>
-
 <?php $this->endSection(); ?>

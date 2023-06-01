@@ -38,15 +38,13 @@ class BrandModel extends Model {
 	protected $afterFind            = [];
 	protected $beforeDelete         = [];
 	protected $afterDelete          = [];
-
-    // .. other member variables
+   
     protected $db;
 
     public function __construct()
     {
         parent::__construct();
         $this->db = \Config\Database::connect();
-        // OR $this->db = db_connect();
     }
 
     public function get_all_data()
@@ -112,17 +110,6 @@ class BrandModel extends Model {
 
         return $query->getResult();
     }
-
-    
-
-	
 }
-
-
-
-
-
-
-
 
 ?>

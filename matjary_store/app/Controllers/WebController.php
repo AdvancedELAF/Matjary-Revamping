@@ -1100,7 +1100,8 @@ class WebController extends BaseController
         if(isset($_POST['coupon_code']) && !empty($_POST['coupon_code'])){
             if(isset($_POST['customer_id']) && !empty($_POST['customer_id'])){
                 if(isset($_POST['total_price']) && !empty($_POST['total_price'])){
-                    $couponCodeStatus = $this->CouponModel->chk_coupon_code_valid($_POST['coupon_code'],$_POST['customer_id'],$_POST['total_price']);
+                    $checkLang = $this->ses_lang;
+                    $couponCodeStatus = $this->CouponModel->chk_coupon_code_valid($_POST['coupon_code'],$_POST['customer_id'],$_POST['total_price'],$checkLang);
                     if($couponCodeStatus['responseCode']==1){
                         $resp['responseCode'] = 500;
                         $resp['responseMessage'] = $this->ses_lang=='en'?'Coupon Code Invalid.':'رمز القسيمة غير صالح.';
@@ -4365,9 +4366,7 @@ class WebController extends BaseController
                                                         return json_encode($resp); exit;
                                                     }
                                                     /* Email Sending For Customer Code For order palced End*/ 
-                                                    // $this->pageData['orderStatusCode'] = 200;
-                                                    // $this->pageData['orderMessage'] = 'Congratulations! Your Order is Successfully Placed....';
-                                                    
+                                                      
                                                     if(isset($this->storeActvTmplName) && !empty($this->storeActvTmplName)){
                                                         return view('store/'.$this->storeActvTmplName.'/customer/order-success',$this->pageData);   
                                                     }else{
@@ -4917,7 +4916,6 @@ class WebController extends BaseController
                                                         "created_at" => DATETIME
                                                     ));
                                                     /* Notification Code For order palced  End*/   
-
                                                     /* Email Sending For Customer Code For Product Purchased start*/
                                                    
                                                     $templateName = $this->storeActvTmplName;
@@ -6173,7 +6171,8 @@ class WebController extends BaseController
         if(isset($_POST['gc_code']) && !empty($_POST['gc_code'])){
             if(isset($_POST['customerid']) && !empty($_POST['customerid'])){
                 if(isset($_POST['totalprice']) && !empty($_POST['totalprice'])){
-                    $gcStatus = $this->GiftCardModel->is_customer_gc_valid($_POST['gc_code'],$_POST['customerid'],$_POST['totalprice']);
+                    $checkLang = $this->ses_lang;
+                    $gcStatus = $this->GiftCardModel->is_customer_gc_valid($_POST['gc_code'],$_POST['customerid'],$_POST['totalprice'],$checkLang);
                     $resp['responseCode'] = $gcStatus['statusCode'];
                     $resp['responseMessage'] = $gcStatus['statusMessage'];
                     $resp['responseData'] = isset($gcStatus['statusData'])?$gcStatus['statusData']:'';
@@ -6608,7 +6607,6 @@ class WebController extends BaseController
 		if ($image->isValid() && ! $image->hasMoved()) {
 			$newName = $image->getRandomName();
 			$image->move('./'.$path, $newName);
-			//return $path.$image->getName();
             return $image->getName();
 		}
 		return "";
@@ -6634,7 +6632,7 @@ class WebController extends BaseController
             }else{
                     $output .= '
                     <li class="list-group-item contsearch">
-                        <a href="#" class="gsearch" style="color:#333;text-decoration:none;">'.$this->ses_lang=='en'?'لاتوجد بيانات':'No Data Found'.'</a>
+                        <a href="#" class="gsearch" style="color:#333;text-decoration:none;">'.$this->ses_lang=='en'?'No Data Found':'لاتوجد بيانات'.'</a>
                     </li>
                     ';
             }
@@ -6649,7 +6647,6 @@ class WebController extends BaseController
         }else{
             return view('store/atzshop/index',$this->pageData);
         }       
-    }
-    
+    }    
 }
 ?>

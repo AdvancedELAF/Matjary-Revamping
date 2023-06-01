@@ -1,7 +1,6 @@
 <?php $this->extend('store/' . $storeActvTmplName . '/layouts/store_layout'); ?>
 <?php $this->section('content'); ?>
 <!-- PAGE BAR STARTS -->
-
 <section class="ot-banner-bg">
     <div class="container">
         <div class="section-title text-center">
@@ -10,12 +9,8 @@
     </div>
 </section>
 <!-- PAGE BAR ENDS -->
-
 <!-- RESET PASSWORD FORM STARTS -->
-
-<section class="section-spacing <?php if ($locale == 'ar') {
-                                    echo 'text-right';
-                                } ?>">
+<section class="section-spacing <?php if ($locale == 'ar') { echo 'text-right';} ?>">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -57,6 +52,5 @@
         </div>
     </div>
 </section>
-
 <!-- RESET PASSWORD FORM ENDS -->
 <?php $this->endSection(); ?>

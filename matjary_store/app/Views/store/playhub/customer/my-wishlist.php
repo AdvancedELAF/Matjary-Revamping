@@ -9,7 +9,6 @@ $ses_lang = $session->get('ses_lang');
 <?php $this->extend('store/'.$storeActvTmplName.'/layouts/store_layout'); ?>
 <?php $this->section('content'); ?>
 <!-- PAGE BAR STARTS -->
-
 <section>
     <div class="container-fluid <?php if($locale=='ar'){echo 'text-right';} ?>">
         <div class="trans-page-title">
@@ -57,7 +56,6 @@ $ses_lang = $session->get('ses_lang');
                     }
             ?>
             <div class="col-md-6 col-lg-3">
-
                 <div class="prod-wrapper text-center">
                     <a href="<?php echo base_url('product/product-details/'.$productData->id); ?>">
                         <img src="<?php echo base_url('/uploads/product/'); ?>/<?php echo isset($productData->image)?$productData->image:''; ?>">
@@ -74,11 +72,9 @@ $ses_lang = $session->get('ses_lang');
                         <h6 class="strike-amount"><?php echo $language['SAR']; ?> <?php echo isset($productData->retail_price)?number_format((float)$productData->retail_price, 2, '.', ''):''; ?></h6>
                         <h5 class="sale-amount"><?php echo $language['SAR']; ?> <?php echo isset($productData->product_price)?number_format((float)$productData->product_price, 2, '.', ''):''; ?></h5>
                     </div>
-
                     <div class="wishlist">
                             <i class="icofont-heart <?php echo $press; ?> <?php echo $wishlistActnClass; ?>" data-productid="<?php echo $productData->id; ?>" data-customerid="<?php echo isset($ses_custmr_id)?$ses_custmr_id:''; ?>"></i>
-                        </div> 
-
+                    </div> 
                     <div class="text-center">
                         <a href="<?php echo base_url('product/product-details/'.$productData->id); ?>" class="brand-btn-add-cart"><?php echo $language['Details']; ?></a>  
                     </div>
@@ -89,7 +85,6 @@ $ses_lang = $session->get('ses_lang');
             }
             ?>
         </div>
-
     </div>
 </section>
 <?php $this->endSection(); ?>

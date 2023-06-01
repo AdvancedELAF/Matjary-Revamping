@@ -3,7 +3,7 @@
       <?php echo VERSION ?>
     </div>
     <?php $year = date("Y"); ?>
-    <strong>Copyright &copy; <?php echo $year;?> <a href="https://www.matjary.in" target="_blank">matjary.in</a>.</strong> <?php echo RIGHTS ?>
+    <strong>Copyright &copy; <?php echo $year;?> <a href="https://www.matjary.sa" target="_blank">matjary.sa</a>.</strong> <?php echo RIGHTS ?>
 </footer>
 
     <!-- jQuery -->

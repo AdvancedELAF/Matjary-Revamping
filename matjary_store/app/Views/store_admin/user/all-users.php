@@ -21,16 +21,30 @@ $ses_lang = $session->get('ses_lang');
             </div>
         </div>
     </div>
-
     <div class="card-box mb-30">
         <div class="pd-20">
-            <a href="<?php echo base_url('admin/add-user'); ?>" class="btn btn-primary pull-<?php echo $ses_lang == 'en'?'right':'left'; ?>"><?php echo $language['Add New User']; ?></a>
+            <div class="row">
+                <div class="col-md-3">
+                    <select class="form-control" id="multiActionOption" data-table="<?php echo isset($table) ? $table : 'NA'; ?>" data-actionurl="<?php echo base_url('multi-action-option'); ?>">
+                        <option value=""><?php echo $language['Choose Action'];?></option>
+                        <option value="1"><?php echo $language['Activate'];?></option>
+                        <option value="2"><?php echo $language['Deactivate'];?></option>
+                        <option value="3"><?php echo $language['Delete'];?></option>
+                    </select>            
+                </div>      
+                <div class="col-md-6">            
+                </div>
+                <div class="col-md-3">
+                    <a href="<?php echo base_url('admin/add-user'); ?>" class="btn btn-primary pull-<?php echo $ses_lang == 'en'?'right':'left'; ?>"><?php echo $language['Add New User']; ?></a>
+                </div>
+                
+            </div>   
         </div>
-
         <div class="table-responsive pd-20">
             <table class="data-table table nowrap" id="viewAllUserList">
                 <thead>
                     <tr>
+                        <th scope="col"><input type="checkbox" id="checkAll"></th>
                         <th scope="col">#</th>
                         <th scope="col"><?php echo $language['Name']; ?></th>
                         <th scope="col"><?php echo $language['Email']; ?></th>
@@ -46,7 +60,10 @@ $ses_lang = $session->get('ses_lang');
                         foreach ($UserList as $value) {
                     ?>
                             <tr>
-                                <th scope="row"><?php echo $i; ?></th>
+                                <td>
+                                    <input type="checkbox" name="itemId[]"  class="itemId" value="<?php echo isset($value->user_id) ? $value->user_id : 'NA'; ?>" />
+                                </td>
+                                <td scope="row"><?php echo $i; ?></th>
                                 <td><?php echo isset($value->name) ? $value->name : 'NA'; ?></td>
                                 <td><?php echo isset($value->email) ? $value->email : 'NA'; ?></td>
                                 <td><?php echo isset($value->role_name) ? $value->role_name : 'NA'; ?></td>

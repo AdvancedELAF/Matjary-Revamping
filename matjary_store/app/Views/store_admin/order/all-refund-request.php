@@ -16,8 +16,6 @@
             </div>
         </div>
     </div>
-    <?php
-    //echo '<pre>'; print_r($reFundDetails); ?>
     <div class="card-box mb-30">
         <div class="table-responsive pd-20">
             <table class="data-table table nowrap" id="viewAllCustomerOrderList">
@@ -32,7 +30,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php //echo '<pre>'; print_r($all_refund_request); 
+                    <?php 
                     if(isset($all_refund_request) && !empty($all_refund_request)){
                         $i = 1;
                         foreach ($all_refund_request as $value) {
@@ -51,7 +49,6 @@
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
                                         <a class="dropdown-item" href="<?php echo base_url('admin/single-refund-details/'.$value->order_id); ?>" title="view Refund details"><i class="dw dw-eye"></i> <?php echo $language['Details']; ?></a>
-                                        <!-- <a class="dropdown-item actionBtn" href="javascript:void(0);" data-actionurl="<?php echo base_url('admin/delete-order'); ?>" data-id="<?php echo $value->id; ?>" data-operation="delete"><i class="dw dw-delete-3"></i> Delete</a> -->
                                     </div>
                                 </div>
                             </td>

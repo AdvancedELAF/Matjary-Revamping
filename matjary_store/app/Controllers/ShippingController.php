@@ -22,7 +22,6 @@ class ShippingController extends BaseController
             $this->pageData['pageTitle'] = 'Shipping Setting'; 
             $this->pageData['adminPageId'] = 17; 
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
             $this->pageData['shippingCompanies'] = $this->ShippingModel->get_all_shipping_companies();    
             $this->pageData['shippingInfo'] = $this->ShippingModel->get_all_data();        
             return view('store_admin/settings/shipping-settings',$this->pageData);    
@@ -238,7 +237,6 @@ class ShippingController extends BaseController
         $this->pageData['pageTitle'] = 'Shipping Orders'; 
         $this->pageData['adminPageId'] = 2;
         $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-        //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
         $this->pageData['shippingOrders'] = $this->OrderModel->get_all_shipment_orders();     
         return view('store_admin/shipping/ship-orders',$this->pageData); 
     }
@@ -249,9 +247,7 @@ class ShippingController extends BaseController
             $this->pageData['pageTitle'] = 'Pickups'; 
             $this->pageData['adminPageId'] = 6; 
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
             $this->pageData['shippingPickups'] = $this->OrderModel->get_all_shipment_pickups();
-            //echo '<pre>'; print_r($this->pageData['shippingPickups']); exit;
             if(isset($this->pageData['shippingPickups']) && !empty($this->pageData['shippingPickups'])){
                 foreach($this->pageData['shippingPickups'] as $pickupData){
                     $pickupData->pickup_req = json_decode($pickupData->pickup_req);
@@ -317,8 +313,7 @@ class ShippingController extends BaseController
                 }
 
             } 
-            //echo '<pre>'; print_r($this->pageData['shippingPickups']); exit;
-
+            
             return view('store_admin/shipping/shipment-pickups',$this->pageData);
         }else{
             return redirect()->to('/admin/login');
@@ -327,14 +322,10 @@ class ShippingController extends BaseController
 
     public function track_pickup(){
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){
-            
-            //echo '<pre>'; print_r($_POST); exit;
             if(isset($_POST['shipcmpid']) && !empty($_POST['shipcmpid'])){
                 if(isset($_POST['pickreffid']) && !empty($_POST['pickreffid'])){
                     $clientInfo = $this->ShippingModel->get_shipping_cmp_info($_POST['shipcmpid']);
-                    //echo '<pre>'; print_r($clientInfo); 
                     $shipCmpInfo = unserialize($clientInfo->ship_cmp_data);
-                    //echo '<pre>'; print_r($shipCmpInfo); exit;
 
                     $UserName = isset($shipCmpInfo['username'])?$shipCmpInfo['username']:'';
                     $Password = isset($shipCmpInfo['password'])?$shipCmpInfo['password']:'';
@@ -434,7 +425,6 @@ class ShippingController extends BaseController
 
     public function cancel_pickup(){
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){
-            //echo '<pre>'; print_r($_POST); exit;
             if(isset($_POST['guid']) && !empty($_POST['guid'])){
                 if(isset($_POST['shipcmpid']) && !empty($_POST['shipcmpid'])){
                     $getCusInfo = array();
@@ -449,8 +439,6 @@ class ShippingController extends BaseController
                         }
                                                   
                     }
-
-                    //echo '<pre>'; print_r($getCusInfo); exit;
 
                     if(isset($this->pageData['storeSettingInfo']->default_shipping) && $this->pageData['storeSettingInfo']->default_shipping==1){
                         $matjaryShippingInfoApi = $this->callAPI('GET', 'https://www.matjary.in/shipping-info', '');
@@ -505,11 +493,9 @@ class ShippingController extends BaseController
                             ));
                             
                             $apiAramexCancelPickupResponse = curl_exec($curl);
-                            //echo '<pre>'; print_r($apiAramexCancelPickupResponse); exit;
                             curl_close($curl);
 
                             $apiAramexCancelPickupResponse = json_decode($apiAramexCancelPickupResponse);
-                            //echo '<pre>'; print_r($apiAramexCancelPickupResponse); exit;
                             if($apiAramexCancelPickupResponse->HasErrors==false){
                                 /*update shipment orders start */
                                 $requestData = array(
@@ -615,9 +601,7 @@ class ShippingController extends BaseController
                     }else{
 
                         $clientInfo = $this->ShippingModel->get_shipping_cmp_info($_POST['shipcmpid']);
-                        //echo '<pre>'; print_r($clientInfo); 
                         $shipCmpInfo = unserialize($clientInfo->ship_cmp_data);
-                        //echo '<pre>'; print_r($shipCmpInfo); exit;
 
                         $UserName = isset($shipCmpInfo['username'])?$shipCmpInfo['username']:'';
                         $Password = isset($shipCmpInfo['password'])?$shipCmpInfo['password']:'';
@@ -665,11 +649,9 @@ class ShippingController extends BaseController
                         ));
                         
                         $apiAramexCancelPickupResponse = curl_exec($curl);
-                        //echo '<pre>'; print_r($apiAramexCancelPickupResponse); exit;
                         curl_close($curl);
 
                         $apiAramexCancelPickupResponse = json_decode($apiAramexCancelPickupResponse);
-                        //echo '<pre>'; print_r($apiAramexCancelPickupResponse); exit;
                         if($apiAramexCancelPickupResponse->HasErrors==false){
                             /*update shipment orders start */
                             $requestData = array(
@@ -738,10 +720,8 @@ class ShippingController extends BaseController
                             
                             $store_admin_mailBody = view('store_admin/email-templates/cancel-pickup-email',$this->pageData);
                             $store_mailBody = view('store/'.$this->storeActvTmplName.'/email-templates/cancel-pickup-email',$this->pageData);
-                            $subject ='Pickup Cancelled.';   
-                            //echo '<pre>'; print_r($getCusInfo); 
+                            $subject ='Pickup Cancelled.';  
                             foreach($getCusInfo as $getCusData){
-                                //echo '<pre>'; print_r($getCusData); exit;
                                 $sendEmail = $this->sendEmail($getCusData->email,$store_mailBody,$subject);
                                 if($sendEmail == false){
                                     $resp['responseCode'] = 500;
@@ -749,7 +729,7 @@ class ShippingController extends BaseController
                                     return json_encode($resp); exit;
                                 }
                             }
-                            //$this->sendEmail('saiatpadkar15@gmail.com',$store_mailBody,$subject);
+                            
                             if (isset($supportEmail) && !empty($supportEmail)) {
                                 $sendEmail = $this->sendEmail($supportEmail,$store_admin_mailBody,$subject);
                                 if($sendEmail == false){
@@ -796,7 +776,6 @@ class ShippingController extends BaseController
         $this->pageData['pageTitle'] = 'Order Details';  
         $this->pageData['orderDetails'] = $this->OrderModel->get_single_order_details($orderId); 
         $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data(); 
-        //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();
         return view('store_admin/shipping/order-details',$this->pageData); 
     }
 
@@ -804,7 +783,6 @@ class ShippingController extends BaseController
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){
             $this->is_all_mandotory_modules_filled();
             $this->pageData['pageTitle'] = 'Create Delivery Pickup Request';  
-            //$this->pageData['adminPageId'] = 2;
             $this->pageData['shippingCmpList'] = $this->ShippingModel->get_store_all_active_shipping_companies(); 
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
             $defaultShipping = '';
@@ -812,8 +790,6 @@ class ShippingController extends BaseController
                 $defaultShipping = $this->pageData['storeSettingInfo']->default_shipping;
             }
             $this->pageData['defaultShipping'] = $defaultShipping;
-            //$this->pageData['storeSettingInfo'] = $this->SettingModel->get_store_setting_data();  
-            //echo '<pre>'; print_r($this->pageData['shippingCmpList']); exit;    
             return view('store_admin/shipping/create-pickup-request',$this->pageData); 
         }else{
             return redirect()->to('/admin/login');
@@ -1243,9 +1219,7 @@ class ShippingController extends BaseController
                     
                 }else{
                     $clientInfo = $this->ShippingModel->get_shipping_cmp_info($_POST['shipping_company_id']);
-                    //echo '<pre>'; print_r($clientInfo); 
                     $shipCmpInfo = unserialize($clientInfo->ship_cmp_data);
-                    //echo '<pre>'; print_r($shipCmpInfo); exit;
 
                     $UserName = isset($shipCmpInfo['username'])?$shipCmpInfo['username']:'';
                     $Password = isset($shipCmpInfo['password'])?$shipCmpInfo['password']:'';
@@ -1300,9 +1274,7 @@ class ShippingController extends BaseController
                         $ShipmentWeight = 0;
                         $ShipmentPieces = 0;
                         foreach($available_shipments as $shipmentData){
-                            //echo '<pre>'; print_r($shipmentData->id); exit;
                             $orderInfo = $this->OrderModel->get_single_order_details($shipmentData->id);
-                            //echo '<pre>'; print_r($orderInfo); exit;
                             if(isset($orderInfo['orderProductItemsInfo']) && !empty($orderInfo['orderProductItemsInfo'])){
                                 $totalProductsWeight = 0;
                                 $NumberOfPieces = 0;
@@ -1319,10 +1291,7 @@ class ShippingController extends BaseController
                         }
                         $TotalShipmentWeight = $ShipmentWeight;
                         $TotalShipmentNumberOfPieces = $ShipmentPieces;
-
-                        // echo '<pre>'; print_r($NumberOfShipments); 
-                        // echo '<pre>'; print_r($TotalShipmentWeight); 
-                        // echo '<pre>'; print_r($TotalShipmentNumberOfPieces); exit;
+                       
                         $getCusInfo = array();
                         $shippingOrdersList = $this->OrderModel->get_all_shipment_orders();                       
                         if(isset($shippingOrdersList) && !empty($shippingOrdersList)){
@@ -1534,16 +1503,14 @@ class ShippingController extends BaseController
                                     "Reference5": ""
                                 }
                             }';
-                        //echo '<pre>'; print_r($apiAramexPickupRequest); exit;
+
                         $apiAramexPickupResponse = curl_exec($curl);
-                        //echo '<pre>'; print_r($apiAramexPickupResponse); exit;
                         curl_close($curl);
                         
                         $aramex_pickup_api_response = json_decode($apiAramexPickupResponse);
-                        //echo '<pre>'; print_r($aramex_pickup_api_response); 
                         $pickup_req_ref_id = isset($aramex_pickup_api_response->ProcessedPickup->ID)?$aramex_pickup_api_response->ProcessedPickup->ID:'Error in aramex create pickup API, Reference No/ID not generated. '.exit();
                         $pickup_req_gu_id = isset($aramex_pickup_api_response->ProcessedPickup->GUID)?$aramex_pickup_api_response->ProcessedPickup->GUID:'Error in aramex create pickup API, GUID not generated. '.exit(); 
-                        //echo '<pre>'; print_r($pickup_req_ref_id); exit;
+                       
                         $orderUpdateStatus = false;
                         if(isset($available_shipments) && !empty($available_shipments)){
                             foreach($available_shipments as $shipmentData){

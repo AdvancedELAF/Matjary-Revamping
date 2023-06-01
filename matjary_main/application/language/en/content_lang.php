@@ -127,20 +127,35 @@ $lang['usr_cntr_msg_40'] = 'Login Success';
 $lang['usr_cntr_msg_41'] = 'You have Successfully logged in!';
 $lang['usr_cntr_msg_42'] = 'Old Password did not Matched, Please try again';
 $lang['usr_cntr_msg_43'] = 'Plan total price';
-$lang['usr_cntr_msg_44'] = '';
-$lang['usr_cntr_msg_45'] = '';
-$lang['usr_cntr_msg_46'] = '';
-$lang['usr_cntr_msg_47'] = '';
-$lang['usr_cntr_msg_48'] = '';
-$lang['usr_cntr_msg_49'] = '';
-$lang['usr_cntr_msg_50'] = '';
+$lang['usr_cntr_msg_44'] = 'Template Added Succesfully';
+$lang['usr_cntr_msg_45'] = 'Invalid Email.';
+$lang['usr_cntr_msg_46'] = 'Error While inserting user template information.';
+$lang['usr_cntr_msg_47'] = 'Please Hold While you are redirected to Payment Gateway';
+$lang['usr_cntr_msg_48'] = 'Payment Gateway Response is Empty';
+$lang['usr_cntr_msg_49'] = 'Something Went Wrong While Updating Payment Information.';
+$lang['usr_cntr_msg_50'] = 'No Record Found.';
+$lang['usr_cntr_msg_51'] = 'Email already exist.';
 /*  common text end */
+
+/* save user api */
+$lang['save_usr_msg_1'] = 'Registered successfully, for welcome mail please check your registered email inbox/spam folder.';
+$lang['save_usr_msg_2'] = 'Error While removing junk record of user';
+$lang['save_usr_msg_3'] = 'Error While sending welcome mail to user';
+$lang['save_usr_msg_4'] = '';
+/* save user api */
+
+/* save subscrion data */
+$lang['save_sbrptn_msg_1'] = 'Store admin link is required.';
+$lang['save_sbrptn_msg_2'] = 'Store link is required.';
+$lang['save_sbrptn_msg_3'] = 'Email is required.';
+$lang['save_sbrptn_msg_4'] = '';
+/* save subscrion data */
 
 /* Index Page text start */
 /* HERO SECTION starts */
 $lang['index-txt-1'] = 'E-Commerce for All!';
 $lang['index-txt-2'] = 'Reach out to millions of customers in Saudia Arabia for everything you need to sell online.';
-$lang['index-txt-3'] = 'Try Matjary for 14 days.';
+$lang['index-txt-3'] = 'Try '.$lang['matjary'].' for 14 days.';
 $lang['index-txt-4'] = 'No credit card required.';
 /* HERO SECTION ends */
 
@@ -148,7 +163,7 @@ $lang['index-txt-4'] = 'No credit card required.';
 $lang['index-txt-5'] = 'Get Rocket Fuel For Your Business';
 $lang['index-txt-6'] = '3, 2, 1 & Launch';
 $lang['index-txt-7'] = 'to Create Something Stunning!';
-$lang['index-txt-8'] = 'Matjary makes it easy to build the perfect website for your business & start selling your products or services from anywhere to anyone.';
+$lang['index-txt-8'] = $lang['matjary'].' makes it easy to build the perfect website for your business & start selling your products or services from anywhere to anyone.';
 /* SECTION ONE ends */
 
 /* SECTION TWO starts */
@@ -194,8 +209,8 @@ $lang['index-txt-37'] = 'Your Store Name';
 $lang['index-txt-38'] = 'Email Address';
 $lang['index-txt-39'] = 'Password';
 $lang['index-txt-40'] = 'Create Store';
-$lang['index-txt-41'] = 'Get daily updates from MATJARY';
-$lang['index-txt-42'] = 'Subscribe to Matjary Newsletter';
+$lang['index-txt-41'] = 'Get daily updates from '.$lang['matjary'];
+$lang['index-txt-42'] = 'Subscribe to '.$lang['matjary'].' Newsletter';
 $lang['index-txt-43'] = 'Subscribe Now';
 $lang['index-txt-44'] = 'You Have Successfully Subscribed to Newsletter';
 $lang['index-txt-45'] = 'Email Already Subscribed';
@@ -224,7 +239,7 @@ $lang['pricing-txt-5'] = 'Get Started';
 
 /* choose template Page text start */
 $lang['choose-temp-txt-1'] = 'Choose your favourite Template';
-$lang['choose-temp-txt-2'] = 'Setup your store with <span class="purple-highlighter matjary-font">MATJARY\'S</span> world-class templates <br/>and make remarkable sales.';
+$lang['choose-temp-txt-2'] = 'Setup your store with <span class="purple-highlighter matjary-font">'.$lang['matjary'].'\'S</span> world-class templates <br/>and make remarkable sales.';
 /* choose template Page text end */
 
 /* Contact Page text start */
@@ -232,7 +247,7 @@ $lang['contact-txt-1'] = 'Contact Information';
 $lang['contact-txt-2'] = 'This is the place to start. Find answers you need from';
 $lang['contact-txt-3'] = 'Write to us';
 $lang['contact-txt-4'] = 'Your Query Submitted Successfully! Our Support Team will get back to you shortly';
-$lang['contact-txt-5'] = '';
+$lang['contact-txt-5'] = 'Thank you for your interest in our services. To submit an enquiry ticket, you can either <a target="_blank" href="' . base_url() . 'login">' . $lang['login'].'</a> or <a target="_blank" href="' . base_url() . 'register">' . $lang['register'].'</a> on our website. If you do not wish to ' . $lang['register'].', we are always available via email at <a href="mailto:support@matjary.sa">support@matjary.sa</a> for any queries or assistance that you may need.';
 $lang['contact-txt-6'] = '';
 $lang['contact-txt-7'] = '';
 $lang['contact-txt-8'] = '';
@@ -243,11 +258,11 @@ $lang['contact-txt-10'] = '';
 
 /* About-US Page text start */
 $lang['about-us-txt-1'] = 'Who We Are';
-$lang['about-us-txt-2'] = 'We are <span class="matjary-font">Matjary</span> e-commerce based in Riyadh, Saudi Arabia, established in 2021.';
+$lang['about-us-txt-2'] = 'We are <span class="matjary-font">'.$lang['matjary'].'</span> e-commerce based in Riyadh, Saudi Arabia, established in 2021.';
 $lang['about-us-txt-3'] = 'We take care of your quality as well as boosting your business operations. We are delivering quality and innovation.';
 $lang['about-us-txt-4'] = 'Which can connect small to big businessmen on a single platform. And that can make your business even better. So, that you can start your own online business.';
 $lang['about-us-txt-5'] = 'Why Choose Us';
-$lang['about-us-txt-6'] = '<span class="matjary-font">Matjary</span> offers you the best solutions and services.';
+$lang['about-us-txt-6'] = '<span class="matjary-font">'.$lang['matjary'].'</span> offers you the best solutions and services.';
 $lang['about-us-txt-7'] = 'Join us and grow your e-commerce business with us!';
 $lang['about-us-txt-8'] = 'From all the modern solutions and services, we will lay down our simplest efforts to ensure the growth of your e-commerce business. So that you can get better services for your online business.';
 $lang['about-us-txt-9'] = 'E-Store';
@@ -257,7 +272,7 @@ $lang['about-us-txt-12'] = 'You can reach out to multiple service providers and 
 $lang['about-us-txt-13'] = 'Empowerment';
 $lang['about-us-txt-14'] = 'We give such strategies and ideas to our clients. Which is edifies various subjects of online business through tremendous and basic measures. So, your commerce business can develop and grow in the market. ';
 $lang['about-us-txt-15'] = 'Neighbourhood';
-$lang['about-us-txt-16'] = 'In the Matjary Neighborhood, traders trade their combined experiences and information across various e-commerce business spaces through the online connected area. Furthermore, through meet-ups each month that unite merchants in a single spot.';
+$lang['about-us-txt-16'] = 'In the '.$lang['matjary'].' Neighborhood, traders trade their combined experiences and information across various e-commerce business spaces through the online connected area. Furthermore, through meet-ups each month that unite merchants in a single spot.';
 $lang['about-us-txt-17'] = 'Vision & Mission';
 $lang['about-us-txt-18'] = 'Our Vision';
 $lang['about-us-txt-19'] = 'Our mission is to grow the business of e-commerce. So that from every shop to big businessmen get a chance to join together. We will build a better future. Every trader will get the right to work freely. Keeping in mind the modern system, we have made E-commerce techniques simple. Any merchant can easily be connected with his customers.';
@@ -266,7 +281,7 @@ $lang['about-us-txt-21'] = 'We make the e-commerce platform better for you. You 
 /* About-US Page text end */
 
 /* Service Page text start */
-$lang['service-txt-1'] = '<span class="matjary-font">Matjary</span> Services';
+$lang['service-txt-1'] = '<span class="matjary-font">'.$lang['matjary'].'</span> Services';
 $lang['service-txt-2'] = 'We offer services that can make your business reach new heights.';
 $lang['service-txt-3'] = 'Build new ecosystem, Reach new customers and Transform to new Technology.';
 $lang['service-txt-4'] = 'Professional E-commerce Store';
@@ -313,9 +328,9 @@ $lang['service-txt-44'] = 'Neighbourhood';
 $lang['service-txt-45'] = 'Virtual get-together';
 $lang['service-txt-46'] = 'More than 10 virtual and if all else fails social events done between individuals from the area.';
 $lang['service-txt-47'] = 'Drives between merchants';
-$lang['service-txt-48'] = 'More than 20 drives dispatched among Matjary social class people.';
+$lang['service-txt-48'] = 'More than 20 drives dispatched among '.$lang['matjary'].' social class people.';
 $lang['service-txt-49'] = 'Sharing encounters';
-$lang['service-txt-50'] = 'A private virtual place where different Matjary sellers meet, through splitting experiences and dispatching joint drives between people from the neighborhood.';
+$lang['service-txt-50'] = 'A private virtual place where different '.$lang['matjary'].' sellers meet, through splitting experiences and dispatching joint drives between people from the neighborhood.';
 /* Service Page text end */
 
 /* Return-Refund Page text start */
@@ -340,8 +355,8 @@ $lang['tnc-txt-7'] = 'Do every process well.';
 $lang['tnc-txt-8'] = 'You must be 18 years of age or above 18 years of age. Because according to our legal rules and term and conditions or privacy policy do not allow any underage person to apply.';
 $lang['tnc-txt-9'] = 'It is important for you to be active for your e-commerce business because your business will also have to face the ups and downs in the market.';
 $lang['tnc-txt-10'] = 'You can use your email ID as a factor in your communication.';
-$lang['tnc-txt-11'] = 'You take care of the login password yourself. Sa-Matjary does not take responsibility and does not keep any of your ID password lost or forgot. If you have forgotten the password. Or if it is lost then you are responsible for it.';
-$lang['tnc-txt-12'] = 'If your services and products support any abusive and corruption, your account will be terminated immediately. If someone takes any kind of objection and legal action against on your account, then Sa-Matjary will not take any responsibility in any way.';
+$lang['tnc-txt-11'] = 'You take care of the login password yourself. '.base_url().' does not take responsibility and does not keep any of your ID password lost or forgot. If you have forgotten the password. Or if it is lost then you are responsible for it.';
+$lang['tnc-txt-12'] = 'If your services and products support any abusive and corruption, your account will be terminated immediately. If someone takes any kind of objection and legal action against on your account, then '.$lang['matjary'].' will not take any responsibility in any way.';
 $lang['tnc-txt-13'] = 'Who can activate his e-commerce account?';
 $lang['tnc-txt-14'] = 'Our article. According to .... the e-commerce business owner can avail our provided services and create his/her e-commerce account.';
 $lang['tnc-txt-15'] = 'If the account is not created by the e-commerce owner and is active by any of his/her employees. So all the given conditions and rules will be applicable for the employee as much as for the owner. And if any rules or policy were misused and the rules were broken by his/her employee. So the owner will be responsible for that.';
@@ -356,13 +371,13 @@ $lang['tnc-txt-22'] = 'We connect with you in an online business relationship. W
 
 /* Privacy-Policy Page text start */
 $lang['pp-txt-1'] = 'Privacy Policy';
-$lang['pp-txt-2'] = 'Our website includes easy ways for you to sell your products and services. So, that you can reach your customers anytime and anywhere. Sa- Matjary serves as the fuel to your Rocket. It allows your products and services to be presented to your consumers quickly and easily. Your business gets an entirely new look and feel, but you also get an opportunity to gain a deeper understanding of how the world of e-commerce works. This makes your life and your customer\'s life much easier.';
+$lang['pp-txt-2'] = 'Our website includes easy ways for you to sell your products and services. So, that you can reach your customers anytime and anywhere. '.$lang['matjary'].' serves as the fuel to your Rocket. It allows your products and services to be presented to your consumers quickly and easily. Your business gets an entirely new look and feel, but you also get an opportunity to gain a deeper understanding of how the world of e-commerce works. This makes your life and your customer\'s life much easier.';
 $lang['pp-txt-3'] = 'Before you join us, let us tell you something. Firstly, make sure you\'re sure you want to join us. You can find out more information by visiting the about us page and home page. The links are listed below. You can also click here for more information and support.';
 $lang['pp-txt-4'] = 'About Us';
-$lang['pp-txt-5'] = 'Under the Privacy Policy, Matjary provides various products and services to help you sell goods and services to buyers. Our Online Services allow you to create and build your online store, in person, or both.';
-$lang['pp-txt-6'] = 'These Privacy Policy refer to any such services offered by Matjary as the "Services." Additional features or tools are also subject to these Policy. You can review the latest version of the Privacy Policy at any time on the website.';
-$lang['pp-txt-7'] = 'Website Link: <a href="sa-matjary.com">sa-matjary.com</a>';
-$lang['pp-txt-8'] = 'Matjary takes responsibility for the services updates regarding information that will be given on the website. To see our updates, you must visit our website. You can see the old and new updates. If you have any objection to the information and services provided on our website, you can contact our team. Our support number will be easily available on the website.';
+$lang['pp-txt-5'] = 'Under the Privacy Policy, '.$lang['matjary'].' provides various products and services to help you sell goods and services to buyers. Our Online Services allow you to create and build your online store, in person, or both.';
+$lang['pp-txt-6'] = 'These Privacy Policy refer to any such services offered by '.$lang['matjary'].' as the "Services." Additional features or tools are also subject to these Policy. You can review the latest version of the Privacy Policy at any time on the website.';
+$lang['pp-txt-7'] = 'Website Link: <a href="' . base_url() . '">'.$lang['matjary'].'</a>';
+$lang['pp-txt-8'] = $lang['matjary'].' takes responsibility for the services updates regarding information that will be given on the website. To see our updates, you must visit our website. You can see the old and new updates. If you have any objection to the information and services provided on our website, you can contact our team. Our support number will be easily available on the website.';
 $lang['pp-txt-9'] = 'Will your data and information be secure?';
 $lang['pp-txt-10'] = 'Your information and all information related to your clients will be kept confidential. We keep your information confidential unless you choose to disclose it to a third party. Whatever information and rules policy will be there; it will continue to work according to the privacy policy of your website.';
 $lang['pp-txt-11'] = 'Your information is as important for you as it is for us because we want to make our services better for our users and for us.';
@@ -378,46 +393,46 @@ $lang['pp-txt-20'] = 'We follow our rules and legal regulation system Copies of 
 $lang['pp-txt-21'] = 'We proceed to the new update of our website without making any changes to your anonymous information. No changes or updates are made to it.';
 $lang['pp-txt-22'] = 'If you want to move forward with us again with your business, then you can join us by following our legal rules. Our team will assist you to reconnect.';
 $lang['pp-txt-23'] = 'How do we keep your information safe?';
-$lang['pp-txt-24'] = 'Our ' . $lang['matjary'] . ' part of third-party management is so strong that all your information is protected and updated by our legal security department. So that no one can use it for any wrong purpose. If someone does this, after finding out the main purpose and problem, immediate action is taken against him/her with full legal method.';
+$lang['pp-txt-24'] = 'Our &nbsp;'. $lang['matjary'] .'&nbsp; part of third-party management is so strong that all your information is protected and updated by our legal security department. So that no one can use it for any wrong purpose. If someone does this, after finding out the main purpose and problem, immediate action is taken against him/her with full legal method.';
 $lang['pp-txt-25'] = 'Our information security systems apply to people, processes, and IT systems on a risk management basics.';
 $lang['pp-txt-26'] = 'We always have a dedicated team to manage money transactions so that your transactions are safe. If there is any problem or error, our team is always ready to assist you so that your time is not consumed, and your transaction is not hampered.';
-$lang['pp-txt-27'] = 'Sa-Matjary security team is always on alert to keep your personal information and transactions 100% secure.';
+$lang['pp-txt-27'] = ''.$lang['matjary'].'&nbsp; security team is always on alert to keep your personal information and transactions 100% secure.';
 $lang['pp-txt-28'] = 'Control and manage your personal information';
-$lang['pp-txt-29'] = $lang['matjary'] . ' gives you full rights to access and manage your personal information. You can view your profile anytime, anywhere. Also helps you and explains how to use your e-commerce account properly. Sa-Matjary given a login ID access to use your personal account. so that you can run or update it by yourself at any time. And Sa-Matjary also keeps you updated about new offers and updates from time to time. Sa-Matjary also keeps you informed about every new offer.';
-$lang['pp-txt-30'] = 'Note:Please, do not get confused after reading any information, rather contact us. You need to be stay up-to-date and know about our products and services. If you want any further information, you can <a href="https://sa-matjary.com/contactus">contact us</a>';
+$lang['pp-txt-29'] = ''.$lang['matjary'] . '&nbsp; gives you full rights to access and manage your personal information. You can view your profile anytime, anywhere. Also helps you and explains how to use your e-commerce account properly. Matjary given a login ID access to use your personal account. so that you can run or update it by yourself at any time. And '.$lang['matjary'].' also keeps you updated about new offers and updates from time to time. '.$lang['matjary'].' also keeps you informed about every new offer.';
+$lang['pp-txt-30'] = 'Note:Please, do not get confused after reading any information, rather contact us. You need to be stay up-to-date and know about our products and services. If you want any further information, you can <a href="' . base_url() . '/contact">contact us</a>';
 /* Privacy-Policy Page text end */
 
 /* FAQ's Page text start */
 $lang['faq-txt-1'] = 'Frequently Asked Questions';
 $lang['faq-txt-2'] = 'Our FAQ tries to cover all your major questionaries related to ' . $lang['matjary'];
 $lang['faq-txt-3'] = 'Get all the key details to unlock new opportunities for your business.';
-$lang['faq-txt-4'] = 'What is Matjary and how does it works?';
-$lang['faq-txt-5'] = 'Matjary is a e-commerce finished trade stage that licenses you to begin, make, and deal with a business. Make and change an online store Sell in various spots, including web, versatile, electronic media, online business living spaces, real locales, and spring up shops Manage things, stock, segments, and movement. Matjary is totally cloud-based and worked with, which recommends you don\'t need to stress over upgrading or remaining mindful of programming or web servers. This gives you the adaptability to get to and stay aware of your business from any place with a web association.';
+$lang['faq-txt-4'] = 'What is '.$lang['matjary'].' and how does it works?';
+$lang['faq-txt-5'] = $lang['matjary'].'&nbsp; is a e-commerce finished trade stage that licenses you to begin, make, and deal with a business. Make and change an online store Sell in various spots, including web, versatile, electronic media, online business living spaces, real locales, and spring up shops Manage things, stock, segments, and movement. Matjary is totally cloud-based and worked with, which recommends you don\'t need to stress over upgrading or remaining mindful of programming or web servers. This gives you the adaptability to get to and stay aware of your business from any place with a web association.';
 $lang['faq-txt-6'] = 'How much does Matjary cost?';
-$lang['faq-txt-7'] = 'Endeavor Matjary free for 14 days, no Mastercard required. Later in your focal breaks, pick a studying plan that suits the size and season of your business.';
-$lang['faq-txt-8'] = 'Can I use my own domain name with Matjary?';
-$lang['faq-txt-9'] = 'Certainly, you can utilize your own space name with Matjary. In the event that you have a current district name, you can relate it to Matjary from your store\'s administrator. Bounce further into interfacing a current space to a Matjary store. Expecting you don\'t have a district name yet, you can either get one through Matjary or an unapproachable supplier.';
-$lang['faq-txt-10'] = 'Do I need to be a designer or developer to use Matjary?';
-$lang['faq-txt-11'] = 'No, you shouldn\'t be a creator or expert to utilize Matjary. Change the look and feel of your store with the online store planner and subjects.';
+$lang['faq-txt-7'] = 'Endeavor '.$lang['matjary'].' free for 14 days, no Mastercard required. Later in your focal breaks, pick a studying plan that suits the size and season of your business.';
+$lang['faq-txt-8'] = 'Can I use my own domain name with '.$lang['matjary'].'?';
+$lang['faq-txt-9'] = 'Certainly, you can utilize your own space name with '.$lang['matjary'].'. In the event that you have a current district name, you can relate it to '.$lang['matjary'].' from your store\'s administrator. Bounce further into interfacing a current space to a '.$lang['matjary'].' store. Expecting you don\'t have a district name yet, you can either get one through '.$lang['matjary'].' or an unapproachable supplier.';
+$lang['faq-txt-10'] = 'Do I need to be a designer or developer to use '.$lang['matjary'].'?';
+$lang['faq-txt-11'] = 'No, you shouldn\'t be a creator or expert to utilize '.$lang['matjary'].'. Change the look and feel of your store with the online store planner and subjects.';
 $lang['faq-txt-12'] = 'How Much are the fares? Do you charge a commission for sales';
 $lang['faq-txt-13'] = 'We give you the first 14 days trial. After that, if you want to continue with our services, then you can take your favorite subscription. We do not take any commission for sales, your store will work according to you, for this we do not take any charges from you for 14 days.';
 $lang['faq-txt-14'] = 'What are the shipping costs? Who bears them?';
 $lang['faq-txt-15'] = 'There are some shipping companies associated with us who will provide you shipping services. You can choose your preferred shipping company. And you can understand your requirements from them. What will be the partnership between you and the shipping company and we will not have any relation with it. Your and the shipping company\'s deal will remain confidential.';
 $lang['faq-txt-16'] = 'How do I buy from my store?';
 $lang['faq-txt-17'] = 'There are some simple settings given in your store which you can easily use. And you can create your profile. You can run a free store for 14 days. After that you will have to take our given subscription plan to continue the services. After that you can do your store online again. To purchase from your store, you will need to create a User Id and make purchases using one of your email IDs.';
-$lang['faq-txt-18'] = 'Is there a commercial register required to register with Matjary benefits from its services ?';
+$lang['faq-txt-18'] = 'Is there a commercial register required to register with '.$lang['matjary'].' benefits from its services ?';
 $lang['faq-txt-19'] = 'No, you do not need any hard paper copy. You have been given all the information related to your store, products, and customers. You can make the settings according to you. And can run online store. When you register to create a store, you will share some information about your store and yourself. After that, if you want the customers to trust you and your store, then you have some documents related to your store like store register ID, tax paper, PAN Card etc.';
-$lang['faq-txt-20'] = 'Can I change the domain\'s store link to my domain name? without Matjary.sa ?';
+$lang['faq-txt-20'] = 'Can I change the domain\'s store link to my domain name? without '.base_url().'?';
 $lang['faq-txt-21'] = 'The customer will give the name of the store and the same will be generated in the website link which will not be changed further. He has to choose a domain named after his store and use the linked link with his store. Which will act as a website link for your store. He/she can only generate the domain name according to his/him store name only for one time.';
 $lang['faq-txt-22'] = 'How is the bank transfer status confirmed?';
 $lang['faq-txt-23'] = 'In order to confirm the status of the bank transfer, you will have to share some important information related to your bank account with your profile. So that you can easily do money transactions with your customers on your online store. We give you multiple payment options so that you can use your preferred payment gateway to offer the best to your customers. And at the right time, the transaction of money between you and your customers should go on smoothly.';
-$lang['faq-txt-24'] = 'Matjary serves traders in Saudi Arabia only? Does it serve the gulf?';
-$lang['faq-txt-25'] = 'Matjary not only provides services in Saudi Arabia, but it also provides services in Gulf.';
+$lang['faq-txt-24'] = $lang['matjary'].' serves traders in Saudi Arabia only? Does it serve the gulf?';
+$lang['faq-txt-25'] = $lang['matjary'].' not only provides services in Saudi Arabia, but it also provides services in Gulf.';
 /* FAQ's Page text end */
 
 /* Help Page text start */
 $lang['help-txt-1'] = $lang['matjary'] . 'Help Center';
-$lang['help-txt-2'] = 'Welcome to <span class="matjary-font purple-highlighter">MATJARY</span> Help Center! Our support team is always here to help<br> and solve problems of our precious customers.';
+$lang['help-txt-2'] = 'Welcome to <span class="matjary-font purple-highlighter">'.$lang['matjary'].'</span> Help Center! Our support team is always here to help<br> and solve problems of our precious customers.';
 $lang['help-txt-3'] = 'Orders';
 $lang['help-txt-4'] = 'Know the characteristics of the requests page and order details by managing order feature.';
 $lang['help-txt-5'] = 'Control Board';
@@ -433,7 +448,7 @@ $lang['help-txt-14'] = 'Learn how to manage products and product categories.';
 $lang['help-txt-15'] = 'Staff';
 $lang['help-txt-16'] = 'Learn how to setup staff account. So that your store can be managed by your staff in your absence.';
 $lang['help-txt-17'] = 'Paying Off';
-$lang['help-txt-18'] = 'Learn all about payment and payment companies, activate and link it to your Matjary store.';
+$lang['help-txt-18'] = 'Learn all about payment and payment companies, activate and link it to your '.$lang['matjary'].' store.';
 $lang['help-txt-19'] = 'Shipping';
 $lang['help-txt-20'] = 'Find all about shipping and shipping companies, activate them and link them to your store.';
 $lang['help-txt-21'] = 'Mobile App (Coming Soon!)';
@@ -441,7 +456,7 @@ $lang['help-txt-22'] = 'Operate your store and watch your sales growing on ' . $
 $lang['help-txt-23'] = 'Storefront Options';
 $lang['help-txt-24'] = 'Learn how to setup Storefront, choose the right theme and customize additional pages.';
 $lang['help-txt-25'] = 'Settings';
-$lang['help-txt-26'] = 'Learn how to setup ' . $lang['matjary'] . ' and Matjary account to meet daily new customers.';
+$lang['help-txt-26'] = 'Learn how to setup ' . $lang['matjary'] . ' and store account to meet daily new customers.';
 /* Help Page text end */
 
 /* User Account page start */
@@ -538,12 +553,21 @@ $lang['user-bill-txt-3'] = 'Plan Name';
 $lang['user-bill-txt-4'] = 'Plan Valid Till';
 $lang['user-bill-txt-5'] = 'Enter coupon code';
 $lang['user-bill-txt-6'] = 'Proceed to Payment';
-$lang['user-bill-txt-7'] = '';
-$lang['user-bill-txt-8'] = '';
-$lang['user-bill-txt-9'] = '';
-$lang['user-bill-txt-10'] = '';
+$lang['user-bill-txt-7'] = 'Apply Coupon';
+$lang['user-bill-txt-8'] = 'Coupon Code Required';
+$lang['user-bill-txt-9'] = 'Coupon Applied Successfully';
+$lang['user-bill-txt-10'] = 'Coupon already used';
+$lang['user-bill-txt-11'] = 'Coupon not valid';
 /* billing info page */
 
+/* payment response api */
+$lang['pg_resp_1'] = 'Payment Successfull, Please hold while we process your order.';
+$lang['pg_resp_2'] = 'Payment Successfull, Creating your store please hold on.';
+$lang['pg_resp_3'] = 'Payment did not went through, kindly try later.';
+$lang['pg_resp_4'] = '';
+$lang['pg_resp_5'] = '';
+$lang['pg_resp_6'] = '';
+/* payment response api */
 
 /* Footer text start */
 $lang['footer-txt-1'] = 'Useful Links';
@@ -612,3 +636,18 @@ $lang['Expired'] = 'Expired';
 
 /**Employee List */
 $lang['Reply'] = 'Reply';
+
+/* sai */
+$lang['com_msg_1'] = 'Request Not Processed at Moment, please try again';
+$lang['com_msg_2'] = 'Error While updating password reset flag, please try again';
+$lang['com_msg_3'] = 'Password Updated Succesfully';
+$lang['com_msg_4'] = 'Token Missing';
+$lang['com_msg_5'] = 'No Post Data';
+$lang['com_msg_6'] = 'Error while inserting user purchased template info';
+$lang['com_msg_7'] = 'Subdomain is available.';
+$lang['com_msg_8'] = 'Subdomain is not available.';
+$lang['com_msg_9'] = 'Enter Store Subdomain';
+$lang['com_msg_11'] = 'Coupon Code';
+$lang['com_msg_12'] = 'Coupon Discount';
+$lang['com_msg_13'] = 'Coupon Amount';
+$lang['com_msg_14'] = '';

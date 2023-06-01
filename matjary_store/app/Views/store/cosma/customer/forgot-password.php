@@ -23,7 +23,6 @@
                     <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
                     <input type="email" name="email" id="email" class="form-control mb-0" placeholder="<?php echo $language['Email']; ?>*">
                     <div class="d-grid gap-2 d-md-block mt-3">
-                        <!--button type="reset" class="btn btn-primary brand-btn-black-outline">Cancel</button-->
                         <a href="<?php echo base_url('customer/login'); ?>" class="btn btn-primary brand-btn-black-outline" ><?php echo $language['Cancel']; ?></a>
                         <button type="submit" class="btn btn-primary brand-btn-black"><?php echo $language['Submit']; ?></button>
                     </div>

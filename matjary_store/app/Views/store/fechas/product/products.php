@@ -17,7 +17,6 @@ $ses_lang = $session->get('ses_lang');
                 if(isset($_REQUEST['query']) && !empty($_REQUEST['query'])){
                     echo ''.$language['Search Results'] .'('.count($productList).')';
                 }else{
-                    //echo 'Latest Products';
                     echo $language['Latest Products'];
                 }
                 ?>
@@ -29,6 +28,7 @@ $ses_lang = $session->get('ses_lang');
     <div class="container">        
         <div class="row" >
             <?php 
+            $checkProductData = $locale=='en'?'Product Not Available Yet!.':'البيانات غير متوفرة بعد !.';
             if(isset($productList) && !empty($productList)){
                 foreach($productList as $productData){
                     $actionWishlisturl = base_url('customer/add-product-wishlist');
@@ -85,8 +85,11 @@ $ses_lang = $session->get('ses_lang');
             </div>
             <?php
                 }
-            }
-            ?>
+            }else{ ?>
+                <div class="col-md-6 col-lg-4 col-xl-3"> 
+                    <?php echo $checkProductData; ?> 
+               </div>   
+            <?php  } ?>
         </div>
     </div>
 </section>
