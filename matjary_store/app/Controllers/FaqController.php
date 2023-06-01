@@ -833,7 +833,7 @@ class FaqController extends BaseController
             ));
             if(is_int($affectedRowId)){
                 $resp['responseCode'] = 200;
-                $resp['responseMessage'] =  $this->ses_lang=='en' ? "Email Subscribe Successfully." : "اشترك في البريد الإلكتروني بنجاح.";
+                $resp['responseMessage'] =  $this->ses_lang=='en' ? "Email Subscribe Activated Successfully." : "تم تفعيل الاشتراك بالبريد الإلكتروني بنجاح.";
                 $resp['redirectUrl'] = base_url('admin/all-subscribes');
                 return json_encode($resp); exit;
             }else{
@@ -856,7 +856,7 @@ class FaqController extends BaseController
             ));
             if(is_int($affectedRowId)){
                 $resp['responseCode'] = 200;
-                $resp['responseMessage'] =  $this->ses_lang=='en' ? "Email UnSubscribe Successfully." : "البريد الإلكتروني إلغاء الاشتراك بنجاح.";
+                $resp['responseMessage'] =  $this->ses_lang=='en' ? "Email Unsubscribe Successfully." : "البريد الإلكتروني إلغاء الاشتراك بنجاح.";
                 $resp['redirectUrl'] = base_url('admin/all-subscribes');
                 return json_encode($resp); exit;
             }else{
@@ -962,7 +962,7 @@ class FaqController extends BaseController
                             $this->pageData['supportEmail'] = $supportEmail;
                             $this->pageData['storeName'] = $storeName;
                             $mailBody = view('store_admin/email-templates/admin-reply-contact',$this->pageData);     
-                            $subject = $this->ses_lang=='en' ? $storeName.' - Response From Support' : $storeName.'- استجابة من الدعم';
+                            $subject = $this->ses_lang=='en' ? $storeName." - Response From Support" : $storeName."- استجابة من الدعم";
                             $sendEmail = $this->sendEmail($email,$mailBody,$subject);
                             if($sendEmail == true){
                                 $resp['responseCode'] = 200;

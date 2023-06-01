@@ -21,7 +21,7 @@
                 <h3>Customer Register</h3>
                 <h4>We are happy to help you.</h4>
                 <h5>congratulations !
-                    Your Account hasbeen successfully created.
+                    Your Account has been successfully created.
                 </h5>
             </div>
             <hr>
