@@ -451,6 +451,7 @@ class ProductController extends BaseController
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){
             $this->pageData['pageTitle'] = 'All Products';            
             $this->pageData['adminPageId'] = 7;
+            $this->pageData['table'] = $this->Products;
             // Get all rows
             $this->pageData['productList'] =$this->ProductModel->get_all_data();
             return view('store_admin/product/all-products',$this->pageData);

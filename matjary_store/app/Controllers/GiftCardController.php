@@ -28,6 +28,7 @@ class GiftCardController extends BaseController
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){
             $this->pageData['pageTitle'] = 'All Gift Cards';
             $this->pageData['adminPageId'] = 25;
+            $this->pageData['table'] = $this->GiftCards;
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
             $this->pageData['GiftCardList'] = $this->GiftCardModel->get_all_data();
             return view('store_admin/gift_card/all_gift_cards',$this->pageData);

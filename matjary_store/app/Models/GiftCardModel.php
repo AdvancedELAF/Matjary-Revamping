@@ -56,7 +56,6 @@ class GiftCardModel extends Model {
 
     public function get_all_active_data(){
         $query = $this->db->query('select * from ' . $this->table .' where is_active in(1) order by id desc');
-
         return $query->getResult();
     }  
 

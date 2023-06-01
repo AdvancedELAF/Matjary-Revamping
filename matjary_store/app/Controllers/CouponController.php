@@ -27,6 +27,7 @@ class CouponController extends BaseController
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){ 
             $this->pageData['pageTitle'] = 'All Customerss';
             $this->pageData['adminPageId'] = 12;	
+            $this->pageData['table'] = $this->Coupons;
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
             $this->pageData['couponList'] = $this->CouponModel->get_all_data();
             return view('store_admin/coupon/all-coupons',$this->pageData);

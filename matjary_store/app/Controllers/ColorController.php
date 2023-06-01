@@ -27,6 +27,7 @@ class ColorController extends BaseController
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){
             $this->pageData['pageTitle'] = 'All Product Colors';
             $this->pageData['adminPageId'] = 10;
+            $this->pageData['table'] = $this->Colors;
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
             // Get all rows
             $this->pageData['productColorList'] = $this->ColorModel->get_all_data();

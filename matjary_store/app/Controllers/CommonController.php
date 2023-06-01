@@ -354,14 +354,14 @@ class CommonController extends BaseController
                     if($_POST['action_id'] == 1){                
                         foreach($itemIDArray as $idData){
                             $data = array('is_active'=> 1);
-                            $callAction = $this->CommonModel->activate_record($idData,ucfirst($_POST['table']),$data);
+                            $callAction = $this->CommonModel->activate_record($idData,$_POST['table'],$data);
                         } 
                         $msg = $this->ses_lang=='en' ? "Records Activated Successfully." : "يتم تنشيط السجلات بنجاح.";              
                         
                     }elseif($_POST['action_id'] == 2){ 
                         foreach($itemIDArray as $idData){
                             $data = array('is_active'=> 2);
-                            $callAction = $this->CommonModel->deactive_record($idData,ucfirst($_POST['table']),$data);
+                            $callAction = $this->CommonModel->deactive_record($idData,$_POST['table'],$data);
                         } 
                         $msg = $this->ses_lang=='en' ? "Records Deactivated Successfully." : "تم إلغاء تنشيط السجلات بنجاح.";    
 
@@ -369,7 +369,7 @@ class CommonController extends BaseController
                         
                         foreach($itemIDArray as $idData){
                             $data = array('is_active'=> 3);
-                            $callAction = $this->CommonModel->delete_record($idData,ucfirst($_POST['table']),$data);
+                            $callAction = $this->CommonModel->delete_record($idData,$_POST['table'],$data);
                         }  
                         $msg = $this->ses_lang=='en' ? "Records Deleted Successfully." : "تم حذف السجلات بنجاح."; 
                     

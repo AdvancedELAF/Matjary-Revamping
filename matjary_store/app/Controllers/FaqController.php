@@ -28,6 +28,7 @@ class FaqController extends BaseController
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){
             $this->pageData['pageTitle'] = 'All Faqs';
             $this->pageData['adminPageId'] = 18;
+            $this->pageData['table'] = $this->Faqs;
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
             $this->pageData['FaqList'] = $this->FaqModel->get_all_data();
             return view('store_admin/cms/all-faqs',$this->pageData);
@@ -791,6 +792,7 @@ class FaqController extends BaseController
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){
             $this->pageData['pageTitle'] = 'All Subscribes';
             $this->pageData['adminPageId'] = 21;
+            $this->pageData['table'] = $this->Subscribers;
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
             $this->pageData['SubscribesList'] = $this->SubscribesModel->get_all_data();
             return view('store_admin/cms/all-subscribes',$this->pageData);
@@ -873,6 +875,7 @@ class FaqController extends BaseController
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){
             $this->pageData['pageTitle'] = 'All Contact Us';
             $this->pageData['adminPageId'] = 22;
+            $this->pageData['table'] = $this->ContactUs;
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
             $this->pageData['ContactUsList'] = $this->ContactUsModel->get_all_data();
             return view('store_admin/cms/all-contact-us',$this->pageData);

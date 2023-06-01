@@ -89,7 +89,7 @@ $ses_lang = $session->get('ses_lang');
 		</div>
         
 		<div class="header-right align-items-center">
-            <div> <a href="<?php echo base_url(); ?>" target="_blank"> view store </a> </div>
+            <div> <a href="<?php echo base_url(); ?>" target="_blank"> Visit Store </a> </div>
 			<div class="user-notification">
 				<div class="dropdown">
 					<a class="dropdown-toggle no-arrow" href="#" role="button" data-toggle="dropdown">

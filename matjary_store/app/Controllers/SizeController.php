@@ -28,6 +28,7 @@ class SizeController extends BaseController
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){
             $this->pageData['pageTitle'] = 'All Product Sizes';
             $this->pageData['adminPageId'] = 11;
+            $this->pageData['table'] = $this->Sizes;
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
             $this->pageData['productSizeList'] = $this->SizeModel->get_all_data();    
             return view('store_admin/product_size/all-product-sizes',$this->pageData);

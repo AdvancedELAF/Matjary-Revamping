@@ -30,6 +30,7 @@ class UserController extends BaseController
             $this->is_all_mandotory_modules_filled();
             $this->pageData['pageTitle'] = 'All Users';
             $this->pageData['adminPageId'] = 14;
+            $this->pageData['table'] = $this->Users;
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
             $this->pageData['UserList'] = $this->UserModel->get_all_data(); /* Get all rows */
             $this->pageData['UserroleList'] = $this->UserRoleModel->get_all_data();  

@@ -6632,7 +6632,7 @@ class WebController extends BaseController
             }else{
                     $output .= '
                     <li class="list-group-item contsearch">
-                        <a href="#" class="gsearch" style="color:#333;text-decoration:none;">'.$this->ses_lang=='en'?'لاتوجد بيانات':'No Data Found'.'</a>
+                        <a href="#" class="gsearch" style="color:#333;text-decoration:none;">'.$this->ses_lang=='en'?'No Data Found':'لاتوجد بيانات'.'</a>
                     </li>
                     ';
             }

@@ -20,7 +20,7 @@
         <div class="pd-20">
             <div class="row">
                 <div class="col-md-3">
-                    <select class="form-control" id="multiActionOption" data-table="subscribers" data-actionurl="<?php echo base_url('multi-action-option'); ?>">
+                    <select class="form-control" id="multiActionOption" data-table="<?php echo isset($table) ? $table : 'NA'; ?>" data-actionurl="<?php echo base_url('multi-action-option'); ?>">
                         <option value=""><?php echo $language['Choose Action'];?></option>                    
                         <option value="3"><?php echo $language['Delete'];?></option>
                     </select>            
@@ -40,7 +40,6 @@
                         <th scope="col"><?php echo $language['Name']; ?></th>
                         <th scope="col"><?php echo $language['Email']; ?></th>
                         <th scope="col"><?php echo $language['Contact No.']; ?></th>
-                        <th scope="col"><?php echo $language['Status']; ?></th>
                         <th scope="col"><?php echo $language['Action']; ?></th>
                     </tr>
                 </thead>
@@ -58,7 +57,7 @@
                             <td><h5 class="font-16"><?php echo isset($value->name)?$value->name:'NA'; ?></h5></td>                        
                             <td><h5 class="font-16"><?php echo isset($value->email)?$value->email:'NA'; ?></h5></td>
                             <td><h5 class="font-16"><?php echo isset($value->contact_no )?$value->contact_no :'NA'; ?></h5></td>                          
-                            <td><?php if($value->is_active==1){ echo 'Active';}else{echo 'Deactivated';} ?></td>
+                            
                             <td>
                                 <div class="dropdown">
                                     <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"

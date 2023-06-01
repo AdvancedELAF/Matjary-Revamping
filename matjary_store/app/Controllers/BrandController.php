@@ -28,6 +28,7 @@ class BrandController extends BaseController
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){
             $this->pageData['pageTitle'] = 'All Product Brands';
             $this->pageData['adminPageId'] = 9;
+            $this->pageData['table'] = $this->Brands;
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();          
             // Get all rows
             $this->pageData['productBrandList'] = $this->BrandModel->get_all_data();

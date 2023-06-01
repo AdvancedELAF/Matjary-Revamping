@@ -29,6 +29,7 @@ class BannerController extends BaseController
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){
             $this->pageData['pageTitle'] = 'All Banners';
             $this->pageData['adminageId'] = 1;
+            $this->pageData['table'] = $this->Banners;
             $this->pageData['bannerList'] = $this->BannerModel->get_all_data();
             return view('store_admin/banner/all-banners',$this->pageData);
         }else{

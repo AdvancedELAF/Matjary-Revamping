@@ -26,7 +26,7 @@ $ses_lang = $session->get('ses_lang');
         <div class="pd-20">
             <div class="row">
                 <div class="col-md-3">
-                    <select class="form-control" id="multiActionOption" data-table="banners" data-actionurl="<?php echo base_url('multi-action-option'); ?>">
+                    <select class="form-control" id="multiActionOption" data-table="<?php echo isset($table) ? $table : 'NA'; ?>" data-actionurl="<?php echo base_url('multi-action-option'); ?>">
                         <option value=""><?php echo $language['Choose Action'];?></option>
                         <option value="1"><?php echo $language['Activate'];?></option>
                         <option value="2"><?php echo $language['Deactivate'];?></option>
@@ -116,9 +116,9 @@ $ses_lang = $session->get('ses_lang');
                                 <h5 class="font-16"><?php echo $sub_title; ?></h5>
                             </td>
                             <td><?php if ($value->is_active == 1) {
-                                    echo 'Active';
+                                    echo $language['Active'];
                                 } else {
-                                    echo 'Deactivated';
+                                    echo $language['Deactivated'];
                                 } ?></td>
                             <td>
                                 <div class="dropdown">

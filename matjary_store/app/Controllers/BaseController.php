@@ -69,6 +69,23 @@ abstract class BaseController extends Controller
      */
     protected $helpers = ['url','html','form','text','security','file','language','cookie'];
 
+    /* Table name define variable used in each module */
+
+    protected $GiftCards = 'GiftCards';
+    protected $Banners = 'Banners';
+    protected $Advertisements = 'Advertisements';
+    protected $Products = 'Products';
+    protected $ProductCategories = 'ProductCategories';
+    protected $Brands = 'Brands';
+    protected $Colors = 'Colors';
+    protected $Sizes = 'Sizes';
+    protected $Coupons = 'Coupons';
+    protected $Customers = 'Customers';
+    protected $Users = 'Users';
+    protected $Faqs = 'Faqs';
+    protected $Subscribers = 'Subscribers';
+    protected $ContactUs = 'ContactUs';
+   
     /* "global" veriable */
     var $pageData,$storeTemplateId,$storeActvTmplName; 
     var $ProdCatModel,$ProductModel,$CustomerModel,$BannerModel,$FaqModel,$CartModel,$SettingModel,$ProductFeedBackModel,$ContactUsModel,$SubscribesModel,$BrandModel,$TermsConditionsModel,$AboutUsModel,$CouponModel,$ColorModel,$SizeModel,$WishlistModel,$OrderModel,$CommonModel,$CustomerAddressesModel,$PaymentModel,$GiftCardModel,$ShippingModel,$GiftCardFeedbacksModel,$AdvertisementModel,$UserModel,$UserRoleModel,$NotificationsModel;
@@ -81,6 +98,7 @@ abstract class BaseController extends Controller
      */
     public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
     {
+        
         /* Do Not Edit This Line */
         parent::initController($request, $response, $logger);
         /* Preload any models, libraries, etc, here. */

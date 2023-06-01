@@ -27,6 +27,7 @@ class AdvertisementController extends BaseController
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){    
             $this->pageData['pageTitle'] = 'All Advertisements';	
             $this->pageData['adminPageId'] = 5;
+            $this->pageData['table'] = $this->Advertisements;
             $this->pageData['advertisementList'] = $this->AdvertisementModel->get_all_data();            
             return view('store_admin/advertisement/all-advertisements',$this->pageData);           
             

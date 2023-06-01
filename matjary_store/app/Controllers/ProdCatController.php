@@ -28,6 +28,7 @@ class ProdCatController extends BaseController
         if(isset($this->ses_user_logged_in) && $this->ses_user_logged_in===true){
             $this->pageData['pageTitle'] = 'All Product Categories';
             $this->pageData['adminPageId'] = 8;
+            $this->pageData['table'] = $this->ProductCategories;
             $this->pageData['notificationInfo'] = $this->NotificationsModel->get_all_data();
             $this->pageData['productCategoryList'] = $this->ProdCatModel->get_all_active_category_data();
             return view('store_admin/product_category/all-product-categories',$this->pageData);
