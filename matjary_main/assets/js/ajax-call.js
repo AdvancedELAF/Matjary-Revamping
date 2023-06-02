@@ -231,6 +231,7 @@ $(document).ready(function () {
 	/* //check domain availablity  */
 	$("#isThisSubdomainAvailable").click(function () {
 		let sub_domain_name = $("#sub_domain_name").val();
+		sub_domain_name = sub_domain_name.toLowerCase(); /* Convert to lowercase */
 		var action_page = $(this).data("actionurl");
 		let requestData = "sub_domain_name=" + sub_domain_name;
 		$.ajax({
@@ -256,6 +257,8 @@ $(document).ready(function () {
 
 	$("#subDomainAvailSbtBtn").click(function () {
 		let sub_domain_name = $("#sub_domain_name").val();
+		sub_domain_name = sub_domain_name.toLowerCase(); /* Convert to lowercase */
+		$("#sub_domain_name").val(sub_domain_name);
 		let action_page = $(this).data("action");
 		let requestData = "sub_domain_name=" + sub_domain_name;
 		$("#isThisSubdomainAvailableMessage").html("");
@@ -1129,25 +1132,19 @@ $(document).ready(function () {
 					resp = JSON.parse(resp);
 					if (resp.responseCode == 200) {
 						swal.close();
-
 						var couponData = resp.responseData;
-
 						var is_coupon_applied = $("#is_coupon_applied").val();
 						if (is_coupon_applied == 0) {
 							$("#is_coupon_applied").val(1);
 							$("#coupon_id").val(couponData.id);
 
 							var plan_total_price = $("#plan_total_price").val();
-							var coupon_amount =
-								(parseFloat(plan_total_price) *
-									parseInt(couponData.discount_in_percent)) /
-								100;
+							var coupon_amount = (parseFloat(plan_total_price) * parseInt(couponData.discount_in_percent)) / 100;
 
 							$("#coupon_amount").val(coupon_amount);
 							$("#discount_span").text(coupon_amount);
 
-							var updated_plan_total_price =
-								parseFloat(plan_total_price) - parseFloat(coupon_amount);
+							var updated_plan_total_price = parseFloat(plan_total_price) - parseFloat(coupon_amount);
 							$("#plan_total_price").val(updated_plan_total_price);
 							$("#plan_total_price_span").text(updated_plan_total_price);
 

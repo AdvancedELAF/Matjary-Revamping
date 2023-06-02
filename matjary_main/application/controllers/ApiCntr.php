@@ -1677,6 +1677,7 @@ class ApiCntr extends MY_Controller {
                         $couponAlreadyUsedStatus = $this->CouponModel->coupon_already_used($couponData->id,$decode_data['user_id']);
                         if($couponAlreadyUsedStatus==false){
                             $this->response['responseCode'] = 200;
+                            $this->response['messageCode'] = 'usr_cntr_msg_19';
                             $this->response['responseMessage'] = 'Success.';
                             $this->response['responseData'] = $couponData;
                             echo json_encode($this->response); exit;
