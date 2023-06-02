@@ -605,9 +605,26 @@ function language($lang){
             "About Store Information not added yet!"=>"حول معلومات المتجر لم تتم إضافتها بعد!",
             "Choose Action"=>"اختر الإجراء",
             "Proceed with Default"=>"تابع مع الافتراضي",
+            "Congratulations! You are ready to go!"=>"تهانينا! انت جاهز للذهاب!",
+            "We are delighted to inform you that you have successfully completed all the necessary modules and you can now access your store admin panel."=>"يسعدنا إخبارك بأنك أكملت بنجاح جميع الوحدات الضرورية ويمكنك الآن الوصول إلى لوحة إدارة متجرك.",
+            "You can now start adding products, product categories, brands and more to your ecommerce website. This is a great way to get your store up and running quickly."=>"يمكنك الآن البدء في إضافة المنتجات وفئات المنتجات والعلامات التجارية والمزيد إلى موقع التجارة الإلكترونية الخاص بك. هذه طريقة رائعة للحصول على متجرك وتشغيله بسرعة.",
+            "If you run into any issues while setting up or running your store, feel free to reach out to us at any time. We are always here to help!"=>"إذا واجهت أي مشاكل أثناء إعداد أو تشغيل متجرك ، فلا تتردد في التواصل معنا في أي وقت. نحن دائمًا هنا للمساعدة!",
+            ""=>"",
+            ""=>"",
+            ""=>"",
+            ""=>"",          
+
         ];
     }else{
         return [ 
+            "We are delighted to inform you that you have successfully completed all the necessary modules and you can now access your store admin panel."=>"We are delighted to inform you that you have successfully completed all the necessary modules and you can now access your store admin panel.",
+            "You can now start adding products, product categories, brands and more to your ecommerce website. This is a great way to get your store up and running quickly."=>"You can now start adding products, product categories, brands and more to your ecommerce website. This is a great way to get your store up and running quickly.",
+            "If you run into any issues while setting up or running your store, feel free to reach out to us at any time. We are always here to help!"=>"If you run into any issues while setting up or running your store, feel free to reach out to us at any time. We're always here to help!",
+            ""=>"",
+            ""=>"",
+            ""=>"",
+            ""=>"",           
+            "Congratulations! You are ready to go!"=>"Congratulations! You are ready to go!",
             "Proceed with Default"=>"Proceed with Default",
             "Choose Action"=>"Choose Action",
             "About Store Information not added yet!"=>"About Store Information not added yet!",

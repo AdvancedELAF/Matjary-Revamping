@@ -962,7 +962,8 @@ class FaqController extends BaseController
                             $this->pageData['supportEmail'] = $supportEmail;
                             $this->pageData['storeName'] = $storeName;
                             $mailBody = view('store_admin/email-templates/admin-reply-contact',$this->pageData);     
-                            $subject = $this->ses_lang=='en' ? $storeName." - Response From Support" : $storeName."- استجابة من الدعم";
+                            /*$subject = $this->ses_lang=='en' ? $storeName." - Response From Support" : $storeName."- استجابة من الدعم"; */
+                            $subject = $storeName." - Response From Support";
                             $sendEmail = $this->sendEmail($email,$mailBody,$subject);
                             if($sendEmail == true){
                                 $resp['responseCode'] = 200;
