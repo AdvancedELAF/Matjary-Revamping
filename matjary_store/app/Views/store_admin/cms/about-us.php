@@ -99,7 +99,7 @@ if($ses_lang == 'en'){
                                 <?php if(isset($GetAboutUsInfo->image) && !empty($GetAboutUsInfo->image)){ ?>
                                     <img src="<?php echo base_url('uploads/aboutus/'); ?>/<?php echo isset($GetAboutUsInfo->image)?$GetAboutUsInfo->image:''; ?>" alt="Abou Us image | <?php echo isset($GetAboutUsInfo->title)?$GetAboutUsInfo->title:''; ?>" class="img img-responsive" style="width:auto;min-width:100px;max-width:100px;heihgt:auto;min-height:100px;max-height:100px;">
                                    
-                                    <a href="javascript:void(0);" class="btn btn-danger btn-xs removeImg" data-actionurl="<?php echo base_url('admin/delete-image'); ?>" data-imgname="<?php echo isset($GetAboutUsInfo->image)?$GetAboutUsInfo->image:''; ?>" data-id="<?php echo $GetAboutUsInfo->id; ?>" data-tablename="AboutUs" data-tablecolumn="image"><i class="dw dw-delete-3"></i></a>
+                                    <a href="javascript:void(0);" class="btn btn-danger btn-xs removeImg"  data-actionurl="<?php echo base_url('admin/delete-image'); ?>" data-imgname="<?php echo isset($GetAboutUsInfo->image)?$GetAboutUsInfo->image:''; ?>" data-id="<?php echo $GetAboutUsInfo->id; ?>" data-tablename="AboutUs" data-tablecolumn="image"><i class="dw dw-delete-3"></i></a>
                                 <?php }else{ ?>
                                     <img src="https://products.ideadunes.com/assets/images/default_product.jpg" alt="Banner image | Default" class="img img-responsive" style="width:auto;min-width:100px;max-width:100px;height:auto;min-height:100px;max-height:100px;">
                                 <?php } ?> 

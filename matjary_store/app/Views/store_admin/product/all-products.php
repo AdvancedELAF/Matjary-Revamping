@@ -44,7 +44,7 @@ $ses_lang = $session->get('ses_lang');
             <table class="data-table table nowrap" id="viewAllProductList">
                 <thead>
                     <tr>
-                        <th scope="col"><input type="checkbox" id="checkAll"></th>
+                        <th><input type="checkbox" id="checkAll"></th>
                         <th>#</th>
                         <th class="table-plus datatable-nosort"><?php echo $language['Product Image']; ?></th>
                         <th><?php echo $language['Product Name']; ?></th>
@@ -136,7 +136,7 @@ $ses_lang = $session->get('ses_lang');
                     } else {
                         ?>
                         <tr>
-                            <td colspan="8"><?php echo $language['No record found.']; ?></td>
+                            <td colspan="9"><?php echo $language['No record found.']; ?></td>
                         </tr>
                     <?php
                     }

@@ -62,6 +62,9 @@ $(document).ready(function(){
         ],
         'pageLength': 10,
         'processing': true,
+        'columnDefs': [
+            { "orderable": false, "targets": [2, 7, 8 ] }
+        ],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -96,6 +99,9 @@ $(document).ready(function(){
         ],
         'pageLength': 10,
         'processing': true,
+        'columnDefs': [
+            { "orderable": false, "targets": [0, 2, 5, 6 ] }
+        ],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -129,6 +135,9 @@ $(document).ready(function(){
         ],
         'pageLength': 10,
         'processing': true,
+        'columnDefs': [
+            { "orderable": false, "targets": [0, 2 , 4 , 5 ] }
+        ],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -195,6 +204,7 @@ $(document).ready(function(){
         ],
         'pageLength': 10,
         'processing': true,
+        'ordering': true,
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
