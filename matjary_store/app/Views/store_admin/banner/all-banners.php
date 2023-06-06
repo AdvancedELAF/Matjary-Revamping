@@ -44,13 +44,13 @@ $ses_lang = $session->get('ses_lang');
             <table class="data-table table nowrap" id="viewAllBannerList">
                 <thead>
                     <tr>
-                        <th><input type="checkbox" id="checkAll"></th>
-                        <th>#</th>
-                        <th"><?php echo $language['Image']; ?></th>
-                        <th><?php echo $language['Title']; ?></th>
-                        <th><?php echo $language['Sub Title']; ?></th>
-                        <th><?php echo $language['Status']; ?></th>
-                        <th><?php echo $language['Action']; ?></th>
+                        <th scope="col"><input type="checkbox" id="checkAll"></th>
+                        <th scope="col">#</th>
+                        <th scope="col"><?php echo $language['Image']; ?></th>
+                        <th scope="col"><?php echo $language['Title']; ?></th>
+                        <th scope="col"><?php echo $language['Sub Title']; ?></th>
+                        <th scope="col"><?php echo $language['Status']; ?></th>
+                        <th scope="col"><?php echo $language['Action']; ?></th>
                     </tr>
                 </thead>
                 <tbody>

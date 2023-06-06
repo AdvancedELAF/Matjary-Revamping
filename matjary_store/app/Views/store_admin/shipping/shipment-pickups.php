@@ -52,7 +52,6 @@
                                     <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown"><i class="dw dw-more"></i></a>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
                                         <a class="dropdown-item cancelPickupBtn" href="javascript:void(0);" data-guid="<?php echo $value->pickup_res->ProcessedPickup->GUID; ?>" data-shipcmpid="<?php echo isset($value->ship_cmp_id)?$value->ship_cmp_id:''; ?>" data-actionurl="<?php echo base_url('admin/cancel-pickup'); ?>" class="cancelPickupBtn" title="Cancel Pickup Request"><?php echo $language['Cancel']; ?></a>
-                                        <!-- <a class="dropdown-item trackPickupBtn" href="javascript:void(0);" data-guid="<?php echo $value->pickup_res->ProcessedPickup->ID; ?>" data-shipcmpid="<?php echo isset($value->ship_cmp_id)?$value->ship_cmp_id:''; ?>" data-pickreffid="<?php echo isset($value->pickup_req_ref_id)?$value->pickup_req_ref_id:''; ?>" data-actionurl="<?php echo base_url('admin/track-pickup'); ?>" class="trackPickupBtn" title="Track Pickup Request">Track</a> -->
                                         <a class="dropdown-item" href="https://www.aramex.com/us/en/track/pickup-requests/pickup-details?GUID=<?php echo $value->pickup_res->ProcessedPickup->GUID; ?>" target="_blank" title="Track Pickup Request"><?php echo $language['Track']; ?></a>
                                     </div>
                                 </div>
@@ -64,7 +63,7 @@
                     }else{
                     ?>
                         <tr>
-                            <td colspan="8"><?php echo $language['No record found.']; ?></td>
+                            <td colspan="9"><?php echo $language['No record found.']; ?></td>
                         </tr>
                     <?php
                     }
