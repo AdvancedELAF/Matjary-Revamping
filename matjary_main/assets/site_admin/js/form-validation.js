@@ -478,7 +478,7 @@ $(document).ready(function () {
                 digits:true
             },
             fax_no: {
-                required: true,
+                required: false,
                 number:true,
                 digits:true
             }
@@ -621,7 +621,7 @@ $(document).ready(function () {
                 digits:true
             },
             fax_no: {
-                required: true,
+                required: false,
                 number:true,
                 digits:true
             }
@@ -682,7 +682,7 @@ $(document).ready(function () {
                 digits:true
             },
             fax_no: {
-                required: true,
+                required: false,
                 number:true,
                 digits:true
             }
