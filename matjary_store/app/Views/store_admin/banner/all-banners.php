@@ -143,7 +143,7 @@ $ses_lang = $session->get('ses_lang');
                     } else {
                         ?>
                         <tr>
-                            <td colspan="6"><?php echo $language['Action']; ?><?php echo $language['No record found']; ?>.</td>
+                            <td colspan="7"><?php echo $language['Action']; ?><?php echo $language['No record found']; ?>.</td>
                         </tr>
                     <?php
                     }

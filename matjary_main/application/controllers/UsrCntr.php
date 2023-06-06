@@ -1629,6 +1629,7 @@ class UsrCntr extends MY_Controller {
                         if ($couponData->apiResponse->responseCode == 200) {
                             $this->response['responseCode'] = $couponData->apiResponse->responseCode;
                             $this->response['responseMessage'] = $this->lang->line($couponData->apiResponse->messageCode);
+                            $this->response['responseData'] = $couponData->apiResponse->responseData;
                         } else {
                             $this->response['responseCode'] = $couponData->apiResponse->responseCode;
                             $this->response['responseMessage'] = $this->lang->line($couponData->apiResponse->messageCode);

@@ -108,7 +108,7 @@ class ProdCatController extends BaseController
                     $insertedId = $this->ProdCatModel->insert_data($insAry); 
                     if(is_int($insertedId)){
                         $resp['responseCode'] = 200;
-                        $resp['responseMessage'] =  $this->ses_lang=='en' ? "Product Category Added Successfully." : "تم إدراج فئة المنتج بنجاح.";
+                        $resp['responseMessage'] =  $this->ses_lang=='en' ? "Product Category Added Successfully." : "تمت إضافة فئة المنتج بنجاح.";
                         $resp['redirectUrl'] = base_url('admin/all-product-categories');
                         return json_encode($resp); exit;
                     }else{

@@ -58,10 +58,13 @@ $(document).ready(function(){
         'info': true,
         'dom': '<"container-fluid"<"row"<"col-sm-6"B><"col-sm-4"f><"col-sm-1"l >>>rtip',
         'buttons': [
-            'copy', 'csv', 'excel', 'pdf', 'print'
+            'copy', 'csv', 'excel', 'pdf', 'print' 
         ],
         'pageLength': 10,
         'processing': true,
+        'columnDefs': [
+            { "orderable": false, "targets": [2, 7, 8 ] }
+        ],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -96,6 +99,9 @@ $(document).ready(function(){
         ],
         'pageLength': 10,
         'processing': true,
+        'columnDefs': [
+            { "orderable": false, "targets": [0, 2, 5, 6 ] }
+        ],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -129,6 +135,9 @@ $(document).ready(function(){
         ],
         'pageLength': 10,
         'processing': true,
+        'columnDefs': [
+            { "orderable": false, "targets": [0, 2 , 4 , 5 ] }
+        ],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -162,6 +171,9 @@ $(document).ready(function(){
         ],
         'pageLength': 10,
         'processing': true,
+        'columnDefs': [
+            { "orderable": false, "targets": [ 4 ] }
+        ],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -195,6 +207,10 @@ $(document).ready(function(){
         ],
         'pageLength': 10,
         'processing': true,
+        'ordering': true,
+        'columnDefs': [
+            { "orderable": false, "targets": [ 0 , 4 ] }
+        ],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -228,6 +244,9 @@ $(document).ready(function(){
         ],
         'pageLength': 10,
         'processing': true,
+        'columnDefs': [
+            { "orderable": false, "targets": [ 5 , 6] }
+        ],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -261,6 +280,9 @@ $(document).ready(function(){
         ],
         'pageLength': 10,
         'processing': true,
+        'columnDefs': [
+            { "orderable": false, "targets": [ 5 , 6] }
+        ],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -294,6 +316,9 @@ $(document).ready(function(){
         ],
         'pageLength': 10,
         'processing': true,
+        'columnDefs': [
+            { "orderable": false, "targets": [ 4 , 5 , 6, 7] }
+        ],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -327,6 +352,9 @@ $(document).ready(function(){
         ],
         'pageLength': 10,
         'processing': true,
+        'columnDefs': [
+            { "orderable": false, "targets": [ 2 , 5 , 6 ] }
+        ],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -360,6 +388,9 @@ $(document).ready(function(){
         ],
         'pageLength': 10,
         'processing': true,
+        'columnDefs': [
+            { "orderable": false, "targets": [ 3 , 4] }
+        ],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -392,6 +423,9 @@ $(document).ready(function(){
         ],
         'pageLength': 10,
         'processing': true,
+        'columnDefs': [
+            { "orderable": false, "targets": [4] }
+        ],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -424,6 +458,9 @@ $(document).ready(function(){
         ],
         'pageLength': 10,
         'processing': true,
+        'columnDefs': [
+            { "orderable": false, "targets": [5] }
+        ],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -456,6 +493,9 @@ $(document).ready(function(){
         ],
         'pageLength': 10,
         'processing': true,
+        'columnDefs': [
+            { "orderable": false, "targets": [ 2 , 5 , 7] }
+        ],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -488,6 +528,9 @@ $(document).ready(function(){
         ],
         'pageLength': 10,
         'processing': true,
+        'columnDefs': [
+            { "orderable": false, "targets": [ 5 , 6 , 7 ] }
+        ],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -520,6 +563,9 @@ $(document).ready(function(){
         ],
         'pageLength': 10,
         'processing': true,
+        'columnDefs': [
+            { "orderable": false, "targets": [ 4 , 5] }
+        ],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -552,6 +598,9 @@ $(document).ready(function(){
         ],
         'pageLength': 10,
         'processing': true,
+        'columnDefs': [
+            { "orderable": false, "targets": [ 2, 5 , 6 , 7 ] }
+        ],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -585,6 +634,9 @@ $(document).ready(function(){
         ],
         'pageLength': 10,
         'processing': true,
+        'columnDefs': [
+            { "orderable": false, "targets": [ 5 , 6 , 7 ] }
+        ],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -618,6 +670,9 @@ $(document).ready(function(){
         ],
         'pageLength': 10,
         'processing': true,
+        'columnDefs': [
+            { "orderable": false, "targets": [ 7 , 8 ] }
+        ],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,

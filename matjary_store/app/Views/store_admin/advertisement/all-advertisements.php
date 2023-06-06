@@ -134,7 +134,7 @@
                     }else{
                     ?>
                         <tr>
-                            <td colspan="6"><?php echo $language['No record found'];?>.</td>
+                            <td colspan="8"><?php echo $language['No record found'];?>.</td>
                         </tr>
                     <?php
                     }

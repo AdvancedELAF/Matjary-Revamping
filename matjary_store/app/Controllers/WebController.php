@@ -6629,13 +6629,16 @@ class WebController extends BaseController
                     </li>
                     ';
                 }
-            }else{
-                    $output .= '
-                    <li class="list-group-item contsearch">
-                        <a href="#" class="gsearch" style="color:#333;text-decoration:none;">'.$this->ses_lang=='en'?'No Data Found':'لاتوجد بيانات'.'</a>
-                    </li>
-                    ';
-            }
+            }else{                  
+               
+                if($ses_lang=='en'){
+                    $output .= 
+                    '<li class="list-group-item contsearch"><a href="#" class="gsearch" style="color:#333;text-decoration:none;">No Data Found</a> </li>';
+                }else{
+                    $output .= 
+                    '<li class="list-group-item contsearch"><a href="#" class="gsearch" style="color:#333;text-decoration:none;">لاتوجد بيانات</a> </li>';                
+                }                        
+            }            
             echo $output;
         }
     }

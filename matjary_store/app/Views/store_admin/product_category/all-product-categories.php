@@ -91,9 +91,9 @@ $ses_lang = $session->get('ses_lang');
                                     <h5 class="font-16"><?php echo $category_name; ?></h5>
                                 </td>
                                 <td><?php if ($value->is_active == 1) {
-                                        echo 'Active';
+                                         echo $language['Active'];
                                     } else {
-                                        echo 'Deactivated';
+                                        echo $language['Deactivated'];
                                     } ?></td>
                                 <td>
                                     <div class="dropdown">
