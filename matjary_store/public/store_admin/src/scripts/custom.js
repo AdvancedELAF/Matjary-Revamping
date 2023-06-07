@@ -117,8 +117,9 @@ $(document).ready(function () {
 
     $( '#DataTables_Table_0_wrapper' ).on( 'click', '.payCmp', function () {
         let paycmpid = $(this).data('paycmpid');
-        //alert(paycmpid);
         let html = '';
+        let profileID = (lang == "en") ? "ملف البطاقة الشخصية" : "Profile ID";
+        let api_key = (lang == "en") ? "مفتاح API" : "API Key";
         if($(this).prop('checked') == true){
             if(paycmpid==1){
                 html += 
@@ -240,15 +241,15 @@ $(document).ready(function () {
                         '<div class="row">'+
                             '<input type="hidden" name="pay_cmp_id[]" value="'+paycmpid+'">'+
                             '<div class="col-md-4">'+
-                                '<label>Profile ID</label>'+
+                                '<label>'+profileID+'</label>'+
                                 '<div class="mb-2">'+
-                                    '<input type="text" name="profile_id[]" id="profile_id" class="form-control" placeholder="PayTabs Profile ID">'+
+                                    '<input type="text" name="profile_id[]" id="profile_id" class="form-control" placeholder="PayTabs '+profileID+'">'+
                                 '</div>'+
                             '</div>'+
                             '<div class="col-md-4">'+
-                                '<label>API Key</label>'+
+                                '<label>'+api_key+'</label>'+
                                 '<div class="mb-2">'+
-                                    '<input type="text" name="apikey[]" id="apikey" class="form-control" placeholder="API KEY">'+
+                                    '<input type="text" name="apikey[]" id="apikey" class="form-control" placeholder="'+api_key+'">'+
                                 '</div>'+
                             '</div>'+
                         '</div>'+
@@ -656,7 +657,7 @@ $(document).ready(function () {
             beforeSend: function() {
                 swal({
                     title: "",
-                    text: "Processing..",
+                    text: (lang == "en") ? "معالجة..." : "Processing...",
                     imageUrl: "https://media.tenor.com/OzAxe6-8KvkAAAAi/blue_spinner.gif",
                     showConfirmButton: false
                 });
