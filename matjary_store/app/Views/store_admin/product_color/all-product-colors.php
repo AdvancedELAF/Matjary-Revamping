@@ -92,7 +92,7 @@ $ses_lang = $session->get('ses_lang');
                     } else {
                         ?>
                         <tr>
-                            <td colspan="4">No record found.</td>
+                            <td colspan="5">No record found.</td>
                         </tr>
                     <?php
                     }

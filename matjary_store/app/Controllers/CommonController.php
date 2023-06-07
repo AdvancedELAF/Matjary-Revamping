@@ -140,9 +140,9 @@ class CommonController extends BaseController
                                 $resp['responseMessage'] = $errorMsg;
                                 return json_encode($resp); exit;
                             }
-                        }elseif($_POST['tablename']=='aboutus'){
+                        }elseif($_POST['tablename']=='AboutUs'){
                             /* update data  */
-                            $affectedRowId = $this->CommonModel->update_data($_POST['id'],'aboutus', array(
+                            $affectedRowId = $this->CommonModel->update_data($_POST['id'],'AboutUs', array(
                                 'image' => '',
                                 "updated_at" => DATETIME
                             ));
