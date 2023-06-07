@@ -182,7 +182,7 @@ $ses_lang = $session->get('ses_lang');
                                                     </div>
                                                 </div>
                                     <?php 
-                                                }elseif($val->pay_cmp_id==5){ //echo '<pre>'; print_r($payCmpInfo); exit;
+                                                }elseif($val->pay_cmp_id==5){ 
                                     ?>
                                                 <div class="row pay_cmp_form_div" id="Form<?php echo $val->pay_cmp_id; ?>">
                                                     <div class="col-md-1"></div>
@@ -190,15 +190,15 @@ $ses_lang = $session->get('ses_lang');
                                                         <div class="row">
                                                             <input type="hidden" name="pay_cmp_id[]" value="<?php echo $val->pay_cmp_id; ?>">
                                                             <div class="col-md-4">
-                                                                <label>Profile ID</label>
+                                                                <label><?php echo $language['Profile ID']; ?></label>
                                                                 <div class="mb-2">
-                                                                    <input type="text" name="profile_id[]" id="profile_id" class="form-control" value="<?php echo isset($payCmpInfo['profile_id'])?$payCmpInfo['profile_id']:''; ?>" placeholder="PayTabs Profile ID">
+                                                                    <input type="text" name="profile_id[]" id="profile_id" class="form-control" value="<?php echo isset($payCmpInfo['profile_id'])?$payCmpInfo['profile_id']:''; ?>" placeholder="PayTabs <?php echo $language['Profile ID']; ?>">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-4">
-                                                                <label>API Key</label>
+                                                                <label><?php echo $language['API Key']; ?></label>
                                                                 <div class="mb-2">
-                                                                    <input type="text" name="apikey[]" id="apikey" class="form-control" value="<?php echo isset($payCmpInfo['apikey'])?$payCmpInfo['apikey']:''; ?>" placeholder="API KEY">
+                                                                    <input type="text" name="apikey[]" id="apikey" class="form-control" value="<?php echo isset($payCmpInfo['apikey'])?$payCmpInfo['apikey']:''; ?>" placeholder="<?php echo $language['API Key']; ?>">
                                                                 </div>
                                                             </div>
                                                         </div>
