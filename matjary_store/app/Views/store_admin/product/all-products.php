@@ -41,8 +41,8 @@ $ses_lang = $session->get('ses_lang');
             </div>   
         </div>
         <div class="table-responsive pd-20">
-            <table class="data-table table nowrap" id="viewAllProductList">
-                <thead>
+            <table class="data-table table table-bordered nowrap" id="viewAllProductList">
+                <thead class="thead-light">
                     <tr>
                         <th><input type="checkbox" id="checkAll"></th>
                         <th>#</th>
