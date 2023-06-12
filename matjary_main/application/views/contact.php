@@ -10,7 +10,7 @@
                         <p class="wow fadeInUp"><?php echo $this->lang->line('contact-txt-2'); ?> <span class="matjary-font"><?php echo $this->lang->line('matjary'); ?></span> <?php echo $this->lang->line('team'); ?>.</p>
                         <div class="contact-details">
                             <h4 class="wow fadeInDown"><?php echo $this->lang->line('contact-txt-3'); ?></h4>
-                            <p class="wow fadeInUp"><i class="icofont-envelope"></i><a href="mailto:support@matjary.com">support@matjary.com</a></p>
+                            <p class="wow fadeInUp"><i class="icofont-envelope"></i><a href="mailto:support@<?php echo $domain = str_ireplace('www.', '', parse_url(base_url(), PHP_URL_HOST)); ?>">support@<?php echo $domain = str_ireplace('www.', '', parse_url(base_url(), PHP_URL_HOST)); ?></a></p>
                             <h4 class="wow fadeInDown"><?php echo $this->lang->line('call-us'); ?></h4>
                             <p class="wow fadeInUp"><i class="icofont-ui-call"></i><a href="tel:+966114007960">+966 11 4007960</a></p>
                         </div>
