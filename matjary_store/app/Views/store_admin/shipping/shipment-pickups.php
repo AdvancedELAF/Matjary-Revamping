@@ -18,8 +18,8 @@
     </div>
     <div class="card-box mb-30">
         <div class="table-responsive pd-20">
-            <table class="data-table table nowrap" id="viewAllShipmentPickupList">
-                <thead>
+            <table class="data-table table table-bordered nowrap" id="viewAllShipmentPickupList">
+                <thead class="thead-light">
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col"><?php echo $language['Datetime']; ?></th>

@@ -23,8 +23,8 @@
             </div>
         <?php } ?>
         <div class="table-responsive pd-20">
-            <table class="data-table table nowrap" id="viewAllShippingOrderList">
-                <thead>
+            <table class="data-table table table-bordered nowrap" id="viewAllShippingOrderList">
+                <thead class="thead-light">
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col"><?php echo $language['Order Reference']; ?></th>
