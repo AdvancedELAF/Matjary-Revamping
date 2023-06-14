@@ -135,7 +135,7 @@
             <p>Regards,</p>
             <p>Team <?php echo $storeName; ?></p>
             <div style="text-align: center; margin-top: 1rem; border-top: 5px solid #f5f5f5">
-                <p style="margin-bottom: 5px;">Powered by <a href="<?php echo $supportEmail;?>" target="_blank" style="text-decoration: none; color: #5294F7;"><?php echo $storeName; ?></a></p>
+                <p style="margin-bottom: 5px;">Powered by <a href="<?php echo base_url('home'); ?>" target="_blank" style="text-decoration: none; color: #5294F7;"><?php echo $storeName; ?></a></p>
                 <small>Address: <?php echo $address; ?> | <a href="mailto:<?php echo $supportEmail;?>" style="text-decoration: none; color: #5294F7;"><?php echo $supportEmail;?></a></small>
                 <div style="display: block; margin-left: auto; margin-right: auto; padding-top: 0.5rem;">
                     <a href="<?php echo $sociaFB; ?>"><img style="width: auto; height: 40px; object-fit: contain; margin: 2px;" src="<?php echo $server_site_path; ?>/store/<?php echo $templateName; ?>/assets/images/facebook.png"></a>

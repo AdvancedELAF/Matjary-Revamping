@@ -728,6 +728,7 @@ class UserController extends BaseController
                         $address = '';
                         $storeName = '';
                         $supportEmail = '';
+                        $storeName = '';
 
                         if(isset($this->pageData['storeSettingInfo']) && !empty($this->pageData['storeSettingInfo'])){
                             if (isset($this->pageData['storeSettingInfo']->logo) && !empty($this->pageData['storeSettingInfo']->logo)) {
