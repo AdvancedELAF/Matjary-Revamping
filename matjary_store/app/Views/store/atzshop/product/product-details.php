@@ -107,7 +107,7 @@ if($ses_lang=='en'){
                         ?>
                         <i class="icofont-star <?php echo $ratingClass; ?>" aria-label="Left Align"></i>
                         <?php } ?>                       
-                        <div class="prod-detail-rating"><h6>( <?php if(isset($cstratingCount) && !empty($cstratingCount)){ echo count($cstratingCount) ; }else{ echo '0';}?><?php echo $language['Customer Review']; ?>)</h6></div>
+                        <div class="prod-detail-rating"><h6>(<?php if(isset($cstratingCount) && !empty($cstratingCount)){ echo count($cstratingCount) ; }else{ echo '0';}?> <?php echo $language['Customer Review']; ?>)</h6></div>
                     </div>                    
                    
                     <div class="prod-stock-count">
