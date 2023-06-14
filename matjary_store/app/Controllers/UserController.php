@@ -726,6 +726,7 @@ class UserController extends BaseController
                         $socialLinkedin = 'javascript:void(0);';
                         $socialInstagram = 'javascript:void(0);';
                         $address = '';
+                        $storeName = '';
                         $supportEmail = '';
 
                         if(isset($this->pageData['storeSettingInfo']) && !empty($this->pageData['storeSettingInfo'])){
@@ -761,7 +762,7 @@ class UserController extends BaseController
                         $resetLink = base_url('admin/user-reset-new-password/'.$data->id);                  
                         $this->pageData['storeLogo'] = $store_logo;
                         $this->pageData['sociaFB'] = $sociaFB;
-                        $this->pageData['socialTwitter'] = $socialTwitter;
+                        $this->pageData['socialTwitter'] = $socialTwitter; 
                         $this->pageData['socialYoutube'] = $socialYoutube;
                         $this->pageData['socialLinkedin'] = $socialLinkedin;
                         $this->pageData['socialInstagram'] = $socialInstagram;       
