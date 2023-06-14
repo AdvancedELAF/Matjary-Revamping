@@ -46,9 +46,9 @@ $ses_lang = $session->get('ses_lang');
                         </div>
                         
                         <div class="col-md-6">
-                            <label><?php echo $language['Residental Address']; ?></label>
+                            <label><?php echo $language['Residential Address']; ?></label>
                             <div class="mb-2">
-                            <textarea class="form-control" placeholder="v" name="addr_residential" id="addr_residential"><?php echo isset($userDetails['addr_residential'])?$userDetails['addr_residential']:''; ?></textarea>
+                            <textarea class="form-control" placeholder="<?php echo $language['Residential Address']; ?>" name="addr_residential" id="addr_residential"><?php echo isset($userDetails['addr_residential'])?$userDetails['addr_residential']:''; ?></textarea>
                             </div>
                         </div>
                         <div class="col-md-6">

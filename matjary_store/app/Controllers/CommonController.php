@@ -48,9 +48,9 @@ class CommonController extends BaseController
                 if(isset($_POST['tablename']) && !empty($_POST['tablename'])){
                     if(isset($_POST['tablecolumn']) && !empty($_POST['tablecolumn'])){
                        
-                        if($_POST['tablename']=='products'){
+                        if($_POST['tablename']=='Products'){
                             /* update data  */
-                            $affectedRowId = $this->CommonModel->update_data($_POST['id'],'products', array(
+                            $affectedRowId = $this->CommonModel->update_data($_POST['id'],'Products', array(
                                 'image' => '',
                                 "updated_at" => DATETIME
                             ));
@@ -71,9 +71,9 @@ class CommonController extends BaseController
                                 $resp['responseMessage'] = $errorMsg;
                                 return json_encode($resp); exit;
                             }
-                        }elseif($_POST['tablename']=='productcategories'){
+                        }elseif($_POST['tablename']=='ProductCategories'){
                             /* update data  */
-                            $affectedRowId = $this->CommonModel->update_data($_POST['id'],'productcategories', array(
+                            $affectedRowId = $this->CommonModel->update_data($_POST['id'],'ProductCategories', array(
                                 'category_img' => '',
                                 "updated_at" => DATETIME
                             ));
@@ -94,9 +94,9 @@ class CommonController extends BaseController
                                 $resp['responseMessage'] = $errorMsg;
                                 return json_encode($resp); exit;
                             }
-                        }elseif($_POST['tablename']=='brands'){
+                        }elseif($_POST['tablename']=='Brands'){
                             /* update data  */
-                            $affectedRowId = $this->CommonModel->update_data($_POST['id'],'brands', array(
+                            $affectedRowId = $this->CommonModel->update_data($_POST['id'],'Brands', array(
                                 'brand_image' => '',
                                 "updated_at" => DATETIME
                             ));
@@ -117,9 +117,9 @@ class CommonController extends BaseController
                                 $resp['responseMessage'] = $errorMsg;
                                 return json_encode($resp); exit;
                             }
-                        }elseif($_POST['tablename']=='banners'){
+                        }elseif($_POST['tablename']=='Banners'){
                             /* update data  */
-                            $affectedRowId = $this->CommonModel->update_data($_POST['id'],'banners', array(
+                            $affectedRowId = $this->CommonModel->update_data($_POST['id'],'Banners', array(
                                 'image' => '',
                                 "updated_at" => DATETIME
                             ));
@@ -163,9 +163,9 @@ class CommonController extends BaseController
                                 $resp['responseMessage'] = $errorMsg;
                                 return json_encode($resp); exit;
                             }
-                        }elseif($_POST['tablename']=='giftcards'){
+                        }elseif($_POST['tablename']=='GiftCards'){
                             /* update data  */
-                            $affectedRowId = $this->CommonModel->update_data($_POST['id'],'giftcards', array(
+                            $affectedRowId = $this->CommonModel->update_data($_POST['id'],'GiftCards', array(
                                 'image' => '',
                                 "updated_at" => DATETIME
                             ));
@@ -257,7 +257,7 @@ class CommonController extends BaseController
                             }
                         }elseif($_POST['tablename']=='Settings'){
                             /* update data  */
-                            $affectedRowId = $this->CommonModel->update_data($_POST['id'],'Setting', array(
+                            $affectedRowId = $this->CommonModel->update_data($_POST['id'],'Settings', array(
                                 'favicon' => '',
                                 "updated_at" => DATETIME
                             ));
