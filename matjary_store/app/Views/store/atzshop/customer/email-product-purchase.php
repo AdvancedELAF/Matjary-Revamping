@@ -344,7 +344,7 @@
             </div>
         </div>
         <div class="mail-footer">
-                <p>&copy 2022.All Rights Reserved | Powered by <a href="#">Matjary</a></p>
+        <p>&copy <?php echo date("Y"); ?> .All Rights Reserved | Powered by <a href="<?php echo base_url('home'); ?>"><?php echo $storeName; ?></a></p>
         </div>
     </div>            
 </body>
