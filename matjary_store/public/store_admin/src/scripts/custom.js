@@ -16,6 +16,15 @@ $(document).ready(function () {
             $("#dTypeInput").css("display", "none");
         }
     })
+    
+    $("#discount_type").change(function () {
+        let discount_type = $(this).val(); 
+        if(discount_type==2){
+            $("#discount_value").attr("maxlength",4);
+        }else{
+            $("#discount_value").attr("maxlength",2);
+        }
+    })
 
     $("#couponForList").change(function () {
 
@@ -657,7 +666,7 @@ $(document).ready(function () {
             beforeSend: function() {
                 swal({
                     title: "",
-                    text: (lang == "en") ? "معالجة..." : "Processing...",
+                    text: "Processing..",
                     imageUrl: "https://media.tenor.com/OzAxe6-8KvkAAAAi/blue_spinner.gif",
                     showConfirmButton: false
                 });
