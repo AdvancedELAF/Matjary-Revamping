@@ -727,6 +727,7 @@ class UserController extends BaseController
                         $socialInstagram = 'javascript:void(0);';
                         $address = '';
                         $supportEmail = '';
+                        $storeName = '';
 
                         if(isset($this->pageData['storeSettingInfo']) && !empty($this->pageData['storeSettingInfo'])){
                             if (isset($this->pageData['storeSettingInfo']->logo) && !empty($this->pageData['storeSettingInfo']->logo)) {

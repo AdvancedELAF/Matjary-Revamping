@@ -137,7 +137,7 @@
             </div>
             <p>Team <?php echo $storeName; ?>,</p>
             <div style="text-align: center; margin-top: 1rem; border-top: 5px solid #f5f5f5">
-                <p style="margin-bottom: 5px;">Powered by <a href="<?php echo $supportEmail;?>" target="_blank" style="text-decoration: none; color: #5294F7;"><?php echo $storeName; ?></a></p>
+            <p style="margin-bottom: 5px;">Powered by <a href="<?php echo base_url('home'); ?>" target="_blank" style="text-decoration: none; color: #5294F7;"><?php echo $storeName; ?></a></p>
                 <small>Address: <?php echo $address; ?> | 
                     <a href="mailto:<?php echo $supportEmail;?>" style="text-decoration: none; color: #5294F7;"><?php echo $supportEmail;?></a>
                 </small>
