@@ -353,8 +353,9 @@ $ses_lang = $session->get('ses_lang');
                         </ul>
                     </div>
                 </div>
+
                 <div class="footer-credit text-center">
-                    <p><?php echo $language['Powered By']; ?> <a href="https://matjary.sa">Matjary</a></p>
+                    <p><?php echo $language['Powered By']; ?> <a href="<?php echo base_url('home'); ?>"><?php echo $storeSettingInfo->name; ?></a></p>
                 </div>
             </div>
         </div>

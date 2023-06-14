@@ -214,7 +214,7 @@ abstract class BaseController extends Controller
         $this->pageData['storeActvTmplName'] = '';
         /* call store info api start */
         //$store_link = base_url(); /* at server side */
-        $store_link = 'https://santosh.matjary.sa/'; 
+        $store_link = 'https://finalstore.matjary.sa/'; 
         $store_token = $this->pageData['storeSettingInfo']->auth_tkn;
         if(isset($this->pageData['storeSettingInfo']->auth_tkn) && !empty($this->pageData['storeSettingInfo']->auth_tkn)){
             $data_array =  array(
