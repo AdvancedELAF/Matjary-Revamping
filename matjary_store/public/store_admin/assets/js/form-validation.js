@@ -908,7 +908,8 @@ $(document).ready(function() {
                 required:true
             },
             wholesale_price:{
-                required:true
+                required:true,
+                greaterThans: "#retail_price"
             },
             discount_per:{
                 required:false
@@ -965,6 +966,9 @@ $(document).ready(function() {
         },
         /* For custom messages */
         messages: {
+            'wholesale_price': {
+                greaterThans: (lang == "en") ?'يجب أن يكون سعر الجملة أقل من سعر التجزئة':'Wholesale Price Should be less than the Retail Price.' 
+            }
             
         },
         debug: true,

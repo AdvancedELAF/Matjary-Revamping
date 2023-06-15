@@ -726,7 +726,6 @@ class UserController extends BaseController
                         $socialLinkedin = 'javascript:void(0);';
                         $socialInstagram = 'javascript:void(0);';
                         $address = '';
-                        $storeName = '';
                         $supportEmail = '';
                         $storeName = '';
 

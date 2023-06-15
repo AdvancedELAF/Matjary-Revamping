@@ -70,7 +70,6 @@ if($ses_lang=='en'){
     color: #FFCE31 !important;
 }
 </style>
-<?php //echo '<pre>'; print_r($productDetails); die;?>
 <!-- PRODUCT DETAIL STARTS -->
 <section class="section-spacing <?php if($locale=='ar'){echo 'text-right';} ?>">
     <div class="container">
