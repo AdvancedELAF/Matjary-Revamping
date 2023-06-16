@@ -90,7 +90,9 @@ $ses_lang = $session->get('ses_lang');
                         </a>                       
                     </div>
                     <div class="home-prod-price mt-0 mb-3">
+                    <?php if($productData->discount_per != 0){ ?>
                         <h6 class="strike-amount"><?php echo $language['SAR']; ?> <?php echo isset($productData->retail_price)?number_format((float)$productData->retail_price, 2, '.', ''):''; ?></h6>
+                    <?php } ?>
                         <h5 class="sale-amount"><?php echo $language['SAR']; ?> <?php echo isset($productData->product_price)?number_format((float)$productData->product_price, 2, '.', ''):''; ?></h5>                        
                     </div>
                     <div class="wishlist">
