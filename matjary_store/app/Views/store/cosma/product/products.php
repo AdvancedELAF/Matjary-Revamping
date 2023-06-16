@@ -51,7 +51,9 @@ $ses_lang = $session->get('ses_lang');
                 <div class="main-prod-wrapper"><a href="<?php echo base_url('product/product-details/'.$productData->id); ?>"><img src="<?php echo base_url('/uploads/product/'); ?>/<?php echo isset($productData->image)?$productData->image:''; ?>"></a></div>
                 <div class="prod-detail"><h4><a href="<?php echo base_url('product/product-details/'.$productData->id); ?>"><?php echo $title; ?> </a></h4></div>
                 <div class="home-prod-price text-center">
+                    <?php if($productData->discount_per != 0){ ?>
                     <span class="strike-amount"><?php echo $language['SAR']; ?> <?php echo isset($productData->retail_price)?number_format((float)$productData->retail_price, 2, '.', ''):''; ?></span>
+                    <?php } ?>
                     <span class="sale-amount"><?php echo $language['SAR']; ?> <?php echo isset($productData->product_price)?number_format((float)$productData->product_price, 2, '.', ''):''; ?></span>
                 </div>
                 <div class="text-center mt-3 mb-5">                    
