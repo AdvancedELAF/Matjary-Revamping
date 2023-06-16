@@ -826,6 +826,7 @@ class UserController extends BaseController
                 $insertedCustmrPassId = $this->UserModel->update_user_pass_data($_POST['user_id'],array(                                                                           
                     'user_id' => $_POST['user_id'],
                     'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT), 
+                    'is_active' => 1,
                     "updated_at" => DATETIME
                 ));
                 $resp['responseCode'] = 200;
