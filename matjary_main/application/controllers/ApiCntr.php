@@ -961,7 +961,7 @@ class ApiCntr extends MY_Controller {
                                     'plan_details' => $plan_details, 
                                     'subscription_type' => $UsrRegDomainData->subscription_type,
                                     'billing_type' => $billing_type,
-                                    'discount' => '0.00',
+                                    'discount' => isset($UsrRegDomainData->coupon_amount)?$UsrRegDomainData->coupon_amount:'0.00',
                                     'bill_info_address' => $UsrRegDomainData->bill_info_address,
                                     'total' => number_format((float)$UsrRegDomainData->total_price, 2, '.', ''),
                                     'payment_status' => $payment_status
