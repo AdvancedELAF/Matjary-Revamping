@@ -2175,7 +2175,6 @@ $(document).ready(function(){
                         $('#category-carousel-'+carouselid).html('');
                         let productList = respData.responseData;
                         $.each(productList,function(key, value){
-                            console.log(value);
                             var prodImg = value.image;
                             var retail_price = parseFloat(value.retail_price);
                             var product_price = parseFloat(value.product_price);

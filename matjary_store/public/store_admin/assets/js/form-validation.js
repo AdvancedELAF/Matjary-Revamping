@@ -96,7 +96,7 @@ $(document).ready(function() {
         $.validator.addMethod('greaterThans', function(value, element) {
             var retail_price = $("#retail_price").val();
             var wholesale_price = $('#wholesale_price').val();
-            return retail_price >= wholesale_price;
+            return retail_price > wholesale_price;
         });
     /* End */
 
