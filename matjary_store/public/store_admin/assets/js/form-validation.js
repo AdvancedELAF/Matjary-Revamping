@@ -93,9 +93,9 @@ $(document).ready(function() {
     /* check valid strong passsword end */
 
     /* Grater than retails price product validations */
-        $.validator.addMethod('greaterThans', function(value, element) {
-            var retail_price = $("#retail_price").val();
-            var wholesale_price = $('#wholesale_price').val();
+        $.validator.addMethod('checkRetailsWholesalePrice', function(value, element) {
+            var retail_price = Number($("#retail_price").val());
+            var wholesale_price = Number($('#wholesale_price').val());
             return retail_price > wholesale_price;
         });
     /* End */
@@ -811,7 +811,7 @@ $(document).ready(function() {
             },
             wholesale_price:{
                 required:true,
-                greaterThans: "#retail_price"
+                checkRetailsWholesalePrice: "#retail_price"
             },
             discount_per:{
                 required:false
@@ -869,7 +869,7 @@ $(document).ready(function() {
         /* For custom messages */
         messages: {
             'wholesale_price': {
-                greaterThans: (lang == "en") ?'يجب أن يكون سعر الجملة أقل من سعر التجزئة':'Wholesale Price Should be less than the Retail Price.' 
+                checkRetailsWholesalePrice: (lang == "en") ?'يجب أن يكون سعر الجملة أقل من سعر التجزئة':'Wholesale Price Should be less than the Retail Price.' 
             } 
             
         },
@@ -909,7 +909,7 @@ $(document).ready(function() {
             },
             wholesale_price:{
                 required:true,
-                greaterThans: "#retail_price"
+                checkRetailsWholesalePrice: "#retail_price"
             },
             discount_per:{
                 required:false
@@ -967,7 +967,7 @@ $(document).ready(function() {
         /* For custom messages */
         messages: {
             'wholesale_price': {
-                greaterThans: (lang == "en") ?'يجب أن يكون سعر الجملة أقل من سعر التجزئة':'Wholesale Price Should be less than the Retail Price.' 
+                checkRetailsWholesalePrice: (lang == "en") ?'يجب أن يكون سعر الجملة أقل من سعر التجزئة':'Wholesale Price Should be less than the Retail Price.' 
             }
             
         },
