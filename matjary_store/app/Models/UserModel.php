@@ -177,17 +177,41 @@ class UserModel extends Model {
        
     }
 
-    public function update_cust_pass($userId, $data = array()){
-        $this->db->table('UsersCredentials')->update($data, array(
-            "user_id" => $userId
+    public function update_cust_pass($customer_id, $data = array()){
+
+        $query = $this->db->query(
+            "SELECT uc.id FROM CustomersCredentials as uc WHERE uc.customer_id=".$customer_id
+        );
+        $result = $query->getRow();
+        if(isset($result) && !empty($result)){
+            $this->db->table('CustomersCredentials')->update($data, array(
+                "customer_id" => $customer_id
+            ));
+        }else{
+            $this->db->table('CustomersCredentials')->insert($data);
+        }
+
+        $this->db->table('PasswordResets')->update(array(
+            "customer_id" => $customer_id,
+            "reset_flag" => 0,
+            "updated_at" => DATETIME
         ));
         return $this->db->affectedRows();
     }
 
     public function update_user_pass_data($userId, $data = array()){
-        $this->db->table('UsersCredentials')->update($data, array(
-            "user_id" => $userId
-        ));
+
+        $query = $this->db->query(
+            "SELECT uc.id FROM UsersCredentials as uc WHERE uc.user_id=".$userId
+        );
+        $result = $query->getRow();
+        if(isset($result) && !empty($result)){
+            $this->db->table('UsersCredentials')->update($data, array(
+                "user_id" => $userId
+            ));
+        }else{
+            $this->db->table('UsersCredentials')->insert($data);
+        }
 
         $this->db->table('PasswordResets')->update(array(
             "user_id" => $userId,

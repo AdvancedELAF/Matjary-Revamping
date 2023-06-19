@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    let lang = $("#languageChange").data('lang');
+
     $("#discountTypeList").change(function () {
 
         var percString = "perc";
@@ -12,6 +14,15 @@ $(document).ready(function () {
 
         else {
             $("#dTypeInput").css("display", "none");
+        }
+    })
+    
+    $("#discount_type").change(function () {
+        let discount_type = $(this).val(); 
+        if(discount_type==2){
+            $("#discount_value").attr("maxlength",4);
+        }else{
+            $("#discount_value").attr("maxlength",2);
         }
     })
 
@@ -115,8 +126,9 @@ $(document).ready(function () {
 
     $( '#DataTables_Table_0_wrapper' ).on( 'click', '.payCmp', function () {
         let paycmpid = $(this).data('paycmpid');
-        //alert(paycmpid);
         let html = '';
+        let profileID = (lang == "en") ? "ملف البطاقة الشخصية" : "Profile ID";
+        let api_key = (lang == "en") ? "مفتاح API" : "API Key";
         if($(this).prop('checked') == true){
             if(paycmpid==1){
                 html += 
@@ -238,15 +250,15 @@ $(document).ready(function () {
                         '<div class="row">'+
                             '<input type="hidden" name="pay_cmp_id[]" value="'+paycmpid+'">'+
                             '<div class="col-md-4">'+
-                                '<label>Profile ID</label>'+
+                                '<label>'+profileID+'</label>'+
                                 '<div class="mb-2">'+
-                                    '<input type="text" name="profile_id[]" id="profile_id" class="form-control" placeholder="PayTabs Profile ID">'+
+                                    '<input type="text" name="profile_id[]" id="profile_id" class="form-control" placeholder="PayTabs '+profileID+'">'+
                                 '</div>'+
                             '</div>'+
                             '<div class="col-md-4">'+
-                                '<label>API Key</label>'+
+                                '<label>'+api_key+'</label>'+
                                 '<div class="mb-2">'+
-                                    '<input type="text" name="apikey[]" id="apikey" class="form-control" placeholder="API KEY">'+
+                                    '<input type="text" name="apikey[]" id="apikey" class="form-control" placeholder="'+api_key+'">'+
                                 '</div>'+
                             '</div>'+
                         '</div>'+
@@ -494,6 +506,17 @@ $(document).ready(function () {
         //alert(shipcmpid);
         let html = '';
         if($(this).prop('checked') == true){
+            
+            let var1 = (lang == "en") ? "عنوان الشحن (ملاحظة: مسموح بـ 50 حرفًا فقط)" : "Shipping Address (Note : Only 50 charactors are allowed)";
+            let var2 = (lang == "en") ? "عنوان الشحن" : "Shipping Address";
+            let Zipcode = (lang == "en") ? "الرمز البريدي" : "Zipcode";
+            let var3 = (lang == "en") ? "تكلفة الشحن" : "Shipping Cost";
+            let var4 = (lang == "en") ? "رقم حساب أرامكس" : "Aramex Account Number";
+            let var5 = (lang == "en") ? "رقم التعريف الشخصي لحساب أرامكس" : "Aramex Account Pin";
+            let var6 = (lang == "en") ? "اسم مستخدم أرامكس" : "Aramex Username";
+            let var7 = (lang == "en") ? "كلمة مرور أرامكس" : "Aramex Password";
+            let var8 = (lang == "en") ? "اسم مستخدم ZipShip" : "ZipShip Username";
+            let var9 = (lang == "en") ? "كلمة مرور ZipShip" : "ZipShip Password";
             if(shipcmpid==1){
                 html += 
                 '<div class="row ship_cmp_form_div" id="Form'+shipcmpid+'">'+
@@ -504,45 +527,45 @@ $(document).ready(function () {
                             '<input type="hidden" name="ship_cmp_city[]" value="Riyadh">'+
                             '<input type="hidden" name="ship_cmp_country_code[]" value="SA">'+
                             '<div class="col-md-12">'+
-                                '<label>Shipping Address (Note : Only 50 charactors are allowed) </label>'+
+                                '<label>'+var1+' </label>'+
                                 '<div class="mb-2">'+
-                                    '<textarea name="address[]" class="form-control ship_cmp_addr" rows="2" maxlength ="52" placeholder="Shipping Address" id="address"  ></textarea>'+
+                                    '<textarea name="address[]" class="form-control ship_cmp_addr" rows="2" maxlength ="52" placeholder="'+var2+'" id="address"  ></textarea>'+
                                 '</div>'+
                             '</div>'+
                             '<div class="col-md-4">'+
-                                '<label>Zipcode</label>'+
+                                '<label>'+Zipcode+'</label>'+
                                 '<div class="mb-2">'+
-                                    '<input type="text" name="zipcode[]" class="form-control" placeholder="Zipcode" id="zipcode"  >'+
+                                    '<input type="text" name="zipcode[]" class="form-control" placeholder="'+Zipcode+'" id="zipcode"  >'+
                                 '</div>'+
                             '</div>'+
                             '<div class="col-md-4">'+
-                                '<label>Shipping Cost</label>'+
+                                '<label>'+var3+'</label>'+
                                 '<div class="mb-2">'+
-                                    '<input type="text" name="cost[]" class="form-control ship_cmp_cost" placeholder="Shipping Cost" id="cost"  >'+
+                                    '<input type="text" name="cost[]" class="form-control ship_cmp_cost" placeholder="'+var3+'" id="cost"  >'+
                                 '</div>'+
                             '</div>'+
                             '<div class="col-md-4">'+
-                                '<label>Aramex Account Number</label>'+
+                                '<label>'+var4+'</label>'+
                                 '<div class="mb-2">'+
-                                    '<input type="tel" name="ac_no[]" class="form-control ship_cmp_ac_no" placeholder="Aramex Account Number">'+
+                                    '<input type="tel" name="ac_no[]" class="form-control ship_cmp_ac_no" placeholder="'+var4+'">'+
                                 '</div>'+
                             '</div>'+
                             '<div class="col-md-4">'+
-                                '<label>Aramex Account Pin</label>'+
+                                '<label>'+var5+'</label>'+
                                 '<div class="mb-2">'+
-                                    '<input type="text" name="ac_pin[]" id="ac_pin" class="form-control" placeholder="Aramex Account Pin">'+
+                                    '<input type="text" name="ac_pin[]" id="ac_pin" class="form-control" placeholder="'+var5+'">'+
                                 '</div>'+
                             '</div>'+
                             '<div class="col-md-4">'+
-                                '<label>Aramex Username</label>'+
+                                '<label>'+var6+'</label>'+
                                 '<div class="mb-2">'+
-                                    '<input type="tel" name="username[]" class="form-control ship_cmp_username" placeholder="Aramex Username">'+
+                                    '<input type="tel" name="username[]" class="form-control ship_cmp_username" placeholder="'+var6+'">'+
                                 '</div>'+
                             '</div>'+
                             '<div class="col-md-4">'+
-                                '<label>Aramex Password</label>'+
+                                '<label>'+var7+'</label>'+
                                 '<div class="mb-2">'+
-                                    '<input type="password" name="password[]" class="form-control ship_cmp_password" placeholder="Aramex Password">'+
+                                    '<input type="password" name="password[]" class="form-control ship_cmp_password" placeholder="'+var7+'">'+
                                 '</div>'+
                             '</div>'+
                         '</div>'+
@@ -557,33 +580,33 @@ $(document).ready(function () {
                         '<div class="row">'+
                             '<input type="hidden" name="ship_cmp_id[]" value="'+shipcmpid+'">'+
                             '<div class="col-md-12">'+
-                                '<label>Shipping Address</label>'+
+                                '<label>'+var1+'</label>'+
                                 '<div class="mb-2">'+
-                                    '<textarea name="address[]" class="form-control" rows="2" placeholder="Shipping Address" id="address"  ></textarea>'+
+                                    '<textarea name="address[]" class="form-control" rows="2" placeholder="'+var1+'" id="address"  ></textarea>'+
                                 '</div>'+
                             '</div>'+
                             '<div class="col-md-4">'+
-                                '<label>Shipping Cost</label>'+
+                                '<label>'+var3+'</label>'+
                                 '<div class="mb-2">'+
-                                    '<input type="text" name="cost[]" class="form-control" placeholder="Shipping Cost" id="cost"  >'+
+                                    '<input type="text" name="cost[]" class="form-control" placeholder="'+var3+'" id="cost"  >'+
                                 '</div>'+
                             '</div>'+
                             '<div class="col-md-4">'+
-                                '<label>ZipShip Account Number</label>'+
+                                '<label>'+var4+'</label>'+
                                 '<div class="mb-2">'+
-                                    '<input type="tel" name="ac_no[]" class="form-control" placeholder="ZipShip Account Number">'+
+                                    '<input type="tel" name="ac_no[]" class="form-control" placeholder="'+var4+'">'+
                                 '</div>'+
                             '</div>'+
                             '<div class="col-md-4">'+
-                                '<label>ZipShip Username</label>'+
+                                '<label>'+var8+'</label>'+
                                 '<div class="mb-2">'+
-                                    '<input type="tel" name="username[]" class="form-control" placeholder="ZipShip Username">'+
+                                    '<input type="tel" name="username[]" class="form-control" placeholder="'+var8+'">'+
                                 '</div>'+
                             '</div>'+
                             '<div class="col-md-4">'+
-                                '<label>ZipShip Password</label>'+
+                                '<label>'+var9+'</label>'+
                                 '<div class="mb-2">'+
-                                    '<input type="password" name="password[]" class="form-control" placeholder="ZipShip Password">'+
+                                    '<input type="password" name="password[]" class="form-control" placeholder="'+var9+'">'+
                                 '</div>'+
                             '</div>'+
                         '</div>'+

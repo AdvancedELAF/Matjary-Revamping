@@ -1471,7 +1471,7 @@ class UsrCntr extends MY_Controller {
                                         'template_name' => $userPaymentData->template_name,
                                         'template_cost'=> $userPaymentData->template_cost,
                                         'plan_tmpl_buy_status'=> $userPaymentData->plan_tmpl_buy_status,
-                                        'discount' => '0.00',
+                                        'discount' => isset($userPaymentData->coupon_amount)?$userPaymentData->coupon_amount:'0.00',
                                         'bill_info_address' => $userPaymentData->bill_info_address,
                                         'total' => number_format((float)$userPaymentData->total_price, 2, '.', ''),
                                         'payment_status' => $payment_status

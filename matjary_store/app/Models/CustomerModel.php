@@ -87,13 +87,22 @@ class CustomerModel extends Model {
         return $this->db->affectedRows();
     }
 
-    public function update_cust_pass_data($customerId, $data = array()){
-        $this->db->table('CustomersCredentials')->update($data, array(
-            "customer_id" => $customerId
-        ));
+    public function update_cust_pass_data($customer_id, $data = array()){
+
+        $query = $this->db->query(
+            "SELECT uc.id FROM CustomersCredentials as uc WHERE uc.customer_id=".$customer_id
+        );
+        $result = $query->getRow();
+        if(isset($result) && !empty($result)){
+            $this->db->table('CustomersCredentials')->update($data, array(
+                "customer_id" => $customer_id
+            ));
+        }else{
+            $this->db->table('CustomersCredentials')->insert($data);
+        }
 
         $this->db->table('PasswordResets')->update(array(
-            "customer_id" => $customerId,
+            "customer_id" => $customer_id,
             "reset_flag" => 0,
             "updated_at" => DATETIME
         ));

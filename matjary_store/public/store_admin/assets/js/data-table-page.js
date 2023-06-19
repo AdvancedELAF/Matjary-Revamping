@@ -62,9 +62,11 @@ $(document).ready(function(){
         ],
         'pageLength': 10,
         'processing': true,
-        'columnDefs': [
-            { "orderable": false, "targets": [2, 7, 8 ] }
-        ],
+        'order': [[1,'asc']],
+        'columnDefs': [ {
+			  'targets': [0, 2, 3, 8], // column index (start from 0)
+              'orderable': false, // set orderable false for selected columns
+		}],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -98,10 +100,12 @@ $(document).ready(function(){
             'copy', 'csv', 'excel', 'pdf', 'print'
         ],
         'pageLength': 10,
-        'processing': true,
-        'columnDefs': [
-            { "orderable": false, "targets": [0, 2, 5, 6 ] }
-        ],
+        'processing': true,        
+        'order': [[1,'asc']],
+        'columnDefs': [ {
+			  'targets': [0, 2, 5, 6], // column index (start from 0)
+              'orderable': false, // set orderable false for selected columns
+		}],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -134,10 +138,12 @@ $(document).ready(function(){
             'copy', 'csv', 'excel', 'pdf', 'print'
         ],
         'pageLength': 10,
-        'processing': true,
-        'columnDefs': [
-            { "orderable": false, "targets": [0, 2 , 4 , 5 ] }
-        ],
+        'processing': true,       
+        'order': [[1,'asc']],
+        'columnDefs': [ {
+			  'targets': [0, 2 , 5], // column index (start from 0)
+              'orderable': false, // set orderable false for selected columns
+		}],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -171,9 +177,11 @@ $(document).ready(function(){
         ],
         'pageLength': 10,
         'processing': true,
-        'columnDefs': [
-            { "orderable": false, "targets": [ 4 ] }
-        ],
+        'order': [[1,'asc']],
+        'columnDefs': [ {
+			  'targets': [0, 4], // column index (start from 0)
+              'orderable': false, // set orderable false for selected columns
+		}],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -208,9 +216,11 @@ $(document).ready(function(){
         'pageLength': 10,
         'processing': true,
         'ordering': true,
-        'columnDefs': [
-            { "orderable": false, "targets": [ 0 , 4 ] }
-        ],
+        'order': [[1,'asc']],
+        'columnDefs': [ {
+			  'targets': [0, 4], // column index (start from 0)
+              'orderable': false, // set orderable false for selected columns
+		}],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -244,9 +254,11 @@ $(document).ready(function(){
         ],
         'pageLength': 10,
         'processing': true,
-        'columnDefs': [
-            { "orderable": false, "targets": [ 5 , 6] }
-        ],
+        'order': [[1,'asc']],
+        'columnDefs': [ {
+			  'targets': [0, 6], // column index (start from 0)
+              'orderable': false, // set orderable false for selected columns
+		}],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -280,9 +292,11 @@ $(document).ready(function(){
         ],
         'pageLength': 10,
         'processing': true,
-        'columnDefs': [
-            { "orderable": false, "targets": [ 5 , 6] }
-        ],
+        'order': [[1,'asc']],
+        'columnDefs': [ {
+			  'targets': [0, 6], // column index (start from 0)
+              'orderable': false, // set orderable false for selected columns
+		}],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -315,10 +329,12 @@ $(document).ready(function(){
             'copy', 'csv', 'excel', 'pdf', 'print'
         ],
         'pageLength': 10,
-        'processing': true,
-        'columnDefs': [
-            { "orderable": false, "targets": [ 4 , 5 , 6, 7] }
-        ],
+        'processing': true,       
+        'order': [[1,'asc']],
+        'columnDefs': [ {
+			  'targets': [0, 7], // column index (start from 0)
+              'orderable': false, // set orderable false for selected columns
+		}],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -352,9 +368,11 @@ $(document).ready(function(){
         ],
         'pageLength': 10,
         'processing': true,
-        'columnDefs': [
-            { "orderable": false, "targets": [ 2 , 5 , 6 ] }
-        ],
+        'order': [[1,'asc']],
+        'columnDefs': [ {
+			  'targets': [0, 2, 6], // column index (start from 0)
+              'orderable': false, // set orderable false for selected columns
+		} ],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -388,9 +406,11 @@ $(document).ready(function(){
         ],
         'pageLength': 10,
         'processing': true,
-        'columnDefs': [
-            { "orderable": false, "targets": [ 3 , 4] }
-        ],
+        'order': [[1,'asc']],
+        'columnDefs': [ {
+			  'targets': [0, 4], // column index (start from 0)
+              'orderable': false, // set orderable false for selected columns
+		}],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -423,9 +443,11 @@ $(document).ready(function(){
         ],
         'pageLength': 10,
         'processing': true,
-        'columnDefs': [
-            { "orderable": false, "targets": [4] }
-        ],
+        'order': [[1,'asc']],
+        'columnDefs': [ {
+            'targets': [0, 4], // column index (start from 0)
+            'orderable': false, // set orderable false for selected columns
+        }],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -458,9 +480,11 @@ $(document).ready(function(){
         ],
         'pageLength': 10,
         'processing': true,
-        'columnDefs': [
-            { "orderable": false, "targets": [5] }
-        ],
+        'order': [[1,'asc']],
+        'columnDefs': [ {
+            'targets': [0, 5], // column index (start from 0)
+            'orderable': false, // set orderable false for selected columns
+        }],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -493,9 +517,11 @@ $(document).ready(function(){
         ],
         'pageLength': 10,
         'processing': true,
-        'columnDefs': [
-            { "orderable": false, "targets": [ 2 , 5 , 7] }
-        ],
+        'order': [[1,'asc']],
+        'columnDefs': [ {
+            'targets': [0, 2, 7], // column index (start from 0)
+            'orderable': false, // set orderable false for selected columns
+        }],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -528,9 +554,11 @@ $(document).ready(function(){
         ],
         'pageLength': 10,
         'processing': true,
-        'columnDefs': [
-            { "orderable": false, "targets": [ 5 , 6 , 7 ] }
-        ],
+        'order': [[1,'asc']],
+        'columnDefs': [ {
+			  'targets': [7], // column index (start from 0)
+              'orderable': false, // set orderable false for selected columns
+		}],       
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -563,9 +591,48 @@ $(document).ready(function(){
         ],
         'pageLength': 10,
         'processing': true,
-        'columnDefs': [
-            { "orderable": false, "targets": [ 4 , 5] }
+        'order': [[1,'asc']],
+        'columnDefs': [ {
+			  'targets': [7], // column index (start from 0)
+              'orderable': false, // set orderable false for selected columns
+		}], 
+        'language': {
+            'sProcessing': sProcessing,
+            'sLengthMenu': sLengthMenu,
+            'sZeroRecords': sZeroRecords,
+            'sInfo': sInfo,
+            'sInfoEmpty': sInfoEmpty,
+            'sInfoFiltered': sInfoFiltered,
+            'sInfoPostFix': sInfoPostFix,
+            'sSearch': sSearch,
+            'sUrl': sUrl,
+            'oPaginate': oPaginate,
+            'buttons': {
+                copy    : copyBtn,
+                csv     : csvBtn,
+                excel   : excelBtn,
+                pdf     : pdfBtn,
+                print   : printBtn
+            }
+        }
+    });
+    $('#viewAllRefundeRequestList').DataTable({
+        'paging': true,
+        'deferRender': true,
+        'lengthChange': true,
+        'searching': true,
+        'info': true,
+        'dom': '<"container-fluid"<"row"<"col-sm-6"B><"col-sm-4"f><"col-sm-1"l >>>rtip',
+        'buttons': [
+            'copy', 'csv', 'excel', 'pdf', 'print'
         ],
+        'pageLength': 10,
+        'processing': true,
+        'order': [[1,'asc']],
+        'columnDefs': [ {
+			  'targets': [5], 
+              'orderable': false, 
+		}], 
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -598,9 +665,11 @@ $(document).ready(function(){
         ],
         'pageLength': 10,
         'processing': true,
-        'columnDefs': [
-            { "orderable": false, "targets": [ 2, 5 , 6 , 7 ] }
-        ],
+        'order': [[1,'asc']],
+        'columnDefs': [ {
+			  'targets': [0 , 2 , 7], // column index (start from 0)
+              'orderable': false, // set orderable false for selected columns
+		}],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,
@@ -670,9 +739,11 @@ $(document).ready(function(){
         ],
         'pageLength': 10,
         'processing': true,
-        'columnDefs': [
-            { "orderable": false, "targets": [ 7 , 8 ] }
-        ],
+        'order': [[1,'asc']],
+        'columnDefs': [ {
+			  'targets': [8], // column index (start from 0)
+              'orderable': false, // set orderable false for selected columns
+		}],
         'language': {
             'sProcessing': sProcessing,
             'sLengthMenu': sLengthMenu,

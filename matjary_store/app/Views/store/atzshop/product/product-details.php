@@ -88,7 +88,9 @@ if($ses_lang=='en'){
                     </div>
                     <div class="prod-detail-price">
                         <p>
+                        <?php if($productDetails->discount_per != 0){ ?>
                             <span class="strike-amount"><?php echo $language['SAR']; ?> <?php echo isset($productDetails->retail_price)?number_format((float)$productDetails->retail_price, 2, '.', ''):''; ?></span>
+                        <?php } ?>    
                             <span class="sale-amount"><?php echo $language['SAR']; ?> <?php echo isset($productDetails->product_price)?number_format((float)$productDetails->product_price, 2, '.', ''):''; ?></span>
                         </p>
                     </div>
@@ -105,7 +107,7 @@ if($ses_lang=='en'){
                         ?>
                         <i class="icofont-star <?php echo $ratingClass; ?>" aria-label="Left Align"></i>
                         <?php } ?>                       
-                        <div class="prod-detail-rating"><h6>( <?php if(isset($cstratingCount) && !empty($cstratingCount)){ echo count($cstratingCount) ; }else{ echo '0';}?><?php echo $language['Customer Review']; ?>)</h6></div>
+                        <div class="prod-detail-rating"><h6>(<?php if(isset($cstratingCount) && !empty($cstratingCount)){ echo count($cstratingCount) ; }else{ echo '0';}?> <?php echo $language['Customer Review']; ?>)</h6></div>
                     </div>                    
                    
                     <div class="prod-stock-count">

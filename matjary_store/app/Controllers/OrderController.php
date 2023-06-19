@@ -185,6 +185,7 @@ class OrderController extends BaseController
                             $store_logo = $server_site_path.'/store/'.$this->storeActvTmplName.'/assets/images/logo.png';
                             $address = '';
                             $supportEmail = '';
+                            $storeName= '';
                             if(isset($this->pageData['storeSettingInfo']) && !empty($this->pageData['storeSettingInfo'])){
                                 if (isset($this->pageData['storeSettingInfo']->logo) && !empty($this->pageData['storeSettingInfo']->logo)) {
                                     $store_logo = $server_site_path.'/uploads/logo/'.$this->pageData['storeSettingInfo']->logo; 
@@ -324,6 +325,7 @@ class OrderController extends BaseController
                         $store_logo = $server_site_path.'/store/'.$this->storeActvTmplName.'/assets/images/logo.png';
                         $address = '';
                         $supportEmail = '';
+                        $storeName= '';
                         if(isset($this->pageData['storeSettingInfo']) && !empty($this->pageData['storeSettingInfo'])){
                             if (isset($this->pageData['storeSettingInfo']->logo) && !empty($this->pageData['storeSettingInfo']->logo)) {
                                 $store_logo = $server_site_path.'/uploads/logo/'.$this->pageData['storeSettingInfo']->logo; 

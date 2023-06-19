@@ -135,9 +135,9 @@
                 <h3 style="color: #5294F7; margin-bottom: 0;">Amount Paid</h3>
                 <p style="margin-bottom: 3px; margin-top: 10px;">Grand Total: SAR <?php echo isset($orderDetails['orderInfo']->total_price)?$orderDetails['orderInfo']->total_price:0.00; ?></p>
             </div>
-            <p>Team Matjary,</p>
+            <p>Team <?php echo $storeName; ?>,</p>
             <div style="text-align: center; margin-top: 1rem; border-top: 5px solid #f5f5f5">
-                <p style="margin-bottom: 5px;">Powered by <a href="<?php echo $supportEmail;?>" target="_blank" style="text-decoration: none; color: #5294F7;"><?php echo $storeName; ?></a></p>
+            <p style="margin-bottom: 5px;">Powered by <a href="<?php echo base_url('home'); ?>" target="_blank" style="text-decoration: none; color: #5294F7;"><?php echo $storeName; ?></a></p>
                 <small>Address: <?php echo $address; ?> | 
                     <a href="mailto:<?php echo $supportEmail;?>" style="text-decoration: none; color: #5294F7;"><?php echo $supportEmail;?></a>
                 </small>

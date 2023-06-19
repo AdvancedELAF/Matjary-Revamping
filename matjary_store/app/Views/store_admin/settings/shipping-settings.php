@@ -36,7 +36,7 @@ $ses_lang = $session->get('ses_lang');
                             ?> 
                             <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
                             <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                                <h5 class="h4 text-blue mt-3 mb-20">Shipping Service Companies</h5>
+                                <h5 class="h4 text-blue mt-3 mb-20"><?php echo $language['Shipping Service Companies']; ?></h5>
                                 <?php
                                     if(isset($shippingCompanies) && !empty($shippingCompanies)){
                                         $i=1;
@@ -179,7 +179,7 @@ $ses_lang = $session->get('ses_lang');
                                             $i++;
                                         }
                                     }else{
-                                        echo 'No Shipping Services Available Now.';
+                                        echo $language['No Shipping Services Available Now.'];
                                     }
                                 ?>
                                 <div class="d-grid gap-2 d-md-block text-<?php echo $ses_lang == 'en'?'right':'left'; ?> mt-4">
@@ -190,7 +190,7 @@ $ses_lang = $session->get('ses_lang');
                                     }
                                     ?>
                                     <button class="btn btn-primary" type="submit"><?php echo $submitBtnTxt; ?></button>
-                                    <a href="<?php echo base_url('admin/shipping-settings'); ?>" class="btn btn-secondary" >Cancel</a>
+                                    <a href="<?php echo base_url('admin/shipping-settings'); ?>" class="btn btn-secondary" ><?php echo$language['Cancel']; ?></a>
                                 </div>
                             </div>
                             <?php echo form_close(); ?>

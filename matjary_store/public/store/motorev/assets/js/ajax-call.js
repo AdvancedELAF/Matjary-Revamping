@@ -2044,6 +2044,11 @@ $(document).ready(function(){
                             var retail_price = parseFloat(value.retail_price);
                             var product_price = parseFloat(value.product_price);
                             var product_title = value.title;
+                            var discount_per = value.discount_per;
+                            var strike_amount = '';
+                            if(discount_per != 0){
+                                strike_amount = '<span class="strike-amount">SAR '+retail_price+' </span>';
+                            }
                             var maxLength = 10;
                             var ellipsis = "...";
                             var truncated_product_title = product_title.substr(0, maxLength) + ellipsis;
@@ -2058,7 +2063,7 @@ $(document).ready(function(){
                                                 '<h4>'+truncated_product_title+'</h4>'+
                                             '</a>'+
                                             '<div class="home-prod-price mb-2">'+
-                                                '<span class="strike-amount">SAR '+retail_price+'</span>'+
+                                                strike_amount+
                                                 '<span class="sale-amount">SAR '+product_price+'</span>'+
                                             '</div>'+
                                             '<div class="wishlist">'+

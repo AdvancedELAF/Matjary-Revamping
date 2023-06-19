@@ -2183,7 +2183,7 @@ $(document).ready(function(){
                             var prodImg = value.image;
                             var retail_price = parseFloat(value.retail_price);
                             var product_price = parseFloat(value.product_price);
-                            var product_title = value.title;
+                            var product_title = value.title;                            
                             var maxLength = 10;
                             var ellipsis = "...";
                             var truncated_product_title = product_title.substr(0, maxLength) + ellipsis;
@@ -2191,6 +2191,10 @@ $(document).ready(function(){
                             var product_id = value.id;
                             var already_incart = value.already_incart;
                             var anchorCartBtnText = (lang == "en") ? "أضف إلى السلة" : "Add to Cart";
+                            var strike_amount = '';
+                            if(discount_per != 0){
+                                strike_amount = '<h6 class="strike-amount">SAR '+retail_price+' </h6>';
+                            }
 
                             var Addtocart = '<a href="'+base_url+'/customer/login" class="brand-btn-add-cart">'+anchorCartBtnText+'</a>';
                             if(customerid != ''){
@@ -2221,7 +2225,7 @@ $(document).ready(function(){
                                                                 '</a>'+
                                                             '</div>'+
                                                             '<div class="home-prod-price mb-4">'+
-                                                                    '<h6 class="strike-amount">SAR '+retail_price+'</h6>'+
+                                                                    strike_amount+
                                                                     '<h5 class="sale-amount">SAR '+product_price+'</h6>'+
                                                             '</div>'+                                            
                                                             '<div class="text-center mb-3">'+

@@ -40,8 +40,8 @@ $ses_lang = $session->get('ses_lang');
             </div>   
         </div>
         <div class="table-responsive pd-20">
-            <table class="data-table table nowrap" id="viewAllProductColorList">
-                <thead>
+            <table class="data-table table table-bordered nowrap" id="viewAllProductColorList">
+                <thead class="thead-light">
                     <tr>
                         <th scope="col"><input type="checkbox" id="checkAll"></th>
                         <th scope="col">#</th>
@@ -92,7 +92,7 @@ $ses_lang = $session->get('ses_lang');
                     } else {
                         ?>
                         <tr>
-                            <td colspan="4">No record found.</td>
+                            <td colspan="5">No record found.</td>
                         </tr>
                     <?php
                     }

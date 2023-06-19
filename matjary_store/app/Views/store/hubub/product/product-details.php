@@ -89,7 +89,9 @@ if($ses_lang=='en'){
                     <div class="prod-detail-price">
                         <p><?php echo $language['SAR']; ?> <?php echo isset($productDetails->retail_price)?number_format((float)$productDetails->retail_price, 2, '.', ''):''; ?></p>
                     </div>
+                    <?php if($productDetails->discount_per != 0){ ?>
                     <p class="strike-amount"><?php echo $language['SAR']; ?> <?php echo isset($productDetails->retail_price) ? number_format((float)$productDetails->retail_price, 2, '.', '') : ''; ?></p>
+                    <?php } ?>
                     <div class="prod-detail-icon">
                         <?php
                              for ($i = 1; $i <= 5; $i++) {

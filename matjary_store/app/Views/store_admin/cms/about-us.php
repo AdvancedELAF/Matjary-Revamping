@@ -91,7 +91,7 @@ if($ses_lang == 'en'){
                         <div class="col-md-6">
                                 <div class="mb-2">
                                     <label><?php echo $language['Image']; ?></label>
-                                    <input type="file" name="image" id="image" class="form-control" >
+                                    <input type="file" name="image" id="image" class="form-control" > 
                                 </div>
                         </div>
                         

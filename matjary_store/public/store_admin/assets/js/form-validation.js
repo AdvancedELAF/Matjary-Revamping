@@ -92,6 +92,14 @@ $(document).ready(function() {
     }, (lang == "en") ?'توقع شخصية خاصة واحدة على الأقل:! @ # $٪ ^ & () ’[]”؟ + - / *':'Expect at least one special character: !@#$%^&()’[]”?+-/*');
     /* check valid strong passsword end */
 
+    /* Grater than retails price product validations */
+        $.validator.addMethod('checkRetailsWholesalePrice', function(value, element) {
+            var retail_price = Number($("#retail_price").val());
+            var wholesale_price = Number($('#wholesale_price').val());
+            return retail_price > wholesale_price;
+        });
+    /* End */
+
     /* user password forgoted start */
     $("#chk_password_forgoted_user_email").validate({
         rules: {
@@ -802,7 +810,8 @@ $(document).ready(function() {
                 required:true
             },
             wholesale_price:{
-                required:true
+                required:true,
+                checkRetailsWholesalePrice: "#retail_price"
             },
             discount_per:{
                 required:false
@@ -859,6 +868,9 @@ $(document).ready(function() {
         },
         /* For custom messages */
         messages: {
+            'wholesale_price': {
+                checkRetailsWholesalePrice: (lang == "en") ?'يجب أن يكون سعر الجملة أقل من سعر التجزئة':'Wholesale Price Should be less than the Retail Price.' 
+            } 
             
         },
         debug: true,
@@ -896,7 +908,8 @@ $(document).ready(function() {
                 required:true
             },
             wholesale_price:{
-                required:true
+                required:true,
+                checkRetailsWholesalePrice: "#retail_price"
             },
             discount_per:{
                 required:false
@@ -953,6 +966,9 @@ $(document).ready(function() {
         },
         /* For custom messages */
         messages: {
+            'wholesale_price': {
+                checkRetailsWholesalePrice: (lang == "en") ?'يجب أن يكون سعر الجملة أقل من سعر التجزئة':'Wholesale Price Should be less than the Retail Price.' 
+            }
             
         },
         debug: true,
